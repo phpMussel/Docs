@@ -386,7 +386,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 
 [general](#general-类别) | [signatures](#signatures-类别) | [files](#files-类别) | [attack_specific](#attack_specific-类别)
 :--|:--|:--|:--
-[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[timeOffset](#timeoffset)<br />[timeFormat](#timeformat)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[FrontEndLog](#frontendlog)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br /> | [Active](#Active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br /> | [Active](#Active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 [compatibility](#compatibility-类别) | [heuristic](#heuristic-类别) | [virustotal](#virustotal-类别) | [urlscanner](#urlscanner-类别)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate和vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-类别) | [template_data](#template_data-类别) | [PHPMailer](#phpmailer-类别) | [supplementary_cache_options](#supplementary_cache_options-类别)
@@ -429,11 +429,13 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 ##### “timezone”
 - 这用于指定phpMussel应用于日期/时间操作的时区。​如果您不需要它，请忽略它。​可能的值由PHP确定。​它一般建议，​而不是，​调整时区指令的文件`php.ini`，​但是有时（例如，​当利用有限的共享主机提供商）这并不总是可能做到，​所以，​此选项在这里是提供。
 
-##### “timeOffset”
+##### “time_offset”
+- *v1: “timeOffset”*
 - 如果您的服务器时间不符合您的本地时间，​您可以在这里指定的偏移调整日期/时间信息该产生通过phpMussel根据您的需要。​它一般建议，​而不是，​调整时区指令的文件`php.ini`，​但是有时（例如，​当利用有限的共享主机提供商）这并不总是可能做到，​所以，​此选项在这里是提供。​偏移量是在分钟。
-- 例子（添加1小时）：`timeOffset=60`
+- 例子（添加1小时）：`time_offset=60`
 
-##### “timeFormat”
+##### “time_format”
+- *v1: “timeFormat”*
 - phpMussel使用的日期符号格式。​标准 = `{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`。
 
 ##### “ipaddr”
@@ -514,7 +516,8 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 ##### “max_login_attempts”
 - 最大登录尝试次数（前端）。​标准=5。
 
-##### “FrontEndLog”
+##### “frontend_log”
+- *v1: “FrontEndLog”*
 - 前端登录尝试的录音文件。​指定一个文件名，​或留空以禁用。
 
 ##### “disable_webfonts”
@@ -1293,7 +1296,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - 已登录。
 ```
 
 *相关配置指令：*
-- `general` -> `FrontEndLog`
+- `general` -> `frontend_log`
 
 ##### 11.3.3 日志轮换
 
@@ -1379,4 +1382,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2019年5月5日。
+最后更新：2019年5月11日。

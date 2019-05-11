@@ -385,7 +385,7 @@ Il seguente è un elenco di variabili trovate nelle `config.ini` file di configu
 
 [general](#general-categoria) | [signatures](#signatures-categoria) | [files](#files-categoria) | [attack_specific](#attack_specific-categoria)
 :--|:--|:--|:--
-[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[timeOffset](#timeoffset)<br />[timeFormat](#timeformat)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[FrontEndLog](#frontendlog)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br /> | [Active](#Active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br /> | [Active](#Active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 [compatibility](#compatibility-categoria) | [heuristic](#heuristic-categoria) | [virustotal](#virustotal-categoria) | [urlscanner](#urlscanner-categoria)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-e-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-categoria) | [template_data](#template_data-categoria) | [PHPMailer](#phpmailer-categoria) | [supplementary_cache_options](#supplementary_cache_options-categoria)
@@ -428,11 +428,13 @@ Generale configurazione per phpMussel.
 ##### "timezone"
 - Questo è usato per specificare quale fuso orario phpMussel dovrebbe usare per le operazioni di data/ora. Se non ne hai bisogno, ignoralo. I valori possibili sono determinati da PHP. È generalmente raccomandato invece, regolare à la direttiva fuso orario nel file `php.ini`, ma a volte (come ad esempio quando si lavora con i fornitori di hosting condiviso limitati) questo non è sempre possibile fare, e così, questa opzione è fornito qui.
 
-##### "timeOffset"
+##### "time_offset"
+- *v1: "timeOffset"*
 - Se il tempo del server non corrisponde l'ora locale, è possibile specificare un offset qui per regolare le informazioni di data/tempo generato da phpMussel in base alle proprie esigenze. È generalmente raccomandato invece, regolare à la direttiva fuso orario nel file `php.ini`, ma a volte (come ad esempio quando si lavora con i fornitori di hosting condiviso limitati) questo non è sempre possibile fare, e così, questa opzione è fornito qui. Offset è in minuti.
-- Esempio (per aggiungere un'ora): `timeOffset=60`
+- Esempio (per aggiungere un'ora): `time_offset=60`
 
-##### "timeFormat"
+##### "time_format"
+- *v1: "timeFormat"*
 - Il formato della data/ora di notazione usata da phpMussel. Predefinito = `{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`.
 
 ##### "ipaddr"
@@ -513,7 +515,8 @@ Valore | Produce | Descrizione
 ##### "max_login_attempts"
 - Numero massimo di tentativi di accesso (front-end). Predefinito = 5.
 
-##### "FrontEndLog"
+##### "frontend_log"
+- *v1: "FrontEndLog"*
 - File per la registrazione di l'accesso front-end tentativi di accesso. Specificare un nome di file, o lasciare vuoto per disabilitare.
 
 ##### "disable_webfonts"
@@ -1292,7 +1295,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Connesso.
 ```
 
 *Direttive di configurazione rilevanti:*
-- `general` -> `FrontEndLog`
+- `general` -> `frontend_log`
 
 ##### 11.3.3 ROTAZIONE DEL REGISTRO
 
@@ -1375,4 +1378,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 5 Maggio 2019 (2019.05.05).
+Ultimo Aggiornamento: 11 Maggio 2019 (2019.05.11).
