@@ -207,7 +207,7 @@ phpMussel應該能夠正確操作與最低要求從您：安裝後，​它應�
 
 首先，為了啟用雙因素身份驗證，請使用前端更新頁面來安裝PHPMailer組件。​phpMussel使用PHPMailer發送電子郵件。​注意：雖然phpMussel本身與`PHP >= 5.4.0`兼容，但PHPMailer需要`PHP >= 5.5.0`，因此，對於PHP 5.4用戶來說，無法為phpMussel前端啟用雙因素身份驗證。
 
-在安裝PHPMailer後，您需要通過phpMussel配置頁面或配置文件填充PHPMailer的配置指令。​有關這些配置指令的更多信息包含在本文檔的配置部分中。​在填充PHPMailer配置指令後，將`Enable2FA`設置為`true`。​現在應啟用雙因素身份驗證。
+在安裝PHPMailer後，您需要通過phpMussel配置頁面或配置文件填充PHPMailer的配置指令。​有關這些配置指令的更多信息包含在本文檔的配置部分中。​在填充PHPMailer配置指令後，將`enable_two_factor`設置為`true`。​現在應啟用雙因素身份驗證。
 
 接下來，您需要讓phpMussel知道在使用該帳戶登錄時將2FA代碼發送到何處。​為此，請使用電子郵件地址作為帳戶的用戶名（例如，`foo@bar.tld`），或者將電子郵件地址作為用戶名的一部分包括在內，就像通常發送電子郵件一樣（例如，`Foo Bar <foo@bar.tld>`）。
 
@@ -390,7 +390,7 @@ phpMussel應該能夠正確操作與最低要求從您：安裝後，​它應�
 [compatibility](#compatibility-類別) | [heuristic](#heuristic-類別) | [virustotal](#virustotal-類別) | [urlscanner](#urlscanner-類別)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate和vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-類別) | [template_data](#template_data-類別) | [PHPMailer](#phpmailer-類別) | [supplementary_cache_options](#supplementary_cache_options-類別)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### 『general』 （類別）
 基本phpMussel配置。
@@ -756,43 +756,56 @@ PHPMailer配置。
 
 目前，phpMussel僅將PHPMailer用於前端雙因素身份驗證。​如果不使用前端，或者如果為前端不用雙因素身份驗證，則可以忽略這些指令。
 
-##### 『EventLog』
+##### 『event_log』
+- *v1: 『EventLog』*
 - 用於記錄與PHPMailer相關的所有事件的文件。​指定一個文件名，​或留空以禁用。
 
-##### 『SkipAuthProcess』
+##### 『skip_auth_process』
+- *v1: 『SkipAuthProcess』*
 - 將此指令設置為`true`會指示PHPMailer跳過通過SMTP發送電子郵件時通常會發生的正常身份驗證過程。​應該避免這種情況，因為跳過此過程可能會將出站電子郵件暴露給MITM攻擊，但在此過程阻止PHPMailer連接到SMTP服務器的情況下可能是必要的。
 
-##### 『Enable2FA』
+##### 『enable_two_factor』
+- *v1: 『Enable2FA』*
 - 該指令確定是否將2FA用於前端帳戶。
 
-##### 『Host』
+##### 『host』
+- *v1: 『Host』*
 - 用於出站電子郵件的SMTP主機。
 
-##### 『Port』
+##### 『port』
+- *v1: 『Port』*
 - 用於出站電子郵件的端口號。​標準=587。
 
-##### 『SMTPSecure』
+##### 『smtp_secure』
+- *v1: 『SMTPSecure』*
 - 通過SMTP發送電子郵件時使用的協議（TLS或SSL）。
 
-##### 『SMTPAuth』
+##### 『smtp_auth』
+- *v1: 『SMTPAuth』*
 - 此指令確定是否對SMTP會話進行身份驗證（通常應該保持不變）。
 
-##### 『Username』
+##### 『username』
+- *v1: 『Username』*
 - 通過SMTP發送電子郵件時使用的用戶名。
 
-##### 『Password』
+##### 『password』
+- *v1: 『Password』*
 - 通過SMTP發送電子郵件時使用的密碼。
 
-##### 『setFromAddress』
+##### 『set_from_address』
+- *v1: 『setFromAddress』*
 - 通過SMTP發送電子郵件時引用的發件人地址。
 
-##### 『setFromName』
+##### 『set_from_name』
+- *v1: 『setFromName』*
 - 通過SMTP發送電子郵件時引用的發件人姓名。
 
-##### 『addReplyToAddress』
+##### 『add_reply_to_address』
+- *v1: 『addReplyToAddress』*
 - 通過SMTP發送電子郵件時引用的回复地址。
 
-##### 『addReplyToName』
+##### 『add_reply_to_name』
+- *v1: 『addReplyToName』*
 - 通過SMTP發送電子郵件時引用的回複姓名。
 
 #### 『supplementary_cache_options』 （類別）
@@ -1382,4 +1395,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2019年5月11日。
+最後更新：2019年5月26日。

@@ -207,7 +207,7 @@ Việc bật xác thực hai yếu tố ("2FA") có thể làm cho front-end an 
 
 Thứ nhất, để bật xác thực hai yếu tố, sử dụng trang cập nhật front-end để cài đặt thành phần PHPMailer. phpMussel sử dụng PHPMailer để gửi email. Lưu ý rằng mặc dù phpMussel tương thích với PHP >= 5.4.0, PHPMailer cần PHP >= 5.5.0, do đó, xác thực hai yếu tố trong phpMussel sẽ không thể cho người dùng PHP 5.4.
 
-Sau khi bạn đã cài đặt PHPMailer, bạn sẽ cần điền các chỉ thị cấu hình cho PHPMailer thông qua trang cấu hình phpMussel hoặc tập tin cấu hình. Thông tin thêm về các chỉ thị cấu hình này được bao gồm trong phần cấu hình của tài liệu này. Sau khi bạn đã điền các chỉ thị cấu hình PHPMailer, hãy đặt `Enable2FA` thành `true`. Xác thực hai yếu tố bây giờ sẽ được bật.
+Sau khi bạn đã cài đặt PHPMailer, bạn sẽ cần điền các chỉ thị cấu hình cho PHPMailer thông qua trang cấu hình phpMussel hoặc tập tin cấu hình. Thông tin thêm về các chỉ thị cấu hình này được bao gồm trong phần cấu hình của tài liệu này. Sau khi bạn đã điền các chỉ thị cấu hình PHPMailer, hãy đặt `enable_two_factor` thành `true`. Xác thực hai yếu tố bây giờ sẽ được bật.
 
 Tiếp theo, bạn cần liên kết địa chỉ email với tài khoản, để phpMussel có thể biết nơi gửi mã 2FA khi đăng nhập bằng tài khoản đó. Để thực hiện việc này, hãy sử dụng địa chỉ email làm tên người dùng cho tài khoản (như `foo@bar.tld`), hoặc bao gồm địa chỉ email như một phần của tên người dùng giống như khi gửi email thông thường (như `Foo Bar <foo@bar.tld>`).
 
@@ -389,7 +389,7 @@ Sau đây là danh sách các biến tìm thấy trong tập tin cấu hình cho
 [compatibility](#compatibility-thể-loại) | [heuristic](#heuristic-thể-loại) | [virustotal](#virustotal-thể-loại) | [urlscanner](#urlscanner-thể-loại)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-và-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-thể-loại) | [template_data](#template_data-thể-loại) | [PHPMailer](#phpmailer-thể-loại) | [supplementary_cache_options](#supplementary_cache_options-thể-loại)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Thể loại)
 Cấu hình chung cho phpMussel.
@@ -755,43 +755,56 @@ Cấu hình PHPMailer.
 
 Hiện tại, phpMussel chỉ sử dụng PHPMailer để xác thực hai yếu tố front-end. Nếu bạn không sử dụng các front-end, hoặc nếu bạn không sử dụng xác thực hai yếu tố cho các front-end, bạn có thể bỏ qua các chỉ thị này.
 
-##### "EventLog"
+##### "event_log"
+- *v1: "EventLog"*
 - Một tập tin để ghi nhật ký tất cả các sự kiện liên quan đến PHPMailer. Chỉ định một tên tập tin, hoặc để trống để vô hiệu hóa.
 
-##### "SkipAuthProcess"
+##### "skip_auth_process"
+- *v1: "SkipAuthProcess"*
 - Đặt chỉ thị này thành `true` chỉ thị cho PHPMailer bỏ qua quy trình xác thực thông thường thường xảy ra khi gửi email qua SMTP. Điều này nên tránh, bởi vì bỏ qua quá trình này có thể tiết lộ email gửi đến các cuộc tấn công MITM, nhưng có thể cần thiết trong trường hợp quá trình này ngăn PHPMailer kết nối với máy chủ SMTP.
 
-##### "Enable2FA"
+##### "enable_two_factor"
+- *v1: "Enable2FA"*
 - Chỉ thị này xác định có nên sử dụng 2FA cho tài khoản front-end hay không.
 
-##### "Host"
+##### "host"
+- *v1: "Host"*
 - Máy chủ SMTP để sử dụng cho email gửi đi.
 
-##### "Port"
+##### "port"
+- *v1: "Port"*
 - Số cổng để sử dụng cho email gửi đi. Mặc định = 587.
 
-##### "SMTPSecure"
+##### "smtp_secure"
+- *v1: "SMTPSecure"*
 - Giao thức sử dụng khi gửi email qua SMTP (TLS hoặc SSL).
 
-##### "SMTPAuth"
+##### "smtp_auth"
+- *v1: "SMTPAuth"*
 - Chỉ thị này xác định xem có nên xác thực các phiên SMTP (thường nên để lại một mình).
 
-##### "Username"
+##### "username"
+- *v1: "Username"*
 - Tên người dùng để sử dụng khi gửi email qua SMTP.
 
-##### "Password"
+##### "password"
+- *v1: "Password"*
 - Mật khẩu để sử dụng khi gửi email qua SMTP.
 
-##### "setFromAddress"
+##### "set_from_address"
+- *v1: "setFromAddress"*
 - Địa chỉ người gửi để trích dẫn khi gửi email qua SMTP.
 
-##### "setFromName"
+##### "set_from_name"
+- *v1: "setFromName"*
 - Tên người gửi để trích dẫn khi gửi email qua SMTP.
 
-##### "addReplyToAddress"
+##### "add_reply_to_address"
+- *v1: "addReplyToAddress"*
 - Địa chỉ trả lời để trích dẫn khi gửi email qua SMTP.
 
-##### "addReplyToName"
+##### "add_reply_to_name"
+- *v1: "addReplyToName"*
 - Tên trả lời để trích dẫn khi gửi email qua SMTP.
 
 #### "supplementary_cache_options" (Thể loại)
@@ -1373,4 +1386,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 11 Tháng Năm 2019 (2019.05.11).
+Lần cuối cập nhật: 26 Tháng Năm 2019 (2019.05.26).

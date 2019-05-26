@@ -207,7 +207,7 @@ phpMussel функционирует полностью в автономном 
 
 Во-первых, чтобы включить двухфакторную аутентификацию, используя страницу обновлений фронтенда, установите компонент PHPMailer. phpMussel использует PHPMailer для отправки электронных писем. Следует отметить, что хотя phpMussel, сам по себе, совместим с PHP >= 5.4.0, PHPMailer требует PHP >= 5.5.0, поэтому означает, что включение двухфакторной аутентификации для фронтенда phpMussel будет невозможно для пользователей PHP 5.4.
 
-После того, как Вы установили PHPMailer, вам нужно будет заполнить директивы конфигурации для PHPMailer через страницу конфигурации phpMussel или файл конфигурации. Более подробная информация об этих директивах конфигурации содержится в разделе конфигурации этого документа. После того, как Вы заполнили директивы конфигурации PHPMailer, установите `Enable2FA` в `true`. На этом этапе должна быть включена двухфакторная аутентификация.
+После того, как Вы установили PHPMailer, вам нужно будет заполнить директивы конфигурации для PHPMailer через страницу конфигурации phpMussel или файл конфигурации. Более подробная информация об этих директивах конфигурации содержится в разделе конфигурации этого документа. После того, как Вы заполнили директивы конфигурации PHPMailer, установите `enable_two_factor` в `true`. На этом этапе должна быть включена двухфакторная аутентификация.
 
 Затем вам нужно связать адрес электронной почты с учетной записью, чтобы phpMussel знал, куда отправлять коды 2FA при входе в эту учетную запись. Для этого используйте адрес электронной почты в качестве имени пользователя для учетной записи (например, `foo@bar.tld`), или указать адрес электронной почты как часть имени пользователя так же, как при отправке письма обычно (например, `Foo Bar <foo@bar.tld>`).
 
@@ -389,7 +389,7 @@ phpMussel функционирует полностью в автономном 
 [compatibility](#compatibility-категория) | [heuristic](#heuristic-категория) | [virustotal](#virustotal-категория) | [urlscanner](#urlscanner-категория)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-и-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-категория) | [template_data](#template_data-категория) | [PHPMailer](#phpmailer-категория) | [supplementary_cache_options](#supplementary_cache_options-категория)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### «general» (Категория)
 Генеральная конфигурация от phpMussel.
@@ -755,43 +755,56 @@ URL сканер API конфигурация.
 
 В настоящее время phpMussel использует PHPMailer только для двухфакторной аутентификации на фронтенд. Если вы не используете фронтенд, или если вы не используете двухфакторную аутентификацию для фронтенд, вы можете игнорировать эти директивы.
 
-##### «EventLog»
+##### «event_log»
+- *v1: «EventLog»*
 - Файл для регистрации всех событий в отношении PHPMailer. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
 
-##### «SkipAuthProcess»
+##### «skip_auth_process»
+- *v1: «SkipAuthProcess»*
 - Установка этой директивы на `true` указывает PHPMailer пропустить обычный процесс проверки подлинности, который обычно возникает при отправке электронной почты через SMTP. Этого следует избегать, поскольку пропуская этот процесс может выдать исходящую электронную почту для атак MITM, но может потребоваться в тех случаях, когда этот процесс препятствует подключению PHPMailer к SMTP-серверу.
 
-##### «Enable2FA»
+##### «enable_two_factor»
+- *v1: «Enable2FA»*
 - Эта директива включает/отключает использование 2FA для фронтенд счетов.
 
-##### «Host»
+##### «host»
+- *v1: «Host»*
 - Хост SMTP используется для исходящей электронной почты.
 
-##### «Port»
+##### «port»
+- *v1: «Port»*
 - Номер порта для исходящей электронной почты. Стандарт = 587.
 
-##### «SMTPSecure»
+##### «smtp_secure»
+- *v1: «SMTPSecure»*
 - Протокол для при отправке электронной почты через SMTP (TLS или SSL).
 
-##### «SMTPAuth»
+##### «smtp_auth»
+- *v1: «SMTPAuth»*
 - Эта директива включает/отключает аутентификацию сессия SMTP (обычно ее следует оставить в покое).
 
-##### «Username»
+##### «username»
+- *v1: «Username»*
 - Имя пользователя для отправки электронной почты через SMTP.
 
-##### «Password»
+##### «password»
+- *v1: «Password»*
 - Пароль для отправки электронной почты через SMTP.
 
-##### «setFromAddress»
+##### «set_from_address»
+- *v1: «setFromAddress»*
 - Адрес отправителя для отправки электронной почты через SMTP.
 
-##### «setFromName»
+##### «set_from_name»
+- *v1: «setFromName»*
 - Имя отправителя для отправки электронной почты через SMTP.
 
-##### «addReplyToAddress»
+##### «add_reply_to_address»
+- *v1: «addReplyToAddress»*
 - Адрес ответа для отправки электронной почты через SMTP.
 
-##### «addReplyToName»
+##### «add_reply_to_name»
+- *v1: «addReplyToName»*
 - Имя ответа для отправки электронной почты через SMTP.
 
 #### «supplementary_cache_options» (Категория)
@@ -1375,4 +1388,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 11 Мая 2019 (2019.05.11).
+Последнее обновление: 26 Мая 2019 (2019.05.26).

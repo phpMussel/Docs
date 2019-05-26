@@ -207,7 +207,7 @@ As instruções são fornecidas em cada página do front-end, para explicar a ma
 
 Em primeiro lugar, para ativar a autenticação de dois fatores, usando a página de atualizações do front-end, instale o componente PHPMailer. O phpMussel utiliza o PHPMailer para enviar e-mails. Deve-se notar que embora o phpMussel, por si só, seja compatível com PHP >= 5.4.0, o PHPMailer requer PHP >= 5.5.0, significando, portanto, que ativando a autenticação de dois fatores para o front-end do phpMussel não será possível para usuários do PHP 5.4.
 
-Depois de instalar o PHPMailer, você precisará preencher as diretivas de configuração do PHPMailer por meio da página de configuração para phpMussel ou do arquivo de configuração. Mais informações sobre essas diretivas de configuração estão incluídas na seção de configuração deste documento. Depois de preencher as diretivas de configuração do PHPMailer, defina `Enable2FA` para `true`. A autenticação de dois fatores agora deve estar ativada.
+Depois de instalar o PHPMailer, você precisará preencher as diretivas de configuração do PHPMailer por meio da página de configuração para phpMussel ou do arquivo de configuração. Mais informações sobre essas diretivas de configuração estão incluídas na seção de configuração deste documento. Depois de preencher as diretivas de configuração do PHPMailer, defina `enable_two_factor` para `true`. A autenticação de dois fatores agora deve estar ativada.
 
 Em seguida, você precisará associar um endereço de e-mail a uma conta para que o phpMussel saiba para onde enviar códigos 2FA ao fazer login com essa conta. Para fazer isso, use o endereço de e-mail como o nome de usuário da conta (como `foo@bar.tld`), ou incluir o endereço de e-mail como parte do nome de usuário da mesma forma que você faria ao enviar um e-mail normalmente (como `Foo Bar <foo@bar.tld>`).
 
@@ -389,7 +389,7 @@ O seguinte é uma lista de variáveis encontradas no `config.ini` arquivo de con
 [compatibility](#compatibility-categoria) | [heuristic](#heuristic-categoria) | [virustotal](#virustotal-categoria) | [urlscanner](#urlscanner-categoria)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-e-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-categoria) | [template_data](#template_data-categoria) | [PHPMailer](#phpmailer-categoria) | [supplementary_cache_options](#supplementary_cache_options-categoria)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Categoria)
 Configuração geral por phpMussel.
@@ -755,43 +755,56 @@ Configuração do PHPMailer.
 
 Atualmente, o phpMussel usa o PHPMailer apenas para autenticação de dois fatores front-end. Se você não usa o front-end, ou se você não usa a autenticação de dois fatores para o front-end, você pode ignorar essas diretivas.
 
-##### "EventLog"
+##### "event_log"
+- *v1: "EventLog"*
 - Um arquivo para registrar todos os eventos em relação ao PHPMailer. Especifique o nome de um arquivo, ou deixe em branco para desabilitar.
 
-##### "SkipAuthProcess"
+##### "skip_auth_process"
+- *v1: "SkipAuthProcess"*
 - Definir essa diretiva como `true` instrui o PHPMailer a ignorar o processo de autenticação que normalmente ocorre ao enviar e-mail via SMTP. Isso deve ser evitado, porque ignorar esse processo pode expor o e-mail de saída a ataques MITM, mas pode ser necessário nos casos em que esse processo impedir que o PHPMailer se conecte a um servidor SMTP.
 
-##### "Enable2FA"
+##### "enable_two_factor"
+- *v1: "Enable2FA"*
 - Esta diretiva determina se deve usar 2FA para contas front-end.
 
-##### "Host"
+##### "host"
+- *v1: "Host"*
 - O host SMTP a ser usado para e-mail de saída.
 
-##### "Port"
+##### "port"
+- *v1: "Port"*
 - O número da porta a ser usado para o e-mail de saída. Padrão = 587.
 
-##### "SMTPSecure"
+##### "smtp_secure"
+- *v1: "SMTPSecure"*
 - O protocolo a ser usado ao enviar e-mail via SMTP (TLS ou SSL).
 
-##### "SMTPAuth"
+##### "smtp_auth"
+- *v1: "SMTPAuth"*
 - Esta diretiva determina se autenticar sessões SMTP (geralmente deve ser deixado em paz).
 
-##### "Username"
+##### "username"
+- *v1: "Username"*
 - O nome de usuário a ser usada ao enviar e-mail via SMTP.
 
-##### "Password"
+##### "password"
+- *v1: "Password"*
 - A senha a ser usada ao enviar e-mail via SMTP.
 
-##### "setFromAddress"
+##### "set_from_address"
+- *v1: "setFromAddress"*
 - O endereço do remetente a ser citado ao enviar e-mail via SMTP.
 
-##### "setFromName"
+##### "set_from_name"
+- *v1: "setFromName"*
 - O nome do remetente a ser citado ao enviar e-mail via SMTP.
 
-##### "addReplyToAddress"
+##### "add_reply_to_address"
+- *v1: "addReplyToAddress"*
 - O endereço de resposta a ser citado ao enviar e-mail via SMTP.
 
-##### "addReplyToName"
+##### "add_reply_to_name"
+- *v1: "addReplyToName"*
 - O nome da resposta a ser citado ao enviar e-mail via SMTP.
 
 #### "supplementary_cache_options" (Categoria)
@@ -1375,4 +1388,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 11 de Maio de 2019 (2019.05.11).
+Última Atualização: 26 de Maio de 2019 (2019.05.26).

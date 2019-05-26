@@ -207,7 +207,7 @@ phpMussel에 포함 된 서명을 해제하려면 (일반적으로 제외해서�
 
 2FA를 사용하려면 프론트 엔드 업데이트 페이지를 사용하여 PHPMailer 구성 요소를 설치하십시오. phpMussel은 PHPMailer를 사용하여 이메일을 전송합니다. 노트 : phpMussel은 PHP >= 5.4.0와 호환되지만 PHPMailer에는 PHP >= 5.5.0가 필요합니다. 따라서 PHP 5.4 사용자는 phpMussel 프론트 엔드에 2FA를 사용할 수 없습니다.
 
-PHPMailer를 설치 한 후 phpMussel 구성 페이지 또는 구성 파일을 통해 PHPMailer의 구성 지시문을 채워야합니다. 이러한 구성 지시문에 대한 자세한 내용은이 설명서의 구성 섹션에 포함되어 있습니다. PHPMailer 설정 지시어를 채운 후에는 `Enable2FA`를 `true`로 설정하십시오. 이제 2FA가 활성화되어야합니다.
+PHPMailer를 설치 한 후 phpMussel 구성 페이지 또는 구성 파일을 통해 PHPMailer의 구성 지시문을 채워야합니다. 이러한 구성 지시문에 대한 자세한 내용은이 설명서의 구성 섹션에 포함되어 있습니다. PHPMailer 설정 지시어를 채운 후에는 `enable_two_factor`를 `true`로 설정하십시오. 이제 2FA가 활성화되어야합니다.
 
 해당 계정으로 로그인 할 때 2FA 코드를 보낼 위치를 phpMussel이 알 수 있도록 이메일 주소를 계정과 연결해야합니다. 전자 메일 주소를 계정의 사용자 이름 (예 : `foo@bar.tld`)으로 사용하거나 정상적으로 전자 메일을 보낼 때와 동일한 방법 (예 : `Foo Bar <foo@bar.tld>`)으로 사용자 이름의 일부로 전자 메일 주소를 포함하십시오.
 
@@ -389,7 +389,7 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 [compatibility](#compatibility-카테고리) | [heuristic](#heuristic-카테고리) | [virustotal](#virustotal-카테고리) | [urlscanner](#urlscanner-카테고리)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate와-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-카테고리) | [template_data](#template_data-카테고리) | [PHPMailer](#phpmailer-카테고리) | [supplementary_cache_options](#supplementary_cache_options-카테고리)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (카테고리)
 일반 설정.
@@ -755,43 +755,56 @@ PHPMailer 구성.
 
 현재 phpMussel은 프런트 엔드 2FA (이중 인증)만 PHPMailer를 사용합니다. 프런트 엔드를 사용하지, 않거나 프런트 엔드에 2FA (이중 인증)을 사용하지 않는 경우, 이러한 지침을 무시할 수 있습니다.
 
-##### "EventLog"
+##### "event_log"
+- *v1 : "EventLog"*
 - PHPMailer와 관련된 모든 이벤트를 기록하는 파일입니다. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-##### "SkipAuthProcess"
+##### "skip_auth_process"
+- *v1 : "SkipAuthProcess"*
 - `true` 일 때, PHPMailer는 전자 메일 전송을위한 SMTP 인증 프로세스를 건너 뛰도록 지시합니다. 이 프로세스를 건너 뛰면 아웃 바운드 전자 메일이 MITM 공격에 노출 될 수 있으므로 피해야합니다. 특정 경우에 필요할 수 있음 (예 : PHPMailer가 SMTP 서버에 제대로 연결할 수없는 경우).
 
-##### "Enable2FA"
+##### "enable_two_factor"
+- *v1 : "Enable2FA"*
 - 이 지시문은 프런트 엔드 계정에 2FA를 사용할지 여부를 결정합니다.
 
-##### "Host"
+##### "host"
+- *v1 : "Host"*
 - 아웃 바운드 전자 메일에 사용할 SMTP 호스트입니다.
 
-##### "Port"
+##### "port"
+- *v1 : "Port"*
 - 아웃 바운드 이메일에 사용할 포트 번호입니다. Default (기본 설정) = 587.
 
-##### "SMTPSecure"
+##### "smtp_secure"
+- *v1 : "SMTPSecure"*
 - SMTP를 통해 이메일을 보낼 때 사용할 프로토콜 (TLS 또는 SSL).
 
-##### "SMTPAuth"
+##### "smtp_auth"
+- *v1 : "SMTPAuth"*
 - 이 지시문은 SMTP 세션을 인증할지 여부를 결정합니다 (보통 이것을 무시해야합니다).
 
-##### "Username"
+##### "username"
+- *v1 : "Username"*
 - SMTP를 통해 이메일을 보낼 때 사용할 사용자 이름입니다.
 
-##### "Password"
+##### "password"
+- *v1 : "Password"*
 - SMTP를 통해 이메일을 보낼 때 사용할 비밀번호입니다.
 
-##### "setFromAddress"
+##### "set_from_address"
+- *v1 : "setFromAddress"*
 - SMTP를 통해 전자 메일을 보낼 때 인용 할 보낸 사람 주소입니다.
 
-##### "setFromName"
+##### "set_from_name"
+- *v1 : "setFromName"*
 - SMTP를 통해 전자 메일을 보낼 때 인용 할 보낸 사람 이름입니다.
 
-##### "addReplyToAddress"
+##### "add_reply_to_address"
+- *v1 : "addReplyToAddress"*
 - SMTP를 통해 전자 메일을 보낼 때 인용 할 회신 주소입니다.
 
-##### "addReplyToName"
+##### "add_reply_to_name"
+- *v1 : "addReplyToName"*
 - SMTP를 통해 이메일을 보낼 때 인용 할 회신 이름입니다.
 
 #### "supplementary_cache_options" (카테고리)
@@ -1378,4 +1391,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2019년 5월 11일.
+최종 업데이트 : 2019년 5월 26일.

@@ -207,7 +207,7 @@ Mungkin untuk membuat bagian depan lebih aman dengan mengaktifkan otentikasi dua
 
 Pertama, untuk mengaktifkan otentikasi dua faktor, menggunakan halaman pembaruan bagian depan, instal komponen PHPMailer. phpMussel menggunakan PHPMailer untuk mengirim email. Perlu dicatat bahwa meskipun phpMussel, dengan sendirinya, kompatibel dengan PHP >= 5.4.0, PHPMailer membutuhkan PHP >= 5.5.0, dengan demikian berarti bahwa mengaktifkan otentikasi dua faktor untuk bagian depan phpMussel tidak akan mungkin bagi pengguna PHP 5.4.
 
-Setelah Anda menginstal PHPMailer, Anda harus mengisi direktif konfigurasi untuk PHPMailer melalui halaman konfigurasi phpMussel atau file konfigurasi. Informasi lebih lanjut tentang direktif konfigurasi ini termasuk dalam bagian konfigurasi dokumen ini. Setelah Anda mengisi direktif konfigurasi PHPMailer, atur `Enable2FA` ke `true`. Otentikasi dua faktor sekarang harus diaktifkan.
+Setelah Anda menginstal PHPMailer, Anda harus mengisi direktif konfigurasi untuk PHPMailer melalui halaman konfigurasi phpMussel atau file konfigurasi. Informasi lebih lanjut tentang direktif konfigurasi ini termasuk dalam bagian konfigurasi dokumen ini. Setelah Anda mengisi direktif konfigurasi PHPMailer, atur `enable_two_factor` ke `true`. Otentikasi dua faktor sekarang harus diaktifkan.
 
 Selanjutnya, Anda harus mengaitkan alamat email dengan akun, sehingga phpMussel tahu ke mana harus mengirim 2FA kode ketika masuk dengan akun tersebut. Untuk melakukan ini, gunakan alamat email sebagai nama pengguna untuk akun tersebut (seperti `foo@bar.tld`), atau sertakan alamat email sebagai bagian dari nama pengguna dengan cara yang sama seperti ketika mengirim email secara normal (seperti `Foo Bar <foo@bar.tld>`).
 
@@ -389,7 +389,7 @@ Berikut list variabel yang ditemukan pada file konfigurasi phpMussel `config.ini
 [compatibility](#compatibility-kategori) | [heuristic](#heuristic-kategori) | [virustotal](#virustotal-kategori) | [urlscanner](#urlscanner-kategori)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-dan-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-kategori) | [template_data](#template_data-kategori) | [PHPMailer](#phpmailer-kategori) | [supplementary_cache_options](#supplementary_cache_options-kategori)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Kategori)
 Konfigurasi umum dari phpMussel.
@@ -755,43 +755,56 @@ Konfigurasi PHPMailer.
 
 Saat ini, phpMussel menggunakan PHPMailer hanya untuk otentikasi dua faktor untuk bagian depan. Jika Anda tidak menggunakan bagian depan, atau jika Anda tidak menggunakan otentikasi dua-faktor untuk bagian depan, Anda dapat mengabaikan direktif ini.
 
-##### "EventLog"
+##### "event_log"
+- *v1: "EventLog"*
 - File untuk mencatat semua kejadian yang terkait dengan PHPMailer. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
 
-##### "SkipAuthProcess"
+##### "skip_auth_process"
+- *v1: "SkipAuthProcess"*
 - Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses otentikasi normal yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.
 
-##### "Enable2FA"
+##### "enable_two_factor"
+- *v1: "Enable2FA"*
 - Direktif ini menentukan apakah akan menggunakan 2FA untuk akun depan.
 
-##### "Host"
+##### "host"
+- *v1: "Host"*
 - Host SMTP yang digunakan untuk email keluar.
 
-##### "Port"
+##### "port"
+- *v1: "Port"*
 - Nomor port yang digunakan untuk email keluar. Default = 587.
 
-##### "SMTPSecure"
+##### "smtp_secure"
+- *v1: "SMTPSecure"*
 - Protokol yang digunakan saat mengirim email melalui SMTP (TLS atau SSL).
 
-##### "SMTPAuth"
+##### "smtp_auth"
+- *v1: "SMTPAuth"*
 - Direktif ini menentukan apakah akan mengotentikasi sesi SMTP (biasanya harus dibiarkan sendiri).
 
-##### "Username"
+##### "username"
+- *v1: "Username"*
 - Nama pengguna yang digunakan saat mengirim email melalui SMTP.
 
-##### "Password"
+##### "password"
+- *v1: "Password"*
 - Kata sandi yang digunakan saat mengirim email melalui SMTP.
 
-##### "setFromAddress"
+##### "set_from_address"
+- *v1: "setFromAddress"*
 - Alamat pengirim yang dikutip saat mengirim email melalui SMTP.
 
-##### "setFromName"
+##### "set_from_name"
+- *v1: "setFromName"*
 - Nama pengirim yang dikutip saat mengirim email melalui SMTP.
 
-##### "addReplyToAddress"
+##### "add_reply_to_address"
+- *v1: "addReplyToAddress"*
 - Alamat balasan yang dikutip saat mengirim email melalui SMTP.
 
-##### "addReplyToName"
+##### "add_reply_to_name"
+- *v1: "addReplyToName"*
 - Nama balasan yang dikutip saat mengirim email melalui SMTP.
 
 #### "supplementary_cache_options" (Kategori)
@@ -1373,4 +1386,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 11 Mei 2019 (2019.05.11).
+Terakhir Diperbarui: 26 Mei 2019 (2019.05.26).

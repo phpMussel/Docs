@@ -202,7 +202,7 @@
 
 <div dir="rtl">أولاً، لتمكين 2FA، استخدم صفحة تحديثات front-end لتثبيت مكون PHPMailer. phpMussel يستخدم PHPMailer لإرسال رسائل البريد الإلكتروني. ملحوظة: على الرغم من أن phpMussel متوافق مع <code dir="ltr">PHP &gt;= 5.4.0</code>، PHPMailer يتطلب <code dir="ltr">PHP &gt;= 5.5.0</code>، مما يعني أن تمكين 2FA لـ phpMussel front-end لن يكون ممكنًا لمستخدمي <code dir="ltr">PHP 5.4</code>.<br /><br /></div>
 
-<div dir="rtl">بعد تثبيت PHPMailer، ستحتاج إلى تعبئة توجيهات التهيئة لـ PHPMailer عبر صفحة تهيئة phpMussel أو ملف التكوين. يتم تضمين مزيد من المعلومات حول توجيهات التكوين هذه في قسم التكوين في هذا المستند. بعد ملء توجيهات تهيئة PHPMailer، اضبط <code dir="ltr">Enable2FA</code> على <code dir="ltr">true</code>. 2FA ممكّن الآن.<br /><br /></div>
+<div dir="rtl">بعد تثبيت PHPMailer، ستحتاج إلى تعبئة توجيهات التهيئة لـ PHPMailer عبر صفحة تهيئة phpMussel أو ملف التكوين. يتم تضمين مزيد من المعلومات حول توجيهات التكوين هذه في قسم التكوين في هذا المستند. بعد ملء توجيهات تهيئة PHPMailer، اضبط <code dir="ltr">enable_two_factor</code> على <code dir="ltr">true</code>. 2FA ممكّن الآن.<br /><br /></div>
 
 <div dir="rtl">بعد ذلك، ستحتاج إلى ربط عنوان بريد إلكتروني بحساب، حتى يعرف phpMussel مكان إرسال رموز 2FA عند تسجيل الدخول باستخدام هذا الحساب. للقيام بذلك، استخدم عنوان البريد الإلكتروني كاسم مستخدم للحساب (مثل <code dir="ltr">foo@bar.tld</code>)، أو تضمين عنوان البريد الإلكتروني كجزء من اسم المستخدم بالطريقة نفسها التي تريدها عند إرسال بريد إلكتروني بشكل طبيعي (مثل <code dir="ltr">Foo Bar &lt;foo@bar.tld&gt;</code>).<br /><br /></div>
 
@@ -384,7 +384,7 @@
 [compatibility](#compatibility-التصنيف) | [heuristic](#heuristic-التصنيف) | [virustotal](#virustotal-التصنيف) | [urlscanner](#urlscanner-التصنيف)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-و-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-التصنيف) | [template_data](#template_data-التصنيف) | [PHPMailer](#phpmailer-التصنيف) | [supplementary_cache_options](#supplementary_cache_options-التصنيف)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### <div dir="rtl">"general" (التصنيف)<br /></div>
 <div dir="rtl">التكوين العام لـ phpMussel.<br /><br /></div>
@@ -922,68 +922,81 @@ Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">تمت إ�
 
 <div dir="rtl">حاليا، يستخدم phpMussel PHPMailer فقط من أجل 2FA. إذا لم تستخدم الواجهة الأمامية، أو إذا لم تستخدم 2FA، فيمكنك تجاهل هذه التوجيهات.<br /><br /></div>
 
-##### <div dir="rtl">"EventLog"<br /></div>
+##### <div dir="rtl">"event_log"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "EventLog"</em></li>
  <li>ملف لتسجيل جميع الأحداث المتعلقة ب PHPMailer. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li>
 </ul></div>
 
-##### <div dir="rtl">"SkipAuthProcess"<br /></div>
+##### <div dir="rtl">"skip_auth_process"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "SkipAuthProcess"</em></li>
  <li>تعيين هذا التوجيه إلى <code dir="ltr">true</code> يرشد PHPMailer لتخطي عملية المصادقة التي تحدث عادة عند إرسال البريد الإلكتروني عبر SMTP. يجب تجنب هذا، لأن تخطي هذه العملية قد يعرض البريد الإلكتروني الصادر إلى هجمات MITM، ولكنه قد يكون ضروريًا في الحالات التي تمنع فيها هذه العملية من اتصال PHPMailer بخادم SMTP.</li>
 </ul></div>
 
-##### <div dir="rtl">"Enable2FA"<br /></div>
+##### <div dir="rtl">"enable_two_factor"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Enable2FA"</em></li>
  <li>يحدد هذا التوجيه ما إذا كان سيتم استخدام 2FA للحسابات front-end أم لا.</li>
 </ul></div>
 
-##### <div dir="rtl">"Host"<br /></div>
+##### <div dir="rtl">"host"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Host"</em></li>
  <li>مضيف SMTP الذي يستخدم للبريد الإلكتروني الصادر.</li>
 </ul></div>
 
-##### <div dir="rtl">"Port"<br /></div>
+##### <div dir="rtl">"port"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Port"</em></li>
  <li>رقم المنفذ المراد استخدامه للبريد الإلكتروني الصادر. افتراضي = 587.</li>
 </ul></div>
 
-##### <div dir="rtl">"SMTPSecure"<br /></div>
+##### <div dir="rtl">"smtp_secure"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "SMTPSecure"</em></li>
  <li>البروتوكول المستخدم عند إرسال البريد الإلكتروني عبر SMTP (TLS أو SSL).</li>
 </ul></div>
 
-##### <div dir="rtl">"SMTPAuth"<br /></div>
+##### <div dir="rtl">"smtp_auth"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "SMTPAuth"</em></li>
  <li>يحدد هذا التوجيه ما إذا كنت تريد مصادقة جلسات SMTP (يجب ألا يغير هذا عادة).</li>
 </ul></div>
 
-##### <div dir="rtl">"Username"<br /></div>
+##### <div dir="rtl">"username"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Username"</em></li>
  <li>اسم المستخدم لاستخدامه عند إرسال البريد الإلكتروني عبر SMTP.</li>
 </ul></div>
 
-##### <div dir="rtl">"Password"<br /></div>
+##### <div dir="rtl">"password"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Password"</em></li>
  <li>كلمة المرور لاستخدامها عند إرسال البريد الإلكتروني عبر SMTP.</li>
 </ul></div>
 
-##### <div dir="rtl">"setFromAddress"<br /></div>
+##### <div dir="rtl">"set_from_address"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "setFromAddress"</em></li>
  <li>عنوان المرسل للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
 </ul></div>
 
-##### <div dir="rtl">"setFromName"<br /></div>
+##### <div dir="rtl">"set_from_name"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "setFromName"</em></li>
  <li>اسم المرسل للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
 </ul></div>
 
-##### <div dir="rtl">"addReplyToAddress"<br /></div>
+##### <div dir="rtl">"add_reply_to_address"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "addReplyToAddress"</em></li>
  <li>عنوان الرد للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
 </ul></div>
 
-##### <div dir="rtl">"addReplyToName"<br /></div>
+##### <div dir="rtl">"add_reply_to_name"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "addReplyToName"</em></li>
  <li>اسم الرد للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
 </ul></div>
 
@@ -1636,4 +1649,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 11 مايو 2019 (2019.05.11).</div>
+<div dir="rtl">آخر تحديث: 26 مايو 2019 (2019.05.26).</div>

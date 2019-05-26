@@ -207,7 +207,7 @@ Il est possible de sécuriser l'accès frontal en activant l'authentification à
 
 Avant toute chose, pour activer l'authentification à deux facteurs, à l'aide de la page des mises à jour frontales, installez le composant PHPMailer. phpMussel utilise PHPMailer pour envoyer des emails. Il convient de noter que bien que phpMussel, en soi, est compatible avec PHP >= 5.4.0, PHPMailer a besoin de PHP >= 5.5.0, ce qui signifie que l'activation de l'authentification à deux facteurs pour l'accès frontal sur phpMussel ne sera pas possible pour les utilisateurs de PHP 5.4.
 
-Après avoir installé PHPMailer, vous devez renseigner les directives de configuration de PHPMailer via la page de configuration ou le fichier de configuration de phpMussel. Plus d'informations sur ces directives de configuration sont incluses dans la section de configuration de ce document. Après avoir rempli les directives de configuration de PHPMailer, mettre `Enable2FA` à `true`. L'authentification à deux facteurs devrait maintenant être activée.
+Après avoir installé PHPMailer, vous devez renseigner les directives de configuration de PHPMailer via la page de configuration ou le fichier de configuration de phpMussel. Plus d'informations sur ces directives de configuration sont incluses dans la section de configuration de ce document. Après avoir rempli les directives de configuration de PHPMailer, mettre `enable_two_factor` à `true`. L'authentification à deux facteurs devrait maintenant être activée.
 
 Ensuite, vous devrez associer une adresse e-mail à un compte afin que phpMussel sache où envoyer les codes 2FA lors de la connexion via ce compte. Pour ce faire, utilisez l'adresse e-mail comme nom d'utilisateur pour le compte (comme `foo@bar.tld`), ou inclure l'adresse e-mail dans le nom d'utilisateur de la même manière que lorsqu'un e-mail est envoyé normalement (comme `Foo Bar <foo@bar.tld>`).
 
@@ -389,7 +389,7 @@ Ce qui suit est une liste des directives disponibles pour phpMussel dans le `con
 [compatibility](#compatibility-catégorie) | [heuristic](#heuristic-catégorie) | [virustotal](#virustotal-catégorie) | [urlscanner](#urlscanner-catégorie)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-et-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-catégorie) | [template_data](#template_data-catégorie) | [PHPMailer](#phpmailer-catégorie) | [supplementary_cache_options](#supplementary_cache_options-catégorie)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### « general » (Catégorie)
 Configuration générale pour phpMussel.
@@ -755,43 +755,56 @@ Configuration de PHPMailer.
 
 Actuellement, phpMussel utilise PHPMailer uniquement pour l'authentification à deux facteurs de l'interface frontale. Si vous n'utilisez pas l'interface frontale, ou si vous n'utilisez pas l'authentification à deux facteurs pour l'interface frontale, vous pouvez ignorer ces directives.
 
-##### « EventLog »
+##### « event_log »
+- *v1 : « EventLog »*
 - Fichier pour l'enregistrement de tous les événements relatifs à PHPMailer. Spécifier un fichier, ou laisser vide à désactiver.
 
-##### « SkipAuthProcess »
+##### « skip_auth_process »
+- *v1 : « SkipAuthProcess »*
 - Définir cette directive sur `true` instruit à PHPMailer de sauter le processus d'authentification qui se produit normalement lors de l'envoi d'e-mail via SMTP. Cela doit être évité, car sauter du processus peut exposer l'e-mail sortant aux attaques MITM, mais peut être nécessaire dans les cas où ce processus empêche PHPMailer de se connecter à un serveur SMTP.
 
-##### « Enable2FA »
+##### « enable_two_factor »
+- *v1 : « Enable2FA »*
 - Cette directive détermine s'il faut utiliser 2FA pour les comptes frontaux.
 
-##### « Host »
+##### « host »
+- *v1 : « Host »*
 - Hôte SMTP à utiliser pour les e-mails sortants.
 
-##### « Port »
+##### « port »
+- *v1 : « Port »*
 - Le numéro de port à utiliser pour l'e-mail sortant. Défaut = 587.
 
-##### « SMTPSecure »
+##### « smtp_secure »
+- *v1 : « SMTPSecure »*
 - Le protocole à utiliser lors de l'envoi d'e-mail via SMTP (TLS ou SSL).
 
-##### « SMTPAuth »
+##### « smtp_auth »
+- *v1 : « SMTPAuth »*
 - Cette directive détermine si les sessions SMTP doivent être authentifiées (elles doivent généralement être laissées seules).
 
-##### « Username »
+##### « username »
+- *v1 : « Username »*
 - Le nom d'utilisateur à utiliser lors de l'envoi d'e-mail via SMTP.
 
-##### « Password »
+##### « password »
+- *v1 : « Password »*
 - Le mot de passe à utiliser lors de l'envoi d'e-mail via SMTP.
 
-##### « setFromAddress »
+##### « set_from_address »
+- *v1 : « setFromAddress »*
 - L'adresse de l'expéditeur à citer lors de l'envoi d'e-mail via SMTP.
 
-##### « setFromName »
+##### « set_from_name »
+- *v1 : « setFromName »*
 - Le nom de l'expéditeur à citer lors de l'envoi d'e-mail via SMTP.
 
-##### « addReplyToAddress »
+##### « add_reply_to_address »
+- *v1 : « addReplyToAddress »*
 - L'adresse de réponse à citer lors de l'envoi d'e-mail via SMTP.
 
-##### « addReplyToName »
+##### « add_reply_to_name »
+- *v1 : « addReplyToName »*
 - Le nom pour répondre à citer lors de l'envoi d'e-mail via SMTP.
 
 #### « supplementary_cache_options » (Catégorie)
@@ -1379,4 +1392,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 11 Mai 2019 (2019.05.11).
+Dernière mise à jour : 26 Mai 2019 (2019.05.26).

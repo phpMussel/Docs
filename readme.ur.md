@@ -202,7 +202,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 
 <div dir="rtl">سب سے پہلے، 2FA کو چالو کرنے کے لئے، PHPMailer اجزاء کو انسٹال کرنے کے لئے front-end اپ ڈیٹس کا صفحہ استعمال کریں. ای میل بھیجنے کے لئے phpMussel PHPMailer کا استعمال کرتا ہے. نوٹ: اگرچہ phpMussel، خود ہی، <code dir="ltr">PHP &gt;= 5.4.0</code> کے ساتھ مطابقت رکھتا ہے، PHPMailer کی ضرورت ہے <code dir="ltr">PHP &gt;= 5.5.0</code>. اس کا مطلب ہے کہ <code dir="ltr">PHP 5.4</code> صارفوں کیلئے phpMussel front-end 2FA کو چالو کرنا ممکن نہیں ہوگا.<br /><br /></div>
 
-<div dir="rtl">PHPMailer نصب کرنے کے بعد، آپ کو phpMussel ترتیب کے صفحے یا ترتیب کی فائل کے ذریعے PHPMailer کے لئے ترتیب ہدایات کو آباد کرنے کی ضرورت ہوگی. ان ترتیبات کے ہدایات کے بارے میں مزید معلومات اس دستاویز کے ترتیب کے حصے میں شامل ہیں. PHPMailer ترتیب ہدایات آبادی کے بعد، <code dir="ltr">Enable2FA</code> <code dir="ltr">true</code> سیٹ کریں. 2FA اب فعال ہونا چاہئے.<br /><br /></div>
+<div dir="rtl">PHPMailer نصب کرنے کے بعد، آپ کو phpMussel ترتیب کے صفحے یا ترتیب کی فائل کے ذریعے PHPMailer کے لئے ترتیب ہدایات کو آباد کرنے کی ضرورت ہوگی. ان ترتیبات کے ہدایات کے بارے میں مزید معلومات اس دستاویز کے ترتیب کے حصے میں شامل ہیں. PHPMailer ترتیب ہدایات آبادی کے بعد، <code dir="ltr">enable_two_factor</code> <code dir="ltr">true</code> سیٹ کریں. 2FA اب فعال ہونا چاہئے.<br /><br /></div>
 
 <div dir="rtl">اگلا، آپ کو ایک ای میل ایڈریس کو اکاؤنٹ کے ساتھ منسلک کرنے کی ضرورت ہوگی، تاکہ phpMussel کو معلوم ہے کہ اس اکاؤنٹ کے ساتھ لاگ ان کرتے وقت 2FA کوڈ بھیجنے کے لئے. ایسا کرنے کے لئے، اکاؤنٹ کے صارف نام کے طور پر ای میل پتہ استعمال کریں (کچھ <code dir="ltr">foo@bar.tld</code> کی طرح)، یا اس صارف کے صارف کے حصے کے طور پر ای میل ایڈریس بھی شامل ہے جس طرح آپ عام طور پر ای میل بھیجیں گے (کچھ <code dir="ltr">Foo Bar &lt;foo@bar.tld&gt;</code> کی طرح).<br /><br /></div>
 
@@ -384,7 +384,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 [compatibility](#compatibility-قسم) | [heuristic](#heuristic-قسم) | [virustotal](#virustotal-قسم) | [urlscanner](#urlscanner-قسم)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-اور-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-قسم) | [template_data](#template_data-قسم) | [PHPMailer](#phpmailer-قسم) | [supplementary_cache_options](#supplementary_cache_options-قسم)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [EventLog](#eventlog)<br />[SkipAuthProcess](#skipauthprocess)<br />[Enable2FA](#enable2fa)<br />[Host](#host)<br />[Port](#port)<br />[SMTPSecure](#smtpsecure)<br />[SMTPAuth](#smtpauth)<br />[Username](#username)<br />[Password](#password)<br />[setFromAddress](#setfromaddress)<br />[setFromName](#setfromname)<br />[addReplyToAddress](#addreplytoaddress)<br />[addReplyToName](#addreplytoname)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### <div dir="rtl">"general" (قسم)<br /></div>
 <div dir="rtl">جنرل phpMussel ترتیب.<br /><br /></div>
@@ -922,68 +922,81 @@ Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">سپورٹ
 
 <div dir="rtl">فی الحال، phpMussel صرف 2FA کے لئے صرف PHPMailer کا استعمال کرتا ہے. اگر آپ سامنے کے اختتام کا استعمال نہیں کرتے ہیں، یا اگر آپ 2FA استعمال نہیں کرتے ہیں، تو آپ ان ہدایات کو نظر انداز کر سکتے ہیں.<br /><br /></div>
 
-##### <div dir="rtl">"EventLog"<br /></div>
+##### <div dir="rtl">"event_log"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "EventLog"</em></li>
  <li>PHPMailer کے سلسلے میں تمام واقعات کو لاگ ان کرنے کے لئے ایک فائل. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li>
 </ul></div>
 
-##### <div dir="rtl">"SkipAuthProcess"<br /></div>
+##### <div dir="rtl">"skip_auth_process"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "SkipAuthProcess"</em></li>
  <li>جب <code dir="ltr">true</code>، SMTP کی تصدیق کے عمل کو چھوڑ دیا گیا ہے. اس سے بچنا چاہئے. اگر عمل ختم ہو جاتا ہے تو، آؤٹ باؤنڈ ای میل MITM حملوں سے بے نقاب ہوسکتا ہے. مخصوص معاملات میں ضروری ہوسکتا ہے (مثال کے طور پر، جب SMTP سرور مناسب طریقے سے منسلک نہیں کرے گا).</li>
 </ul></div>
 
-##### <div dir="rtl">"Enable2FA"<br /></div>
+##### <div dir="rtl">"enable_two_factor"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Enable2FA"</em></li>
  <li>یہ تعین کرتا ہے کہ 2FA استعمال کیا جانا چاہئے.</li>
 </ul></div>
 
-##### <div dir="rtl">"Host"<br /></div>
+##### <div dir="rtl">"host"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Host"</em></li>
  <li>آؤٹ پاؤنڈ ای میل کے لئے استعمال کرنے کے لئے SMTP میزبان.</li>
 </ul></div>
 
-##### <div dir="rtl">"Port"<br /></div>
+##### <div dir="rtl">"port"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Port"</em></li>
  <li>آؤٹ پاؤنڈ ای میل کے لئے استعمال کرنے کے لئے پورٹ نمبر. پہلے سے طے شدہ = 587.</li>
 </ul></div>
 
-##### <div dir="rtl">"SMTPSecure"<br /></div>
+##### <div dir="rtl">"smtp_secure"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "SMTPSecure"</em></li>
  <li>ای میل بھیجنے پر پروٹوکول استعمال کرنے کے لئے (TLS یا SSL).</li>
 </ul></div>
 
-##### <div dir="rtl">"SMTPAuth"<br /></div>
+##### <div dir="rtl">"smtp_auth"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "SMTPAuth"</em></li>
  <li>کیا SMTP سیشن کو مستند کیا جاسکتا ہے؟ (عام طور پر اس کو نظر انداز کرنا چاہئے).</li>
 </ul></div>
 
-##### <div dir="rtl">"Username"<br /></div>
+##### <div dir="rtl">"username"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Username"</em></li>
  <li>ای میل بھیجنے کے لئے صارف کا نام.</li>
 </ul></div>
 
-##### <div dir="rtl">"Password"<br /></div>
+##### <div dir="rtl">"password"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "Password"</em></li>
  <li>ای میل بھیجنے کے لئے پاس ورڈ.</li>
 </ul></div>
 
-##### <div dir="rtl">"setFromAddress"<br /></div>
+##### <div dir="rtl">"set_from_address"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "setFromAddress"</em></li>
  <li>ای میل بھیجنے کے لئے بھیجنے والے کا پتہ.</li>
 </ul></div>
 
-##### <div dir="rtl">"setFromName"<br /></div>
+##### <div dir="rtl">"set_from_name"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "setFromName"</em></li>
  <li>ای میل بھیجنے کے لئے بھیجنے کا نام.</li>
 </ul></div>
 
-##### <div dir="rtl">"addReplyToAddress"<br /></div>
+##### <div dir="rtl">"add_reply_to_address"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "addReplyToAddress"</em></li>
  <li>ای میل بھیجنے پر جواب کا پتہ.</li>
 </ul></div>
 
-##### <div dir="rtl">"addReplyToName"<br /></div>
+##### <div dir="rtl">"add_reply_to_name"<br /></div>
 <div dir="rtl"><ul>
+ <li><em>v1: "addReplyToName"</em></li>
  <li>ای میل بھیجنے پر جواب کا نام.</li>
 </ul></div>
 
@@ -1635,4 +1648,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 11 مئی 2019 (2019.05.11).</div>
+<div dir="rtl">آخری تازہ کاری: 26 مئی 2019 (2019.05.26).</div>
