@@ -295,46 +295,46 @@ Fichier | Description
 /vault/fe_assets/scripts.js | Contient des données JavaScript pour l'accès frontal.
 /vault/lang/ | Contient données linguistiques.
 /vault/lang/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
-/vault/lang/lang.ar.fe.php | Données linguistiques en Arabe pour l'accès frontal.
-/vault/lang/lang.ar.php | Données linguistiques en Arabe.
-/vault/lang/lang.bn.fe.php | Données linguistiques en Bangla pour l'accès frontal.
-/vault/lang/lang.bn.php | Données linguistiques en Bangla.
-/vault/lang/lang.de.fe.php | Données linguistiques en Allemande pour l'accès frontal.
-/vault/lang/lang.de.php | Données linguistiques en Allemande.
-/vault/lang/lang.en.fe.php | Données linguistiques en Anglais pour l'accès frontal.
-/vault/lang/lang.en.php | Données linguistiques en Anglais.
-/vault/lang/lang.es.fe.php | Données linguistiques en Espagnol pour l'accès frontal.
-/vault/lang/lang.es.php | Données linguistiques en Espagnol.
-/vault/lang/lang.fr.fe.php | Données linguistiques en Français pour l'accès frontal.
-/vault/lang/lang.fr.php | Données linguistiques en Français.
-/vault/lang/lang.hi.fe.php | Données linguistiques en Hindi pour l'accès frontal.
-/vault/lang/lang.hi.php | Données linguistiques en Hindi.
-/vault/lang/lang.id.fe.php | Données linguistiques en Indonésienne pour l'accès frontal.
-/vault/lang/lang.id.php | Données linguistiques en Indonésienne.
-/vault/lang/lang.it.fe.php | Données linguistiques en Italienne pour l'accès frontal.
-/vault/lang/lang.it.php | Données linguistiques en Italienne.
-/vault/lang/lang.ja.fe.php | Données linguistiques en Japonaise pour l'accès frontal.
-/vault/lang/lang.ja.php | Données linguistiques en Japonaise.
-/vault/lang/lang.ko.fe.php | Données linguistiques en Coréenne pour l'accès frontal.
-/vault/lang/lang.ko.php | Données linguistiques en Coréenne.
-/vault/lang/lang.nl.fe.php | Données linguistiques en Néerlandaise pour l'accès frontal.
-/vault/lang/lang.nl.php | Données linguistiques en Néerlandaise.
-/vault/lang/lang.pt.fe.php | Données linguistiques en Portugaise pour l'accès frontal.
-/vault/lang/lang.pt.php | Données linguistiques en Portugaise.
-/vault/lang/lang.ru.fe.php | Données linguistiques en Russe pour l'accès frontal.
-/vault/lang/lang.ru.php | Données linguistiques en Russe.
-/vault/lang/lang.th.fe.php | Données linguistiques en Thai pour l'accès frontal.
-/vault/lang/lang.th.php | Données linguistiques en Thai.
-/vault/lang/lang.tr.fe.php | Données linguistiques en Turc pour l'accès frontal.
-/vault/lang/lang.tr.php | Données linguistiques en Turc.
-/vault/lang/lang.ur.fe.php | Données linguistiques en Urdu pour l'accès frontal.
-/vault/lang/lang.ur.php | Données linguistiques en Urdu.
-/vault/lang/lang.vi.fe.php | Données linguistiques en Vietnamienne pour l'accès frontal.
-/vault/lang/lang.vi.php | Données linguistiques en Vietnamienne.
-/vault/lang/lang.zh-tw.fe.php | Données linguistiques en Chinois (traditionnel) pour l'accès frontal.
-/vault/lang/lang.zh-tw.php | Données linguistiques en Chinois (traditionnel).
-/vault/lang/lang.zh.fe.php | Données linguistiques en Chinois (simplifié) pour l'accès frontal.
-/vault/lang/lang.zh.php | Données linguistiques en Chinois (simplifié).
+/vault/lang/lang.ar.fe.yaml | Données linguistiques en Arabe pour l'accès frontal.
+/vault/lang/lang.ar.yaml | Données linguistiques en Arabe.
+/vault/lang/lang.bn.fe.yaml | Données linguistiques en Bangla pour l'accès frontal.
+/vault/lang/lang.bn.yaml | Données linguistiques en Bangla.
+/vault/lang/lang.de.fe.yaml | Données linguistiques en Allemande pour l'accès frontal.
+/vault/lang/lang.de.yaml | Données linguistiques en Allemande.
+/vault/lang/lang.en.fe.yaml | Données linguistiques en Anglais pour l'accès frontal.
+/vault/lang/lang.en.yaml | Données linguistiques en Anglais.
+/vault/lang/lang.es.fe.yaml | Données linguistiques en Espagnol pour l'accès frontal.
+/vault/lang/lang.es.yaml | Données linguistiques en Espagnol.
+/vault/lang/lang.fr.fe.yaml | Données linguistiques en Français pour l'accès frontal.
+/vault/lang/lang.fr.yaml | Données linguistiques en Français.
+/vault/lang/lang.hi.fe.yaml | Données linguistiques en Hindi pour l'accès frontal.
+/vault/lang/lang.hi.yaml | Données linguistiques en Hindi.
+/vault/lang/lang.id.fe.yaml | Données linguistiques en Indonésienne pour l'accès frontal.
+/vault/lang/lang.id.yaml | Données linguistiques en Indonésienne.
+/vault/lang/lang.it.fe.yaml | Données linguistiques en Italienne pour l'accès frontal.
+/vault/lang/lang.it.yaml | Données linguistiques en Italienne.
+/vault/lang/lang.ja.fe.yaml | Données linguistiques en Japonaise pour l'accès frontal.
+/vault/lang/lang.ja.yaml | Données linguistiques en Japonaise.
+/vault/lang/lang.ko.fe.yaml | Données linguistiques en Coréenne pour l'accès frontal.
+/vault/lang/lang.ko.yaml | Données linguistiques en Coréenne.
+/vault/lang/lang.nl.fe.yaml | Données linguistiques en Néerlandaise pour l'accès frontal.
+/vault/lang/lang.nl.yaml | Données linguistiques en Néerlandaise.
+/vault/lang/lang.pt.fe.yaml | Données linguistiques en Portugaise pour l'accès frontal.
+/vault/lang/lang.pt.yaml | Données linguistiques en Portugaise.
+/vault/lang/lang.ru.fe.yaml | Données linguistiques en Russe pour l'accès frontal.
+/vault/lang/lang.ru.yaml | Données linguistiques en Russe.
+/vault/lang/lang.th.fe.yaml | Données linguistiques en Thai pour l'accès frontal.
+/vault/lang/lang.th.yaml | Données linguistiques en Thai.
+/vault/lang/lang.tr.fe.yaml | Données linguistiques en Turc pour l'accès frontal.
+/vault/lang/lang.tr.yaml | Données linguistiques en Turc.
+/vault/lang/lang.ur.fe.yaml | Données linguistiques en Urdu pour l'accès frontal.
+/vault/lang/lang.ur.yaml | Données linguistiques en Urdu.
+/vault/lang/lang.vi.fe.yaml | Données linguistiques en Vietnamienne pour l'accès frontal.
+/vault/lang/lang.vi.yaml | Données linguistiques en Vietnamienne.
+/vault/lang/lang.zh-tw.fe.yaml | Données linguistiques en Chinois (traditionnel) pour l'accès frontal.
+/vault/lang/lang.zh-tw.yaml | Données linguistiques en Chinois (traditionnel).
+/vault/lang/lang.zh.fe.yaml | Données linguistiques en Chinois (simplifié) pour l'accès frontal.
+/vault/lang/lang.zh.yaml | Données linguistiques en Chinois (simplifié).
 /vault/quarantine/ | Quarantaine répertoire (contient des fichiers de la quarantaine).
 /vault/quarantine/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/signatures/ | Signatures répertoire (contient des fichiers de signatures).
@@ -389,7 +389,7 @@ Ce qui suit est une liste des directives disponibles pour phpMussel dans le `con
 [compatibility](#compatibility-catégorie) | [heuristic](#heuristic-catégorie) | [virustotal](#virustotal-catégorie) | [urlscanner](#urlscanner-catégorie)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-et-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-catégorie) | [template_data](#template_data-catégorie) | [PHPMailer](#phpmailer-catégorie) | [supplementary_cache_options](#supplementary_cache_options-catégorie)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### « general » (Catégorie)
 Configuration générale pour phpMussel.
@@ -744,7 +744,7 @@ Modèles données est liée à la sortie HTML utilisé pour générer le message
 ##### « theme »
 - Le thème à utiliser par défaut pour phpMussel.
 
-##### « Magnification »
+##### « magnification »
 - Grossissement des fontes. Défaut = 1.
 
 ##### « css_url »
@@ -1392,4 +1392,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 26 Mai 2019 (2019.05.26).
+Dernière mise à jour : 30 Mai 2019 (2019.05.30).

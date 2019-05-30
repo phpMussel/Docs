@@ -295,46 +295,46 @@ Archivo | Descripción
 /vault/fe_assets/scripts.js | Contiene datos de JavaScript del front-end.
 /vault/lang/ | Contiene lingüísticos datos.
 /vault/lang/.htaccess | Un hipertexto acceso archivo (en este caso, para proteger confidenciales archivos perteneciente a la script contra el acceso de fuentes no autorizadas).
-/vault/lang/lang.ar.fe.php | Lingüísticos datos Árabe para el front-end.
-/vault/lang/lang.ar.php | Lingüísticos datos Árabe.
-/vault/lang/lang.bn.fe.php | Lingüísticos datos Bangla para el front-end.
-/vault/lang/lang.bn.php | Lingüísticos datos Bangla.
-/vault/lang/lang.de.fe.php | Lingüísticos datos Alemán para el front-end.
-/vault/lang/lang.de.php | Lingüísticos datos Alemán.
-/vault/lang/lang.en.fe.php | Lingüísticos datos Inglés para el front-end.
-/vault/lang/lang.en.php | Lingüísticos datos Inglés.
-/vault/lang/lang.es.fe.php | Lingüísticos datos Español para el front-end.
-/vault/lang/lang.es.php | Lingüísticos datos Español.
-/vault/lang/lang.fr.fe.php | Lingüísticos datos Francés para el front-end.
-/vault/lang/lang.fr.php | Lingüísticos datos Francés.
-/vault/lang/lang.hi.fe.php | Lingüísticos datos Hindi para el front-end.
-/vault/lang/lang.hi.php | Lingüísticos datos Hindi.
-/vault/lang/lang.id.fe.php | Lingüísticos datos Indonesio para el front-end.
-/vault/lang/lang.id.php | Lingüísticos datos Indonesio.
-/vault/lang/lang.it.fe.php | Lingüísticos datos Italiano para el front-end.
-/vault/lang/lang.it.php | Lingüísticos datos Italiano.
-/vault/lang/lang.ja.fe.php | Lingüísticos datos Japonés para el front-end.
-/vault/lang/lang.ja.php | Lingüísticos datos Japonés.
-/vault/lang/lang.ko.fe.php | Lingüísticos datos Koreano para el front-end.
-/vault/lang/lang.ko.php | Lingüísticos datos Koreano.
-/vault/lang/lang.nl.fe.php | Lingüísticos datos Holandés para el front-end.
-/vault/lang/lang.nl.php | Lingüísticos datos Holandés.
-/vault/lang/lang.pt.fe.php | Lingüísticos datos Portugués para el front-end.
-/vault/lang/lang.pt.php | Lingüísticos datos Portugués.
-/vault/lang/lang.ru.fe.php | Lingüísticos datos Ruso para el front-end.
-/vault/lang/lang.ru.php | Lingüísticos datos Ruso.
-/vault/lang/lang.th.fe.php | Lingüísticos datos Tailandés para el front-end.
-/vault/lang/lang.th.php | Lingüísticos datos Tailandés.
-/vault/lang/lang.tr.fe.php | Lingüísticos datos Turco para el front-end.
-/vault/lang/lang.tr.php | Lingüísticos datos Turco.
-/vault/lang/lang.ur.fe.php | Lingüísticos datos Urdi para el front-end.
-/vault/lang/lang.ur.php | Lingüísticos datos Urdu.
-/vault/lang/lang.vi.fe.php | Lingüísticos datos Vietnamita para el front-end.
-/vault/lang/lang.vi.php | Lingüísticos datos Vietnamita.
-/vault/lang/lang.zh-tw.fe.php | Lingüísticos datos Chino (tradicional) para el front-end.
-/vault/lang/lang.zh-tw.php | Lingüísticos datos Chino (tradicional).
-/vault/lang/lang.zh.fe.php | Lingüísticos datos Chino (simplificado) para el front-end.
-/vault/lang/lang.zh.php | Lingüísticos datos Chino (simplificado).
+/vault/lang/lang.ar.fe.yaml | Lingüísticos datos Árabe para el front-end.
+/vault/lang/lang.ar.yaml | Lingüísticos datos Árabe.
+/vault/lang/lang.bn.fe.yaml | Lingüísticos datos Bangla para el front-end.
+/vault/lang/lang.bn.yaml | Lingüísticos datos Bangla.
+/vault/lang/lang.de.fe.yaml | Lingüísticos datos Alemán para el front-end.
+/vault/lang/lang.de.yaml | Lingüísticos datos Alemán.
+/vault/lang/lang.en.fe.yaml | Lingüísticos datos Inglés para el front-end.
+/vault/lang/lang.en.yaml | Lingüísticos datos Inglés.
+/vault/lang/lang.es.fe.yaml | Lingüísticos datos Español para el front-end.
+/vault/lang/lang.es.yaml | Lingüísticos datos Español.
+/vault/lang/lang.fr.fe.yaml | Lingüísticos datos Francés para el front-end.
+/vault/lang/lang.fr.yaml | Lingüísticos datos Francés.
+/vault/lang/lang.hi.fe.yaml | Lingüísticos datos Hindi para el front-end.
+/vault/lang/lang.hi.yaml | Lingüísticos datos Hindi.
+/vault/lang/lang.id.fe.yaml | Lingüísticos datos Indonesio para el front-end.
+/vault/lang/lang.id.yaml | Lingüísticos datos Indonesio.
+/vault/lang/lang.it.fe.yaml | Lingüísticos datos Italiano para el front-end.
+/vault/lang/lang.it.yaml | Lingüísticos datos Italiano.
+/vault/lang/lang.ja.fe.yaml | Lingüísticos datos Japonés para el front-end.
+/vault/lang/lang.ja.yaml | Lingüísticos datos Japonés.
+/vault/lang/lang.ko.fe.yaml | Lingüísticos datos Koreano para el front-end.
+/vault/lang/lang.ko.yaml | Lingüísticos datos Koreano.
+/vault/lang/lang.nl.fe.yaml | Lingüísticos datos Holandés para el front-end.
+/vault/lang/lang.nl.yaml | Lingüísticos datos Holandés.
+/vault/lang/lang.pt.fe.yaml | Lingüísticos datos Portugués para el front-end.
+/vault/lang/lang.pt.yaml | Lingüísticos datos Portugués.
+/vault/lang/lang.ru.fe.yaml | Lingüísticos datos Ruso para el front-end.
+/vault/lang/lang.ru.yaml | Lingüísticos datos Ruso.
+/vault/lang/lang.th.fe.yaml | Lingüísticos datos Tailandés para el front-end.
+/vault/lang/lang.th.yaml | Lingüísticos datos Tailandés.
+/vault/lang/lang.tr.fe.yaml | Lingüísticos datos Turco para el front-end.
+/vault/lang/lang.tr.yaml | Lingüísticos datos Turco.
+/vault/lang/lang.ur.fe.yaml | Lingüísticos datos Urdi para el front-end.
+/vault/lang/lang.ur.yaml | Lingüísticos datos Urdu.
+/vault/lang/lang.vi.fe.yaml | Lingüísticos datos Vietnamita para el front-end.
+/vault/lang/lang.vi.yaml | Lingüísticos datos Vietnamita.
+/vault/lang/lang.zh-tw.fe.yaml | Lingüísticos datos Chino (tradicional) para el front-end.
+/vault/lang/lang.zh-tw.yaml | Lingüísticos datos Chino (tradicional).
+/vault/lang/lang.zh.fe.yaml | Lingüísticos datos Chino (simplificado) para el front-end.
+/vault/lang/lang.zh.yaml | Lingüísticos datos Chino (simplificado).
 /vault/quarantine/ | Directorio de cuarentena (contiene los cuarentenadas archivos).
 /vault/quarantine/.htaccess | Un hipertexto acceso archivo (en este caso, para proteger confidenciales archivos perteneciente a la script contra el acceso de fuentes no autorizadas).
 /vault/signatures/ | Directorio de firmas (contiene los archivos de firmas).
@@ -389,7 +389,7 @@ La siguiente es una lista de variables encuentran en la `config.ini` configuraci
 [compatibility](#compatibility-categoría) | [heuristic](#heuristic-categoría) | [virustotal](#virustotal-categoría) | [urlscanner](#urlscanner-categoría)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-y-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-categoría) | [template_data](#template_data-categoría) | [PHPMailer](#phpmailer-categoría) | [supplementary_cache_options](#supplementary_cache_options-categoría)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Categoría)
 General configuración para phpMussel.
@@ -744,7 +744,7 @@ Plantilla datos es relacionados a la HTML utilizado generar el "Subida Denegada"
 ##### "theme"
 - Tema predefinido a utilizar para phpMussel.
 
-##### "Magnification"
+##### "magnification"
 - Ampliación de fuente. Predefinido = 1.
 
 ##### "css_url"
@@ -1393,4 +1393,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 26 de Mayo de 2019 (2019.05.26).
+Última Actualización: 30 de Mayo de 2019 (2019.05.30).

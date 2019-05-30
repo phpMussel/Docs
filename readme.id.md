@@ -295,46 +295,46 @@ Data | Deskripsi
 /vault/fe_assets/scripts.js | Berisi data JavaScript bagian depan.
 /vault/lang/ | Berisikan file bahasa.
 /vault/lang/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
-/vault/lang/lang.ar.fe.php | File Bahasa Arab untuk bagian depan.
-/vault/lang/lang.ar.php | File Bahasa Arab.
-/vault/lang/lang.bn.fe.php | File Bahasa Benggala untuk bagian depan.
-/vault/lang/lang.bn.php | File Bahasa Benggala.
-/vault/lang/lang.de.fe.php | File Bahasa Jerman untuk bagian depan.
-/vault/lang/lang.de.php | File Bahasa Jerman.
-/vault/lang/lang.en.fe.php | File Bahasa Inggris untuk bagian depan.
-/vault/lang/lang.en.php | File Bahasa Inggris.
-/vault/lang/lang.es.fe.php | File Bahasa Spanyol untuk bagian depan.
-/vault/lang/lang.es.php | File Bahasa Spanyol.
-/vault/lang/lang.fr.fe.php | File Bahasa Perancis untuk bagian depan.
-/vault/lang/lang.fr.php | File Bahasa Perancis.
-/vault/lang/lang.hi.fe.php | File Bahasa Hindi untuk bagian depan.
-/vault/lang/lang.hi.php | File Bahasa Hindi.
-/vault/lang/lang.id.fe.php | File Bahasa Indonesia untuk bagian depan.
-/vault/lang/lang.id.php | File Bahasa Indonesia.
-/vault/lang/lang.it.fe.php | File Bahasa Italia untuk bagian depan.
-/vault/lang/lang.it.php | File Bahasa Italia.
-/vault/lang/lang.ja.fe.php | File Bahasa Jepang untuk bagian depan.
-/vault/lang/lang.ja.php | File Bahasa Jepang.
-/vault/lang/lang.ko.fe.php | File Bahasa Korea untuk bagian depan.
-/vault/lang/lang.ko.php | File Bahasa Korea.
-/vault/lang/lang.nl.fe.php | File Bahasa Belanda untuk bagian depan.
-/vault/lang/lang.nl.php | File Bahasa Belanda.
-/vault/lang/lang.pt.fe.php | File Bahasa Portugis untuk bagian depan.
-/vault/lang/lang.pt.php | File Bahasa Portugis.
-/vault/lang/lang.ru.fe.php | File Bahasa Rusia untuk bagian depan.
-/vault/lang/lang.ru.php | File Bahasa Rusia.
-/vault/lang/lang.th.fe.php | File Bahasa Thailand untuk bagian depan.
-/vault/lang/lang.th.php | File Bahasa Thailand.
-/vault/lang/lang.tr.fe.php | File Bahasa Turki untuk bagian depan.
-/vault/lang/lang.tr.php | File Bahasa Turki.
-/vault/lang/lang.ur.fe.php | File Bahasa Urdu untuk bagian depan.
-/vault/lang/lang.ur.php | File Bahasa Urdu.
-/vault/lang/lang.vi.fe.php | File Bahasa Vietnam untuk bagian depan.
-/vault/lang/lang.vi.php | File Bahasa Vietnam.
-/vault/lang/lang.zh-tw.fe.php | File Bahasa Cina tradisional untuk bagian depan.
-/vault/lang/lang.zh-tw.php | File Bahasa Cina tradisional.
-/vault/lang/lang.zh.fe.php | File Bahasa Cina sederhana untuk bagian depan.
-/vault/lang/lang.zh.php | File Bahasa Cina sederhana.
+/vault/lang/lang.ar.fe.yaml | File Bahasa Arab untuk bagian depan.
+/vault/lang/lang.ar.yaml | File Bahasa Arab.
+/vault/lang/lang.bn.fe.yaml | File Bahasa Benggala untuk bagian depan.
+/vault/lang/lang.bn.yaml | File Bahasa Benggala.
+/vault/lang/lang.de.fe.yaml | File Bahasa Jerman untuk bagian depan.
+/vault/lang/lang.de.yaml | File Bahasa Jerman.
+/vault/lang/lang.en.fe.yaml | File Bahasa Inggris untuk bagian depan.
+/vault/lang/lang.en.yaml | File Bahasa Inggris.
+/vault/lang/lang.es.fe.yaml | File Bahasa Spanyol untuk bagian depan.
+/vault/lang/lang.es.yaml | File Bahasa Spanyol.
+/vault/lang/lang.fr.fe.yaml | File Bahasa Perancis untuk bagian depan.
+/vault/lang/lang.fr.yaml | File Bahasa Perancis.
+/vault/lang/lang.hi.fe.yaml | File Bahasa Hindi untuk bagian depan.
+/vault/lang/lang.hi.yaml | File Bahasa Hindi.
+/vault/lang/lang.id.fe.yaml | File Bahasa Indonesia untuk bagian depan.
+/vault/lang/lang.id.yaml | File Bahasa Indonesia.
+/vault/lang/lang.it.fe.yaml | File Bahasa Italia untuk bagian depan.
+/vault/lang/lang.it.yaml | File Bahasa Italia.
+/vault/lang/lang.ja.fe.yaml | File Bahasa Jepang untuk bagian depan.
+/vault/lang/lang.ja.yaml | File Bahasa Jepang.
+/vault/lang/lang.ko.fe.yaml | File Bahasa Korea untuk bagian depan.
+/vault/lang/lang.ko.yaml | File Bahasa Korea.
+/vault/lang/lang.nl.fe.yaml | File Bahasa Belanda untuk bagian depan.
+/vault/lang/lang.nl.yaml | File Bahasa Belanda.
+/vault/lang/lang.pt.fe.yaml | File Bahasa Portugis untuk bagian depan.
+/vault/lang/lang.pt.yaml | File Bahasa Portugis.
+/vault/lang/lang.ru.fe.yaml | File Bahasa Rusia untuk bagian depan.
+/vault/lang/lang.ru.yaml | File Bahasa Rusia.
+/vault/lang/lang.th.fe.yaml | File Bahasa Thailand untuk bagian depan.
+/vault/lang/lang.th.yaml | File Bahasa Thailand.
+/vault/lang/lang.tr.fe.yaml | File Bahasa Turki untuk bagian depan.
+/vault/lang/lang.tr.yaml | File Bahasa Turki.
+/vault/lang/lang.ur.fe.yaml | File Bahasa Urdu untuk bagian depan.
+/vault/lang/lang.ur.yaml | File Bahasa Urdu.
+/vault/lang/lang.vi.fe.yaml | File Bahasa Vietnam untuk bagian depan.
+/vault/lang/lang.vi.yaml | File Bahasa Vietnam.
+/vault/lang/lang.zh-tw.fe.yaml | File Bahasa Cina tradisional untuk bagian depan.
+/vault/lang/lang.zh-tw.yaml | File Bahasa Cina tradisional.
+/vault/lang/lang.zh.fe.yaml | File Bahasa Cina sederhana untuk bagian depan.
+/vault/lang/lang.zh.yaml | File Bahasa Cina sederhana.
 /vault/quarantine/ | Direktori karantina (berisikan file yang dikarantina).
 /vault/quarantine/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/signatures/ | Direktori tanda tangan (berisikan file tanda tangan).
@@ -389,7 +389,7 @@ Berikut list variabel yang ditemukan pada file konfigurasi phpMussel `config.ini
 [compatibility](#compatibility-kategori) | [heuristic](#heuristic-kategori) | [virustotal](#virustotal-kategori) | [urlscanner](#urlscanner-kategori)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-dan-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-kategori) | [template_data](#template_data-kategori) | [PHPMailer](#phpmailer-kategori) | [supplementary_cache_options](#supplementary_cache_options-kategori)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Kategori)
 Konfigurasi umum dari phpMussel.
@@ -744,7 +744,7 @@ File template berkaitan untuk HTML diproduksi yang digunakan untuk menghasilkan 
 ##### "theme"
 - Tema default untuk phpMussel.
 
-##### "Magnification"
+##### "magnification"
 - Perbesaran font. Default = 1.
 
 ##### "css_url"
@@ -1386,4 +1386,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 26 Mei 2019 (2019.05.26).
+Terakhir Diperbarui: 30 Mei 2019 (2019.05.30).

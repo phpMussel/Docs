@@ -295,46 +295,46 @@ File | Description
 /vault/fe_assets/scripts.js | Contains front-end JavaScript data.
 /vault/lang/ | Contains phpMussel language data.
 /vault/lang/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
-/vault/lang/lang.ar.fe.php | Arabic language data for the front-end.
-/vault/lang/lang.ar.php | Arabic language data.
-/vault/lang/lang.bn.fe.php | Bangla language data for the front-end.
-/vault/lang/lang.bn.php | Bangla language data.
-/vault/lang/lang.de.fe.php | German language data for the front-end.
-/vault/lang/lang.de.php | German language data.
-/vault/lang/lang.en.fe.php | English language data for the front-end.
-/vault/lang/lang.en.php | English language data.
-/vault/lang/lang.es.fe.php | Spanish language data for the front-end.
-/vault/lang/lang.es.php | Spanish language data.
-/vault/lang/lang.fr.fe.php | French language data for the front-end.
-/vault/lang/lang.fr.php | French language data.
-/vault/lang/lang.hi.fe.php | Hindi language data for the front-end.
-/vault/lang/lang.hi.php | Hindi language data.
-/vault/lang/lang.id.fe.php | Indonesian language data for the front-end.
-/vault/lang/lang.id.php | Indonesian language data.
-/vault/lang/lang.it.fe.php | Italian language data for the front-end.
-/vault/lang/lang.it.php | Italian language data.
-/vault/lang/lang.ja.fe.php | Japanese language data for the front-end.
-/vault/lang/lang.ja.php | Japanese language data.
-/vault/lang/lang.ko.fe.php | Korean language data for the front-end.
-/vault/lang/lang.ko.php | Korean language data.
-/vault/lang/lang.nl.fe.php | Dutch language data for the front-end.
-/vault/lang/lang.nl.php | Dutch language data.
-/vault/lang/lang.pt.fe.php | Portuguese language data for the front-end.
-/vault/lang/lang.pt.php | Portuguese language data.
-/vault/lang/lang.ru.fe.php | Russian language data for the front-end.
-/vault/lang/lang.ru.php | Russian language data.
-/vault/lang/lang.th.fe.php | Thai language data for the front-end.
-/vault/lang/lang.th.php | Thai language data.
-/vault/lang/lang.tr.fe.php | Turkish language data for the front-end.
-/vault/lang/lang.tr.php | Turkish language data.
-/vault/lang/lang.ur.fe.php | Urdu language data for the front-end.
-/vault/lang/lang.ur.php | Urdu language data.
-/vault/lang/lang.vi.fe.php | Vietnamese language data for the front-end.
-/vault/lang/lang.vi.php | Vietnamese language data.
-/vault/lang/lang.zh-tw.fe.php | Chinese (traditional) language data for the front-end.
-/vault/lang/lang.zh-tw.php | Chinese (traditional) language data.
-/vault/lang/lang.zh.fe.php | Chinese (simplified) language data for the front-end.
-/vault/lang/lang.zh.php | Chinese (simplified) language data.
+/vault/lang/lang.ar.fe.yaml | Arabic language data for the front-end.
+/vault/lang/lang.ar.yaml | Arabic language data.
+/vault/lang/lang.bn.fe.yaml | Bangla language data for the front-end.
+/vault/lang/lang.bn.yaml | Bangla language data.
+/vault/lang/lang.de.fe.yaml | German language data for the front-end.
+/vault/lang/lang.de.yaml | German language data.
+/vault/lang/lang.en.fe.yaml | English language data for the front-end.
+/vault/lang/lang.en.yaml | English language data.
+/vault/lang/lang.es.fe.yaml | Spanish language data for the front-end.
+/vault/lang/lang.es.yaml | Spanish language data.
+/vault/lang/lang.fr.fe.yaml | French language data for the front-end.
+/vault/lang/lang.fr.yaml | French language data.
+/vault/lang/lang.hi.fe.yaml | Hindi language data for the front-end.
+/vault/lang/lang.hi.yaml | Hindi language data.
+/vault/lang/lang.id.fe.yaml | Indonesian language data for the front-end.
+/vault/lang/lang.id.yaml | Indonesian language data.
+/vault/lang/lang.it.fe.yaml | Italian language data for the front-end.
+/vault/lang/lang.it.yaml | Italian language data.
+/vault/lang/lang.ja.fe.yaml | Japanese language data for the front-end.
+/vault/lang/lang.ja.yaml | Japanese language data.
+/vault/lang/lang.ko.fe.yaml | Korean language data for the front-end.
+/vault/lang/lang.ko.yaml | Korean language data.
+/vault/lang/lang.nl.fe.yaml | Dutch language data for the front-end.
+/vault/lang/lang.nl.yaml | Dutch language data.
+/vault/lang/lang.pt.fe.yaml | Portuguese language data for the front-end.
+/vault/lang/lang.pt.yaml | Portuguese language data.
+/vault/lang/lang.ru.fe.yaml | Russian language data for the front-end.
+/vault/lang/lang.ru.yaml | Russian language data.
+/vault/lang/lang.th.fe.yaml | Thai language data for the front-end.
+/vault/lang/lang.th.yaml | Thai language data.
+/vault/lang/lang.tr.fe.yaml | Turkish language data for the front-end.
+/vault/lang/lang.tr.yaml | Turkish language data.
+/vault/lang/lang.ur.fe.yaml | Urdu language data for the front-end.
+/vault/lang/lang.ur.yaml | Urdu language data.
+/vault/lang/lang.vi.fe.yaml | Vietnamese language data for the front-end.
+/vault/lang/lang.vi.yaml | Vietnamese language data.
+/vault/lang/lang.zh-tw.fe.yaml | Chinese (traditional) language data for the front-end.
+/vault/lang/lang.zh-tw.yaml | Chinese (traditional) language data.
+/vault/lang/lang.zh.fe.yaml | Chinese (simplified) language data for the front-end.
+/vault/lang/lang.zh.yaml | Chinese (simplified) language data.
 /vault/quarantine/ | Quarantine directory (contains quarantined files).
 /vault/quarantine/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/signatures/ | Signatures directory (contains signature files).
@@ -389,7 +389,7 @@ The following is a list of variables found in the `config.ini` configuration fil
 [compatibility](#compatibility-category) | [heuristic](#heuristic-category) | [virustotal](#virustotal-category) | [urlscanner](#urlscanner-category)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-and-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-category) | [template_data](#template_data-category) | [PHPMailer](#phpmailer-category) | [supplementary_cache_options](#supplementary_cache_options-category)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Category)
 General phpMussel configuration.
@@ -744,7 +744,7 @@ Template data relates to the HTML output used to generate the "Upload Denied" me
 ##### "theme"
 - Default theme to use for phpMussel.
 
-##### "Magnification"
+##### "magnification"
 - Font magnification. Default = 1.
 
 ##### "css_url"
@@ -1396,4 +1396,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 26 May 2019 (2019.05.26).
+Last Updated: 30 May 2019 (2019.05.30).

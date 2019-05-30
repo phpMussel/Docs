@@ -296,46 +296,46 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/fe_assets/scripts.js | 包含前端JavaScript数据。
 /vault/lang/ | 包含phpMussel语言数据。
 /vault/lang/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
-/vault/lang/lang.ar.fe.php | 阿拉伯文前端语言数据。
-/vault/lang/lang.ar.php | 阿拉伯文语言数据。
-/vault/lang/lang.bn.fe.php | 孟加拉文前端语言数据。
-/vault/lang/lang.bn.php | 孟加拉文语言数据。
-/vault/lang/lang.de.fe.php | 德文前端语言数据。
-/vault/lang/lang.de.php | 德文语言数据。
-/vault/lang/lang.en.fe.php | 英文前端语言数据。
-/vault/lang/lang.en.php | 英文语言数据。
-/vault/lang/lang.es.fe.php | 西班牙文前端语言数据。
-/vault/lang/lang.es.php | 西班牙文语言数据。
-/vault/lang/lang.fr.fe.php | 法文前端语言数据。
-/vault/lang/lang.fr.php | 法文语言数据。
-/vault/lang/lang.hi.fe.php | 印地文前端语言数据。
-/vault/lang/lang.hi.php | 印地文语言数据。
-/vault/lang/lang.id.fe.php | 印度尼西亚文前端语言数据。
-/vault/lang/lang.id.php | 印度尼西亚文语言数据。
-/vault/lang/lang.it.fe.php | 意大利文前端语言数据。
-/vault/lang/lang.it.php | 意大利文语言数据。
-/vault/lang/lang.ja.fe.php | 日文前端语言数据。
-/vault/lang/lang.ja.php | 日文语言数据。
-/vault/lang/lang.ko.fe.php | 韩文前端语言数据。
-/vault/lang/lang.ko.php | 韩文语言数据。
-/vault/lang/lang.nl.fe.php | 荷兰文前端语言数据。
-/vault/lang/lang.nl.php | 荷兰文语言数据。
-/vault/lang/lang.pt.fe.php | 葡萄牙文前端语言数据。
-/vault/lang/lang.pt.php | 葡萄牙文语言数据。
-/vault/lang/lang.ru.fe.php | 俄文前端语言数据。
-/vault/lang/lang.ru.php | 俄文语言数据。
-/vault/lang/lang.th.fe.php | 泰文前端语言数据。
-/vault/lang/lang.th.php | 泰文语言数据。
-/vault/lang/lang.tr.fe.php | 土耳其文前端语言数据。
-/vault/lang/lang.tr.php | 土耳其文语言数据。
-/vault/lang/lang.ur.fe.php | 乌尔都文前端语言数据。
-/vault/lang/lang.ur.php | 乌尔都文语言数据。
-/vault/lang/lang.vi.fe.php | 越南文前端语言数据。
-/vault/lang/lang.vi.php | 越南文语言数据。
-/vault/lang/lang.zh-tw.fe.php | 中文（传统）前端语言数据。
-/vault/lang/lang.zh-tw.php | 中文（传统）语言数据。
-/vault/lang/lang.zh.fe.php | 中文（简体）前端语言数据。
-/vault/lang/lang.zh.php | 中文（简体）语言数据。
+/vault/lang/lang.ar.fe.yaml | 阿拉伯文前端语言数据。
+/vault/lang/lang.ar.yaml | 阿拉伯文语言数据。
+/vault/lang/lang.bn.fe.yaml | 孟加拉文前端语言数据。
+/vault/lang/lang.bn.yaml | 孟加拉文语言数据。
+/vault/lang/lang.de.fe.yaml | 德文前端语言数据。
+/vault/lang/lang.de.yaml | 德文语言数据。
+/vault/lang/lang.en.fe.yaml | 英文前端语言数据。
+/vault/lang/lang.en.yaml | 英文语言数据。
+/vault/lang/lang.es.fe.yaml | 西班牙文前端语言数据。
+/vault/lang/lang.es.yaml | 西班牙文语言数据。
+/vault/lang/lang.fr.fe.yaml | 法文前端语言数据。
+/vault/lang/lang.fr.yaml | 法文语言数据。
+/vault/lang/lang.hi.fe.yaml | 印地文前端语言数据。
+/vault/lang/lang.hi.yaml | 印地文语言数据。
+/vault/lang/lang.id.fe.yaml | 印度尼西亚文前端语言数据。
+/vault/lang/lang.id.yaml | 印度尼西亚文语言数据。
+/vault/lang/lang.it.fe.yaml | 意大利文前端语言数据。
+/vault/lang/lang.it.yaml | 意大利文语言数据。
+/vault/lang/lang.ja.fe.yaml | 日文前端语言数据。
+/vault/lang/lang.ja.yaml | 日文语言数据。
+/vault/lang/lang.ko.fe.yaml | 韩文前端语言数据。
+/vault/lang/lang.ko.yaml | 韩文语言数据。
+/vault/lang/lang.nl.fe.yaml | 荷兰文前端语言数据。
+/vault/lang/lang.nl.yaml | 荷兰文语言数据。
+/vault/lang/lang.pt.fe.yaml | 葡萄牙文前端语言数据。
+/vault/lang/lang.pt.yaml | 葡萄牙文语言数据。
+/vault/lang/lang.ru.fe.yaml | 俄文前端语言数据。
+/vault/lang/lang.ru.yaml | 俄文语言数据。
+/vault/lang/lang.th.fe.yaml | 泰文前端语言数据。
+/vault/lang/lang.th.yaml | 泰文语言数据。
+/vault/lang/lang.tr.fe.yaml | 土耳其文前端语言数据。
+/vault/lang/lang.tr.yaml | 土耳其文语言数据。
+/vault/lang/lang.ur.fe.yaml | 乌尔都文前端语言数据。
+/vault/lang/lang.ur.yaml | 乌尔都文语言数据。
+/vault/lang/lang.vi.fe.yaml | 越南文前端语言数据。
+/vault/lang/lang.vi.yaml | 越南文语言数据。
+/vault/lang/lang.zh-tw.fe.yaml | 中文（传统）前端语言数据。
+/vault/lang/lang.zh-tw.yaml | 中文（传统）语言数据。
+/vault/lang/lang.zh.fe.yaml | 中文（简体）前端语言数据。
+/vault/lang/lang.zh.yaml | 中文（简体）语言数据。
 /vault/quarantine/ | 隔离文件夹（包含隔离文件）。
 /vault/quarantine/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/signatures/ | 签名文件夹（包含签​名文件）。
@@ -390,7 +390,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 [compatibility](#compatibility-类别) | [heuristic](#heuristic-类别) | [virustotal](#virustotal-类别) | [urlscanner](#urlscanner-类别)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate和vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-类别) | [template_data](#template_data-类别) | [PHPMailer](#phpmailer-类别) | [supplementary_cache_options](#supplementary_cache_options-类别)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### “general” （类别）
 基本phpMussel配置。
@@ -745,7 +745,7 @@ URL扫描仪API配置。
 ##### “theme”
 - 用于phpMussel的默认主题。
 
-##### “Magnification”
+##### “magnification”
 - 字体放大。​标准 = 1。
 
 ##### “css_url”
@@ -1395,4 +1395,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2019年5月26日。
+最后更新：2019年5月30日。

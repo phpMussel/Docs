@@ -295,46 +295,46 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /vault/fe_assets/scripts.js | 프런트 엔드 JavaScript 데이터가 들어 있습니다.
 /vault/lang/ | phpMussel 언어 데이터가 포함되어 있습니다.
 /vault/lang/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
-/vault/lang/lang.ar.fe.php | 프론트 엔드 아랍어 언어 데이터.
-/vault/lang/lang.ar.php | 아랍어 언어 데이터.
-/vault/lang/lang.bn.fe.php | 프론트 엔드 벵골어 언어 데이터.
-/vault/lang/lang.bn.php | CLI 벵골어 언어 데이터.
-/vault/lang/lang.de.fe.php | 프론트 엔드 독일어 언어 데이터.
-/vault/lang/lang.de.php | 독일어 언어 데이터.
-/vault/lang/lang.en.fe.php | 프론트 엔드 영어 데이터.
-/vault/lang/lang.en.php | 영어 데이터.
-/vault/lang/lang.es.fe.php | 프론트 엔드 스페인어 언어 데이터.
-/vault/lang/lang.es.php | 스페인어 언어 데이터.
-/vault/lang/lang.fr.fe.php | 프론트 엔드 프랑스어 언어 데이터.
-/vault/lang/lang.fr.php | 프랑스어 언어 데이터.
-/vault/lang/lang.hi.fe.php | 프론트 엔드 힌디어 언어 데이터.
-/vault/lang/lang.hi.php | 힌디어 언어 데이터.
-/vault/lang/lang.id.fe.php | 프론트 엔드 인도네시아어 언어 데이터.
-/vault/lang/lang.id.php | 인도네시아어 언어 데이터.
-/vault/lang/lang.it.fe.php | 프론트 엔드 이탈리아 언어 데이터.
-/vault/lang/lang.it.php | 이탈리아 언어 데이터.
-/vault/lang/lang.ja.fe.php | 프론트 엔드 일본어 언어 데이터.
-/vault/lang/lang.ja.php | 일본어 언어 데이터.
-/vault/lang/lang.ko.fe.php | 프론트 엔드의 한국어 언어 데이터.
-/vault/lang/lang.ko.php | 한국어 언어 데이터.
-/vault/lang/lang.nl.fe.php | 프론트 엔드 네덜란드어 언어 데이터.
-/vault/lang/lang.nl.php | 네덜란드어 언어 데이터.
-/vault/lang/lang.pt.fe.php | 프론트 엔드 포르투갈어 언어 데이터.
-/vault/lang/lang.pt.php | 포르투갈어 언어 데이터.
-/vault/lang/lang.ru.fe.php | 프론트 엔드 러시아어 언어 데이터.
-/vault/lang/lang.ru.php | 러시아어 언어 데이터.
-/vault/lang/lang.th.fe.php | 프론트 엔드 태국어 언어 데이터.
-/vault/lang/lang.th.php | 태국어 언어 데이터.
-/vault/lang/lang.tr.fe.php | 프론트 엔드 터키어 언어 데이터.
-/vault/lang/lang.tr.php | 터키어 언어 데이터.
-/vault/lang/lang.ur.fe.php | 프론트 엔드 우르두어 언어 데이터.
-/vault/lang/lang.ur.php | 우르두어 언어 데이터.
-/vault/lang/lang.vi.fe.php | 프론트 엔드 베트남어 언어 데이터.
-/vault/lang/lang.vi.php | 베트남어 언어 데이터.
-/vault/lang/lang.zh-tw.fe.php | 프론트 엔드 중국어 번체 언어 데이터.
-/vault/lang/lang.zh-tw.php | 중국어 번체 언어 데이터.
-/vault/lang/lang.zh.fe.php | 프론트 엔드 중국어 간체 언어 데이터.
-/vault/lang/lang.zh.php | 중국어 간체 언어 데이터.
+/vault/lang/lang.ar.fe.yaml | 프론트 엔드 아랍어 언어 데이터.
+/vault/lang/lang.ar.yaml | 아랍어 언어 데이터.
+/vault/lang/lang.bn.fe.yaml | 프론트 엔드 벵골어 언어 데이터.
+/vault/lang/lang.bn.yaml | CLI 벵골어 언어 데이터.
+/vault/lang/lang.de.fe.yaml | 프론트 엔드 독일어 언어 데이터.
+/vault/lang/lang.de.yaml | 독일어 언어 데이터.
+/vault/lang/lang.en.fe.yaml | 프론트 엔드 영어 데이터.
+/vault/lang/lang.en.yaml | 영어 데이터.
+/vault/lang/lang.es.fe.yaml | 프론트 엔드 스페인어 언어 데이터.
+/vault/lang/lang.es.yaml | 스페인어 언어 데이터.
+/vault/lang/lang.fr.fe.yaml | 프론트 엔드 프랑스어 언어 데이터.
+/vault/lang/lang.fr.yaml | 프랑스어 언어 데이터.
+/vault/lang/lang.hi.fe.yaml | 프론트 엔드 힌디어 언어 데이터.
+/vault/lang/lang.hi.yaml | 힌디어 언어 데이터.
+/vault/lang/lang.id.fe.yaml | 프론트 엔드 인도네시아어 언어 데이터.
+/vault/lang/lang.id.yaml | 인도네시아어 언어 데이터.
+/vault/lang/lang.it.fe.yaml | 프론트 엔드 이탈리아 언어 데이터.
+/vault/lang/lang.it.yaml | 이탈리아 언어 데이터.
+/vault/lang/lang.ja.fe.yaml | 프론트 엔드 일본어 언어 데이터.
+/vault/lang/lang.ja.yaml | 일본어 언어 데이터.
+/vault/lang/lang.ko.fe.yaml | 프론트 엔드의 한국어 언어 데이터.
+/vault/lang/lang.ko.yaml | 한국어 언어 데이터.
+/vault/lang/lang.nl.fe.yaml | 프론트 엔드 네덜란드어 언어 데이터.
+/vault/lang/lang.nl.yaml | 네덜란드어 언어 데이터.
+/vault/lang/lang.pt.fe.yaml | 프론트 엔드 포르투갈어 언어 데이터.
+/vault/lang/lang.pt.yaml | 포르투갈어 언어 데이터.
+/vault/lang/lang.ru.fe.yaml | 프론트 엔드 러시아어 언어 데이터.
+/vault/lang/lang.ru.yaml | 러시아어 언어 데이터.
+/vault/lang/lang.th.fe.yaml | 프론트 엔드 태국어 언어 데이터.
+/vault/lang/lang.th.yaml | 태국어 언어 데이터.
+/vault/lang/lang.tr.fe.yaml | 프론트 엔드 터키어 언어 데이터.
+/vault/lang/lang.tr.yaml | 터키어 언어 데이터.
+/vault/lang/lang.ur.fe.yaml | 프론트 엔드 우르두어 언어 데이터.
+/vault/lang/lang.ur.yaml | 우르두어 언어 데이터.
+/vault/lang/lang.vi.fe.yaml | 프론트 엔드 베트남어 언어 데이터.
+/vault/lang/lang.vi.yaml | 베트남어 언어 데이터.
+/vault/lang/lang.zh-tw.fe.yaml | 프론트 엔드 중국어 번체 언어 데이터.
+/vault/lang/lang.zh-tw.yaml | 중국어 번체 언어 데이터.
+/vault/lang/lang.zh.fe.yaml | 프론트 엔드 중국어 간체 언어 데이터.
+/vault/lang/lang.zh.yaml | 중국어 간체 언어 데이터.
 /vault/quarantine/ | 검역 디렉토리 (격리 된 파일 포함합니다).
 /vault/quarantine/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/signatures/ | 서명 디렉토리 (서명 파일이 포함되어 있습니다).
@@ -389,7 +389,7 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 [compatibility](#compatibility-카테고리) | [heuristic](#heuristic-카테고리) | [virustotal](#virustotal-카테고리) | [urlscanner](#urlscanner-카테고리)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate와-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-카테고리) | [template_data](#template_data-카테고리) | [PHPMailer](#phpmailer-카테고리) | [supplementary_cache_options](#supplementary_cache_options-카테고리)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (카테고리)
 일반 설정.
@@ -744,7 +744,7 @@ URL 스캐너 API 조회 설정.
 ##### "theme"
 - phpMussel에 사용할 기본 테마.
 
-##### "Magnification"
+##### "magnification"
 - 글꼴 배율. Default (기본 설정) = 1.
 
 ##### "css_url"
@@ -1391,4 +1391,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2019년 5월 26일.
+최종 업데이트 : 2019년 5월 30일.

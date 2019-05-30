@@ -295,46 +295,46 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/fe_assets/scripts.js | フロントエンドJavaScriptデータが含まれています。
 /vault/lang/ | phpMusselの言語データを含んでいます。
 /vault/lang/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
-/vault/lang/lang.ar.fe.php | フロントエンドのアラビア語言語データ。
-/vault/lang/lang.ar.php | アラビア語言語データ。
-/vault/lang/lang.bn.fe.php | フロントエンドのベンガル語言語データ。
-/vault/lang/lang.bn.php | ベンガル語言語データ。
-/vault/lang/lang.de.fe.php | フロントエンドのドイツ語言語データ。
-/vault/lang/lang.de.php | ドイツ語言語データ。
-/vault/lang/lang.en.fe.php | フロントエンドの英語言語データ。
-/vault/lang/lang.en.php | 英語言語データ。
-/vault/lang/lang.es.fe.php | フロントエンドのスペイン語言語データ。
-/vault/lang/lang.es.php | スペイン語言語データ。
-/vault/lang/lang.fr.fe.php | フロントエンドのフランス語言語データ。
-/vault/lang/lang.fr.php | フランス語言語データ。
-/vault/lang/lang.hi.fe.php | フロントエンドのヒンディー語言語データ。
-/vault/lang/lang.hi.php | ヒンディー語言語データ。
-/vault/lang/lang.id.fe.php | フロントエンドのインドネシア語言語データ。
-/vault/lang/lang.id.php | インドネシア語言語データ。
-/vault/lang/lang.it.fe.php | フロントエンドの伊語言語データ。
-/vault/lang/lang.it.php | 伊語言語データ。
-/vault/lang/lang.ja.fe.php | フロントエンドの日本語言語データ。
-/vault/lang/lang.ja.php | 日本語言語データ。
-/vault/lang/lang.ko.fe.php | フロントエンドの韓国語言語データ。
-/vault/lang/lang.ko.php | 韓国語言語データ。
-/vault/lang/lang.nl.fe.php | フロントエンドのオランダ語言語データ。
-/vault/lang/lang.nl.php | オランダ語言語データ。
-/vault/lang/lang.pt.fe.php | フロントエンドのポルトガル語言語データ。
-/vault/lang/lang.pt.php | ポルトガル語言語データ。
-/vault/lang/lang.ru.fe.php | フロントエンドのロシア語言語データ。
-/vault/lang/lang.ru.php | ロシア語言語データ。
-/vault/lang/lang.th.fe.php | フロントエンドのタイ語言語データ。
-/vault/lang/lang.th.php | タイ語言語データ。
-/vault/lang/lang.tr.fe.php | フロントエンドのトルコ語言語データ。
-/vault/lang/lang.tr.php | トルコ語言語データ。
-/vault/lang/lang.ur.fe.php | フロントエンドのウルドゥー語言語データ。
-/vault/lang/lang.ur.php | ウルドゥー語言語データ。
-/vault/lang/lang.vi.fe.php | フロントエンドのベトナム語言語データ。
-/vault/lang/lang.vi.php | ベトナム語言語データ。
-/vault/lang/lang.zh-tw.fe.php | フロントエンドの繁体字中国語言語データ。
-/vault/lang/lang.zh-tw.php | 繁体字中国語言語データ。
-/vault/lang/lang.zh.fe.php | フロントエンドの簡体字中国語言語データ。
-/vault/lang/lang.zh.php | 簡体字中国語言語データ。
+/vault/lang/lang.ar.fe.yaml | フロントエンドのアラビア語言語データ。
+/vault/lang/lang.ar.yaml | アラビア語言語データ。
+/vault/lang/lang.bn.fe.yaml | フロントエンドのベンガル語言語データ。
+/vault/lang/lang.bn.yaml | ベンガル語言語データ。
+/vault/lang/lang.de.fe.yaml | フロントエンドのドイツ語言語データ。
+/vault/lang/lang.de.yaml | ドイツ語言語データ。
+/vault/lang/lang.en.fe.yaml | フロントエンドの英語言語データ。
+/vault/lang/lang.en.yaml | 英語言語データ。
+/vault/lang/lang.es.fe.yaml | フロントエンドのスペイン語言語データ。
+/vault/lang/lang.es.yaml | スペイン語言語データ。
+/vault/lang/lang.fr.fe.yaml | フロントエンドのフランス語言語データ。
+/vault/lang/lang.fr.yaml | フランス語言語データ。
+/vault/lang/lang.hi.fe.yaml | フロントエンドのヒンディー語言語データ。
+/vault/lang/lang.hi.yaml | ヒンディー語言語データ。
+/vault/lang/lang.id.fe.yaml | フロントエンドのインドネシア語言語データ。
+/vault/lang/lang.id.yaml | インドネシア語言語データ。
+/vault/lang/lang.it.fe.yaml | フロントエンドの伊語言語データ。
+/vault/lang/lang.it.yaml | 伊語言語データ。
+/vault/lang/lang.ja.fe.yaml | フロントエンドの日本語言語データ。
+/vault/lang/lang.ja.yaml | 日本語言語データ。
+/vault/lang/lang.ko.fe.yaml | フロントエンドの韓国語言語データ。
+/vault/lang/lang.ko.yaml | 韓国語言語データ。
+/vault/lang/lang.nl.fe.yaml | フロントエンドのオランダ語言語データ。
+/vault/lang/lang.nl.yaml | オランダ語言語データ。
+/vault/lang/lang.pt.fe.yaml | フロントエンドのポルトガル語言語データ。
+/vault/lang/lang.pt.yaml | ポルトガル語言語データ。
+/vault/lang/lang.ru.fe.yaml | フロントエンドのロシア語言語データ。
+/vault/lang/lang.ru.yaml | ロシア語言語データ。
+/vault/lang/lang.th.fe.yaml | フロントエンドのタイ語言語データ。
+/vault/lang/lang.th.yaml | タイ語言語データ。
+/vault/lang/lang.tr.fe.yaml | フロントエンドのトルコ語言語データ。
+/vault/lang/lang.tr.yaml | トルコ語言語データ。
+/vault/lang/lang.ur.fe.yaml | フロントエンドのウルドゥー語言語データ。
+/vault/lang/lang.ur.yaml | ウルドゥー語言語データ。
+/vault/lang/lang.vi.fe.yaml | フロントエンドのベトナム語言語データ。
+/vault/lang/lang.vi.yaml | ベトナム語言語データ。
+/vault/lang/lang.zh-tw.fe.yaml | フロントエンドの繁体字中国語言語データ。
+/vault/lang/lang.zh-tw.yaml | 繁体字中国語言語データ。
+/vault/lang/lang.zh.fe.yaml | フロントエンドの簡体字中国語言語データ。
+/vault/lang/lang.zh.yaml | 簡体字中国語言語データ。
 /vault/quarantine/ | 検疫ディレクトリ（検疫されたファイル含んでいます）。
 /vault/quarantine/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/signatures/ | シグネチャディレクトリ（シグネチャ・ファイルが含まれています）。
@@ -389,7 +389,7 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 [compatibility](#compatibility-コンパーティブリティカテゴリ) | [heuristic](#heuristic-ヒューリスティックカテゴリ) | [virustotal](#virustotal-ウィルストータルカテゴリ) | [urlscanner](#urlscanner-ユーアールエルスキャナーカテゴリ)
 [ignore_upload_errors](#ignore_upload_errors-イグノアアップロードエラーズ)<br />[only_allow_images](#only_allow_images-オンリーアロウイメージ)<br /><br /><br /><br /> | [threshold](#threshold-スレッシュホールド)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key-ヴィティパブリックエイピーアイキー)<br />[vt_suspicion_level](#vt_suspicion_level-ヴィティサスピションレベル)<br />[vt_weighting](#vt_weighting-ヴィティウェイティング)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-ヴィティクォータレート-と-vt_quota_time-ヴィティクォータタイム)<br /> | [lookup_hphosts](#lookup_hphosts-ルックアップエイチピーホスツ)<br />[google_api_key](#google_api_key-グーグルエーピーアイキー)<br />[maximum_api_lookups](#maximum_api_lookups-マクシマムエーピーアイルックアップス)<br />[maximum_api_lookups_response](#maximum_api_lookups_response-マクシマムエーピーアイルックアップスレスポンス)<br />[cache_time](#cache_time-キャッシュタイム)<br />
 [legal](#legal-リーガルカテゴリ) | [template_data](#template_data-テンプレートデータカテゴリ) | [PHPMailer](#phpmailer-ピーエイチピーメーラーカテゴリ) | [supplementary_cache_options](#supplementary_cache_options-サプレメンタリーキャッシュオプションズカテゴリ)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses-プセユードニマイズアイピーアドレセズ)<br />[privacy_policy](#privacy_policy-プライバシーポリシー)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme-シームテーマ)<br />[Magnification](#magnification-マグニフィケーション)<br />[css_url](#css_url-シーエスエスユーアールエル)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log-イベントログ)<br />[skip_auth_process](#skip_auth_process-スキップオスプロセス)<br />[enable_two_factor](#enable_two_factor-イネーブル２ｆａ)<br />[host](#host-ホスト)<br />[port](#port-ポート)<br />[smtp_secure](#smtp_secure-ｓｍｔｐセキュア)<br />[smtp_auth](#smtp_auth-ｓｍｔｐオス)<br />[username](#username-ユーザーネーム)<br />[password](#password-パスワード)<br />[set_from_address](#set_from_address-セットフロムアドレス)<br />[set_from_name](#set_from_name-セットフロムネーム)<br />[add_reply_to_address](#add_reply_to_address-アッドリプライアドレス)<br />[add_reply_to_name](#add_reply_to_name-アッドリプライネーム)<br /> | [enable_apcu](#enable_apcu-イネーブルａｐｃｕ)<br />[enable_memcached](#enable_memcached-イネーブルメムキャッシュト)<br />[enable_redis](#enable_redis-イネーブルレディス)<br />[enable_pdo](#enable_pdo-イネーブルｐｄｏ)<br />[memcached_host](#memcached_host-メムキャッシュホスト)<br />[memcached_port](#memcached_port-メムキャッシュポート)<br />[redis_host](#redis_host-レディスホスト)<br />[redis_port](#redis_port-レディスポート)<br />[redis_timeout](#redis_timeout-レディスタイムアウト)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username-ｐｄｏユーザーネーム)<br />[pdo_password](#pdo_password-ｐｄｏパスワード)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses-プセユードニマイズアイピーアドレセズ)<br />[privacy_policy](#privacy_policy-プライバシーポリシー)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme-シームテーマ)<br />[magnification](#magnification-マグニフィケーション)<br />[css_url](#css_url-シーエスエスユーアールエル)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log-イベントログ)<br />[skip_auth_process](#skip_auth_process-スキップオスプロセス)<br />[enable_two_factor](#enable_two_factor-イネーブル２ｆａ)<br />[host](#host-ホスト)<br />[port](#port-ポート)<br />[smtp_secure](#smtp_secure-ｓｍｔｐセキュア)<br />[smtp_auth](#smtp_auth-ｓｍｔｐオス)<br />[username](#username-ユーザーネーム)<br />[password](#password-パスワード)<br />[set_from_address](#set_from_address-セットフロムアドレス)<br />[set_from_name](#set_from_name-セットフロムネーム)<br />[add_reply_to_address](#add_reply_to_address-アッドリプライアドレス)<br />[add_reply_to_name](#add_reply_to_name-アッドリプライネーム)<br /> | [enable_apcu](#enable_apcu-イネーブルａｐｃｕ)<br />[enable_memcached](#enable_memcached-イネーブルメムキャッシュト)<br />[enable_redis](#enable_redis-イネーブルレディス)<br />[enable_pdo](#enable_pdo-イネーブルｐｄｏ)<br />[memcached_host](#memcached_host-メムキャッシュホスト)<br />[memcached_port](#memcached_port-メムキャッシュポート)<br />[redis_host](#redis_host-レディスホスト)<br />[redis_port](#redis_port-レディスポート)<br />[redis_timeout](#redis_timeout-レディスタイムアウト)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username-ｐｄｏユーザーネーム)<br />[pdo_password](#pdo_password-ｐｄｏパスワード)<br /><br />
 
 #### "general" （全般、カテゴリー）
 全般的な設定。
@@ -744,7 +744,7 @@ URLスキャナーAPIルックアップ設定。
 ##### "theme" （シーム/テーマ）
 - phpMusselに使用するデフォルトテーマ。
 
-##### "Magnification" （マグニフィケーション）
+##### "magnification" （マグニフィケーション）
 - フォントの倍率。​Default/デフォルルト = １。
 
 ##### "css_url" （シーエスエス・ユーアールエル）
@@ -1393,4 +1393,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０１９年５月２６日。
+最終アップデート：２０１９年５月３０日。

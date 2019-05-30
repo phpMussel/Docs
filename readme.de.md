@@ -296,46 +296,46 @@ Datei | Beschreibung
 /vault/fe_assets/scripts.js | Enthält Frontend-JavaScript-Daten.
 /vault/lang/ | Enthält Sprachdaten für phpMussel.
 /vault/lang/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
-/vault/lang/lang.ar.fe.php | Arabische Sprachdateien für das Frontend.
-/vault/lang/lang.ar.php | Arabische Sprachdateien.
-/vault/lang/lang.bn.fe.php | Bangla Sprachdateien für das Frontend.
-/vault/lang/lang.bn.php | Bangla Sprachdateien.
-/vault/lang/lang.de.fe.php | Deutsche Sprachdateien für das Frontend.
-/vault/lang/lang.de.php | Deutsche Sprachdateien.
-/vault/lang/lang.en.fe.php | Englische Sprachdateien für das Frontend.
-/vault/lang/lang.en.php | Englische Sprachdateien.
-/vault/lang/lang.es.fe.php | Spanische Sprachdateien für das Frontend.
-/vault/lang/lang.es.php | Spanische Sprachdateien.
-/vault/lang/lang.fr.fe.php | Französische Sprachdateien für das Frontend.
-/vault/lang/lang.fr.php | Französische Sprachdateien.
-/vault/lang/lang.hi.fe.php | Hindi Sprachdateien für das Frontend.
-/vault/lang/lang.hi.php | Hindi Sprachdateien.
-/vault/lang/lang.id.fe.php | Indonesische Sprachdateien für das Frontend.
-/vault/lang/lang.id.php | Indonesische Sprachdateien.
-/vault/lang/lang.it.fe.php | Italienische Sprachdateien für das Frontend.
-/vault/lang/lang.it.php | Italienische Sprachdateien.
-/vault/lang/lang.ja.fe.php | Japanische Sprachdateien für das Frontend.
-/vault/lang/lang.ja.php | Japanische Sprachdateien.
-/vault/lang/lang.ko.fe.php | Koreanische Sprachdateien für das Frontend.
-/vault/lang/lang.ko.php | Koreanische Sprachdateien.
-/vault/lang/lang.nl.fe.php | Niederländische Sprachdateien für das Frontend.
-/vault/lang/lang.nl.php | Niederländische Sprachdateien.
-/vault/lang/lang.pt.fe.php | Portugiesische Sprachdateien für das Frontend.
-/vault/lang/lang.pt.php | Portugiesische Sprachdateien.
-/vault/lang/lang.ru.fe.php | Russische Sprachdateien für das Frontend.
-/vault/lang/lang.ru.php | Russische Sprachdateien.
-/vault/lang/lang.th.fe.php | Thai Sprachdateien für das Frontend.
-/vault/lang/lang.th.php | Thai Sprachdateien.
-/vault/lang/lang.tr.fe.php | Türkische Sprachdateien für das Frontend.
-/vault/lang/lang.tr.php | Türkische Sprachdateien.
-/vault/lang/lang.ur.fe.php | Urdu Sprachdateien für das Frontend.
-/vault/lang/lang.ur.php | Urdu Sprachdateien.
-/vault/lang/lang.vi.fe.php | Vietnamesische Sprachdateien für das Frontend.
-/vault/lang/lang.vi.php | Vietnamesische Sprachdateien.
-/vault/lang/lang.zh-tw.fe.php | Chinesische Sprachdateien (traditionell) für das Frontend.
-/vault/lang/lang.zh-tw.php | Chinesische Sprachdateien (traditionell).
-/vault/lang/lang.zh.fe.php | Chinesische Sprachdateien (vereinfacht) für das Frontend.
-/vault/lang/lang.zh.php | Chinesische Sprachdateien (vereinfacht).
+/vault/lang/lang.ar.fe.yaml | Arabische Sprachdateien für das Frontend.
+/vault/lang/lang.ar.yaml | Arabische Sprachdateien.
+/vault/lang/lang.bn.fe.yaml | Bangla Sprachdateien für das Frontend.
+/vault/lang/lang.bn.yaml | Bangla Sprachdateien.
+/vault/lang/lang.de.fe.yaml | Deutsche Sprachdateien für das Frontend.
+/vault/lang/lang.de.yaml | Deutsche Sprachdateien.
+/vault/lang/lang.en.fe.yaml | Englische Sprachdateien für das Frontend.
+/vault/lang/lang.en.yaml | Englische Sprachdateien.
+/vault/lang/lang.es.fe.yaml | Spanische Sprachdateien für das Frontend.
+/vault/lang/lang.es.yaml | Spanische Sprachdateien.
+/vault/lang/lang.fr.fe.yaml | Französische Sprachdateien für das Frontend.
+/vault/lang/lang.fr.yaml | Französische Sprachdateien.
+/vault/lang/lang.hi.fe.yaml | Hindi Sprachdateien für das Frontend.
+/vault/lang/lang.hi.yaml | Hindi Sprachdateien.
+/vault/lang/lang.id.fe.yaml | Indonesische Sprachdateien für das Frontend.
+/vault/lang/lang.id.yaml | Indonesische Sprachdateien.
+/vault/lang/lang.it.fe.yaml | Italienische Sprachdateien für das Frontend.
+/vault/lang/lang.it.yaml | Italienische Sprachdateien.
+/vault/lang/lang.ja.fe.yaml | Japanische Sprachdateien für das Frontend.
+/vault/lang/lang.ja.yaml | Japanische Sprachdateien.
+/vault/lang/lang.ko.fe.yaml | Koreanische Sprachdateien für das Frontend.
+/vault/lang/lang.ko.yaml | Koreanische Sprachdateien.
+/vault/lang/lang.nl.fe.yaml | Niederländische Sprachdateien für das Frontend.
+/vault/lang/lang.nl.yaml | Niederländische Sprachdateien.
+/vault/lang/lang.pt.fe.yaml | Portugiesische Sprachdateien für das Frontend.
+/vault/lang/lang.pt.yaml | Portugiesische Sprachdateien.
+/vault/lang/lang.ru.fe.yaml | Russische Sprachdateien für das Frontend.
+/vault/lang/lang.ru.yaml | Russische Sprachdateien.
+/vault/lang/lang.th.fe.yaml | Thai Sprachdateien für das Frontend.
+/vault/lang/lang.th.yaml | Thai Sprachdateien.
+/vault/lang/lang.tr.fe.yaml | Türkische Sprachdateien für das Frontend.
+/vault/lang/lang.tr.yaml | Türkische Sprachdateien.
+/vault/lang/lang.ur.fe.yaml | Urdu Sprachdateien für das Frontend.
+/vault/lang/lang.ur.yaml | Urdu Sprachdateien.
+/vault/lang/lang.vi.fe.yaml | Vietnamesische Sprachdateien für das Frontend.
+/vault/lang/lang.vi.yaml | Vietnamesische Sprachdateien.
+/vault/lang/lang.zh-tw.fe.yaml | Chinesische Sprachdateien (traditionell) für das Frontend.
+/vault/lang/lang.zh-tw.yaml | Chinesische Sprachdateien (traditionell).
+/vault/lang/lang.zh.fe.yaml | Chinesische Sprachdateien (vereinfacht) für das Frontend.
+/vault/lang/lang.zh.yaml | Chinesische Sprachdateien (vereinfacht).
 /vault/quarantine/ | Quarantäne-Verzeichnis (enthält Dateien in Quarantäne).
 /vault/quarantine/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/signatures/ | Signaturverzeichnis (enthält Signaturdateien).
@@ -390,7 +390,7 @@ Nachfolgend finden Sie eine Liste der Variablen in der Konfigurationsdatei `conf
 [compatibility](#compatibility-kategorie) | [heuristic](#heuristic-kategorie) | [virustotal](#virustotal-kategorie) | [urlscanner](#urlscanner-kategorie)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-und-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-kategorie) | [template_data](#template_data-kategorie) | [PHPMailer](#phpmailer-kategorie) | [supplementary_cache_options](#supplementary_cache_options-kategorie)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Kategorie)
 Generelle Konfiguration von phpMussel.
@@ -745,7 +745,7 @@ Template-Daten bezieht sich auf die HTML-Ausgabe die verwendet wird, um die "Upl
 ##### "theme"
 - Standard-Thema für phpMussel verwenden.
 
-##### "Magnification"
+##### "magnification"
 - Schriftvergrößerung. Standardeinstellung = 1.
 
 ##### "css_url"
@@ -1397,4 +1397,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 26 Mai 2019 (2019.05.26).
+Zuletzt aktualisiert: 30 Mai 2019 (2019.05.30).

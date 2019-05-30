@@ -295,46 +295,46 @@ phpMussel функционирует полностью в автономном 
 /vault/fe_assets/scripts.js | Содержит фронтенд данные JavaScript.
 /vault/lang/ | Содержит phpMussel файлы на разных языках.
 /vault/lang/.htaccess | Гипертекст доступа файл (в этом случае защищает от неавторизованного доступа чувствительные файлы данного руководства).
-/vault/lang/lang.ar.fe.php | Арабском языковые файлы для фронтенд.
-/vault/lang/lang.ar.php | Арабском языковые файлы.
-/vault/lang/lang.bn.fe.php | Бенгальском языковые файлы для фронтенд.
-/vault/lang/lang.bn.php | Бенгальском языковые файлы.
-/vault/lang/lang.de.fe.php | Немецком языковые файлы для фронтенд.
-/vault/lang/lang.de.php | Немецком языковые файлы.
-/vault/lang/lang.en.fe.php | Английском языковые файлы для фронтенд.
-/vault/lang/lang.en.php | Английском языковые файлы.
-/vault/lang/lang.es.fe.php | Испанском языковые файлы для фронтенд.
-/vault/lang/lang.es.php | Испанском языковые файлы.
-/vault/lang/lang.fr.fe.php | Французском языковые файлы для фронтенд.
-/vault/lang/lang.fr.php | Французском языковые файлы.
-/vault/lang/lang.hi.fe.php | Хинди языковые файлы для фронтенд.
-/vault/lang/lang.hi.php | Хинди языковые файлы.
-/vault/lang/lang.id.fe.php | Индонезийском языковые файлы для фронтенд.
-/vault/lang/lang.id.php | Индонезийском языковые файлы.
-/vault/lang/lang.it.fe.php | Итальянском языковые файлы для фронтенд.
-/vault/lang/lang.it.php | Итальянском языковые файлы.
-/vault/lang/lang.ja.fe.php | Японском языковые файлы для фронтенд.
-/vault/lang/lang.ja.php | Японском языковые файлы.
-/vault/lang/lang.ko.fe.php | Корейском языковые файлы для фронтенд.
-/vault/lang/lang.ko.php | Корейском языковые файлы.
-/vault/lang/lang.nl.fe.php | Нидерланском языковые файлы для фронтенд.
-/vault/lang/lang.nl.php | Нидерланском языковые файлы.
-/vault/lang/lang.pt.fe.php | Португальском языковые файлы для фронтенд.
-/vault/lang/lang.pt.php | Португальском языковые файлы.
-/vault/lang/lang.ru.fe.php | Русском языковые файлы для фронтенд.
-/vault/lang/lang.ru.php | Русском языковые файлы.
-/vault/lang/lang.th.fe.php | Тайском языковые файлы для фронтенд.
-/vault/lang/lang.th.php | Тайском языковые файлы.
-/vault/lang/lang.tr.fe.php | Турецком языковые файлы для фронтенд.
-/vault/lang/lang.tr.php | Турецком языковые файлы.
-/vault/lang/lang.ur.fe.php | Урду языковые файлы для фронтенд.
-/vault/lang/lang.ur.php | Урду языковые файлы.
-/vault/lang/lang.vi.fe.php | Вьетнамском языковые файлы для фронтенд.
-/vault/lang/lang.vi.php | Вьетнамском языковые файлы.
-/vault/lang/lang.zh-tw.fe.php | Китайском традиционный языковые файлы для фронтенд.
-/vault/lang/lang.zh-tw.php | Китайском традиционный языковые файлы.
-/vault/lang/lang.zh.fe.php | Китайском упрощенный языковые файлы для фронтенд.
-/vault/lang/lang.zh.php | Китайском упрощенный языковые файлы.
+/vault/lang/lang.ar.fe.yaml | Арабском языковые файлы для фронтенд.
+/vault/lang/lang.ar.yaml | Арабском языковые файлы.
+/vault/lang/lang.bn.fe.yaml | Бенгальском языковые файлы для фронтенд.
+/vault/lang/lang.bn.yaml | Бенгальском языковые файлы.
+/vault/lang/lang.de.fe.yaml | Немецком языковые файлы для фронтенд.
+/vault/lang/lang.de.yaml | Немецком языковые файлы.
+/vault/lang/lang.en.fe.yaml | Английском языковые файлы для фронтенд.
+/vault/lang/lang.en.yaml | Английском языковые файлы.
+/vault/lang/lang.es.fe.yaml | Испанском языковые файлы для фронтенд.
+/vault/lang/lang.es.yaml | Испанском языковые файлы.
+/vault/lang/lang.fr.fe.yaml | Французском языковые файлы для фронтенд.
+/vault/lang/lang.fr.yaml | Французском языковые файлы.
+/vault/lang/lang.hi.fe.yaml | Хинди языковые файлы для фронтенд.
+/vault/lang/lang.hi.yaml | Хинди языковые файлы.
+/vault/lang/lang.id.fe.yaml | Индонезийском языковые файлы для фронтенд.
+/vault/lang/lang.id.yaml | Индонезийском языковые файлы.
+/vault/lang/lang.it.fe.yaml | Итальянском языковые файлы для фронтенд.
+/vault/lang/lang.it.yaml | Итальянском языковые файлы.
+/vault/lang/lang.ja.fe.yaml | Японском языковые файлы для фронтенд.
+/vault/lang/lang.ja.yaml | Японском языковые файлы.
+/vault/lang/lang.ko.fe.yaml | Корейском языковые файлы для фронтенд.
+/vault/lang/lang.ko.yaml | Корейском языковые файлы.
+/vault/lang/lang.nl.fe.yaml | Нидерланском языковые файлы для фронтенд.
+/vault/lang/lang.nl.yaml | Нидерланском языковые файлы.
+/vault/lang/lang.pt.fe.yaml | Португальском языковые файлы для фронтенд.
+/vault/lang/lang.pt.yaml | Португальском языковые файлы.
+/vault/lang/lang.ru.fe.yaml | Русском языковые файлы для фронтенд.
+/vault/lang/lang.ru.yaml | Русском языковые файлы.
+/vault/lang/lang.th.fe.yaml | Тайском языковые файлы для фронтенд.
+/vault/lang/lang.th.yaml | Тайском языковые файлы.
+/vault/lang/lang.tr.fe.yaml | Турецком языковые файлы для фронтенд.
+/vault/lang/lang.tr.yaml | Турецком языковые файлы.
+/vault/lang/lang.ur.fe.yaml | Урду языковые файлы для фронтенд.
+/vault/lang/lang.ur.yaml | Урду языковые файлы.
+/vault/lang/lang.vi.fe.yaml | Вьетнамском языковые файлы для фронтенд.
+/vault/lang/lang.vi.yaml | Вьетнамском языковые файлы.
+/vault/lang/lang.zh-tw.fe.yaml | Китайском традиционный языковые файлы для фронтенд.
+/vault/lang/lang.zh-tw.yaml | Китайском традиционный языковые файлы.
+/vault/lang/lang.zh.fe.yaml | Китайском упрощенный языковые файлы для фронтенд.
+/vault/lang/lang.zh.yaml | Китайском упрощенный языковые файлы.
 /vault/quarantine/ | Карантинный-регистр (содержит файлы, находящиеся на карантине).
 /vault/quarantine/.htaccess | Гипертекст доступа файл (в этом случае защищает от неавторизованного доступа чувствительные файлы данного руководства).
 /vault/signatures/ | Сигнатуры-регистр (содержит сигнатуры файлы).
@@ -389,7 +389,7 @@ phpMussel функционирует полностью в автономном 
 [compatibility](#compatibility-категория) | [heuristic](#heuristic-категория) | [virustotal](#virustotal-категория) | [urlscanner](#urlscanner-категория)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-и-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-категория) | [template_data](#template_data-категория) | [PHPMailer](#phpmailer-категория) | [supplementary_cache_options](#supplementary_cache_options-категория)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### «general» (Категория)
 Генеральная конфигурация от phpMussel.
@@ -744,7 +744,7 @@ URL сканер API конфигурация.
 ##### «theme»
 - Стандартная тема для phpMussel.
 
-##### «Magnification»
+##### «magnification»
 - Увеличение шрифта. Стандарт = 1.
 
 ##### «css_url»
@@ -1388,4 +1388,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 26 Мая 2019 (2019.05.26).
+Последнее обновление: 30 Мая 2019 (2019.05.30).

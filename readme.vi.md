@@ -295,46 +295,46 @@ Tập tin | Chi tiết
 /vault/fe_assets/scripts.js | Chứa dữ liệu JavaScript cho front-end.
 /vault/lang/ | Chứa dữ liệu tiếng cho phpMussel.
 /vault/lang/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
-/vault/lang/lang.ar.fe.php | Dữ liệu tiếng Ả Rập cho các front-end.
-/vault/lang/lang.ar.php | Dữ liệu tiếng Ả Rập.
-/vault/lang/lang.bn.fe.php | Dữ liệu tiếng Bengal cho các front-end.
-/vault/lang/lang.bn.php | Dữ liệu tiếng Bengal.
-/vault/lang/lang.de.fe.php | Dữ liệu tiếng Đức cho các front-end.
-/vault/lang/lang.de.php | Dữ liệu tiếng Đức.
-/vault/lang/lang.en.fe.php | Dữ liệu tiếng Anh cho các front-end.
-/vault/lang/lang.en.php | Dữ liệu tiếng Anh.
-/vault/lang/lang.es.fe.php | Dữ liệu tiếng Tây Ban Nha cho các front-end.
-/vault/lang/lang.es.php | Dữ liệu tiếng Tây Ban Nha.
-/vault/lang/lang.fr.fe.php | Dữ liệu tiếng Pháp cho các front-end.
-/vault/lang/lang.fr.php | Dữ liệu tiếng Pháp.
-/vault/lang/lang.hi.fe.php | Dữ liệu tiếng Hindi cho các front-end.
-/vault/lang/lang.hi.php | Dữ liệu tiếng Hindi.
-/vault/lang/lang.id.fe.php | Dữ liệu tiếng Indonesia cho các front-end.
-/vault/lang/lang.id.php | Dữ liệu tiếng Indonesia.
-/vault/lang/lang.it.fe.php | Dữ liệu tiếng Ý cho các front-end.
-/vault/lang/lang.it.php | Dữ liệu tiếng Ý.
-/vault/lang/lang.ja.fe.php | Dữ liệu tiếng Nhật cho các front-end.
-/vault/lang/lang.ja.php | Dữ liệu tiếng Nhật.
-/vault/lang/lang.ko.fe.php | Dữ liệu tiếng Hàn cho các front-end.
-/vault/lang/lang.ko.php | Dữ liệu tiếng Hàn.
-/vault/lang/lang.nl.fe.php | Dữ liệu tiếng Hà Lan cho các front-end.
-/vault/lang/lang.nl.php | Dữ liệu tiếng Hà Lan.
-/vault/lang/lang.pt.fe.php | Dữ liệu tiếng Bồ Đào Nha cho các front-end.
-/vault/lang/lang.pt.php | Dữ liệu tiếng Bồ Đào Nha.
-/vault/lang/lang.ru.fe.php | Dữ liệu tiếng Nga cho các front-end.
-/vault/lang/lang.ru.php | Dữ liệu tiếng Nga.
-/vault/lang/lang.th.fe.php | Dữ liệu tiếng Thái Lan cho các front-end.
-/vault/lang/lang.th.php | Dữ liệu tiếng Thái Lan.
-/vault/lang/lang.tr.fe.php | Dữ liệu tiếng Thổ Nhĩ Kỳ cho các front-end.
-/vault/lang/lang.tr.php | Dữ liệu tiếng Thổ Nhĩ Kỳ.
-/vault/lang/lang.ur.fe.php | Dữ liệu tiếng Urdu cho các front-end.
-/vault/lang/lang.ur.php | Dữ liệu tiếng Urdu.
-/vault/lang/lang.vi.fe.php | Dữ liệu tiếng Việt cho các front-end.
-/vault/lang/lang.vi.php | Dữ liệu tiếng Việt.
-/vault/lang/lang.zh-tw.fe.php | Dữ liệu tiếng Trung Quốc (truyền thống) cho các front-end.
-/vault/lang/lang.zh-tw.php | Dữ liệu tiếng Trung Quốc (truyền thống).
-/vault/lang/lang.zh.fe.php | Dữ liệu tiếng Trung Quốc (giản thể) cho các front-end.
-/vault/lang/lang.zh.php | Dữ liệu tiếng Trung Quốc (giản thể).
+/vault/lang/lang.ar.fe.yaml | Dữ liệu tiếng Ả Rập cho các front-end.
+/vault/lang/lang.ar.yaml | Dữ liệu tiếng Ả Rập.
+/vault/lang/lang.bn.fe.yaml | Dữ liệu tiếng Bengal cho các front-end.
+/vault/lang/lang.bn.yaml | Dữ liệu tiếng Bengal.
+/vault/lang/lang.de.fe.yaml | Dữ liệu tiếng Đức cho các front-end.
+/vault/lang/lang.de.yaml | Dữ liệu tiếng Đức.
+/vault/lang/lang.en.fe.yaml | Dữ liệu tiếng Anh cho các front-end.
+/vault/lang/lang.en.yaml | Dữ liệu tiếng Anh.
+/vault/lang/lang.es.fe.yaml | Dữ liệu tiếng Tây Ban Nha cho các front-end.
+/vault/lang/lang.es.yaml | Dữ liệu tiếng Tây Ban Nha.
+/vault/lang/lang.fr.fe.yaml | Dữ liệu tiếng Pháp cho các front-end.
+/vault/lang/lang.fr.yaml | Dữ liệu tiếng Pháp.
+/vault/lang/lang.hi.fe.yaml | Dữ liệu tiếng Hindi cho các front-end.
+/vault/lang/lang.hi.yaml | Dữ liệu tiếng Hindi.
+/vault/lang/lang.id.fe.yaml | Dữ liệu tiếng Indonesia cho các front-end.
+/vault/lang/lang.id.yaml | Dữ liệu tiếng Indonesia.
+/vault/lang/lang.it.fe.yaml | Dữ liệu tiếng Ý cho các front-end.
+/vault/lang/lang.it.yaml | Dữ liệu tiếng Ý.
+/vault/lang/lang.ja.fe.yaml | Dữ liệu tiếng Nhật cho các front-end.
+/vault/lang/lang.ja.yaml | Dữ liệu tiếng Nhật.
+/vault/lang/lang.ko.fe.yaml | Dữ liệu tiếng Hàn cho các front-end.
+/vault/lang/lang.ko.yaml | Dữ liệu tiếng Hàn.
+/vault/lang/lang.nl.fe.yaml | Dữ liệu tiếng Hà Lan cho các front-end.
+/vault/lang/lang.nl.yaml | Dữ liệu tiếng Hà Lan.
+/vault/lang/lang.pt.fe.yaml | Dữ liệu tiếng Bồ Đào Nha cho các front-end.
+/vault/lang/lang.pt.yaml | Dữ liệu tiếng Bồ Đào Nha.
+/vault/lang/lang.ru.fe.yaml | Dữ liệu tiếng Nga cho các front-end.
+/vault/lang/lang.ru.yaml | Dữ liệu tiếng Nga.
+/vault/lang/lang.th.fe.yaml | Dữ liệu tiếng Thái Lan cho các front-end.
+/vault/lang/lang.th.yaml | Dữ liệu tiếng Thái Lan.
+/vault/lang/lang.tr.fe.yaml | Dữ liệu tiếng Thổ Nhĩ Kỳ cho các front-end.
+/vault/lang/lang.tr.yaml | Dữ liệu tiếng Thổ Nhĩ Kỳ.
+/vault/lang/lang.ur.fe.yaml | Dữ liệu tiếng Urdu cho các front-end.
+/vault/lang/lang.ur.yaml | Dữ liệu tiếng Urdu.
+/vault/lang/lang.vi.fe.yaml | Dữ liệu tiếng Việt cho các front-end.
+/vault/lang/lang.vi.yaml | Dữ liệu tiếng Việt.
+/vault/lang/lang.zh-tw.fe.yaml | Dữ liệu tiếng Trung Quốc (truyền thống) cho các front-end.
+/vault/lang/lang.zh-tw.yaml | Dữ liệu tiếng Trung Quốc (truyền thống).
+/vault/lang/lang.zh.fe.yaml | Dữ liệu tiếng Trung Quốc (giản thể) cho các front-end.
+/vault/lang/lang.zh.yaml | Dữ liệu tiếng Trung Quốc (giản thể).
 /vault/quarantine/ | Thư mục kiểm dịch (chứa các tập tin trong kiểm dịch).
 /vault/quarantine/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/signatures/ | Thư mục cho chữ ký (chứa các tập tin cho chữ ký).
@@ -389,7 +389,7 @@ Sau đây là danh sách các biến tìm thấy trong tập tin cấu hình cho
 [compatibility](#compatibility-thể-loại) | [heuristic](#heuristic-thể-loại) | [virustotal](#virustotal-thể-loại) | [urlscanner](#urlscanner-thể-loại)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-và-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-thể-loại) | [template_data](#template_data-thể-loại) | [PHPMailer](#phpmailer-thể-loại) | [supplementary_cache_options](#supplementary_cache_options-thể-loại)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Thể loại)
 Cấu hình chung cho phpMussel.
@@ -744,7 +744,7 @@ Dữ liệu mẫu thiết kế liên quan đến đầu ra HTML sử dụng đ�
 ##### "theme"
 - Chủ đề mặc định để sử dụng cho phpMussel.
 
-##### "Magnification"
+##### "magnification"
 - Phóng to chữ. Mặc định = 1.
 
 ##### "css_url"
@@ -1386,4 +1386,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 26 Tháng Năm 2019 (2019.05.26).
+Lần cuối cập nhật: 30 Tháng Năm 2019 (2019.05.30).

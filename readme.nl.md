@@ -295,46 +295,46 @@ Bestand | Beschrijving
 /vault/fe_assets/scripts.js | Bevat frontend JavaScript-gegevens.
 /vault/lang/ | Bevat phpMussel lokalisaties.
 /vault/lang/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
-/vault/lang/lang.ar.fe.php | Arabisch lokalisatie voor het frontend.
-/vault/lang/lang.ar.php | Arabisch lokalisatie.
-/vault/lang/lang.bn.fe.php | Bengalees lokalisatie voor het frontend.
-/vault/lang/lang.bn.php | Bengalees lokalisatie.
-/vault/lang/lang.de.fe.php | Duitse lokalisatie voor het frontend.
-/vault/lang/lang.de.php | Duitse lokalisatie.
-/vault/lang/lang.en.fe.php | Engels lokalisatie voor het frontend.
-/vault/lang/lang.en.php | Engels lokalisatie.
-/vault/lang/lang.es.fe.php | Spaanse lokalisatie voor het frontend.
-/vault/lang/lang.es.php | Spaanse lokalisatie.
-/vault/lang/lang.fr.fe.php | Franse lokalisatie voor het frontend.
-/vault/lang/lang.fr.php | Franse lokalisatie.
-/vault/lang/lang.hi.fe.php | Hindi lokalisatie voor het frontend.
-/vault/lang/lang.hi.php | Hindi lokalisatie.
-/vault/lang/lang.id.fe.php | Indonesisch lokalisatie voor het frontend.
-/vault/lang/lang.id.php | Indonesisch lokalisatie.
-/vault/lang/lang.it.fe.php | Italiaanse lokalisatie voor het frontend.
-/vault/lang/lang.it.php | Italiaanse lokalisatie.
-/vault/lang/lang.ja.fe.php | Japanse lokalisatie voor het frontend.
-/vault/lang/lang.ja.php | Japanse lokalisatie.
-/vault/lang/lang.ko.fe.php | Koreaanse lokalisatie voor het frontend.
-/vault/lang/lang.ko.php | Koreaanse lokalisatie.
-/vault/lang/lang.nl.fe.php | Nederlandse lokalisatie voor het frontend.
-/vault/lang/lang.nl.php | Nederlandse lokalisatie.
-/vault/lang/lang.pt.fe.php | Portugees lokalisatie voor het frontend.
-/vault/lang/lang.pt.php | Portugees lokalisatie.
-/vault/lang/lang.ru.fe.php | Russische lokalisatie voor het frontend.
-/vault/lang/lang.ru.php | Russische lokalisatie.
-/vault/lang/lang.th.fe.php | Thaise lokalisatie voor het frontend.
-/vault/lang/lang.th.php | Thaise lokalisatie.
-/vault/lang/lang.tr.fe.php | Turks lokalisatie voor het frontend.
-/vault/lang/lang.tr.php | Turks lokalisatie.
-/vault/lang/lang.ur.fe.php | Urdu lokalisatie voor het frontend.
-/vault/lang/lang.ur.php | Urdu lokalisatie.
-/vault/lang/lang.vi.fe.php | Vietnamees lokalisatie voor het frontend.
-/vault/lang/lang.vi.php | Vietnamees lokalisatie.
-/vault/lang/lang.zh-tw.fe.php | Chinees (traditioneel) lokalisatie voor het frontend.
-/vault/lang/lang.zh-tw.php | Chinees (traditioneel) lokalisatie.
-/vault/lang/lang.zh.fe.php | Chinees (vereenvoudigd) lokalisatie voor het frontend.
-/vault/lang/lang.zh.php | Chinees (vereenvoudigd) lokalisatie.
+/vault/lang/lang.ar.fe.yaml | Arabisch lokalisatie voor het frontend.
+/vault/lang/lang.ar.yaml | Arabisch lokalisatie.
+/vault/lang/lang.bn.fe.yaml | Bengalees lokalisatie voor het frontend.
+/vault/lang/lang.bn.yaml | Bengalees lokalisatie.
+/vault/lang/lang.de.fe.yaml | Duitse lokalisatie voor het frontend.
+/vault/lang/lang.de.yaml | Duitse lokalisatie.
+/vault/lang/lang.en.fe.yaml | Engels lokalisatie voor het frontend.
+/vault/lang/lang.en.yaml | Engels lokalisatie.
+/vault/lang/lang.es.fe.yaml | Spaanse lokalisatie voor het frontend.
+/vault/lang/lang.es.yaml | Spaanse lokalisatie.
+/vault/lang/lang.fr.fe.yaml | Franse lokalisatie voor het frontend.
+/vault/lang/lang.fr.yaml | Franse lokalisatie.
+/vault/lang/lang.hi.fe.yaml | Hindi lokalisatie voor het frontend.
+/vault/lang/lang.hi.yaml | Hindi lokalisatie.
+/vault/lang/lang.id.fe.yaml | Indonesisch lokalisatie voor het frontend.
+/vault/lang/lang.id.yaml | Indonesisch lokalisatie.
+/vault/lang/lang.it.fe.yaml | Italiaanse lokalisatie voor het frontend.
+/vault/lang/lang.it.yaml | Italiaanse lokalisatie.
+/vault/lang/lang.ja.fe.yaml | Japanse lokalisatie voor het frontend.
+/vault/lang/lang.ja.yaml | Japanse lokalisatie.
+/vault/lang/lang.ko.fe.yaml | Koreaanse lokalisatie voor het frontend.
+/vault/lang/lang.ko.yaml | Koreaanse lokalisatie.
+/vault/lang/lang.nl.fe.yaml | Nederlandse lokalisatie voor het frontend.
+/vault/lang/lang.nl.yaml | Nederlandse lokalisatie.
+/vault/lang/lang.pt.fe.yaml | Portugees lokalisatie voor het frontend.
+/vault/lang/lang.pt.yaml | Portugees lokalisatie.
+/vault/lang/lang.ru.fe.yaml | Russische lokalisatie voor het frontend.
+/vault/lang/lang.ru.yaml | Russische lokalisatie.
+/vault/lang/lang.th.fe.yaml | Thaise lokalisatie voor het frontend.
+/vault/lang/lang.th.yaml | Thaise lokalisatie.
+/vault/lang/lang.tr.fe.yaml | Turks lokalisatie voor het frontend.
+/vault/lang/lang.tr.yaml | Turks lokalisatie.
+/vault/lang/lang.ur.fe.yaml | Urdu lokalisatie voor het frontend.
+/vault/lang/lang.ur.yaml | Urdu lokalisatie.
+/vault/lang/lang.vi.fe.yaml | Vietnamees lokalisatie voor het frontend.
+/vault/lang/lang.vi.yaml | Vietnamees lokalisatie.
+/vault/lang/lang.zh-tw.fe.yaml | Chinees (traditioneel) lokalisatie voor het frontend.
+/vault/lang/lang.zh-tw.yaml | Chinees (traditioneel) lokalisatie.
+/vault/lang/lang.zh.fe.yaml | Chinees (vereenvoudigd) lokalisatie voor het frontend.
+/vault/lang/lang.zh.yaml | Chinees (vereenvoudigd) lokalisatie.
 /vault/quarantine/ | Quarantaine bestandsmap (bestanden in quarantaine bevat).
 /vault/quarantine/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/signatures/ | Signatuures bestandsmap (het bevat signatuurbestanden).
@@ -389,7 +389,7 @@ Het volgende is een lijst van variabelen die in de `config.ini` configuratiebest
 [compatibility](#compatibility-categorie) | [heuristic](#heuristic-categorie) | [virustotal](#virustotal-categorie) | [urlscanner](#urlscanner-categorie)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-en-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-categorie) | [template_data](#template_data-categorie) | [PHPMailer](#phpmailer-categorie) | [supplementary_cache_options](#supplementary_cache_options-categorie)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[Magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
 
 #### "general" (Categorie)
 Algemene configuratie voor phpMussel.
@@ -744,7 +744,7 @@ Sjabloongegevens betreft op de HTML-uitvoer die wordt gegenereerd en gebruikt vo
 ##### "theme"
 - Standaard thema om te gebruiken voor phpMussel.
 
-##### "Magnification"
+##### "magnification"
 - Lettergrootte vergroting. Standaard = 1.
 
 ##### "css_url"
@@ -1394,4 +1394,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 26 Mei 2019 (2019.05.26).
+Laatste Bijgewerkt: 30 Mei 2019 (2019.05.30).
