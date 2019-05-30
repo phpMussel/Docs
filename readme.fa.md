@@ -36,11 +36,12 @@
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
-Special thanks to [ClamAV](https://www.clamav.net/) both for project inspiration and for the signatures that this script utilises, without which, the script would likely not exist, or at best, would have very limited value.
+تشکر ویژه به [ClamAV](https://www.clamav.net/) بخاطر inspiration و signatures, زیرا بدون آن اسکریپت ما وجود نداشت. یا حداقل محدودیت های زیادی را داشت.
 
 Special thanks to SourceForge, Bitbucket, and GitHub for hosting the project files, and to the additional sources of a number of the signatures utilised by phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) and others, and special thanks to all those supporting the project, to anyone else that I may have otherwise forgotten to mention, and to you, for using the script.
 
-This document and its associated package can be downloaded for free from:
+این مستندات و بسته های مرتبط بطور رایگان در زیر در دسترس هستند :
+
 - [GitHub](https://github.com/phpMussel/phpMussel).
 - [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
 - [SourceForge](https://sourceforge.net/projects/phpmussel/).
@@ -52,9 +53,15 @@ This document and its associated package can be downloaded for free from:
 
 #### 2.0 نصب به روش دستی (از وب سرور)
 
-1) By your reading this, I'm assuming you've already downloaded an archived copy of the script, decompressed its contents and have it sitting somewhere on your local machine. From here, you'll want to work out where on your host or CMS you want to place those contents. A directory such as `/public_html/phpmussel/` or similar (though, it doesn't matter which you choose, so long as it's something secure and something you're happy with) will suffice. *Before you begin uploading, read on..*
+1) بوسیله خواندن این, با فرض این ادامه می دهیم که شما قبلا اسکریپت را دانلود کرده اید.
+آنرا از حالت فشرده خارج کنید و فایل های آن را در رایانه خود قرار دهید.
 
-2) Rename `config.ini.RenameMe` to `config.ini` (located inside `vault`), and optionally (strongly recommended for advanced users, but not recommended for beginners or for the inexperienced), open it (this file contains all the directives available for phpMussel; above each option should be a brief comment describing what it does and what it's for). Adjust these directives as you see fit, as per whatever is appropriate for your particular setup. Save file, close.
+از اینجا به بعد,  شما انتظار دارید تا آن را در هاست یا سیستم مدیریت سایت خود قرار دهید.
+
+
+یک پوشه مانند `/public_html/phpmussel/` یا چیچزی شبیه آن (هرچند که مهم نیست, چون شما انتخاب می کنید، تا زمانی که آن چیزی امن و چیزی است که شما خوشحال هستید) کفایت می کند. *قبل از شروع اپلود به خواندن ادامه دهید :*
+
+2) فایل `config.ini.RenameMe` را به `config.ini` تغییر نام دهید. (قرار گرفته کنار `vault`), and optionally (strongly recommended for advanced users, but not recommended for beginners or for the inexperienced), open it (this file contains all the directives available for phpMussel; above each option should be a brief comment describing what it does and what it's for). Adjust these directives as you see fit, as per whatever is appropriate for your particular setup. Save file, close.
 
 3) Upload the contents (phpMussel and its files) to the directory you'd decided on earlier (you don't need to include the `*.txt`/`*.md` files, but mostly, you should upload everything).
 
@@ -66,7 +73,7 @@ This document and its associated package can be downloaded for free from:
 
 `<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
 
-Save file, close, reupload.
+فایل را ذخیره کنید و از آن خارج شوید. و مجدد آنرا اپلود کنید.
 
 -- OR ALTERNATIVELY --
 
@@ -125,9 +132,9 @@ Firstly, go to [phpMussel/Signatures](https://github.com/phpMussel/Signatures). 
 ---
 
 
-### 3. <a name="SECTION3"></a>HOW TO USE
+### 3. <a name="SECTION3"></a>طریقه استفاده
 
-#### 3.0 HOW TO USE (FOR WEB SERVERS)
+#### 3.0 طریقه استفاده - برای وبسرور
 
 phpMussel should be able to operate correctly with minimal requirements on your part: After installing it, it should work immediately and be immediately usable.
 
