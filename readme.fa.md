@@ -18,13 +18,21 @@
 ---
 
 
-### 1. <a name="SECTION1"></a>PREAMBLE
+### 1. <a name="SECTION1"></a>مقدمه
 
-Thank you for using phpMussel, a PHP script designed to detect trojans, viruses, malware, and other threats within files uploaded to your system wherever the script is hooked, based on the signatures of ClamAV and others.
+
+از اینکه از phpMussel استفاده می کنید, از شما تشکر میکنم.
+
+این یک اسکریپت پی اچ پی است که طراحی شده است تا اروجان ها و ویروس ها و فایل های مخرب دیگری که در سیستم شما اپلود می شوند را شناسایی کند.
+این ساختار برپایه Clam AntiVirus می باشد.
 
 [PHPMUSSEL](https://phpmussel.github.io/) COPYRIGHT 2013 and beyond GNU/GPLv2 by [Caleb M (Maikuolan)](https://github.com/Maikuolan).
 
-This script is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. This script is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details, located in the `LICENSE.txt` file and available also from:
+
+این اسکریپت یک نرم افزار آزاد است, شما می توانید آنرا ویرایش یا بهبود دهید, زیرا تحت لایسنس GPL3 و نرم افزار های آزاد و رایگان منتشر شده است.
+
+توضیحات و مشخصات لایسنس در فایل `LICENSE.txt` واقع شده است که در زیر قابل دسترس است :
+
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
@@ -1396,4 +1404,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 26 May 2019 (2019.05.26).
+آخرین بروزرسانی : 9 خرداد ماه 1398.
