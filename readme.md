@@ -28,6 +28,7 @@ An ideal solution for shared hosting environments, where it's often not possible
 
 ### Documentation:
 - **[English](https://github.com/phpMussel/Docs/blob/master/readme.en.md)**
+- **[فارسی](https://github.com/phpMussel/Docs/blob/master/readme.fa.md)**
 - **[العربية](https://github.com/phpMussel/Docs/blob/master/readme.ar.md)**
 - **[Deutsch](https://github.com/phpMussel/Docs/blob/master/readme.de.md)**
 - **[Español](https://github.com/phpMussel/Docs/blob/master/readme.es.md)**
@@ -51,4 +52,4 @@ An ideal solution for shared hosting environments, where it's often not possible
 ---
 
 
-Last Updated: 11 May 2019 (2019.05.11).
+Last Updated: 30 May 2019 (2019.05.11).
