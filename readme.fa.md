@@ -51,7 +51,7 @@ Special thanks to SourceForge, Bitbucket, and GitHub for hosting the project fil
 
 ### 2. <a name="SECTION2"></a>طریقه نصب
 
-#### 2.0 نصب به روش دستی (از وب سرور)
+#### 2.0 نصب به روش دستی - از وب سرور
 
 1) بوسیله خواندن این, با فرض این ادامه می دهیم که شما قبلا اسکریپت را دانلود کرده اید.
 آنرا از حالت فشرده خارج کنید و فایل های آن را در رایانه خود قرار دهید.
@@ -87,9 +87,9 @@ If you're using an Apache webserver and if you have access to `php.ini`, you can
 
 7) در این لحظه, you're done! اگرچه, شما باید احتمالا آنرا تست کنید تا مطمئن شوید که آن به خوبی کار میکند. To test out file upload protections, attempt to upload the testing files included in the package under `_testfiles` to your website via your usual browser-based upload methods. (Make sure you've included the `phpmussel*.*db` signature files in your `Active` setting for the test files to trigger). If everything is working, a message should appear from phpMussel confirming that the upload was successfully blocked. If nothing appears, something isn't working correctly. If you're using any advanced features or if you're using the other types of scanning possible with the tool, I'd suggest trying it out with those to make sure it works as expected, too.
 
-#### 2.1 INSTALLING MANUALLY (FOR CLI)
+#### 2.1 نصب به روش دستی - از صفحه کنسول
 
-1) By your reading this, I'm assuming you've already downloaded an archived copy of the script, decompressed its contents and have it sitting somewhere on your local machine. When you've determined that you're happy with the location chosen for phpMussel, continue.
+1) با خواندن این, I'm assuming you've already downloaded an archived copy of the script, decompressed its contents and have it sitting somewhere on your local machine. When you've determined that you're happy with the location chosen for phpMussel, continue.
 
 2) phpMussel requires PHP to be installed on the host machine in order to execute. If you don't have PHP installed on your machine, please install PHP on your machine, following any instructions supplied by the PHP installer.
 
@@ -101,7 +101,7 @@ If you're using an Apache webserver and if you have access to `php.ini`, you can
 
 6) At this point, you're done! However, you should probably test it out to make sure it's working properly. To test phpMussel, run phpMussel and try scanning the `_testfiles` directory provided with the package.
 
-#### 2.2 INSTALLING WITH COMPOSER
+#### 2.2 نصب با استفاده از Composer
 
 [phpMussel is registered with Packagist](https://packagist.org/packages/phpmussel/phpmussel), and so, if you're familiar with Composer, you can use Composer to install phpMussel (you'll still need to prepare the configuration, permissions, signatures and hooks though; see "installing manually (for web servers)" steps 2, 4, 5, and 6).
 
@@ -109,25 +109,31 @@ If you're using an Apache webserver and if you have access to `php.ini`, you can
 
 #### 2.3 <a name="INSTALLING_SIGNATURES"></a>INSTALLING SIGNATURES
 
-Since v1.0.0, signatures aren't included in the phpMussel package. Signatures are required by phpMussel for detecting specific threats. There are 3 main methods to install signatures:
 
-1. Install automatically using the front-end updates page.
-2. Generate signatures using "SigTool" and install manually.
-3. Download signatures from "phpMussel/Signatures" and install manually.
+از نسخه 1.0.0, signatures داخل اسکریپت ما وجود ندارد.
 
-##### 2.3.1 Install automatically using the front-end updates page.
+Signatures در phpMussel برای شناسای تهدیدات خاص.
 
-Firstly, you'll need to make sure that the front-end is enabled. *See: [FRONT-END MANAGEMENT](#SECTION4).*
+سه روش برای نصب signatures وجود دارد :
 
-Then, all you'll need to do is go to the front-end updates page, find the necessary signature files, and using the options provided on the page, install them, and activate them.
+1. نصب خودکار با استفاده از صفحه بروزرسانی.
+2. ایجاد signatures با استفاده از SigTool و نصب به روش دستی.
+3. دانلود signatures از "phpMussel/Signatures" و نصب به روش دستی.
 
-##### 2.3.2 Generate signatures using "SigTool" and install manually.
+##### 2.3.1 نصب خودکار با استفاده از صفحه بروزرسانی.
 
-*See: [SigTool documentation](https://github.com/phpMussel/SigTool#documentation).*
+اولا شما نیاز دارید تا مطمئن شوید که front-end فعال است. *ببینید: [مدیریت FRONT-END](#SECTION4).*
 
-##### 2.3.3 Download signatures from "phpMussel/Signatures" and install manually.
+سپس تمام چیزی که شما نیاز خواهید داشت رفتن به صفحه بروزرسانی است.
+و پیدا کردن فایل های ضروری signature و استفاده از گزینه های فراهم شده در صفحه تا آنها را نصب و سپس فعال کنید.
 
-Firstly, go to [phpMussel/Signatures](https://github.com/phpMussel/Signatures). The repository contains various GZ-compressed signature files. Download the files that you need, decompress them, and copy the decompressed files to the `/vault/signatures` directory to install them. List the names of the copied files to the `Active` directive in your phpMussel configuration to activate them.
+##### 2.3.2 ایجاد signatures با استفاده از ابزار "SigTool" و نصب به روش دستی.
+
+*ببینید: [مستندات SigTool](https://github.com/phpMussel/SigTool#documentation).*
+
+##### 2.3.3 دانلود signatures از "phpMussel/Signatures" و نصب به روش دستی.
+
+اولا به [phpMussel/Signatures](https://github.com/phpMussel/Signatures) بروید. The repository contains various GZ-compressed signature files. Download the files that you need, decompress them, and copy the decompressed files to the `/vault/signatures` directory to install them. List the names of the copied files to the `Active` directive in your phpMussel configuration to activate them.
 
 ---
 
@@ -138,7 +144,7 @@ Firstly, go to [phpMussel/Signatures](https://github.com/phpMussel/Signatures). 
 
 phpMussel should be able to operate correctly with minimal requirements on your part: After installing it, it should work immediately and be immediately usable.
 
-File upload scanning is automated and enabled by default, so nothing is required on your behalf for this particular functionality.
+بطور پیشفرض, اسکن کردن فایل های اپلود شده بطور خودکار فعال شده است, بنابراین هیچ کاری نیاز نیست تا خودتان برای عمل آن انجام دهید.
 
 However, you're also able to instruct phpMussel to scan specific files, directories and/or archives. To do this, firstly, you'll need to ensure that the appropriate configuration is set in the `config.ini` file (`cleanup` must be disabled), and when done, in a PHP file that's hooked to phpMussel, use the following closure in your code:
 
