@@ -81,11 +81,11 @@ If you're using an Apache webserver and if you have access to `php.ini`, you can
 
 `auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
 
-Or this in the `.htaccess` file:
+یا داخل فایل `.htaccess` :
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
-7) At this point, you're done! However, you should probably test it out to make sure it's working properly. To test out file upload protections, attempt to upload the testing files included in the package under `_testfiles` to your website via your usual browser-based upload methods. (Make sure you've included the `phpmussel*.*db` signature files in your `Active` setting for the test files to trigger). If everything is working, a message should appear from phpMussel confirming that the upload was successfully blocked. If nothing appears, something isn't working correctly. If you're using any advanced features or if you're using the other types of scanning possible with the tool, I'd suggest trying it out with those to make sure it works as expected, too.
+7) در این لحظه, you're done! اگرچه, شما باید احتمالا آنرا تست کنید تا مطمئن شوید که آن به خوبی کار میکند. To test out file upload protections, attempt to upload the testing files included in the package under `_testfiles` to your website via your usual browser-based upload methods. (Make sure you've included the `phpmussel*.*db` signature files in your `Active` setting for the test files to trigger). If everything is working, a message should appear from phpMussel confirming that the upload was successfully blocked. If nothing appears, something isn't working correctly. If you're using any advanced features or if you're using the other types of scanning possible with the tool, I'd suggest trying it out with those to make sure it works as expected, too.
 
 #### 2.1 INSTALLING MANUALLY (FOR CLI)
 
@@ -391,6 +391,7 @@ File | Description
 /web.config | An ASP.NET configuration file (in this instance, to protect the `/vault` directory from being accessed by non-authorised sources in the event that the script is installed on a server based upon ASP.NET technologies).
 
 ※ Filename may differ based on configuration stipulations (in `config.ini`).
+مسیر و نام فایل ها ممکن است مقداری بسته به 
 
 ---
 
