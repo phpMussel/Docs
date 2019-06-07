@@ -13,7 +13,7 @@
 - 10. [FREQUENTLY ASKED QUESTIONS (FAQ)](#SECTION10)
 - 11. [LEGAL INFORMATION](#SECTION11)
 
-*Note regarding translations: In the event of errors (e.g., discrepancies between translations, typos, etc), the English version of the README is considered the original and authoritative version. If you find any errors, your assistance in correcting them would be welcomed.*
+*نکته در مورد ترجمه: In the event of errors (e.g., discrepancies between translations, typos, etc), the English version of the README is considered the original and authoritative version. If you find any errors, your assistance in correcting them would be welcomed.*
 
 ---
 
