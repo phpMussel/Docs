@@ -256,6 +256,7 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/classes/Maikuolan/Cache.php | シンプルで統一されたキャッシュ・ハンドラ。
 /vault/classes/Maikuolan/ComplexStringHandler.php | 複雑な文字列ハンドラ。
 /vault/classes/Maikuolan/L10N.php | Ｌ１０Ｎハンドラ。
+/vault/classes/Maikuolan/NumberFormatter.php | 数値フォーマッタ。
 /vault/classes/Maikuolan/YAML.php | ＹＡＭＬハンドラ。
 /vault/classes/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/classes/ArchiveHandler.php | アーカイブの処理を担当です。
@@ -1397,4 +1398,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０１９年６月２０日。
+最終アップデート：２０１９年６月２７日。

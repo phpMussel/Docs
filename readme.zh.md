@@ -257,6 +257,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/classes/Maikuolan/Cache.php | 一个简单的统一缓存处理程序。
 /vault/classes/Maikuolan/ComplexStringHandler.php | 复杂的字符串处理文件。
 /vault/classes/Maikuolan/L10N.php | L10N处理文件。
+/vault/classes/Maikuolan/NumberFormatter.php | 数字格式化程序。
 /vault/classes/Maikuolan/YAML.php | YAML处理文件。
 /vault/classes/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/classes/ArchiveHandler.php | 负责处理档案文件。
@@ -1399,4 +1400,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2019年6月20日。
+最后更新：2019年6月27日。

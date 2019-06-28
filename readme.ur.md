@@ -251,6 +251,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">ایک سادہ، متحد کیش ہینڈلر.</div> | /vault/classes/Maikuolan/Cache.php
 &nbsp; <div dir="rtl" style="display:inline">کمپلیکس تار ہینڈلر.</div> | /vault/classes/Maikuolan/ComplexStringHandler.php
 &nbsp; <div dir="rtl" style="display:inline">L10N ہینڈلر.</div> | /vault/classes/Maikuolan/L10N.php
+&nbsp; <div dir="rtl" style="display:inline">نمبر فارمیٹر.</div> | /vault/classes/Maikuolan/NumberFormatter.php
 &nbsp; <div dir="rtl" style="display:inline">YAML ہینڈلر.</div> | /vault/classes/Maikuolan/YAML.php
 &nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/classes/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">آرکائیو کو سنبھالنے کے لئے ذمہ دار.</div> | /vault/classes/ArchiveHandler.php
@@ -1654,4 +1655,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 30 مئی 2019 (2019.05.30).</div>
+<div dir="rtl">آخری تازہ کاری: 27 جون 2019 (2019.06.27).</div>

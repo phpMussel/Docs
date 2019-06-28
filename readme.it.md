@@ -256,6 +256,7 @@ File | Descrizione
 /vault/classes/Maikuolan/Cache.php | Un gestore di cache semplice e unificato.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Un gestore di stringhe complesso.
 /vault/classes/Maikuolan/L10N.php | Gestore di L10N.
+/vault/classes/Maikuolan/NumberFormatter.php | Numero formattatore.
 /vault/classes/Maikuolan/YAML.php | Gestore di YAML.
 /vault/classes/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/classes/ArchiveHandler.php | Responsabile della gestione degli archivi.
@@ -1395,4 +1396,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 30 Maggio 2019 (2019.05.30).
+Ultimo Aggiornamento: 27 Giugno 2019 (2019.06.27).

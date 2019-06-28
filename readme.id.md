@@ -256,6 +256,7 @@ Data | Deskripsi
 /vault/classes/Maikuolan/Cache.php | Prosesor cache yang sederhana dan terpadu.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Prosesor string yang kompleks.
 /vault/classes/Maikuolan/L10N.php | Prosesor L10N.
+/vault/classes/Maikuolan/NumberFormatter.php | Pemformat angka.
 /vault/classes/Maikuolan/YAML.php | Prosesor YAML.
 /vault/classes/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/classes/ArchiveHandler.php | Bertanggung jawab untuk menangani arsip.
@@ -1390,4 +1391,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 30 Mei 2019 (2019.05.30).
+Terakhir Diperbarui: 27 Juni 2019 (2019.06.27).

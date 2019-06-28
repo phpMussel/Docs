@@ -256,6 +256,7 @@ phpMussel функционирует полностью в автономном 
 /vault/classes/Maikuolan/Cache.php | Простой, унифицированный обработчик кэша.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Обработчик сложные строки.
 /vault/classes/Maikuolan/L10N.php | Обработчик L10N.
+/vault/classes/Maikuolan/NumberFormatter.php | Числовой форматер.
 /vault/classes/Maikuolan/YAML.php | Обработчик YAML.
 /vault/classes/.htaccess | Гипертекст доступа файл (в этом случае защищает от неавторизованного доступа чувствительные файлы данного руководства).
 /vault/classes/ArchiveHandler.php | Отвечает за обработку архивов.
@@ -1392,4 +1393,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 20 Июнь 2019 (2019.06.20).
+Последнее обновление: 27 Июнь 2019 (2019.06.27).

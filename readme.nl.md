@@ -256,6 +256,7 @@ Bestand | Beschrijving
 /vault/classes/Maikuolan/Cache.php | Een eenvoudige, uniforme cache-handler.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Complexe string-handler.
 /vault/classes/Maikuolan/L10N.php | L10N-handler.
+/vault/classes/Maikuolan/NumberFormatter.php | Nummer formatter.
 /vault/classes/Maikuolan/YAML.php | YAML-handler.
 /vault/classes/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/classes/ArchiveHandler.php | Verantwoordelijk voor het omgaan van archieven.
@@ -1398,4 +1399,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 30 Mei 2019 (2019.05.30).
+Laatste Bijgewerkt: 27 Juni 2019 (2019.06.27).

@@ -256,6 +256,7 @@ Tập tin | Chi tiết
 /vault/classes/Maikuolan/Cache.php | Một xử lý bộ đệm đơn giản, thống nhất.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Tập tin cho xử lý chuỗi phức tạp.
 /vault/classes/Maikuolan/L10N.php | Tập tin cho xử lý L10N.
+/vault/classes/Maikuolan/NumberFormatter.php | Công cụ định dạng số.
 /vault/classes/Maikuolan/YAML.php | Tập tin cho xử lý YAML.
 /vault/classes/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/classes/ArchiveHandler.php | Chịu trách nhiệm xử lý tập tin lưu trữ.
@@ -1390,4 +1391,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 30 Tháng Năm 2019 (2019.05.30).
+Lần cuối cập nhật: 27 Tháng Sáu 2019 (2019.06.27).

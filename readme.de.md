@@ -257,6 +257,7 @@ Datei | Beschreibung
 /vault/classes/Maikuolan/Cache.php | Ein einfacher, einheitlicher Cache-Handler.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Komplexer String-Handler.
 /vault/classes/Maikuolan/L10N.php | L10N-Handler.
+/vault/classes/Maikuolan/NumberFormatter.php | Zahlenformatierer.
 /vault/classes/Maikuolan/YAML.php | YAML-Handler.
 /vault/classes/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/classes/ArchiveHandler.php | Verantwortlich für den Umgang mit Archiven.
@@ -1401,4 +1402,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 30 Mai 2019 (2019.05.30).
+Zuletzt aktualisiert: 27 Juni 2019 (2019.06.27).
