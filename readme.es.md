@@ -483,10 +483,20 @@ Valor | Produce | Descripción
 `China-1` | `123,4567.89`
 `India-1` | `12,34,567.89`
 `India-2` | `१२,३४,५६७.८९`
-`Bengali-1` | `১২,৩৪,৫৬৭.৮৯`
+`India-3` | `૧૨,૩૪,૫૬૭.૮૯`
+`India-4` | `੧੨,੩੪,੫੬੭.੮੯`
+`India-5` | `೧೨,೩೪,೫೬೭.೮೯`
+`India-6` | `౧౨,౩౪,౫౬౭.౮౯`
 `Arabic-1` | `١٢٣٤٥٦٧٫٨٩`
 `Arabic-2` | `١٬٢٣٤٬٥٦٧٫٨٩`
+`Arabic-3` | `۱٬۲۳۴٬۵۶۷٫۸۹`
+`Arabic-4` | `۱۲٬۳۴٬۵۶۷٫۸۹`
+`Bengali-1` | `১২,৩৪,৫৬৭.৮৯`
+`Burmese-1` | `၁၂၃၄၅၆၇.၈၉`
+`Khmer-1` | `១.២៣៤.៥៦៧,៨៩`
+`Lao-1` | `໑໒໓໔໕໖໗.໘໙`
 `Thai-1` | `๑,๒๓๔,๕๖๗.๘๙`
+`Thai-2` | `๑๒๓๔๕๖๗.๘๙`
 
 *Nota: Estos valores no están estandarizados en ninguna parte, y probablemente no sean relevantes más allá del paquete. Además, los valores soportados pueden cambiar en el futuro.*
 
@@ -1398,4 +1408,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 27 de Junio de 2019 (2019.06.27).
+Última Actualización: 14 de Julio de 2019 (2019.07.14).
