@@ -70,7 +70,7 @@
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
-7) На этом инсталляционный процесс заканчивается. Теперь Вам необходимо протестировать программу на правильность функционирования. Для этого Вам нужно имеющиеся в пакете тестовые файлы `_testfiles` загрузить на Вашу веб-страницу любым способом, который позволяет Ваш браузер. (Убедитесь, что вы включили файлы сигнатуры `phpmussel*.*db` в директиву конфигурации `Active` для запуска тестовых файлов). При нормальном функционировании программы появится сообщение от phpMussel, что загрузка/уплоад была успешно блокирована. Если такое сообщение не появилось, то программа функционирует неправильно. Воспользуйтесь другими расширенными функциями или всевозможными сканированными видами этой программы. Вы должны тестировать до тех пор, пока не убедитесь в нормальном функционировании программы.
+7) На этом инсталляционный процесс заканчивается. Теперь Вам необходимо протестировать программу на правильность функционирования. Для этого Вам нужно имеющиеся в пакете тестовые файлы `_testfiles` загрузить на Вашу веб-страницу любым способом, который позволяет Ваш браузер. (Убедитесь, что вы включили файлы сигнатуры `phpmussel*.*db` в директиву конфигурации `active` для запуска тестовых файлов). При нормальном функционировании программы появится сообщение от phpMussel, что загрузка/уплоад была успешно блокирована. Если такое сообщение не появилось, то программа функционирует неправильно. Воспользуйтесь другими расширенными функциями или всевозможными сканированными видами этой программы. Вы должны тестировать до тех пор, пока не убедитесь в нормальном функционировании программы.
 
 #### 2.1 ИНСТАЛЛЯЦИЯ ВРУЧНУЮ (CLI; СПОСОБ КОМАНДНЫХ СТРОК)
 
@@ -112,7 +112,7 @@
 
 ##### 2.3.3 Загрузите сигнатуры из «phpMussel/Signatures» и установите вручную.
 
-В первую очередь, перейти к [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Репозиторий содержит различные файлы сигнатур, сжатые GZ. Загрузите нужные вам файлы, распакуйте их и скопируйте распакованные файлы в регистр `/vault/signatures`, чтобы установить их. Перечислите имена скопированных файлов в директиву `Active` в вашей конфигурации phpMussel для их активации.
+В первую очередь, перейти к [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Репозиторий содержит различные файлы сигнатур, сжатые GZ. Загрузите нужные вам файлы, распакуйте их и скопируйте распакованные файлы в регистр `/vault/signatures`, чтобы установить их. Перечислите имена скопированных файлов в директиву `active` в вашей конфигурации phpMussel для их активации.
 
 ---
 
@@ -387,7 +387,7 @@ phpMussel функционирует полностью в автономном 
 
 [general](#general-категория) | [signatures](#signatures-категория) | [files](#files-категория) | [attack_specific](#attack_specific-категория)
 :--|:--|:--|:--
-[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br />[disabled_channels](#disabled_channels)<br /> | [Active](#Active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br />[disabled_channels](#disabled_channels)<br /> | [active](#active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 [compatibility](#compatibility-категория) | [heuristic](#heuristic-категория) | [virustotal](#virustotal-категория) | [urlscanner](#urlscanner-категория)
 [ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-и-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
 [legal](#legal-категория) | [template_data](#template_data-категория) | [PHPMailer](#phpmailer-категория) | [supplementary_cache_options](#supplementary_cache_options-категория)
@@ -549,7 +549,8 @@ phpMussel функционирует полностью в автономном 
 #### «signatures» (Категория)
 Конфигурация подписями.
 
-##### «Active»
+##### «active»
+- *v1: «Active»*
 - Список активных файлов сигнатур, разделенных запятыми.
 
 *Заметка:*
@@ -611,7 +612,6 @@ phpMussel функционирует полностью в автономном 
 Zip | ✔️ | ✔️ | ✔️ | Требует [libzip](https://secure.php.net/manual/en/zip.requirements.php) (обычно в комплекте с PHP в любом случае). Также поддерживается (использует формат zip): ✔️ Обнаружение объекта OLE. ✔️ Обнаружение макросов Office.
 Tar | ✔️ | ✔️ | ➖ | Никаких особых требований. Формат не поддерживает шифрование.
 Rar | ✔️ | ✔️ | ✔️ | Требуется расширение [rar](https://pecl.php.net/package/rar) (когда это расширение не установлено, phpMussel не может читать файлы rar).
-7zip | ❌ | ❌ | ❌ | Все еще в настоящее время расследует, как читать 7zip-файлы в phpMussel.
 Phar | ❌ | ❌ | ❌ | Поддержка чтения файлов phar была удалена в v1.6.0, и больше не будет добавлена из-за проблем с безопасностью.
 
 *Если кто-то может и хочет помочь реализовать поддержку чтения других форматов архивов, такая помощь будет приветствоваться.*
@@ -760,6 +760,7 @@ URL сканер API конфигурация.
 - Стандартная тема для phpMussel.
 
 ##### «magnification»
+- *v1: «Magnification»*
 - Увеличение шрифта. Стандарт = 1.
 
 ##### «css_url»
@@ -1403,4 +1404,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 14 Июль 2019 (2019.07.14).
+Последнее обновление: 8 Август 2019 (2019.08.08).
