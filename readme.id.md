@@ -255,6 +255,8 @@ Data | Deskripsi
 /vault/classes/Maikuolan/ | Direktori kelas. Berisi berbagai kelas yang digunakan oleh phpMussel.
 /vault/classes/Maikuolan/Cache.php | Prosesor cache yang sederhana dan terpadu.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Prosesor string yang kompleks.
+/vault/classes/Maikuolan/DelayedIO.php | Kelas untuk file IO yang tertunda.
+/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
 /vault/classes/Maikuolan/L10N.php | Prosesor L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Pemformat angka.
 /vault/classes/Maikuolan/YAML.php | Prosesor YAML.

@@ -255,6 +255,8 @@ phpMussel функционирует полностью в автономном 
 /vault/classes/Maikuolan/ | Регистр классов. Содержит различные классы, используемые phpMussel.
 /vault/classes/Maikuolan/Cache.php | Простой, унифицированный обработчик кэша.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Обработчик сложные строки.
+/vault/classes/Maikuolan/DelayedIO.php | Задержка файла IO класса.
+/vault/classes/Maikuolan/Demojibakefier.php | «Demojibakefier».
 /vault/classes/Maikuolan/L10N.php | Обработчик L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Числовой форматер.
 /vault/classes/Maikuolan/YAML.php | Обработчик YAML.

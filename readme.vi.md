@@ -255,6 +255,8 @@ Tập tin | Chi tiết
 /vault/classes/Maikuolan/ | Thư mục lớp học. Chứa các lớp học khác nhau được sử dụng bởi phpMussel.
 /vault/classes/Maikuolan/Cache.php | Một xử lý bộ đệm đơn giản, thống nhất.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Tập tin cho xử lý chuỗi phức tạp.
+/vault/classes/Maikuolan/DelayedIO.php | Lớp cho tập tin IO trì hoãn.
+/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
 /vault/classes/Maikuolan/L10N.php | Tập tin cho xử lý L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Công cụ định dạng số.
 /vault/classes/Maikuolan/YAML.php | Tập tin cho xử lý YAML.

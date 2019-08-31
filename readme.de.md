@@ -256,6 +256,8 @@ Datei | Beschreibung
 /vault/classes/Maikuolan/ | Klassenverzeichnis. Enthält verschiedene von phpMussel verwendete Klassen.
 /vault/classes/Maikuolan/Cache.php | Ein einfacher, einheitlicher Cache-Handler.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Komplexer String-Handler.
+/vault/classes/Maikuolan/DelayedIO.php | Verzögerte Datei-E/A-Klasse.
+/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
 /vault/classes/Maikuolan/L10N.php | L10N-Handler.
 /vault/classes/Maikuolan/NumberFormatter.php | Zahlenformatierer.
 /vault/classes/Maikuolan/YAML.php | YAML-Handler.

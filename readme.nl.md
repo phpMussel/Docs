@@ -255,6 +255,8 @@ Bestand | Beschrijving
 /vault/classes/Maikuolan/ | Klasse bestandsmap. Bevat verschillende klassen die worden gebruikt door phpMussel.
 /vault/classes/Maikuolan/Cache.php | Een eenvoudige, uniforme cache-handler.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Complexe string-handler.
+/vault/classes/Maikuolan/DelayedIO.php | Vertraagde bestand IO-klasse.
+/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
 /vault/classes/Maikuolan/L10N.php | L10N-handler.
 /vault/classes/Maikuolan/NumberFormatter.php | Nummer formatter.
 /vault/classes/Maikuolan/YAML.php | YAML-handler.

@@ -255,6 +255,8 @@ Arquivo | Descrição
 /vault/classes/Maikuolan/ | Diretório de classes. Contém várias classes usadas pelo phpMussel.
 /vault/classes/Maikuolan/Cache.php | Um manipulador de cache simples e unificado.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Um manipulador para cadeia complexa.
+/vault/classes/Maikuolan/DelayedIO.php | Classe de IO do arquivo atrasado.
+/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
 /vault/classes/Maikuolan/L10N.php | Manipulador para o L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Formatador de números.
 /vault/classes/Maikuolan/YAML.php | Manipulador para o YAML.

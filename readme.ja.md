@@ -255,6 +255,8 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/classes/Maikuolan/ | クラス・ディレクトリ。​phpMusselによって使用されるさまざまなクラスが含まれています。
 /vault/classes/Maikuolan/Cache.php | シンプルで統一されたキャッシュ・ハンドラ。
 /vault/classes/Maikuolan/ComplexStringHandler.php | 複雑な文字列ハンドラ。
+/vault/classes/Maikuolan/DelayedIO.php | 遅延ファイルＩＯクラス。
+/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier" （ディ文字化けファイア / 文字化けを元に戻すのクラス）。
 /vault/classes/Maikuolan/L10N.php | Ｌ１０Ｎハンドラ。
 /vault/classes/Maikuolan/NumberFormatter.php | 数値フォーマッタ。
 /vault/classes/Maikuolan/YAML.php | ＹＡＭＬハンドラ。

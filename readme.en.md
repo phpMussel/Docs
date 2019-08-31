@@ -255,6 +255,8 @@ File | Description
 /vault/classes/Maikuolan/ | Classes directory. Contains various classes used by phpMussel.
 /vault/classes/Maikuolan/Cache.php | A simple, unified cache handler.
 /vault/classes/Maikuolan/ComplexStringHandler.php | Complex string handler.
+/vault/classes/Maikuolan/DelayedIO.php | Delayed file IO class.
+/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
 /vault/classes/Maikuolan/L10N.php | L10N handler.
 /vault/classes/Maikuolan/NumberFormatter.php | Number formatter.
 /vault/classes/Maikuolan/YAML.php | YAML handler.
@@ -397,7 +399,7 @@ The following is a list of variables found in the `config.ini` configuration fil
 General phpMussel configuration.
 
 ##### "cleanup"
-- Unset variables and cache used by the script after the initial upload scanning? False = No; True = Yes [Default]. If you *aren't* using the script beyond the initial scanning of uploads, you should set this to `true` (yes), to minimize memory usage. If you *are* using the script beyond the initial scanning of uploads, should set to `false` (no), to avoid unnecessarily reloading duplicate data into memory. In general practice, it should usually be set to `true`, but, if you do this, you won't be able to use the script for anything other than the initial file upload scanning.
+- Unset variables and cache used by the script after scanning uploads? False = No; True = Yes [Default]. If you *aren't* using the script for anything other than scanning uploads, you should set this to `true` to minimise memory usage. Otherwise, you should set it to `false`, in order to retain in memory the data necessary to execute phpMussel without needlessly reloading it.
 - Has no influence in CLI mode.
 
 ##### "scan_log"

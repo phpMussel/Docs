@@ -250,6 +250,8 @@
 &nbsp; <div dir="rtl" style="display:inline">مجلد الطبقات. يحتوي على ملفات فئة مختلفة يستخدمها phpMussel.</div> | /vault/classes/Maikuolan/
 &nbsp; <div dir="rtl" style="display:inline">معالج ذاكرة تخزين مؤقت بسيط وموحد.</div> | /vault/classes/Maikuolan/Cache.php
 &nbsp; <div dir="rtl" style="display:inline">معالج سلسلة معقدة.</div> | /vault/classes/Maikuolan/ComplexStringHandler.php
+&nbsp; <div dir="rtl" style="display:inline">تأخر ملف IO الطبقة.</div> | /vault/classes/Maikuolan/DelayedIO.php
+&nbsp; <div dir="rtl" style="display:inline">"Demojibakefier".</div> | /vault/classes/Maikuolan/Demojibakefier.php
 &nbsp; <div dir="rtl" style="display:inline">معالج L10N.</div> | /vault/classes/Maikuolan/L10N.php
 &nbsp; <div dir="rtl" style="display:inline">عدد المنسق.</div> | /vault/classes/Maikuolan/NumberFormatter.php
 &nbsp; <div dir="rtl" style="display:inline">معالج YAML.</div> | /vault/classes/Maikuolan/YAML.php
