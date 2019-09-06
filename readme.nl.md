@@ -250,7 +250,6 @@ Bestand | Beschrijving
 /_testfiles/swf_standard_testfile.swf | Testbestand voor het testen phpMussel SWF signatures.
 /vault/ | Vault bestandsmap (bevat verschillende bestanden).
 /vault/cache/ | Cache bestandsmap (tijdelijke data).
-/vault/cache/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/classes/ | Klasse bestandsmap. Bevat verschillende klassen die worden gebruikt door phpMussel.
 /vault/classes/Maikuolan/ | Klasse bestandsmap. Bevat verschillende klassen die worden gebruikt door phpMussel.
 /vault/classes/Maikuolan/Cache.php | Een eenvoudige, uniforme cache-handler.
@@ -260,12 +259,10 @@ Bestand | Beschrijving
 /vault/classes/Maikuolan/L10N.php | L10N-handler.
 /vault/classes/Maikuolan/NumberFormatter.php | Nummer formatter.
 /vault/classes/Maikuolan/YAML.php | YAML-handler.
-/vault/classes/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/classes/ArchiveHandler.php | Verantwoordelijk voor het omgaan van archieven.
 /vault/classes/CompressionHandler.php | Verantwoordelijk voor het omgaan met bestandscompressie.
 /vault/classes/TemporaryFileHandler.php | Verantwoordelijk voor het maken en het omgaan van tijdelijke bestanden.
 /vault/fe_assets/ | Frontend data/gegevens.
-/vault/fe_assets/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/fe_assets/_2fa.html | Een HTML sjabloon die wordt gebruikt wanneer de gebruiker om een 2FA-code wordt gevraagd.
 /vault/fe_assets/_accounts.html | Een HTML sjabloon voor de frontend accounts pagina.
 /vault/fe_assets/_accounts_row.html | Een HTML sjabloon voor de frontend accounts pagina.
@@ -297,7 +294,6 @@ Bestand | Beschrijving
 /vault/fe_assets/pips.php | Pitten-handler (door de frontend bestandsbeheer gebruikt).
 /vault/fe_assets/scripts.js | Bevat frontend JavaScript-gegevens.
 /vault/lang/ | Bevat phpMussel lokalisaties.
-/vault/lang/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/lang/lang.ar.fe.yaml | Arabisch lokalisatie voor het frontend.
 /vault/lang/lang.ar.yaml | Arabisch lokalisatie.
 /vault/lang/lang.bn.fe.yaml | Bengalees lokalisatie voor het frontend.
@@ -320,12 +316,20 @@ Bestand | Beschrijving
 /vault/lang/lang.ja.yaml | Japanse lokalisatie.
 /vault/lang/lang.ko.fe.yaml | Koreaanse lokalisatie voor het frontend.
 /vault/lang/lang.ko.yaml | Koreaanse lokalisatie.
+/vault/lang/lang.lv.fe.yaml | Letse lokalisatie voor het frontend.
+/vault/lang/lang.lv.yaml | Letse lokalisatie.
 /vault/lang/lang.nl.fe.yaml | Nederlandse lokalisatie voor het frontend.
 /vault/lang/lang.nl.yaml | Nederlandse lokalisatie.
+/vault/lang/lang.no.fe.yaml | Noorse lokalisatie voor het frontend.
+/vault/lang/lang.no.yaml | Noorse lokalisatie.
+/vault/lang/lang.pl.fe.yaml | Poolse lokalisatie voor het frontend.
+/vault/lang/lang.pl.yaml | Poolse lokalisatie.
 /vault/lang/lang.pt.fe.yaml | Portugees lokalisatie voor het frontend.
 /vault/lang/lang.pt.yaml | Portugees lokalisatie.
 /vault/lang/lang.ru.fe.yaml | Russische lokalisatie voor het frontend.
 /vault/lang/lang.ru.yaml | Russische lokalisatie.
+/vault/lang/lang.sv.fe.yaml | Zweedse lokalisatie voor het frontend.
+/vault/lang/lang.sv.yaml | Zweedse lokalisatie.
 /vault/lang/lang.th.fe.yaml | Thaise lokalisatie voor het frontend.
 /vault/lang/lang.th.yaml | Thaise lokalisatie.
 /vault/lang/lang.tr.fe.yaml | Turks lokalisatie voor het frontend.
@@ -339,9 +343,7 @@ Bestand | Beschrijving
 /vault/lang/lang.zh.fe.yaml | Chinees (vereenvoudigd) lokalisatie voor het frontend.
 /vault/lang/lang.zh.yaml | Chinees (vereenvoudigd) lokalisatie.
 /vault/quarantine/ | Quarantaine bestandsmap (bestanden in quarantaine bevat).
-/vault/quarantine/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/signatures/ | Signatuures bestandsmap (het bevat signatuurbestanden).
-/vault/signatures/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/signatures/switch.dat | Controles en sets bepaalde variabelen.
 /vault/.htaccess | Een hypertext toegang bestand (in dit geval, om gevoelige bestanden die behoren tot het script te beschermen tegen toegang door niet-geautoriseerde bronnen).
 /vault/.travis.php | Gebruikt door Travis CI voor het testen (niet vereist voor een goede werking van het script).
@@ -357,7 +359,6 @@ Bestand | Beschrijving
 /vault/functions.php | Functies bestand (essentieel).
 /vault/greylist.csv | Aangeeft om phpMussel waarop signatures moet worden negeren (bestand automatisch aangemaakt opnieuw als verwijderd).
 /vault/lang.php | Taal-handler.
-/vault/php5.4.x.php | Polyfills voor PHP 5.4.X (nodig voor PHP 5.4.X achterwaartse compatibiliteit; veilig te verwijderen voor nieuwere PHP-versies).
 /vault/plugins.dat | Plug-ins metadata bestand; Gebruikt door de frontend updates pagina.
 ※ /vault/scan_kills.txt | Een record van elk bestand uploaden geblokkeerde/gedood door phpMussel.
 ※ /vault/scan_log.txt | Een record van alles gescand door phpMussel.
@@ -370,7 +371,7 @@ Bestand | Beschrijving
 /vault/upload.php | Upload handler.
 /.gitattributes | Een GitHub project bestand (niet vereist voor een goede werking van het script).
 /.gitignore | Een GitHub project bestand (niet vereist voor een goede werking van het script).
-/Changelog-v1.txt | Een overzicht van wijzigingen in het script tussen verschillende versies (niet vereist voor een goede werking van het script).
+/Changelog-v2.txt | Een overzicht van wijzigingen in het script tussen verschillende versies (niet vereist voor een goede werking van het script).
 /composer.json | Composer/Packagist informatie (niet vereist voor een goede werking van het script).
 /CONTRIBUTING.md | Informatie over hoe bij te dragen aan het project.
 /LICENSE.txt | Een kopie van de GNU/GPLv2 licentie (niet vereist voor een goede werking van het script).
@@ -399,7 +400,7 @@ Het volgende is een lijst van variabelen die in de `config.ini` configuratiebest
 Algemene configuratie voor phpMussel.
 
 ##### "cleanup"
-- Vrijmaken script variabelen en de cache na de uitvoering? False = Nee; True = Ja [Standaard]. Als u niet gebruik het script na de eerste scan van upload, moet zetten op `true` (ja), om minimaliseren de geheugengebruik. Als u gebruik het script voor de doeleinden na de eerste scan van upload, moet zetten op `false` (nee), om te voorkomen dat onnodig herladen dubbele gegevens in het geheugen. In de huisartspraktijk, moet waarschijnlijk worden zetten op `true` (ja), maar, als u dit doet, het zal niet mogelijk zijn om het script te gebruiken voor iets anders dan het scannen van bestand uploaden.
+- Vrijmaken script variabelen en de cache na de uitvoering? False = Nee; True = Ja [Standaard]. Als u het script voor niets anders gebruikt dan het scannen van uploads, moet u dit zetten op `true` om geheugengebruik te minimaliseren. Anders moet u dit zetten op `false`, om de gegevens die nodig zijn om phpMussel uit te voeren in het geheugen te bewaren zonder deze onnodig opnieuw te laden. Heeft geen invloed in CLI-modus.
 - Heeft geen invloed in CLI-modus.
 
 ##### "scan_log"
@@ -530,7 +531,7 @@ Waarde | Produceert | Beschrijving
 - Uitschakelen frontend toegang? Frontend toegang kan phpMussel beter beheersbaar te maken, maar kan ook een potentieel gevaar voor de veiligheid zijn. Het is aan te raden om phpMussel te beheren via het backend wanneer mogelijk, maar frontend toegang is hier voorzien voor wanneer het niet mogelijk is. Hebben het uitgeschakeld tenzij u het nodig hebt. False = Inschakelen frontend toegang; True = Uitschakelen frontend toegang [Standaard].
 
 ##### "max_login_attempts"
-- Maximum aantal inlogpogingen (frontend). Standaard = 5.
+- Maximum aantal frontend-inlogpogingen. Standaard = 5.
 
 ##### "frontend_log"
 - *v1: "FrontEndLog"*
@@ -1415,4 +1416,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 17 Augustus 2019 (2019.08.17).
+Laatste Bijgewerkt: 6 September 2019 (2019.09.06).

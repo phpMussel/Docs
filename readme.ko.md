@@ -250,7 +250,6 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /_testfiles/swf_standard_testfile.swf | phpMussel SWF 서명 용 테스트 파일.
 /vault/ | 보루 토 디렉토리 (다양한 파일을 포함합니다).
 /vault/cache/ | 캐시 디렉토리 (임시 데이터 용).
-/vault/cache/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/classes/ | 클래스 디렉토리. phpMussel에서 사용하는 다양한 클래스가 들어 있습니다.
 /vault/classes/Maikuolan/ | 클래스 디렉토리. phpMussel에서 사용하는 다양한 클래스가 들어 있습니다.
 /vault/classes/Maikuolan/Cache.php | 간단하고 통합 된 캐시 처리기입니다.
@@ -260,12 +259,10 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /vault/classes/Maikuolan/L10N.php | L10N 핸들러.
 /vault/classes/Maikuolan/NumberFormatter.php | 숫자 포맷터.
 /vault/classes/Maikuolan/YAML.php | YAML 핸들러.
-/vault/classes/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/classes/ArchiveHandler.php | 아카이브 처리에 대한 그것은 책임이있다.
 /vault/classes/CompressionHandler.php | 파일 압축을 처리에 대한 그것은 책임이있다.
 /vault/classes/TemporaryFileHandler.php | 임시 파일을 만들고 처리합니다.
 /vault/fe_assets/ | 프론트 엔드 자산.
-/vault/fe_assets/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/fe_assets/_2fa.html | 사용자에게 2FA 코드를 요청할 때 사용되는 HTML 템플릿입니다.
 /vault/fe_assets/_accounts.html | 프론트 엔드의 계정 페이지의 HTML 템플릿.
 /vault/fe_assets/_accounts_row.html | 프론트 엔드의 계정 페이지의 HTML 템플릿.
@@ -297,7 +294,6 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /vault/fe_assets/pips.php | 핍 핸들러 (프론트 엔드 파일 관리자에 의해 사용된다).
 /vault/fe_assets/scripts.js | 프런트 엔드 JavaScript 데이터가 들어 있습니다.
 /vault/lang/ | phpMussel 언어 데이터가 포함되어 있습니다.
-/vault/lang/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/lang/lang.ar.fe.yaml | 프론트 엔드 아랍어 언어 데이터.
 /vault/lang/lang.ar.yaml | 아랍어 언어 데이터.
 /vault/lang/lang.bn.fe.yaml | 프론트 엔드 벵골어 언어 데이터.
@@ -320,12 +316,20 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /vault/lang/lang.ja.yaml | 일본어 언어 데이터.
 /vault/lang/lang.ko.fe.yaml | 프론트 엔드의 한국어 언어 데이터.
 /vault/lang/lang.ko.yaml | 한국어 언어 데이터.
+/vault/lang/lang.lv.fe.yaml | 프론트 엔드의 라트비아어 언어 데이터.
+/vault/lang/lang.lv.yaml | 라트비아어 언어 데이터.
 /vault/lang/lang.nl.fe.yaml | 프론트 엔드 네덜란드어 언어 데이터.
 /vault/lang/lang.nl.yaml | 네덜란드어 언어 데이터.
+/vault/lang/lang.no.fe.yaml | 프론트 엔드 노르웨이 언어 데이터.
+/vault/lang/lang.no.yaml | 노르웨이 언어 데이터.
+/vault/lang/lang.pl.fe.yaml | 프론트 엔드 폴란드어 언어 데이터.
+/vault/lang/lang.pl.yaml | 폴란드어 언어 데이터.
 /vault/lang/lang.pt.fe.yaml | 프론트 엔드 포르투갈어 언어 데이터.
 /vault/lang/lang.pt.yaml | 포르투갈어 언어 데이터.
 /vault/lang/lang.ru.fe.yaml | 프론트 엔드 러시아어 언어 데이터.
 /vault/lang/lang.ru.yaml | 러시아어 언어 데이터.
+/vault/lang/lang.sv.fe.yaml | 프론트 엔드 스웨덴어 언어 데이터.
+/vault/lang/lang.sv.yaml | 스웨덴어 언어 데이터.
 /vault/lang/lang.th.fe.yaml | 프론트 엔드 태국어 언어 데이터.
 /vault/lang/lang.th.yaml | 태국어 언어 데이터.
 /vault/lang/lang.tr.fe.yaml | 프론트 엔드 터키어 언어 데이터.
@@ -339,9 +343,7 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /vault/lang/lang.zh.fe.yaml | 프론트 엔드 중국어 간체 언어 데이터.
 /vault/lang/lang.zh.yaml | 중국어 간체 언어 데이터.
 /vault/quarantine/ | 검역 디렉토리 (격리 된 파일 포함합니다).
-/vault/quarantine/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/signatures/ | 서명 디렉토리 (서명 파일이 포함되어 있습니다).
-/vault/signatures/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/signatures/switch.dat | 변수를 컨트롤 세트합니다.
 /vault/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
 /vault/.travis.php | 테스트를 위해 Travis CI에서 사용됩니다. (기능에 관계없는 파일입니다).
@@ -357,7 +359,6 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /vault/functions.php | 기능 파일 (기본적으로 파일).
 /vault/greylist.csv | 그레이리스트 된 서명 CSV에서 phpMussel이 어떤 서명을 무시해야하는지 알려줍니다 (삭제해도 자동으로 다시 만들어집니다).
 /vault/lang.php | 언어 처리기.
-/vault/php5.4.x.php | PHP 5.4.X 뽀리휘루 (PHP 5.4.X의 하위 호환성을 위해 필요합니다; 더 새로운 PHP 버전을 위해 삭제하는 것이 안전합니다).
 /vault/plugins.dat | 플러그인 메타 데이터 파일; 프런트 엔드 업데이트 페이지에서 사용됩니다.
 ※ /vault/scan_kills.txt | phpMussel 의해 차단/삭제 된 이미지 파일의 전체 기록.
 ※ /vault/scan_log.txt | phpMussel 의해 스캔 된 것의 전 기록.
@@ -370,7 +371,7 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 /vault/upload.php | 업로드 핸들러.
 /.gitattributes | GitHub 프로젝트 파일 (기능에 관계없는 파일입니다).
 /.gitignore | GitHub 프로젝트 파일 (기능에 관계없는 파일입니다).
-/Changelog-v1.txt | 버전에 따른 차이를 기록한 것입니다 (기능에 관계없는 파일입니다).
+/Changelog-v2.txt | 버전에 따른 차이를 기록한 것입니다 (기능에 관계없는 파일입니다).
 /composer.json | Composer/Packagist 정보 (기능에 관계없는 파일입니다).
 /CONTRIBUTING.md | 프로젝트에 기여하는 방법.
 /LICENSE.txt | GNU/GPLv2 라이센스 사본 (기능에 관계없는 파일입니다).
@@ -399,7 +400,7 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 일반 설정.
 
 ##### "cleanup"
-- 처음 업로드 후 변수 및 캐시 설정을 클리어 여부에 대한 스크립트입니다. `false` (가짜) = 아니오;`true` (진정한) = 예 (Default / 기본 설정). 처음 업로드 스캐닝 이외로 사용할 수 없으면,`true` (참)로 메모리 사용량을 최소화합니다. 사용하는 경우,`false` (가짜)으로 메모리에 불필요한 중복 데이터를 다시로드하는 것을 방지합니다. 일반적으로`true` (진정한). 로 설정하고 있지만, 처음 업로드 스캐닝에 대해서만 사용할 수 없음을 기억하십시오.
+- 처음 업로드 후 변수 및 캐시 설정을 클리어 여부에 대한 스크립트입니다. `false` (가짜) = 아니오; `true` (진정한) = 예 (Default / 기본 설정). 업로드 스캔 이외의 용도로 스크립트를 사용하지 않는 경우 메모리 사용을 최소화하려면이 값을 `true`로 설정해야합니다. 그렇지 않으면, 필요에 따라 다시로드하지 않고 phpMussel을 실행하는 데 필요한 데이터를 메모리에 유지하려면 `false`로 설정해야합니다. CLI 모드에서 영향을주지 않습니다.
 - CLI 모드에서 영향을주지 않습니다.
 
 ##### "scan_log"
@@ -1412,4 +1413,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2019년 8월 17일.
+최종 업데이트 : 2019년 9월 6일.

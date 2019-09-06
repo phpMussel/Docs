@@ -250,7 +250,6 @@ Fichier | Description
 /_testfiles/swf_standard_testfile.swf | Fichier pour tester phpMussel signatures SWF.
 /vault/ | Voûte répertoire (contient divers fichiers).
 /vault/cache/ | Cache répertoire (pour les données temporaires).
-/vault/cache/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/classes/ | Répertoire des classes. Contient diverses classes utilisées par phpMussel.
 /vault/classes/Maikuolan/ | Répertoire des classes. Contient diverses classes utilisées par phpMussel.
 /vault/classes/Maikuolan/Cache.php | Un processeur de cache simple et unifié.
@@ -260,12 +259,10 @@ Fichier | Description
 /vault/classes/Maikuolan/L10N.php | L10N processeur.
 /vault/classes/Maikuolan/NumberFormatter.php | Formateur de nombres.
 /vault/classes/Maikuolan/YAML.php | YAML processeur.
-/vault/classes/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/classes/ArchiveHandler.php | Responsable de la gestion des archives.
 /vault/classes/CompressionHandler.php | Responsable de la gestion de la compression de fichier.
 /vault/classes/TemporaryFileHandler.php | Responsable de la création et de la gestion des fichiers temporaires.
 /vault/fe_assets/ | Les fichiers de l'accès frontal.
-/vault/fe_assets/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/fe_assets/_2fa.html | Un modèle HTML utilisé pour demander à l'utilisateur un code 2FA.
 /vault/fe_assets/_accounts.html | Un modèle HTML pour la page des comptes de l'accès frontal.
 /vault/fe_assets/_accounts_row.html | Un modèle HTML pour la page des comptes de l'accès frontal.
@@ -297,7 +294,6 @@ Fichier | Description
 /vault/fe_assets/pips.php | Gestionnaire de pips (utilisé par le gestionnaire de fichiers de l'accès frontal).
 /vault/fe_assets/scripts.js | Contient des données JavaScript pour l'accès frontal.
 /vault/lang/ | Contient données linguistiques.
-/vault/lang/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/lang/lang.ar.fe.yaml | Données linguistiques en Arabe pour l'accès frontal.
 /vault/lang/lang.ar.yaml | Données linguistiques en Arabe.
 /vault/lang/lang.bn.fe.yaml | Données linguistiques en Bangla pour l'accès frontal.
@@ -320,12 +316,20 @@ Fichier | Description
 /vault/lang/lang.ja.yaml | Données linguistiques en Japonaise.
 /vault/lang/lang.ko.fe.yaml | Données linguistiques en Coréenne pour l'accès frontal.
 /vault/lang/lang.ko.yaml | Données linguistiques en Coréenne.
+/vault/lang/lang.lv.fe.yaml | Données linguistiques en Lettone pour l'accès frontal.
+/vault/lang/lang.lv.yaml | Données linguistiques en Lettone.
 /vault/lang/lang.nl.fe.yaml | Données linguistiques en Néerlandaise pour l'accès frontal.
 /vault/lang/lang.nl.yaml | Données linguistiques en Néerlandaise.
+/vault/lang/lang.no.fe.yaml | Données linguistiques en Norvégienne pour l'accès frontal.
+/vault/lang/lang.no.yaml | Données linguistiques en Norvégienne.
+/vault/lang/lang.pl.fe.yaml | Données linguistiques en Polonaise pour l'accès frontal.
+/vault/lang/lang.pl.yaml | Données linguistiques en Polonaise.
 /vault/lang/lang.pt.fe.yaml | Données linguistiques en Portugaise pour l'accès frontal.
 /vault/lang/lang.pt.yaml | Données linguistiques en Portugaise.
 /vault/lang/lang.ru.fe.yaml | Données linguistiques en Russe pour l'accès frontal.
 /vault/lang/lang.ru.yaml | Données linguistiques en Russe.
+/vault/lang/lang.sv.fe.yaml | Données linguistiques en Suédois pour l'accès frontal.
+/vault/lang/lang.sv.yaml | Données linguistiques en Suédois.
 /vault/lang/lang.th.fe.yaml | Données linguistiques en Thai pour l'accès frontal.
 /vault/lang/lang.th.yaml | Données linguistiques en Thai.
 /vault/lang/lang.tr.fe.yaml | Données linguistiques en Turc pour l'accès frontal.
@@ -339,9 +343,7 @@ Fichier | Description
 /vault/lang/lang.zh.fe.yaml | Données linguistiques en Chinois (simplifié) pour l'accès frontal.
 /vault/lang/lang.zh.yaml | Données linguistiques en Chinois (simplifié).
 /vault/quarantine/ | Quarantaine répertoire (contient des fichiers de la quarantaine).
-/vault/quarantine/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/signatures/ | Signatures répertoire (contient des fichiers de signatures).
-/vault/signatures/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/signatures/switch.dat | Contrôle et définit certaines variables.
 /vault/.htaccess | Un hypertexte accès fichier (dans ce cas, pour protéger les sensibles fichiers appartenant au script contre être consulté par non autorisées sources).
 /vault/.travis.php | Utilisé par Travis CI pour le tester (pas nécessaire pour le bon fonctionnement du script).
@@ -357,7 +359,6 @@ Fichier | Description
 /vault/functions.php | Fichier de fonctions (essentiel).
 /vault/greylist.csv | CSV de grise listé signatures indiquant pour phpMussel qui signatures il faut ignorer (fichier recréé automatiquement si supprimé).
 /vault/lang.php | Module de linguistiques.
-/vault/php5.4.x.php | Polyfills pour PHP 5.4.X (Requis pour la compatibilité descendante de PHP 5.4.X ; safe à supprimer pour les versions plus récentes de PHP).
 /vault/plugins.dat | Fichier de métadonnées de plugins ; Utilisé par la page des mises à jour frontales.
 ※ /vault/scan_kills.txt | Les résultats de chaque fichier téléchargement bloqué/tués par phpMussel.
 ※ /vault/scan_log.txt | Un enregistrement de tout analysé par phpMussel.
@@ -370,7 +371,7 @@ Fichier | Description
 /vault/upload.php | Module de téléchargements.
 /.gitattributes | Un fichier du GitHub projet (pas nécessaire pour le bon fonctionnement du script).
 /.gitignore | Un fichier du GitHub projet (pas nécessaire pour le bon fonctionnement du script).
-/Changelog-v1.txt | Un enregistrement des modifications apportées au script entre les différentes versions (pas nécessaire pour le bon fonctionnement du script).
+/Changelog-v2.txt | Un enregistrement des modifications apportées au script entre les différentes versions (pas nécessaire pour le bon fonctionnement du script).
 /composer.json | Composer/Packagist information (pas nécessaire pour le bon fonctionnement du script).
 /CONTRIBUTING.md | Informations sur la façon de contribuer au projet.
 /LICENSE.txt | Une copie de la GNU/GPLv2 license (pas nécessaire pour le bon fonctionnement du script).
@@ -399,7 +400,7 @@ Ce qui suit est une liste des directives disponibles pour phpMussel dans le `con
 Configuration générale pour phpMussel.
 
 ##### « cleanup »
-- Déensemble variables du script et cache après l'exécution ? False = Non ; True = Oui [Défaut]. Si vous ne utilisez pas le script au-delà l'initiale analyse du téléchargements, devrait ensemble à `true` (oui) à minimiser l'utilisation de la mémoire. Si vous utilisez le script à des fins au-delà l'initiale analyse du téléchargements, devrait ensemble à `false` (non), pour éviter recharger inutilement dupliqué données dans la mémoire. Dans la pratique générale, il devrait probablement être ensemblé à `true`, mais, si vous faites cela, vous ne serez pas être capable d'utiliser le script pour tout chose autre que l'analyse des fichiers téléchargements.
+- Déensemble variables du script et cache après l'exécution ? False = Non ; True = Oui [Défaut]. Si vous n'utilisez pas le script pour autre chose que l'analyse des téléchargements, vous devez définir ceci sur `true` pour réduire l'utilisation de la mémoire. Sinon, vous devez le définir sur `false`, afin de conserver en mémoire les données nécessaires à l'exécution de phpMussel sans le recharger inutilement.
 - N'a pas d'influence en le mode CLI.
 
 ##### « scan_log »
@@ -1413,4 +1414,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 17 Août 2019 (2019.08.17).
+Dernière mise à jour : 6 Septembre 2019 (2019.09.06).

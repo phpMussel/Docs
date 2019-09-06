@@ -250,7 +250,6 @@ Arquivo | Descrição
 /_testfiles/swf_standard_testfile.swf | Arquivo teste para testar phpMussel SWF assinaturas.
 /vault/ | Vault diretório (contém vários arquivos).
 /vault/cache/ | Cache diretório (para dados temporários).
-/vault/cache/.htaccess | Um hipertexto acesso arquivo (neste caso, para proteger confidenciais arquivos pertencentes ao script contra serem acessados por fontes não autorizadas).
 /vault/classes/ | Diretório de classes. Contém várias classes usadas pelo phpMussel.
 /vault/classes/Maikuolan/ | Diretório de classes. Contém várias classes usadas pelo phpMussel.
 /vault/classes/Maikuolan/Cache.php | Um manipulador de cache simples e unificado.
@@ -260,12 +259,10 @@ Arquivo | Descrição
 /vault/classes/Maikuolan/L10N.php | Manipulador para o L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Formatador de números.
 /vault/classes/Maikuolan/YAML.php | Manipulador para o YAML.
-/vault/classes/.htaccess | Um hipertexto acesso arquivo (neste caso, para proteger confidenciais arquivos pertencentes ao script contra serem acessados por fontes não autorizadas).
 /vault/classes/ArchiveHandler.php | Responsável pelo processamento de arquivos.
 /vault/classes/CompressionHandler.php | Responsável pelo processamento da compactação de arquivos.
 /vault/classes/TemporaryFileHandler.php | Responsável pela criação e processamento de arquivos temporários.
 /vault/fe_assets/ | Dados front-end.
-/vault/fe_assets/.htaccess | Um hipertexto acesso arquivo (neste caso, para proteger confidenciais arquivos pertencentes ao script contra serem acessados por fontes não autorizadas).
 /vault/fe_assets/_2fa.html | Um modelo HTML usado ao solicitar ao usuário para um código 2FA.
 /vault/fe_assets/_accounts.html | Um modelo HTML para o front-end página de contas.
 /vault/fe_assets/_accounts_row.html | Um modelo HTML para o front-end página de contas.
@@ -297,7 +294,6 @@ Arquivo | Descrição
 /vault/fe_assets/pips.php | Módulo de pips (usado pelo gerenciador de arquivos do front-end).
 /vault/fe_assets/scripts.js | Contém dados de JavaScript do front-end.
 /vault/lang/ | Contém dados lingüísticos.
-/vault/lang/.htaccess | Um hipertexto acesso arquivo (neste caso, para proteger confidenciais arquivos pertencentes ao script contra serem acessados por fontes não autorizadas).
 /vault/lang/lang.ar.fe.yaml | Dados lingüísticos Árabe para o front-end.
 /vault/lang/lang.ar.yaml | Dados lingüísticos Árabe.
 /vault/lang/lang.bn.fe.yaml | Dados lingüísticos Bangla para o front-end.
@@ -320,12 +316,20 @@ Arquivo | Descrição
 /vault/lang/lang.ja.yaml | Dados lingüísticos Japonês.
 /vault/lang/lang.ko.fe.yaml | Dados lingüísticos Coreano para o front-end.
 /vault/lang/lang.ko.yaml | Dados lingüísticos Coreano.
+/vault/lang/lang.lv.fe.yaml | Dados lingüísticos Letão para o front-end.
+/vault/lang/lang.lv.yaml | Dados lingüísticos Letão.
 /vault/lang/lang.nl.fe.yaml | Dados lingüísticos Holandês para o front-end.
 /vault/lang/lang.nl.yaml | Dados lingüísticos Holandês.
+/vault/lang/lang.no.fe.yaml | Dados lingüísticos Norueguês para o front-end.
+/vault/lang/lang.no.yaml | Dados lingüísticos Norueguês.
+/vault/lang/lang.pl.fe.yaml | Dados lingüísticos Polonês para o front-end.
+/vault/lang/lang.pl.yaml | Dados lingüísticos Polonês.
 /vault/lang/lang.pt.fe.yaml | Dados lingüísticos Português para o front-end.
 /vault/lang/lang.pt.yaml | Dados lingüísticos Português.
 /vault/lang/lang.ru.fe.yaml | Dados lingüísticos Russo para o front-end.
 /vault/lang/lang.ru.yaml | Dados lingüísticos Russo.
+/vault/lang/lang.sv.fe.yaml | Dados lingüísticos Sueco para o front-end.
+/vault/lang/lang.sv.yaml | Dados lingüísticos Sueco.
 /vault/lang/lang.th.fe.yaml | Dados lingüísticos Tailandês para o front-end.
 /vault/lang/lang.th.yaml | Dados lingüísticos Tailandês.
 /vault/lang/lang.tr.fe.yaml | Dados lingüísticos Turco para o front-end.
@@ -339,9 +343,7 @@ Arquivo | Descrição
 /vault/lang/lang.zh.fe.yaml | Dados lingüísticos Chinês (simplificado) para o front-end.
 /vault/lang/lang.zh.yaml | Dados lingüísticos Chinês (simplificado).
 /vault/quarantine/ | Diretório de quarentena (contém os arquivos em quarentena).
-/vault/quarantine/.htaccess | Um hipertexto acesso arquivo (neste caso, para proteger confidenciais arquivos pertencentes ao script contra serem acessados por fontes não autorizadas).
 /vault/signatures/ | Diretório de assinaturas (contém arquivos de assinaturas).
-/vault/signatures/.htaccess | Um hipertexto acesso arquivo (neste caso, para proteger confidenciais arquivos pertencentes ao script contra serem acessados por fontes não autorizadas).
 /vault/signatures/switch.dat | Isto controla e define algumas variáveis.
 /vault/.htaccess | Um hipertexto acesso arquivo (neste caso, para proteger confidenciais arquivos pertencentes ao script contra serem acessados por fontes não autorizadas).
 /vault/.travis.php | Usado pela Travis CI para testes (não é necessário para o correto funcionamento do script).
@@ -357,7 +359,6 @@ Arquivo | Descrição
 /vault/functions.php | Arquivo de funções.
 /vault/greylist.csv | Um arquivo indicando a phpMussel quais assinaturas deve ser ignorado (arquivo automaticamente recriado se deletado).
 /vault/lang.php | Dados lingüísticos.
-/vault/php5.4.x.php | Polyfills para PHP 5.4.X (necessário para compatibilidade reversa com PHP 5.4.X; seguro para deletar por versões de PHP mais recentes).
 /vault/plugins.dat | Arquivo de metadados de plug-ins; Usado pela página de atualizações do front-end.
 ※ /vault/scan_kills.txt | Um registro de tudos os arquivos carregamentos bloqueado ou matado por phpMussel.
 ※ /vault/scan_log.txt | Um registro de tudo analisado por phpMussel.
@@ -370,7 +371,7 @@ Arquivo | Descrição
 /vault/upload.php | Módulo de carregamento.
 /.gitattributes | Um arquivo do GitHub projeto (não é necessário para o correto funcionamento do script).
 /.gitignore | Um arquivo do GitHub projeto (não é necessário para o correto funcionamento do script).
-/Changelog-v1.txt | Um registro das mudanças feitas para o script entre o diferentes versões (não é necessário para o correto funcionamento do script).
+/Changelog-v2.txt | Um registro das mudanças feitas para o script entre o diferentes versões (não é necessário para o correto funcionamento do script).
 /composer.json | Composer/Packagist informação (não é necessário para o correto funcionamento do script).
 /CONTRIBUTING.md | Informações sobre como contribuir para o projeto.
 /LICENSE.txt | Uma cópia da GNU/GPLv2 licença (não é necessário para o correto funcionamento do script).
@@ -399,7 +400,7 @@ O seguinte é uma lista de variáveis encontradas no `config.ini` arquivo de con
 Configuração geral por phpMussel.
 
 ##### "cleanup"
-- Deletar script variáveis e cache após a execução? False = Não; True = Sim [Padrão]. Se você não estiver usar o script além da inicial verificação de carregamentos, deve definir a `true` (sim), para minimizar o uso de memória. Se você estiver usar o script por fins além da inicial verificação de carregamentos, deve definir a `false` (não), para evitar desnecessariamente duplicados dados recarregando em memória. Em prática geral, deve provavelmente ser definido como `true` (sim), mas, se você fizer isso, você não será capaz de usando o script por qualquer outra fim além analisando arquivos carregamentos.
+- Deletar script variáveis e cache após a execução? False = Não; True = Sim [Padrão]. Se você não estiver usando o script para outra coisa senão a verificação de carregamentos, você deve defina-o como `true` para minimizar o uso de memória. Caso contrário, você deve defini-lo como `false`, a fim de reter na memória os dados necessários para executar o phpMussel sem recarregá-lo desnecessariamente.
 - Não tem influência em CLI modo.
 
 ##### "scan_log"
@@ -530,7 +531,7 @@ Valor | Produz | Descrição
 - Desativar o acesso front-end? Acesso front-end pode fazer phpMussel mais manejável, mas também pode ser um risco de segurança potencial, também. É recomendado para gerenciar phpMussel através do back-end, sempre que possível, mas o acesso front-end é proporcionada para quando não é possível. Mantê-lo desativado, a menos que você precisar. False = Ativar o acesso front-end; True = Desativar o acesso front-end [Padrão].
 
 ##### "max_login_attempts"
-- Número máximo de tentativas de login (front-end). Padrão = 5.
+- Número máximo de tentativas de login ao front-end. Padrão = 5.
 
 ##### "frontend_log"
 - *v1: "FrontEndLog"*
@@ -1409,4 +1410,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 17 de Agosto de 2019 (2019.08.17).
+Última Atualização: 6 de Setembro de 2019 (2019.09.06).

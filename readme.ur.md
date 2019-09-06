@@ -245,7 +245,6 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">ٹیسٹنگ phpMussel SWF دستخط کے لئے ٹیسٹ فائل.</div> | /_testfiles/swf_standard_testfile.swf
 &nbsp; <div dir="rtl" style="display:inline">والٹ ڈائریکٹری (مختلف فائلوں پر مشتمل ہے).</div> | /vault/
 &nbsp; <div dir="rtl" style="display:inline">کیشے ڈائریکٹری (عارضی اعداد و شمار کے لئے).</div> | /vault/cache/
-&nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/cache/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">کلاس ڈائرکٹری. phpMussel کی طرف سے استعمال کیا جاتا مختلف طبقات پر مشتمل ہے.</div> | /vault/classes/
 &nbsp; <div dir="rtl" style="display:inline">کلاس ڈائرکٹری. phpMussel کی طرف سے استعمال کیا جاتا مختلف طبقات پر مشتمل ہے.</div> | /vault/classes/Maikuolan/
 &nbsp; <div dir="rtl" style="display:inline">ایک سادہ، متحد کیش ہینڈلر.</div> | /vault/classes/Maikuolan/Cache.php
@@ -255,12 +254,10 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">L10N ہینڈلر.</div> | /vault/classes/Maikuolan/L10N.php
 &nbsp; <div dir="rtl" style="display:inline">نمبر فارمیٹر.</div> | /vault/classes/Maikuolan/NumberFormatter.php
 &nbsp; <div dir="rtl" style="display:inline">YAML ہینڈلر.</div> | /vault/classes/Maikuolan/YAML.php
-&nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/classes/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">آرکائیو کو سنبھالنے کے لئے ذمہ دار.</div> | /vault/classes/ArchiveHandler.php
 &nbsp; <div dir="rtl" style="display:inline">فائل کمپریشن کو سنبھالنے کے لئے ذمہ دار ہے.</div> | /vault/classes/CompressionHandler.php
 &nbsp; <div dir="rtl" style="display:inline">عارضی فائلوں کو بنانے اور ہینڈل کرنے کے لئے ذمہ دار.</div> | /vault/classes/TemporaryFileHandler.php
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں اثاثوں.</div> | /vault/fe_assets/
-&nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/fe_assets/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">صارف کو 2FA کوڈ کے لئے پوچھتے وقت ایک HTML ٹیمپلیٹ استعمال کیا جاتا ہے.</div> | /vault/fe_assets/_2fa.html
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے ایک HTML سانچے اکاؤنٹس صفحہ.</div> | /vault/fe_assets/_accounts.html
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے ایک HTML سانچے اکاؤنٹس صفحہ.</div> | /vault/fe_assets/_accounts_row.html
@@ -292,7 +289,6 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">پپس کے ہینڈلر (سامنے کے آخر میں فائل مینیجر کی طرف سے استعمال کیا جاتا).</div> | /vault/fe_assets/pips.php
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر جاوا اسکرپٹ ڈیٹا پر مشتمل ہے.</div> | /vault/fe_assets/scripts.js
 &nbsp; <div dir="rtl" style="display:inline">phpMussel زبان کے اعداد و شمار پر مشتمل ہے.</div> | /vault/lang/
-&nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/lang/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے عربی زبان کے اعداد و شمار.</div> | /vault/lang/lang.ar.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">عربی زبان کے اعداد و شمار.</div> | /vault/lang/lang.ar.yaml
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے بنگلا زبان کے اعداد و شمار.</div> | /vault/lang/lang.bn.fe.yaml
@@ -315,12 +311,20 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">جاپانی زبان کے اعداد و شمار.</div> | /vault/lang/lang.ja.yaml
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے کوریائی زبان کے اعداد و شمار.</div> | /vault/lang/lang.ko.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">کورین زبان کے اعداد و شمار.</div> | /vault/lang/lang.ko.yaml
+&nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے لیٹوین زبان کے اعداد و شمار.</div> | /vault/lang/lang.lv.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">لیٹوین زبان کے اعداد و شمار.</div> | /vault/lang/lang.lv.yaml
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے ڈچ زبان کے اعداد و شمار.</div> | /vault/lang/lang.nl.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ڈچ زبان کے اعداد و شمار.</div> | /vault/lang/lang.nl.yaml
+&nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے ناروے زبان کے اعداد و شمار.</div> | /vault/lang/lang.no.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">ناروے زبان کے اعداد و شمار.</div> | /vault/lang/lang.no.yaml
+&nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے پولش زبان کے اعداد و شمار.</div> | /vault/lang/lang.pl.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">پولش زبان کے اعداد و شمار.</div> | /vault/lang/lang.pl.yaml
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے پرتگالی زبان کے اعداد و شمار.</div> | /vault/lang/lang.pt.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">پرتگالی زبان کے اعداد و شمار.</div> | /vault/lang/lang.pt.yaml
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے روسی زبان کے اعداد و شمار.</div> | /vault/lang/lang.ru.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">روسی زبان کے اعداد و شمار.</div> | /vault/lang/lang.ru.yaml
+&nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے سویڈش زبان کے اعداد و شمار.</div> | /vault/lang/lang.sv.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">سویڈش زبان کے اعداد و شمار.</div> | /vault/lang/lang.sv.yaml
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے تھائی زبان کے اعداد و شمار.</div> | /vault/lang/lang.th.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">تھائی زبان کے اعداد و شمار.</div> | /vault/lang/lang.th.yaml
 &nbsp; <div dir="rtl" style="display:inline">سامنے کے آخر میں کے لئے ترکی زبان کے اعداد و شمار.</div> | /vault/lang/lang.tr.fe.yaml
@@ -334,9 +338,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">چینی کے سامنے کے آخر کے لئے (آسان کردہ) زبان کے اعداد و شمار.</div> | /vault/lang/lang.zh.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">چینی (آسان کردہ) زبان کے اعداد و شمار.</div> | /vault/lang/lang.zh.yaml
 &nbsp; <div dir="rtl" style="display:inline">سنگرودھ ڈائریکٹری (قرنطینہ فائلوں پر مشتمل ہے).</div> | /vault/quarantine/
-&nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/quarantine/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">دستخط ڈائریکٹری (دستخط فائلوں پر مشتمل ہے).</div> | /vault/signatures/
-&nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/signatures/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">کنٹرولز اور سیٹ خاص متغیر.</div> | /vault/signatures/switch.dat
 &nbsp; <div dir="rtl" style="display:inline">ایک ہایپر ٹیکسٹ رسائی فائل (اس مثال میں، غیر مجاز ذرائع کی طرف سے حاصل کیا جا رہا ہے سے سکرپٹ سے تعلق رکھنے والے حساس فائلوں کی حفاظت کے لئے).</div> | /vault/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">جانچ کے لئے Travis CI کی طرف سے استعمال کیا جاتا ہے (رسم الخط کی مناسب تقریب کے لئے ضروری نہیں).</div> | /vault/.travis.php
@@ -352,7 +354,6 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">افعال فائل (ضروری).</div> | /vault/functions.php
 &nbsp; <div dir="rtl" style="display:inline">phpMussel (فائل خود کار طریقے سے خارج کر دیا ہے تو دوبارہ) اسے نظر انداز کیا جانا چاہئے دستخط جس سے اشارہ greylisted دستخط کی CSV.</div> | /vault/greylist.csv
 &nbsp; <div dir="rtl" style="display:inline">زبان ہینڈلر.</div> | /vault/lang.php
-&nbsp; <div dir="rtl" style="display:inline">PHP 5.4.X کے لئے Polyfills (PHP 5.4.X کے لئے ضروری پیچھے کی طرف مطابقت؛ جدید تر PHP ورژن کے لئے حذف کرنا محفوظ).</div> | /vault/php5.4.x.php
 &nbsp; <div dir="rtl" style="display:inline">پلگ ان میٹا ڈیٹا فائل؛ سامنے کے آخر میں اپ ڈیٹس صفحہ کے ذریعہ استعمال کیا جاتا ہے.</div> | /vault/plugins.dat
 &nbsp; <div dir="rtl" style="display:inline">ہر فائل اپ لوڈ کی ایک ریکارڈ بلاک/phpMussel کر ہلاک کر دیا.</div> | ※ /vault/scan_kills.txt
 &nbsp; <div dir="rtl" style="display:inline">phpMussel طرف سے سکین ہر چیز کا ایک ریکارڈ ہے.</div> | ※ /vault/scan_log.txt
@@ -365,7 +366,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 &nbsp; <div dir="rtl" style="display:inline">اپ لوڈ کریں ہینڈلر.</div> | /vault/upload.php
 &nbsp; <div dir="rtl" style="display:inline">ایک GitHub کے منصوبے فائل (رسم الخط کی مناسب تقریب کے لئے ضروری نہیں).</div> | /.gitattributes
 &nbsp; <div dir="rtl" style="display:inline">ایک GitHub کے منصوبے فائل (رسم الخط کی مناسب تقریب کے لئے ضروری نہیں).</div> | /.gitignore
-&nbsp; <div dir="rtl" style="display:inline">مختلف ورژن کے درمیان سکرپٹ کی گئی تبدیلیوں کا ایک ریکارڈ (رسم الخط کی مناسب تقریب کے لئے ضروری نہیں).</div> | /Changelog-v1.txt
+&nbsp; <div dir="rtl" style="display:inline">مختلف ورژن کے درمیان سکرپٹ کی گئی تبدیلیوں کا ایک ریکارڈ (رسم الخط کی مناسب تقریب کے لئے ضروری نہیں).</div> | /Changelog-v2.txt
 &nbsp; <div dir="rtl" style="display:inline">Composer/Packagist معلومات (رسم الخط کی مناسب تقریب کے لئے ضروری نہیں).</div> | /composer.json
 &nbsp; <div dir="rtl" style="display:inline">اس منصوبے میں شراکت کے لئے کس طرح کے بارے میں معلومات.</div> | /CONTRIBUTING.md
 &nbsp; <div dir="rtl" style="display:inline">GNU/GPLv2 اجازت نامے کی ایک نقل (رسم الخط کی مناسب تقریب کے لئے ضروری نہیں).</div> | /LICENSE.txt
@@ -581,7 +582,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 
 ##### <div dir="rtl">"max_login_attempts"<br /></div>
 <div dir="rtl"><ul>
- <li>لاگ ان کوششوں (سامنے کے آخر میں) کی زیادہ سے زیادہ تعداد. پہلے سے طے شدہ = 5.</li>
+ <li>لاگ ان کوششوں کی زیادہ سے زیادہ تعداد (سامنے کے آخر میں). پہلے سے طے شدہ = 5.</li>
 </ul></div>
 
 ##### <div dir="rtl">"frontend_log"<br /></div>
@@ -1673,4 +1674,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 17 اگست 2019 (2019.08.17).</div>
+<div dir="rtl">آخری تازہ کاری: 6 ستمبر 2019 (2019.09.06).</div>

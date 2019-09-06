@@ -250,7 +250,6 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /_testfiles/swf_standard_testfile.swf | phpMussel ＳＷＦシグネチャ用テスト・ファイル。
 /vault/ | ヴォルト・ディレクトリ（様々なファイルを含んでいます）。
 /vault/cache/ | キャッシュ・ディレクトリ（一時データ用）。
-/vault/cache/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/classes/ | クラス・ディレクトリ。​phpMusselによって使用されるさまざまなクラスが含まれています。
 /vault/classes/Maikuolan/ | クラス・ディレクトリ。​phpMusselによって使用されるさまざまなクラスが含まれています。
 /vault/classes/Maikuolan/Cache.php | シンプルで統一されたキャッシュ・ハンドラ。
@@ -260,12 +259,10 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/classes/Maikuolan/L10N.php | Ｌ１０Ｎハンドラ。
 /vault/classes/Maikuolan/NumberFormatter.php | 数値フォーマッタ。
 /vault/classes/Maikuolan/YAML.php | ＹＡＭＬハンドラ。
-/vault/classes/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/classes/ArchiveHandler.php | アーカイブの処理を担当です。
 /vault/classes/CompressionHandler.php | ファイル圧縮の処理を担当です。
 /vault/classes/TemporaryFileHandler.php | 一時ファイルの作成と処理を担当です。
 /vault/fe_assets/ | フロントエンド資産。
-/vault/fe_assets/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/fe_assets/_2fa.html | ユーザーに２ＦＡコードを要求するときに使用されるＨＴＭＬテンプレート。
 /vault/fe_assets/_accounts.html | フロントエンドのアカウント・ページのＨＴＭＬテンプレート。
 /vault/fe_assets/_accounts_row.html | フロントエンドのアカウント・ページのＨＴＭＬテンプレート。
@@ -297,7 +294,6 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/fe_assets/pips.php | ピップス・ハンドラ（フロントエンド・ファイル・マネージャによって使用される）。
 /vault/fe_assets/scripts.js | フロントエンドJavaScriptデータが含まれています。
 /vault/lang/ | phpMusselの言語データを含んでいます。
-/vault/lang/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/lang/lang.ar.fe.yaml | フロントエンドのアラビア語言語データ。
 /vault/lang/lang.ar.yaml | アラビア語言語データ。
 /vault/lang/lang.bn.fe.yaml | フロントエンドのベンガル語言語データ。
@@ -320,12 +316,20 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/lang/lang.ja.yaml | 日本語言語データ。
 /vault/lang/lang.ko.fe.yaml | フロントエンドの韓国語言語データ。
 /vault/lang/lang.ko.yaml | 韓国語言語データ。
+/vault/lang/lang.lv.fe.yaml | フロントエンドのラトビア語言語データ。
+/vault/lang/lang.lv.yaml | ラトビア語言語データ。
 /vault/lang/lang.nl.fe.yaml | フロントエンドのオランダ語言語データ。
 /vault/lang/lang.nl.yaml | オランダ語言語データ。
+/vault/lang/lang.no.fe.yaml | フロントエンドのノルウェー語言語データ。
+/vault/lang/lang.no.yaml | ノルウェー語言語データ。
+/vault/lang/lang.pl.fe.yaml | フロントエンドのポーランド語言語データ。
+/vault/lang/lang.pl.yaml | ポーランド語言語データ。
 /vault/lang/lang.pt.fe.yaml | フロントエンドのポルトガル語言語データ。
 /vault/lang/lang.pt.yaml | ポルトガル語言語データ。
 /vault/lang/lang.ru.fe.yaml | フロントエンドのロシア語言語データ。
 /vault/lang/lang.ru.yaml | ロシア語言語データ。
+/vault/lang/lang.sv.fe.yaml | フロントエンドのスウェーデン語言語データ。
+/vault/lang/lang.sv.yaml | スウェーデン語言語データ。
 /vault/lang/lang.th.fe.yaml | フロントエンドのタイ語言語データ。
 /vault/lang/lang.th.yaml | タイ語言語データ。
 /vault/lang/lang.tr.fe.yaml | フロントエンドのトルコ語言語データ。
@@ -339,9 +343,7 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/lang/lang.zh.fe.yaml | フロントエンドの簡体字中国語言語データ。
 /vault/lang/lang.zh.yaml | 簡体字中国語言語データ。
 /vault/quarantine/ | 検疫ディレクトリ（検疫されたファイル含んでいます）。
-/vault/quarantine/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/signatures/ | シグネチャディレクトリ（シグネチャ・ファイルが含まれています）。
-/vault/signatures/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/signatures/switch.dat | 変数をコントロール、​セットします。
 /vault/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
 /vault/.travis.php | テストのためにTravis CIによって使用される​（機能には関係のないファイルです）。
@@ -357,7 +359,6 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/functions.php | 関数ファイル（本質的ファイル）。
 /vault/greylist.csv | グレーリスト化されたシグネチャのＣＳＶで、​phpMusselがどのシグネチャを無視すべきかを指示するものです（削除しても自動的に再作成されます）。
 /vault/lang.php | 言語・ハンドラ。
-/vault/php5.4.x.php | ＰＨＰ ５.４ポリフィル​（ＰＨＰ ５.４の下位互換性のために必要です。​より新しいＰＨＰバージョンのために、​削除しても安全です）。
 /vault/plugins.dat | プラグインのメタデータ・ファイル。​フロントエンドのアップデート・ページで使用されます。
 ※ /vault/scan_kills.txt | phpMusselによりブロック/削除されたアップロードファイルの全記録。
 ※ /vault/scan_log.txt | phpMusselによりスキャンされたものの全記録。
@@ -370,7 +371,7 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 /vault/upload.php | アップロード・ハンドラ。
 /.gitattributes | GitHubのプロジェクトファイル（機能には関係のないファイルです）。
 /.gitignore | GitHubのプロジェクトファイル（機能には関係のないファイルです）。
-/Changelog-v1.txt | バージョンによる違いを記録したものです（機能には関係のないファイルです）。
+/Changelog-v2.txt | バージョンによる違いを記録したものです（機能には関係のないファイルです）。
 /composer.json | Composer/Packagist情報（機能には関係のないファイルです）。
 /CONTRIBUTING.md | プロジェクトに貢献する方法について。
 /LICENSE.txt | ＧＮＵ/ＧＰＬｖ２のライセンスのコピー（機能には関係のないファイルです）。
@@ -1414,4 +1415,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０１９年８月１７日。
+最終アップデート：２０１９年９月６日。

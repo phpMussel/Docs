@@ -245,7 +245,6 @@
 &nbsp; <div dir="rtl" style="display:inline">ملف اختبار لاختبار توقيعات swf في phpMussel.</div> | /_testfiles/swf_standard_testfile.swf
 &nbsp; <div dir="rtl" style="display:inline">دليل /vault/ (يحتوي على ملفات متنوعة).</div> | /vault/
 &nbsp; <div dir="rtl" style="display:inline">دليل ذاكرة التخزين المؤقت (للبيانات المؤقتة).</div> | /vault/cache/
-&nbsp; <div dir="rtl" style="display:inline">ملف وصول النص التشعبي (في هذه الحالة، لحماية الملفات الحساسة التي تنتمي إلى البرنامج من أن يتم الوصول إليها عن طريق مصادر غير مصرح لها).</div> | /vault/cache/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">مجلد الطبقات. يحتوي على ملفات فئة مختلفة يستخدمها phpMussel.</div> | /vault/classes/
 &nbsp; <div dir="rtl" style="display:inline">مجلد الطبقات. يحتوي على ملفات فئة مختلفة يستخدمها phpMussel.</div> | /vault/classes/Maikuolan/
 &nbsp; <div dir="rtl" style="display:inline">معالج ذاكرة تخزين مؤقت بسيط وموحد.</div> | /vault/classes/Maikuolan/Cache.php
@@ -255,12 +254,10 @@
 &nbsp; <div dir="rtl" style="display:inline">معالج L10N.</div> | /vault/classes/Maikuolan/L10N.php
 &nbsp; <div dir="rtl" style="display:inline">عدد المنسق.</div> | /vault/classes/Maikuolan/NumberFormatter.php
 &nbsp; <div dir="rtl" style="display:inline">معالج YAML.</div> | /vault/classes/Maikuolan/YAML.php
-&nbsp; <div dir="rtl" style="display:inline">ملف وصول النص التشعبي (في هذه الحالة، لحماية الملفات الحساسة التي تنتمي إلى البرنامج من أن يتم الوصول إليها عن طريق مصادر غير مصرح لها).</div> | /vault/classes/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">مسؤول عن التعامل مع المحفوظات.</div> | /vault/classes/ArchiveHandler.php
 &nbsp; <div dir="rtl" style="display:inline">مسؤولة عن التعامل مع ضغط الملفات.</div> | /vault/classes/CompressionHandler.php
 &nbsp; <div dir="rtl" style="display:inline">مسؤولة عن إنشاء والتعامل مع الملفات المؤقتة.</div> | /vault/classes/TemporaryFileHandler.php
 &nbsp; <div dir="rtl" style="display:inline">الأصول front-end.</div> | /vault/fe_assets/
-&nbsp; <div dir="rtl" style="display:inline">ملف وصول النص التشعبي (في هذه الحالة، لحماية الملفات الحساسة التي تنتمي إلى البرنامج من أن يتم الوصول إليها عن طريق مصادر غير مصرح لها).</div> | /vault/fe_assets/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">ملف قالب HTML المستخدم عند طلب المستخدم للحصول على كود 2FA.</div> | /vault/fe_assets/_2fa.html
 &nbsp; <div dir="rtl" style="display:inline">ملف قالب HTML لfront-end صفحة الحسابات.</div> | /vault/fe_assets/_accounts.html
 &nbsp; <div dir="rtl" style="display:inline">ملف قالب HTML لfront-end صفحة الحسابات.</div> | /vault/fe_assets/_accounts_row.html
@@ -292,7 +289,6 @@
 &nbsp; <div dir="rtl" style="display:inline">بالنقاط معالج (التي يستخدمها مدير الملفات الأمامية).</div> | /vault/fe_assets/pips.php
 &nbsp; <div dir="rtl" style="display:inline">يحتوي على بيانات JavaScript front-end.</div> | /vault/fe_assets/scripts.js
 &nbsp; <div dir="rtl" style="display:inline">يحتوي على بيانات اللغة لـ phpMussel.</div> | /vault/lang/
-&nbsp; <div dir="rtl" style="display:inline">ملف وصول النص التشعبي (في هذه الحالة، لحماية الملفات الحساسة التي تنتمي إلى البرنامج من أن يتم الوصول إليها عن طريق مصادر غير مصرح لها).</div> | /vault/lang/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة العربية لfront-end.</div> | /vault/lang/lang.ar.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة العربية.</div> | /vault/lang/lang.ar.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة البنغالية لfront-end.</div> | /vault/lang/lang.bn.fe.yaml
@@ -315,12 +311,20 @@
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة اليابانية.</div> | /vault/lang/lang.ja.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الكورية لfront-end.</div> | /vault/lang/lang.ko.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الكورية.</div> | /vault/lang/lang.ko.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة اللاتفية لfront-end.</div> | /vault/lang/lang.lv.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة اللاتفية.</div> | /vault/lang/lang.lv.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الهولندية لfront-end.</div> | /vault/lang/lang.nl.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الهولندية.</div> | /vault/lang/lang.nl.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة النرويجيةة لfront-end.</div> | /vault/lang/lang.no.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة النرويجيةة.</div> | /vault/lang/lang.no.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة البولندية لfront-end.</div> | /vault/lang/lang.pl.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة البولندية.</div> | /vault/lang/lang.pl.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة البرتغالية لfront-end.</div> | /vault/lang/lang.pt.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة البرتغالية.</div> | /vault/lang/lang.pt.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الروسية لfront-end.</div> | /vault/lang/lang.ru.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الروسية.</div> | /vault/lang/lang.ru.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة السويدية لfront-end.</div> | /vault/lang/lang.sv.fe.yaml
+&nbsp; <div dir="rtl" style="display:inline">ملفات اللغة السويدية.</div> | /vault/lang/lang.sv.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة التايلاندية لfront-end.</div> | /vault/lang/lang.th.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة التايلاندية.</div> | /vault/lang/lang.th.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة اللغة التركية لfront-end.</div> | /vault/lang/lang.tr.fe.yaml
@@ -334,9 +338,7 @@
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الصينية (المبسطة) لfront-end.</div> | /vault/lang/lang.zh.fe.yaml
 &nbsp; <div dir="rtl" style="display:inline">ملفات اللغة الصينية (المبسطة).</div> | /vault/lang/lang.zh.yaml
 &nbsp; <div dir="rtl" style="display:inline">دليل العزل (يحتوي على الملفات المعزولة).</div> | /vault/quarantine/
-&nbsp; <div dir="rtl" style="display:inline">ملف وصول النص التشعبي (في هذه الحالة، لحماية الملفات الحساسة التي تنتمي إلى البرنامج من أن يتم الوصول إليها عن طريق مصادر غير مصرح لها).</div> | /vault/quarantine/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">دليل توقيعات (يحتوي توقيعات).</div> | /vault/signatures/
-&nbsp; <div dir="rtl" style="display:inline">ملف وصول النص التشعبي (في هذه الحالة، لحماية الملفات الحساسة التي تنتمي إلى البرنامج من أن يتم الوصول إليها عن طريق مصادر غير مصرح لها).</div> | /vault/signatures/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">يتحكم و يضع متغيرات محددة.</div> | /vault/signatures/switch.dat
 &nbsp; <div dir="rtl" style="display:inline">ملف وصول النص التشعبي (في هذه الحالة، لحماية الملفات الحساسة التي تنتمي إلى البرنامج من أن يتم الوصول إليها عن طريق مصادر غير مصرح لها).</div> | /vault/.htaccess
 &nbsp; <div dir="rtl" style="display:inline">المستخدمة من قبل Travis CI للاختبار (غير مطلوب لتشغيل سليم للبرنامج).</div> | /vault/.travis.php
@@ -352,7 +354,6 @@
 &nbsp; <div dir="rtl" style="display:inline">ملف وظائف (ضروري).</div> | /vault/functions.php
 &nbsp; <div dir="rtl" style="display:inline">ملف CSV توقيعات القائمة الرمادية المشيرة إلى التوقيعات التي ينبغي على phpMussel أن يتجاهلها (هذا ملف يتم إعادة إنشاءه تلقائيا إذا حذف).</div> | /vault/greylist.csv
 &nbsp; <div dir="rtl" style="display:inline">ملف لغة.</div> | /vault/lang.php
-&nbsp; <div dir="rtl" style="display:inline">Polyfills لPHP 5.4.X (اللازمة لالتوافق PHP 5.4.X؛ لإصدارات أحدث PHP، آمنة للحذف).</div> | /vault/php5.4.x.php
 &nbsp; <div dir="rtl" style="display:inline">ملف البيانات الوصفية الإضافات؛ المستخدمة من قبل صفحة التحديثات.</div> | /vault/plugins.dat
 &nbsp; <div dir="rtl" style="display:inline">سجل لكل ما تم فحصه بواسطة phpMussel.</div> | ※ /vault/scan_log.txt
 &nbsp; <div dir="rtl" style="display:inline">سجل لكل ما تم فحصه بواسطة phpMussel.</div> | ※ /vault/scan_log_serialized.txt
@@ -365,7 +366,7 @@
 &nbsp; <div dir="rtl" style="display:inline">معالج تحميل.</div> | /vault/upload.php
 &nbsp; <div dir="rtl" style="display:inline">أ ملف المشروع GitHub (غير مطلوب لتشغيل سليم للبرنامج).</div> | /.gitattributes
 &nbsp; <div dir="rtl" style="display:inline">أ ملف المشروع GitHub (غير مطلوب لتشغيل سليم للبرنامج).</div> | /.gitignore
-&nbsp; <div dir="rtl" style="display:inline">سجل للتغييرات التي أجريت على البرنامج بين التحديثات المختلفة (غير مطلوب لتشغيل سليم للبرنامج).</div> | /Changelog-v1.txt
+&nbsp; <div dir="rtl" style="display:inline">سجل للتغييرات التي أجريت على البرنامج بين التحديثات المختلفة (غير مطلوب لتشغيل سليم للبرنامج).</div> | /Changelog-v2.txt
 &nbsp; <div dir="rtl" style="display:inline">معلومات Composer/Packagist (غير مطلوب لتشغيل سليم للبرنامج).</div> | /composer.json
 &nbsp; <div dir="rtl" style="display:inline">معلومات حول كيفية المساهمة في المشروع.</div> | /CONTRIBUTING.md
 &nbsp; <div dir="rtl" style="display:inline">نسخة من GNU/GPLv2 رخصة (غير مطلوب لتشغيل سليم للبرنامج).</div> | /LICENSE.txt
@@ -1674,4 +1675,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 17 أغسطس 2019 (2019.08.17).</div>
+<div dir="rtl">آخر تحديث: 6 سبتمبر 2019 (2019.09.06).</div>

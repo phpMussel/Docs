@@ -250,7 +250,6 @@ File | Descrizione
 /_testfiles/swf_standard_testfile.swf | Test file per test di phpMussel SWF firme.
 /vault/ | La vault cartella (contiene vari file).
 /vault/cache/ | La cartella della cache (per i dati temporanei).
-/vault/cache/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/classes/ | Cartella delle classi. Contiene varie classi utilizzate da phpMussel.
 /vault/classes/Maikuolan/ | Cartella delle classi. Contiene varie classi utilizzate da phpMussel.
 /vault/classes/Maikuolan/Cache.php | Un gestore di cache semplice e unificato.
@@ -260,12 +259,10 @@ File | Descrizione
 /vault/classes/Maikuolan/L10N.php | Gestore di L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Numero formattatore.
 /vault/classes/Maikuolan/YAML.php | Gestore di YAML.
-/vault/classes/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/classes/ArchiveHandler.php | Responsabile della gestione degli archivi.
 /vault/classes/CompressionHandler.php | Responsabile della gestione della compressione dei file.
 /vault/classes/TemporaryFileHandler.php | Responsabile della creazione e gestione di file temporanei.
 /vault/fe_assets/ | Dati front-end.
-/vault/fe_assets/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/fe_assets/_2fa.html | Un modello HTML utilizzato quando si richiede all'utente un codice 2FA.
 /vault/fe_assets/_accounts.html | Un modello HTML per il front-end pagina utenti.
 /vault/fe_assets/_accounts_row.html | Un modello HTML per il front-end pagina utenti.
@@ -297,7 +294,6 @@ File | Descrizione
 /vault/fe_assets/pips.php | Gestore delle pips (utilizzata dal file manager del front-end).
 /vault/fe_assets/scripts.js | Contiene dati JavaScript per il front-end.
 /vault/lang/ | Contiene dati linguistici.
-/vault/lang/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/lang/lang.ar.fe.yaml | Dati linguistici Araba per il front-end.
 /vault/lang/lang.ar.yaml | Dati linguistici Araba.
 /vault/lang/lang.bn.fe.yaml | Dati linguistici Bengalese per il front-end.
@@ -320,12 +316,20 @@ File | Descrizione
 /vault/lang/lang.ja.yaml | Dati linguistici Giapponese.
 /vault/lang/lang.ko.fe.yaml | Dati linguistici Coreana per il front-end.
 /vault/lang/lang.ko.yaml | Dati linguistici Coreana.
+/vault/lang/lang.lv.fe.yaml | Dati linguistici Lettone per il front-end.
+/vault/lang/lang.lv.yaml | Dati linguistici Lettone.
 /vault/lang/lang.nl.fe.yaml | Dati linguistici Olandese per il front-end.
 /vault/lang/lang.nl.yaml | Dati linguistici Olandese.
+/vault/lang/lang.no.fe.yaml | Dati linguistici Norvegese per il front-end.
+/vault/lang/lang.no.yaml | Dati linguistici Norvegese.
+/vault/lang/lang.pl.fe.yaml | Dati linguistici Polacca per il front-end.
+/vault/lang/lang.pl.yaml | Dati linguistici Polacca.
 /vault/lang/lang.pt.fe.yaml | Dati linguistici Portoghese per il front-end.
 /vault/lang/lang.pt.yaml | Dati linguistici Portoghese.
 /vault/lang/lang.ru.fe.yaml | Dati linguistici Russa per il front-end.
 /vault/lang/lang.ru.yaml | Dati linguistici Russa.
+/vault/lang/lang.sv.fe.yaml | Dati linguistici Svedese per il front-end.
+/vault/lang/lang.sv.yaml | Dati linguistici Svedese.
 /vault/lang/lang.th.fe.yaml | Dati linguistici Tailandese per il front-end.
 /vault/lang/lang.th.yaml | Dati linguistici Tailandese.
 /vault/lang/lang.tr.fe.yaml | Dati linguistici Turco per il front-end.
@@ -339,9 +343,7 @@ File | Descrizione
 /vault/lang/lang.zh.fe.yaml | Dati linguistici Cinese (semplificata) per il front-end.
 /vault/lang/lang.zh.yaml | Dati linguistici Cinese (semplificata).
 /vault/quarantine/ | Quarantena cartella (contiene i file in quarantena).
-/vault/quarantine/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/signatures/ | Firme cartella (contiene i file di firme).
-/vault/signatures/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/signatures/switch.dat | Questo controlla e imposta alcune variabili.
 /vault/.htaccess | Un ipertesto accesso file (in questo caso, a proteggere di riservati file appartenente allo script da l'acceso di non autorizzate origini).
 /vault/.travis.php | Utilizzato da Travis CI per il test (non richiesto per il corretto funzionamento dello script).
@@ -357,7 +359,6 @@ File | Descrizione
 /vault/functions.php | File di funzioni.
 /vault/greylist.csv | CSV di firme indicando per phpMussel cui firme dovrebbero essere ignorato (il file sarà ricreato automaticamente se è cancellato).
 /vault/lang.php | Dati linguistici.
-/vault/php5.4.x.php | Polyfills per PHP 5.4.X (necessaria per la retrocompatibilità di PHP 5.4.X; è sicuro di cancellare per le versioni più recenti di PHP).
 /vault/plugins.dat | File di metadati di plugin; Utilizzato dalla pagina degli aggiornamenti del front-end.
 ※ /vault/scan_kills.txt | Un record di tutti i file bloccati/uccisi da phpMussel.
 ※ /vault/scan_log.txt | Un record di tutto scansionato da phpMussel.
@@ -370,7 +371,7 @@ File | Descrizione
 /vault/upload.php | Gestore di caricamenti.
 /.gitattributes | Un file del GitHub progetto (non richiesto per il corretto funzionamento dello script).
 /.gitignore | Un file del GitHub progetto (non richiesto per il corretto funzionamento dello script).
-/Changelog-v1.txt | Un record delle modifiche apportate allo script tra diverse versioni (non richiesto per il corretto funzionamento dello script).
+/Changelog-v2.txt | Un record delle modifiche apportate allo script tra diverse versioni (non richiesto per il corretto funzionamento dello script).
 /composer.json | Composer/Packagist informazioni (non richiesto per il corretto funzionamento dello script).
 /CONTRIBUTING.md | Informazioni su come contribuire al progetto.
 /LICENSE.txt | Una copia della GNU/GPLv2 licenza (non richiesto per il corretto funzionamento dello script).
@@ -399,7 +400,7 @@ Il seguente è un elenco di variabili trovate nelle `config.ini` file di configu
 Generale configurazione per phpMussel.
 
 ##### "cleanup"
-- Disimpostare le script variabili e la cache dopo l'esecuzione? False = No; True = Sì [Predefinito]. Se si non utilizza lo script dopo l'iniziale scansione di caricamenti, dovrebbe impostato a `true` (sì), per minimizzare la memoria uso. Se si fa utilizza lo script dopo l'iniziale scansione di caricamenti, dovrebbe impostato a `false` (no), al fine per evitare ricaricare inutili duplicati dati all'interno memoria. In generale pratica, dovrebbe probabilmente essere impostata a `true` (sì), ma, se si farlo, voi sarà non in grado per utilizzare lo script per scopi diversi dalla scansione di caricamenti.
+- Disimpostare le script variabili e la cache dopo l'esecuzione? False = No; True = Sì [Predefinito]. Se non stai usando lo script per qualcosa di diverso dalla scansione dei caricamenti, dovresti impostarlo su `true`, per ridurre al minimo l'utilizzo della memoria. Altrimenti, dovresti impostarlo su `false`, al fine di conservare in memoria i dati necessari per eseguire phpMussel senza ricaricarlo inutilmente.
 - Non ha alcuna influenza in modalità CLI.
 
 ##### "scan_log"
@@ -530,7 +531,7 @@ Valore | Produce | Descrizione
 - Disabilita l'accesso front-end? L'accesso front-end può rendere phpMussel più gestibile, ma può anche essere un potenziale rischio per la sicurezza. Si consiglia di gestire phpMussel attraverso il back-end, quando possibile, ma l'accesso front-end è previsto per quando non è possibile. Mantenerlo disabilitato tranne se hai bisogno. False = Abilita l'accesso front-end; True = Disabilita l'accesso front-end [Predefinito].
 
 ##### "max_login_attempts"
-- Numero massimo di tentativi di accesso (front-end). Predefinito = 5.
+- Numero massimo di tentativi di accesso al front-end. Predefinito = 5.
 
 ##### "frontend_log"
 - *v1: "FrontEndLog"*
@@ -1412,4 +1413,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 17 Agosto 2019 (2019.08.17).
+Ultimo Aggiornamento: 6 Settembre 2019 (2019.09.06).

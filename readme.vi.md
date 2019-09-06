@@ -250,7 +250,6 @@ Tập tin | Chi tiết
 /_testfiles/swf_standard_testfile.swf | Tập tin thử nghiệm cho chử ký Shockwave của phpMussel.
 /vault/ | Vault thư mục (chứa các tập tin khác nhau).
 /vault/cache/ | Cache thư mục (cho dữ liệu tạm thời).
-/vault/cache/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/classes/ | Thư mục lớp học. Chứa các lớp học khác nhau được sử dụng bởi phpMussel.
 /vault/classes/Maikuolan/ | Thư mục lớp học. Chứa các lớp học khác nhau được sử dụng bởi phpMussel.
 /vault/classes/Maikuolan/Cache.php | Một xử lý bộ đệm đơn giản, thống nhất.
@@ -260,12 +259,10 @@ Tập tin | Chi tiết
 /vault/classes/Maikuolan/L10N.php | Tập tin cho xử lý L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Công cụ định dạng số.
 /vault/classes/Maikuolan/YAML.php | Tập tin cho xử lý YAML.
-/vault/classes/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/classes/ArchiveHandler.php | Chịu trách nhiệm xử lý tập tin lưu trữ.
 /vault/classes/CompressionHandler.php | Chịu trách nhiệm xử lý nén tập tin.
 /vault/classes/TemporaryFileHandler.php | Chịu trách nhiệm tạo và xử lý các tập tin tạm thời.
 /vault/fe_assets/ | Các tài sản front-end.
-/vault/fe_assets/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/fe_assets/_2fa.html | Tập tin mẫu HTML được sử dụng khi yêu cầu người dùng cho mã 2FA.
 /vault/fe_assets/_accounts.html | Tập tin mẫu HTML cho trang tài khoản của front-end.
 /vault/fe_assets/_accounts_row.html | Tập tin mẫu HTML cho trang tài khoản của front-end.
@@ -297,7 +294,6 @@ Tập tin | Chi tiết
 /vault/fe_assets/pips.php | Tập tin cho các pip (được sử dụng bởi các quản lý tập tin front-end).
 /vault/fe_assets/scripts.js | Chứa dữ liệu JavaScript cho front-end.
 /vault/lang/ | Chứa dữ liệu tiếng cho phpMussel.
-/vault/lang/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/lang/lang.ar.fe.yaml | Dữ liệu tiếng Ả Rập cho các front-end.
 /vault/lang/lang.ar.yaml | Dữ liệu tiếng Ả Rập.
 /vault/lang/lang.bn.fe.yaml | Dữ liệu tiếng Bengal cho các front-end.
@@ -320,12 +316,20 @@ Tập tin | Chi tiết
 /vault/lang/lang.ja.yaml | Dữ liệu tiếng Nhật.
 /vault/lang/lang.ko.fe.yaml | Dữ liệu tiếng Hàn cho các front-end.
 /vault/lang/lang.ko.yaml | Dữ liệu tiếng Hàn.
+/vault/lang/lang.lv.fe.yaml | Dữ liệu tiếng Latvia cho các front-end.
+/vault/lang/lang.lv.yaml | Dữ liệu tiếng Latvia.
 /vault/lang/lang.nl.fe.yaml | Dữ liệu tiếng Hà Lan cho các front-end.
 /vault/lang/lang.nl.yaml | Dữ liệu tiếng Hà Lan.
+/vault/lang/lang.no.fe.yaml | Dữ liệu tiếng Na Uy cho các front-end.
+/vault/lang/lang.no.yaml | Dữ liệu tiếng Na Uy.
+/vault/lang/lang.pl.fe.yaml | Dữ liệu tiếng Ba Lan cho các front-end.
+/vault/lang/lang.pl.yaml | Dữ liệu tiếng Ba Lan.
 /vault/lang/lang.pt.fe.yaml | Dữ liệu tiếng Bồ Đào Nha cho các front-end.
 /vault/lang/lang.pt.yaml | Dữ liệu tiếng Bồ Đào Nha.
 /vault/lang/lang.ru.fe.yaml | Dữ liệu tiếng Nga cho các front-end.
 /vault/lang/lang.ru.yaml | Dữ liệu tiếng Nga.
+/vault/lang/lang.sv.fe.yaml | Dữ liệu tiếng Thụy Điển cho các front-end.
+/vault/lang/lang.sv.yaml | Dữ liệu tiếng Thụy Điển.
 /vault/lang/lang.th.fe.yaml | Dữ liệu tiếng Thái Lan cho các front-end.
 /vault/lang/lang.th.yaml | Dữ liệu tiếng Thái Lan.
 /vault/lang/lang.tr.fe.yaml | Dữ liệu tiếng Thổ Nhĩ Kỳ cho các front-end.
@@ -339,9 +343,7 @@ Tập tin | Chi tiết
 /vault/lang/lang.zh.fe.yaml | Dữ liệu tiếng Trung Quốc (giản thể) cho các front-end.
 /vault/lang/lang.zh.yaml | Dữ liệu tiếng Trung Quốc (giản thể).
 /vault/quarantine/ | Thư mục kiểm dịch (chứa các tập tin trong kiểm dịch).
-/vault/quarantine/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/signatures/ | Thư mục cho chữ ký (chứa các tập tin cho chữ ký).
-/vault/signatures/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/signatures/switch.dat | Điều khiển và định nghĩa biến.
 /vault/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
 /vault/.travis.php | Được sử dụng bởi Travis CI để thử nghiệm (không cần thiết cho chức năng phù hợp của kịch bản).
@@ -357,7 +359,6 @@ Tập tin | Chi tiết
 /vault/functions.php | Tập tin cho chức năng.
 /vault/greylist.csv | Tập tin CSV cho danh sách xám chử ký chỉ thị cho phpMussel cái nào chử ký nó phải được bỏ qua (tập tin tự động tạo lại nếu xóa).
 /vault/lang.php | Dữ liệu tiếng.
-/vault/php5.4.x.php | Polyfills cho PHP 5.4.X (cần cho khả năng tương thích ngược PHP 5.4.X; an toàn để xóa cho các phiên bản PHP mới hơn).
 /vault/plugins.dat | Tập tin siêu dữ liệu plugin; Được sử dụng bởi trang cập nhật front-end.
 ※ /vault/scan_kills.txt | Kỷ lục của mỗi tập tin tải lên từ chối/giết bởi phpMussel.
 ※ /vault/scan_log.txt | Kỷ lục của mỗi tập tin quét bởi phpMussel.
@@ -370,7 +371,7 @@ Tập tin | Chi tiết
 /vault/upload.php | Tập tin cho xử lý tải lên.
 /.gitattributes | Tập tin dự án cho GitHub (không cần thiết cho chức năng phù hợp của kịch bản).
 /.gitignore | Tập tin dự án cho GitHub (không cần thiết cho chức năng phù hợp của kịch bản).
-/Changelog-v1.txt | Kỷ lục của những sự thay đổi được thực hiện cho các kịch bản khác nhau giữa các phiên bản (không cần thiết cho chức năng phù hợp của kịch bản).
+/Changelog-v2.txt | Kỷ lục của những sự thay đổi được thực hiện cho các kịch bản khác nhau giữa các phiên bản (không cần thiết cho chức năng phù hợp của kịch bản).
 /composer.json | Thông tin về dự án cho Composer/Packagist (không cần thiết cho chức năng phù hợp của kịch bản).
 /CONTRIBUTING.md | Thông tin về làm thế nào để đóng góp cho dự án.
 /LICENSE.txt | Bản sao của giấy phép GNU/GPLv2 (không cần thiết cho chức năng phù hợp của kịch bản).
@@ -399,7 +400,7 @@ Sau đây là danh sách các biến tìm thấy trong tập tin cấu hình cho
 Cấu hình chung cho phpMussel.
 
 ##### "cleanup"
-- Hủy hoại biến và bộ nhớ được sử dụng bởi các kịch bản sau khi quét tải lên ban đầu? False = Không; True = Vâng [Mặc định]. Nếu bạn *không* sử dụng các kịch bản vượt ra ngoài quét tải lên ban đầu, bạn nên đặt này để `true` (vâng), để giảm thiểu sử dụng bộ nhớ. Nếu bạn *là* sử dụng các kịch bản vượt ra ngoài quét tải lên ban đầu, bạn nên đặt này để `false` (không), để tránh cần thiết tải lại dữ liệu trùng lặp vào bộ nhớ. Trong thực tế nói chung, nó thường nên được đặt để `true`, nhưng, nếu bạn làm điều này, bạn sẽ không thể sử dụng các kịch bản cho bất cứ điều gì khác hơn quét tải lên ban đầu.
+- Phá hủy các biến và bộ đệm được sử dụng bởi tập lệnh sau khi quét tải lên? False = Không; True = Vâng [Mặc định]. Nếu bạn không sử dụng tập lệnh cho bất cứ điều gì ngoài việc quét tải lên, bạn nên đặt nó thành `true` để giảm thiểu việc sử dụng bộ nhớ. Mặt khác, bạn nên đặt nó thành `false`, để giữ lại trong bộ nhớ dữ liệu cần thiết để thực thi phpMussel mà không cần tải lại nó.
 - Không có ảnh hưởng trong CLI.
 
 ##### "scan_log"
@@ -530,7 +531,7 @@ Giá trị | Nó tạo ra | Chi tiết
 - Vô hiệu hóa truy cập front-end? Truy cập front-end có thể làm cho phpMussel dễ quản lý hơn, nhưng cũng có thể là một nguy cơ bảo mật tiềm năng. Đó là khuyến cáo để quản lý phpMussel từ các back-end bất cứ khi nào có thể, nhưng truy cập front-end là cung cấp khi nó không phải là có thể. Giữ nó vô hiệu hóa trừ khi bạn cần nó. False = Kích hoạt truy cập front-end; True = Vô hiệu hóa truy cập front-end [Mặc định].
 
 ##### "max_login_attempts"
-- Số lượng tối đa cố gắng đăng nhập (front-end). Mặc định = 5.
+- Số lượng tối đa cố gắng đăng nhập front-end. Mặc định = 5.
 
 ##### "frontend_log"
 - *v1: "FrontEndLog"*
@@ -1407,4 +1408,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 17 Tháng Tám 2019 (2019.08.17).
+Lần cuối cập nhật: 6 Tháng Chín 2019 (2019.09.06).

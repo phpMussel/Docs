@@ -251,7 +251,6 @@ Datei | Beschreibung
 /_testfiles/swf_standard_testfile.swf | Testdatei zur Überprüfung der Shockwave-Signaturerkennung.
 /vault/ | Vault-Verzeichnis (beinhaltet verschiedene Dateien).
 /vault/cache/ | Cache-Verzeichnis (für temporäre Daten).
-/vault/cache/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/classes/ | Klassenverzeichnis. Enthält verschiedene von phpMussel verwendete Klassen.
 /vault/classes/Maikuolan/ | Klassenverzeichnis. Enthält verschiedene von phpMussel verwendete Klassen.
 /vault/classes/Maikuolan/Cache.php | Ein einfacher, einheitlicher Cache-Handler.
@@ -261,12 +260,10 @@ Datei | Beschreibung
 /vault/classes/Maikuolan/L10N.php | L10N-Handler.
 /vault/classes/Maikuolan/NumberFormatter.php | Zahlenformatierer.
 /vault/classes/Maikuolan/YAML.php | YAML-Handler.
-/vault/classes/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/classes/ArchiveHandler.php | Verantwortlich für den Umgang mit Archiven.
 /vault/classes/CompressionHandler.php | Verantwortlich für den Umgang der Dateikomprimierung.
 /vault/classes/TemporaryFileHandler.php | Verantwortlich für die Erstellung und den Umgang temporärer Dateien.
 /vault/fe_assets/ | Frontend-Daten.
-/vault/fe_assets/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/fe_assets/_2fa.html | Ein HTML-Template die verwendet wird wenn der Benutzer nach einem 2FA-Code gefragt wird.
 /vault/fe_assets/_accounts.html | Ein HTML-Template für das Frontend Kontenseite.
 /vault/fe_assets/_accounts_row.html | Ein HTML-Template für das Frontend Kontenseite.
@@ -298,7 +295,6 @@ Datei | Beschreibung
 /vault/fe_assets/pips.php | Pips-Handler (die vom Frontend-Dateimanager verwendet wird).
 /vault/fe_assets/scripts.js | Enthält Frontend-JavaScript-Daten.
 /vault/lang/ | Enthält Sprachdaten für phpMussel.
-/vault/lang/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/lang/lang.ar.fe.yaml | Arabische Sprachdateien für das Frontend.
 /vault/lang/lang.ar.yaml | Arabische Sprachdateien.
 /vault/lang/lang.bn.fe.yaml | Bangla Sprachdateien für das Frontend.
@@ -321,12 +317,20 @@ Datei | Beschreibung
 /vault/lang/lang.ja.yaml | Japanische Sprachdateien.
 /vault/lang/lang.ko.fe.yaml | Koreanische Sprachdateien für das Frontend.
 /vault/lang/lang.ko.yaml | Koreanische Sprachdateien.
+/vault/lang/lang.lv.fe.yaml | Lettische Sprachdateien für das Frontend.
+/vault/lang/lang.lv.yaml | Lettische Sprachdateien.
 /vault/lang/lang.nl.fe.yaml | Niederländische Sprachdateien für das Frontend.
 /vault/lang/lang.nl.yaml | Niederländische Sprachdateien.
+/vault/lang/lang.no.fe.yaml | Norwegische Sprachdateien für das Frontend.
+/vault/lang/lang.no.yaml | Norwegische Sprachdateien.
+/vault/lang/lang.pl.fe.yaml | Polnische Sprachdateien für das Frontend.
+/vault/lang/lang.pl.yaml | Polnische Sprachdateien.
 /vault/lang/lang.pt.fe.yaml | Portugiesische Sprachdateien für das Frontend.
 /vault/lang/lang.pt.yaml | Portugiesische Sprachdateien.
 /vault/lang/lang.ru.fe.yaml | Russische Sprachdateien für das Frontend.
 /vault/lang/lang.ru.yaml | Russische Sprachdateien.
+/vault/lang/lang.sv.fe.yaml | Schwedische Sprachdateien für das Frontend.
+/vault/lang/lang.sv.yaml | Schwedische Sprachdateien.
 /vault/lang/lang.th.fe.yaml | Thai Sprachdateien für das Frontend.
 /vault/lang/lang.th.yaml | Thai Sprachdateien.
 /vault/lang/lang.tr.fe.yaml | Türkische Sprachdateien für das Frontend.
@@ -340,9 +344,7 @@ Datei | Beschreibung
 /vault/lang/lang.zh.fe.yaml | Chinesische Sprachdateien (vereinfacht) für das Frontend.
 /vault/lang/lang.zh.yaml | Chinesische Sprachdateien (vereinfacht).
 /vault/quarantine/ | Quarantäne-Verzeichnis (enthält Dateien in Quarantäne).
-/vault/quarantine/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/signatures/ | Signaturverzeichnis (enthält Signaturdateien).
-/vault/signatures/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/signatures/switch.dat | Diese Datei definiert bestimmte Variablen.
 /vault/.htaccess | Ein Hypertext-Access-Datei (in diesem Fall zum Schutz von sensiblen Dateien des Scripts vor einem nicht authorisierten Zugriff).
 /vault/.travis.php | Wird von Travis CI zum Testen verwendet (für die korrekte Funktion des Scripts nicht notwendig).
@@ -358,7 +360,6 @@ Datei | Beschreibung
 /vault/functions.php | Funktionen-Datei.
 /vault/greylist.csv | CSV der Signaturen in der Greylist, die phpMussel ignorieren soll (Datei wird nach dem Löschen automatisch neu erstellt).
 /vault/lang.php | Sprachdateien.
-/vault/php5.4.x.php | Polyfills für PHP 5.4.X (erforderlich für Abwärtskompatibilität mit PHP 5.4.X; sicher zu löschen für neuere PHP-Versionen).
 /vault/plugins.dat | Plugins-Metadaten-Datei; Wird von der Frontend-Aktualisierungsseite verwendet.
 ※ /vault/scan_kills.txt | Eine Aufzeichnung aller von phpMussel blockierten Dateiuploads.
 ※ /vault/scan_log.txt | Eine Aufzeichnung aller von phpMussel gescannten Objekte.
@@ -371,7 +372,7 @@ Datei | Beschreibung
 /vault/upload.php | Upload-Handler.
 /.gitattributes | Ein GitHub Projektdatei (für die korrekte Funktion des Scripts nicht notwendig).
 /.gitignore | Ein GitHub Projektdatei (für die korrekte Funktion des Scripts nicht notwendig).
-/Changelog-v1.txt | Eine Auflistung der Änderungen des Scripts der verschiedenen Versionen (für die korrekte Funktion des Scripts nicht notwendig).
+/Changelog-v2.txt | Eine Auflistung der Änderungen des Scripts der verschiedenen Versionen (für die korrekte Funktion des Scripts nicht notwendig).
 /composer.json | Composer/Packagist Informationen (für die korrekte Funktion des Scripts nicht notwendig).
 /CONTRIBUTING.md | Wie Sie dazu beitragen für das Projekt.
 /LICENSE.txt | Eine Kopie der GNU/GPLv2 Lizenz (für die korrekte Funktion des Scripts nicht notwendig).
@@ -1418,4 +1419,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 17 August 2019 (2019.08.17).
+Zuletzt aktualisiert: 6 September 2019 (2019.09.06).

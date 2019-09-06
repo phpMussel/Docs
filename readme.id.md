@@ -250,7 +250,6 @@ Data | Deskripsi
 /_testfiles/swf_standard_testfile.swf | File test untuk mentest tanda tangan SWF phpMussel.
 /vault/ | Direktori Vault (berisikan bermacam file).
 /vault/cache/ | Direktori Cache (untuk file sementara).
-/vault/cache/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/classes/ | Direktori kelas. Berisi berbagai kelas yang digunakan oleh phpMussel.
 /vault/classes/Maikuolan/ | Direktori kelas. Berisi berbagai kelas yang digunakan oleh phpMussel.
 /vault/classes/Maikuolan/Cache.php | Prosesor cache yang sederhana dan terpadu.
@@ -260,12 +259,10 @@ Data | Deskripsi
 /vault/classes/Maikuolan/L10N.php | Prosesor L10N.
 /vault/classes/Maikuolan/NumberFormatter.php | Pemformat angka.
 /vault/classes/Maikuolan/YAML.php | Prosesor YAML.
-/vault/classes/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/classes/ArchiveHandler.php | Bertanggung jawab untuk menangani arsip.
 /vault/classes/CompressionHandler.php | Bertanggung jawab untuk menangani kompresi file.
 /vault/classes/TemporaryFileHandler.php | Bertanggung jawab untuk membuat dan menangani file sementara.
 /vault/fe_assets/ | Data untuk akses bagian depan.
-/vault/fe_assets/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/fe_assets/_2fa.html | Template HTML yang digunakan saat meminta pengguna untuk kode 2FA.
 /vault/fe_assets/_accounts.html | Template HTML untuk halaman akun.
 /vault/fe_assets/_accounts_row.html | Template HTML untuk halaman akun.
@@ -297,7 +294,6 @@ Data | Deskripsi
 /vault/fe_assets/pips.php | File pip (digunakan oleh file manager bagian depan).
 /vault/fe_assets/scripts.js | Berisi data JavaScript bagian depan.
 /vault/lang/ | Berisikan file bahasa.
-/vault/lang/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/lang/lang.ar.fe.yaml | File Bahasa Arab untuk bagian depan.
 /vault/lang/lang.ar.yaml | File Bahasa Arab.
 /vault/lang/lang.bn.fe.yaml | File Bahasa Benggala untuk bagian depan.
@@ -320,12 +316,20 @@ Data | Deskripsi
 /vault/lang/lang.ja.yaml | File Bahasa Jepang.
 /vault/lang/lang.ko.fe.yaml | File Bahasa Korea untuk bagian depan.
 /vault/lang/lang.ko.yaml | File Bahasa Korea.
+/vault/lang/lang.lv.fe.yaml | File Bahasa Latvia untuk bagian depan.
+/vault/lang/lang.lv.yaml | File Bahasa Latvia.
 /vault/lang/lang.nl.fe.yaml | File Bahasa Belanda untuk bagian depan.
 /vault/lang/lang.nl.yaml | File Bahasa Belanda.
+/vault/lang/lang.no.fe.yaml | File Bahasa Norwegia untuk bagian depan.
+/vault/lang/lang.no.yaml | File Bahasa Norwegia.
+/vault/lang/lang.pl.fe.yaml | File Bahasa Polandia untuk bagian depan.
+/vault/lang/lang.pl.yaml | File Bahasa Polandia.
 /vault/lang/lang.pt.fe.yaml | File Bahasa Portugis untuk bagian depan.
 /vault/lang/lang.pt.yaml | File Bahasa Portugis.
 /vault/lang/lang.ru.fe.yaml | File Bahasa Rusia untuk bagian depan.
 /vault/lang/lang.ru.yaml | File Bahasa Rusia.
+/vault/lang/lang.sv.fe.yaml | File Bahasa Swedia untuk bagian depan.
+/vault/lang/lang.sv.yaml | File Bahasa Swedia.
 /vault/lang/lang.th.fe.yaml | File Bahasa Thailand untuk bagian depan.
 /vault/lang/lang.th.yaml | File Bahasa Thailand.
 /vault/lang/lang.tr.fe.yaml | File Bahasa Turki untuk bagian depan.
@@ -339,9 +343,7 @@ Data | Deskripsi
 /vault/lang/lang.zh.fe.yaml | File Bahasa Cina sederhana untuk bagian depan.
 /vault/lang/lang.zh.yaml | File Bahasa Cina sederhana.
 /vault/quarantine/ | Direktori karantina (berisikan file yang dikarantina).
-/vault/quarantine/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/signatures/ | Direktori tanda tangan (berisikan file tanda tangan).
-/vault/signatures/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/signatures/switch.dat | Kontrol dan set variabel tertentu.
 /vault/.htaccess | File akses hiperteks (pada instansi ini, untuk melindungi file-file sensitif dari skrip untuk diakses dari sumber yang tidak terautorisasi).
 /vault/.travis.php | Digunakan oleh Travis CI untuk pengujian (tidak dibutuhkan untuk fungsi teratur dari skrip).
@@ -357,7 +359,6 @@ Data | Deskripsi
 /vault/functions.php | Modul fungsi (utama).
 /vault/greylist.csv | CSV terdiri dari tanda tangan daftar abu-abu mengindikasikan phpMussel tanda tangan mana yang harus diabaikan (file automatis diciptakan kembali jika dihapus).
 /vault/lang.php | File bahasa.
-/vault/php5.4.x.php | Polyfill untuk PHP 5.4.X (diperlukan untuk kompatibilitas mundur PHP 5.4.X; aman untuk menghapus selama versi PHP yang lebih baru).
 /vault/plugins.dat | File metadata plugin; Digunakan oleh halaman pembaruan untuk bagian depan.
 ※ /vault/scan_kills.txt | Sebuah catatan dari setiap file upload yang diblok/dibunuh oleh phpMussel.
 ※ /vault/scan_log.txt | Sebuah catatan dari apapun yang di pemindaian oleh phpMussel.
@@ -370,7 +371,7 @@ Data | Deskripsi
 /vault/upload.php | Modul upload.
 /.gitattributes | Sebuah file proyek GitHub (tidak dibutuhkan untuk fungsi teratur dari skrip).
 /.gitignore | Sebuah file proyek GitHub (tidak dibutuhkan untuk fungsi teratur dari skrip).
-/Changelog-v1.txt | Sebuah rekaman dari perubahan yang dibuat pada skrip ini di antara perbedaan versi (tidak dibutuhkan untuk fungsi teratur dari skrip).
+/Changelog-v2.txt | Sebuah rekaman dari perubahan yang dibuat pada skrip ini di antara perbedaan versi (tidak dibutuhkan untuk fungsi teratur dari skrip).
 /composer.json | Informasi untuk Composer/Packagist (tidak dibutuhkan untuk fungsi teratur dari skrip).
 /CONTRIBUTING.md | Informasi tentang cara berkontribusi pada proyek.
 /LICENSE.txt | Salinan lisensi GNU/GPLv2 (tidak dibutuhkan untuk fungsi teratur dari skrip).
@@ -399,7 +400,7 @@ Berikut list variabel yang ditemukan pada file konfigurasi phpMussel `config.ini
 Konfigurasi umum dari phpMussel.
 
 ##### "cleanup"
-- Membersihkan variabel skrip dan cache setelah eksekusi? False = Tidak; True = Ya [Default]. Jika Anda tidak menggukan skrip dibawah pemindaian upload inisial, harus diset ke `true` (ya) untuk meminimalisasi penggunaan memori. Jika Anda menggunakan skrip untuk tujuan dibawah pemindaian upload inisial, harus diset ke `false` (tidak), untuk menghindari reload duplikat file ke memori. Dalam praktek umum, haru diset ke `true`, tapi jika kamu melakukannya, kamu tidak bisa menggunakan skrip untuk hal lain kecuali pemindaian upload file.
+- Membersihkan variabel skrip dan cache setelah eksekusi? False = Tidak; True = Ya [Default]. Jika Anda tidak menggunakan skrip untuk apapun selain memindai unggahan, Anda harus mengkonfigurasikannya ke `true` untuk meminimalkan penggunaan memori. Jika tidak demikian, Anda harus mengkonfigurasikannya ke `false`, untuk menyimpan dalam memori data yang diperlukan untuk mengeksekusi phpMussel tanpa perlu memuatnya kembali. Tidak memiliki pengaruh di dalam mode CLI.
 - Tidak memiliki pengaruh di dalam mode CLI.
 
 ##### "scan_log"
@@ -530,7 +531,7 @@ Nilai | Menghasilkan | Deskripsi
 - Menonaktifkan akses bagian depan? Akses bagian depan dapat membuat phpMussel lebih mudah dikelola, tapi juga dapat menjadi potensial resiko keamanan. Itu direkomendasi untuk mengelola phpMussel melalui bagian belakang bila mungkin, tapi akses bagian depan yang disediakan untuk saat itu tidak mungkin. Memilikinya dinonaktifkan kecuali jika Anda membutuhkannya. False = Mengaktifkan akses bagian depan; True = Menonaktifkan akses bagian depan [Default].
 
 ##### "max_login_attempts"
-- Jumlah maksimum upaya untuk memasukkan (bagian depan). Default = 5.
+- Jumlah maksimum upaya memasukkan ke bagian depan. Default = 5.
 
 ##### "frontend_log"
 - *v1: "FrontEndLog"*
@@ -1407,4 +1408,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 17 Agustus 2019 (2019.08.17).
+Terakhir Diperbarui: 6 September 2019 (2019.09.06).

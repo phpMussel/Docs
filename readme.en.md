@@ -250,7 +250,6 @@ File | Description
 /_testfiles/swf_standard_testfile.swf | Test file for testing phpMussel SWF signatures.
 /vault/ | Vault directory (contains various files).
 /vault/cache/ | Cache directory (for temporary data).
-/vault/cache/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/classes/ | Classes directory. Contains various classes used by phpMussel.
 /vault/classes/Maikuolan/ | Classes directory. Contains various classes used by phpMussel.
 /vault/classes/Maikuolan/Cache.php | A simple, unified cache handler.
@@ -260,12 +259,10 @@ File | Description
 /vault/classes/Maikuolan/L10N.php | L10N handler.
 /vault/classes/Maikuolan/NumberFormatter.php | Number formatter.
 /vault/classes/Maikuolan/YAML.php | YAML handler.
-/vault/classes/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/classes/ArchiveHandler.php | Responsible for handling archives.
 /vault/classes/CompressionHandler.php | Responsible for handling file compression.
 /vault/classes/TemporaryFileHandler.php | Responsible for creating and handling temporary files.
 /vault/fe_assets/ | Front-end assets.
-/vault/fe_assets/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/fe_assets/_2fa.html | An HTML template used when asking the user for a 2FA code.
 /vault/fe_assets/_accounts.html | An HTML template for the front-end accounts page.
 /vault/fe_assets/_accounts_row.html | An HTML template for the front-end accounts page.
@@ -297,7 +294,6 @@ File | Description
 /vault/fe_assets/pips.php | Pips handler (used by the front-end file manager).
 /vault/fe_assets/scripts.js | Contains front-end JavaScript data.
 /vault/lang/ | Contains phpMussel language data.
-/vault/lang/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/lang/lang.ar.fe.yaml | Arabic language data for the front-end.
 /vault/lang/lang.ar.yaml | Arabic language data.
 /vault/lang/lang.bn.fe.yaml | Bangla language data for the front-end.
@@ -320,12 +316,20 @@ File | Description
 /vault/lang/lang.ja.yaml | Japanese language data.
 /vault/lang/lang.ko.fe.yaml | Korean language data for the front-end.
 /vault/lang/lang.ko.yaml | Korean language data.
+/vault/lang/lang.lv.fe.yaml | Latvian language data for the front-end.
+/vault/lang/lang.lv.yaml | Latvian language data.
 /vault/lang/lang.nl.fe.yaml | Dutch language data for the front-end.
 /vault/lang/lang.nl.yaml | Dutch language data.
+/vault/lang/lang.no.fe.yaml | Norwegian language data for the front-end.
+/vault/lang/lang.no.yaml | Norwegian language data.
+/vault/lang/lang.pl.fe.yaml | Polish language data for the front-end.
+/vault/lang/lang.pl.yaml | Polish language data.
 /vault/lang/lang.pt.fe.yaml | Portuguese language data for the front-end.
 /vault/lang/lang.pt.yaml | Portuguese language data.
 /vault/lang/lang.ru.fe.yaml | Russian language data for the front-end.
 /vault/lang/lang.ru.yaml | Russian language data.
+/vault/lang/lang.sv.fe.yaml | Swedish language data for the front-end.
+/vault/lang/lang.sv.yaml | Swedish language data.
 /vault/lang/lang.th.fe.yaml | Thai language data for the front-end.
 /vault/lang/lang.th.yaml | Thai language data.
 /vault/lang/lang.tr.fe.yaml | Turkish language data for the front-end.
@@ -339,9 +343,7 @@ File | Description
 /vault/lang/lang.zh.fe.yaml | Chinese (simplified) language data for the front-end.
 /vault/lang/lang.zh.yaml | Chinese (simplified) language data.
 /vault/quarantine/ | Quarantine directory (contains quarantined files).
-/vault/quarantine/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/signatures/ | Signatures directory (contains signature files).
-/vault/signatures/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/signatures/switch.dat | Controls and sets certain variables.
 /vault/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
 /vault/.travis.php | Used by Travis CI for testing (not required for proper function of the script).
@@ -357,7 +359,6 @@ File | Description
 /vault/functions.php | Functions file (essential).
 /vault/greylist.csv | CSV of greylisted signatures indicating to phpMussel which signatures it should be ignoring (file automatically recreated if deleted).
 /vault/lang.php | Language handler.
-/vault/php5.4.x.php | Polyfills for PHP 5.4.X (required for PHP 5.4.X backwards compatibility; safe to delete for newer PHP versions).
 /vault/plugins.dat | Plugins metadata file; Used by the front-end updates page.
 ※ /vault/scan_kills.txt | A record of every file upload blocked/killed by phpMussel.
 ※ /vault/scan_log.txt | A record of everything scanned by phpMussel.
@@ -370,7 +371,7 @@ File | Description
 /vault/upload.php | Upload handler.
 /.gitattributes | A GitHub project file (not required for proper function of script).
 /.gitignore | A GitHub project file (not required for proper function of script).
-/Changelog-v1.txt | A record of changes made to the script between different versions (not required for proper function of script).
+/Changelog-v2.txt | A record of changes made to the script between different versions (not required for proper function of script).
 /composer.json | Composer/Packagist information (not required for proper function of script).
 /CONTRIBUTING.md | Information about how to contribute to the project.
 /LICENSE.txt | A copy of the GNU/GPLv2 license (not required for proper function of script).
@@ -530,7 +531,7 @@ Value | Produces | Description
 - Disable front-end access? Front-end access can make phpMussel more manageable, but can also be a potential security risk, too. It's recommended to manage phpMussel via the back-end whenever possible, but front-end access is provided for when it isn't possible. Keep it disabled unless you need it. False = Enable front-end access; True = Disable front-end access [Default].
 
 ##### "max_login_attempts"
-- Maximum number of login attempts (front-end). Default = 5.
+- Maximum number of front-end login attempts. Default = 5.
 
 ##### "frontend_log"
 - *v1: "FrontEndLog"*
@@ -642,7 +643,7 @@ Attack-specific directives.
 Chameleon attack detection: False = Off; True = On.
 
 ##### "chameleon_from_php"
-- Search for PHP header in files that are neither PHP files nor recognised archives.
+- Search for PHP headers in files that are neither PHP files nor recognised archives.
 
 ##### "can_contain_php_file_extensions"
 - A list of file extensions allowed to contain PHP code, separated by commas. If PHP chameleon attack detection is enabled, files that contain PHP code, which have extensions that aren't on this list, will be detected as PHP chameleon attacks.
@@ -1417,4 +1418,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 17 August 2019 (2019.08.17).
+Last Updated: 6 September 2019 (2019.09.06).

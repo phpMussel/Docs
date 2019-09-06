@@ -251,7 +251,6 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /_testfiles/swf_standard_testfile.swf | 测试文件以测试phpMussel SWF签名。
 /vault/ | 安全/保险库【Vault】文件夹（包含若干文件）。
 /vault/cache/ | 缓存【Cache】文件夹（为临时数据）。
-/vault/cache/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/classes/ | 类目录。包含phpMussel使用的各种类。
 /vault/classes/Maikuolan/ | 类目录。包含phpMussel使用的各种类。
 /vault/classes/Maikuolan/Cache.php | 一个简单的统一缓存处理程序。
@@ -261,12 +260,10 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/classes/Maikuolan/L10N.php | L10N处理文件。
 /vault/classes/Maikuolan/NumberFormatter.php | 数字格式化程序。
 /vault/classes/Maikuolan/YAML.php | YAML处理文件。
-/vault/classes/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/classes/ArchiveHandler.php | 负责处理档案文件。
 /vault/classes/CompressionHandler.php | 负责处理文件压缩。
 /vault/classes/TemporaryFileHandler.php | 负责创建和处理临时文件。
 /vault/fe_assets/ | 前端资产。
-/vault/fe_assets/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/fe_assets/_2fa.html | 在向用户询问2FA代码时使用的HTML模板。
 /vault/fe_assets/_accounts.html | 前端帐户页面的HTML模板。
 /vault/fe_assets/_accounts_row.html | 前端帐户页面的HTML模板。
@@ -298,7 +295,6 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/fe_assets/pips.php | 点数处理文件（由前端文件管理器使用）。
 /vault/fe_assets/scripts.js | 包含前端JavaScript数据。
 /vault/lang/ | 包含phpMussel语言数据。
-/vault/lang/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/lang/lang.ar.fe.yaml | 阿拉伯文前端语言数据。
 /vault/lang/lang.ar.yaml | 阿拉伯文语言数据。
 /vault/lang/lang.bn.fe.yaml | 孟加拉文前端语言数据。
@@ -321,12 +317,20 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/lang/lang.ja.yaml | 日文语言数据。
 /vault/lang/lang.ko.fe.yaml | 韩文前端语言数据。
 /vault/lang/lang.ko.yaml | 韩文语言数据。
+/vault/lang/lang.lv.fe.yaml | 拉脱维亚文前端语言数据。
+/vault/lang/lang.lv.yaml | 拉脱维亚文语言数据。
 /vault/lang/lang.nl.fe.yaml | 荷兰文前端语言数据。
 /vault/lang/lang.nl.yaml | 荷兰文语言数据。
+/vault/lang/lang.no.fe.yaml | 挪威文前端语言数据。
+/vault/lang/lang.no.yaml | 挪威文语言数据。
+/vault/lang/lang.pl.fe.yaml | 波兰文前端语言数据。
+/vault/lang/lang.pl.yaml | 波兰文语言数据。
 /vault/lang/lang.pt.fe.yaml | 葡萄牙文前端语言数据。
 /vault/lang/lang.pt.yaml | 葡萄牙文语言数据。
 /vault/lang/lang.ru.fe.yaml | 俄文前端语言数据。
 /vault/lang/lang.ru.yaml | 俄文语言数据。
+/vault/lang/lang.sv.fe.yaml | 瑞典文前端语言数据。
+/vault/lang/lang.sv.yaml | 瑞典文语言数据。
 /vault/lang/lang.th.fe.yaml | 泰文前端语言数据。
 /vault/lang/lang.th.yaml | 泰文语言数据。
 /vault/lang/lang.tr.fe.yaml | 土耳其文前端语言数据。
@@ -340,9 +344,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/lang/lang.zh.fe.yaml | 中文（简体）前端语言数据。
 /vault/lang/lang.zh.yaml | 中文（简体）语言数据。
 /vault/quarantine/ | 隔离文件夹（包含隔离文件）。
-/vault/quarantine/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/signatures/ | 签名文件夹（包含签​名文件）。
-/vault/signatures/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/signatures/switch.dat | 控制和确定某些变量。
 /vault/.htaccess | 超文本访问文件（在这种情况，​以保护敏感文件属于脚本从被访问由非授权来源）。
 /vault/.travis.php | 由Travis CI用于测试（不需要为正确经营脚本）。
@@ -358,7 +360,6 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/functions.php | 功能处理文件（必不可少）。
 /vault/greylist.csv | 灰名单签名CSV（逗号分隔变量）文件说明为phpMussel什么签名它应该忽略（文件自动重新创建如果删除）。
 /vault/lang.php | 语言数据。
-/vault/php5.4.x.php | Polyfill对于PHP 5.4.X （PHP 5.4.X 向下兼容需要它；​较新的版本可以删除它）。
 /vault/plugins.dat | 插件元数据文件。由前端更新页面使用。
 ※ /vault/scan_kills.txt | 记录的所有上传文件phpMussel受阻/杀。
 ※ /vault/scan_log.txt | 记录的一切phpMussel扫描。
@@ -371,7 +372,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 /vault/upload.php | 上传处理文件。
 /.gitattributes | GitHub文件（不需要为正确经营脚本）。
 /.gitignore | GitHub文件（不需要为正确经营脚本）。
-/Changelog-v1.txt | 记录的变化做出至脚本间不同版本（不需要为正确经营脚本）。
+/Changelog-v2.txt | 记录的变化做出至脚本间不同版本（不需要为正确经营脚本）。
 /composer.json | Composer/Packagist 信息（不需要为正确经营脚本）。
 /CONTRIBUTING.md | 相关信息如何有助于该项目。
 /LICENSE.txt | GNU/GPLv2 执照文件（不需要为正确经营脚本）。
@@ -400,7 +401,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 基本phpMussel配置。
 
 ##### “cleanup”
--【反设置/删除/清洁】脚本变量和缓存【Cache】之后执行吗？​如果您不使用脚本外初始上传扫描，​应该设置True【真/正】，​为了最小化内存使用。​如果您使用脚本为目的外初始上传扫描，​应该设置False【假/负】，​为了避免不必要重新加载复制数据在内存。​在一般的做法，​它应该设置True【真/正】，​但，​如果您做这样，​您将不能够使用脚本为任何目的以外文件上传扫描。
+- 扫描上传后，销毁变量和缓存？​False（假）=不要销毁。​True（真）=销毁【标准】。​如果您不使用该脚本进行扫描上传以外的任何操作，您应该将其设置为`true`以最小化内存使用量。​否则，您应该将其设置为`false`，以便在内存中保留执行phpMussel所需的数据，而无需不必要地重新加载它。
 - 无影响在CLI模式。
 
 ##### “scan_log”
@@ -531,7 +532,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 - 关闭前端访问吗？​前端访问可以使phpMussel更易于管理，​但也可能是潜在的安全风险。​建议管理phpMussel通过后端只要有可能，​但前端访问提供当不可能。​保持关闭除非您需要它。​False（假）=激活前端访问；​True（真）=关闭前端访问【标准】。
 
 ##### “max_login_attempts”
-- 最大登录尝试次数（前端）。​标准=5。
+- 最大前端登录尝试次数。​标准=5。
 
 ##### “frontend_log”
 - *v1: “FrontEndLog”*
@@ -1416,4 +1417,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2019年8月17日。
+最后更新：2019年9月6日。
