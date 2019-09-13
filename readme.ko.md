@@ -4,35 +4,35 @@
 - 1. [서문](#SECTION1)
 - 2. [설치 방법](#SECTION2)
 - 3. [사용 방법](#SECTION3)
-- 4. [프론트 엔드 관리](#SECTION4)
+- 4. [프론트엔드 관리](#SECTION4)
 - 5. [CLI (명령 줄 인터페이스)](#SECTION5)
-- 6. [본 패키지에 포함 된 파일](#SECTION6)
+- 6. [패키지에 포함된 파일](#SECTION6)
 - 7. [설정 옵션](#SECTION7)
-- 8. [서명 포맷](#SECTION8)
-- 9. [적합성 문제](#SECTION9)
+- 8. [서명 형식](#SECTION8)
+- 9. [알려진 호환성 문제](#SECTION9)
 - 10. [자주 묻는 질문 (FAQ)](#SECTION10)
 - 11. [법률 정보](#SECTION11)
 
-*번역에 노트 : 오류가 발생하는 경우 (예를 들어, 번역 사이의 불일치, 오타, 등등), README 의 영어 버전은 원본과 권위 버전이라고 생각됩니다. 오류를 발견하면이를 해결하려면 협력을 환영하는 것이다.*
+*번역 관련 참고 사항: 오류가 발생하는 경우 (예: 번역 간 불일치, 오타 등), README의 영어 버전을 원본 및 정식 버전으로 취급합니다. 오류가 있는 경우 이를 정정하는 것을 환영합니다.*
 
 ---
 
 
 ### 1. <a name="SECTION1"></a>서문
 
-phpMussel을 이용해 주셔서 감사합니다. phpMussel는 ClamAV를 비롯한 서명을 이용하여 시스템에 업로드 된 파일을 대상하여 트로이 바이러스 나 악성 코드 등을 감지하도록 설계된 PHP 스크립트입니다.
+phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 hook된 곳에서 ClamAV 등의 서명을 기반으로 시스템에 업로드된 파일 내의 트로이 목마, 바이러스, 멀웨어 및 기타 위협 요소를 탐지하기 위한 PHP 스크립트입니다.
 
 [phpMussel](https://phpmussel.github.io/) 저작권 2013 년 이후 [Caleb M (Maikuolan)](https://github.com/Maikuolan)의 GNU/GPLv2.
 
-본 스크립트는 프리웨어입니다. 자유 소프트웨어 재단에서 발행 한 GNU 일반 공중 라이선스 버전 2 (또는 이후 버전)에 따라 재배포 및 가공이 가능합니다. 배포의 목적은 도움이되기를 바랍니다 것이지만 "보증 아니며 상품성 또는 특정 목적에 적합한 것을 시사하는 것이기도 없습니다." "LICENSE.txt"에있는 "GNU General Public License"(일반 라이선스)을 참조하십시오. 다음 URL에서도 볼 수 있습니다 :
+이 스크립트는 자유 소프트웨어입니다; 당신은 자유 소프트웨어 재단이 발표한 GNU 일반 공중 사용 허가서 버전 2 또는 그 이후 버전에 따라 이 스크립트를 재배포하거나 수정할 수 있습니다. 이 스크립트가 유용하게 사용되기를 바라지만 상용으로 사용되거나 특정 목적에 적합할 것이라는 것을 묵시적인 보증을 포함한 그 어떠한 형태로도 보증하지 않습니다. 자세한 내용은 `LICENSE.txt` 파일 또는 다음 링크에서 확인할 수 있는 GNU 일반 공중 사용 허가서를 참조하시기 바랍니다:
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
-창조의 영감이 스크립트를 이용하는 시그니처 [ClamAV](https://www.clamav.net/)에 감사의 뜻을 표하고자합니다. 이 2 개가 있어야이 스크립트는 존재할 수 없거나 극히 제한된 이용 가치만을 가지고이라고 말해도 좋을 것입니다.
+프로젝트에 영감을 주고 이 스크립트가 활용하는 서명을 제공하는 [ClamAV](https://www.clamav.net/)에게 감사의 말씀을 드립니다. 그 서명 없이는 이 스크립트가 존재하지 못했거나 극히 제한적인 가치만을 가졌을 것입니다.
 
-본 프로젝트 파일의 호스트 처인 SourceForge와 Bitbucket와 GitHub, phpMussel이 이용하는 서명 제공처이다 : [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 다른 본 프로젝트를 지원 해주신 모든 분들에게 감사의 뜻을 표하고자합니다.
+프로젝트 파일을 호스팅하는 SourceForge, Bitbucket과 GitHub, phpMussel이 활용하는 서명의 추가적인 소스: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 등, 이 프로젝트를 지원해 주신 분들, 제가 잊어버리고 언급하지 못했을 다른 분들과 이 스크립트를 사용하는 당신에게 감사의 말씀을 드립니다.
 
-본 문서 및 관련 패키지는 다음 URL에서 다운로드 할 수 있습니다.
+이 문서와 관련 패키지는 다음 링크에서 무료로 다운로드할 수 있습니다:
 - [GitHub](https://github.com/phpMussel/phpMussel).
 - [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
 - [SourceForge](https://sourceforge.net/projects/phpmussel/).
