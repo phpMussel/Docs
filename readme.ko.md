@@ -22,7 +22,7 @@
 
 phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 hook된 곳에서 ClamAV 등의 서명을 기반으로 시스템에 업로드된 파일 내의 트로이 목마, 바이러스, 멀웨어 및 기타 위협 요소를 탐지하기 위한 PHP 스크립트입니다.
 
-[phpMussel](https://phpmussel.github.io/) 저작권 2013 년 이후 [Caleb M (Maikuolan)](https://github.com/Maikuolan)의 GNU/GPLv2.
+[PHPMUSSEL](https://phpmussel.github.io/) COPYRIGHT 2013 and beyond GNU/GPLv2 by [Caleb M (Maikuolan)](https://github.com/Maikuolan).
 
 이 스크립트는 자유 소프트웨어입니다; 당신은 자유 소프트웨어 재단이 발표한 GNU 일반 공중 사용 허가서 버전 2 또는 그 이후 버전에 따라 이 스크립트를 재배포하거나 수정할 수 있습니다. 이 스크립트가 유용하게 사용되기를 바라지만 상용으로 사용되거나 특정 목적에 적합할 것이라는 것을 묵시적인 보증을 포함한 그 어떠한 형태로도 보증하지 않습니다. 자세한 내용은 `LICENSE.txt` 파일 또는 다음 링크에서 확인할 수 있는 GNU 일반 공중 사용 허가서를 참조하시기 바랍니다:
 - <https://www.gnu.org/licenses/>.
