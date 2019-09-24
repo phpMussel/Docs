@@ -228,7 +228,7 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 ---
 
 
-### 6. <a name="SECTION6"></a>본 패키지에 포함 된 파일
+### 6. <a name="SECTION6"></a>패키지에 포함된 파일
 
 ```
 https://github.com/phpMussel/phpMussel>v2
