@@ -230,171 +230,309 @@ Ngoài ra, cho những người quan tâm, một hướng dẫn video về cách
 
 ### 6. <a name="SECTION6"></a>TẬP TIN BAO GỒM TRONG GÓI NÀY
 
-Sau đây là một danh sách tất cả các tập tin mà cần phải có được bao gồm trong bản sao lưu của kịch bản này khi bạn tải về nó, bất kỳ tập tin mà có thể có lẽ được tạo ra là kết quả của bạn sử dụng kịch bản này, cùng với một mô tả ngắn cho những gì tất cả những tập tin này là dành cho.
-
-Thông tin này áp dụng cho phát hành v2 gần đây nhất, và có thể không phù hợp với các phiên bản hay phát hành khác.
-
-Tập tin | Chi tiết
-----|----
-/_testfiles/ | Thư mục cho tập tin thử nghiệm (chứa các tập tin khác nhau). Tất cả các tập tin chứa những tập tin thử nghiệm để thử nghiệm nếu phpMussel đã được cài đặt đúng trên hệ thống của bạn, và bạn không cần phải tải lên thư mục này hay bất kỳ các tập tin của mình trừ khi làm xét nghiệm như vậy.
-/_testfiles/ascii_standard_testfile.txt | Tập tin thử nghiệm cho chử ký ASCII bình thường của phpMussel.
-/_testfiles/coex_testfile.rtf | Tập tin thử nghiệm cho chử ký kéo dài phức tạp của phpMussel.
-/_testfiles/exe_standard_testfile.exe | Tập tin thử nghiệm cho chử ký PE của phpMussel.
-/_testfiles/general_standard_testfile.txt | Tập tin thử nghiệm cho chử ký chung của phpMussel.
-/_testfiles/graphics_standard_testfile.gif | Tập tin thử nghiệm cho chử ký đồ họa của phpMussel.
-/_testfiles/html_standard_testfile.html | Tập tin thử nghiệm cho chử ký HTML bình thường của phpMussel.
-/_testfiles/md5_testfile.txt | Tập tin thử nghiệm cho chử ký dựa MD5 của phpMussel.
-/_testfiles/ole_testfile.ole | Tập tin thử nghiệm cho chử ký OLE của phpMussel.
-/_testfiles/pdf_standard_testfile.pdf | Tập tin thử nghiệm cho chử ký PDF của phpMussel.
-/_testfiles/pe_sectional_testfile.exe | Tập tin thử nghiệm cho chử ký phần PE của phpMussel.
-/_testfiles/swf_standard_testfile.swf | Tập tin thử nghiệm cho chử ký Shockwave của phpMussel.
-/vault/ | Vault thư mục (chứa các tập tin khác nhau).
-/vault/cache/ | Cache thư mục (cho dữ liệu tạm thời).
-/vault/classes/ | Thư mục lớp học. Chứa các lớp học khác nhau được sử dụng bởi phpMussel.
-/vault/classes/Maikuolan/ | Thư mục lớp học. Chứa các lớp học khác nhau được sử dụng bởi phpMussel.
-/vault/classes/Maikuolan/Cache.php | Một xử lý bộ đệm đơn giản, thống nhất.
-/vault/classes/Maikuolan/ComplexStringHandler.php | Tập tin cho xử lý chuỗi phức tạp.
-/vault/classes/Maikuolan/DelayedIO.php | Lớp cho tập tin IO trì hoãn.
-/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
-/vault/classes/Maikuolan/L10N.php | Tập tin cho xử lý L10N.
-/vault/classes/Maikuolan/NumberFormatter.php | Công cụ định dạng số.
-/vault/classes/Maikuolan/YAML.php | Tập tin cho xử lý YAML.
-/vault/classes/ArchiveHandler.php | Chịu trách nhiệm xử lý tập tin lưu trữ.
-/vault/classes/CompressionHandler.php | Chịu trách nhiệm xử lý nén tập tin.
-/vault/classes/TemporaryFileHandler.php | Chịu trách nhiệm tạo và xử lý các tập tin tạm thời.
-/vault/fe_assets/ | Các tài sản front-end.
-/vault/fe_assets/_2fa.html | Tập tin mẫu HTML được sử dụng khi yêu cầu người dùng cho mã 2FA.
-/vault/fe_assets/_accounts.html | Tập tin mẫu HTML cho trang tài khoản của front-end.
-/vault/fe_assets/_accounts_row.html | Tập tin mẫu HTML cho trang tài khoản của front-end.
-/vault/fe_assets/_cache.html | Tập tin mẫu HTML cho trang dữ liệu cache của front-end.
-/vault/fe_assets/_config.html | Tập tin mẫu HTML cho trang cấu hình của front-end.
-/vault/fe_assets/_config_row.html | Tập tin mẫu HTML cho trang cấu hình của front-end.
-/vault/fe_assets/_files.html | Tập tin mẫu HTML cho quản lý tập tin.
-/vault/fe_assets/_files_edit.html | Tập tin mẫu HTML cho quản lý tập tin.
-/vault/fe_assets/_files_rename.html | Tập tin mẫu HTML cho quản lý tập tin.
-/vault/fe_assets/_files_row.html | Tập tin mẫu HTML cho quản lý tập tin.
-/vault/fe_assets/_home.html | Tập tin mẫu HTML cho trang chủ của front-end.
-/vault/fe_assets/_login.html | Tập tin mẫu HTML cho đăng nhập front-end.
-/vault/fe_assets/_logs.html | Tập tin mẫu HTML cho trang bản ghi của front-end.
-/vault/fe_assets/_nav_complete_access.html | Tập tin mẫu HTML cho các liên kết điều hướng của front-end, cho những người có quyền truy cập đầy đủ.
-/vault/fe_assets/_nav_logs_access_only.html | Tập tin mẫu HTML cho các liên kết điều hướng của front-end, cho những người có quyền bản ghi truy cập chỉ.
-/vault/fe_assets/_quarantine.html | Tập tin mẫu HTML cho trang kiểm dịch của front-end.
-/vault/fe_assets/_quarantine_row.html | Tập tin mẫu HTML cho trang kiểm dịch của front-end.
-/vault/fe_assets/_siginfo.html | Tập tin mẫu HTML cho trang thông tin chữ ký của front-end.
-/vault/fe_assets/_siginfo_row.html | Tập tin mẫu HTML cho trang thông tin chữ ký của front-end.
-/vault/fe_assets/_statistics.html | Tập tin mẫu HTML cho trang thống kê của front-end.
-/vault/fe_assets/_updates.html | Tập tin mẫu HTML cho trang cập nhật của front-end.
-/vault/fe_assets/_updates_row.html | Tập tin mẫu HTML cho trang cập nhật của front-end.
-/vault/fe_assets/_upload_test.html | Tập tin mẫu HTML cho trang kiểm tra tải lên.
-/vault/fe_assets/frontend.css | CSS định kiểu cho các front-end.
-/vault/fe_assets/frontend.dat | Cơ sở dữ liệu cho các front-end (chứa thông tin tài khoản và phiên; chỉ tạo ra nếu front-end được kích hoạt và sử dụng).
-/vault/fe_assets/frontend.dat.safety | Được tạo ra như một cơ chế an toàn khi cần thiết.
-/vault/fe_assets/frontend.html | Các chính tập tin mẫu HTML cho các front-end.
-/vault/fe_assets/icons.php | Tập tin cho các biểu tượng (được sử dụng bởi các quản lý tập tin front-end).
-/vault/fe_assets/pips.php | Tập tin cho các pip (được sử dụng bởi các quản lý tập tin front-end).
-/vault/fe_assets/scripts.js | Chứa dữ liệu JavaScript cho front-end.
-/vault/lang/ | Chứa dữ liệu tiếng cho phpMussel.
-/vault/lang/lang.ar.fe.yaml | Dữ liệu tiếng Ả Rập cho các front-end.
-/vault/lang/lang.ar.yaml | Dữ liệu tiếng Ả Rập.
-/vault/lang/lang.bn.fe.yaml | Dữ liệu tiếng Bengal cho các front-end.
-/vault/lang/lang.bn.yaml | Dữ liệu tiếng Bengal.
-/vault/lang/lang.de.fe.yaml | Dữ liệu tiếng Đức cho các front-end.
-/vault/lang/lang.de.yaml | Dữ liệu tiếng Đức.
-/vault/lang/lang.en.fe.yaml | Dữ liệu tiếng Anh cho các front-end.
-/vault/lang/lang.en.yaml | Dữ liệu tiếng Anh.
-/vault/lang/lang.es.fe.yaml | Dữ liệu tiếng Tây Ban Nha cho các front-end.
-/vault/lang/lang.es.yaml | Dữ liệu tiếng Tây Ban Nha.
-/vault/lang/lang.fr.fe.yaml | Dữ liệu tiếng Pháp cho các front-end.
-/vault/lang/lang.fr.yaml | Dữ liệu tiếng Pháp.
-/vault/lang/lang.hi.fe.yaml | Dữ liệu tiếng Hindi cho các front-end.
-/vault/lang/lang.hi.yaml | Dữ liệu tiếng Hindi.
-/vault/lang/lang.id.fe.yaml | Dữ liệu tiếng Indonesia cho các front-end.
-/vault/lang/lang.id.yaml | Dữ liệu tiếng Indonesia.
-/vault/lang/lang.it.fe.yaml | Dữ liệu tiếng Ý cho các front-end.
-/vault/lang/lang.it.yaml | Dữ liệu tiếng Ý.
-/vault/lang/lang.ja.fe.yaml | Dữ liệu tiếng Nhật cho các front-end.
-/vault/lang/lang.ja.yaml | Dữ liệu tiếng Nhật.
-/vault/lang/lang.ko.fe.yaml | Dữ liệu tiếng Hàn cho các front-end.
-/vault/lang/lang.ko.yaml | Dữ liệu tiếng Hàn.
-/vault/lang/lang.lv.fe.yaml | Dữ liệu tiếng Latvia cho các front-end.
-/vault/lang/lang.lv.yaml | Dữ liệu tiếng Latvia.
-/vault/lang/lang.nl.fe.yaml | Dữ liệu tiếng Hà Lan cho các front-end.
-/vault/lang/lang.nl.yaml | Dữ liệu tiếng Hà Lan.
-/vault/lang/lang.no.fe.yaml | Dữ liệu tiếng Na Uy cho các front-end.
-/vault/lang/lang.no.yaml | Dữ liệu tiếng Na Uy.
-/vault/lang/lang.pl.fe.yaml | Dữ liệu tiếng Ba Lan cho các front-end.
-/vault/lang/lang.pl.yaml | Dữ liệu tiếng Ba Lan.
-/vault/lang/lang.pt.fe.yaml | Dữ liệu tiếng Bồ Đào Nha cho các front-end.
-/vault/lang/lang.pt.yaml | Dữ liệu tiếng Bồ Đào Nha.
-/vault/lang/lang.ru.fe.yaml | Dữ liệu tiếng Nga cho các front-end.
-/vault/lang/lang.ru.yaml | Dữ liệu tiếng Nga.
-/vault/lang/lang.sv.fe.yaml | Dữ liệu tiếng Thụy Điển cho các front-end.
-/vault/lang/lang.sv.yaml | Dữ liệu tiếng Thụy Điển.
-/vault/lang/lang.th.fe.yaml | Dữ liệu tiếng Thái Lan cho các front-end.
-/vault/lang/lang.th.yaml | Dữ liệu tiếng Thái Lan.
-/vault/lang/lang.tr.fe.yaml | Dữ liệu tiếng Thổ Nhĩ Kỳ cho các front-end.
-/vault/lang/lang.tr.yaml | Dữ liệu tiếng Thổ Nhĩ Kỳ.
-/vault/lang/lang.ur.fe.yaml | Dữ liệu tiếng Urdu cho các front-end.
-/vault/lang/lang.ur.yaml | Dữ liệu tiếng Urdu.
-/vault/lang/lang.vi.fe.yaml | Dữ liệu tiếng Việt cho các front-end.
-/vault/lang/lang.vi.yaml | Dữ liệu tiếng Việt.
-/vault/lang/lang.zh-tw.fe.yaml | Dữ liệu tiếng Trung Quốc (truyền thống) cho các front-end.
-/vault/lang/lang.zh-tw.yaml | Dữ liệu tiếng Trung Quốc (truyền thống).
-/vault/lang/lang.zh.fe.yaml | Dữ liệu tiếng Trung Quốc (giản thể) cho các front-end.
-/vault/lang/lang.zh.yaml | Dữ liệu tiếng Trung Quốc (giản thể).
-/vault/quarantine/ | Thư mục kiểm dịch (chứa các tập tin trong kiểm dịch).
-/vault/signatures/ | Thư mục cho chữ ký (chứa các tập tin cho chữ ký).
-/vault/signatures/switch.dat | Điều khiển và định nghĩa biến.
-/vault/.htaccess | Tập tin "hypertext access" / tập tin truy cập siêu văn bản (bảo vệ tập tin bí mật khỏi bị truy cập bởi nguồn không được ủy quyền).
-/vault/.travis.php | Được sử dụng bởi Travis CI để thử nghiệm (không cần thiết cho chức năng phù hợp của kịch bản).
-/vault/.travis.yml | Được sử dụng bởi Travis CI để thử nghiệm (không cần thiết cho chức năng phù hợp của kịch bản).
-/vault/channels.yaml | Dữ liệu kênh thay thế cho các yêu cầu curl không thành công.
-/vault/cli.php | Tập tin cho xử lý CLI.
-/vault/components.dat | Tập tin siêu dữ liệu thành phần; Được sử dụng bởi trang cập nhật front-end.
-/vault/config.ini.RenameMe | Tập tin cho cấu hình; Chứa tất cả các tùy chọn cho cấu hình của phpMussel, nói cho nó biết phải làm gì và làm thế nào để hoạt động (đổi tên để kích hoạt).
-/vault/config.php | Tập tin cho xử lý cấu hình.
-/vault/config.yaml | Tập tin cho cấu hình mặc định; Chứa giá trị cấu hình mặc định cho phpMussel.
-/vault/frontend.php | Tập tin cho xử lý front-end.
-/vault/frontend_functions.php | Tập tin cho chức năng front-end.
-/vault/functions.php | Tập tin cho chức năng.
-/vault/greylist.csv | Tập tin CSV cho danh sách xám chử ký chỉ thị cho phpMussel cái nào chử ký nó phải được bỏ qua (tập tin tự động tạo lại nếu xóa).
-/vault/lang.php | Dữ liệu tiếng.
-/vault/plugins.dat | Tập tin siêu dữ liệu plugin; Được sử dụng bởi trang cập nhật front-end.
-※ /vault/scan_kills.txt | Kỷ lục của mỗi tập tin tải lên từ chối/giết bởi phpMussel.
-※ /vault/scan_log.txt | Kỷ lục của mỗi tập tin quét bởi phpMussel.
-※ /vault/scan_log_serialized.txt | Kỷ lục của mỗi tập tin quét bởi phpMussel.
-/vault/shorthand.yaml | Chứa các mã nhận diện chữ ký khác nhau được xử lý bởi phpMussel khi giải thích viết tắt chữ ký trong khi quét, và khi truy cập thông tin chữ ký thông qua các front-end.
-/vault/signatures.dat | Tập tin siêu dữ liệu chữ ký; Được sử dụng bởi trang cập nhật front-end.
-/vault/template_custom.html | Tập tin mẫu; Mẫu cho HTML sản xuất bởi phpMussel cho các thông điệp tải lên tập tin bị chặn (các thông điệp nhìn thấy bằng người tải lên).
-/vault/template_default.html | Tập tin mẫu; Mẫu cho HTML sản xuất bởi phpMussel cho các thông điệp tải lên tập tin bị chặn (các thông điệp nhìn thấy bằng người tải lên).
-/vault/themes.dat | Tập tin siêu dữ liệu chủ đề; Được sử dụng bởi trang cập nhật front-end.
-/vault/upload.php | Tập tin cho xử lý tải lên.
-/.gitattributes | Tập tin dự án cho GitHub (không cần thiết cho chức năng phù hợp của kịch bản).
-/.gitignore | Tập tin dự án cho GitHub (không cần thiết cho chức năng phù hợp của kịch bản).
-/Changelog-v2.txt | Kỷ lục của những sự thay đổi được thực hiện cho các kịch bản khác nhau giữa các phiên bản (không cần thiết cho chức năng phù hợp của kịch bản).
-/composer.json | Thông tin về dự án cho Composer/Packagist (không cần thiết cho chức năng phù hợp của kịch bản).
-/CONTRIBUTING.md | Thông tin về làm thế nào để đóng góp cho dự án.
-/LICENSE.txt | Bản sao của giấy phép GNU/GPLv2 (không cần thiết cho chức năng phù hợp của kịch bản).
-/loader.php | Tập tin cho tải. Đây là điều bạn cần nối vào (cần thiết)!
-/PEOPLE.md | Thông tin về những người trong dự án.
-/README.md | Thông tin tóm tắt dự án.
-/web.config | Tập tin cấu hình của ASP.NET (trong trường hợp này, để bảo vệ `/vault` thư mực khỏi bị truy cập bởi những nguồn không có quền trong trường hợp bản được cài trên serever chạy trên công nghệ ASP.NET).
-
-※ Tên tập tin có thể thay đổi tuy theo các quy định của cấu hình (xem `config.ini`).
+```
+https://github.com/phpMussel/phpMussel>v2
+│   .gitattributes
+│   .gitignore
+│   .travis.php
+│   .travis.yml
+│   Changelog-v2.txt
+│   composer.json
+│   CONTRIBUTING.md
+│   crowdin.yml
+│   LICENSE.txt
+│   loader.php
+│   PEOPLE.md
+│   README.md
+│   SECURITY.md
+│   web.config
+│
+├───.github
+│       ISSUE_TEMPLATE.md
+│
+├───vault
+│   │   .htaccess
+│   │   channels.yaml
+│   │   cli.php
+│   │   components.dat
+│   │   config.ini.RenameMe
+│   │   config.php
+│   │   config.yaml
+│   │   event_handlers.php
+│   │   frontend.php
+│   │   frontend_functions.php
+│   │   functions.php
+│   │   greylist.csv
+│   │   lang.php
+│   │   plugins.dat
+│   │   shorthand.yaml
+│   │   signatures.dat
+│   │   template_custom.html
+│   │   template_default.html
+│   │   themes.dat
+│   │   upload.php
+│   │
+│   ├───cache
+│   ├───classes
+│   │   │   ArchiveHandler.php
+│   │   │   CompressionHandler.php
+│   │   │   TemporaryFileHandler.php
+│   │   │
+│   │   └───Maikuolan
+│   │           Cache.php
+│   │           ComplexStringHandler.php
+│   │           DelayedIO.php
+│   │           Demojibakefier.php
+│   │           Events.php
+│   │           L10N.php
+│   │           NumberFormatter.php
+│   │           YAML.php
+│   │
+│   ├───fe_assets
+│   │       frontend.css
+│   │       frontend.html
+│   │       icons.php
+│   │       pips.php
+│   │       scripts.js
+│   │       _2fa.html
+│   │       _accounts.html
+│   │       _accounts_row.html
+│   │       _cache.html
+│   │       _config.html
+│   │       _config_row.html
+│   │       _files.html
+│   │       _files_edit.html
+│   │       _files_rename.html
+│   │       _files_row.html
+│   │       _home.html
+│   │       _login.html
+│   │       _logs.html
+│   │       _nav_complete_access.html
+│   │       _nav_logs_access_only.html
+│   │       _quarantine.html
+│   │       _quarantine_row.html
+│   │       _siginfo.html
+│   │       _siginfo_row.html
+│   │       _statistics.html
+│   │       _updates.html
+│   │       _updates_row.html
+│   │       _upload_test.html
+│   │
+│   ├───lang
+│   │       lang.ar.fe.yaml
+│   │       lang.ar.yaml
+│   │       lang.bn.fe.yaml
+│   │       lang.bn.yaml
+│   │       lang.de.fe.yaml
+│   │       lang.de.yaml
+│   │       lang.en.fe.yaml
+│   │       lang.en.yaml
+│   │       lang.es.fe.yaml
+│   │       lang.es.yaml
+│   │       lang.fr.fe.yaml
+│   │       lang.fr.yaml
+│   │       lang.hi.fe.yaml
+│   │       lang.hi.yaml
+│   │       lang.id.fe.yaml
+│   │       lang.id.yaml
+│   │       lang.it.fe.yaml
+│   │       lang.it.yaml
+│   │       lang.ja.fe.yaml
+│   │       lang.ja.yaml
+│   │       lang.ko.fe.yaml
+│   │       lang.ko.yaml
+│   │       lang.lv.fe.yaml
+│   │       lang.lv.yaml
+│   │       lang.nl.fe.yaml
+│   │       lang.nl.yaml
+│   │       lang.no.fe.yaml
+│   │       lang.no.yaml
+│   │       lang.pl.fe.yaml
+│   │       lang.pl.yaml
+│   │       lang.pt.fe.yaml
+│   │       lang.pt.yaml
+│   │       lang.ru.fe.yaml
+│   │       lang.ru.yaml
+│   │       lang.sv.fe.yaml
+│   │       lang.sv.yaml
+│   │       lang.th.fe.yaml
+│   │       lang.th.yaml
+│   │       lang.tr.fe.yaml
+│   │       lang.tr.yaml
+│   │       lang.ur.fe.yaml
+│   │       lang.ur.yaml
+│   │       lang.vi.fe.yaml
+│   │       lang.vi.yaml
+│   │       lang.zh-tw.fe.yaml
+│   │       lang.zh-tw.yaml
+│   │       lang.zh.fe.yaml
+│   │       lang.zh.yaml
+│   │
+│   ├───plugins
+│   ├───quarantine
+│   └───signatures
+│           switch.dat
+│
+└───_testfiles
+        ascii_standard_testfile.txt
+        coex_testfile.rtf
+        exe_standard_testfile.exe
+        general_standard_testfile.txt
+        graphics_standard_testfile.gif
+        html_standard_testfile.html
+        md5_testfile.txt
+        ole_testfile.ole
+        pdf_standard_testfile.pdf
+        pe_sectional_testfile.exe
+        swf_standard_testfile.swf
+```
 
 ---
 
 
 ### 7. <a name="SECTION7"></a>TÙY CHỌN CHO CẤU HÌNH
+
 Sau đây là danh sách các biến tìm thấy trong tập tin cấu hình cho phpMussel `config.ini`, cùng với một mô tả về mục đích và chức năng của chúng.
 
-[general](#general-thể-loại) | [signatures](#signatures-thể-loại) | [files](#files-thể-loại) | [attack_specific](#attack_specific-thể-loại)
-:--|:--|:--|:--
-[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[lang_override](#lang_override)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br />[disabled_channels](#disabled_channels)<br /> | [active](#active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-[compatibility](#compatibility-thể-loại) | [heuristic](#heuristic-thể-loại) | [virustotal](#virustotal-thể-loại) | [urlscanner](#urlscanner-thể-loại)
-[ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-và-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
-[legal](#legal-thể-loại) | [template_data](#template_data-thể-loại) | [PHPMailer](#phpmailer-thể-loại) | [supplementary_cache_options](#supplementary_cache_options-thể-loại)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+```
+Configuration (v2)
+│
+├───general
+│       cleanup
+│       scan_log
+│       scan_log_serialized
+│       scan_kills
+│       error_log
+│       truncate
+│       log_rotation_limit
+│       log_rotation_action
+│       timezone
+│       time_offset (v1: timeOffset)
+│       time_format (v1: timeFormat)
+│       ipaddr
+│       enable_plugins
+│       forbid_on_block
+│       delete_on_sight
+│       lang
+│       lang_override
+│       numbers
+│       quarantine_key
+│       quarantine_max_filesize
+│       quarantine_max_usage
+│       quarantine_max_files
+│       honeypot_mode
+│       scan_cache_expiry
+│       disable_cli
+│       disable_frontend
+│       max_login_attempts
+│       frontend_log (v1: FrontEndLog)
+│       disable_webfonts
+│       maintenance_mode
+│       default_algo
+│       statistics
+│       disabled_channels
+│
+├───signatures
+│       active (v1: Active)
+│       fail_silently
+│       fail_extensions_silently
+│       detect_adware
+│       detect_joke_hoax
+│       detect_pua_pup
+│       detect_packer_packed
+│       detect_shell
+│       detect_deface
+│       detect_encryption
+│
+├───files
+│       max_uploads
+│       filesize_limit
+│       filesize_response
+│       filetype_whitelist
+│       filetype_blacklist
+│       filetype_greylist
+│       check_archives
+│       filesize_archives
+│       filetype_archives
+│       max_recursion
+│       block_encrypted_archives
+│       max_files_in_archives
+│
+├───attack_specific
+│       chameleon_from_php
+│       can_contain_php_file_extensions
+│       chameleon_from_exe
+│       chameleon_to_archive
+│       chameleon_to_doc
+│       chameleon_to_img
+│       chameleon_to_pdf
+│       archive_file_extensions
+│       block_control_characters
+│       corrupted_exe
+│       decode_threshold
+│       scannable_threshold
+│       allow_leading_trailing_dots
+│       block_macros
+│
+├───compatibility
+│       ignore_upload_errors
+│       only_allow_images
+│
+├───heuristic
+│       threshold
+│
+├───virustotal
+│       vt_public_api_key
+│       vt_suspicion_level
+│       vt_weighting
+│       vt_quota_rate
+│       vt_quota_time
+│
+├───urlscanner
+│       lookup_hphosts
+│       google_api_key
+│       maximum_api_lookups
+│       maximum_api_lookups_response
+│       cache_time
+│
+├───legal
+│       pseudonymise_ip_addresses
+│       privacy_policy
+│
+├───template_data
+│       theme
+│       magnification (v1: Magnification)
+│       css_url
+│
+├───PHPMailer
+│       event_log (v1: EventLog)
+│       skip_auth_process (v1: SkipAuthProcess)
+│       enable_two_factor (v1: Enable2FA)
+│       host (v1: Host)
+│       port (v1: Port)
+│       smtp_secure (v1: SMTPSecure)
+│       smtp_auth (v1: SMTPAuth)
+│       username (v1: Username)
+│       password (v1: Password)
+│       set_from_address (v1: setFromAddress)
+│       set_from_name (v1: setFromName)
+│       add_reply_to_address (v1: addReplyToAddress)
+│       add_reply_to_name (v1: addReplyToName)
+│
+└───supplementary_cache_options
+        enable_apcu
+        enable_memcached
+        enable_redis
+        enable_pdo
+        memcached_host
+        memcached_port
+        redis_host
+        redis_port
+        redis_timeout
+        pdo_dsn
+        pdo_username
+        pdo_password
+```
 
 #### "general" (Thể loại)
 Cấu hình chung cho phpMussel.
@@ -418,6 +556,9 @@ Cấu hình chung cho phpMussel.
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+
+##### "error_log"
+- Một tập tin để ghi lại bất kỳ lỗi không nghiêm trọng được phát hiện. Chỉ định một tên tập tin, hoặc để trống để vô hiệu hóa.
 
 ##### "truncate"
 - Dọn dẹp các bản ghi khi họ được một kích thước nhất định? Giá trị là kích thước tối đa bằng B/KB/MB/GB/TB mà một tập tin bản ghi có thể tăng lên trước khi bị dọn dẹp. Giá trị mặc định 0KB sẽ vô hiệu hoá dọn dẹp (các bản ghi có thể tăng lên vô hạn). Lưu ý: Áp dụng cho tập tin riêng biệt! Kích thước tập tin bản ghi không được coi là tập thể.
@@ -1408,4 +1549,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 6 Tháng Chín 2019 (2019.09.06).
+Lần cuối cập nhật: 23 Tháng Chín 2019 (2019.09.23).
