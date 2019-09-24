@@ -229,173 +229,310 @@ phpMussel應該能夠正確操作與最低要求從您：安裝後，​它應�
 
 
 ### 6. <a name="SECTION6"></a>文件在包
-（本段文件採用的自動翻譯，​因為都是一些文件描述，​參考意義不是很大，​如有疑問，​請參考英文原版）
 
-下面是一個列表的所有的文件該應該是存在在您的存檔在下載時間，​任何文件該可能創建因之的您的使用這個腳本，​包括一個簡短說明的他們的目的。
-
-此信息適用於最新的『v2』發布。可能與其他版本或發布它無關。
-
-文件 | 說明
-----|----
-/_testfiles/ | 測試文件文件夾（包含若干文件）。​所有包含文件是測試文件為測試如果phpMussel是正確地安裝上您的系統，​和您不需要上傳這個文件夾或任何其文件除為上傳測試。
-/_testfiles/ascii_standard_testfile.txt | 測試文件以測試phpMussel標準化ASCII簽名。
-/_testfiles/coex_testfile.rtf | 測試文件以測試phpMussel複雜擴展簽名。
-/_testfiles/exe_standard_testfile.exe | 測試文件以測試phpMussel移植可執行【PE】簽名。
-/_testfiles/general_standard_testfile.txt | 測試文件以測試phpMussel通用簽名。
-/_testfiles/graphics_standard_testfile.gif | 測試文件以測試phpMussel圖像簽名。
-/_testfiles/html_standard_testfile.html | 測試文件以測試phpMussel標準化HTML簽名。
-/_testfiles/md5_testfile.txt | 測試文件以測試phpMussel MD5簽名。
-/_testfiles/ole_testfile.ole | 測試文件以測試phpMussel OLE簽名。
-/_testfiles/pdf_standard_testfile.pdf | 測試文件以測試phpMussel PDF簽名。
-/_testfiles/pe_sectional_testfile.exe | 測試文件以測試phpMussel移植可執行【PE】部分簽名。
-/_testfiles/swf_standard_testfile.swf | 測試文件以測試phpMussel SWF簽名。
-/vault/ | 安全/保險庫【Vault】文件夾（包含若干文件）。
-/vault/cache/ | 緩存【Cache】文件夾（為臨時數據）。
-/vault/classes/ | 類目錄。包含phpMussel使用的各種類。
-/vault/classes/Maikuolan/ | 類目錄。包含phpMussel使用的各種類。
-/vault/classes/Maikuolan/Cache.php | 一個簡單的統一緩存處理程序。
-/vault/classes/Maikuolan/ComplexStringHandler.php | 複雜的字符串處理文件。
-/vault/classes/Maikuolan/DelayedIO.php | 延遲文件IO類。
-/vault/classes/Maikuolan/Demojibakefier.php | 『Demojibakefier』。
-/vault/classes/Maikuolan/L10N.php | L10N處理文件。
-/vault/classes/Maikuolan/NumberFormatter.php | 數字格式化程序。
-/vault/classes/Maikuolan/YAML.php | YAML處理文件。
-/vault/classes/ArchiveHandler.php | 負責處理檔案文件。
-/vault/classes/CompressionHandler.php | 負責處理文件壓縮。
-/vault/classes/TemporaryFileHandler.php | 負責創建和處理臨時文件。
-/vault/fe_assets/ | 前端資產。
-/vault/fe_assets/_2fa.html | 在向用戶詢問2FA代碼時使用的HTML模板。
-/vault/fe_assets/_accounts.html | 前端帳戶頁面的HTML模板。
-/vault/fe_assets/_accounts_row.html | 前端帳戶頁面的HTML模板。
-/vault/fe_assets/_cache.html | 前端緩存數據頁面的HTML模板。
-/vault/fe_assets/_config.html | 前端配置頁面的HTML模板。
-/vault/fe_assets/_config_row.html | 前端配置頁面的HTML模板。
-/vault/fe_assets/_files.html | 文件管理器的HTML模板。
-/vault/fe_assets/_files_edit.html | 文件管理器的HTML模板。
-/vault/fe_assets/_files_rename.html | 文件管理器的HTML模板。
-/vault/fe_assets/_files_row.html | 文件管理器的HTML模板。
-/vault/fe_assets/_home.html | 端主頁的HTML模板。
-/vault/fe_assets/_login.html | 前端登錄的HTML模板。
-/vault/fe_assets/_logs.html | 前端日誌頁面的HTML模板。
-/vault/fe_assets/_nav_complete_access.html | 前端導航鏈接的HTML模板，​由那些與完全訪問使用。
-/vault/fe_assets/_nav_logs_access_only.html | 前端導航鏈接的HTML模板，​由那些與僅日誌訪問使用。
-/vault/fe_assets/_quarantine.html | 前端隔離頁面的HTML模板。
-/vault/fe_assets/_quarantine_row.html | 前端隔離頁面的HTML模板。
-/vault/fe_assets/_siginfo.html | 前端簽名信息頁面的HTML模板。
-/vault/fe_assets/_siginfo_row.html | 前端簽名信息頁面的HTML模板。
-/vault/fe_assets/_statistics.html | 前端統計頁面的HTML模板。
-/vault/fe_assets/_updates.html | 前端更新頁面的HTML模板。
-/vault/fe_assets/_updates_row.html | 前端更新頁面的HTML模板。
-/vault/fe_assets/_upload_test.html | 上傳測試頁面的HTML模板。
-/vault/fe_assets/frontend.css | 前端CSS樣式表。
-/vault/fe_assets/frontend.dat | 前端數據庫（包含帳戶信息，​會話信息，​和緩存；只生成如果前端是啟用和使用）。
-/vault/fe_assets/frontend.dat.safety | 在需要時為安全目的而生成。
-/vault/fe_assets/frontend.html | 前端的主HTML模板文件。
-/vault/fe_assets/icons.php | 圖標處理文件（由前端文件管理器使用）。
-/vault/fe_assets/pips.php | 點數處理文件（由前端文件管理器使用）。
-/vault/fe_assets/scripts.js | 包含前端JavaScript數據。
-/vault/lang/ | 包含phpMussel語言數據。
-/vault/lang/lang.ar.fe.yaml | 阿拉伯文前端語言數據。
-/vault/lang/lang.ar.yaml | 阿拉伯文語言數據。
-/vault/lang/lang.bn.fe.yaml | 孟加拉文前端語言數據。
-/vault/lang/lang.bn.yaml | 孟加拉文語言數據。
-/vault/lang/lang.de.fe.yaml | 德文前端語言數據。
-/vault/lang/lang.de.yaml | 德文語言數據。
-/vault/lang/lang.en.fe.yaml | 英文前端語言數據。
-/vault/lang/lang.en.yaml | 英文語言數據。
-/vault/lang/lang.es.fe.yaml | 西班牙文前端語言數據。
-/vault/lang/lang.es.yaml | 西班牙文語言數據。
-/vault/lang/lang.fr.fe.yaml | 法文前端語言數據。
-/vault/lang/lang.fr.yaml | 法文語言數據。
-/vault/lang/lang.hi.fe.yaml | 印地文前端語言數據。
-/vault/lang/lang.hi.yaml | 印地文語言數據。
-/vault/lang/lang.id.fe.yaml | 印度尼西亞文前端語言數據。
-/vault/lang/lang.id.yaml | 印度尼西亞文語言數據。
-/vault/lang/lang.it.fe.yaml | 意大利文前端語言數據。
-/vault/lang/lang.it.yaml | 意大利文語言數據。
-/vault/lang/lang.ja.fe.yaml | 日文前端語言數據。
-/vault/lang/lang.ja.yaml | 日文語言數據。
-/vault/lang/lang.ko.fe.yaml | 韓文前端語言數據。
-/vault/lang/lang.ko.yaml | 韓文語言數據。
-/vault/lang/lang.lv.fe.yaml | 拉脫維亞文前端語言數據。
-/vault/lang/lang.lv.yaml | 拉脫維亞文語言數據。
-/vault/lang/lang.nl.fe.yaml | 荷蘭文前端語言數據。
-/vault/lang/lang.nl.yaml | 荷蘭文語言數據。
-/vault/lang/lang.no.fe.yaml | 挪威文前端語言數據。
-/vault/lang/lang.no.yaml | 挪威文語言數據。
-/vault/lang/lang.pl.fe.yaml | 波蘭文前端語言數據。
-/vault/lang/lang.pl.yaml | 波蘭文語言數據。
-/vault/lang/lang.pt.fe.yaml | 葡萄牙文前端語言數據。
-/vault/lang/lang.pt.yaml | 葡萄牙文語言數據。
-/vault/lang/lang.ru.fe.yaml | 俄文前端語言數據。
-/vault/lang/lang.ru.yaml | 俄文語言數據。
-/vault/lang/lang.sv.fe.yaml | 瑞典文前端語言數據。
-/vault/lang/lang.sv.yaml | 瑞典文語言數據。
-/vault/lang/lang.th.fe.yaml | 泰文前端語言數據。
-/vault/lang/lang.th.yaml | 泰文語言數據。
-/vault/lang/lang.tr.fe.yaml | 土耳其文前端語言數據。
-/vault/lang/lang.tr.yaml | 土耳其文語言數據。
-/vault/lang/lang.ur.fe.yaml | 烏爾都文前端語言數據。
-/vault/lang/lang.ur.yaml | 烏爾都文語言數據。
-/vault/lang/lang.vi.fe.yaml | 越南文前端語言數據。
-/vault/lang/lang.vi.yaml | 越南文語言數據。
-/vault/lang/lang.zh-tw.fe.yaml | 中文（傳統）前端語言數據。
-/vault/lang/lang.zh-tw.yaml | 中文（傳統）語言數據。
-/vault/lang/lang.zh.fe.yaml | 中文（簡體）前端語言數據。
-/vault/lang/lang.zh.yaml | 中文（簡體）語言數據。
-/vault/quarantine/ | 隔離文件夾（包含隔離文件）。
-/vault/signatures/ | 簽名文件夾（包含簽名文件）。
-/vault/signatures/switch.dat | 控制和確定某些變量。
-/vault/.htaccess | 超文本訪問文件（在這種情況，​以保護敏感文件屬於腳本從被訪問由非授權來源）。
-/vault/.travis.php | 由Travis CI用於測試（不需要為正確經營腳本）。
-/vault/.travis.yml | 由Travis CI用於測試（不需要為正確經營腳本）。
-/vault/channels.yaml | curl請求失敗的備用渠道數據。
-/vault/cli.php | CLI處理文件。
-/vault/components.dat | 組件元數據文件。由前端更新頁面使用。
-/vault/config.ini.RenameMe | 配置文件；包含所有配置指令為phpMussel，​告訴它什麼做和怎麼正確地經營（重命名為激活）。
-/vault/config.php | 配置處理文件。
-/vault/config.yaml | 配置默認文件；包含phpMussel的默認配置值。
-/vault/frontend.php | 前端處理文件。
-/vault/frontend_functions.php | 前端功能處理文件。
-/vault/functions.php | 功能處理文件（必不可少）。
-/vault/greylist.csv | 灰名單簽名CSV（逗號分隔變量）文件說明為phpMussel什麼簽名它應該忽略（文件自動重新創建如果刪除）。
-/vault/lang.php | 語音數據。
-/vault/plugins.dat | 插件元數據文件。由前端更新頁面使用。
-※ /vault/scan_kills.txt | 記錄的所有上傳文件phpMussel受阻/殺。
-※ /vault/scan_log.txt | 記錄的一切phpMussel掃描。
-※ /vault/scan_log_serialized.txt | 記錄的一切phpMussel掃描。
-/vault/shorthand.yaml | 包含各種簽名標識符由phpMussel在掃描期間解釋簽名速記時，以及通過前端訪問簽名信息時處理。
-/vault/signatures.dat | 簽名元數據文件。由前端更新頁面使用。
-/vault/template_custom.html | 模板文件；模板為HTML產量產生通過phpMussel為它的受阻文件上傳信息（信息可見向上傳者）。
-/vault/template_default.html | 模板文件；模板為HTML產量產生通過phpMussel為它的受阻文件上傳信息（信息可見向上傳者）。
-/vault/themes.dat | 主題元數據文件。由前端更新頁面使用。
-/vault/upload.php | 上傳處理文件。
-/.gitattributes | GitHub文件（不需要為正確經營腳本）。
-/.gitignore | GitHub文件（不需要為正確經營腳本）。
-/Changelog-v2.txt | 記錄的變化做出至腳本間不同版本（不需要為正確經營腳本）。
-/composer.json | Composer/Packagist 信息（不需要為正確經營腳本）。
-/CONTRIBUTING.md | 相關信息如何有助於該項目。
-/LICENSE.txt | GNU/GPLv2 執照文件（不需要為正確經營腳本）。
-/loader.php | 加載文件。​這個是文件您應該【鉤子】（必不可少）!
-/PEOPLE.md | 人民捲入到該項目。
-/README.md | 項目概要信息。
-/web.config | 一個ASP.NET配置文件（在這種情況，​以保護`/vault`文件夾從被訪問由非授權來源在事件的腳本是安裝在服務器根據ASP.NET技術）。
-
-※ 文件名可能不同基於配置規定（在`config.ini`）。
+```
+https://github.com/phpMussel/phpMussel>v2
+│   .gitattributes
+│   .gitignore
+│   .travis.php
+│   .travis.yml
+│   Changelog-v2.txt
+│   composer.json
+│   CONTRIBUTING.md
+│   crowdin.yml
+│   LICENSE.txt
+│   loader.php
+│   PEOPLE.md
+│   README.md
+│   SECURITY.md
+│   web.config
+│
+├───.github
+│       ISSUE_TEMPLATE.md
+│
+├───vault
+│   │   .htaccess
+│   │   channels.yaml
+│   │   cli.php
+│   │   components.dat
+│   │   config.ini.RenameMe
+│   │   config.php
+│   │   config.yaml
+│   │   event_handlers.php
+│   │   frontend.php
+│   │   frontend_functions.php
+│   │   functions.php
+│   │   greylist.csv
+│   │   lang.php
+│   │   plugins.dat
+│   │   shorthand.yaml
+│   │   signatures.dat
+│   │   template_custom.html
+│   │   template_default.html
+│   │   themes.dat
+│   │   upload.php
+│   │
+│   ├───cache
+│   ├───classes
+│   │   │   ArchiveHandler.php
+│   │   │   CompressionHandler.php
+│   │   │   TemporaryFileHandler.php
+│   │   │
+│   │   └───Maikuolan
+│   │           Cache.php
+│   │           ComplexStringHandler.php
+│   │           DelayedIO.php
+│   │           Demojibakefier.php
+│   │           Events.php
+│   │           L10N.php
+│   │           NumberFormatter.php
+│   │           YAML.php
+│   │
+│   ├───fe_assets
+│   │       frontend.css
+│   │       frontend.html
+│   │       icons.php
+│   │       pips.php
+│   │       scripts.js
+│   │       _2fa.html
+│   │       _accounts.html
+│   │       _accounts_row.html
+│   │       _cache.html
+│   │       _config.html
+│   │       _config_row.html
+│   │       _files.html
+│   │       _files_edit.html
+│   │       _files_rename.html
+│   │       _files_row.html
+│   │       _home.html
+│   │       _login.html
+│   │       _logs.html
+│   │       _nav_complete_access.html
+│   │       _nav_logs_access_only.html
+│   │       _quarantine.html
+│   │       _quarantine_row.html
+│   │       _siginfo.html
+│   │       _siginfo_row.html
+│   │       _statistics.html
+│   │       _updates.html
+│   │       _updates_row.html
+│   │       _upload_test.html
+│   │
+│   ├───lang
+│   │       lang.ar.fe.yaml
+│   │       lang.ar.yaml
+│   │       lang.bn.fe.yaml
+│   │       lang.bn.yaml
+│   │       lang.de.fe.yaml
+│   │       lang.de.yaml
+│   │       lang.en.fe.yaml
+│   │       lang.en.yaml
+│   │       lang.es.fe.yaml
+│   │       lang.es.yaml
+│   │       lang.fr.fe.yaml
+│   │       lang.fr.yaml
+│   │       lang.hi.fe.yaml
+│   │       lang.hi.yaml
+│   │       lang.id.fe.yaml
+│   │       lang.id.yaml
+│   │       lang.it.fe.yaml
+│   │       lang.it.yaml
+│   │       lang.ja.fe.yaml
+│   │       lang.ja.yaml
+│   │       lang.ko.fe.yaml
+│   │       lang.ko.yaml
+│   │       lang.lv.fe.yaml
+│   │       lang.lv.yaml
+│   │       lang.nl.fe.yaml
+│   │       lang.nl.yaml
+│   │       lang.no.fe.yaml
+│   │       lang.no.yaml
+│   │       lang.pl.fe.yaml
+│   │       lang.pl.yaml
+│   │       lang.pt.fe.yaml
+│   │       lang.pt.yaml
+│   │       lang.ru.fe.yaml
+│   │       lang.ru.yaml
+│   │       lang.sv.fe.yaml
+│   │       lang.sv.yaml
+│   │       lang.th.fe.yaml
+│   │       lang.th.yaml
+│   │       lang.tr.fe.yaml
+│   │       lang.tr.yaml
+│   │       lang.ur.fe.yaml
+│   │       lang.ur.yaml
+│   │       lang.vi.fe.yaml
+│   │       lang.vi.yaml
+│   │       lang.zh-tw.fe.yaml
+│   │       lang.zh-tw.yaml
+│   │       lang.zh.fe.yaml
+│   │       lang.zh.yaml
+│   │
+│   ├───plugins
+│   ├───quarantine
+│   └───signatures
+│           switch.dat
+│
+└───_testfiles
+        ascii_standard_testfile.txt
+        coex_testfile.rtf
+        exe_standard_testfile.exe
+        general_standard_testfile.txt
+        graphics_standard_testfile.gif
+        html_standard_testfile.html
+        md5_testfile.txt
+        ole_testfile.ole
+        pdf_standard_testfile.pdf
+        pe_sectional_testfile.exe
+        swf_standard_testfile.swf
+```
 
 ---
 
 
 ### 7. <a name="SECTION7"></a>配置選項
+
 下列是一個列表的變量發現在`config.ini`配置文件的phpMussel，​以及一個說明的他們的目的和功能。
 
-[general](#general-類別) | [signatures](#signatures-類別) | [files](#files-類別) | [attack_specific](#attack_specific-類別)
-:--|:--|:--|:--
-[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[lang_override](#lang_override)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br />[disabled_channels](#disabled_channels)<br /> | [active](#active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-[compatibility](#compatibility-類別) | [heuristic](#heuristic-類別) | [virustotal](#virustotal-類別) | [urlscanner](#urlscanner-類別)
-[ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate和vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
-[legal](#legal-類別) | [template_data](#template_data-類別) | [PHPMailer](#phpmailer-類別) | [supplementary_cache_options](#supplementary_cache_options-類別)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+```
+Configuration (v2)
+│
+├───general
+│       cleanup
+│       scan_log
+│       scan_log_serialized
+│       scan_kills
+│       error_log
+│       truncate
+│       log_rotation_limit
+│       log_rotation_action
+│       timezone
+│       time_offset (v1: timeOffset)
+│       time_format (v1: timeFormat)
+│       ipaddr
+│       enable_plugins
+│       forbid_on_block
+│       delete_on_sight
+│       lang
+│       lang_override
+│       numbers
+│       quarantine_key
+│       quarantine_max_filesize
+│       quarantine_max_usage
+│       quarantine_max_files
+│       honeypot_mode
+│       scan_cache_expiry
+│       disable_cli
+│       disable_frontend
+│       max_login_attempts
+│       frontend_log (v1: FrontEndLog)
+│       disable_webfonts
+│       maintenance_mode
+│       default_algo
+│       statistics
+│       disabled_channels
+│
+├───signatures
+│       active (v1: Active)
+│       fail_silently
+│       fail_extensions_silently
+│       detect_adware
+│       detect_joke_hoax
+│       detect_pua_pup
+│       detect_packer_packed
+│       detect_shell
+│       detect_deface
+│       detect_encryption
+│
+├───files
+│       max_uploads
+│       filesize_limit
+│       filesize_response
+│       filetype_whitelist
+│       filetype_blacklist
+│       filetype_greylist
+│       check_archives
+│       filesize_archives
+│       filetype_archives
+│       max_recursion
+│       block_encrypted_archives
+│       max_files_in_archives
+│
+├───attack_specific
+│       chameleon_from_php
+│       can_contain_php_file_extensions
+│       chameleon_from_exe
+│       chameleon_to_archive
+│       chameleon_to_doc
+│       chameleon_to_img
+│       chameleon_to_pdf
+│       archive_file_extensions
+│       block_control_characters
+│       corrupted_exe
+│       decode_threshold
+│       scannable_threshold
+│       allow_leading_trailing_dots
+│       block_macros
+│
+├───compatibility
+│       ignore_upload_errors
+│       only_allow_images
+│
+├───heuristic
+│       threshold
+│
+├───virustotal
+│       vt_public_api_key
+│       vt_suspicion_level
+│       vt_weighting
+│       vt_quota_rate
+│       vt_quota_time
+│
+├───urlscanner
+│       lookup_hphosts
+│       google_api_key
+│       maximum_api_lookups
+│       maximum_api_lookups_response
+│       cache_time
+│
+├───legal
+│       pseudonymise_ip_addresses
+│       privacy_policy
+│
+├───template_data
+│       theme
+│       magnification (v1: Magnification)
+│       css_url
+│
+├───PHPMailer
+│       event_log (v1: EventLog)
+│       skip_auth_process (v1: SkipAuthProcess)
+│       enable_two_factor (v1: Enable2FA)
+│       host (v1: Host)
+│       port (v1: Port)
+│       smtp_secure (v1: SMTPSecure)
+│       smtp_auth (v1: SMTPAuth)
+│       username (v1: Username)
+│       password (v1: Password)
+│       set_from_address (v1: setFromAddress)
+│       set_from_name (v1: setFromName)
+│       add_reply_to_address (v1: addReplyToAddress)
+│       add_reply_to_name (v1: addReplyToName)
+│
+└───supplementary_cache_options
+        enable_apcu
+        enable_memcached
+        enable_redis
+        enable_pdo
+        memcached_host
+        memcached_port
+        redis_host
+        redis_port
+        redis_timeout
+        pdo_dsn
+        pdo_username
+        pdo_password
+```
 
 #### 『general』 （類別）
 基本phpMussel配置。
@@ -419,6 +556,9 @@ phpMussel應該能夠正確操作與最低要求從您：安裝後，​它應�
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+
+##### 『error_log』
+- 用於記錄檢測到的任何非致命錯誤的文件。​指定一個文件名，​或留空以禁用。
 
 ##### 『truncate』
 - 截斷日誌文件當他們達到一定的大小嗎？​值是在B/KB/MB/GB/TB，​是日誌文件允許的最大大小直到它被截斷。​默認值為『0KB』將禁用截斷（日誌文件可以無限成長）。​注意：適用於單個日誌文件！​日誌文件大小不被算集體的。
@@ -627,7 +767,7 @@ Phar | ❌ | ❌ | ❌ | 由於安全考慮，在v1.6.0中刪除了讀取phar文
 - 繼承文件大小黑名單/白名單在存檔內容嗎？​False（假）=不繼承（剛灰名單一切）；​True（真）=繼承【默認】。
 
 ##### 『filetype_archives』
-- 繼承文件類型黑名單/白名單在存檔內容嗎？​False（假）=不繼承（剛灰名單一切）；​True（真）=繼承【默認】。
+- 繼承文件類型黑名單/白名單在存檔內容嗎？​False（假）=不繼承（剛灰名單一切）【默認】；​True（真）=繼承。
 
 ##### 『max_recursion』
 - 最大存檔遞歸深度限。​默認=3。
@@ -1417,4 +1557,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2019年9月6日。
+最後更新：2019年9月23日。

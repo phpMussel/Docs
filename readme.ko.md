@@ -230,171 +230,309 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 
 ### 6. <a name="SECTION6"></a>본 패키지에 포함 된 파일
 
-다음은 아카이브에서 일괄 다운로드되는 파일의 목록 및 스크립트 사용에 의해 생성되는 파일과이 파일이 무엇 때문인지는 간단한 설명입니다.
-
-이 정보는 최신 v2 릴리스에 적용되며 다른 버전이나 릴리스와는 관련이 없을 수도 있습니다.
-
-파일 | 설명
-----|----
-/_testfiles/ | 테스트 파일의 디렉토리입니다 (다양한 파일을 포함합니다). phpMussel가 시스템에 제대로 설치되었는지 여부를 테스트하는 파일입니다. 테스트 이외의 목적으로이 디렉토리를 업로드하는 것은 아닙니다.
-/_testfiles/ascii_standard_testfile.txt | phpMussel 정규화 ASCII 서명 용 테스트 파일.
-/_testfiles/coex_testfile.rtf | phpMussel 확장 콤플렉스 서명 용 테스트 파일.
-/_testfiles/exe_standard_testfile.exe | phpMussel PE 시그니처 용 테스트 파일.
-/_testfiles/general_standard_testfile.txt | phpMussel 일반 시그니처 용 테스트 파일.
-/_testfiles/graphics_standard_testfile.gif | phpMussel 그래픽 시그니처 용 테스트 파일.
-/_testfiles/html_standard_testfile.html | phpMussel 정규화 HTML 서명 테스트 파일.
-/_testfiles/md5_testfile.txt | phpMussel MD5 서명 용 테스트 파일.
-/_testfiles/ole_testfile.ole | phpMussel OLE 서명 용 테스트 파일.
-/_testfiles/pdf_standard_testfile.pdf | phpMussel PDF 서명 용 테스트 파일.
-/_testfiles/pe_sectional_testfile.exe | phpMussel PE 섹 셔널 서명 용 테스트 파일.
-/_testfiles/swf_standard_testfile.swf | phpMussel SWF 서명 용 테스트 파일.
-/vault/ | 보루 토 디렉토리 (다양한 파일을 포함합니다).
-/vault/cache/ | 캐시 디렉토리 (임시 데이터 용).
-/vault/classes/ | 클래스 디렉토리. phpMussel에서 사용하는 다양한 클래스가 들어 있습니다.
-/vault/classes/Maikuolan/ | 클래스 디렉토리. phpMussel에서 사용하는 다양한 클래스가 들어 있습니다.
-/vault/classes/Maikuolan/Cache.php | 간단하고 통합 된 캐시 처리기입니다.
-/vault/classes/Maikuolan/ComplexStringHandler.php | 복잡한 문자열 핸들러.
-/vault/classes/Maikuolan/DelayedIO.php | 지연된 파일 IO 클래스.
-/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
-/vault/classes/Maikuolan/L10N.php | L10N 핸들러.
-/vault/classes/Maikuolan/NumberFormatter.php | 숫자 포맷터.
-/vault/classes/Maikuolan/YAML.php | YAML 핸들러.
-/vault/classes/ArchiveHandler.php | 아카이브 처리에 대한 그것은 책임이있다.
-/vault/classes/CompressionHandler.php | 파일 압축을 처리에 대한 그것은 책임이있다.
-/vault/classes/TemporaryFileHandler.php | 임시 파일을 만들고 처리합니다.
-/vault/fe_assets/ | 프론트 엔드 자산.
-/vault/fe_assets/_2fa.html | 사용자에게 2FA 코드를 요청할 때 사용되는 HTML 템플릿입니다.
-/vault/fe_assets/_accounts.html | 프론트 엔드의 계정 페이지의 HTML 템플릿.
-/vault/fe_assets/_accounts_row.html | 프론트 엔드의 계정 페이지의 HTML 템플릿.
-/vault/fe_assets/_cache.html | 프론트 엔드 데이터 캐쉬 페이지의 HTML 템플릿.
-/vault/fe_assets/_config.html | 프론트 엔드 구성 페이지의 HTML 템플릿.
-/vault/fe_assets/_config_row.html | 프론트 엔드 구성 페이지의 HTML 템플릿.
-/vault/fe_assets/_files.html | 파일 관리자의 HTML 템플릿.
-/vault/fe_assets/_files_edit.html | 파일 관리자의 HTML 템플릿.
-/vault/fe_assets/_files_rename.html | 파일 관리자의 HTML 템플릿.
-/vault/fe_assets/_files_row.html | 파일 관리자의 HTML 템플릿.
-/vault/fe_assets/_home.html | 프론트 엔드의 홈페이지의 HTML 템플릿.
-/vault/fe_assets/_login.html | 프론트 엔드 로그인 페이지의 HTML 템플릿.
-/vault/fe_assets/_logs.html | 프론트 엔드 로고스 페이지의 HTML 템플릿.
-/vault/fe_assets/_nav_complete_access.html | 프론트 엔드의 탐색 링크의 HTML 템플릿, 완전한 액세스를위한 것입니다.
-/vault/fe_assets/_nav_logs_access_only.html | 프론트 엔드의 탐색 링크의 HTML 템플릿은 로그에만 액세스를위한 것입니다.
-/vault/fe_assets/_quarantine.html | 프론트 엔드 격리 페이지의 HTML 템플릿.
-/vault/fe_assets/_quarantine_row.html | 프론트 엔드 격리 페이지의 HTML 템플릿.
-/vault/fe_assets/_siginfo.html | 프론트 엔드 서명 정보 페이지의 HTML 템플릿.
-/vault/fe_assets/_siginfo_row.html | 프론트 엔드 서명 정보 페이지의 HTML 템플릿.
-/vault/fe_assets/_statistics.html | 프론트 엔드 통계 페이지의 HTML 템플릿.
-/vault/fe_assets/_updates.html | 프론트 엔드 업데이트 페이지의 HTML 템플릿.
-/vault/fe_assets/_updates_row.html | 프론트 엔드 업데이트 페이지의 HTML 템플릿.
-/vault/fe_assets/_upload_test.html | 업로드 테스트 페이지의 HTML 템플릿.
-/vault/fe_assets/frontend.css | 프론트 엔드 CSS 스타일 시트.
-/vault/fe_assets/frontend.dat | 프론트 엔드 데이터베이스 (계정 정보와 세션 정보 및 캐시가 포함되어 있습니다; 프론트 엔드가 활성화되어있을 때 생성).
-/vault/fe_assets/frontend.dat.safety | 필요한 경우 안전 메커니즘으로 생성됩니다.
-/vault/fe_assets/frontend.html | 프론트 엔드 메인 템플릿 파일.
-/vault/fe_assets/icons.php | 아이콘 핸들러 (프론트 엔드 파일 관리자에 의해 사용된다).
-/vault/fe_assets/pips.php | 핍 핸들러 (프론트 엔드 파일 관리자에 의해 사용된다).
-/vault/fe_assets/scripts.js | 프런트 엔드 JavaScript 데이터가 들어 있습니다.
-/vault/lang/ | phpMussel 언어 데이터가 포함되어 있습니다.
-/vault/lang/lang.ar.fe.yaml | 프론트 엔드 아랍어 언어 데이터.
-/vault/lang/lang.ar.yaml | 아랍어 언어 데이터.
-/vault/lang/lang.bn.fe.yaml | 프론트 엔드 벵골어 언어 데이터.
-/vault/lang/lang.bn.yaml | CLI 벵골어 언어 데이터.
-/vault/lang/lang.de.fe.yaml | 프론트 엔드 독일어 언어 데이터.
-/vault/lang/lang.de.yaml | 독일어 언어 데이터.
-/vault/lang/lang.en.fe.yaml | 프론트 엔드 영어 데이터.
-/vault/lang/lang.en.yaml | 영어 데이터.
-/vault/lang/lang.es.fe.yaml | 프론트 엔드 스페인어 언어 데이터.
-/vault/lang/lang.es.yaml | 스페인어 언어 데이터.
-/vault/lang/lang.fr.fe.yaml | 프론트 엔드 프랑스어 언어 데이터.
-/vault/lang/lang.fr.yaml | 프랑스어 언어 데이터.
-/vault/lang/lang.hi.fe.yaml | 프론트 엔드 힌디어 언어 데이터.
-/vault/lang/lang.hi.yaml | 힌디어 언어 데이터.
-/vault/lang/lang.id.fe.yaml | 프론트 엔드 인도네시아어 언어 데이터.
-/vault/lang/lang.id.yaml | 인도네시아어 언어 데이터.
-/vault/lang/lang.it.fe.yaml | 프론트 엔드 이탈리아 언어 데이터.
-/vault/lang/lang.it.yaml | 이탈리아 언어 데이터.
-/vault/lang/lang.ja.fe.yaml | 프론트 엔드 일본어 언어 데이터.
-/vault/lang/lang.ja.yaml | 일본어 언어 데이터.
-/vault/lang/lang.ko.fe.yaml | 프론트 엔드의 한국어 언어 데이터.
-/vault/lang/lang.ko.yaml | 한국어 언어 데이터.
-/vault/lang/lang.lv.fe.yaml | 프론트 엔드의 라트비아어 언어 데이터.
-/vault/lang/lang.lv.yaml | 라트비아어 언어 데이터.
-/vault/lang/lang.nl.fe.yaml | 프론트 엔드 네덜란드어 언어 데이터.
-/vault/lang/lang.nl.yaml | 네덜란드어 언어 데이터.
-/vault/lang/lang.no.fe.yaml | 프론트 엔드 노르웨이 언어 데이터.
-/vault/lang/lang.no.yaml | 노르웨이 언어 데이터.
-/vault/lang/lang.pl.fe.yaml | 프론트 엔드 폴란드어 언어 데이터.
-/vault/lang/lang.pl.yaml | 폴란드어 언어 데이터.
-/vault/lang/lang.pt.fe.yaml | 프론트 엔드 포르투갈어 언어 데이터.
-/vault/lang/lang.pt.yaml | 포르투갈어 언어 데이터.
-/vault/lang/lang.ru.fe.yaml | 프론트 엔드 러시아어 언어 데이터.
-/vault/lang/lang.ru.yaml | 러시아어 언어 데이터.
-/vault/lang/lang.sv.fe.yaml | 프론트 엔드 스웨덴어 언어 데이터.
-/vault/lang/lang.sv.yaml | 스웨덴어 언어 데이터.
-/vault/lang/lang.th.fe.yaml | 프론트 엔드 태국어 언어 데이터.
-/vault/lang/lang.th.yaml | 태국어 언어 데이터.
-/vault/lang/lang.tr.fe.yaml | 프론트 엔드 터키어 언어 데이터.
-/vault/lang/lang.tr.yaml | 터키어 언어 데이터.
-/vault/lang/lang.ur.fe.yaml | 프론트 엔드 우르두어 언어 데이터.
-/vault/lang/lang.ur.yaml | 우르두어 언어 데이터.
-/vault/lang/lang.vi.fe.yaml | 프론트 엔드 베트남어 언어 데이터.
-/vault/lang/lang.vi.yaml | 베트남어 언어 데이터.
-/vault/lang/lang.zh-tw.fe.yaml | 프론트 엔드 중국어 번체 언어 데이터.
-/vault/lang/lang.zh-tw.yaml | 중국어 번체 언어 데이터.
-/vault/lang/lang.zh.fe.yaml | 프론트 엔드 중국어 간체 언어 데이터.
-/vault/lang/lang.zh.yaml | 중국어 간체 언어 데이터.
-/vault/quarantine/ | 검역 디렉토리 (격리 된 파일 포함합니다).
-/vault/signatures/ | 서명 디렉토리 (서명 파일이 포함되어 있습니다).
-/vault/signatures/switch.dat | 변수를 컨트롤 세트합니다.
-/vault/.htaccess | 하이퍼 텍스트 액세스 파일 (이 경우, 본 스크립트의 중요한 파일을 권한이 없는 소스의 액세스로부터 보호하기 위한 것입니다).
-/vault/.travis.php | 테스트를 위해 Travis CI에서 사용됩니다. (기능에 관계없는 파일입니다).
-/vault/.travis.yml | 테스트를 위해 Travis CI에서 사용됩니다. (기능에 관계없는 파일입니다).
-/vault/channels.yaml | 실패한 curl 요청에 대한 대체 채널 데이터.
-/vault/cli.php | CLI 핸들러.
-/vault/components.dat | 구성 요소 메타 데이터 파일; 프런트 엔드 업데이트 페이지에서 사용됩니다.
-/vault/config.ini.RenameMe | phpMussel 설정 파일; phpMussel 모든 옵션 설정을 포함하고 있습니다. 각 옵션의 기능과 작동 방법에 대한 설명입니다 (활성화하기 위해 이름을 변경합니다).
-/vault/config.php | 구성 핸들러.
-/vault/config.yaml | 설정 기본값 스 파일; phpMussel의 기본 설정이 포함되어 있습니다.
-/vault/frontend.php | 프론트 엔드 핸들러.
-/vault/frontend_functions.php | 프론트 엔드 기능 파일.
-/vault/functions.php | 기능 파일 (기본적으로 파일).
-/vault/greylist.csv | 그레이리스트 된 서명 CSV에서 phpMussel이 어떤 서명을 무시해야하는지 알려줍니다 (삭제해도 자동으로 다시 만들어집니다).
-/vault/lang.php | 언어 처리기.
-/vault/plugins.dat | 플러그인 메타 데이터 파일; 프런트 엔드 업데이트 페이지에서 사용됩니다.
-※ /vault/scan_kills.txt | phpMussel 의해 차단/삭제 된 이미지 파일의 전체 기록.
-※ /vault/scan_log.txt | phpMussel 의해 스캔 된 것의 전 기록.
-※ /vault/scan_log_serialized.txt | phpMussel 의해 스캔 된 것의 전 기록.
-/vault/shorthand.yaml | 스캔 중에 서명 단축형을 해석 할 때 및 프론트 엔드를 통해 서명 정보에 액세스 할 때 phpMussel에서 처리 할 다양한 서명 식별자가 들어 있습니다.
-/vault/signatures.dat | 서명 메타 데이터 파일; 프런트 엔드 업데이트 페이지에서 사용됩니다.
-/vault/template_custom.html | phpMussel 템플릿 파일; phpMussel가 파일 업로드를 차단했을 때 생성되는 메시지의 HTML 출력 템플릿 (업 로더를 표시하는 메시지).
-/vault/template_default.html | phpMussel 템플릿 파일; phpMussel가 파일 업로드를 차단했을 때 생성되는 메시지의 HTML 출력 템플릿 (업 로더를 표시하는 메시지).
-/vault/themes.dat | 테마 메타 데이터 파일; 프런트 엔드 업데이트 페이지에서 사용됩니다.
-/vault/upload.php | 업로드 핸들러.
-/.gitattributes | GitHub 프로젝트 파일 (기능에 관계없는 파일입니다).
-/.gitignore | GitHub 프로젝트 파일 (기능에 관계없는 파일입니다).
-/Changelog-v2.txt | 버전에 따른 차이를 기록한 것입니다 (기능에 관계없는 파일입니다).
-/composer.json | Composer/Packagist 정보 (기능에 관계없는 파일입니다).
-/CONTRIBUTING.md | 프로젝트에 기여하는 방법.
-/LICENSE.txt | GNU/GPLv2 라이센스 사본 (기능에 관계없는 파일입니다).
-/loader.php | 로더 파일입니다. 주요 스크립트로드, 업로드 등을 실시합니다. 훅하는 것은 바로 이것입니다 (본질적 파일)!
-/PEOPLE.md | 프로젝트에 참여하는 사람들에 대한 정보.
-/README.md | 프로젝트 개요 정보.
-/web.config | ASP.NET 설정 파일 (스크립트가 ASP.NET 기술을 기초로하는 서버에 설치된 때 `/vault` 디렉토리를 무단 소스에 의한 액세스로부터 보호하는 것입니다).
-
-※ 파일 이름 설정 방법 (`config.ini` 내)에 따라 다를 수 있습니다.
+```
+https://github.com/phpMussel/phpMussel>v2
+│   .gitattributes
+│   .gitignore
+│   .travis.php
+│   .travis.yml
+│   Changelog-v2.txt
+│   composer.json
+│   CONTRIBUTING.md
+│   crowdin.yml
+│   LICENSE.txt
+│   loader.php
+│   PEOPLE.md
+│   README.md
+│   SECURITY.md
+│   web.config
+│
+├───.github
+│       ISSUE_TEMPLATE.md
+│
+├───vault
+│   │   .htaccess
+│   │   channels.yaml
+│   │   cli.php
+│   │   components.dat
+│   │   config.ini.RenameMe
+│   │   config.php
+│   │   config.yaml
+│   │   event_handlers.php
+│   │   frontend.php
+│   │   frontend_functions.php
+│   │   functions.php
+│   │   greylist.csv
+│   │   lang.php
+│   │   plugins.dat
+│   │   shorthand.yaml
+│   │   signatures.dat
+│   │   template_custom.html
+│   │   template_default.html
+│   │   themes.dat
+│   │   upload.php
+│   │
+│   ├───cache
+│   ├───classes
+│   │   │   ArchiveHandler.php
+│   │   │   CompressionHandler.php
+│   │   │   TemporaryFileHandler.php
+│   │   │
+│   │   └───Maikuolan
+│   │           Cache.php
+│   │           ComplexStringHandler.php
+│   │           DelayedIO.php
+│   │           Demojibakefier.php
+│   │           Events.php
+│   │           L10N.php
+│   │           NumberFormatter.php
+│   │           YAML.php
+│   │
+│   ├───fe_assets
+│   │       frontend.css
+│   │       frontend.html
+│   │       icons.php
+│   │       pips.php
+│   │       scripts.js
+│   │       _2fa.html
+│   │       _accounts.html
+│   │       _accounts_row.html
+│   │       _cache.html
+│   │       _config.html
+│   │       _config_row.html
+│   │       _files.html
+│   │       _files_edit.html
+│   │       _files_rename.html
+│   │       _files_row.html
+│   │       _home.html
+│   │       _login.html
+│   │       _logs.html
+│   │       _nav_complete_access.html
+│   │       _nav_logs_access_only.html
+│   │       _quarantine.html
+│   │       _quarantine_row.html
+│   │       _siginfo.html
+│   │       _siginfo_row.html
+│   │       _statistics.html
+│   │       _updates.html
+│   │       _updates_row.html
+│   │       _upload_test.html
+│   │
+│   ├───lang
+│   │       lang.ar.fe.yaml
+│   │       lang.ar.yaml
+│   │       lang.bn.fe.yaml
+│   │       lang.bn.yaml
+│   │       lang.de.fe.yaml
+│   │       lang.de.yaml
+│   │       lang.en.fe.yaml
+│   │       lang.en.yaml
+│   │       lang.es.fe.yaml
+│   │       lang.es.yaml
+│   │       lang.fr.fe.yaml
+│   │       lang.fr.yaml
+│   │       lang.hi.fe.yaml
+│   │       lang.hi.yaml
+│   │       lang.id.fe.yaml
+│   │       lang.id.yaml
+│   │       lang.it.fe.yaml
+│   │       lang.it.yaml
+│   │       lang.ja.fe.yaml
+│   │       lang.ja.yaml
+│   │       lang.ko.fe.yaml
+│   │       lang.ko.yaml
+│   │       lang.lv.fe.yaml
+│   │       lang.lv.yaml
+│   │       lang.nl.fe.yaml
+│   │       lang.nl.yaml
+│   │       lang.no.fe.yaml
+│   │       lang.no.yaml
+│   │       lang.pl.fe.yaml
+│   │       lang.pl.yaml
+│   │       lang.pt.fe.yaml
+│   │       lang.pt.yaml
+│   │       lang.ru.fe.yaml
+│   │       lang.ru.yaml
+│   │       lang.sv.fe.yaml
+│   │       lang.sv.yaml
+│   │       lang.th.fe.yaml
+│   │       lang.th.yaml
+│   │       lang.tr.fe.yaml
+│   │       lang.tr.yaml
+│   │       lang.ur.fe.yaml
+│   │       lang.ur.yaml
+│   │       lang.vi.fe.yaml
+│   │       lang.vi.yaml
+│   │       lang.zh-tw.fe.yaml
+│   │       lang.zh-tw.yaml
+│   │       lang.zh.fe.yaml
+│   │       lang.zh.yaml
+│   │
+│   ├───plugins
+│   ├───quarantine
+│   └───signatures
+│           switch.dat
+│
+└───_testfiles
+        ascii_standard_testfile.txt
+        coex_testfile.rtf
+        exe_standard_testfile.exe
+        general_standard_testfile.txt
+        graphics_standard_testfile.gif
+        html_standard_testfile.html
+        md5_testfile.txt
+        ole_testfile.ole
+        pdf_standard_testfile.pdf
+        pe_sectional_testfile.exe
+        swf_standard_testfile.swf
+```
 
 ---
 
 
 ### 7. <a name="SECTION7"></a>설정 옵션
+
 다음은 `config.ini`설정 파일에있는 변수 및 그 목적과 기능의 목록입니다.
 
-[general](#general-카테고리) | [signatures](#signatures-카테고리) | [files](#files-카테고리) | [attack_specific](#attack_specific-카테고리)
-:--|:--|:--|:--
-[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[lang_override](#lang_override)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br />[disabled_channels](#disabled_channels)<br /> | [active](#active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-[compatibility](#compatibility-카테고리) | [heuristic](#heuristic-카테고리) | [virustotal](#virustotal-카테고리) | [urlscanner](#urlscanner-카테고리)
-[ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate와-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
-[legal](#legal-카테고리) | [template_data](#template_data-카테고리) | [PHPMailer](#phpmailer-카테고리) | [supplementary_cache_options](#supplementary_cache_options-카테고리)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+```
+Configuration (v2)
+│
+├───general
+│       cleanup
+│       scan_log
+│       scan_log_serialized
+│       scan_kills
+│       error_log
+│       truncate
+│       log_rotation_limit
+│       log_rotation_action
+│       timezone
+│       time_offset (v1: timeOffset)
+│       time_format (v1: timeFormat)
+│       ipaddr
+│       enable_plugins
+│       forbid_on_block
+│       delete_on_sight
+│       lang
+│       lang_override
+│       numbers
+│       quarantine_key
+│       quarantine_max_filesize
+│       quarantine_max_usage
+│       quarantine_max_files
+│       honeypot_mode
+│       scan_cache_expiry
+│       disable_cli
+│       disable_frontend
+│       max_login_attempts
+│       frontend_log (v1: FrontEndLog)
+│       disable_webfonts
+│       maintenance_mode
+│       default_algo
+│       statistics
+│       disabled_channels
+│
+├───signatures
+│       active (v1: Active)
+│       fail_silently
+│       fail_extensions_silently
+│       detect_adware
+│       detect_joke_hoax
+│       detect_pua_pup
+│       detect_packer_packed
+│       detect_shell
+│       detect_deface
+│       detect_encryption
+│
+├───files
+│       max_uploads
+│       filesize_limit
+│       filesize_response
+│       filetype_whitelist
+│       filetype_blacklist
+│       filetype_greylist
+│       check_archives
+│       filesize_archives
+│       filetype_archives
+│       max_recursion
+│       block_encrypted_archives
+│       max_files_in_archives
+│
+├───attack_specific
+│       chameleon_from_php
+│       can_contain_php_file_extensions
+│       chameleon_from_exe
+│       chameleon_to_archive
+│       chameleon_to_doc
+│       chameleon_to_img
+│       chameleon_to_pdf
+│       archive_file_extensions
+│       block_control_characters
+│       corrupted_exe
+│       decode_threshold
+│       scannable_threshold
+│       allow_leading_trailing_dots
+│       block_macros
+│
+├───compatibility
+│       ignore_upload_errors
+│       only_allow_images
+│
+├───heuristic
+│       threshold
+│
+├───virustotal
+│       vt_public_api_key
+│       vt_suspicion_level
+│       vt_weighting
+│       vt_quota_rate
+│       vt_quota_time
+│
+├───urlscanner
+│       lookup_hphosts
+│       google_api_key
+│       maximum_api_lookups
+│       maximum_api_lookups_response
+│       cache_time
+│
+├───legal
+│       pseudonymise_ip_addresses
+│       privacy_policy
+│
+├───template_data
+│       theme
+│       magnification (v1: Magnification)
+│       css_url
+│
+├───PHPMailer
+│       event_log (v1: EventLog)
+│       skip_auth_process (v1: SkipAuthProcess)
+│       enable_two_factor (v1: Enable2FA)
+│       host (v1: Host)
+│       port (v1: Port)
+│       smtp_secure (v1: SMTPSecure)
+│       smtp_auth (v1: SMTPAuth)
+│       username (v1: Username)
+│       password (v1: Password)
+│       set_from_address (v1: setFromAddress)
+│       set_from_name (v1: setFromName)
+│       add_reply_to_address (v1: addReplyToAddress)
+│       add_reply_to_name (v1: addReplyToName)
+│
+└───supplementary_cache_options
+        enable_apcu
+        enable_memcached
+        enable_redis
+        enable_pdo
+        memcached_host
+        memcached_port
+        redis_host
+        redis_port
+        redis_timeout
+        pdo_dsn
+        pdo_username
+        pdo_password
+```
 
 #### "general" (카테고리)
 일반 설정.
@@ -418,6 +556,9 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+
+##### "error_log"
+- 치명적이지 않은 오류를 탐지하기위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
 ##### "truncate"
 - 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
@@ -1413,4 +1554,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2019년 9월 6일.
+최종 업데이트 : 2019년 9월 23일.

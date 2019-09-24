@@ -230,171 +230,309 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 
 ### ６.<a name="SECTION6"></a>本パッケージに含まれるファイル
 
-以下はアーカイブから一括ダウンロードされるファイルのリスト、​ならびにスクリプト使用により作成されるファイルとこれらのファイルが何のためかという簡単な説明です。
-
-この情報は最新の「v2」リリースに適用され、他のバージョンやリリースにはあまり関係がないかもしれません。
-
-ファイル | 説明
-----|----
-/_testfiles/ | テスト・ファイルのディレクトリです（様々なファイルを含んでいます）。​phpMusselがシステムに正しくインストールされたかどうかをテストするファイルです。​テスト以外の目的でこのディレクトリをアップロードすることはありません。
-/_testfiles/ascii_standard_testfile.txt | phpMussel正規化ASCIIシグネチャ用テスト・ファイル。
-/_testfiles/coex_testfile.rtf | phpMussel拡張コンプレックスシグネチャ用テスト・ファイル。
-/_testfiles/exe_standard_testfile.exe | phpMussel ＰＥシグネチャ用テスト・ファイル。
-/_testfiles/general_standard_testfile.txt | phpMussel一般シグネチャ用テスト・ファイル。
-/_testfiles/graphics_standard_testfile.gif | phpMusselグラフィックシグネチャ用テスト・ファイル。
-/_testfiles/html_standard_testfile.html | phpMussel正規化ＨＴＭＬシグネチャテスト・ファイル。
-/_testfiles/md5_testfile.txt | phpMussel ハッシュ・シグネチャ用テスト・ファイル。
-/_testfiles/ole_testfile.ole | phpMussel ＯＬＥシグネチャ用テスト・ファイル。
-/_testfiles/pdf_standard_testfile.pdf | phpMussel ＰＤＦシグネチャ用テスト・ファイル。
-/_testfiles/pe_sectional_testfile.exe | phpMussel ＰＥセクショナルシグネチャ用テスト・ファイル。
-/_testfiles/swf_standard_testfile.swf | phpMussel ＳＷＦシグネチャ用テスト・ファイル。
-/vault/ | ヴォルト・ディレクトリ（様々なファイルを含んでいます）。
-/vault/cache/ | キャッシュ・ディレクトリ（一時データ用）。
-/vault/classes/ | クラス・ディレクトリ。​phpMusselによって使用されるさまざまなクラスが含まれています。
-/vault/classes/Maikuolan/ | クラス・ディレクトリ。​phpMusselによって使用されるさまざまなクラスが含まれています。
-/vault/classes/Maikuolan/Cache.php | シンプルで統一されたキャッシュ・ハンドラ。
-/vault/classes/Maikuolan/ComplexStringHandler.php | 複雑な文字列ハンドラ。
-/vault/classes/Maikuolan/DelayedIO.php | 遅延ファイルＩＯクラス。
-/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier" （ディ文字化けファイア / 文字化けを元に戻すのクラス）。
-/vault/classes/Maikuolan/L10N.php | Ｌ１０Ｎハンドラ。
-/vault/classes/Maikuolan/NumberFormatter.php | 数値フォーマッタ。
-/vault/classes/Maikuolan/YAML.php | ＹＡＭＬハンドラ。
-/vault/classes/ArchiveHandler.php | アーカイブの処理を担当です。
-/vault/classes/CompressionHandler.php | ファイル圧縮の処理を担当です。
-/vault/classes/TemporaryFileHandler.php | 一時ファイルの作成と処理を担当です。
-/vault/fe_assets/ | フロントエンド資産。
-/vault/fe_assets/_2fa.html | ユーザーに２ＦＡコードを要求するときに使用されるＨＴＭＬテンプレート。
-/vault/fe_assets/_accounts.html | フロントエンドのアカウント・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_accounts_row.html | フロントエンドのアカウント・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_cache.html | フロントエンドのキャッシュ・データ・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_config.html | フロントエンドのコンフィギュレーション・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_config_row.html | フロントエンドのコンフィギュレーション・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_files.html | ファイル・マネージャのＨＴＭＬテンプレート。
-/vault/fe_assets/_files_edit.html | ファイル・マネージャのＨＴＭＬテンプレート。
-/vault/fe_assets/_files_rename.html | ファイル・マネージャのＨＴＭＬテンプレート。
-/vault/fe_assets/_files_row.html | ファイル・マネージャのＨＴＭＬテンプレート。
-/vault/fe_assets/_home.html | フロントエンドのホームページのＨＴＭＬテンプレート。
-/vault/fe_assets/_login.html | フロントエンドのログインページのＨＴＭＬテンプレート。
-/vault/fe_assets/_logs.html | フロントエンドのロゴスページのＨＴＭＬテンプレート。
-/vault/fe_assets/_nav_complete_access.html | フロントエンドのナビゲーションリンクのＨＴＭＬテンプレート、​は完全なアクセスのためのものです。
-/vault/fe_assets/_nav_logs_access_only.html | フロントエンドのナビゲーションリンクのＨＴＭＬテンプレート、​はログのみにアクセスのためのものです。
-/vault/fe_assets/_quarantine.html | フロントエンドの検疫ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_quarantine_row.html | フロントエンドの検疫ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_siginfo.html | フロントエンドのシグネチャ情報ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_siginfo_row.html | フロントエンドのシグネチャ情報ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_statistics.html | フロントエンドの統計ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_updates.html | フロントエンドのアップデート・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_updates_row.html | フロントエンドのアップデート・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/_upload_test.html | アップロード・テスト・ページのＨＴＭＬテンプレート。
-/vault/fe_assets/frontend.css | フロントエンドのＣＳＳスタイルシート。
-/vault/fe_assets/frontend.dat | フロントエンドのデータベース（アカウント情報とセッション情報が含まれています；​フロントエンドが有効になっているときに作成）。
-/vault/fe_assets/frontend.dat.safety | 必要に応じて安全機構として生成されます。
-/vault/fe_assets/frontend.html | フロントエンドのメインテンプレートファイル。
-/vault/fe_assets/icons.php | アイコン・ハンドラ（フロントエンド・ファイル・マネージャによって使用される）。
-/vault/fe_assets/pips.php | ピップス・ハンドラ（フロントエンド・ファイル・マネージャによって使用される）。
-/vault/fe_assets/scripts.js | フロントエンドJavaScriptデータが含まれています。
-/vault/lang/ | phpMusselの言語データを含んでいます。
-/vault/lang/lang.ar.fe.yaml | フロントエンドのアラビア語言語データ。
-/vault/lang/lang.ar.yaml | アラビア語言語データ。
-/vault/lang/lang.bn.fe.yaml | フロントエンドのベンガル語言語データ。
-/vault/lang/lang.bn.yaml | ベンガル語言語データ。
-/vault/lang/lang.de.fe.yaml | フロントエンドのドイツ語言語データ。
-/vault/lang/lang.de.yaml | ドイツ語言語データ。
-/vault/lang/lang.en.fe.yaml | フロントエンドの英語言語データ。
-/vault/lang/lang.en.yaml | 英語言語データ。
-/vault/lang/lang.es.fe.yaml | フロントエンドのスペイン語言語データ。
-/vault/lang/lang.es.yaml | スペイン語言語データ。
-/vault/lang/lang.fr.fe.yaml | フロントエンドのフランス語言語データ。
-/vault/lang/lang.fr.yaml | フランス語言語データ。
-/vault/lang/lang.hi.fe.yaml | フロントエンドのヒンディー語言語データ。
-/vault/lang/lang.hi.yaml | ヒンディー語言語データ。
-/vault/lang/lang.id.fe.yaml | フロントエンドのインドネシア語言語データ。
-/vault/lang/lang.id.yaml | インドネシア語言語データ。
-/vault/lang/lang.it.fe.yaml | フロントエンドの伊語言語データ。
-/vault/lang/lang.it.yaml | 伊語言語データ。
-/vault/lang/lang.ja.fe.yaml | フロントエンドの日本語言語データ。
-/vault/lang/lang.ja.yaml | 日本語言語データ。
-/vault/lang/lang.ko.fe.yaml | フロントエンドの韓国語言語データ。
-/vault/lang/lang.ko.yaml | 韓国語言語データ。
-/vault/lang/lang.lv.fe.yaml | フロントエンドのラトビア語言語データ。
-/vault/lang/lang.lv.yaml | ラトビア語言語データ。
-/vault/lang/lang.nl.fe.yaml | フロントエンドのオランダ語言語データ。
-/vault/lang/lang.nl.yaml | オランダ語言語データ。
-/vault/lang/lang.no.fe.yaml | フロントエンドのノルウェー語言語データ。
-/vault/lang/lang.no.yaml | ノルウェー語言語データ。
-/vault/lang/lang.pl.fe.yaml | フロントエンドのポーランド語言語データ。
-/vault/lang/lang.pl.yaml | ポーランド語言語データ。
-/vault/lang/lang.pt.fe.yaml | フロントエンドのポルトガル語言語データ。
-/vault/lang/lang.pt.yaml | ポルトガル語言語データ。
-/vault/lang/lang.ru.fe.yaml | フロントエンドのロシア語言語データ。
-/vault/lang/lang.ru.yaml | ロシア語言語データ。
-/vault/lang/lang.sv.fe.yaml | フロントエンドのスウェーデン語言語データ。
-/vault/lang/lang.sv.yaml | スウェーデン語言語データ。
-/vault/lang/lang.th.fe.yaml | フロントエンドのタイ語言語データ。
-/vault/lang/lang.th.yaml | タイ語言語データ。
-/vault/lang/lang.tr.fe.yaml | フロントエンドのトルコ語言語データ。
-/vault/lang/lang.tr.yaml | トルコ語言語データ。
-/vault/lang/lang.ur.fe.yaml | フロントエンドのウルドゥー語言語データ。
-/vault/lang/lang.ur.yaml | ウルドゥー語言語データ。
-/vault/lang/lang.vi.fe.yaml | フロントエンドのベトナム語言語データ。
-/vault/lang/lang.vi.yaml | ベトナム語言語データ。
-/vault/lang/lang.zh-tw.fe.yaml | フロントエンドの繁体字中国語言語データ。
-/vault/lang/lang.zh-tw.yaml | 繁体字中国語言語データ。
-/vault/lang/lang.zh.fe.yaml | フロントエンドの簡体字中国語言語データ。
-/vault/lang/lang.zh.yaml | 簡体字中国語言語データ。
-/vault/quarantine/ | 検疫ディレクトリ（検疫されたファイル含んでいます）。
-/vault/signatures/ | シグネチャディレクトリ（シグネチャ・ファイルが含まれています）。
-/vault/signatures/switch.dat | 変数をコントロール、​セットします。
-/vault/.htaccess | ハイパーテキスト・アクセスファイル（この場合、​本スクリプトの重要なファイルを権限のないソースのアクセスから保護するためです）。
-/vault/.travis.php | テストのためにTravis CIによって使用される​（機能には関係のないファイルです）。
-/vault/.travis.yml | テストのためにTravis CIによって使用される​（機能には関係のないファイルです）。
-/vault/channels.yaml | 失敗したcurlの要求の代替チャネル・データ。
-/vault/cli.php | ＣＬＩハンドラ。
-/vault/components.dat | コンポーネントのメタデータ・ファイル。​フロントエンドのアップデート・ページで使用されます。
-/vault/config.ini.RenameMe | phpMussel設定ファイル；​phpMusselの全オプション設定を記載しています。​それぞれのオプションの機能と動作手法の説明です（アクティブにするために名前を変更します）。
-/vault/config.php | コンフィギュレーション・ハンドラ。
-/vault/config.yaml | 設定・デフォルトス・ファイル；phpMusselのデフォルト設定値が含まれます。
-/vault/frontend.php | フロントエンド・ハンドラ。
-/vault/frontend_functions.php | フロントエンド機能ファイル。
-/vault/functions.php | 関数ファイル（本質的ファイル）。
-/vault/greylist.csv | グレーリスト化されたシグネチャのＣＳＶで、​phpMusselがどのシグネチャを無視すべきかを指示するものです（削除しても自動的に再作成されます）。
-/vault/lang.php | 言語・ハンドラ。
-/vault/plugins.dat | プラグインのメタデータ・ファイル。​フロントエンドのアップデート・ページで使用されます。
-※ /vault/scan_kills.txt | phpMusselによりブロック/削除されたアップロードファイルの全記録。
-※ /vault/scan_log.txt | phpMusselによりスキャンされたものの全記録。
-※ /vault/scan_log_serialized.txt | phpMusselによりスキャンされたものの全記録。
-/vault/shorthand.yaml | スキャン中にシグネチャの短縮形を解釈したり、フロントエンドからシグネチャ情報にアクセスするときにphpMusselによって処理されるさまざまなシグネチャ識別子を含みます。
-/vault/signatures.dat | シグネチャのメタデータ・ファイル。​フロントエンドのアップデート・ページで使用されます。
-/vault/template_custom.html | phpMusselテンプレートファイル；​phpMusselがファイルアップロードをブロックした際に作成されるメッセージのHTML出力用テンプレート（アップローダーが表示するメッセージ）。
-/vault/template_default.html | phpMusselテンプレートファイル；​phpMusselがファイルアップロードをブロックした際に作成されるメッセージのHTML出力用テンプレート（アップローダーが表示するメッセージ）。
-/vault/themes.dat | テーマのメタデータ・ファイル。​フロントエンドのアップデート・ページで使用されます。
-/vault/upload.php | アップロード・ハンドラ。
-/.gitattributes | GitHubのプロジェクトファイル（機能には関係のないファイルです）。
-/.gitignore | GitHubのプロジェクトファイル（機能には関係のないファイルです）。
-/Changelog-v2.txt | バージョンによる違いを記録したものです（機能には関係のないファイルです）。
-/composer.json | Composer/Packagist情報（機能には関係のないファイルです）。
-/CONTRIBUTING.md | プロジェクトに貢献する方法について。
-/LICENSE.txt | ＧＮＵ/ＧＰＬｖ２のライセンスのコピー（機能には関係のないファイルです）。
-/loader.php | ローダー・ファイルです。​主要スクリプトのロード、​アップロード等を行います。​フックするのはまさにこれです（本質的ファイル）！
-/PEOPLE.md | プロジェクトに関わる人々についての情報。
-/README.md | プロジェクト概要情報。
-/web.config | ＡＳＰ.ＮＥＴ設定ファイルです（スクリプトがＡＳＰ.ＮＥＴテクノロジーを基礎とするサーバーにインストールされた時に`/vault`ディレクトリを権限のないソースによるアクセスから保護するためです）。
-
-※ ファイル名は設定の仕方（`config.ini`内）により異なることがあります。
+```
+https://github.com/phpMussel/phpMussel>v2
+│   .gitattributes
+│   .gitignore
+│   .travis.php
+│   .travis.yml
+│   Changelog-v2.txt
+│   composer.json
+│   CONTRIBUTING.md
+│   crowdin.yml
+│   LICENSE.txt
+│   loader.php
+│   PEOPLE.md
+│   README.md
+│   SECURITY.md
+│   web.config
+│
+├───.github
+│       ISSUE_TEMPLATE.md
+│
+├───vault
+│   │   .htaccess
+│   │   channels.yaml
+│   │   cli.php
+│   │   components.dat
+│   │   config.ini.RenameMe
+│   │   config.php
+│   │   config.yaml
+│   │   event_handlers.php
+│   │   frontend.php
+│   │   frontend_functions.php
+│   │   functions.php
+│   │   greylist.csv
+│   │   lang.php
+│   │   plugins.dat
+│   │   shorthand.yaml
+│   │   signatures.dat
+│   │   template_custom.html
+│   │   template_default.html
+│   │   themes.dat
+│   │   upload.php
+│   │
+│   ├───cache
+│   ├───classes
+│   │   │   ArchiveHandler.php
+│   │   │   CompressionHandler.php
+│   │   │   TemporaryFileHandler.php
+│   │   │
+│   │   └───Maikuolan
+│   │           Cache.php
+│   │           ComplexStringHandler.php
+│   │           DelayedIO.php
+│   │           Demojibakefier.php
+│   │           Events.php
+│   │           L10N.php
+│   │           NumberFormatter.php
+│   │           YAML.php
+│   │
+│   ├───fe_assets
+│   │       frontend.css
+│   │       frontend.html
+│   │       icons.php
+│   │       pips.php
+│   │       scripts.js
+│   │       _2fa.html
+│   │       _accounts.html
+│   │       _accounts_row.html
+│   │       _cache.html
+│   │       _config.html
+│   │       _config_row.html
+│   │       _files.html
+│   │       _files_edit.html
+│   │       _files_rename.html
+│   │       _files_row.html
+│   │       _home.html
+│   │       _login.html
+│   │       _logs.html
+│   │       _nav_complete_access.html
+│   │       _nav_logs_access_only.html
+│   │       _quarantine.html
+│   │       _quarantine_row.html
+│   │       _siginfo.html
+│   │       _siginfo_row.html
+│   │       _statistics.html
+│   │       _updates.html
+│   │       _updates_row.html
+│   │       _upload_test.html
+│   │
+│   ├───lang
+│   │       lang.ar.fe.yaml
+│   │       lang.ar.yaml
+│   │       lang.bn.fe.yaml
+│   │       lang.bn.yaml
+│   │       lang.de.fe.yaml
+│   │       lang.de.yaml
+│   │       lang.en.fe.yaml
+│   │       lang.en.yaml
+│   │       lang.es.fe.yaml
+│   │       lang.es.yaml
+│   │       lang.fr.fe.yaml
+│   │       lang.fr.yaml
+│   │       lang.hi.fe.yaml
+│   │       lang.hi.yaml
+│   │       lang.id.fe.yaml
+│   │       lang.id.yaml
+│   │       lang.it.fe.yaml
+│   │       lang.it.yaml
+│   │       lang.ja.fe.yaml
+│   │       lang.ja.yaml
+│   │       lang.ko.fe.yaml
+│   │       lang.ko.yaml
+│   │       lang.lv.fe.yaml
+│   │       lang.lv.yaml
+│   │       lang.nl.fe.yaml
+│   │       lang.nl.yaml
+│   │       lang.no.fe.yaml
+│   │       lang.no.yaml
+│   │       lang.pl.fe.yaml
+│   │       lang.pl.yaml
+│   │       lang.pt.fe.yaml
+│   │       lang.pt.yaml
+│   │       lang.ru.fe.yaml
+│   │       lang.ru.yaml
+│   │       lang.sv.fe.yaml
+│   │       lang.sv.yaml
+│   │       lang.th.fe.yaml
+│   │       lang.th.yaml
+│   │       lang.tr.fe.yaml
+│   │       lang.tr.yaml
+│   │       lang.ur.fe.yaml
+│   │       lang.ur.yaml
+│   │       lang.vi.fe.yaml
+│   │       lang.vi.yaml
+│   │       lang.zh-tw.fe.yaml
+│   │       lang.zh-tw.yaml
+│   │       lang.zh.fe.yaml
+│   │       lang.zh.yaml
+│   │
+│   ├───plugins
+│   ├───quarantine
+│   └───signatures
+│           switch.dat
+│
+└───_testfiles
+        ascii_standard_testfile.txt
+        coex_testfile.rtf
+        exe_standard_testfile.exe
+        general_standard_testfile.txt
+        graphics_standard_testfile.gif
+        html_standard_testfile.html
+        md5_testfile.txt
+        ole_testfile.ole
+        pdf_standard_testfile.pdf
+        pe_sectional_testfile.exe
+        swf_standard_testfile.swf
+```
 
 ---
 
 
 ### ７.<a name="SECTION7"></a>コンフィギュレーション（設定オプション）
+
 以下は`config.ini`設定ファイルにある変数ならびにその目的と機能のリストです。
 
-[general](#general-全般カテゴリー) | [signatures](#signatures-シグネチャーズカテゴリ) | [files](#files-ファイルズカテゴリー) | [attack_specific](#attack_specific-アタックスペシフィックカテゴリー)
-:--|:--|:--|:--
-[cleanup](#cleanup-クリーンアップ)<br />[scan_log](#scan_log-スキャンログ)<br />[scan_log_serialized](#scan_log_serialized-スキャンログシリアライズド)<br />[scan_kills](#scan_kills-スキャンキルズ)<br />[truncate](#truncate-トランケート)<br />[log_rotation_limit](#log_rotation_limit-ログローテーションリミット)<br />[log_rotation_action](#log_rotation_action-ログローテーションアクション)<br />[timezone](#timezone-タイムゾーン)<br />[time_offset](#time_offset-タイムオフセット)<br />[time_format](#time_format-タイムフォーマット)<br />[ipaddr](#ipaddr-アイピーアドレス)<br />[enable_plugins](#enable_plugins-イネーブルプラグインす)<br />[forbid_on_block](#forbid_on_block-フォービッドオンブロック)<br />[delete_on_sight](#delete_on_sight-デリートオンサイト)<br />[lang](#lang-ラング)<br />[lang_override](#lang_override-オーバーライド)<br />[numbers](#numbers-ナンバーズ)<br />[quarantine_key](#quarantine_key-クオランティンキ)<br />[quarantine_max_filesize](#quarantine_max_filesize-クオランティンマックスファイルサイズ)<br />[quarantine_max_usage](#quarantine_max_usage-クオランティンマックスユーセッジ)<br />[quarantine_max_files](#quarantine_max_files-クオランティンマックスファイル数)<br />[honeypot_mode](#honeypot_mode-ハニーポットモード)<br />[scan_cache_expiry](#scan_cache_expiry-スキャンキャッシュエクスパイヤリー)<br />[disable_cli](#disable_cli-ディスエイブルシーエルアイ)<br />[disable_frontend](#disable_frontend-ディスエイブルフロントエンド)<br />[max_login_attempts](#max_login_attempts-マクスログインアテンプト)<br />[frontend_log](#frontend_log-フロントエンドログ)<br />[disable_webfonts](#disable_webfonts-ディスエイブルウェブフォンツ)<br />[maintenance_mode](#maintenance_mode-メンテナンスモード)<br />[default_algo](#default_algo-ディフォールトアルゴ)<br />[statistics](#statistics-スタティスティックス統計)<br />[disabled_channels](#disabled_channels-ディセーブルドチャネルズ)<br /> | [active](#active-アクティブ)<br />[fail_silently](#fail_silently-フェイルサイレントリー)<br />[fail_extensions_silently](#fail_extensions_silently-フェイルエクステンションズサイレントリー)<br />[detect_adware](#detect_adware-ディテクトアドウェア)<br />[detect_joke_hoax](#detect_joke_hoax-ディテクトジョークホークス)<br />[detect_pua_pup](#detect_pua_pup-ディテクトpuapup)<br />[detect_packer_packed](#detect_packer_packed-ディテクトパッカーパックト)<br />[detect_shell](#detect_shell-ディテクトシェル)<br />[detect_deface](#detect_deface-ディテクトディフェーサ)<br />[detect_encryption](#detect_encryption-ディテクトエンクリプション)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads-マックスアップローズ)<br />[filesize_limit](#filesize_limit-ファイルサイズリミット)<br />[filesize_response](#filesize_response-ファイルサイズレスポンス)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-ファイルタイプホワイトリストfiletype_blacklist-ファイルタイプブラックリストfiletype_greylist-ファイルタイプグレーリスト)<br />[check_archives](#check_archives-チェックアーカイブズ)<br />[filesize_archives](#filesize_archives-ファイルサイズアーカイブズ)<br />[filetype_archives](#filetype_archives-ファイルタイプアーカイブズ)<br />[max_recursion](#max_recursion-マックスリカーション)<br />[block_encrypted_archives](#block_encrypted_archives-ブロックエンクリプティッドアーカイブズ)<br />[max_files_in_archives](#max_files_in_archives-マックスファイルズインアーカイブズ)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php-カメレオンフロムピーエイチピー)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions-キャンコンテインｐｈｐファイルエクステンションズ)<br />[chameleon_from_exe](#chameleon_from_exe-カメレオンフロムｅｘｅ)<br />[chameleon_to_archive](#chameleon_to_archive-カメレオントゥアーカイブ)<br />[chameleon_to_doc](#chameleon_to_doc-カメレオントゥドク)<br />[chameleon_to_img](#chameleon_to_img-カメレオントゥアイエムジー)<br />[chameleon_to_pdf](#chameleon_to_pdf-カメレオントゥピーディーエフ)<br />[archive_file_extensions](#archive_file_extensions-アーカイブファイルエクステンション)<br />[block_control_characters](#block_control_characters-ブロックコントロールキャラクターズ)<br />[corrupted_exe](#corrupted_exe-コラプティッドｅｘｅ)<br />[decode_threshold](#decode_threshold-デコードスレッシュホールド)<br />[scannable_threshold](#scannable_threshold-スキャナブルスレッシュホールド)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots-アラウリーディングトレーリングドッツ)<br />[block_macros](#block_macros-ブロックマクローズ)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-[compatibility](#compatibility-コンパーティブリティカテゴリ) | [heuristic](#heuristic-ヒューリスティックカテゴリ) | [virustotal](#virustotal-ウィルストータルカテゴリ) | [urlscanner](#urlscanner-ユーアールエルスキャナーカテゴリ)
-[ignore_upload_errors](#ignore_upload_errors-イグノアアップロードエラーズ)<br />[only_allow_images](#only_allow_images-オンリーアロウイメージ)<br /><br /><br /><br /> | [threshold](#threshold-スレッシュホールド)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key-ヴィティパブリックエイピーアイキー)<br />[vt_suspicion_level](#vt_suspicion_level-ヴィティサスピションレベル)<br />[vt_weighting](#vt_weighting-ヴィティウェイティング)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-ヴィティクォータレート-と-vt_quota_time-ヴィティクォータタイム)<br /> | [lookup_hphosts](#lookup_hphosts-ルックアップエイチピーホスツ)<br />[google_api_key](#google_api_key-グーグルエーピーアイキー)<br />[maximum_api_lookups](#maximum_api_lookups-マクシマムエーピーアイルックアップス)<br />[maximum_api_lookups_response](#maximum_api_lookups_response-マクシマムエーピーアイルックアップスレスポンス)<br />[cache_time](#cache_time-キャッシュタイム)<br />
-[legal](#legal-リーガルカテゴリ) | [template_data](#template_data-テンプレートデータカテゴリ) | [PHPMailer](#phpmailer-ピーエイチピーメーラーカテゴリ) | [supplementary_cache_options](#supplementary_cache_options-サプレメンタリーキャッシュオプションズカテゴリ)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses-プセユードニマイズアイピーアドレセズ)<br />[privacy_policy](#privacy_policy-プライバシーポリシー)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme-シームテーマ)<br />[magnification](#magnification-マグニフィケーション)<br />[css_url](#css_url-シーエスエスユーアールエル)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log-イベントログ)<br />[skip_auth_process](#skip_auth_process-スキップオスプロセス)<br />[enable_two_factor](#enable_two_factor-イネーブル２ｆａ)<br />[host](#host-ホスト)<br />[port](#port-ポート)<br />[smtp_secure](#smtp_secure-ｓｍｔｐセキュア)<br />[smtp_auth](#smtp_auth-ｓｍｔｐオス)<br />[username](#username-ユーザーネーム)<br />[password](#password-パスワード)<br />[set_from_address](#set_from_address-セットフロムアドレス)<br />[set_from_name](#set_from_name-セットフロムネーム)<br />[add_reply_to_address](#add_reply_to_address-アッドリプライアドレス)<br />[add_reply_to_name](#add_reply_to_name-アッドリプライネーム)<br /> | [enable_apcu](#enable_apcu-イネーブルａｐｃｕ)<br />[enable_memcached](#enable_memcached-イネーブルメムキャッシュト)<br />[enable_redis](#enable_redis-イネーブルレディス)<br />[enable_pdo](#enable_pdo-イネーブルｐｄｏ)<br />[memcached_host](#memcached_host-メムキャッシュホスト)<br />[memcached_port](#memcached_port-メムキャッシュポート)<br />[redis_host](#redis_host-レディスホスト)<br />[redis_port](#redis_port-レディスポート)<br />[redis_timeout](#redis_timeout-レディスタイムアウト)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username-ｐｄｏユーザーネーム)<br />[pdo_password](#pdo_password-ｐｄｏパスワード)<br /><br />
+```
+Configuration (v2)
+│
+├───general
+│       cleanup
+│       scan_log
+│       scan_log_serialized
+│       scan_kills
+│       error_log
+│       truncate
+│       log_rotation_limit
+│       log_rotation_action
+│       timezone
+│       time_offset (v1: timeOffset)
+│       time_format (v1: timeFormat)
+│       ipaddr
+│       enable_plugins
+│       forbid_on_block
+│       delete_on_sight
+│       lang
+│       lang_override
+│       numbers
+│       quarantine_key
+│       quarantine_max_filesize
+│       quarantine_max_usage
+│       quarantine_max_files
+│       honeypot_mode
+│       scan_cache_expiry
+│       disable_cli
+│       disable_frontend
+│       max_login_attempts
+│       frontend_log (v1: FrontEndLog)
+│       disable_webfonts
+│       maintenance_mode
+│       default_algo
+│       statistics
+│       disabled_channels
+│
+├───signatures
+│       active (v1: Active)
+│       fail_silently
+│       fail_extensions_silently
+│       detect_adware
+│       detect_joke_hoax
+│       detect_pua_pup
+│       detect_packer_packed
+│       detect_shell
+│       detect_deface
+│       detect_encryption
+│
+├───files
+│       max_uploads
+│       filesize_limit
+│       filesize_response
+│       filetype_whitelist
+│       filetype_blacklist
+│       filetype_greylist
+│       check_archives
+│       filesize_archives
+│       filetype_archives
+│       max_recursion
+│       block_encrypted_archives
+│       max_files_in_archives
+│
+├───attack_specific
+│       chameleon_from_php
+│       can_contain_php_file_extensions
+│       chameleon_from_exe
+│       chameleon_to_archive
+│       chameleon_to_doc
+│       chameleon_to_img
+│       chameleon_to_pdf
+│       archive_file_extensions
+│       block_control_characters
+│       corrupted_exe
+│       decode_threshold
+│       scannable_threshold
+│       allow_leading_trailing_dots
+│       block_macros
+│
+├───compatibility
+│       ignore_upload_errors
+│       only_allow_images
+│
+├───heuristic
+│       threshold
+│
+├───virustotal
+│       vt_public_api_key
+│       vt_suspicion_level
+│       vt_weighting
+│       vt_quota_rate
+│       vt_quota_time
+│
+├───urlscanner
+│       lookup_hphosts
+│       google_api_key
+│       maximum_api_lookups
+│       maximum_api_lookups_response
+│       cache_time
+│
+├───legal
+│       pseudonymise_ip_addresses
+│       privacy_policy
+│
+├───template_data
+│       theme
+│       magnification (v1: Magnification)
+│       css_url
+│
+├───PHPMailer
+│       event_log (v1: EventLog)
+│       skip_auth_process (v1: SkipAuthProcess)
+│       enable_two_factor (v1: Enable2FA)
+│       host (v1: Host)
+│       port (v1: Port)
+│       smtp_secure (v1: SMTPSecure)
+│       smtp_auth (v1: SMTPAuth)
+│       username (v1: Username)
+│       password (v1: Password)
+│       set_from_address (v1: setFromAddress)
+│       set_from_name (v1: setFromName)
+│       add_reply_to_address (v1: addReplyToAddress)
+│       add_reply_to_name (v1: addReplyToName)
+│
+└───supplementary_cache_options
+        enable_apcu
+        enable_memcached
+        enable_redis
+        enable_pdo
+        memcached_host
+        memcached_port
+        redis_host
+        redis_port
+        redis_timeout
+        pdo_dsn
+        pdo_username
+        pdo_password
+```
 
 #### "general" （全般、カテゴリー）
 全般的な設定。
@@ -403,13 +541,13 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 - 初回アップロード後に変数とキャッシュの設定をクリアするか否かについてのスクリプトです。​`false`(偽） = いいえ；​`true`（真） = はい 「Default/デフォルト設定」。​初回アップロードスキャニング以外で使用することがなければ、​`true`（真）としメモリーの使用量を最小にします。​使用するのであれば、​`false`（偽）とし、​メモリーに不要な重複データを再ロードするのを防ぎます。​通常は`true`（真）。​に設定しますが、​初回アップロードスキャニングに対してしか使用できないことを覚えておいて下さい。
 - ＣＬＩモードでは影響しません。
 
-##### "scan_log" （スキャンログ）
+##### "scan_log" （スキャン・ログ）
 - 全スキャニング結果を記録するファイルのファイル名。​ファイル名指定するか、​無効にしたい場合は空白のままにして下さい。
 
-##### "scan_log_serialized" （スキャンログシリアライズド）
+##### "scan_log_serialized" （スキャン・ログ・シリアライズド）
 - 全スキャニング結果を記録するファイルのファイル名（シリアル化形式を利用）。​ファイル名指定するか、​無効にしたい場合は空白のままにして下さい。
 
-##### "scan_kills" （スキャンキルズ）
+##### "scan_kills" （スキャン・キルズ）
 - ブロックしたか削除したアップロードの全てを記録するファイのファイル名。​ファイル名指定するか、​無効にしたい場合は空白のままにして下さい。
 
 *有用な先端：​あなたがしたい場合は、​ログ・ファイルの名前に日付/時刻情報を付加することができます、​名前にこれらを含めることで:完全な年のため`{yyyy}`、​省略された年のため`{yy}`、​月`{mm}`、​日`{dd}`、​時間`{hh}`。​*
@@ -418,6 +556,9 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+
+##### "error_log" （エラー・ログ）
+- 検出された致命的でないエラーを記録するためのファイル。​ファイル名指定するか、​無効にしたい場合は空白のままにして下さい。
 
 ##### "truncate" （トランケート）
 - ログ・ファイルが一定のサイズに達したら切り詰めますか？​値は、​ログ・ファイルが切り捨てられる前に大きくなる可能性があるＢ/ＫＢ/ＭＢ/ＧＢ/ＴＢ単位の最大サイズです。​デフォルト値の０ＫＢは切り捨てを無効にします （ログ・ファイルは無期限に拡張できます）。​注：個々のログ・ファイルに適用されます。​ログ・ファイルのサイズは一括して考慮されません。
@@ -442,7 +583,7 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 - *v1: "timeFormat"*
 - phpMusselで使用される日付表記形式。​Default（デフォルト設定） = `{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`.
 
-##### "ipaddr" （アイピーアドレス）
+##### "ipaddr" （アイピー・アドレス）
 - 接続要求のＩＰアドレスをどこで見つけるべきかについて（Cloudflareのようなサービスに対して有効）。​Default（デフォルト設定） = REMOTE_ADDR。​注意：あなたが何をしているのか、​分からない限り、​これを変更しないでください。
 
 「ipaddr」の推奨値です：
@@ -1415,4 +1556,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０１９年９月６日。
+最終アップデート：２０１９年９月２３日。

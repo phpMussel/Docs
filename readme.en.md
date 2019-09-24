@@ -230,171 +230,309 @@ Additionally, for those interested, a video tutorial for how to use phpMussel in
 
 ### 6. <a name="SECTION6"></a>FILES INCLUDED IN THIS PACKAGE
 
-The following is a list of all of the files that should have been included in the archived copy of the package when you downloaded it, any files that may be potentially created as a result of your using it, along with a short description of what all these files are for.
-
-This information applies to the most recent v2 release, and mightn't be so relevant for other versions or releases.
-
-File | Description
-----|----
-/_testfiles/ | Test files directory (contains various files). All contained files are test files for testing if phpMussel was correctly installed on your system, and you don't need to upload this directory or any of its files except when doing such testing.
-/_testfiles/ascii_standard_testfile.txt | Test file for testing phpMussel normalised ASCII signatures.
-/_testfiles/coex_testfile.rtf | Test file for testing phpMussel Complex Extended signatures.
-/_testfiles/exe_standard_testfile.exe | Test file for testing phpMussel PE signatures.
-/_testfiles/general_standard_testfile.txt | Test file for testing phpMussel general signatures.
-/_testfiles/graphics_standard_testfile.gif | Test file for testing phpMussel graphics signatures.
-/_testfiles/html_standard_testfile.html | Test file for testing phpMussel normalised HTML signatures.
-/_testfiles/md5_testfile.txt | Test file for testing phpMussel MD5 signatures.
-/_testfiles/ole_testfile.ole | Test file for testing phpMussel OLE signatures.
-/_testfiles/pdf_standard_testfile.pdf | Test file for testing phpMussel PDF signatures.
-/_testfiles/pe_sectional_testfile.exe | Test file for testing phpMussel PE Sectional signatures.
-/_testfiles/swf_standard_testfile.swf | Test file for testing phpMussel SWF signatures.
-/vault/ | Vault directory (contains various files).
-/vault/cache/ | Cache directory (for temporary data).
-/vault/classes/ | Classes directory. Contains various classes used by phpMussel.
-/vault/classes/Maikuolan/ | Classes directory. Contains various classes used by phpMussel.
-/vault/classes/Maikuolan/Cache.php | A simple, unified cache handler.
-/vault/classes/Maikuolan/ComplexStringHandler.php | Complex string handler.
-/vault/classes/Maikuolan/DelayedIO.php | Delayed file IO class.
-/vault/classes/Maikuolan/Demojibakefier.php | "Demojibakefier".
-/vault/classes/Maikuolan/L10N.php | L10N handler.
-/vault/classes/Maikuolan/NumberFormatter.php | Number formatter.
-/vault/classes/Maikuolan/YAML.php | YAML handler.
-/vault/classes/ArchiveHandler.php | Responsible for handling archives.
-/vault/classes/CompressionHandler.php | Responsible for handling file compression.
-/vault/classes/TemporaryFileHandler.php | Responsible for creating and handling temporary files.
-/vault/fe_assets/ | Front-end assets.
-/vault/fe_assets/_2fa.html | An HTML template used when asking the user for a 2FA code.
-/vault/fe_assets/_accounts.html | An HTML template for the front-end accounts page.
-/vault/fe_assets/_accounts_row.html | An HTML template for the front-end accounts page.
-/vault/fe_assets/_cache.html | An HTML template for the front-end cache data page.
-/vault/fe_assets/_config.html | An HTML template for the front-end configuration page.
-/vault/fe_assets/_config_row.html | An HTML template for the front-end configuration page.
-/vault/fe_assets/_files.html | An HTML template for the file manager.
-/vault/fe_assets/_files_edit.html | An HTML template for the file manager.
-/vault/fe_assets/_files_rename.html | An HTML template for the file manager.
-/vault/fe_assets/_files_row.html | An HTML template for the file manager.
-/vault/fe_assets/_home.html | An HTML template for the front-end homepage.
-/vault/fe_assets/_login.html | An HTML template for the front-end login.
-/vault/fe_assets/_logs.html | An HTML template for the front-end logs page.
-/vault/fe_assets/_nav_complete_access.html | An HTML template for the front-end navigation links, for those with complete access.
-/vault/fe_assets/_nav_logs_access_only.html | An HTML template for the front-end navigation links, for those with logs access only.
-/vault/fe_assets/_quarantine.html | An HTML template for the front-end quarantine page.
-/vault/fe_assets/_quarantine_row.html | An HTML template for the front-end quarantine page.
-/vault/fe_assets/_siginfo.html | An HTML template for the front-end signature information page.
-/vault/fe_assets/_siginfo_row.html | An HTML template for the front-end signature information page.
-/vault/fe_assets/_statistics.html | An HTML template for the front-end statistics page.
-/vault/fe_assets/_updates.html | An HTML template for the front-end updates page.
-/vault/fe_assets/_updates_row.html | An HTML template for the front-end updates page.
-/vault/fe_assets/_upload_test.html | An HTML template for the upload test page.
-/vault/fe_assets/frontend.css | CSS style-sheet for the front-end.
-/vault/fe_assets/frontend.dat | Database for the front-end (contains account and session information; only generated if the front-end is enabled and used).
-/vault/fe_assets/frontend.dat.safety | Generated as a safety mechanism when needed.
-/vault/fe_assets/frontend.html | The main HTML template file for the front-end.
-/vault/fe_assets/icons.php | Icons handler (used by the front-end file manager).
-/vault/fe_assets/pips.php | Pips handler (used by the front-end file manager).
-/vault/fe_assets/scripts.js | Contains front-end JavaScript data.
-/vault/lang/ | Contains phpMussel language data.
-/vault/lang/lang.ar.fe.yaml | Arabic language data for the front-end.
-/vault/lang/lang.ar.yaml | Arabic language data.
-/vault/lang/lang.bn.fe.yaml | Bangla language data for the front-end.
-/vault/lang/lang.bn.yaml | Bangla language data.
-/vault/lang/lang.de.fe.yaml | German language data for the front-end.
-/vault/lang/lang.de.yaml | German language data.
-/vault/lang/lang.en.fe.yaml | English language data for the front-end.
-/vault/lang/lang.en.yaml | English language data.
-/vault/lang/lang.es.fe.yaml | Spanish language data for the front-end.
-/vault/lang/lang.es.yaml | Spanish language data.
-/vault/lang/lang.fr.fe.yaml | French language data for the front-end.
-/vault/lang/lang.fr.yaml | French language data.
-/vault/lang/lang.hi.fe.yaml | Hindi language data for the front-end.
-/vault/lang/lang.hi.yaml | Hindi language data.
-/vault/lang/lang.id.fe.yaml | Indonesian language data for the front-end.
-/vault/lang/lang.id.yaml | Indonesian language data.
-/vault/lang/lang.it.fe.yaml | Italian language data for the front-end.
-/vault/lang/lang.it.yaml | Italian language data.
-/vault/lang/lang.ja.fe.yaml | Japanese language data for the front-end.
-/vault/lang/lang.ja.yaml | Japanese language data.
-/vault/lang/lang.ko.fe.yaml | Korean language data for the front-end.
-/vault/lang/lang.ko.yaml | Korean language data.
-/vault/lang/lang.lv.fe.yaml | Latvian language data for the front-end.
-/vault/lang/lang.lv.yaml | Latvian language data.
-/vault/lang/lang.nl.fe.yaml | Dutch language data for the front-end.
-/vault/lang/lang.nl.yaml | Dutch language data.
-/vault/lang/lang.no.fe.yaml | Norwegian language data for the front-end.
-/vault/lang/lang.no.yaml | Norwegian language data.
-/vault/lang/lang.pl.fe.yaml | Polish language data for the front-end.
-/vault/lang/lang.pl.yaml | Polish language data.
-/vault/lang/lang.pt.fe.yaml | Portuguese language data for the front-end.
-/vault/lang/lang.pt.yaml | Portuguese language data.
-/vault/lang/lang.ru.fe.yaml | Russian language data for the front-end.
-/vault/lang/lang.ru.yaml | Russian language data.
-/vault/lang/lang.sv.fe.yaml | Swedish language data for the front-end.
-/vault/lang/lang.sv.yaml | Swedish language data.
-/vault/lang/lang.th.fe.yaml | Thai language data for the front-end.
-/vault/lang/lang.th.yaml | Thai language data.
-/vault/lang/lang.tr.fe.yaml | Turkish language data for the front-end.
-/vault/lang/lang.tr.yaml | Turkish language data.
-/vault/lang/lang.ur.fe.yaml | Urdu language data for the front-end.
-/vault/lang/lang.ur.yaml | Urdu language data.
-/vault/lang/lang.vi.fe.yaml | Vietnamese language data for the front-end.
-/vault/lang/lang.vi.yaml | Vietnamese language data.
-/vault/lang/lang.zh-tw.fe.yaml | Chinese (traditional) language data for the front-end.
-/vault/lang/lang.zh-tw.yaml | Chinese (traditional) language data.
-/vault/lang/lang.zh.fe.yaml | Chinese (simplified) language data for the front-end.
-/vault/lang/lang.zh.yaml | Chinese (simplified) language data.
-/vault/quarantine/ | Quarantine directory (contains quarantined files).
-/vault/signatures/ | Signatures directory (contains signature files).
-/vault/signatures/switch.dat | Controls and sets certain variables.
-/vault/.htaccess | A hypertext access file (in this instance, to protect sensitive files belonging to the script from being accessed by non-authorised sources).
-/vault/.travis.php | Used by Travis CI for testing (not required for proper function of the script).
-/vault/.travis.yml | Used by Travis CI for testing (not required for proper function of the script).
-/vault/channels.yaml | Alternative channels data for failed curl requests.
-/vault/cli.php | CLI handler.
-/vault/components.dat | Components metadata file; Used by the front-end updates page.
-/vault/config.ini.RenameMe | Configuration file; Contains all the configuration options of phpMussel, telling it what to do and how to operate correctly (rename to activate).
-/vault/config.php | Configuration handler.
-/vault/config.yaml | Configuration defaults file; Contains default configuration values for phpMussel.
-/vault/frontend.php | Front-end handler.
-/vault/frontend_functions.php | Front-end functions file.
-/vault/functions.php | Functions file (essential).
-/vault/greylist.csv | CSV of greylisted signatures indicating to phpMussel which signatures it should be ignoring (file automatically recreated if deleted).
-/vault/lang.php | Language handler.
-/vault/plugins.dat | Plugins metadata file; Used by the front-end updates page.
-※ /vault/scan_kills.txt | A record of every file upload blocked/killed by phpMussel.
-※ /vault/scan_log.txt | A record of everything scanned by phpMussel.
-※ /vault/scan_log_serialized.txt | A record of everything scanned by phpMussel.
-/vault/shorthand.yaml | Contains various signature identifiers to be processed by phpMussel when interpreting signature shorthand during a scan, and when accessing signature information via the front-end.
-/vault/signatures.dat | Signatures metadata file; Used by the front-end updates page.
-/vault/template_custom.html | Template file; Template for HTML output produced by phpMussel for its blocked file upload message (the message seen by the uploader).
-/vault/template_default.html | Template file; Template for HTML output produced by phpMussel for its blocked file upload message (the message seen by the uploader).
-/vault/themes.dat | Themes metadata file; Used by the front-end updates page.
-/vault/upload.php | Upload handler.
-/.gitattributes | A GitHub project file (not required for proper function of script).
-/.gitignore | A GitHub project file (not required for proper function of script).
-/Changelog-v2.txt | A record of changes made to the script between different versions (not required for proper function of script).
-/composer.json | Composer/Packagist information (not required for proper function of script).
-/CONTRIBUTING.md | Information about how to contribute to the project.
-/LICENSE.txt | A copy of the GNU/GPLv2 license (not required for proper function of script).
-/loader.php | The loader. This is what you're supposed to be hooking into (essential)!
-/PEOPLE.md | Information about the people involved in the project.
-/README.md | Project summary information.
-/web.config | An ASP.NET configuration file (in this instance, to protect the `/vault` directory from being accessed by non-authorised sources in the event that the script is installed on a server based upon ASP.NET technologies).
-
-※ Filename may differ based on configuration stipulations (in `config.ini`).
+```
+https://github.com/phpMussel/phpMussel>v2
+│   .gitattributes
+│   .gitignore
+│   .travis.php
+│   .travis.yml
+│   Changelog-v2.txt
+│   composer.json
+│   CONTRIBUTING.md
+│   crowdin.yml
+│   LICENSE.txt
+│   loader.php
+│   PEOPLE.md
+│   README.md
+│   SECURITY.md
+│   web.config
+│
+├───.github
+│       ISSUE_TEMPLATE.md
+│
+├───vault
+│   │   .htaccess
+│   │   channels.yaml
+│   │   cli.php
+│   │   components.dat
+│   │   config.ini.RenameMe
+│   │   config.php
+│   │   config.yaml
+│   │   event_handlers.php
+│   │   frontend.php
+│   │   frontend_functions.php
+│   │   functions.php
+│   │   greylist.csv
+│   │   lang.php
+│   │   plugins.dat
+│   │   shorthand.yaml
+│   │   signatures.dat
+│   │   template_custom.html
+│   │   template_default.html
+│   │   themes.dat
+│   │   upload.php
+│   │
+│   ├───cache
+│   ├───classes
+│   │   │   ArchiveHandler.php
+│   │   │   CompressionHandler.php
+│   │   │   TemporaryFileHandler.php
+│   │   │
+│   │   └───Maikuolan
+│   │           Cache.php
+│   │           ComplexStringHandler.php
+│   │           DelayedIO.php
+│   │           Demojibakefier.php
+│   │           Events.php
+│   │           L10N.php
+│   │           NumberFormatter.php
+│   │           YAML.php
+│   │
+│   ├───fe_assets
+│   │       frontend.css
+│   │       frontend.html
+│   │       icons.php
+│   │       pips.php
+│   │       scripts.js
+│   │       _2fa.html
+│   │       _accounts.html
+│   │       _accounts_row.html
+│   │       _cache.html
+│   │       _config.html
+│   │       _config_row.html
+│   │       _files.html
+│   │       _files_edit.html
+│   │       _files_rename.html
+│   │       _files_row.html
+│   │       _home.html
+│   │       _login.html
+│   │       _logs.html
+│   │       _nav_complete_access.html
+│   │       _nav_logs_access_only.html
+│   │       _quarantine.html
+│   │       _quarantine_row.html
+│   │       _siginfo.html
+│   │       _siginfo_row.html
+│   │       _statistics.html
+│   │       _updates.html
+│   │       _updates_row.html
+│   │       _upload_test.html
+│   │
+│   ├───lang
+│   │       lang.ar.fe.yaml
+│   │       lang.ar.yaml
+│   │       lang.bn.fe.yaml
+│   │       lang.bn.yaml
+│   │       lang.de.fe.yaml
+│   │       lang.de.yaml
+│   │       lang.en.fe.yaml
+│   │       lang.en.yaml
+│   │       lang.es.fe.yaml
+│   │       lang.es.yaml
+│   │       lang.fr.fe.yaml
+│   │       lang.fr.yaml
+│   │       lang.hi.fe.yaml
+│   │       lang.hi.yaml
+│   │       lang.id.fe.yaml
+│   │       lang.id.yaml
+│   │       lang.it.fe.yaml
+│   │       lang.it.yaml
+│   │       lang.ja.fe.yaml
+│   │       lang.ja.yaml
+│   │       lang.ko.fe.yaml
+│   │       lang.ko.yaml
+│   │       lang.lv.fe.yaml
+│   │       lang.lv.yaml
+│   │       lang.nl.fe.yaml
+│   │       lang.nl.yaml
+│   │       lang.no.fe.yaml
+│   │       lang.no.yaml
+│   │       lang.pl.fe.yaml
+│   │       lang.pl.yaml
+│   │       lang.pt.fe.yaml
+│   │       lang.pt.yaml
+│   │       lang.ru.fe.yaml
+│   │       lang.ru.yaml
+│   │       lang.sv.fe.yaml
+│   │       lang.sv.yaml
+│   │       lang.th.fe.yaml
+│   │       lang.th.yaml
+│   │       lang.tr.fe.yaml
+│   │       lang.tr.yaml
+│   │       lang.ur.fe.yaml
+│   │       lang.ur.yaml
+│   │       lang.vi.fe.yaml
+│   │       lang.vi.yaml
+│   │       lang.zh-tw.fe.yaml
+│   │       lang.zh-tw.yaml
+│   │       lang.zh.fe.yaml
+│   │       lang.zh.yaml
+│   │
+│   ├───plugins
+│   ├───quarantine
+│   └───signatures
+│           switch.dat
+│
+└───_testfiles
+        ascii_standard_testfile.txt
+        coex_testfile.rtf
+        exe_standard_testfile.exe
+        general_standard_testfile.txt
+        graphics_standard_testfile.gif
+        html_standard_testfile.html
+        md5_testfile.txt
+        ole_testfile.ole
+        pdf_standard_testfile.pdf
+        pe_sectional_testfile.exe
+        swf_standard_testfile.swf
+```
 
 ---
 
 
 ### 7. <a name="SECTION7"></a>CONFIGURATION OPTIONS
+
 The following is a list of variables found in the `config.ini` configuration file of phpMussel, along with a description of their purpose and function.
 
-[general](#general-category) | [signatures](#signatures-category) | [files](#files-category) | [attack_specific](#attack_specific-category)
-:--|:--|:--|:--
-[cleanup](#cleanup)<br />[scan_log](#scan_log)<br />[scan_log_serialized](#scan_log_serialized)<br />[scan_kills](#scan_kills)<br />[truncate](#truncate)<br />[log_rotation_limit](#log_rotation_limit)<br />[log_rotation_action](#log_rotation_action)<br />[timezone](#timezone)<br />[time_offset](#time_offset)<br />[time_format](#time_format)<br />[ipaddr](#ipaddr)<br />[enable_plugins](#enable_plugins)<br />[forbid_on_block](#forbid_on_block)<br />[delete_on_sight](#delete_on_sight)<br />[lang](#lang)<br />[lang_override](#lang_override)<br />[numbers](#numbers)<br />[quarantine_key](#quarantine_key)<br />[quarantine_max_filesize](#quarantine_max_filesize)<br />[quarantine_max_usage](#quarantine_max_usage)<br />[quarantine_max_files](#quarantine_max_files)<br />[honeypot_mode](#honeypot_mode)<br />[scan_cache_expiry](#scan_cache_expiry)<br />[disable_cli](#disable_cli)<br />[disable_frontend](#disable_frontend)<br />[max_login_attempts](#max_login_attempts)<br />[frontend_log](#frontend_log)<br />[disable_webfonts](#disable_webfonts)<br />[maintenance_mode](#maintenance_mode)<br />[default_algo](#default_algo)<br />[statistics](#statistics)<br />[disabled_channels](#disabled_channels)<br /> | [active](#active)<br />[fail_silently](#fail_silently)<br />[fail_extensions_silently](#fail_extensions_silently)<br />[detect_adware](#detect_adware)<br />[detect_joke_hoax](#detect_joke_hoax)<br />[detect_pua_pup](#detect_pua_pup)<br />[detect_packer_packed](#detect_packer_packed)<br />[detect_shell](#detect_shell)<br />[detect_deface](#detect_deface)<br />[detect_encryption](#detect_encryption)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [max_uploads](#max_uploads)<br />[filesize_limit](#filesize_limit)<br />[filesize_response](#filesize_response)<br />[filetype_whitelist<br />filetype_blacklist<br />filetype_greylist](#filetype_whitelist-filetype_blacklist-filetype_greylist)<br />[check_archives](#check_archives)<br />[filesize_archives](#filesize_archives)<br />[filetype_archives](#filetype_archives)<br />[max_recursion](#max_recursion)<br />[block_encrypted_archives](#block_encrypted_archives)<br />[max_files_in_archives](#max_files_in_archives)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [chameleon_from_php](#chameleon_from_php)<br />[can_contain_php_file_extensions](#can_contain_php_file_extensions)<br />[chameleon_from_exe](#chameleon_from_exe)<br />[chameleon_to_archive](#chameleon_to_archive)<br />[chameleon_to_doc](#chameleon_to_doc)<br />[chameleon_to_img](#chameleon_to_img)<br />[chameleon_to_pdf](#chameleon_to_pdf)<br />[archive_file_extensions](#archive_file_extensions)<br />[block_control_characters](#block_control_characters)<br />[corrupted_exe](#corrupted_exe)<br />[decode_threshold](#decode_threshold)<br />[scannable_threshold](#scannable_threshold)<br />[allow_leading_trailing_dots](#allow_leading_trailing_dots)<br />[block_macros](#block_macros)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-[compatibility](#compatibility-category) | [heuristic](#heuristic-category) | [virustotal](#virustotal-category) | [urlscanner](#urlscanner-category)
-[ignore_upload_errors](#ignore_upload_errors)<br />[only_allow_images](#only_allow_images)<br /><br /><br /><br /> | [threshold](#threshold)<br /><br /><br /><br /><br /> | [vt_public_api_key](#vt_public_api_key)<br />[vt_suspicion_level](#vt_suspicion_level)<br />[vt_weighting](#vt_weighting)<br />[vt_quota_rate<br />vt_quota_time](#vt_quota_rate-and-vt_quota_time)<br /> | [lookup_hphosts](#lookup_hphosts)<br />[google_api_key](#google_api_key)<br />[maximum_api_lookups](#maximum_api_lookups)<br />[maximum_api_lookups_response](#maximum_api_lookups_response)<br />[cache_time](#cache_time)<br />
-[legal](#legal-category) | [template_data](#template_data-category) | [PHPMailer](#phpmailer-category) | [supplementary_cache_options](#supplementary_cache_options-category)
-[pseudonymise_ip_addresses](#pseudonymise_ip_addresses)<br />[privacy_policy](#privacy_policy)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [theme](#theme)<br />[magnification](#magnification)<br />[css_url](#css_url)<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | [event_log](#event_log)<br />[skip_auth_process](#skip_auth_process)<br />[enable_two_factor](#enable_two_factor)<br />[host](#host)<br />[port](#port)<br />[smtp_secure](#smtp_secure)<br />[smtp_auth](#smtp_auth)<br />[username](#username)<br />[password](#password)<br />[set_from_address](#set_from_address)<br />[set_from_name](#set_from_name)<br />[add_reply_to_address](#add_reply_to_address)<br />[add_reply_to_name](#add_reply_to_name)<br /> | [enable_apcu](#enable_apcu)<br />[enable_memcached](#enable_memcached)<br />[enable_redis](#enable_redis)<br />[enable_pdo](#enable_pdo)<br />[memcached_host](#memcached_host)<br />[memcached_port](#memcached_port)<br />[redis_host](#redis_host)<br />[redis_port](#redis_port)<br />[redis_timeout](#redis_timeout)<br />[pdo_dsn](#pdo_dsn)<br />[pdo_username](#pdo_username)<br />[pdo_password](#pdo_password)<br /><br />
+```
+Configuration (v2)
+│
+├───general
+│       cleanup
+│       scan_log
+│       scan_log_serialized
+│       scan_kills
+│       error_log
+│       truncate
+│       log_rotation_limit
+│       log_rotation_action
+│       timezone
+│       time_offset (v1: timeOffset)
+│       time_format (v1: timeFormat)
+│       ipaddr
+│       enable_plugins
+│       forbid_on_block
+│       delete_on_sight
+│       lang
+│       lang_override
+│       numbers
+│       quarantine_key
+│       quarantine_max_filesize
+│       quarantine_max_usage
+│       quarantine_max_files
+│       honeypot_mode
+│       scan_cache_expiry
+│       disable_cli
+│       disable_frontend
+│       max_login_attempts
+│       frontend_log (v1: FrontEndLog)
+│       disable_webfonts
+│       maintenance_mode
+│       default_algo
+│       statistics
+│       disabled_channels
+│
+├───signatures
+│       active (v1: Active)
+│       fail_silently
+│       fail_extensions_silently
+│       detect_adware
+│       detect_joke_hoax
+│       detect_pua_pup
+│       detect_packer_packed
+│       detect_shell
+│       detect_deface
+│       detect_encryption
+│
+├───files
+│       max_uploads
+│       filesize_limit
+│       filesize_response
+│       filetype_whitelist
+│       filetype_blacklist
+│       filetype_greylist
+│       check_archives
+│       filesize_archives
+│       filetype_archives
+│       max_recursion
+│       block_encrypted_archives
+│       max_files_in_archives
+│
+├───attack_specific
+│       chameleon_from_php
+│       can_contain_php_file_extensions
+│       chameleon_from_exe
+│       chameleon_to_archive
+│       chameleon_to_doc
+│       chameleon_to_img
+│       chameleon_to_pdf
+│       archive_file_extensions
+│       block_control_characters
+│       corrupted_exe
+│       decode_threshold
+│       scannable_threshold
+│       allow_leading_trailing_dots
+│       block_macros
+│
+├───compatibility
+│       ignore_upload_errors
+│       only_allow_images
+│
+├───heuristic
+│       threshold
+│
+├───virustotal
+│       vt_public_api_key
+│       vt_suspicion_level
+│       vt_weighting
+│       vt_quota_rate
+│       vt_quota_time
+│
+├───urlscanner
+│       lookup_hphosts
+│       google_api_key
+│       maximum_api_lookups
+│       maximum_api_lookups_response
+│       cache_time
+│
+├───legal
+│       pseudonymise_ip_addresses
+│       privacy_policy
+│
+├───template_data
+│       theme
+│       magnification (v1: Magnification)
+│       css_url
+│
+├───PHPMailer
+│       event_log (v1: EventLog)
+│       skip_auth_process (v1: SkipAuthProcess)
+│       enable_two_factor (v1: Enable2FA)
+│       host (v1: Host)
+│       port (v1: Port)
+│       smtp_secure (v1: SMTPSecure)
+│       smtp_auth (v1: SMTPAuth)
+│       username (v1: Username)
+│       password (v1: Password)
+│       set_from_address (v1: setFromAddress)
+│       set_from_name (v1: setFromName)
+│       add_reply_to_address (v1: addReplyToAddress)
+│       add_reply_to_name (v1: addReplyToName)
+│
+└───supplementary_cache_options
+        enable_apcu
+        enable_memcached
+        enable_redis
+        enable_pdo
+        memcached_host
+        memcached_port
+        redis_host
+        redis_port
+        redis_timeout
+        pdo_dsn
+        pdo_username
+        pdo_password
+```
 
 #### "general" (Category)
 General phpMussel configuration.
@@ -418,6 +556,9 @@ General phpMussel configuration.
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+
+##### "error_log"
+- A file for logging any non-fatal errors detected. Specify a filename, or leave blank to disable.
 
 ##### "truncate"
 - Truncate logfiles when they reach a certain size? Value is the maximum size in B/KB/MB/GB/TB that a logfile may grow to before being truncated. The default value of 0KB disables truncation (logfiles can grow indefinitely). Note: Applies to individual logfiles! The size of logfiles is not considered collectively.
@@ -1418,4 +1559,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 6 September 2019 (2019.09.06).
+Last Updated: 23 September 2019 (2019.09.23).
