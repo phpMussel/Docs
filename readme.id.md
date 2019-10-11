@@ -745,7 +745,7 @@ Konfigurasi umum untuk mengambil alih file-file.
 - Apa yang Anda lakukan dengan file-file yang melebihi batasan ukuran (jika ada). False = Bertanda putih; True = Bertanda hitam [Default].
 
 ##### "filetype_whitelist", "filetype_blacklist", "filetype_greylist"
-- Jika sistem Anda hanya mengizinkan tipe file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak tipe file-file tertentu, menspesifikasikan tipe file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan tipe file tertentu. Format adalah CSV (comma separated values). Jika Anda ingin memindai semuanya, daripada daftar putih, daftar hitam atau daftar abu-abu, tinggalkan variabel kosong; Melakukannya akan menonaktifkan dafter putih/hitam/abu-abu.
+- Jika sistem Anda hanya mengizinkan tipe file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak tipe file-file tertentu, menspesifikasikan tipe file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan tipe file tertentu. Format adalah CSV (comma separated values). Jika Anda ingin memindai semuanya, daripada daftar putih, daftar hitam atau daftar abu-abu, tinggalkan variabel kosong; Melakukannya akan menonaktifkan daftar putih/hitam/abu-abu.
 - Urutan logis dari pengolahan:
   - Jika tipe file bertanda putih, tidak memindai dan tidak memblokir file, dan tidak memeriksa file terhadap daftar hitam atau daftar abu-abu.
   - Jika tipe file bertanda hitem, tidak memindai file tapi memblokir bagaimanapun, dan tidak memeriksa file terhadap daftar abu-abu.
@@ -1005,6 +1005,8 @@ Opsi cache tambahan.
 ##### "pdo_dsn"
 - Nilai DSN PDO. Default = "`mysql:dbname=phpmussel;host=localhost;port=3306`".
 
+*Lihat juga: [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#HOW_TO_USE_PDO)*
+
 ##### "pdo_username"
 - Nama pengguna PDO.
 
@@ -1094,15 +1096,11 @@ Setiap bentuk dari regex mengerti dan dengan benar diproses oleh PHP seharusnya 
 
 #### KOMPATIBILITAS SOFTWARE ANTI-VIRUS
 
-Untuk banyak bagian, phpMussel seharusnya kompatibel dengan software pemindaian virus. Bagaimanapun konflik telah dilaporkan oleh penggunak di masa lalu. Informasi dibawah adalah dari virustotal.com, dan menguraikan sejumlah angka positif yang salah yang dilaporkan oleh bermacam-macam program anti-virus pada phpMussel. Walaupun informasi ini bukan jaminan absolut dari apakah Anda mengalami masalah kompatibilitas antara phpMussel dan perangkat anti-virus Anda, jika perangkat lunak anti-virus Anda tercatat berlawanan dengan phpMussel, Anda seharusnya mempertimbangkan menonaktifkannya bekerja dengan phpMussel atau seharusnya mempertimbangkan opsi alternatif ke software anti virus atau phpMussel.
+Masalah kompatibilitas antara phpMussel dan beberapa vendor anti-virus telah diketahui terjadi di masa lalu, jadi setiap beberapa bulan atau sekitar itu, saya memeriksa versi terbaru dari basis kode phpMussel terhadap Total Virus, untuk melihat apakah ada masalah dilaporkan disana. Ketika masalah dilaporkan disana, saya daftar masalah yang dilaporkan disini, dalam dokumentasi.
 
-Informasi ini diupdate 2018.10.09 dan cocok untuk semua rilis phpMussel dari dua versi minor terbaru versi (v1.5.0-v1.6.0) pada waktu saya menuliskan ini.
+Ketika saya baru-baru ini memeriksa (2019.10.10), tidak ada masalah dilaporkan.
 
-*Informasi ini hanya berlaku untuk paket utama. Hasil dapat bervariasi berdasarkan file tanda tangan yang diinstal, plugin, dan komponen periferal lainnya.*
-
-| Scanner | Hasil |
-|---|---|
-| Bkav | Melaporkan "VEX.Webshell" |
+Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainnya. File tanda tangan selalu menyebabkan beberapa kesalahan positif ketika solusi anti-virus lain mendeteksi mereka, jadi saya akan sangat menyarankan, bahwa jika Anda berencana untuk menginstal phpMussel di mesin dimana solusi anti-virus lain sudah ada, untuk daftar file tanda tangan phpMussel di daftar putih Anda.
 
 ---
 
@@ -1126,6 +1124,7 @@ Informasi ini diupdate 2018.10.09 dan cocok untuk semua rilis phpMussel dari dua
 - [Dapatkah phpMussel memindai file dengan nama yang tidak ANSI?](#SCAN_NON_ANSI)
 - [Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?](#BLACK_WHITE_GREY)
 - [Ketika saya mengaktifkan atau menonaktifkan file tanda tangan melalui halaman pembaruan, itu memilah mereka secara alfanumerik dalam konfigurasi. Bisakah saya mengubah cara mereka disortir?](#CHANGE_COMPONENT_SORT_ORDER)
+- [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#HOW_TO_USE_PDO)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Apa yang "tanda tangan"?
 
@@ -1349,6 +1348,53 @@ Kemudian, jika file baru, `file6.php`, diaktifkan, ketika halaman pembaruan meng
 
 Situasi adalah sama ketika file dinonaktifkan. Sebaliknya, jika Anda ingin file dieksekusi terakhir, Anda bisa menambahkan sesuatu seperti `zzz:` sebelum nama file. Dalam hal apapun, Anda tidak perlu mengganti nama file yang dimaksud.
 
+#### <a name="HOW_TO_USE_PDO"></a>Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?
+
+"PDO" adalah akronim dari "[PHP Data Objects](https://www.php.net/manual/en/intro.pdo.php)". Ini menyediakan antarmuka untuk PHP untuk dapat terhubung ke beberapa sistem database yang biasa digunakan oleh berbagai aplikasi PHP.
+
+"DSN" adalah akronim dari "[data source name](https://en.wikipedia.org/wiki/Data_source_name)" (nama sumber data). "PDO DSN" menjelaskan kepada PDO bagaimana seharusnya terhubung ke database.
+
+phpMussel menyediakan opsi untuk memanfaatkan PDO untuk tujuan caching. Agar ini berfungsi sebagaimana dimaksud, Anda harus mengkonfigurasi phpMussel yang sesuai, demikian mengaktifkan PDO, membuat basis data baru untuk digunakan oleh phpMussel (jika Anda belum memiliki basis data untuk digunakan oleh phpMussel), dan membuat tabel baru di database Anda sesuai dengan struktur yang dijelaskan dibawah.
+
+Ini, tentu saja, hanya berlaku jika Anda ingin phpMussel menggunakan PDO. Jika Anda cukup senang untuk phpMussel untuk menggunakan caching flatfile (per konfigurasi default), atau salah satu dari berbagai opsi caching lain yang disediakan, Anda tidak perlu repot-repot menyusahkan diri Anda dengan mengatur database, tabel dan sebagainya.
+
+Struktur yang dijelaskan dibawah menggunakan "phpmussel" sebagai nama basis datanya, tetapi Anda dapat menggunakan nama yang Anda inginkan untuk basis data Anda, asalkan nama yang sama direplikasi pada konfigurasi DSN Anda.
+
+```
+╔══════════════════════════════════════════════╗
+║ DATABASE "phpmussel"                         ║
+║ │╔═══════════════════════════════════════════╩╗
+║ └╫─TABLE "Cache" (UTF-8)                      ║
+║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
+║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
+║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
+╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
+   ╚════════════════════════════════════════════╝
+```
+
+Direktif konfigurasi `pdo_dsn` harus dikonfigurasi seperti dijelaskan dibawah.
+
+```
+mysql:dbname=phpmussel;host=localhost;port=3306
+ │
+ │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
+ └─mysql:dbname=phpmussel;host=localhost;port=3306
+   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
+    │            │              │              └Nomor port yang akan
+    │            │              │               dihubungkan dengan host.
+    │            │              │
+    │            │              └Host untuk terhubung dengan untuk menemukan
+    │            │               database.
+    │            │
+    │            └Nama basis data yang akan digunakan.
+    │
+    └Nama driver database untuk PDO untuk terhubung.
+```
+
+Jika Anda tidak yakin tentang apa yang harus digunakan untuk beberapa bagian tertentu dari DSN Anda, coba lihat terlebih dahulu apakah itu berfungsi sebagaimana mestinya, tanpa mengubah apapun.
+
+Perhatikan bahwa `pdo_username` dan` pdo_password` harus sama dengan nama pengguna dan kata sandi yang Anda pilih untuk basis data Anda.
+
 ---
 
 
@@ -1549,4 +1595,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 23 September 2019 (2019.09.23).
+Terakhir Diperbarui: 11 Oktober 2019 (2019.10.11).

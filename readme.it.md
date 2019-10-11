@@ -1005,6 +1005,8 @@ Opzioni di cache supplementari.
 ##### "pdo_dsn"
 - Il valore della DSN per PDO. Predefinito = "`mysql:dbname=phpmussel;host=localhost;port=3306`".
 
+*Guarda anche: [Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?](#HOW_TO_USE_PDO)*
+
 ##### "pdo_username"
 - Il nome utente per PDO.
 
@@ -1094,15 +1096,11 @@ Ogni forma di regex correttamente capito da PHP anche dovrebbe essere correttame
 
 #### ANTI-VIRUS SOFTWARE COMPATIBILITÀ
 
-Per la maggior parte, phpMussel dovrebbe essere compatibile abbastanza con la maggior parte dei antivirus software. Ma, conflitti sono stati riportati da un numero di utenti in passato. Queste informazioni qui di seguito è da VirusTotal.com, e descrive un certo numero di falsi positivi riportato dai vari anti-virus programmi contro phpMussel. Sebbene questa informazione non è un'assoluta garanzia di se o non si sarà verificheranno problemi di compatibilità tra phpMussel e il vostro anti-virus software, se il vostro software anti-virus è stati ha notato o ha bandierato contro phpMussel, si dovrebbe considerare sia disattivarlo prima di lavorare con phpMussel o dovrebbe considerare l'alternative opzioni per sia il vostro anti-virus software o phpMussel.
+Problemi di compatibilità tra phpMussel e alcuni fornitori di antivirus si sono verificati a volte in passato, così ogni pochi mesi o giù di lì, controllo le ultime versioni disponibili della base di codice phpMussel contro Virus Total, per vedere se vi sono segnalati problemi. Quando vengono segnalati problemi, elencherò qui i problemi riportati, nella documentazione.
 
-Questa informazione è stato lo scorso aggiornato 2018.10.09 ed è in corso per tutte le phpMussel rilasci delle due più recenti minori versioni (v1.5.0-v1.6.0) al momento di scrivere questo.
+Quando ho controllato più di recente (2019.10.10), non sono stati segnalati problemi.
 
-*Questa informazione si applica solo al pacchetto principale. I risultati possono variare in base a file di firma installati, plug-in, e altri componenti periferici.*
-
-| Scanner | Risultati |
-|---|---|
-| Bkav | Riferisce "VEX.Webshell" |
+Non controllo i file di firma, la documentazione o altri contenuti periferici. I file di firma causano sempre alcuni falsi positivi quando vengono rilevati da altre soluzioni antivirus. Pertanto, consigliamo vivamente, se si prevede di installare phpMussel su una macchina in cui esiste già un'altra soluzione antivirus, di mettere i file delle firme phpMussel nella tua lista bianca.
 
 ---
 
@@ -1126,6 +1124,7 @@ Questa informazione è stato lo scorso aggiornato 2018.10.09 ed è in corso per 
 - [phpMussel può eseguire la scansione di file con nomi non ANSI?](#SCAN_NON_ANSI)
 - [Blacklists (liste nere) – Whitelists (liste bianche) – Greylists (liste grigie) – Cosa sono e come li uso?](#BLACK_WHITE_GREY)
 - [Quando si attivano o disattivano file di firma tramite la pagina degli aggiornamenti, li ordina in ordine alfanumerico nella configurazione. Posso cambiare il modo in cui vengono ordinati?](#CHANGE_COMPONENT_SORT_ORDER)
+- [Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?](#HOW_TO_USE_PDO)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Che cosa è una "firma"?
 
@@ -1349,6 +1348,53 @@ Quindi, se un nuovo file, `file6.php`, viene attivato, quando la pagina degli ag
 
 Stessa situazione quando un file è disattivato. Al contrario, se si desidera che il file venga eseguito per ultimo, è possibile aggiungere qualcosa come `zzz:` prima del nome del file. In ogni caso, non sarà necessario rinominare il file in questione.
 
+#### <a name="HOW_TO_USE_PDO"></a>Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?
+
+"PDO" è l'acronimo di "[PHP Data Objects](https://www.php.net/manual/en/intro.pdo.php)" (oggetti dati PHP). Fornisce un'interfaccia affinché PHP sia in grado di connettersi ad alcuni sistemi di database comunemente utilizzati da varie applicazioni PHP.
+
+"DSN" è l'acronimo di "[data source name](https://it.wikipedia.org/wiki/Database_Source_Name)" (nome dell'origine dati). Il "PDO DSN" descrive al PDO come dovrebbe connettersi a un database.
+
+phpMussel offre la possibilità di utilizzare PDO per scopi di memorizzazione nella cache. Affinché ciò funzioni correttamente, dovrai configurare phpMussel di conseguenza, abilitando PDO, creare un nuovo database da utilizzare per phpMussel (se non hai già in mente un database da utilizzare per phpMussel) e creare un nuovo tabella nel database in base alla struttura descritta di seguito.
+
+Questo, ovviamente, si applica solo se si desidera che phpMussel utilizzi PDO. Se sei abbastanza felice per phpMussel di utilizzare la memorizzazione nella cache dei file flat (in base alla sua configurazione predefinita) o una qualsiasi delle altre opzioni di memorizzazione nella cache fornite, non dovrai preoccuparti di creare database, tabelle e così via.
+
+La struttura descritta di seguito utilizza "phpmussel" come nome del database, ma è possibile utilizzare qualunque nome tu voglia per il database, purché lo stesso nome venga replicato nella configurazione DSN.
+
+```
+╔══════════════════════════════════════════════╗
+║ DATABASE "phpmussel"                         ║
+║ │╔═══════════════════════════════════════════╩╗
+║ └╫─TABLE "Cache" (UTF-8)                      ║
+║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
+║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
+║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
+╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
+   ╚════════════════════════════════════════════╝
+```
+
+La direttiva di configurazione `pdo_dsn` di phpMussel dovrebbe essere configurata come descritto di seguito.
+
+```
+mysql:dbname=phpmussel;host=localhost;port=3306
+ │
+ │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
+ └─mysql:dbname=phpmussel;host=localhost;port=3306
+   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
+    │            │              │              └Il numero di porta con cui
+    │            │              │               connettersi all'host.
+    │            │              │
+    │            │              └L'host con cui connettersi per trovare il
+    │            │               database.
+    │            │
+    │            └Il nome del database da utilizzare.
+    │
+    └Il nome del driver del database per PDO da utilizzare.
+```
+
+Se non sei sicuro di cosa utilizzare per una parte particolare del tuo DSN, prova innanzitutto a vedere se funziona così com'è, senza cambiare nulla.
+
+Nota che `pdo_username` e `pdo_password` dovrebbero essere gli stessi del nome utente e della password che hai scelto per il tuo database.
+
 ---
 
 
@@ -1554,4 +1600,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 23 Settembre 2019 (2019.09.23).
+Ultimo Aggiornamento: 11 Ottobre 2019 (2019.10.11).
