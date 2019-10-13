@@ -1005,6 +1005,8 @@ Tùy chọn bộ nhớ cache bổ sung.
 ##### "pdo_dsn"
 - Giá trị DSN PDO. Mặc định = "`mysql:dbname=phpmussel;host=localhost;port=3306`".
 
+*Xem thêm: ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#HOW_TO_USE_PDO)*
+
 ##### "pdo_username"
 - Tên người dùng PDO.
 
@@ -1094,15 +1096,11 @@ Bất kỳ cách thức biểu thức chính quy hiểu và xử lý một cách
 
 #### KHẢ NĂNG TƯƠNG THÍCH PHẦN MỀM CHỐNG VI RÚT
 
-Cho hầu hết các phần, phpMussel sẽ tương hợp với hầu hết các phần mềm quét vi rút khác. Nhưng mà, có một số người dùng trong quá khứ đã báo cáo một số vấn đề. Thông tin dưới đây là từ VirusTotal.com, và nó miêu tả một số giả tích cực báo cáo bởi các chương trình chống vi rút khác nhau chống phpMussel. Mặc dù thông tin này không đảm bảo nếu bạn gặp phải vấn đề tương hợp giữa phpMussel và phần mềm chống vi rút của bạn, nếu phần mềm chống vi rút của bạn được ghi nhận là cách gắn cờ chống lại phpMussel, bạn nên tắt nó trước khi sử dụng phpMussel hoặc nên xét các lựa chọn khác cho một trong hai phần mềm chống vi rút của bạn hoặc phpMussel.
+Các vấn đề tương thích giữa phpMussel và một số nhà cung cấp chống vi-rút đã được biết là đôi khi xảy ra trong quá khứ, vì vậy xấp xỉ cứ sau vài tháng, tôi kiểm tra các phiên bản mới nhất của cơ sở mã phpMussel chống lại Virus Total, để xem liệu có bất kỳ vấn đề nào được báo cáo ở đó không. Khi các vấn đề được báo cáo ở đó, tôi liệt kê các vấn đề được báo cáo ở đây, trong tài liệu.
 
-Thông tin này được cập nhật lần cứơi vào ngày 2018.10.09 và có thể áp dụng cho phpMussel công bố hai loại phiên bản nhỏ mới nhất (v1.5.0-v1.6.0) vào thời gian cái này được viết.
+Khi tôi kiểm tra gần đây nhất (2019.10.10), không có vấn đề nào được báo cáo.
 
-*Thông tin này chỉ áp dụng cho gói chính. Kết quả có thể khác nhau dựa trên tập tin chữ ký đã cài đặt, plugin, và các thành phần ngoại vi khác.*
-
-| Chương trình quét | Kết quả |
-|---|---|
-| Bkav | Báo cáo "VEX.Webshell" |
+Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung ngoại vi khác. Các tập tin chữ ký luôn gây ra một số sai tích cực khi các giải pháp chống vi-rút khác phát hiện ra chúng. Do đó tôi rất muốn giới thiệu, nếu bạn có kế hoạch cài đặt phpMussel tại một máy đã có giải pháp chống vi-rút khác, đặt tập tin chữ ký của phpMussel trong danh sách trắng của bạn.
 
 ---
 
@@ -1126,6 +1124,7 @@ Thông tin này được cập nhật lần cứơi vào ngày 2018.10.09 và c�
 - [Có thể phpMussel quét các tập tin có tên không ANSI?](#SCAN_NON_ANSI)
 - [Danh sách đen – Danh sách trắng – Danh sách xám – Họ là gì, và làm cách nào để sử dụng chúng?](#BLACK_WHITE_GREY)
 - [Khi tôi kích hoạt hoặc hủy kích hoạt các tập tin chữ ký thông qua trang cập nhật, nó sắp xếp chúng theo thứ tự chữ và số trong cấu hình. Tôi có thể thay đổi cách họ được sắp xếp không?](#CHANGE_COMPONENT_SORT_ORDER)
+- ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#HOW_TO_USE_PDO)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>"Chữ ký" là gì?
 
@@ -1349,6 +1348,51 @@ Sau đó, nếu một tập tin mới, `file6.php`, được kích hoạt, khi t
 
 Tình huống tương tự khi một tập tin bị hủy kích hoạt. Ngược lại, nếu bạn muốn tập tin thực thi cuối cùng, bạn có thể thêm một cái gì đó như `zzz:` trước tên của tập tin. Trong mọi trường hợp, bạn sẽ không cần đổi tên tập tin đang được đề cập đến.
 
+#### <a name="HOW_TO_USE_PDO"></a>"PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?
+
+"PDO" là từ viết tắt của "[PHP Data Objects](https://www.php.net/manual/en/intro.pdo.php)" (đối tượng dữ liệu PHP). Nó cung cấp một giao diện cho PHP để có thể kết nối với một số hệ thống cơ sở dữ liệu thường được sử dụng bởi các ứng dụng PHP khác nhau.
+
+"DSN" là từ viết tắt của "[data source name](https://en.wikipedia.org/wiki/Data_source_name)" (tên nguồn dữ liệu). "PDO DSN" mô tả với PDO cách nó sẽ kết nối với cơ sở dữ liệu.
+
+phpMussel cung cấp tùy chọn để sử dụng PDO cho mục đích bộ nhớ cache. Để điều này hoạt động chính xác, bạn sẽ cần định cấu hình phpMussel phù hợp, do đó cho phép PDO, tạo cơ sở dữ liệu mới cho phpMussel để sử dụng (nếu bạn chưa có cơ sở dữ liệu cho phpMussel để sử dụng), và tạo một bảng mới trong cơ sở dữ liệu của bạn theo cấu trúc được mô tả dưới đây.
+
+Tất nhiên, điều này chỉ áp dụng nếu bạn thực sự muốn phpMussel sử dụng PDO. Nếu bạn đủ hạnh phúc cho phpMussel để sử dụng bộ đệm ẩn phẳng (theo cấu hình mặc định của nó) hoặc bất kỳ tùy chọn bộ nhớ cache nào khác được cung cấp, bạn sẽ không cần phải lo lắng về việc thiết lập cơ sở dữ liệu, bảng, vv.
+
+Cấu trúc được mô tả dưới đây sử dụng "phpmussel" làm tên cơ sở dữ liệu của nó, nhưng bạn có thể sử dụng bất kỳ tên nào bạn muốn cho cơ sở dữ liệu của mình, miễn là cùng tên đó được sao chép trong cấu hình DSN của bạn.
+
+```
+╔══════════════════════════════════════════════╗
+║ DATABASE "phpmussel"                         ║
+║ │╔═══════════════════════════════════════════╩╗
+║ └╫─TABLE "Cache" (UTF-8)                      ║
+║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
+║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
+║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
+╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
+   ╚════════════════════════════════════════════╝
+```
+
+Chỉ thị cấu hình `pdo_dsn` của phpMussel nên được cấu hình như mô tả bên dưới.
+
+```
+mysql:dbname=phpmussel;host=localhost;port=3306
+ │
+ │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
+ └─mysql:dbname=phpmussel;host=localhost;port=3306
+   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
+    │            │              │              └Số cổng để kết nối với máy chủ.
+    │            │              │
+    │            │              └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+    │            │
+    │            └Tên của cơ sở dữ liệu để sử dụng.
+    │
+    └Tên của trình điều khiển cơ sở dữ liệu cho PDO để sử dụng.
+```
+
+Nếu bạn không chắc chắn về việc sử dụng cái gì cho một phần cụ thể trong DSN của mình, hãy thử xem trước tiên xem nó có hoạt động như cũ không mà không thay đổi gì.
+
+Lưu ý rằng `pdo_username` và `pdo_password` phải giống với tên người dùng và mật khẩu bạn đã chọn cho cơ sở dữ liệu của mình.
+
 ---
 
 
@@ -1549,4 +1593,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 23 Tháng Chín 2019 (2019.09.23).
+Lần cuối cập nhật: 11 Tháng Mười 2019 (2019.10.11).

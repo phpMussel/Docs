@@ -1005,6 +1005,8 @@ PHPMailer配置。
 ##### 『pdo_dsn』
 - PDO DSN值。​默認 = 『`mysql:dbname=phpmussel;host=localhost;port=3306`』。
 
+*也可以看看：​[『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？](#HOW_TO_USE_PDO)*
+
 ##### 『pdo_username』
 - PDO用戶名。
 
@@ -1094,15 +1096,11 @@ phpMussel簽名文件前9個字節（`[x0-x8]`）是`phpMussel`。​它作為�
 
 #### 殺毒軟件兼容性
 
-在大多數情況下，​phpMussel應該相當兼容性與大多數殺毒軟件。​然，​衝突已經報導由多個用戶以往。​下面這些信息是從VirusTotal.com，​和它描述了一個數的假陽性報告的各種殺毒軟件針對phpMussel。​雖說這個信息是不絕對保證的如果您會遇到兼容性問題間phpMussel和您的殺毒軟件，​如果您的殺毒軟件注意衝突針對phpMussel，​您應該考慮關閉它之前使用phpMussel或您應該考慮替代選項從您的殺毒軟件或從phpMussel。
+有時phpMussel和其他防病毒解決方案之間存在兼容性問題。​因此，大約每隔幾個月，我對照Virus Total檢查了最新版本的phpMussel代碼庫，為了看那裡是否報告了任何問題。​報告了問題時，我會在文檔中在此處列出報告的問題。
 
-這個信息最後更新2018年10月9日和是準確為至少phpMussel的兩個最近次要版本（v1.5.0-v1.6.0）在這個現在時候的寫作。
+當我最近檢查（2019年10月10日）時，沒有任何問題的報告。
 
-*此信息僅適用於主包裝。​結果可能因安裝的簽名文件，插件，和其他外圍組件而異。*
-
-| 掃描程序 | 掃描結果 |
-|---|---|
-| Bkav | 報告 『VEX.Webshell』 |
+我不檢查簽名文件，文檔或其他外圍內容。​當其他防病毒解決方案檢測到簽名文件時，它們總是會引起一些誤報（假陽性）。​因此，我強烈建議，如果您打算在已經存在另一種防病毒解決方案的計算機上安裝phpMussel，將phpMussel簽名文件列入白名單。
 
 ---
 
@@ -1126,6 +1124,7 @@ phpMussel簽名文件前9個字節（`[x0-x8]`）是`phpMussel`。​它作為�
 - [phpMussel可以掃描非ANSI名稱的文件嗎？](#SCAN_NON_ANSI)
 - [黑名單 – 白名單 – 灰名單 – 他們是什麼，我如何使用它們？](#BLACK_WHITE_GREY)
 - [當我通過更新頁面啟用或禁用簽名文件時，它會在配置中它們將按字母數字排序。​我可以改變他們排序的方式嗎？](#CHANGE_COMPONENT_SORT_ORDER)
+- [『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？](#HOW_TO_USE_PDO)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>什麼是『簽名』？
 
@@ -1349,6 +1348,51 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 
 當文件禁用時的情況是相同的。​相反，如果您希望文件最後執行，您可以在文件名前添加`zzz:`或類似。​在任何情況下，您都不需要重命名相關文件。
 
+#### <a name="HOW_TO_USE_PDO"></a>『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？
+
+“PDO” 是 “[PHP Data Objects](https://www.php.net/manual/zh/intro.pdo.php)” 的首字母縮寫（它的意思是“PHP數據對象”）。​它為PHP提供了一個接口，使其能夠連接到各種PHP應用程序通常使用的某些數據庫系統。
+
+“DSN” 是 “[data source name](https://en.wikipedia.org/wiki/Data_source_name)” 的首字母縮寫（它的意思是“數據源名稱”）。​“PDO DSN”向PDO描述了它應如何連接到數據庫。
+
+phpMussel可以將PDO用於緩存。​為了使其正常工作，您需要相應地配置phpMussel，從而啟用PDO，需要為phpMussel創建一個新數據庫以供使用（如果您尚未想到要供phpMussel使用的數據庫），並需要按照以下結構在數據庫中創建一個新表。
+
+當然，這僅在您確實希望phpMussel使用PDO時適用。​如果您對phpMussel使用平面文件緩存（按照其默認配置）或提供的任何其他各種緩存選項感到足夠滿意，則無需費心設置數據庫，數據庫表，等等。
+
+下面描述的結構使用“phpmussel”作為其數據庫名稱，但是您可以使用任何想要的數據庫名稱，只要在DSN配置中名稱被複製。
+
+```
+╔══════════════════════════════════════════════╗
+║ DATABASE "phpmussel"                         ║
+║ │╔═══════════════════════════════════════════╩╗
+║ └╫─TABLE "Cache" (UTF-8)                      ║
+║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
+║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
+║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
+╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
+   ╚════════════════════════════════════════════╝
+```
+
+phpMussel的`pdo_dsn`應配置如下。
+
+```
+mysql:dbname=phpmussel;host=localhost;port=3306
+ │
+ │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
+ └─mysql:dbname=phpmussel;host=localhost;port=3306
+   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
+    │            │              │              └連接的主機端口號。
+    │            │              │
+    │            │              └要查找數據庫的主機。
+    │            │
+    │            └要使用的數據庫的名稱。
+    │
+    └PDO應該使用的數據庫驅動程序的名稱。
+```
+
+如果不確定如何構造DSN，請嘗試先查看它是否按原樣工作，而不進行任何更改。
+
+請注意， `pdo_username` 和 `pdo_password` 應與您為數據庫選擇的用戶名和密碼相同。
+
 ---
 
 
@@ -1557,4 +1601,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2019年9月23日。
+最後更新：2019年10月11日。
