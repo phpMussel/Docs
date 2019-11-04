@@ -13,7 +13,7 @@
 - 10. [자주 묻는 질문 (FAQ)](#SECTION10)
 - 11. [법률 정보](#SECTION11)
 
-*번역 관련 참고 사항 : 오류가 발생하는 경우 (예 : 번역 간 불일치, 오타 등), README의 영어 버전을 원본 및 정식 버전으로 취급합니다. 오류가 있는 경우 이를 정정하는 것을 환영합니다.*
+*번역 관련 참고 사항: 오류가 발생하는 경우 (예: 번역 간 불일치, 오타 등), README의 영어 버전을 원본 및 정식 버전으로 취급합니다. 오류가 있는 경우 이를 정정하는 것을 환영합니다.*
 
 ---
 
@@ -24,15 +24,15 @@ phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 h
 
 [PHPMUSSEL](https://phpmussel.github.io/) COPYRIGHT 2013 and beyond GNU/GPLv2 by [Caleb M (Maikuolan)](https://github.com/Maikuolan).
 
-이 스크립트는 자유 소프트웨어입니다; 당신은 자유 소프트웨어 재단이 발표한 GNU 일반 공중 사용 허가서 버전 2 또는 그 이후 버전에 따라 이 스크립트를 재배포하거나 수정할 수 있습니다. 이 스크립트가 유용하게 사용되기를 바라지만 상용으로 사용되거나 특정 목적에 적합할 것이라는 것을 묵시적인 보증을 포함한 그 어떠한 형태로도 보증하지 않습니다. 자세한 내용은 `LICENSE.txt` 파일 또는 다음 링크에서 확인할 수 있는 GNU 일반 공중 사용 허가서를 참조하시기 바랍니다 :
+이 스크립트는 자유 소프트웨어입니다; 당신은 자유 소프트웨어 재단이 발표한 GNU 일반 공중 사용 허가서 버전 2 또는 그 이후 버전에 따라 이 스크립트를 재배포하거나 수정할 수 있습니다. 이 스크립트가 유용하게 사용되기를 바라지만 상용으로 사용되거나 특정 목적에 적합할 것이라는 것을 묵시적인 보증을 포함한 그 어떠한 형태로도 보증하지 않습니다. 자세한 내용은 `LICENSE.txt` 파일 또는 다음 링크에서 확인할 수 있는 GNU 일반 공중 사용 허가서를 참조하시기 바랍니다:
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
 프로젝트에 영감을 주고 이 스크립트가 활용하는 서명을 제공하는 [ClamAV](https://www.clamav.net/)에게 감사의 말씀을 드립니다. 그 서명 없이는 이 스크립트가 존재하지 못했거나 극히 제한적인 가치만을 가졌을 것입니다.
 
-프로젝트 파일을 호스팅하는 SourceForge, Bitbucket과 GitHub, phpMussel이 활용하는 서명의 추가적인 소스 : [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 등, 이 프로젝트를 지원해 주신 분들, 제가 잊어버리고 언급하지 못했을 다른 분들과 이 스크립트를 사용하는 당신에게 감사의 말씀을 드립니다.
+프로젝트 파일을 호스팅하는 SourceForge, Bitbucket과 GitHub, phpMussel이 활용하는 서명의 추가적인 소스: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 등, 이 프로젝트를 지원해 주신 분들, 제가 잊어버리고 언급하지 못했을 다른 분들과 이 스크립트를 사용하는 당신에게 감사의 말씀을 드립니다.
 
-이 문서와 관련 패키지는 다음 링크에서 무료로 다운로드할 수 있습니다 :
+이 문서와 관련 패키지는 다음 링크에서 무료로 다운로드할 수 있습니다:
 - [GitHub](https://github.com/phpMussel/phpMussel).
 - [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
 - [SourceForge](https://sourceforge.net/projects/phpmussel/).
@@ -54,19 +54,19 @@ phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 h
 
 5) 필요한 서명을 설치하세요. *참조: [서명 설치](#INSTALLING_SIGNATURES).*
 
-6) 그 다음에 시스템 또는 CMS에 phpMussel를 연결합니다. 방법에는 여러 가지가 있지만 가장 쉬운 것은`require`과`include`에서 스크립트를 시스템 또는 CMS 코어 파일의 첫 부분에 기재하는 방법입니다. (코어 파일은 사이트의 어떤 페이지에 접근이 있어도 반드시로드되는 파일입니다). 일반적으로는 `/includes`또는 `/assets`또는 `/functions`같은 디렉토리에있는 파일에서 `init.php`, `common_functions.php`, `functions.php`라는 파일 이름을 붙일 수 있습니다. 실제로 어떤 파일인지는 찾아도 바닥입니다해야합니다. 잘 모르는 경우 phpMussel 지원 포럼을 참조하거나 GitHub 때문에 phpMussel 문제의 페이지 또는 알려주십시오 (CMS 정보 필수). 나 자신을 포함하여 사용자에 유사한 CMS를 다룬 경험이 있으면, 무엇인가의 지원을 제공 할 수 있습니다. 코어 파일이 발견 된 경우, (`require` 또는`include`을 사용하여) 다음 코드를 파일의 맨 위에 삽입하십시오. 그러나 따옴표로 둘러싸인 부분은`loader.php` 파일의 정확한 주소 (HTTP 주소가 아닌 로컬 주소 전술의 vault 주소와 유사)로 바꿉니다.
+6) 다음으로 phpMussel을 시스템 또는 CMS에 "hook"해야 합니다. 시스템이나 CMS에 phpMussel과 같은 스크립트를 "hook"하는 방법은 여러 가지가 있지만, `require` 또는 `include` statement를 사용하여 시스템이나 CMS의 코어 파일 (일반적으로 누군가 웹 사이트의 어떤 페이지에 접근할 때 항상 로드되는 것)의 시작점에 스크립트를 포함하는 방법이 가장 쉽습니다. 보통 이러한 파일은 `/includes`, `/assets` 또는 `/functions`과 같은 디렉토리 내에 있으며 흔히 파일 이름이 `init.php`, `common_functions.php`, `functions.php` 또는 이와 유사할 것입니다. 어떤 파일을 사용할지 상황에 적합하게 결정해야 합니다; 결정하는 데 어려움이 있다면 GitHub에 있는 phpMussel 이슈 페이지나 phpMussel 지원 포럼에 방문하여 도움을 받으세요; 저나 다른 사용자가 당신이 사용하는 CMS에 대한 경험이 있을 수 있으며 (어떤 CMS를 사용하는지 알려야 합니다) 도움을 줄 수 있습니다. 이 작업을 하려면 [`require` 또는 `include` 사용] 다음 코드에서 따옴표 안의 문자열을 `loader.php` 파일의 경로 (로컬 주소이며, HTTP 주소가 아닙니다; 앞서 언급했던 vault 주소와 유사할 것입니다)로 변경하고 이를 코어 파일의 시작점에 삽입하세요.
 
 `<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
 
-파일을 저장하고 닫은 다음 다시 업로드합니다.
+파일을 저장하고 닫은 후 다시 업로드하세요.
 
 -- 다른 방법 --
 
-Apache 웹서버를 이용하고있어, 한편`php.ini`를 편집 할 수 있도록한다면, `auto_prepend_file` 지시어를 사용하여 PHP 요청이있을 경우에는 항상 phpMussel을 앞에 추가하도록 할 있습니다. 예를 들면 다음과 같습니다.
+Apache 웹 서버를 사용하고 있으며 `php.ini`에 접근할 수 있는 경우 `auto_prepend_file` 지시자를 사용하여 PHP 요청이 있을 때마다 phpMussel을 앞에 덧붙일 수 있습니다. 예시:
 
 `auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
 
-또는 `.htaccess`에서 :
+`.htaccess` 파일 사용 시 예시:
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
@@ -746,7 +746,7 @@ Configuration (v2)
 
 ##### "filetype_whitelist", "filetype_blacklist", "filetype_greylist"
 - 시스템이 특정 유형의 파일 만 업로드를 허용하거나 거절하는 경우 파일 유형을 적절히 화이트리스트, 블랙리스트, 그레이리스트로 분류 해두면 파일 유형에 튀겨 진 파일은 스캔을 건너 뛸 수 때문에 속도로 연결됩니다. 형식은 CSV (쉼표로 구분)입니다. 목록에 의하지 않고 모두를 검사 할 경우 변수는 빈 상태로 유지하고 화이트리스트 / 블랙리스트 / 그레이리스트를 해제합니다.
-- 프로세스의 논리적 순서 :
+- 프로세스의 논리적 순서:
  - 파일 형식이 화이트리스트에 포함되어 있으면, 스캔하지 않고 블록하지 않고 블랙리스트 및 그레이리스트에 체크를하지 않습니다.
  - 파일 형식이 블랙리스트에 있으면 스캔하지 않고 즉시 차단하고 그레이리스트에 체크를하지 않습니다.
  - 회색 목록이 비어 또는 그레이리스트가 하늘이 아닌 한편 그 파일 타입이 있으면 정상적으로 스캔 차단 여부를 판단합니다. 그레이리스트가 하늘이 아닌 한편 그 파일 유형이 포함되어 있지 않으면 블랙리스트와 같은 취급을 할 수 있고 스캔없이 차단합니다.
