@@ -1125,6 +1125,7 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 - [Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?](#BLACK_WHITE_GREY)
 - [Ketika saya mengaktifkan atau menonaktifkan file tanda tangan melalui halaman pembaruan, itu memilah mereka secara alfanumerik dalam konfigurasi. Bisakah saya mengubah cara mereka disortir?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#HOW_TO_USE_PDO)
+- [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#AJAX_AJAJ_JSON)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Apa yang "tanda tangan"?
 
@@ -1356,6 +1357,8 @@ Situasi adalah sama ketika file dinonaktifkan. Sebaliknya, jika Anda ingin file 
 
 phpMussel menyediakan opsi untuk memanfaatkan PDO untuk tujuan caching. Agar ini berfungsi sebagaimana dimaksud, Anda harus mengkonfigurasi phpMussel yang sesuai, demikian mengaktifkan PDO, membuat basis data baru untuk digunakan oleh phpMussel (jika Anda belum memiliki basis data untuk digunakan oleh phpMussel), dan membuat tabel baru di database Anda sesuai dengan struktur yang dijelaskan dibawah.
 
+Ketika koneksi basis data berhasil, tapi tabel yang diperlukan tidak ada, akan berusaha membuatnya secara otomatis. Namun, perilaku ini belum diuji secara luas dan kesuksesan tidak dapat dijamin.
+
 Ini, tentu saja, hanya berlaku jika Anda ingin phpMussel menggunakan PDO. Jika Anda cukup senang untuk phpMussel untuk menggunakan caching flatfile (per konfigurasi default), atau salah satu dari berbagai opsi caching lain yang disediakan, Anda tidak perlu repot-repot menyusahkan diri Anda dengan mengatur database, tabel dan sebagainya.
 
 Struktur yang dijelaskan dibawah menggunakan "phpmussel" sebagai nama basis datanya, tetapi Anda dapat menggunakan nama yang Anda inginkan untuk basis data Anda, asalkan nama yang sama direplikasi pada konfigurasi DSN Anda.
@@ -1363,37 +1366,155 @@ Struktur yang dijelaskan dibawah menggunakan "phpmussel" sebagai nama basis data
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩╗
-║ └╫─TABLE "Cache" (UTF-8)                      ║
-║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
-║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
-║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
-╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
-   ╚════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═══╗
+║ └╫─TABLE "Cache" (UTF-8)                         ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
+   ╚═══════════════════════════════════════════════╝
 ```
 
 Direktif konfigurasi `pdo_dsn` harus dikonfigurasi seperti dijelaskan dibawah.
 
 ```
-mysql:dbname=phpmussel;host=localhost;port=3306
- │
- │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
- └─mysql:dbname=phpmussel;host=localhost;port=3306
-   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
-    │            │              │              └Nomor port yang akan
-    │            │              │               dihubungkan dengan host.
-    │            │              │
-    │            │              └Host untuk terhubung dengan untuk menemukan
-    │            │               database.
-    │            │
-    │            └Nama basis data yang akan digunakan.
-    │
-    └Nama driver database untuk PDO untuk terhubung.
+Tergantung pada driver basis data yang digunakan...
+│
+├─4d (Peringatan: Eksperimental, belum diuji, tidak direkomendasikan!)
+│ │
+│ │         ╔═══════╗
+│ └─4D:host=localhost;charset=UTF-8
+│           ╚╤══════╝
+│            └Host untuk terhubung dengan untuk menemukan database.
+│
+├─cubrid
+│ │
+│ │             ╔═══════╗      ╔═══╗        ╔═════╗
+│ └─cubrid:host=localhost;port=33000;dbname=example
+│               ╚╤══════╝      ╚╤══╝        ╚╤════╝
+│                │              │            └Nama basis data yang akan
+│                │              │             digunakan.
+│                │              │
+│                │              └Nomor port yang akan dihubungkan dengan host.
+│                │
+│                └Host untuk terhubung dengan untuk menemukan database.
+│
+├─dblib
+│ │
+│ │ ╔═══╗      ╔═══════╗        ╔═════╗
+│ └─dblib:host=localhost;dbname=example
+│   ╚╤══╝      ╚╤══════╝        ╚╤════╝
+│    │          │                └Nama basis data yang akan digunakan.
+│    │          │
+│    │          └Host untuk terhubung dengan untuk menemukan database.
+│    │
+│    └Nilai yang mungkin: "mssql", "sybase", "dblib".
+│
+├─firebird
+│ │
+│ │                 ╔═══════════════════╗
+│ └─firebird:dbname=/path/to/database.fdb
+│                   ╚╤══════════════════╝
+│                    ├Dapat menjadi jalur ke file database lokal.
+│                    │
+│                    ├Dapat terhubung dengan nomor host dan port.
+│                    │
+│                    └Anda harus merujuk pada dokumentasi Firebird jika Anda
+│                     ingin menggunakan ini.
+│
+├─ibm
+│ │
+│ │         ╔═════╗
+│ └─ibm:DSN=example
+│           ╚╤════╝
+│            └Database yang di katalog untuk dihubungkan.
+│
+├─informix
+│ │
+│ │              ╔═════╗
+│ └─informix:DSN=example
+│                ╚╤════╝
+│                 └Database yang di katalog untuk dihubungkan.
+│
+├─mysql (Paling direkomendasikan!)
+│ │
+│ │              ╔═════╗      ╔═══════╗      ╔══╗
+│ └─mysql:dbname=example;host=localhost;port=3306
+│                ╚╤════╝      ╚╤══════╝      ╚╤═╝
+│                 │            │              └Nomor port yang akan dihubungkan
+│                 │            │               dengan host.
+│                 │            │
+│                 │            └Host untuk terhubung dengan untuk menemukan
+│                 │             database.
+│                 │
+│                 └Nama basis data yang akan digunakan.
+│
+├─oci
+│ │
+│ │            ╔═════╗
+│ └─oci:dbname=example
+│              ╚╤════╝
+│               ├Dapat merujuk ke database terkatalog spesifik.
+│               │
+│               ├Dapat terhubung dengan nomor host dan port.
+│               │
+│               └Anda harus merujuk pada dokumentasi Oracle jika Anda ingin
+│                menggunakan ini.
+│
+├─odbc
+│ │
+│ │      ╔═════╗
+│ └─odbc:example
+│        ╚╤════╝
+│         ├Dapat merujuk ke database terkatalog spesifik.
+│         │
+│         ├Dapat terhubung dengan nomor host dan port.
+│         │
+│         └Anda harus merujuk pada dokumentasi ODBC/DB2 jika Anda ingin
+│          menggunakan ini.
+│
+├─pgsql
+│ │
+│ │            ╔═══════╗      ╔══╗        ╔═════╗
+│ └─pgsql:host=localhost;port=5432;dbname=example
+│              ╚╤══════╝      ╚╤═╝        ╚╤════╝
+│               │              │           └Nama basis data yang akan
+│               │              │            digunakan.
+│               │              │
+│               │              └Nomor port yang akan dihubungkan dengan host.
+│               │
+│               └Host untuk terhubung dengan untuk menemukan database.
+│
+├─sqlite
+│ │
+│ │        ╔════════╗
+│ └─sqlite:example.db
+│          ╚╤═══════╝
+│           └Jalur ke file database lokal untuk digunakan.
+│
+└─sqlsrv
+  │
+  │               ╔═══════╗ ╔══╗          ╔═════╗
+  └─sqlsrv:Server=localhost,1521;Database=example
+                  ╚╤══════╝ ╚╤═╝          ╚╤════╝
+                   │         │             └Nama basis data yang akan digunakan.
+                   │         │
+                   │         └Nomor port yang akan dihubungkan dengan host.
+                   │
+                   └Host untuk terhubung dengan untuk menemukan database.
 ```
 
 Jika Anda tidak yakin tentang apa yang harus digunakan untuk beberapa bagian tertentu dari DSN Anda, coba lihat terlebih dahulu apakah itu berfungsi sebagaimana mestinya, tanpa mengubah apapun.
 
 Perhatikan bahwa `pdo_username` dan` pdo_password` harus sama dengan nama pengguna dan kata sandi yang Anda pilih untuk basis data Anda.
+
+#### <a name="AJAX_AJAJ_JSON"></a>Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?
+
+Ini normal. Halaman "Upload Ditolak" standar phpMussel disajikan sebagai HTML, yang seharusnya cukup untuk permintaan sinkron biasa, tetapi yang mungkin tidak akan cukup jika fasilitas upload Anda mengharapkan sesuatu yang lain. Jika fasilitas upload Anda tidak sinkron, atau mengharapkan status upload akan dilayani secara tidak sinkron, ada beberapa hal yang Anda dapat coba lakukan agar phpMussel dapat melayani kebutuhan fasilitas upload Anda.
+
+1. Membuat templat keluaran dipersonalisasi untuk menyajikan sesuatu selain HTML.
+2. Membuat plugin dipersonalisasi untuk memotong halaman "Upload Ditolak" standar seluruhnya dan suruh penangan upload melakukan hal lain saat upload diblokir (ada beberapa poin dalam kode yang disediakan oleh penangan upload yang dapat membantu untuk ini).
+3. Menonaktifkan penangan upload seluruhnya dan alih-alih hanya memanggil phpMussel API dari dalam fasilitas upload Anda.
 
 ---
 
@@ -1595,4 +1716,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 11 Oktober 2019 (2019.10.11).
+Terakhir Diperbarui: 7 November 2019 (2019.11.07).

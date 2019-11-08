@@ -1125,6 +1125,7 @@ No verifico los archivos de firma, la documentación u otro contenido periféric
 - [Listas negras – Listas blancas – Listas grises – ¿Qué son y cómo los uso?](#BLACK_WHITE_GREY)
 - [Cuando activar o desactivar archivos de firmas a través de la página de actualizaciones, los ordena de forma alfanumérica en la configuración. ¿Puedo cambiar la forma en que se ordenan?](#CHANGE_COMPONENT_SORT_ORDER)
 - [¿Qué es un "PDO DSN"? Cómo puedo usar PDO con phpMussel?](#HOW_TO_USE_PDO)
+- [Mi recurso de subido es asíncrono (por ejemplo, usa ajax, ajaj, json, etc). No veo ningún mensaje especial o advertencia cuando se bloquea una subida. ¿Que esta pasando?](#AJAX_AJAJ_JSON)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>¿Qué es una "firma"?
 
@@ -1356,6 +1357,8 @@ La misma situación cuando un archivo está desactivado. Por el contrario, si qu
 
 phpMussel ofrece la opción de utilizar PDO para fines de almacenamiento en caché. Para que esto funcione correctamente, deberá configurar phpMussel en consecuencia, habilitando PDO, crear una nueva base de datos para que phpMussel la use (si aún no tiene en mente una base de datos para que phpMussel la use) y crear una nueva tabla en su base de datos de acuerdo con la estructura que se describe a continuación.
 
+Cuando una conexión de base de datos se realiza correctamente, pero la tabla necesaria no existe, intentará crearla automáticamente. Pero, este comportamiento no se ha probado exhaustivamente y no se puede garantizar el éxito.
+
 Esto, por supuesto, solo se aplica si realmente desea que phpMussel use PDO. Si está lo suficientemente contento de que phpMussel use el almacenamiento en caché de archivos planos (según su configuración predeterminada), o cualquiera de las otras opciones de almacenamiento en caché proporcionadas, no tendrá que preocuparse de configurar bases de datos, tablas, etc.
 
 La estructura que se describe a continuación usa "phpmussel" como nombre de la base de datos, pero puede usar el nombre que desee para su base de datos, siempre que ese mismo nombre se replique en su configuración DSN.
@@ -1363,37 +1366,155 @@ La estructura que se describe a continuación usa "phpmussel" como nombre de la 
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩╗
-║ └╫─TABLE "Cache" (UTF-8)                      ║
-║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
-║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
-║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
-╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
-   ╚════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═══╗
+║ └╫─TABLE "Cache" (UTF-8)                         ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
+   ╚═══════════════════════════════════════════════╝
 ```
 
 La directiva de configuración `pdo_dsn` de phpMussel debe configurarse como se describe a continuación.
 
 ```
-mysql:dbname=phpmussel;host=localhost;port=3306
- │
- │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
- └─mysql:dbname=phpmussel;host=localhost;port=3306
-   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
-    │            │              │              └El número de puerto para
-    │            │              │               conectarse al host.
-    │            │              │
-    │            │              └El host con el que conectarse para encontrar
-    │            │               la base de datos.
-    │            │
-    │            └El nombre de la base de datos a usar.
-    │
-    └El nombre del controlador de la base de datos para usar con PDO.
+Dependiendo de qué controlador de base de datos se use...
+│
+├─4d (¡Advertencia: Experimental, no probado, no recomendado!)
+│ │
+│ │         ╔═══════╗
+│ └─4D:host=localhost;charset=UTF-8
+│           ╚╤══════╝
+│            └El host con el que conectarse para encontrar la base de datos.
+│
+├─cubrid
+│ │
+│ │             ╔═══════╗      ╔═══╗        ╔═════╗
+│ └─cubrid:host=localhost;port=33000;dbname=example
+│               ╚╤══════╝      ╚╤══╝        ╚╤════╝
+│                │              │            └El nombre de la base de datos a
+│                │              │             usar.
+│                │              │
+│                │              └El número de puerto para conectarse al host.
+│                │
+│                └El host con el que conectarse para encontrar la base de
+│                 datos.
+│
+├─dblib
+│ │
+│ │ ╔═══╗      ╔═══════╗        ╔═════╗
+│ └─dblib:host=localhost;dbname=example
+│   ╚╤══╝      ╚╤══════╝        ╚╤════╝
+│    │          │                └El nombre de la base de datos a usar.
+│    │          │
+│    │          └El host con el que conectarse para encontrar la base de datos.
+│    │
+│    └Valores posibles: "mssql", "sybase", "dblib".
+│
+├─firebird
+│ │
+│ │                 ╔═══════════════════╗
+│ └─firebird:dbname=/path/to/database.fdb
+│                   ╚╤══════════════════╝
+│                    ├Puede ser una ruta a un archivo de base de datos local.
+│                    │
+│                    ├Se puede conectar con un host y número de puerto.
+│                    │
+│                    └Debe consultar la documentación de Firebird si desea usar
+│                     esto.
+│
+├─ibm
+│ │
+│ │         ╔═════╗
+│ └─ibm:DSN=example
+│           ╚╤════╝
+│            └Con qué base de datos catalogada para conectarse.
+│
+├─informix
+│ │
+│ │              ╔═════╗
+│ └─informix:DSN=example
+│                ╚╤════╝
+│                 └Con qué base de datos catalogada para conectarse.
+│
+├─mysql (¡Lo más recomendado!)
+│ │
+│ │              ╔═════╗      ╔═══════╗      ╔══╗
+│ └─mysql:dbname=example;host=localhost;port=3306
+│                ╚╤════╝      ╚╤══════╝      ╚╤═╝
+│                 │            │              └El número de puerto para
+│                 │            │               conectarse al host.
+│                 │            │
+│                 │            └El host con el que conectarse para encontrar la
+│                 │             base de datos.
+│                 │
+│                 └El nombre de la base de datos a usar.
+│
+├─oci
+│ │
+│ │            ╔═════╗
+│ └─oci:dbname=example
+│              ╚╤════╝
+│               ├Puede hacer referencia a la base de datos catalogada
+│               │específica.
+│               │
+│               ├Se puede conectar con un host y número de puerto.
+│               │
+│               └Debe consultar la documentación de Oracle si desea usar esto.
+│
+├─odbc
+│ │
+│ │      ╔═════╗
+│ └─odbc:example
+│        ╚╤════╝
+│         ├Puede hacer referencia a la base de datos catalogada específica.
+│         │
+│         ├Se puede conectar con un host y número de puerto.
+│         │
+│         └Debe consultar la documentación de ODBC/DB2 si desea usar esto.
+│
+├─pgsql
+│ │
+│ │            ╔═══════╗      ╔══╗        ╔═════╗
+│ └─pgsql:host=localhost;port=5432;dbname=example
+│              ╚╤══════╝      ╚╤═╝        ╚╤════╝
+│               │              │           └El nombre de la base de datos a
+│               │              │            usar.
+│               │              │
+│               │              └El número de puerto para conectarse al host.
+│               │
+│               └El host con el que conectarse para encontrar la base de datos.
+│
+├─sqlite
+│ │
+│ │        ╔════════╗
+│ └─sqlite:example.db
+│          ╚╤═══════╝
+│           └La ruta al archivo de base de datos local a utilizar.
+│
+└─sqlsrv
+  │
+  │               ╔═══════╗ ╔══╗          ╔═════╗
+  └─sqlsrv:Server=localhost,1521;Database=example
+                  ╚╤══════╝ ╚╤═╝          ╚╤════╝
+                   │         │             └El nombre de la base de datos a usar.
+                   │         │
+                   │         └El número de puerto para conectarse al host.
+                   │
+                   └El host con el que conectarse para encontrar la base de datos.
 ```
 
 Si no está seguro de qué usar para una parte particular de su DSN, intenta ver primero si funciona como está, sin cambiar nada.
 
 Tenga en cuenta que `pdo_username` y` pdo_password` deben coincidir con el nombre de usuario y la contraseña que eligió para su base de datos.
+
+#### <a name="AJAX_AJAJ_JSON"></a>Mi recurso de subido es asíncrono (por ejemplo, usa ajax, ajaj, json, etc). No veo ningún mensaje especial o advertencia cuando se bloquea una subida. ¿Que esta pasando?
+
+Esto es normal. La página estándar "Subida Denegada" de phpMussel se sirve como HTML, que debería ser suficiente para las solicitudes síncronas típicas, pero que probablemente no será suficiente si su instalación de subida espera algo más. Si su recurso de subido es asíncrono, o espera que un estado de subida se sirva asincrónicamente, hay algunas cosas que podría intentar hacer para que phpMussel satisfaga las necesidades de su recurso de subido.
+
+1. Crear una plantilla de salida personalizada para servir algo que no sea HTML.
+2. Crear un complemento personalizado para omitir por completo la página estándar "Subida Denegada" y para que el controlador de subida haga algo más cuando se bloquea una subida (hay algunos puntos en el código proporcionado por el controlador de subida que podrían ser útiles para esto).
+3. Deshabilita el controlador de subida por completo y en su lugar solo llama a la API phpMussel desde tu recurso de subido.
 
 ---
 
@@ -1602,4 +1723,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 11 de Octubre de 2019 (2019.10.11).
+Última Actualización: 7 de Noviembre de 2019 (2019.11.07).

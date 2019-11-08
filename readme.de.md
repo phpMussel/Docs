@@ -1126,6 +1126,7 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 - [Blacklists – Whitelists – Greylists – Was sind sie und wie benutze ich sie?](#BLACK_WHITE_GREY)
 - [Wenn ich Signaturdateien über die Aktualisierungsseite aktiviere oder deaktiviere, sortiert sie diese alphanumerisch in der Konfiguration. Kann ich die Art der Sortierung ändern?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Was ist ein "PDO DSN"? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)
+- [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#AJAX_AJAJ_JSON)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Was ist eine "Signatur"?
 
@@ -1357,6 +1358,8 @@ Gleiche Situation, wenn eine Datei deaktiviert ist. Umgekehrt, wenn Sie möchten
 
 phpMussel bietet die Option, PDO für Caching-Zwecke zu verwenden. Damit dies ordnungsgemäß funktioniert, müssen Sie phpMussel entsprechend konfigurieren, PDO aktivieren, eine neue Datenbank für phpMussel erstellen (falls Sie noch keine Datenbank für phpMussel in Betracht gezogen haben) und eine neue Tabelle erstellen in Ihrer Datenbank entsprechend der unten beschriebenen Struktur.
 
+Wenn eine Datenbankverbindung erfolgreich hergestellt wurde, aber die erforderliche Tabelle jedoch nicht vorhanden ist, wird versucht sie automatisch zu erstellen. Dieses Verhalten wurde jedoch nicht ausführlich getestet und der Erfolg kann nicht garantiert werden.
+
 Dies gilt natürlich nur, wenn phpMussel tatsächlich PDO verwenden soll. Wenn Sie zufrieden sind, dass phpMussel Flatfile-Caching (gemäß Standardkonfiguration) oder eine der verschiedenen anderen Caching-Optionen verwendet, müssen Sie sich nicht mit dem Einrichten von Datenbanken, Tabellen u.s.w. befassen.
 
 In der unten beschriebenen Struktur wird "phpmussel" als Datenbankname verwendet. Sie können jedoch einen beliebigen Namen für Ihre Datenbank verwenden, sofern dieser Name in Ihrer DSN-Konfiguration repliziert wird.
@@ -1364,37 +1367,160 @@ In der unten beschriebenen Struktur wird "phpmussel" als Datenbankname verwendet
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩╗
-║ └╫─TABLE "Cache" (UTF-8)                      ║
-║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
-║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
-║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
-╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
-   ╚════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═══╗
+║ └╫─TABLE "Cache" (UTF-8)                         ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
+   ╚═══════════════════════════════════════════════╝
 ```
 
 Die Konfigurationsanweisung `pdo_dsn` von phpMussel sollte wie folgt konfiguriert werden.
 
 ```
-mysql:dbname=phpmussel;host=localhost;port=3306
- │
- │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
- └─mysql:dbname=phpmussel;host=localhost;port=3306
-   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
-    │            │              │              └Die Portnummer, die beim
-    │            │              │               Herstellen der Verbindung
-    │            │              │               verwendet werden soll.
-    │            │              │
-    │            │              └Der Host, auf dem sich die Datenbank befindet.
-    │            │
-    │            └Der Name der Datenbank.
-    │
-    └Der Name des Datenbank-Driver, den PDO verwenden soll.
+Abhängig davon, welcher Datenbanktreiber verwendet wird...
+│
+├─4d (Warnung: Experimentell, ungetestet, nicht empfohlen!)
+│ │
+│ │         ╔═══════╗
+│ └─4D:host=localhost;charset=UTF-8
+│           ╚╤══════╝
+│            └Der Host, auf dem sich die Datenbank befindet.
+│
+├─cubrid
+│ │
+│ │             ╔═══════╗      ╔═══╗        ╔═════╗
+│ └─cubrid:host=localhost;port=33000;dbname=example
+│               ╚╤══════╝      ╚╤══╝        ╚╤════╝
+│                │              │            └Der Name der Datenbank.
+│                │              │
+│                │              └Die Portnummer, die beim Herstellen der
+│                │               Verbindung verwendet werden soll.
+│                │
+│                └Der Host, auf dem sich die Datenbank befindet.
+│
+├─dblib
+│ │
+│ │ ╔═══╗      ╔═══════╗        ╔═════╗
+│ └─dblib:host=localhost;dbname=example
+│   ╚╤══╝      ╚╤══════╝        ╚╤════╝
+│    │          │                └Der Name der Datenbank.
+│    │          │
+│    │          └Der Host, auf dem sich die Datenbank befindet.
+│    │
+│    └Mögliche Werte: "mssql", "sybase", "dblib".
+│
+├─firebird
+│ │
+│ │                 ╔═══════════════════╗
+│ └─firebird:dbname=/path/to/database.fdb
+│                   ╚╤══════════════════╝
+│                    ├Kann ein Pfad zu einer lokalen Datenbankdatei sein.
+│                    │
+│                    ├Kann eine Verbindung mit einem Host und einer Portnummer
+│                    │herstellen.
+│                    │
+│                    └Sie sollten auf die Firebird-Dokumentation lesen wenn Sie
+│                     diese verwenden möchten.
+│
+├─ibm
+│ │
+│ │         ╔═════╗
+│ └─ibm:DSN=example
+│           ╚╤════╝
+│            └Die katalogisierte Datenbank, mit der eine Verbindung hergestellt
+│             werden soll.
+│
+├─informix
+│ │
+│ │              ╔═════╗
+│ └─informix:DSN=example
+│                ╚╤════╝
+│                 └Die katalogisierte Datenbank, mit der eine Verbindung
+│                  hergestellt werden soll.
+│
+├─mysql (Am meisten empfohlen!)
+│ │
+│ │              ╔═════╗      ╔═══════╗      ╔══╗
+│ └─mysql:dbname=example;host=localhost;port=3306
+│                ╚╤════╝      ╚╤══════╝      ╚╤═╝
+│                 │            │              └Die Portnummer, die beim
+│                 │            │               Herstellen der Verbindung
+│                 │            │               verwendet werden soll.
+│                 │            │
+│                 │            └Der Host, auf dem sich die Datenbank befindet.
+│                 │
+│                 └Der Name der Datenbank.
+│
+├─oci
+│ │
+│ │            ╔═════╗
+│ └─oci:dbname=example
+│              ╚╤════╝
+│               ├Kann auf die spezifische katalogisierte Datenbank verweisen.
+│               │
+│               ├Kann eine Verbindung mit einem Host und einer Portnummer
+│               │herstellen.
+│               │
+│               └Sie sollten auf die Oracle-Dokumentation lesen wenn Sie diese
+│                verwenden möchten.
+│
+├─odbc
+│ │
+│ │      ╔═════╗
+│ └─odbc:example
+│        ╚╤════╝
+│         ├Kann auf die spezifische katalogisierte Datenbank verweisen.
+│         │
+│         ├Kann eine Verbindung mit einem Host und einer Portnummer herstellen.
+│         │
+│         └Sie sollten auf die ODBC/DB2-Dokumentation lesen wenn Sie diese
+│          verwenden möchten.
+│
+├─pgsql
+│ │
+│ │            ╔═══════╗      ╔══╗        ╔═════╗
+│ └─pgsql:host=localhost;port=5432;dbname=example
+│              ╚╤══════╝      ╚╤═╝        ╚╤════╝
+│               │              │           └Der Name der Datenbank.
+│               │              │
+│               │              └Die Portnummer, die beim Herstellen der
+│               │               Verbindung verwendet werden soll.
+│               │
+│               └Der Host, auf dem sich die Datenbank befindet.
+│
+├─sqlite
+│ │
+│ │        ╔════════╗
+│ └─sqlite:example.db
+│          ╚╤═══════╝
+│           └Der Pfad zur lokalen Datenbankdatei, die verwendet werden soll.
+│
+└─sqlsrv
+  │
+  │               ╔═══════╗ ╔══╗          ╔═════╗
+  └─sqlsrv:Server=localhost,1521;Database=example
+                  ╚╤══════╝ ╚╤═╝          ╚╤════╝
+                   │         │             └Der Name der Datenbank.
+                   │         │
+                   │         └Die Portnummer, die beim Herstellen der
+                   │          Verbindung verwendet werden soll.
+                   │
+                   └Der Host, auf dem sich die Datenbank befindet.
 ```
 
 Wenn Sie sich nicht sicher sind, was Sie für einen bestimmten Teil Ihres DSN verwenden sollen, prüfen Sie zunächst, ob der DSN so funktioniert, wie er ist, ohne etwas zu ändern.
 
 Beachten Sie, dass `pdo_username` und `pdo_password` mit dem Benutzernamen und dem Passwort übereinstimmen sollten, die Sie für Ihre Datenbank ausgewählt haben.
+
+#### <a name="AJAX_AJAJ_JSON"></a>Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?
+
+Das ist normal. Die Standardseite "Upload verweigert" von phpMussel wird als HTML-Code bereitgestellt, der für typische synchrone Anforderungen ausreichen sollte, aber das wird wahrscheinlich nicht ausreichen, wenn Ihre Upload-Funktionalität etwas anderes erwartet. Wenn Ihre Upload-Funktionalität asynchron ist, oder erwartet dass ein Upload-Status asynchron bereitgestellt wird, es gibt einige Dinge die Sie versuchen könnten, damit phpMussel die Anforderungen Ihrer Upload-Funktionalität erfüllt.
+
+1. Erstellen einer benutzerdefinierten Ausgabevorlage für anderes als HTML zu bedienen.
+2. Erstellen einer benutzerdefinierten Plugin, um die Standardseite "Upload verweigert" vollständig zu umgehen, und lassen Sie den Upload-Handler etwas anderes tun wenn ein Upload blockiert ist (es gibt einige Plugin-Hooks, die vom Upload-Handler bereitgestellt werden und für diese Aufgabe hilfreich sein könnten).
+3. Deaktivieren Sie den Upload-Handler vollständig und rufen Sie stattdessen einfach die phpMussel-API in Ihrer Upload-Funktionalität auf.
 
 ---
 
@@ -1606,4 +1732,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 11 Oktober 2019 (2019.10.11).
+Zuletzt aktualisiert: 7 November 2019 (2019.11.07).

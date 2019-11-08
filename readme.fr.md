@@ -1125,6 +1125,7 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 - [Listes noires – Listes blanches – Listes grises – Quels sont-ils, et comment puis-je les utiliser ?](#BLACK_WHITE_GREY)
 - [Lorsque j'activer ou désactiver des fichiers de signatures via la page des mises à jour, il les trie de manière alphanumérique dans la configuration. Puis-je changer la façon dont ils sont triés ?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?](#HOW_TO_USE_PDO)
+- [Ma fonctionnalité de téléchargement est asynchrone (par exemple, utilise ajax, ajaj, json, etc). Je ne vois aucun message ni avertissement spécial lorsqu'un téléchargement est bloqué. Que se passe-t-il ?](#AJAX_AJAJ_JSON)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Qu'est-ce qu'une « signature » ?
 
@@ -1356,6 +1357,8 @@ Inversement, si vous voulez que le fichier s'exécute en dernier, vous pouvez aj
 
 phpMussel offre la possibilité d'utiliser PDO à des fins de mise en cache. Pour que cela fonctionne correctement, vous devez configurer phpMussel en conséquence, activant PDO, créer une nouvelle base de données à utiliser par phpMussel (si vous n'avez pas déjà à l'esprit une base de données que phpMussel peut utiliser), puis créer un nouvelle table dans votre base de données conformément à la structure décrite ci-dessous.
 
+Quand une connexion à la base de données est réussie, mais la table nécessaire n'existe pas, il tentera de le créer automatiquement. Cependant, ce comportement n'a pas été testé de manière approfondie et le succès ne peut pas être garanti.
+
 Ceci, bien sûr, ne s'applique que si vous voulez réellement que phpMussel utilise PDO. Si vous êtes assez content que phpMussel utilise la mise en cache de fichiers à plat (selon sa configuration par défaut), ou l'une des autres options de mise en cache fournies, vous n'aurez pas à vous soucier de la configuration de bases de données, de tables, etc.
 
 La structure décrite ci-dessous utilise « phpmussel » comme nom de base de données, mais vous pouvez utiliser le nom de votre choix pour votre base de données, à condition que ce même nom soit répliqué dans votre configuration DSN.
@@ -1363,37 +1366,162 @@ La structure décrite ci-dessous utilise « phpmussel » comme nom de base de 
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩╗
-║ └╫─TABLE "Cache" (UTF-8)                      ║
-║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
-║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
-║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
-╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
-   ╚════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═══╗
+║ └╫─TABLE "Cache" (UTF-8)                         ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
+   ╚═══════════════════════════════════════════════╝
 ```
 
 La directive de configuration `pdo_dsn` de phpMussel doit être configurée comme décrit ci-dessous.
 
 ```
-mysql:dbname=phpmussel;host=localhost;port=3306
- │
- │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
- └─mysql:dbname=phpmussel;host=localhost;port=3306
-   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
-    │            │              │              └Le numéro de port auquel se
-    │            │              │               connecter.
-    │            │              │
-    │            │              └L'hôte avec lequel se connecter pour trouver
-    │            │               la base de données.
-    │            │
-    │            └Le nom de la base de données à utiliser.
-    │
-    └Nom du pilote de base de données à utiliser par PDO.
+En fonction du pilote de base de données utilisé ...
+│
+├─4d (Avertissement : Expérimental, non testé, non recommandé !)
+│ │
+│ │         ╔═══════╗
+│ └─4D:host=localhost;charset=UTF-8
+│           ╚╤══════╝
+│            └L'hôte avec lequel se connecter pour trouver la base de données.
+│
+├─cubrid
+│ │
+│ │             ╔═══════╗      ╔═══╗        ╔═════╗
+│ └─cubrid:host=localhost;port=33000;dbname=example
+│               ╚╤══════╝      ╚╤══╝        ╚╤════╝
+│                │              │            └Le nom de la base de données à
+│                │              │             utiliser.
+│                │              │
+│                │              └Le numéro de port auquel se connecter.
+│                │
+│                └L'hôte avec lequel se connecter pour trouver la base de
+│                 données.
+│
+├─dblib
+│ │
+│ │ ╔═══╗      ╔═══════╗        ╔═════╗
+│ └─dblib:host=localhost;dbname=example
+│   ╚╤══╝      ╚╤══════╝        ╚╤════╝
+│    │          │                └Le nom de la base de données à utiliser.
+│    │          │
+│    │          └L'hôte avec lequel se connecter pour trouver la base de
+│    │           données.
+│    │
+│    └Valeurs possibles : « mssql », « sybase », « dblib ».
+│
+├─firebird
+│ │
+│ │                 ╔═══════════════════╗
+│ └─firebird:dbname=/path/to/database.fdb
+│                   ╚╤══════════════════╝
+│                    ├Peut être un chemin d'accès à un fichier de base de
+│                    │données local.
+│                    │
+│                    ├Peut se connecter avec un hôte et un numéro de port.
+│                    │
+│                    └Vous devriez vous référer à la documentation Firebird si
+│                     vous voulez l'utiliser.
+│
+├─ibm
+│ │
+│ │         ╔═════╗
+│ └─ibm:DSN=example
+│           ╚╤════╝
+│            └Avec quelle base de données cataloguée vous connecter.
+│
+├─informix
+│ │
+│ │              ╔═════╗
+│ └─informix:DSN=example
+│                ╚╤════╝
+│                 └Avec quelle base de données cataloguée vous connecter.
+│
+├─mysql (Le plus recommandé !)
+│ │
+│ │              ╔═════╗      ╔═══════╗      ╔══╗
+│ └─mysql:dbname=example;host=localhost;port=3306
+│                ╚╤════╝      ╚╤══════╝      ╚╤═╝
+│                 │            │              └Le numéro de port auquel se
+│                 │            │               connecter.
+│                 │            │
+│                 │            └L'hôte avec lequel se connecter pour trouver la
+│                 │             base de données.
+│                 │
+│                 └Le nom de la base de données à utiliser.
+│
+├─oci
+│ │
+│ │            ╔═════╗
+│ └─oci:dbname=example
+│              ╚╤════╝
+│               ├Peut faire référence à la base de données cataloguée
+│               │spécifique.
+│               │
+│               ├Peut se connecter avec un hôte et un numéro de port.
+│               │
+│               └Vous devriez vous référer à la documentation Oracle si vous
+│                voulez l'utiliser.
+│
+├─odbc
+│ │
+│ │      ╔═════╗
+│ └─odbc:example
+│        ╚╤════╝
+│         ├Peut faire référence à la base de données cataloguée spécifique.
+│         │
+│         ├Peut se connecter avec un hôte et un numéro de port.
+│         │
+│         └Vous devriez vous référer à la documentation ODBC/DB2 si vous voulez
+│          l'utiliser.
+│
+├─pgsql
+│ │
+│ │            ╔═══════╗      ╔══╗        ╔═════╗
+│ └─pgsql:host=localhost;port=5432;dbname=example
+│              ╚╤══════╝      ╚╤═╝        ╚╤════╝
+│               │              │           └Le nom de la base de données à
+│               │              │            utiliser.
+│               │              │
+│               │              └Le numéro de port auquel se connecter.
+│               │
+│               └L'hôte avec lequel se connecter pour trouver la base de
+│                données.
+│
+├─sqlite
+│ │
+│ │        ╔════════╗
+│ └─sqlite:example.db
+│          ╚╤═══════╝
+│           └Le chemin d'accès au fichier de base de données local à utiliser.
+│
+└─sqlsrv
+  │
+  │               ╔═══════╗ ╔══╗          ╔═════╗
+  └─sqlsrv:Server=localhost,1521;Database=example
+                  ╚╤══════╝ ╚╤═╝          ╚╤════╝
+                   │         │             └Le nom de la base de données à
+                   │         │              utiliser.
+                   │         │
+                   │         └Le numéro de port auquel se connecter.
+                   │
+                   └L'hôte avec lequel se connecter pour trouver la base de
+                    données.
 ```
 
 Si vous ne savez pas quoi utiliser pour une partie particulière de votre DSN, essayez tout d'abord de voir si cela fonctionne tel quel, sans rien changer.
 
 Notez que `pdo_username` et` pdo_password` devraient être identiques au nom d'utilisateur et au mot de passe que vous avez choisis pour votre base de données.
+
+#### <a name="AJAX_AJAJ_JSON"></a>Ma fonctionnalité de téléchargement est asynchrone (par exemple, utilise ajax, ajaj, json, etc). Je ne vois aucun message ni avertissement spécial lorsqu'un téléchargement est bloqué. Que se passe-t-il ?
+
+C'est normal. La page « Téléchargement Refusé » standard de phpMussel est servie au format HTML, ce qui devrait être suffisant pour les requêtes synchrones typiques, mais ce qui ne sera probablement pas suffisant si votre fonctionnalité de téléchargement s'attend à autre chose. Si votre fonctionnalité de téléchargement est asynchrone ou s'attend à ce qu'un statut de téléchargement soit traité de manière asynchrone, vous pouvez essayer de faire certaines choses pour que phpMussel réponde aux besoins de votre fonctionnalité de téléchargement.
+
+1. Création d'un modèle de sortie personnalisé pour servir autre chose que HTML.
+2. Création d'un plugin personnalisé pour contourner entièrement la page standard « Téléchargement Refusé » et demander au gestionnaire de téléchargement de faire autre chose lorsqu'un téléchargement est bloqué (il y a des points de code fournis par le gestionnaire de téléchargement qui pourraient être utiles pour cela).
+3. Désactiver entièrement le gestionnaire de téléchargement et simplement appeler l'API phpMussel de votre fonctionnalité de téléchargement.
 
 ---
 
@@ -1601,4 +1729,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 11 Octobre 2019 (2019.10.11).
+Dernière mise à jour : 7 Novembre 2019 (2019.11.07).

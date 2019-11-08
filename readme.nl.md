@@ -1125,6 +1125,7 @@ Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De sig
 - [Blacklists (zwarte lijsten) – Whitelists (witte lijsten) – Greylists (grijze lijst) – Wat zijn ze en hoe gebruik ik ze?](#BLACK_WHITE_GREY)
 - [Wanneer ik signatuurbestanden activeer of deactiveer via de updates-pagina, sorteert deze ze alfanumeriek in de configuratie. Kan ik de manier wijzigen waarop ze worden gesorteerd?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Wat is een "PDO DSN"? Hoe kan ik PDO gebruiken met phpMussel?](#HOW_TO_USE_PDO)
+- [Mijn uploadfaciliteit is asynchroon (b.v., gebruikt ajax, ajaj, json, enz). Ik zie geen speciaal bericht of waarschuwing wanneer een upload is geblokkeerd. Wat is er aan de hand?](#AJAX_AJAJ_JSON)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Wat is een "signature"?
 
@@ -1356,6 +1357,8 @@ Dezelfde situatie wanneer een bestand is gedeactiveerd. Omgekeerd, als u wilde d
 
 phpMussel biedt de optie om PDO te gebruiken voor cachingdoeleinden. Om dit correct te laten werken, moet u phpMussel dienovereenkomstig configureren, PDO ingeschakeld gemaakt, een nieuwe database maken die phpMussel kan gebruiken (als u nog geen database voor phpMussel in gedachten hebt), en een nieuwe tabel in uw database maken in overeenstemming met de hieronder beschreven structuur.
 
+Wanneer een databaseverbinding succesvol is, maar de benodigde tabel bestaat niet, zal deze proberen de tabel automatisch aan te maken. Dit gedrag is echter niet uitgebreid getest en succes kan niet worden gegarandeerd.
+
 Dit is natuurlijk alleen van toepassing als u daadwerkelijk wilt dat phpMussel PDO gebruikt. Als u tevreden bent dat phpMussel flatfile caching gebruikt (volgens de standaardconfiguratie), of een van de andere aangeboden cachingopties, hoeft u zich geen zorgen te maken over het opzetten van databases, tabellen, enzovoort.
 
 De hieronder beschreven structuur gebruikt "phpmussel" als de databasenaam, maar u kunt elke gewenste naam gebruiken voor uw database, zolang diezelfde naam wordt gerepliceerd in uw DSN-configuratie.
@@ -1363,38 +1366,164 @@ De hieronder beschreven structuur gebruikt "phpmussel" als de databasenaam, maar
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩╗
-║ └╫─TABLE "Cache" (UTF-8)                      ║
-║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
-║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
-║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
-╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
-   ╚════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═══╗
+║ └╫─TABLE "Cache" (UTF-8)                         ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
+   ╚═══════════════════════════════════════════════╝
 ```
 
 phpMussel's `pdo_dsn` configuratie-richtlijn moet worden geconfigureerd zoals hieronder beschreven.
 
 ```
-mysql:dbname=phpmussel;host=localhost;port=3306
- │
- │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
- └─mysql:dbname=phpmussel;host=localhost;port=3306
-   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
-    │            │              │              └Het poortnummer waarmee
-    │            │              │               verbinding moet worden gemaakt
-    │            │              │               met de host.
-    │            │              │
-    │            │              └De host waarmee verbinding wordt gemaakt om de
-    │            │               database te vinden.
-    │            │
-    │            └De naam van de database te gebruiken.
-    │
-    └De naam van het database stuurprogramma voor PDO te gebruiken.
+Afhankelijk van welk databasestuurprogramma wordt gebruikt...
+│
+├─4d (Waarschuwing: Experimenteel, niet getest, niet aanbevolen!)
+│ │
+│ │         ╔═══════╗
+│ └─4D:host=localhost;charset=UTF-8
+│           ╚╤══════╝
+│            └De host waarmee verbinding wordt gemaakt om de database te
+│             vinden.
+│
+├─cubrid
+│ │
+│ │             ╔═══════╗      ╔═══╗        ╔═════╗
+│ └─cubrid:host=localhost;port=33000;dbname=example
+│               ╚╤══════╝      ╚╤══╝        ╚╤════╝
+│                │              │            └De naam van de database te
+│                │              │             gebruiken.
+│                │              │
+│                │              └Het poortnummer waarmee verbinding moet worden
+│                │               gemaakt met de host.
+│                │
+│                └De host waarmee verbinding wordt gemaakt om de database te
+│                 vinden.
+│
+├─dblib
+│ │
+│ │ ╔═══╗      ╔═══════╗        ╔═════╗
+│ └─dblib:host=localhost;dbname=example
+│   ╚╤══╝      ╚╤══════╝        ╚╤════╝
+│    │          │                └De naam van de database te gebruiken.
+│    │          │
+│    │          └De host waarmee verbinding wordt gemaakt om de database te
+│    │           vinden.
+│    │
+│    └Mogelijke waarden: "mssql", "sybase", "dblib".
+│
+├─firebird
+│ │
+│ │                 ╔═══════════════════╗
+│ └─firebird:dbname=/path/to/database.fdb
+│                   ╚╤══════════════════╝
+│                    ├Kan een pad zijn naar een lokaal databasebestand.
+│                    │
+│                    ├Kan verbinding maken met een host en poortnummer.
+│                    │
+│                    └Raadpleeg de Firebird-documentatie als u hiervan gebruik
+│                     wilt maken.
+│
+├─ibm
+│ │
+│ │         ╔═════╗
+│ └─ibm:DSN=example
+│           ╚╤════╝
+│            └Met welke gecatalogiseerde database om verbinding mee te maken.
+│
+├─informix
+│ │
+│ │              ╔═════╗
+│ └─informix:DSN=example
+│                ╚╤════╝
+│                 └Met welke gecatalogiseerde database om verbinding mee te
+│                  maken.
+│
+├─mysql (Meest aanbevolen!)
+│ │
+│ │              ╔═════╗      ╔═══════╗      ╔══╗
+│ └─mysql:dbname=example;host=localhost;port=3306
+│                ╚╤════╝      ╚╤══════╝      ╚╤═╝
+│                 │            │              └Het poortnummer waarmee
+│                 │            │               verbinding moet worden gemaakt
+│                 │            │               met de host.
+│                 │            │
+│                 │            └De host waarmee verbinding wordt gemaakt om de
+│                 │             database te vinden.
+│                 │
+│                 └De naam van de database te gebruiken.
+│
+├─oci
+│ │
+│ │            ╔═════╗
+│ └─oci:dbname=example
+│              ╚╤════╝
+│               ├Kan verwijzen naar de specifieke gecatalogiseerde database.
+│               │
+│               ├Kan verbinding maken met een host en poortnummer.
+│               │
+│               └Raadpleeg de Oracle-documentatie als u hiervan gebruik wilt
+│                maken.
+│
+├─odbc
+│ │
+│ │      ╔═════╗
+│ └─odbc:example
+│        ╚╤════╝
+│         ├Kan verwijzen naar de specifieke gecatalogiseerde database.
+│         │
+│         ├Kan verbinding maken met een host en poortnummer.
+│         │
+│         └Raadpleeg de ODBC/DB2-documentatie als u hiervan gebruik wilt maken.
+│
+├─pgsql
+│ │
+│ │            ╔═══════╗      ╔══╗        ╔═════╗
+│ └─pgsql:host=localhost;port=5432;dbname=example
+│              ╚╤══════╝      ╚╤═╝        ╚╤════╝
+│               │              │           └De naam van de database te
+│               │              │            gebruiken.
+│               │              │
+│               │              └Het poortnummer waarmee verbinding moet worden
+│               │               gemaakt met de host.
+│               │
+│               └De host waarmee verbinding wordt gemaakt om de database te
+│                vinden.
+│
+├─sqlite
+│ │
+│ │        ╔════════╗
+│ └─sqlite:example.db
+│          ╚╤═══════╝
+│           └Het pad naar het te gebruiken lokale databasebestand.
+│
+└─sqlsrv
+  │
+  │               ╔═══════╗ ╔══╗          ╔═════╗
+  └─sqlsrv:Server=localhost,1521;Database=example
+                  ╚╤══════╝ ╚╤═╝          ╚╤════╝
+                   │         │             └De naam van de database te gebruiken.
+                   │         │
+                   │         └Het poortnummer waarmee verbinding moet worden
+                   │          gemaakt met de host.
+                   │
+                   └De host waarmee verbinding wordt gemaakt om de database te
+                    vinden.
 ```
 
 Als u niet zeker weet wat u voor een bepaald deel van uw DSN moet gebruiken, probeer dan eerst te kijken of het werkt zoals het is, zonder iets te veranderen.
 
 Merk op dat `pdo_username` en `pdo_password` hetzelfde moeten zijn als de gebruikersnaam en het wachtwoord dat u hebt gekozen voor uw database.
+
+#### <a name="AJAX_AJAJ_JSON"></a>Mijn uploadfaciliteit is asynchroon (b.v., gebruikt ajax, ajaj, json, enz). Ik zie geen speciaal bericht of waarschuwing wanneer een upload is geblokkeerd. Wat is er aan de hand?
+
+Dit is normaal. De standaardpagina "Upload Geweigerd" van phpMussel wordt als HTML weergegeven, wat voldoende zou moeten zijn voor typische synchrone verzoeken, maar waarschijnlijk zal niet voldoende zijn als uw uploadfaciliteit iets anders verwacht. Als uw uploadfaciliteit asynchroon is, of verwacht dat een uploadstatus asynchroon wordt weergegeven, er zijn enkele dingen die u zou kunnen proberen om phpMussel te voorzien in de behoeften van uw uploadfaciliteit.
+
+1. Maak een aangepaste uitvoersjabloon om iets anders dan HTML weer te geven.
+2. Maak een aangepaste plug-in om de standaardpagina "Upload Geweigerd" volledig te omzeilen en laat de uploadhandler iets anders doen wanneer een upload wordt geblokkeerd (er zijn enkele plug-inhaken die door de uploadhandler worden geleverd die hiervoor kunnen helpen).
+3. Schakel de uploadhandler volledig uit en roep in plaats daarvan de phpMussel API aan alleen vanuit uw uploadfaciliteit.
 
 ---
 
@@ -1604,4 +1733,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 11 Oktober 2019 (2019.10.11).
+Laatste Bijgewerkt: 7 November 2019 (2019.11.07).

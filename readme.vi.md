@@ -1125,6 +1125,7 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 - [Danh sách đen – Danh sách trắng – Danh sách xám – Họ là gì, và làm cách nào để sử dụng chúng?](#BLACK_WHITE_GREY)
 - [Khi tôi kích hoạt hoặc hủy kích hoạt các tập tin chữ ký thông qua trang cập nhật, nó sắp xếp chúng theo thứ tự chữ và số trong cấu hình. Tôi có thể thay đổi cách họ được sắp xếp không?](#CHANGE_COMPONENT_SORT_ORDER)
 - ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#HOW_TO_USE_PDO)
+- [Chức năng tải lên của tôi không đồng bộ (ví dụ, sử dụng ajax, ajaj, json, vv). Tôi không thấy bất kỳ thông báo hoặc cảnh báo đặc biệt nào khi tải lên bị chặn. Chuyện gì đang xảy ra vậy?](#AJAX_AJAJ_JSON)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>"Chữ ký" là gì?
 
@@ -1356,6 +1357,8 @@ Tình huống tương tự khi một tập tin bị hủy kích hoạt. Ngược
 
 phpMussel cung cấp tùy chọn để sử dụng PDO cho mục đích bộ nhớ cache. Để điều này hoạt động chính xác, bạn sẽ cần định cấu hình phpMussel phù hợp, do đó cho phép PDO, tạo cơ sở dữ liệu mới cho phpMussel để sử dụng (nếu bạn chưa có cơ sở dữ liệu cho phpMussel để sử dụng), và tạo một bảng mới trong cơ sở dữ liệu của bạn theo cấu trúc được mô tả dưới đây.
 
+Khi kết nối cơ sở dữ liệu thành công, nhưng bảng cần thiết không tồn tại, nó sẽ cố gắng tạo nó tự động. Tuy nhiên, hành vi này đã không được thử nghiệm rộng rãi và thành công không thể được đảm bảo.
+
 Tất nhiên, điều này chỉ áp dụng nếu bạn thực sự muốn phpMussel sử dụng PDO. Nếu bạn đủ hạnh phúc cho phpMussel để sử dụng bộ đệm ẩn phẳng (theo cấu hình mặc định của nó) hoặc bất kỳ tùy chọn bộ nhớ cache nào khác được cung cấp, bạn sẽ không cần phải lo lắng về việc thiết lập cơ sở dữ liệu, bảng, vv.
 
 Cấu trúc được mô tả dưới đây sử dụng "phpmussel" làm tên cơ sở dữ liệu của nó, nhưng bạn có thể sử dụng bất kỳ tên nào bạn muốn cho cơ sở dữ liệu của mình, miễn là cùng tên đó được sao chép trong cấu hình DSN của bạn.
@@ -1363,35 +1366,152 @@ Cấu trúc được mô tả dưới đây sử dụng "phpmussel" làm tên c�
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩╗
-║ └╫─TABLE "Cache" (UTF-8)                      ║
-║  ╠═╪═FLD═════CLL════TYP════════KEY══NLL══DEF══╣
-║  ║ ├─"Key"───UTF-8──STRING─────PRI──×────×    ║
-║  ║ ├─"Data"──UTF-8──STRING─────×────×────×    ║
-╚══╣ └─"Time"──×──────INT(>=10)──×────×────×    ║
-   ╚════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═══╗
+║ └╫─TABLE "Cache" (UTF-8)                         ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
+   ╚═══════════════════════════════════════════════╝
 ```
 
 Chỉ thị cấu hình `pdo_dsn` của phpMussel nên được cấu hình như mô tả bên dưới.
 
 ```
-mysql:dbname=phpmussel;host=localhost;port=3306
- │
- │ ╔═══╗        ╔═══════╗      ╔═══════╗      ╔══╗
- └─mysql:dbname=phpmussel;host=localhost;port=3306
-   ╚╤══╝        ╚╤══════╝      ╚╤══════╝      ╚╤═╝
-    │            │              │              └Số cổng để kết nối với máy chủ.
-    │            │              │
-    │            │              └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-    │            │
-    │            └Tên của cơ sở dữ liệu để sử dụng.
-    │
-    └Tên của trình điều khiển cơ sở dữ liệu cho PDO để sử dụng.
+Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử dụng...
+│
+├─4d (Cảnh báo: Thử nghiệm, chưa được kiểm tra, không được khuyến khích!)
+│ │
+│ │         ╔═══════╗
+│ └─4D:host=localhost;charset=UTF-8
+│           ╚╤══════╝
+│            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│
+├─cubrid
+│ │
+│ │             ╔═══════╗      ╔═══╗        ╔═════╗
+│ └─cubrid:host=localhost;port=33000;dbname=example
+│               ╚╤══════╝      ╚╤══╝        ╚╤════╝
+│                │              │            └Tên của cơ sở dữ liệu để sử dụng.
+│                │              │
+│                │              └Số cổng để kết nối với máy chủ.
+│                │
+│                └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│
+├─dblib
+│ │
+│ │ ╔═══╗      ╔═══════╗        ╔═════╗
+│ └─dblib:host=localhost;dbname=example
+│   ╚╤══╝      ╚╤══════╝        ╚╤════╝
+│    │          │                └Tên của cơ sở dữ liệu để sử dụng.
+│    │          │
+│    │          └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│    │
+│    └Những giá trị khả thi: "mssql", "sybase", "dblib".
+│
+├─firebird
+│ │
+│ │                 ╔═══════════════════╗
+│ └─firebird:dbname=/path/to/database.fdb
+│                   ╚╤══════════════════╝
+│                    ├Có thể là một đường dẫn đến một tập tin cơ sở dữ liệu
+│                    │cục bộ.
+│                    │
+│                    ├Có thể kết nối với một máy chủ và số cổng.
+│                    │
+│                    └Bạn nên tham khảo tài liệu Firebird nếu bạn muốn sử dụng
+│                     trình điều khiển này.
+│
+├─ibm
+│ │
+│ │         ╔═════╗
+│ └─ibm:DSN=example
+│           ╚╤════╝
+│            └Các cơ sở dữ liệu được phân loại để kết nối với.
+│
+├─informix
+│ │
+│ │              ╔═════╗
+│ └─informix:DSN=example
+│                ╚╤════╝
+│                 └Các cơ sở dữ liệu được phân loại để kết nối với.
+│
+├─mysql (Được khuyến nghị nhất!)
+│ │
+│ │              ╔═════╗      ╔═══════╗      ╔══╗
+│ └─mysql:dbname=example;host=localhost;port=3306
+│                ╚╤════╝      ╚╤══════╝      ╚╤═╝
+│                 │            │              └Số cổng để kết nối với máy chủ.
+│                 │            │
+│                 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│                 │
+│                 └Tên của cơ sở dữ liệu để sử dụng.
+│
+├─oci
+│ │
+│ │            ╔═════╗
+│ └─oci:dbname=example
+│              ╚╤════╝
+│               ├Can refer to the specific catalogued database.
+│               │
+│               ├Có thể kết nối với một máy chủ và số cổng.
+│               │
+│               └Bạn nên tham khảo tài liệu Oracle nếu bạn muốn sử dụng
+│                trình điều khiển này.
+│
+├─odbc
+│ │
+│ │      ╔═════╗
+│ └─odbc:example
+│        ╚╤════╝
+│         ├Có thể tham khảo cơ sở dữ liệu danh mục cụ thể.
+│         │
+│         ├Có thể kết nối với một máy chủ và số cổng.
+│         │
+│         └Bạn nên tham khảo tài liệu ODBC/DB2 nếu bạn muốn sử dụng
+│          trình điều khiển này.
+│
+├─pgsql
+│ │
+│ │            ╔═══════╗      ╔══╗        ╔═════╗
+│ └─pgsql:host=localhost;port=5432;dbname=example
+│              ╚╤══════╝      ╚╤═╝        ╚╤════╝
+│               │              │           └Tên của cơ sở dữ liệu để sử dụng.
+│               │              │
+│               │              └Số cổng để kết nối với máy chủ.
+│               │
+│               └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│
+├─sqlite
+│ │
+│ │        ╔════════╗
+│ └─sqlite:example.db
+│          ╚╤═══════╝
+│           └Đường dẫn đến tập tin cơ sở dữ liệu cục bộ để sử dụng.
+│
+└─sqlsrv
+  │
+  │               ╔═══════╗ ╔══╗          ╔═════╗
+  └─sqlsrv:Server=localhost,1521;Database=example
+                  ╚╤══════╝ ╚╤═╝          ╚╤════╝
+                   │         │             └Tên của cơ sở dữ liệu để sử dụng.
+                   │         │
+                   │         └Số cổng để kết nối với máy chủ.
+                   │
+                   └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 ```
 
 Nếu bạn không chắc chắn về việc sử dụng cái gì cho một phần cụ thể trong DSN của mình, hãy thử xem trước tiên xem nó có hoạt động như cũ không mà không thay đổi gì.
 
 Lưu ý rằng `pdo_username` và `pdo_password` phải giống với tên người dùng và mật khẩu bạn đã chọn cho cơ sở dữ liệu của mình.
+
+#### <a name="AJAX_AJAJ_JSON"></a>Chức năng tải lên của tôi không đồng bộ (ví dụ, sử dụng ajax, ajaj, json, vv). Tôi không thấy bất kỳ thông báo hoặc cảnh báo đặc biệt nào khi tải lên bị chặn. Chuyện gì đang xảy ra vậy?
+
+Điều này là bình thường. Trang "sự tải lên đã bị từ chối" tiêu chuẩn của phpMussel được phục vụ dưới dạng HTML. Nó phải đủ cho các yêu cầu đồng bộ điển hình, nhưng có lẽ sẽ không đủ nếu chức năng tải lên của bạn đang mong đợi điều gì khác. Nếu chức năng tải lên của bạn không đồng bộ hoặc mong muốn trạng thái tải lên được cung cấp không đồng bộ, có một số điều bạn có thể thử làm để phpMussel phục vụ nhu cầu về chức năng tải lên của bạn.
+
+1. Tạo một mẫu đầu ra tùy chỉnh để phục vụ một cái gì đó ngoài HTML.
+2. Tạo một plugin tùy chỉnh để hoàn toàn bỏ qua trang "sự tải lên đã bị từ chối" tiêu chuẩn và yêu cầu trình xử lý tải lên làm một cái gì đó khác khi tải lên bị chặn (có một số hook plugin được cung cấp bởi trình xử lý tải lên có thể hữu ích cho việc này).
+3. Vô hiệu hóa hoàn toàn trình xử lý tải lên và thay vào đó chỉ gọi API phpMussel từ bên trong chức năng tải lên của bạn.
 
 ---
 
@@ -1593,4 +1713,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 11 Tháng Mười 2019 (2019.10.11).
+Lần cuối cập nhật: 7 Tháng Mười Một 2019 (2019.11.07).
