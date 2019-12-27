@@ -685,7 +685,7 @@ Configuration (v2)
 - 유지 관리 모드를 사용 하시겠습니까? True = 예; False = 아니오 (Default / 기본 설정). 프런트 엔드 이외의 모든 것을 비활성화합니다. CMS, 프레임 워크 등을 업데이트 할 때 유용합니다.
 
 ##### "default_algo"
-- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다. 옵션 : PASSWORD_DEFAULT (default / 기본 설정), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 가 필요합니다).
+- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다. 옵션 : PASSWORD_DEFAULT (default / 기본 설정), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 가 필요합니다), PASSWORD_ARGON2ID (PHP >= 7.3.0 가 필요합니다).
 
 ##### "statistics"
 - phpMussel 사용 통계를 추적합니까? True = 예; False = 아니오 (Default / 기본 설정).
@@ -1366,13 +1366,13 @@ phpMussel은 캐싱 목적으로 PDO 을 활용할 수 있는 옵션을 제공�
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩═══╗
-║ └╫─TABLE "Cache" (UTF-8)                         ║
-║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
-║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
-║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
-╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
-   ╚═══════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═════╗
+║ └╫─TABLE "Cache" (UTF-8)                           ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═════KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───VARCHAR(128)─PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT─────────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)────×────×────×       ║
+   ╚═════════════════════════════════════════════════╝
 ```
 
 phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니다.
@@ -1714,4 +1714,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2019년 11월 7일.
+최종 업데이트 : 2019년 12월 27일.

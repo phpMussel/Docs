@@ -685,7 +685,7 @@ Valor | Produce | Descripción
 - ¿Activar modo de mantenimiento? True = Sí; False = No [Predefinido]. Desactiva todo lo que no sea el front-end. A veces útil para la actualización de su CMS, frameworks, etc.
 
 ##### "default_algo"
-- Define qué algoritmo utilizar para todas las contraseñas y sesiones en el futuro. Opciones: PASSWORD_DEFAULT (predefinido), PASSWORD_BCRYPT, PASSWORD_ARGON2I (requiere PHP >= 7.2.0).
+- Define qué algoritmo utilizar para todas las contraseñas y sesiones en el futuro. Opciones: PASSWORD_DEFAULT (predefinido), PASSWORD_BCRYPT, PASSWORD_ARGON2I (requiere PHP >= 7.2.0), PASSWORD_ARGON2ID (requiere PHP >= 7.3.0).
 
 ##### "statistics"
 - ¿Seguir las estadísticas de uso de phpMussel? True = Sí; False = No [Predefinido].
@@ -1366,13 +1366,13 @@ La estructura que se describe a continuación usa "phpmussel" como nombre de la 
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩═══╗
-║ └╫─TABLE "Cache" (UTF-8)                         ║
-║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
-║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
-║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
-╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
-   ╚═══════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═════╗
+║ └╫─TABLE "Cache" (UTF-8)                           ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═════KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───VARCHAR(128)─PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT─────────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)────×────×────×       ║
+   ╚═════════════════════════════════════════════════╝
 ```
 
 La directiva de configuración `pdo_dsn` de phpMussel debe configurarse como se describe a continuación.
@@ -1723,4 +1723,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 7 de Noviembre de 2019 (2019.11.07).
+Última Actualización: 27 de Diciembre de 2019 (2019.12.27).

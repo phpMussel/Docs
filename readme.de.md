@@ -686,7 +686,7 @@ Wert | Produziert | Beschreibung
 - Deaktiviert alles andere als das Frontend. Manchmal nützlich für die Aktualisierung Ihrer CMS, Frameworks, u.s.w. Wartungsmodus aktivieren? True = Ja; False = Nein [Standardeinstellung].
 
 ##### "default_algo"
-- Definiert den Algorithmus für alle zukünftigen Passwörter und Sitzungen. Optionen: PASSWORD_DEFAULT (Standardeinstellung), PASSWORD_BCRYPT, PASSWORD_ARGON2I (erfordert PHP >= 7.2.0).
+- Definiert den Algorithmus für alle zukünftigen Passwörter und Sitzungen. Optionen: PASSWORD_DEFAULT (Standardeinstellung), PASSWORD_BCRYPT, PASSWORD_ARGON2I (erfordert PHP >= 7.2.0), PASSWORD_ARGON2ID (erfordert PHP >= 7.3.0).
 
 ##### "statistics"
 - phpMussel-Nutzungsstatistiken verfolgen? True = Ja; False = Nein [Standardeinstellung].
@@ -1367,13 +1367,13 @@ In der unten beschriebenen Struktur wird "phpmussel" als Datenbankname verwendet
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩═══╗
-║ └╫─TABLE "Cache" (UTF-8)                         ║
-║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
-║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
-║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
-╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
-   ╚═══════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═════╗
+║ └╫─TABLE "Cache" (UTF-8)                           ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═════KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───VARCHAR(128)─PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT─────────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)────×────×────×       ║
+   ╚═════════════════════════════════════════════════╝
 ```
 
 Die Konfigurationsanweisung `pdo_dsn` von phpMussel sollte wie folgt konfiguriert werden.
@@ -1732,4 +1732,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 7 November 2019 (2019.11.07).
+Zuletzt aktualisiert: 27 Dezember 2019 (2019.12.27).

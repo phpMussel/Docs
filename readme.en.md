@@ -685,7 +685,7 @@ Value | Produces | Description
 - Enable maintenance mode? True = Yes; False = No [Default]. Disables everything other than the front-end. Sometimes useful for when updating your CMS, frameworks, etc.
 
 ##### "default_algo"
-- Defines which algorithm to use for all future passwords and sessions. Options: PASSWORD_DEFAULT (default), PASSWORD_BCRYPT, PASSWORD_ARGON2I (requires PHP >= 7.2.0).
+- Defines which algorithm to use for all future passwords and sessions. Options: PASSWORD_DEFAULT (default), PASSWORD_BCRYPT, PASSWORD_ARGON2I (requires PHP >= 7.2.0), PASSWORD_ARGON2ID (requires PHP >= 7.3.0).
 
 ##### "statistics"
 - Track phpMussel usage statistics? True = Yes; False = No [Default].
@@ -1366,13 +1366,13 @@ The structure described below uses "phpmussel" as its database name, but you can
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩═══╗
-║ └╫─TABLE "Cache" (UTF-8)                         ║
-║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
-║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
-║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
-╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
-   ╚═══════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═════╗
+║ └╫─TABLE "Cache" (UTF-8)                           ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═════KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───VARCHAR(128)─PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT─────────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)────×────×────×       ║
+   ╚═════════════════════════════════════════════════╝
 ```
 
 phpMussel's `pdo_dsn` configuration directive should be configured as described below.
@@ -1724,4 +1724,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 7 November 2019 (2019.11.07).
+Last Updated: 27 December 2019 (2019.12.27).

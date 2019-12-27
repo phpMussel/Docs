@@ -685,7 +685,7 @@ Valore | Produce | Descrizione
 - Abilita la modalità di manutenzione? True = Sì; False = No [Predefinito]. Disattiva tutto tranne il front-end. A volte utile per l'aggiornamento del CMS, dei framework, ecc.
 
 ##### "default_algo"
-- Definisce quale algoritmo da utilizzare per tutte le password e le sessioni in futuro. Opzioni: PASSWORD_DEFAULT (predefinito), PASSWORD_BCRYPT, PASSWORD_ARGON2I (richiede PHP >= 7.2.0).
+- Definisce quale algoritmo da utilizzare per tutte le password e le sessioni in futuro. Opzioni: PASSWORD_DEFAULT (predefinito), PASSWORD_BCRYPT, PASSWORD_ARGON2I (richiede PHP >= 7.2.0), PASSWORD_ARGON2ID (richiede PHP >= 7.3.0).
 
 ##### "statistics"
 - Monitorare le statistiche di utilizzo di phpMussel? True = Sì; False = No [Predefinito].
@@ -1366,13 +1366,13 @@ La struttura descritta di seguito utilizza "phpmussel" come nome del database, m
 ```
 ╔══════════════════════════════════════════════╗
 ║ DATABASE "phpmussel"                         ║
-║ │╔═══════════════════════════════════════════╩═══╗
-║ └╫─TABLE "Cache" (UTF-8)                         ║
-║  ╠═╪═FIELD══CHARSET═DATATYPE═══KEY══NULL═DEFAULT═╣
-║  ║ ├─"Key"──UTF-8───TEXT───────PRI──×────×       ║
-║  ║ ├─"Data"─UTF-8───TEXT───────×────×────×       ║
-╚══╣ └─"Time"─×───────INT(>=10)──×────×────×       ║
-   ╚═══════════════════════════════════════════════╝
+║ │╔═══════════════════════════════════════════╩═════╗
+║ └╫─TABLE "Cache" (UTF-8)                           ║
+║  ╠═╪═FIELD══CHARSET═DATATYPE═════KEY══NULL═DEFAULT═╣
+║  ║ ├─"Key"──UTF-8───VARCHAR(128)─PRI──×────×       ║
+║  ║ ├─"Data"─UTF-8───TEXT─────────×────×────×       ║
+╚══╣ └─"Time"─×───────INT(>=10)────×────×────×       ║
+   ╚═════════════════════════════════════════════════╝
 ```
 
 La direttiva di configurazione `pdo_dsn` di phpMussel dovrebbe essere configurata come descritto di seguito.
@@ -1722,4 +1722,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 7 Novembre 2019 (2019.11.07).
+Ultimo Aggiornamento: 27 Dicembre 2019 (2019.12.27).
