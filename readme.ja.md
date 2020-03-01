@@ -234,12 +234,11 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 https://github.com/phpMussel/phpMussel>v2
 │   .gitattributes
 │   .gitignore
-│   .travis.php
 │   .travis.yml
 │   Changelog-v2.txt
+│   codeception.yml
 │   composer.json
 │   CONTRIBUTING.md
-│   crowdin.yml
 │   LICENSE.txt
 │   loader.php
 │   PEOPLE.md
@@ -249,6 +248,45 @@ https://github.com/phpMussel/phpMussel>v2
 │
 ├───.github
 │       ISSUE_TEMPLATE.md
+│
+├───tests
+│   │   .gitignore
+│   │   acceptance.suite.yml
+│   │   functional.suite.yml
+│   │   unit.suite.yml
+│   │
+│   ├───acceptance
+│   │       .gitkeep
+│   │
+│   ├───functional
+│   │       .gitkeep
+│   │
+│   ├───unit
+│   │       .gitkeep
+│   │       LoaderAndScanCest.php
+│   │
+│   ├───_data
+│   │       .gitkeep
+│   │
+│   ├───_output
+│   │       .gitkeep
+│   │
+│   └───_support
+│       │   AcceptanceTester.php
+│       │   FunctionalTester.php
+│       │   UnitTester.php
+│       │
+│       ├───config
+│       │       config.ini
+│       │
+│       ├───Helper
+│       │       Acceptance.php
+│       │       Functional.php
+│       │       Unit.php
+│       │
+│       └───samples
+│               encrypted.zip
+│               hello.txt
 │
 ├───vault
 │   │   .htaccess
@@ -272,7 +310,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   themes.dat
 │   │   upload.php
 │   │
-│   ├───cache
 │   ├───classes
 │   │   │   ArchiveHandler.php
 │   │   │   CompressionHandler.php
@@ -368,8 +405,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │       lang.zh.fe.yaml
 │   │       lang.zh.yaml
 │   │
-│   ├───plugins
-│   ├───quarantine
 │   └───signatures
 │           switch.dat
 │
@@ -379,8 +414,10 @@ https://github.com/phpMussel/phpMussel>v2
         exe_standard_testfile.exe
         general_standard_testfile.txt
         graphics_standard_testfile.gif
+        hash_testfile_md5.txt
+        hash_testfile_sha1.txt
+        hash_testfile_sha256.txt
         html_standard_testfile.html
-        md5_testfile.txt
         ole_testfile.ole
         pdf_standard_testfile.pdf
         pe_sectional_testfile.exe
@@ -1169,7 +1206,7 @@ phpMusselは、​ファイルをブロックします | __偽陽性__ | 真陽�
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>複数のドメインを保護するために１つのphpMusselインストールを使用できますか？
 
-はい。​phpMusselのインストールは特定のドメインに限定されていません、​したがって、​複数のドメインを保護するために使用できます。​一般的に、​１つのドメインのみを保護するインストール、​私たちは「単一ドメイン・インストール」と呼んでいますで、​複数のドメイン/サブドメインを保護するインストール、​私たちは「マルチドメイン・インストール」と呼んでいます。​マルチドメインインストールを使用している場合で、​異なるドメインに異なるシグネチャ・ファイルセットを使用する必要がある場合や、​異なるドメインにphpMusselを異なる設定する必要があります、​これを行うことができます。​コンフィギュレーション・ファイルをロードした後（`config.ini`）、​phpMusselは、​要求されたドメインの「コンフィギュレーション・オーバーライド・ファイル」の存在をチェックします (`xn--48jua8kwd4hof5er493ch97b.tld.config.ini`)、​そして見つかった場合、​コンフィギュレーション・オーバーライド・ファイルによって定義されたコンフィギュレーション値は、​コンフィギュレーション・ファイルによって定義されたコンフィギュレーション値ではなく、​実行インスタンスに使用されます。​コンフィギュレーション・オーバーライド・ファイルは、​コンフィギュレーション・ファイルと同じです。​お客様の裁量で、​phpMusselで利用可能なすべての設定指示句の全体または必要なサブセクションを含めることができます。​コンフィギュレーション・オーバーライド・ファイルは彼らが意図しているドメインに従って命名されます （そう、​例えば、​ドメイン`http://www.some-domain.tld/`にコンフィギュレーション・オーバーライド・ファイルが必要な場合は、​コンフィギュレーション・オーバーライド・ファイルの名前は`some-domain.tld.config.ini`にする必要があります。​通常の設定ファイルと同じ場所に保存する必要があります）。​ドメイン名は `HTTP_HOST` から来ます。​"www"は無視されます。
+はい。​phpMusselのインストールは特定のドメインに限定されていません、​したがって、​複数のドメインを保護するために使用できます。​一般的に、​１つのドメインのみを保護するインストール、​私たちは「単一ドメイン・インストール」と呼んでいますで、​複数のドメイン/サブドメインを保護するインストール、​私たちは「マルチドメイン・インストール」と呼んでいます。​マルチドメインインストールを使用している場合で、​異なるドメインに異なるシグネチャ・ファイルセットを使用する必要がある場合や、​異なるドメインにphpMusselを異なる設定する必要があります、​これを行うことができます。​コンフィギュレーション・ファイルをロードした後（`config.ini`）、​phpMusselは、​要求されたドメインの「コンフィギュレーション・オーバーライド・ファイル」の存在をチェックします (`xn--48jua8kwd4hof5er493ch97b.tld.config.ini`)、​そして見つかった場合、​コンフィギュレーション・オーバーライド・ファイルによって定義されたコンフィギュレーション値は、​コンフィギュレーション・ファイルによって定義されたコンフィギュレーション値ではなく、​実行インスタンスに使用されます。​コンフィギュレーション・オーバーライド・ファイルは、​コンフィギュレーション・ファイルと同じです。​お客様の裁量で、​phpMusselで利用可能なすべての設定指示句の全体または必要なサブセクションを含めることができます。​コンフィギュレーション・オーバーライド・ファイルは彼らが意図しているドメインに従って命名されます （そう、​例えば、​ドメイン`https://www.some-domain.tld/`にコンフィギュレーション・オーバーライド・ファイルが必要な場合は、​コンフィギュレーション・オーバーライド・ファイルの名前は`some-domain.tld.config.ini`にする必要があります。​通常の設定ファイルと同じ場所に保存する必要があります）。​ドメイン名は `HTTP_HOST` から来ます。​"www"は無視されます。
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>私はこれをインストールするか、​それが私のウェブサイト上で動作することを保証する時間を費やす、​にしたくない；​それできますか？​私はあなたを雇うことができますか？
 
@@ -1716,4 +1753,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０１９年１２月２７日。
+最終アップデート：２０２０年３月１日。

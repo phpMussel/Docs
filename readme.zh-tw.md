@@ -234,12 +234,11 @@ phpMussel應該能夠正確操作與最低要求從您：安裝後，​它應�
 https://github.com/phpMussel/phpMussel>v2
 │   .gitattributes
 │   .gitignore
-│   .travis.php
 │   .travis.yml
 │   Changelog-v2.txt
+│   codeception.yml
 │   composer.json
 │   CONTRIBUTING.md
-│   crowdin.yml
 │   LICENSE.txt
 │   loader.php
 │   PEOPLE.md
@@ -249,6 +248,45 @@ https://github.com/phpMussel/phpMussel>v2
 │
 ├───.github
 │       ISSUE_TEMPLATE.md
+│
+├───tests
+│   │   .gitignore
+│   │   acceptance.suite.yml
+│   │   functional.suite.yml
+│   │   unit.suite.yml
+│   │
+│   ├───acceptance
+│   │       .gitkeep
+│   │
+│   ├───functional
+│   │       .gitkeep
+│   │
+│   ├───unit
+│   │       .gitkeep
+│   │       LoaderAndScanCest.php
+│   │
+│   ├───_data
+│   │       .gitkeep
+│   │
+│   ├───_output
+│   │       .gitkeep
+│   │
+│   └───_support
+│       │   AcceptanceTester.php
+│       │   FunctionalTester.php
+│       │   UnitTester.php
+│       │
+│       ├───config
+│       │       config.ini
+│       │
+│       ├───Helper
+│       │       Acceptance.php
+│       │       Functional.php
+│       │       Unit.php
+│       │
+│       └───samples
+│               encrypted.zip
+│               hello.txt
 │
 ├───vault
 │   │   .htaccess
@@ -272,7 +310,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   themes.dat
 │   │   upload.php
 │   │
-│   ├───cache
 │   ├───classes
 │   │   │   ArchiveHandler.php
 │   │   │   CompressionHandler.php
@@ -368,8 +405,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │       lang.zh.fe.yaml
 │   │       lang.zh.yaml
 │   │
-│   ├───plugins
-│   ├───quarantine
 │   └───signatures
 │           switch.dat
 │
@@ -379,8 +414,10 @@ https://github.com/phpMussel/phpMussel>v2
         exe_standard_testfile.exe
         general_standard_testfile.txt
         graphics_standard_testfile.gif
+        hash_testfile_md5.txt
+        hash_testfile_sha1.txt
+        hash_testfile_sha256.txt
         html_standard_testfile.html
-        md5_testfile.txt
         ole_testfile.ole
         pdf_standard_testfile.pdf
         pe_sectional_testfile.exe
@@ -1169,7 +1206,7 @@ phpMussel會阻止文件 | __假陽性__ | 真陽性（正確的推理）
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>我可以使用單個phpMussel安裝來保護多個域嗎？
 
-可以。​phpMussel安裝未綁定到特定域，​因此可以用來保護多個域。​通常，​當phpMussel安裝保護只一個域，​我們稱之為『單域安裝』，​和當phpMussel安裝保護多個域和/或子域，​我們稱之為『多域安裝』。​如果您進行多域安裝並需要使用不同的簽名文件為不同的域，​或需要不同配置phpMussel為不同的域，​這可以做到。​加載配置文件後（`config.ini`），​phpMussel將尋找『配置覆蓋文件』特定於所請求的域（`xn--cjs74vvlieukn40a.tld.config.ini`），​並如果發現，​由配置覆蓋文件定義的任何配置值將用於執行實例而不是由配置文件定義的配置值。​配置覆蓋文件與配置文件相同，​並通過您的決定，​可能包含phpMussel可用的所有配置指令，​或任何必需的部分當需要。​配置覆蓋文件根據它們旨在的域來命名（所以，​例如，​如果您需要一個配置覆蓋文件為域，​`http://www.some-domain.tld/`，​它的配置覆蓋文件應該被命名`some-domain.tld.config.ini`，​和它應該放置在`vault`與配置文件，​`config.ini`）。​域名是從標題`HTTP_HOST`派生的；『www』被忽略。
+可以。​phpMussel安裝未綁定到特定域，​因此可以用來保護多個域。​通常，​當phpMussel安裝保護只一個域，​我們稱之為『單域安裝』，​和當phpMussel安裝保護多個域和/或子域，​我們稱之為『多域安裝』。​如果您進行多域安裝並需要使用不同的簽名文件為不同的域，​或需要不同配置phpMussel為不同的域，​這可以做到。​加載配置文件後（`config.ini`），​phpMussel將尋找『配置覆蓋文件』特定於所請求的域（`xn--cjs74vvlieukn40a.tld.config.ini`），​並如果發現，​由配置覆蓋文件定義的任何配置值將用於執行實例而不是由配置文件定義的配置值。​配置覆蓋文件與配置文件相同，​並通過您的決定，​可能包含phpMussel可用的所有配置指令，​或任何必需的部分當需要。​配置覆蓋文件根據它們旨在的域來命名（所以，​例如，​如果您需要一個配置覆蓋文件為域，​`https://www.some-domain.tld/`，​它的配置覆蓋文件應該被命名`some-domain.tld.config.ini`，​和它應該放置在`vault`與配置文件，​`config.ini`）。​域名是從標題`HTTP_HOST`派生的；『www』被忽略。
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>我不想浪費時間安裝這個和確保它在我的網站上功能正常；我可以僱用您這樣做嗎？
 
@@ -1717,4 +1754,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2019年12月27日。
+最後更新：2020年3月1日。

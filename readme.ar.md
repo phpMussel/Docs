@@ -229,12 +229,11 @@
 https://github.com/phpMussel/phpMussel>v2
 │   .gitattributes
 │   .gitignore
-│   .travis.php
 │   .travis.yml
 │   Changelog-v2.txt
+│   codeception.yml
 │   composer.json
 │   CONTRIBUTING.md
-│   crowdin.yml
 │   LICENSE.txt
 │   loader.php
 │   PEOPLE.md
@@ -244,6 +243,45 @@ https://github.com/phpMussel/phpMussel>v2
 │
 ├───.github
 │       ISSUE_TEMPLATE.md
+│
+├───tests
+│   │   .gitignore
+│   │   acceptance.suite.yml
+│   │   functional.suite.yml
+│   │   unit.suite.yml
+│   │
+│   ├───acceptance
+│   │       .gitkeep
+│   │
+│   ├───functional
+│   │       .gitkeep
+│   │
+│   ├───unit
+│   │       .gitkeep
+│   │       LoaderAndScanCest.php
+│   │
+│   ├───_data
+│   │       .gitkeep
+│   │
+│   ├───_output
+│   │       .gitkeep
+│   │
+│   └───_support
+│       │   AcceptanceTester.php
+│       │   FunctionalTester.php
+│       │   UnitTester.php
+│       │
+│       ├───config
+│       │       config.ini
+│       │
+│       ├───Helper
+│       │       Acceptance.php
+│       │       Functional.php
+│       │       Unit.php
+│       │
+│       └───samples
+│               encrypted.zip
+│               hello.txt
 │
 ├───vault
 │   │   .htaccess
@@ -267,7 +305,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   themes.dat
 │   │   upload.php
 │   │
-│   ├───cache
 │   ├───classes
 │   │   │   ArchiveHandler.php
 │   │   │   CompressionHandler.php
@@ -363,8 +400,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │       lang.zh.fe.yaml
 │   │       lang.zh.yaml
 │   │
-│   ├───plugins
-│   ├───quarantine
 │   └───signatures
 │           switch.dat
 │
@@ -374,8 +409,10 @@ https://github.com/phpMussel/phpMussel>v2
         exe_standard_testfile.exe
         general_standard_testfile.txt
         graphics_standard_testfile.gif
+        hash_testfile_md5.txt
+        hash_testfile_sha1.txt
+        hash_testfile_sha256.txt
         html_standard_testfile.html
-        md5_testfile.txt
         ole_testfile.ole
         pdf_standard_testfile.pdf
         pe_sectional_testfile.exe
@@ -1398,7 +1435,7 @@ Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">تمت إ�
 
 #### <div dir="rtl"><a name="PROTECT_MULTIPLE_DOMAINS"></a>هل يمكنني استخدام تثبيت phpMussel واحد لحماية نطاقات متعددة؟<br /><br /></div>
 
-<div dir="rtl">نعم. يمكن استخدام phpMussel لحماية نطاقات متعددة. إذا كان التكوين المطلوب مختلفا، للقيام بذلك، إنشاء ملفات تكوين جديدة، واسمه وفقا للنطاقات التي تتطلب الحماية. كمثال، ل <code dir="ltr">"http://www.some-domain.tld/"</code>، أطلق عليه اسما <code dir="ltr">"some-domain.tld.config.ini"</code>. اسم النطاق يأتي من <code dir="ltr">"HTTP_HOST"</code>. يتم تجاهل <code dir="ltr">"www"</code>.<br /><br /></div>
+<div dir="rtl">نعم. يمكن استخدام phpMussel لحماية نطاقات متعددة. إذا كان التكوين المطلوب مختلفا، للقيام بذلك، إنشاء ملفات تكوين جديدة، واسمه وفقا للنطاقات التي تتطلب الحماية. كمثال، ل <code dir="ltr">"https://www.some-domain.tld/"</code>، أطلق عليه اسما <code dir="ltr">"some-domain.tld.config.ini"</code>. اسم النطاق يأتي من <code dir="ltr">"HTTP_HOST"</code>. يتم تجاهل <code dir="ltr">"www"</code>.<br /><br /></div>
 
 #### <div dir="rtl"><a name="PAY_YOU_TO_DO_IT"></a>أنا لا أريد أن تضيع الوقت مع تثبيت هذا أو ضمان أنه يعمل لموقع الويب الخاص بي؛ يمكنني دفع لك أن تفعل ذلك بالنسبة لي؟<br /><br /></div>
 
@@ -1980,4 +2017,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 27 ديسمبر 2019 (2019.12.27).</div>
+<div dir="rtl">آخر تحديث: 1 مارس 2020 (2020.03.01).</div>

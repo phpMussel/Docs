@@ -234,12 +234,11 @@ Além disso, para os interessados, um tutorial em vídeo para saber como usar ph
 https://github.com/phpMussel/phpMussel>v2
 │   .gitattributes
 │   .gitignore
-│   .travis.php
 │   .travis.yml
 │   Changelog-v2.txt
+│   codeception.yml
 │   composer.json
 │   CONTRIBUTING.md
-│   crowdin.yml
 │   LICENSE.txt
 │   loader.php
 │   PEOPLE.md
@@ -249,6 +248,45 @@ https://github.com/phpMussel/phpMussel>v2
 │
 ├───.github
 │       ISSUE_TEMPLATE.md
+│
+├───tests
+│   │   .gitignore
+│   │   acceptance.suite.yml
+│   │   functional.suite.yml
+│   │   unit.suite.yml
+│   │
+│   ├───acceptance
+│   │       .gitkeep
+│   │
+│   ├───functional
+│   │       .gitkeep
+│   │
+│   ├───unit
+│   │       .gitkeep
+│   │       LoaderAndScanCest.php
+│   │
+│   ├───_data
+│   │       .gitkeep
+│   │
+│   ├───_output
+│   │       .gitkeep
+│   │
+│   └───_support
+│       │   AcceptanceTester.php
+│       │   FunctionalTester.php
+│       │   UnitTester.php
+│       │
+│       ├───config
+│       │       config.ini
+│       │
+│       ├───Helper
+│       │       Acceptance.php
+│       │       Functional.php
+│       │       Unit.php
+│       │
+│       └───samples
+│               encrypted.zip
+│               hello.txt
 │
 ├───vault
 │   │   .htaccess
@@ -272,7 +310,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   themes.dat
 │   │   upload.php
 │   │
-│   ├───cache
 │   ├───classes
 │   │   │   ArchiveHandler.php
 │   │   │   CompressionHandler.php
@@ -368,8 +405,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │       lang.zh.fe.yaml
 │   │       lang.zh.yaml
 │   │
-│   ├───plugins
-│   ├───quarantine
 │   └───signatures
 │           switch.dat
 │
@@ -379,8 +414,10 @@ https://github.com/phpMussel/phpMussel>v2
         exe_standard_testfile.exe
         general_standard_testfile.txt
         graphics_standard_testfile.gif
+        hash_testfile_md5.txt
+        hash_testfile_sha1.txt
+        hash_testfile_sha256.txt
         html_standard_testfile.html
-        md5_testfile.txt
         ole_testfile.ole
         pdf_standard_testfile.pdf
         pe_sectional_testfile.exe
@@ -1169,7 +1206,7 @@ Não. PHP >= 7.2.0 é um requisito mínimo para phpMussel v2.
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>Posso usar uma única instalação do phpMussel para proteger vários domínios?
 
-Sim. As instalações do phpMussel não estão naturalmente atado com domínios específicos, e pode, portanto, ser usado para proteger vários domínios. Geralmente, referimo-nos a instalações do phpMussel que protegem apenas um domínio como "instalações de singular-domínio", e referimo-nos a instalações do phpMussel que protegem vários domínios e/ou subdomínios como "instalações multi-domínio". Se você operar uma instalação multi-domínio e precisa usar conjuntos diferentes de arquivos de assinaturas para domínios diferentes, ou precisam phpMussel para ser configurado de forma diferente para domínios diferentes, é possível fazer isso. Depois de carregar o arquivo de configuração (`config.ini`), o phpMussel verificará a existência de um "arquivo de sobreposição para a configuração" específico para o domínio (ou subdomínio) que está sendo solicitado (`o-domínio-que-está-sendo-solicitado.tld.config.ini`), e se encontrado, quaisquer valores de configuração definidos pelo arquivo de sobreposição para a configuração serão usados para a instância de execução em vez dos valores de configuração definidos pelo arquivo de configuração. Os arquivos de sobreposição para a configuração são idênticos ao arquivo de configuração, e a seu critério, pode conter a totalidade de todas as diretivas de configuração disponíveis para o phpMussel, ou qualquer subseção menor necessária que difere dos valores normalmente definidos pelo arquivo de configuração. Os arquivos de sobreposição para a configuração são nomeados de acordo com o domínio que eles são destinados para (por exemplo, se você precisar de um arquivo de sobreposição para a configuração para o domínio, `http://www.some-domain.tld/`, o seu arquivo de sobreposição para a configuração deve ser nomeado como `some-domain.tld.config.ini`, e deve ser colocado dentro da vault ao lado do arquivo de configuração, `config.ini`). O nome de domínio para a instância de execução é derivado do cabeçalho `HTTP_HOST` do pedido; "www" é ignorado.
+Sim. As instalações do phpMussel não estão naturalmente atado com domínios específicos, e pode, portanto, ser usado para proteger vários domínios. Geralmente, referimo-nos a instalações do phpMussel que protegem apenas um domínio como "instalações de singular-domínio", e referimo-nos a instalações do phpMussel que protegem vários domínios e/ou subdomínios como "instalações multi-domínio". Se você operar uma instalação multi-domínio e precisa usar conjuntos diferentes de arquivos de assinaturas para domínios diferentes, ou precisam phpMussel para ser configurado de forma diferente para domínios diferentes, é possível fazer isso. Depois de carregar o arquivo de configuração (`config.ini`), o phpMussel verificará a existência de um "arquivo de sobreposição para a configuração" específico para o domínio (ou subdomínio) que está sendo solicitado (`o-domínio-que-está-sendo-solicitado.tld.config.ini`), e se encontrado, quaisquer valores de configuração definidos pelo arquivo de sobreposição para a configuração serão usados para a instância de execução em vez dos valores de configuração definidos pelo arquivo de configuração. Os arquivos de sobreposição para a configuração são idênticos ao arquivo de configuração, e a seu critério, pode conter a totalidade de todas as diretivas de configuração disponíveis para o phpMussel, ou qualquer subseção menor necessária que difere dos valores normalmente definidos pelo arquivo de configuração. Os arquivos de sobreposição para a configuração são nomeados de acordo com o domínio que eles são destinados para (por exemplo, se você precisar de um arquivo de sobreposição para a configuração para o domínio, `https://www.some-domain.tld/`, o seu arquivo de sobreposição para a configuração deve ser nomeado como `some-domain.tld.config.ini`, e deve ser colocado dentro da vault ao lado do arquivo de configuração, `config.ini`). O nome de domínio para a instância de execução é derivado do cabeçalho `HTTP_HOST` do pedido; "www" é ignorado.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>Eu não quero mexer com a instalação deste e fazê-lo funcionar com o meu site; Posso pagar-te para fazer tudo por mim?
 
@@ -1719,4 +1756,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 27 de Dezembro de 2019 (2019.12.27).
+Última Atualização: 1 de Março de 2020 (2020.03.01).
