@@ -1010,8 +1010,6 @@ Atualmente, o phpMussel usa o PHPMailer apenas para autenticação de dois fator
 #### "supplementary_cache_options" (Categoria)
 Opções suplementares de cache.
 
-*Atualmente, isso é extremamente experimental, e pode não se comportar como esperado! Por enquanto, recomendo ignorá-lo.*
-
 ##### "enable_apcu"
 - Especifica se deve tentar usar o APCu para armazenamento em cache. Padrão = False.
 

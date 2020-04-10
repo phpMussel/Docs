@@ -1010,8 +1010,6 @@ Hiện tại, phpMussel chỉ sử dụng PHPMailer để xác thực hai yếu 
 #### "supplementary_cache_options" (Thể loại)
 Tùy chọn bộ nhớ cache bổ sung.
 
-*Hiện tại, điều này cực kỳ thử nghiệm, và có thể không hoạt động như mong đợi! Hiện tại, tôi khuyên bạn nên bỏ qua nó.*
-
 ##### "enable_apcu"
 - Điều này xác định có nên thử sử dụng APCu để lưu trữ không. Mặc định = False.
 

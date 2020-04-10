@@ -1010,8 +1010,6 @@ PHPMailer配置。
 #### 『supplementary_cache_options』 （類別）
 補充緩存選項。
 
-*目前，這是非常實驗性的，可能不會像預期的那樣表現！​目前，我建議忽略它。*
-
 ##### 『enable_apcu』
 - 指定是否嘗試使用APCu進行緩存。​默認 = False。
 

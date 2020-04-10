@@ -1010,8 +1010,6 @@ PHPMailer 구성.
 #### "supplementary_cache_options" (카테고리)
 보충 캐시 옵션.
 
-*현재 이것은 매우 실험적이며 예상대로 동작하지 않을 수 있습니다! 잠시 그것을 무시하는 것이 좋습니다.*
-
 ##### "enable_apcu"
 - 캐싱에 APCu를 사용할지 여부를 지정합니다. Default (기본값) = False.
 

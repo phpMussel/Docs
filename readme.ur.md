@@ -1209,8 +1209,6 @@ Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">سپورٹ
 #### <div dir="rtl">"supplementary_cache_options" (قسم)<br /></div>
 <div dir="rtl">اضافی کیشنگ کے اختیارات.<br /><br /></div>
 
-<div dir="rtl">فی الحال، یہ انتہائی تجرباتی ہے، اور ممکنہ طور پر متوقع نہیں ہوسکتا ہے! اس وقت میں، میں اسے نظر انداز کرنے کی سفارش کرتا ہوں.<br /><br /></div>
-
 ##### <div dir="rtl">"enable_apcu"<br /></div>
 <div dir="rtl"><ul>
  <li>اس کی وضاحت کرتا ہے کہ کیش کے لئے APCu استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li>
