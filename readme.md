@@ -1,6 +1,6 @@
 [![Join the chat at https://gitter.im/phpMussel2/Lobby](https://badges.gitter.im/phpMussel2/Lobby.svg)](https://gitter.im/phpMussel2/Lobby)
 [![v1: PHP >= 5.4.0](https://img.shields.io/badge/v1-PHP%20%3E%3D%205.4.0-8892bf.svg)](https://maikuolan.github.io/Compatibility-Charts/)
-[![v2: PHP >= 7.2.0](https://img.shields.io/badge/v2-PHP%20%3E%3D%207.2.0-8892bf.svg)](https://maikuolan.github.io/Compatibility-Charts/)
+[![v2~v3: PHP >= 7.2.0](https://img.shields.io/badge/v2%7Ev3-PHP%20%3E%3D%207.2.0-8892bf.svg)](https://maikuolan.github.io/Compatibility-Charts/)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](http://makeapullrequest.com)
 
@@ -44,11 +44,11 @@ An ideal solution for shared hosting environments, where it's often not possible
 - **[中文（简体）](https://github.com/phpMussel/Docs/blob/master/readme.zh.md)**
 - **[中文（傳統）](https://github.com/phpMussel/Docs/blob/master/readme.zh-tw.md)**
 
-[\[CONTRIBUTING.md\] **Want to help?**](https://github.com/phpMussel/phpMussel/blob/v2/CONTRIBUTING.md)
+[\[CONTRIBUTING.md\] **Want to help?**](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md)
 
-[\[PEOPLE.md\] **Learn about the people behind phpMussel.**](https://github.com/phpMussel/phpMussel/blob/v2/PEOPLE.md)
+[\[PEOPLE.md\] **Learn about the people behind phpMussel.**](https://github.com/phpMussel/.github/blob/master/PEOPLE.md)
 
 ---
 
 
-Last Updated: 11 May 2019 (2019.05.11).
+Last Updated: 12 June 2020 (2020.06.12).
