@@ -12,6 +12,7 @@
 - 9. [KNOWN COMPATIBILITY PROBLEMS](#SECTION9)
 - 10. [FREQUENTLY ASKED QUESTIONS (FAQ)](#SECTION10)
 - 11. [LEGAL INFORMATION](#SECTION11)
+- 12. [MIGRATION GUIDE](#SECTION12)
 
 *Note regarding translations: In the event of errors (e.g., discrepancies between translations, typos, etc), the English version of the README is considered the original and authoritative version. If you find any errors, your assistance in correcting them would be welcomed.*
 
@@ -238,16 +239,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +317,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +865,7 @@ Compatibility directives for phpMussel.
 - This directive should generally be disabled unless it's required for correct functionality of phpMussel on your specific system. Normally, when disabled, when phpMussel detects the presence of elements in the `$_FILES` array(), it'll attempt to initiate a scan of the files that those elements represent, and, if those elements are blank or empty, phpMussel will return an error message. This is proper behaviour for phpMussel. However, for some CMS, empty elements in `$_FILES` can occur as a result of the natural behaviour of those CMS, or errors may be reported when there aren't any, in which case, the normal behaviour for phpMussel will be interfering with the normal behaviour of those CMS. If such a situation occurs for you, enabling this option will instruct phpMussel to not attempt to initiate scans for such empty elements, ignore them when found and to not return any related error messages, thus allowing continuation of the page request. False = OFF; True = ON.
 
 ##### "only_allow_images"
-- If you only expect or only intend to allow images to be uploaded to your system or CMS, and if you absolutely don't require any files other than images to be uploaded to your system or CMS, this directive should be enabled, but should otherwise be disabled. If this directive is enabled, it'll instruct phpMussel to indiscriminately block any uploads identified as non-image files, without scanning them. This may reduce processing time and memory usage for attempted uploads of non-image files. False = OFF; True = ON.
+- When set to true, any files encountered by the scanner which aren't images will be flagged immediately, without being scanned. This may help reduce the time needed to complete a scan in some cases. Set to false by default.
 
 #### "heuristic" (Category)
 Heuristic directives.
@@ -1755,6 +1751,63 @@ Because aspects of the regulation may evolve in time, in order to avoid the prop
 
 Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO available at Wikipedia:
 - [General Data Protection Regulation](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation)
+
+---
+
+
+### 12. <a name="SECTION12"></a>MIGRATION GUIDE
+
+#### 12.0 MIGRATING FROM v0 TO v1
+
+##### 12.0.0 SUMMARY
+
+There are significant backwards-incompatible changes between v0 and v1, to the extent they could almost be regarded as entirely different packages. Also, at the time of writing this migrating guide, v0 has already reached EoL since a long time ago, so starting again afresh with a completely new installation is the most recommended way forward (preferably just skipping ahead directly to v2 or newer, if possible).
+
+##### 12.0.1 REQUIREMENTS
+
+phpMussel v1 requires at least PHP 5.4 or newer with PCRE support. Ensure you meet the requirements before attempting to install, update, or migrate. BZ2 support, cURL support, LZF support, RAR support, and ZIP support is also strongly recommended (though the package should still mostly function without it).
+
+##### 12.0.2 BACKWARDS-INCOMPATIBLE CHANGES, DEPRECATIONS, ETC
+
+Too many to list.
+
+##### 12.0.3 NEW FEATURES, BENEFITS, OTHER CHANGES, ETC
+
+Too many to list.
+
+#### 12.1 MIGRATING FROM v1 TO v2
+
+##### 12.1.0 SUMMARY
+
+Some backwards-incompatible changes exist between v1 and v2, and migrating directly from the front-end isn't possible. If you haven't changed anything at your existing installation at all (e.g., configuration hasn't changed from any of the default values, no new plugins or signature files have been installed, no custom signatures, etc), or if you don't care about retaining your existing configuration, customistaions, any old logs or other old data, just starting again afresh with a completely new installation would be the easiest, simplest, and most recommended way forward. Otherwise, if you want to preserve anything from your existing installation, follow the steps below to migrate manually from v1 to v2.
+
+##### 12.1.1 REQUIREMENTS
+
+phpMussel v2 requires at least PHP 7.2 or newer with PCRE support. Ensure you meet the requirements before attempting to install, update, or migrate. BZ2 support, cURL support, LZF support, RAR support, and ZIP support is also strongly recommended (though the package should still mostly function without it).
+
+##### 12.1.2 BACKWARDS-INCOMPATIBLE CHANGES, DEPRECATIONS, ETC
+
+- Minimum requirements raised.
+- Some small changes to the loader.
+- The code for processing plugins shifted from the loader to the functions file and reworked.
+- Numerous configuration directives renamed in order to implement snake_case.
+
+##### 12.1.3 NEW FEATURES, BENEFITS, OTHER CHANGES, ETC
+
+- Support for 4 additional languages added (20 total supported by v1; 24 total supported by v2).
+- Very slight overall performance improvements may be noticeable in some circumstances.
+- Slightly stronger typecasting and future-proofing.
+- Codebase refactored to take advantage of syntax and features available to PHP since the raised minimum requirements (e.g., scalar parameter type hints, return type declarations, generators, etc).
+
+##### 12.1.4 STEPS TO MIGRATE
+
+*To-do.*
+
+#### 12.2 MIGRATING FROM v2 TO v3
+
+##### 12.2.0 SUMMARY
+
+v3 doesn't exist yet. More information will be provided at a later time, when it becomes relevant.
 
 ---
 

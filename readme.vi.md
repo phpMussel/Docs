@@ -238,16 +238,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +316,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +864,7 @@ Cấu hình khả năng tương thích cho phpMussel.
 - Nói chung, tùy chọn này nên bị vô hiệu hóa, trừ khi nó cần thiết cho chức năng đúng của phpMussel trên hệ thống cụ thể của bạn. Thông thường, khi bị vô hiệu, khi phpMussel phát hiện sự hiện diện của elements (yếu tố) trong array `$_FILES`, nó sẽ cố gắng để bắt đầu quét của các tập tin mà những yếu tố đại diện, và, nếu những yếu tố này là trống, phpMussel sẽ trả về thông báo lỗi. Đây là hành vi thích hợp cho phpMussel. Tuy nhiên, đối với một số CMS, phần tử rỗng trong `$_FILES` có thể xảy ra như là kết quả của các hành vi tự nhiên của những CMS, hay lỗi có thể được báo cáo khi không có bất kỳ, và trong trường hợp này, các hành vi tự nhiên cho phpMussel sẽ gây trở ngại với các hành vi bình thường của những CMS. Nếu một tình huống như vậy xảy ra cho bạn, bật tùy chọn này sẽ hướng dẫn phpMussel không cố gắng để bắt đầu quét cho phần tử rỗng, bỏ qua chúng khi tìm thấy và không trả lại bất kỳ thông báo lỗi liên quan, do đó cho phép tiếp tục của yêu cầu trang. False = TẮT; True = TRÊN.
 
 ##### "only_allow_images"
-- Nếu bạn chỉ mong đợi hay chỉ có ý định để cho phép hình ảnh để được tải lên hệ thống hay CMS của bạn, và nếu bạn hoàn toàn không yêu cầu bất kỳ tập tin khác so với hình ảnh để được tải lên hệ thống hay CMS của bạn, tùy chọn này nên được kích hoạt, nhưng nếu không nên bị vô hiệu hóa. Nếu tùy chọn này được kích hoạt, nó sẽ hướng dẫn phpMussel để ngăn chặn bất kỳ tải lên bừa bãi xác định là các tập tin không phải hình ảnh, mà không cần quét chúng. Điều này có thể làm giảm thời gian xử lý và sử dụng bộ nhớ cho tải lên cố gắng của các tập tin không phải hình ảnh. False = TẮT; True = TRÊN.
+- Khi được đặt thành true, bất kỳ tập tin không phải là hình ảnh nào mà máy quét gặp phải sẽ được gắn cờ ngay lập tức mà không được quét. Điều này có thể giúp giảm thời gian cần thiết để hoàn thành quét trong một số trường hợp. Đặt thành false theo mặc định.
 
 #### "heuristic" (Thể loại)
 Cấu hình cho "heuristic" (tìm kiếm / khám phá / tự học).

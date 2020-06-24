@@ -238,16 +238,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +316,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +864,7 @@ Direktif-direktif kompatibilitas pada phpMussel.
 - Direktif ini umumnya harus DINONAKTIFKAN kecuali diharuskan untuk fungsi yang benar dari phpMussel pada sistem tertentu. Biasanya, ketika DINONAKTIFKAN, ketika phpMussel mendeteksi adanya elemen dalam `$_FILES` array(), itu akan mencoba untuk memulai scan file yang mewakili elemen, dan, jika elemen yang kosong, phpMussel akan mengembalikan pesan kesalahan. Ini adalah perilaku yang tepat untuk phpMussel. Namun, untuk beberapa CMS, elemen kosong di `$_FILES` dapat terjadi sebagai akibat dari perilaku alami itu CMS, atau kesalahan dapat dilaporkan bila tidak ada, dalam kasus seperti itu, perilaku normal untuk phpMussel akan mengganggu untuk perilaku normal itu CMS. Jika situasi seperti itu terjadi untuk Anda, MENGAKTIFKAN direktif ini akan menginstruksikan phpMussel untuk tidak mencoba untuk memulai scan untuk elemen kosong, mengabaikan saat ditemui dan untuk tidak kembali terkait pesan kesalahan, sehingga memungkinkan kelanjutan dari halaman permintaan. False = DINONAKTIFKAN; True = DIAKTIFKAN.
 
 ##### "only_allow_images"
-- Jika Anda hanya mengharapkan atau hanya berniat untuk memungkinkan mengupload gambar ke sistem atau CMS, dan jika Anda benar-benar tidak memerlukan mengupload file selain gambar ke sistem atau CMS, direktif ini harus DIAKTIFKAN, tapi sebaliknya harus DINONAKTIFKAN. Jika direktif ini DIAKTIFKAN, ini akan menginstruksikan phpMussel untuk memblokir tanpa pandang bulu setiap upload diidentifikasi sebagai file tidak gambar, tanpa pemindaian mereka. Ini mungkin mengurangi waktu memproses dan penggunaan memori untuk mencoba upload file tidak gambar. False = DINONAKTIFKAN; True = DIAKTIFKAN.
+- Bila diset ke true, file apapun ditemukan oleh pemindai yang bukan gambar akan segera ditandai, tanpa dipindai. Ini dapat membantu mengurangi waktu yang dibutuhkan untuk menyelesaikan pemindaian dalam beberapa kasus. Diset ke false secara default.
 
 #### "heuristic" (Kategori)
 Direktif-direktif heuristik pada phpMussel.

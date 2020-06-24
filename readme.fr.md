@@ -238,16 +238,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +316,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +864,7 @@ Directives de compatibilité pour phpMussel.
 - Cette directive doit généralement être DÉSACTIVÉ sauf si cela est nécessaire pour la correcte fonctionnalité de phpMussel sur votre spécifique système. Normalement, lorsque DÉSACTIVÉ, lorsque phpMussel détecte la présence d'éléments dans le `$_FILES`() tableau, il va tenter de lancer une analyse du fichiers que ces éléments représentent, et, si ces éléments sont vide, phpMussel retourne un message d'erreur. Ce comportement est normal pour phpMussel. Mais, pour certains CMS, vides éléments dans `$_FILES` peuvent survenir à la suite du naturel comportement de ces CMS, ou erreurs peuvent être signalés quand il ne sont pas tout, dans ce cas, le normal comportement pour phpMussel seront interférer avec le normal comportement de ces CMS. Si telle une situation se produit pour vous, ACTIVATION de cette option sera instruire phpMussel ne pas à tenter de lancer d'analyses pour ces vides éléments, ignorer quand il est reconnu et ne pas à retourner tout de connexes messages d'erreur, permettant ainsi la continuation de la requête de page. False = DÉSACTIVÉ ; True = ACTIVÉ.
 
 ##### « only_allow_images »
-- Si vous seulement attendre ou vouloir d'autoriser images à être téléchargé sur votre système ou CMS, et si vous absolument n'avez pas besoin tous les fichiers autres que les images à être téléchargé sur votre système ou CMS, cette directive devrait être ACTIVÉ, mais devrait autrement être DÉSACTIVÉ. Si cette directive est ACTIVÉ, il va instruire phpMussel à bloquer indistinctement tous téléchargements identifié comme non image fichiers, sans analyser. Cela peut réduire le temps de travail et l'utilisation de la mémoire pour les tentativé téléchargements de non image fichiers. False = DÉSACTIVÉ ; True = ACTIVÉ.
+- Lorsqu'il est défini sur true, tous les fichiers rencontrés par le scanner qui ne sont pas des images seront immédiatement marqués, sans être analysés. Cela peut aider à réduire le temps nécessaire pour terminer une analyse dans certains cas. Défini sur false par défaut.
 
 #### « heuristic » (Catégorie)
 Directives heuristiques pour phpMussel.

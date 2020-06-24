@@ -238,16 +238,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +316,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +864,7 @@ Compatibilidade directivas por phpMussel.
 - Essa directiva deve ser geralmente desativada a menos que seja necessário por correta funcionalidade de phpMussel no seu específico sistema. Normalmente, quando desativado, quando phpMussel detecta a presença de elementos dentro a `$_FILES` array(), ele tentará iniciar uma análise dos arquivos que esses elementos representam, e, se esses elementos estão branco ou vazia, phpMussel irá retornar uma erro mensagem. Esse é um apropriado comportamento por phpMussel. Mas, por alguns CMS, vazios elementos podem ocorrer como resultado do natural comportamento dessas CMS, ou erros podem ser reportado quando não houver alguma, nesse caso, o normal comportamento por phpMussel será interferindo com o normal comportamento dessas CMS. Se tal situação ocorre por você, ativando esta opção irá instruir phpMussel para não tentar iniciar um análise por tais vazios elementos, ignorá-los quando encontrado e para não retornar qualquer relacionado erro mensagens, assim, permitindo a continuação da página carga. False = DESATIVADO; True = ATIVADO.
 
 ##### "only_allow_images"
-- Se você apenas esperar ou apenas tencionar de permitir imagens a ser enviado para seu sistema ou CMS, e se você absolutamente não necessita quaisquer arquivos exceto imagens a ser enviado para seu sistema ou CMS, esta directiva devia ser ATIVADO, mas em outros casos devia ser DESATIVADO. Se esta directiva é ATIVADO, ele irá instruir phpMussel indiscriminadamente bloquear qualquer arquivo carregamento identificado como não imagem, sem os analisar. Isto pode reduzir o tempo de processamento e uso de memória por tentados carregamentos de não imagem arquivos. False = DESATIVADO; True = ATIVADO.
+- Quando definido como true, todos os arquivos encontrados pelo scanner que não são imagens serão sinalizados imediatamente, sem serem analisados. Isso pode ajudar a reduzir o tempo necessário para concluir uma análise em alguns casos. Defina como false por padrão.
 
 #### "heuristic" (Categoria)
 Heurísticos directivas para phpMussel.

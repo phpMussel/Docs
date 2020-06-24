@@ -233,16 +233,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -317,6 +311,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -1009,7 +1004,7 @@ Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">سپورٹ
 
 ##### <div dir="rtl">"only_allow_images"<br /></div>
 <div dir="rtl"><ul>
- <li>آپ کو صرف امید رکھتے ہیں یا تو صرف تصاویر آپ کے سسٹم یا CMS پر اپ لوڈ کرنے کی اجازت دینے کا ارادہ رکھتے ہیں، اور آپ بالکل دوسرے کسی بھی فائلوں کی ضرورت نہیں ہے اگر تصاویر آپ کے سسٹم یا CMS پر اپ لوڈ کیا جا کرنے کی بجائے، اس حکم فعال کیا جانا چاہئے، لیکن ہونا چاہئے دوسری صورت میں غیر فعال کیا. اس ہدایت چالو حالت میں ہے، تو یہ phpMussel ہدایت اندھا دھند ان کی سکیننگ کے بغیر، غیر تصویری فائلوں کے طور پر شناخت کی کوئی بھی اپ لوڈز کو بلاک کرنے کے لئے کریں گے. یہ غیر تصویری فائلوں کی کوشش کی اپ لوڈ کے لئے پروسیسنگ کے وقت اور میموری استعمال کو کم کر سکتا ہے. False (جھوٹی) = بند؛ True (سچے) = ON.</li>
+ <li>جب true پر سیٹ کریں، اسکینر کے ذریعہ پائے جانے والی غیر تصویر والی فائلوں کو فوری طور پر نشان زد کیا جائے گا، اسکین کیے بغیر. اس سے کچھ معاملات میں اسکین مکمل کرنے کے لئے درکار وقت کو کم کرنے میں مدد مل سکتی ہے. بطور ڈیفالٹ false پر سیٹ کریں.</li>
 </ul></div>
 
 #### <div dir="rtl">"heuristic" (قسم)<br /></div>

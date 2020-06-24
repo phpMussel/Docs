@@ -238,16 +238,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +316,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +864,7 @@ phpMussel兼容性指令。
 - 这个指令按说应会关闭除非它是需要为对功能的phpMussel在您的具体系统。​按说，​当是关闭，​当phpMussel检测存在元素在`$_FILES`数组，​它将尝试引发一个扫描的文件代表通过那些元素，​和，​如果他们是空或空白，​phpMussel将回报一个错误信息。​这个是正确行为为phpMussel。​然而，​为某些CMS，​空元素在`$_FILES`可以发生因之的自然的行为的那些CMS，​或错误可能会报告当没有任何，​在这种情况，​正常行为为phpMussel将会使干扰为正常行为的那些CMS。​如果这样的一个情况发生为您，​激活这个指令将指示phpMussel不尝试引发扫描为这样的空元素，​忽略他们当发现和不回报任何关联错误信息，​从而允许延续的页面请求。​False（假）=不忽略；​True（真）=忽略。
 
 ##### “only_allow_images”
-- 如果您只期待或只意味到允许图像被上传在您的系统或CMS，​和如果您绝对不需要任何文件以外图像被上传在您的系统或CMS，​这个指令应会激活，​但其他应会关闭。​如果这个指令是激活，​它将指示phpMussel受阻而不例外任何上传确定为非图像文件，​而不扫描他们。​这个可能减少处理时间和内存使用为非图像文件上传尝试。​False（假）=还允许其他文件；​True（真）=只允许图像文件。
+- 设置为true时，扫描仪遇到的任何非图像文件将被立即标记，而不会被扫描。​在某些情况下，这可能有助于减少完成扫描所需的时间。​默认情况下设置为false。
 
 #### “heuristic” （类别）
 启发式指令。

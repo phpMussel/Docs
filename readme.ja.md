@@ -238,16 +238,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +316,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +864,7 @@ phpMusselの互換性ディレクティブ。
 - システム上でphpMusselの機能に修正が必要でない限りはこのディレクティブは通常無効です。​無効に設定すると、​`$_FILES` array()に要素の存在を検知したとき、​その要素が表すファイルのスキャンが開始され、​要素が空白か無であればphpMusselはエラーメッセージを返します。​これは本来phpMusselがあるべき姿です。​しかしＣＭＳにおいては、​$_FILESの空要素は普通に発生するものであり、​正常なphpMusselの挙動が正常なＣＭＳの挙動を阻害する恐れがあります。​このような場合は、​本オプションを有効にして、​phpMusselが空要素をスキャンしてエラーメッセージを返すのを避け、​要求のあったページへスムーズに進むことができるようにします。​`false`（偽）=ＯＦＦ「オフ」です。`true`（真）=ＯＮ「オン」です。
 
 ##### "only_allow_images" （オンリー・アロウ・イメージ）
-- システムあるいはＣＭＳに画像ファイルのアップロードのみを許可するのであれば、​このディレクティブは有効にすべきであり、​そうでなければ無効とします。​有効にすると、​画像と特定できないファイルはスキャンすることなしにブロックしますので、​プロセス時間の短縮とメモリーの節約が期待できます。​`false`（偽） = OFF （オフ）；​`true`（真） = ON （オン） です。
+- trueに設定した場合、スキャナーで検出された非画像ファイルには、スキャンされずに、直ちにマークされます。​これは、場合によっては、スキャンの完了に必要な時間を短縮するのに役立ちます。​デフォルトではfalseに設定されています。
 
 #### "heuristic" （ヒューリスティック、カテゴリ）
 ヒューリスティック・ディレクティブズ。

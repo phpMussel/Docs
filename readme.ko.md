@@ -238,16 +238,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   Changelog-v2.txt
 │   codeception.yml
 │   composer.json
-│   CONTRIBUTING.md
 │   LICENSE.txt
 │   loader.php
-│   PEOPLE.md
 │   README.md
-│   SECURITY.md
 │   web.config
-│
-├───.github
-│       ISSUE_TEMPLATE.md
 │
 ├───tests
 │   │   .gitignore
@@ -322,6 +316,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           Demojibakefier.php
 │   │           Events.php
 │   │           L10N.php
+│   │           Matrix.php
 │   │           NumberFormatter.php
 │   │           YAML.php
 │   │
@@ -869,7 +864,7 @@ phpMussel 호환성 지시문.
 - 시스템에서 phpMussel의 기능에 수정이 필요한 경우가 아니면이 지시문은 일반적으로 사용할 수 없습니다. 비활성화하면 `$_FILES` array()요소를 감지했을 때, 그 요소가 나타내는 파일의 스캔이 시작됩니다, 요소가 비어 있거나없는 경우 phpMussel는 오류 메시지를 반환합니다. 이것은 본래 phpMussel가 있어야 할 모습입니다. 그러나 CMS에서는 $_FILES 하늘 요소는 일반적으로 발생하는 것이며, 정상적인 phpMussel의 행동이 정상적인 CMS의 거동을 저해 할 우려가 있습니다. 이러한 경우에는 본 옵션을 사용하여 phpMussel 빈 요소를 검사하고 오류 메시지를 반환을 피하고 요청한 페이지로 원활하게 진행할 수 있도록합니다. `false` = OFF (해제입니다); `true` = ON (온입니다).
 
 ##### "only_allow_images"
-- 시스템 또는 CMS에 이미지 파일의 업로드 만 허용한다면이 지시어가 동작해야하며, 그렇지 않으면 무효로합니다. 사용하면 이미지와 알 수없는 파일은 검사하지 않고 차단하기 때문에 프로세스 시간 단축 및 메모리 절약을 기대할 수 있습니다. `false` = OFF (해제입니다); `true` = ON (온입니다).
+- true로 설정하면, 스캐너가 발견한 이미지가 아닌 파일은 스캔하지 않고 즉시 신고됩니다. 이는 때에 따라 스캔을 완료하는 데 필요한 시간을 줄이는 데 도움이 될 수 있습니다. 기본 설정에 따라 false로 설정되어 있습니다.
 
 #### "heuristic"
 경험적 지시문 그림.
