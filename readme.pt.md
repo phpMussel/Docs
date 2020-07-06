@@ -1,4 +1,4 @@
-## Documentação para phpMussel (Português).
+## Documentação para phpMussel v3 (Português).
 
 ### Conteúdo
 - 1. [PREÂMBULO](#SECTION1)
@@ -32,67 +32,50 @@ Um especial obrigado para [ClamAV](https://www.clamav.net/) por o projeto inspir
 
 Um especial obrigado para SourceForge, Bitbucket e GitHub por hospedar os arquivos do projeto, e para os recursos adicionais de um número de assinaturas utilizados através do phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) e outros, e um especial obrigado a todos aqueles que apoiam o projeto, a qualquer outra pessoa que eu possa ter esquecido de mencionar, e para você, por usar o script.
 
-Este documento e seu pacote associado pode ser baixado gratuitamente de:
-- [GitHub](https://github.com/phpMussel/phpMussel).
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
-- [SourceForge](https://sourceforge.net/projects/phpmussel/).
-
 ---
 
 
 ### 2. <a name="SECTION2"></a>COMO INSTALAR
 
-#### 2.0 INSTALANDO MANUALMENTE (PARA WEB SERVIDORES)
+#### 2.0 INSTALANDO COM COMPOSER
 
-1) Por estar lendo isso, estou supondo que você já tenha baixado uma cópia arquivada do script, descomprimido seu conteúdo e tê-lo em algum lugar em sua máquina local. A partir daqui, você vai querer determinar onde no seu host ou CMS pretende colocar esses conteúdos. Um diretório como `/public_html/phpmussel/` ou semelhante (porém, não importa qual você escolher, assumindo que é seguro e algo você esteja satisfeito com) será o suficiente. Antes de começar o upload, continue lendo.
+A maneira recomendada de instalar o phpMussel v3 é através do Composer.
 
-2) Renomear `config.ini.RenameMe` para `config.ini` (localizado dentro `vault`), e opcionalmente (fortemente recomendado para usuários avançados, mas não recomendado para iniciantes ou para os inexperientes), abra-o (este arquivo contém todas as diretivas disponíveis para phpMussel; acima de cada opção deve ser um breve comentário descrevendo o que faz e para que serve). Ajuste essas opções de como lhe serve, conforme o que for apropriado para sua configuração específica. Salve o arquivo e feche.
-
-3) Carregar os conteúdos (phpMussel e seus arquivos) para o diretório que você tinha decidido anteriormente (você não precisa dos arquivos `*.txt`/`*.md` inclusos, mas principalmente, você deve carregar tudo).
-
-4) CHMOD o diretório `vault` para "755" (se houver problemas, você pode tentar "777"; embora isto é o menos seguro). O diretório principal que armazena o conteúdo (o que você escolheu anteriormente), geralmente, não precisa ser mexido, mas o CHMOD status deve ser verificado se você já teve problemas de permissões no passado no seu sistema (por padrão, deve ser algo como "755"). Em resumo: Para o pacote funcionar corretamente, o PHP precisa ser capaz de ler e gravar arquivos dentro do diretório `vault`. Muitas coisas (atualização, registro, etc) não serão possíveis, se o PHP não puder gravar no diretório `vault`, e o pacote não funcionará se o PHP não puder ler o diretório `vault`. No entanto, para uma segurança ideal, o diretório `vault` NÃO deve ser publicamente acessível (informações confidenciais, como as informações contidas em `config.ini` ou `frontend.dat`, podem ser expostas a atacantes em potencial se o diretório `vault` estiver publicamente acessível).
-
-5) Instale todas as assinaturas que você precisará. *Vejo: [INSTALANDO ASSINATURAS](#INSTALLING_SIGNATURES).*
-
-6) Em seguida, você vai precisar "enganchar" o phpMussel ao seu sistema ou CMS. Existem várias diferentes maneiras em que você pode "enganchar" scripts como phpMussel ao seu sistema ou CMS, mas o mais fácil é simplesmente incluir o script no início de um núcleo arquivo de seu sistema ou CMS (uma que vai geralmente sempre ser carregado quando alguém acessa qualquer página através de seu site) utilizando um comando `require` ou `include`. Normalmente, isso vai ser algo armazenado em um diretório como `/includes`, `/assets` ou `/functions`, e muitas vezes, ser nomeado algo como `init.php`, `common_functions.php`, `functions.php` ou semelhante. Você precisará determinar qual arquivo é para a sua situação; Se você encontrar dificuldades em determinar isso por si mesmo, para assistência, visite a página de issues phpMussel no GitHub ou os fóruns de suporte para phpMussel; É possível que eu ou outro usuário podem ter experiência com o CMS que você está usando (você precisa deixar-nos saber qual CMS você está usando), e assim, pode ser capaz de prestar alguma assistência neste domínio. Para fazer isso [usar `require` ou `include`], insira a seguinte linha de código para o início desse núcleo arquivo, substituindo a string contida dentro das aspas com o exato endereço do arquivo `loader.php` (endereço local, não o endereço HTTP; será semelhante ao vault endereço mencionado anteriormente).
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-Salve o arquivo, fechar, recarrega-lo.
-
--- OU ALTERNATIVAMENTE --
-
-Se você é usando um Apache webserver e se você tem acesso a `php.ini`, você pode usar a diretiva `auto_prepend_file` para pré-carga phpMussel sempre que qualquer solicitação para PHP é feito. Algo como:
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-Ou isso no `.htaccess` arquivo:
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-7) Neste ponto, você está feito! Porém, você provavelmente deve testá-lo para garantir que ele está funcionando corretamente. Para testar a proteção de upload de arquivo, tente carregar dos arquivos testes incluídos no pacote em `_testfiles` para seu site através de seu método habitual de upload no navegador. (Assegure-se de ter incluído os arquivos de assinatura `phpmussel*.*db` na diretiva de configuração `active` para que os arquivos de teste desencadear). Se tudo estiver funcionando, a mensagem deve aparecer a partir phpMussel confirmando que o carregamento foi bloqueado com sucesso. Se nada aparecer, algo está não funcionando corretamente. Se você estiver usando quaisquer recursos avançados ou se você estiver usando outros tipos de analise possível da ferramenta, eu sugiro tentar isso com aqueles para certificar que funciona como esperado, também.
-
-#### 2.1 INSTALANDO MANUALMENTE (PARA CLI)
-
-1) Por estar lendo isso, estou supondo que você já tenha baixado uma cópia arquivada do script, descomprimido seu conteúdo e tê-lo em algum lugar em sua máquina local. Quando você tiver determinado que você está feliz com a localização escolhida para o phpMussel, continue.
-
-2) phpMussel requer PHP instalado na máquina host para poder executar. Se você não ainda tem PHP instalado em sua máquina, por favor instalar o PHP em sua máquina, seguindo as instruções fornecidas pelo instalador do PHP.
-
-3) Opcionalmente (fortemente recomendado para avançados usuários, mas não recomendado para iniciantes ou para os inexperientes), abrir `config.ini` (localizado dentro `vault`) – Este arquivo contém todas as diretivas disponíveis para phpMussel. Acima de cada opção deve ter um breve comentário descrevendo o que faz e para que serve. Ajuste essas opções de como você vê o ajuste, conforme o que for apropriado para sua configuração específica. Salve o arquivo, feche.
-
-4) Opcionalmente, você pode fazer usando phpMussel no modo CLI mais fácil para si mesmo através da criação de um batch arquivo para carregar automaticamente PHP e phpMussel. Para fazer isso, abra um editor de simples texto como Notepad ou Notepad++, digite o caminho completo para o arquivo `php.exe` no diretório de instalação do PHP, seguido por um espaço, seguido pelo caminho completo para o arquivo `loader.php` no diretório da sua instalação do phpMussel, salvar o arquivo com a extensão `.bat` Em algum lugar que você vai encontrá-lo facilmente, e clique duas vezes nesse arquivo para executar phpMussel no futuro.
-
-5) Instale todas as assinaturas que você precisará. *Vejo: [INSTALANDO ASSINATURAS](#INSTALLING_SIGNATURES).*
-
-6) Neste ponto, você está feito! Porém, você provavelmente deve testá-lo para garantir que ele está funcionando corretamente. Para testar phpMussel, executar phpMussel e tentar analisar o diretório `_testfiles` fornecida com o pacote.
-
-#### 2.2 INSTALANDO COM COMPOSER
-
-[phpMussel está registrado no Packagist](https://packagist.org/packages/phpmussel/phpmussel), e então, se você estiver familiarizado com o Composer, poderá usar o Composer para instalar o phpMussel (você ainda precisará preparar a configuração, permissões, assinaturas e ganchos embora; consulte "instalando manualmente (para web servidores)" as etapas 2, 4, 5, e 6).
+Por conveniência, você pode instalar as dependências mais comuns do phpMussel por meio do repositório principal antigo do phpMussel:
 
 `composer require phpmussel/phpmussel`
 
-#### <a name="INSTALLING_SIGNATURES"></a>2.3 INSTALANDO ASSINATURAS
+Como alternativa, você pode escolher individualmente quais dependências serão necessárias na sua implementação. É bem possível que você queira apenas dependências específicas e não precise de tudo.
+
+Para fazer qualquer coisa com o phpMussel, você precisará da base de código principal do phpMussel:
+
+`composer require phpmussel/core`
+
+Fornece um recurso administrativo de front-end para o phpMussel:
+
+`composer require phpmussel/frontend`
+
+Fornece análise automática de upload de arquivos para o seu site:
+
+`composer require phpmussel/web`
+
+Fornece a capacidade de utilizar o phpMussel como um aplicativo interativo no modo CLI:
+
+`composer require phpmussel/cli`
+
+Fornece uma ponte entre o phpMussel e o PHPMailer, permitindo que o phpMussel utilize o PHPMailer para autenticação de dois fatores, notificação por email sobre uploads de arquivos bloqueados, etc:
+
+`composer require phpmussel/phpmailer`
+
+Para que o phpMussel seja capaz de detectar qualquer coisa, você precisará instalar assinaturas. Não existe um pacote específico para isso. Para instalar assinaturas, consulte a próxima seção deste documento.
+
+Como alternativa, se você não quiser usar o Composer, faça o download dos ZIPs pré-empacotados aqui:
+
+https://github.com/phpMussel/Examples
+
+Os ZIPs pré-empacotados incluem todas as dependências mencionadas acima, bem como todos os arquivos de assinatura padrão do phpMussel, além de alguns exemplos fornecidos sobre como usar o phpMussel em sua implementação.
+
+#### <a name="INSTALLING_SIGNATURES"></a>2.1 INSTALANDO ASSINATURAS
 
 Desde a v1.0.0, as assinaturas não estão incluídas no pacote phpMussel. As assinaturas são requeridas pela phpMussel para detectar ameaças específicas. Existem 3 métodos principais para instalar assinaturas:
 

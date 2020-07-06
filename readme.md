@@ -11,21 +11,6 @@ An ideal solution for shared hosting environments, where it's often not possible
 ---
 
 
-### Features:
-- Licensed as [GNU General Public License version 2.0](https://github.com/phpMussel/phpMussel/blob/v2/LICENSE.txt) (GPLv2).
-- Easy to install, easy to customise, easy to use.
-- Works for any system with PHP+PCRE installed, regardless of OS (PHP+PCRE required).
-- Fully configurable based on your needs.
-- Ideal solution for shared hosting services.
-- Ideal solution for forum systems in need of file upload protection.
-- Does NOT require shell access.
-- Does NOT require administrative privileges.
-- CLI mode available.
-- Good, strong, stable support base.
-
----
-
-
 ### Documentation:
 - **[English](https://github.com/phpMussel/Docs/blob/master/readme.en.md)**
 - **[العربية](https://github.com/phpMussel/Docs/blob/master/readme.ar.md)**
@@ -51,4 +36,4 @@ An ideal solution for shared hosting environments, where it's often not possible
 ---
 
 
-Last Updated: 12 June 2020 (2020.06.12).
+Last Updated: 6 July 2020 (2020.07.06).

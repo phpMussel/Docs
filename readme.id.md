@@ -1,4 +1,4 @@
-## Dokumentasi untuk phpMussel (Bahasa Indonesia).
+## Dokumentasi untuk phpMussel v3 (Bahasa Indonesia).
 
 ### Isi
 - 1. [SEPATAH KATA](#SECTION1)
@@ -32,67 +32,50 @@ Terima kasih khususnya untuk ClamAV buat inspirasi project dan tanda tangan dima
 
 Khusus terima kasih kepada SourceForge, Bitbucket dan GitHub untuk menghost file proyek, dan kepada sumber-sumber tambahan tanda tangan dimanfaatkan oleh phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) dan lain-lain, dan khusus terima kasih kepada semua orang yang mendukung proyek, kepada orang lain bahwa saya mungkin telah dinyatakan lupa untuk menyebutkan, dan kepada Anda, untuk menggunakan skrip.
 
-Dokumen ini dan paket terhubung di dalamnya dapat di unduh secara gratis dari:
-- [GitHub](https://github.com/phpMussel/phpMussel).
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
-- [SourceForge](https://sourceforge.net/projects/phpmussel/).
-
 ---
 
 
 ### 2. <a name="SECTION2"></a>BAGAIMANA CARA MENGINSTAL
 
-#### 2.0 MENGINSTAL SECARA MANUAL (UNTUK SERVER WEB)
+#### 2.0 MENGINSTAL DENGAN COMPOSER
 
-1) Dengan membaca ini, Saya asumsikan Anda telah mengunduh dan menyimpan copy dari skrip, membuka data terkompres dan isinya dan Anda meletakkannya pada mesin komputer lokal Anda. Dari sini, Anda akan latihan dimana di host Anda atau CMS Anda untuk meletakkan isi data terkompres nya. Sebuah direktori seperti `/public_html/phpmussel/` atau yang lain (walaupun tidak masalah Anda memilih direktori apa, selama dia aman dan dimana pun yang Anda senangi) akan mencukupi. *Sebelum Anda mulai upload, mohon baca dulu..*
+Cara yang disarankan untuk menginstal phpMussel v3 adalah melalui Composer.
 
-2) Mengubah file nama `config.ini.RenameMe` ke `config.ini` (berada di dalam `vault`), dan secara fakultatif (sangat direkomendasikan untuk user dengan pengalaman lebih lanjut, tapi tidak untuk pemula atau yang tidak berpengalaman), membukanya (file ini berisikan semua opsi operasional yang tersedia untuk phpMussel; di atas tiap opsi seharusnya ada komentar tegas menguraikan tentang apa yang dilakukan dan untuk apa). Atur opsi-opsi ini seperti Anda lihat cocok, seperti apapun yang cocok untuk setup tertentu. Simpan file, menutupnya.
-
-3) Upload isi (phpMussel dan file-filenya) ke direktori yang telah kamu putuskan sebelumnya (Anda tidak memerlukan file-file `*.txt`/`*.md`, tapi kebanyakan Anda harus mengupload semuanya).
-
-4) Gunakan perinta CHMOD ke direktori `vault` dengan "755" (jika ada masalah, Anda dapat mencoba "777", tapi ini kurang aman). Direktori utama menyimpan isinya (yang Anda putuskan sebelumnya), umumnya dapat di biarkan sendirian, tapi status perintah "CHMOD" seharusnya di cek jika kamu punya izin di sistem Anda (defaultnya, seperti "755"). Pendeknya: Agar paket berfungsi dengan benar, PHP harus dapat membaca dan menulis file di dalam direktori `vault`. Banyak hal (memperbarui, pencatatan, dll) tidak akan mungkin, jika PHP tidak dapat menulis ke direktori `vault`, dan paket tidak akan berfungsi sama sekali jika PHP tidak dapat membaca dari direktori `vault`. Namun, untuk keamanan optimal, direktori `vault` TIDAK harus dapat diakses publik (informasi sensitif, seperti informasi yang dikandung oleh `config.ini` atau `frontend.dat`, dapat diekspos kepada penyerang potensial jika direktori `vault` dapat diakses oleh publik).
-
-5) Instal semua tanda tangan yang Anda perlukan. *Lihat: [MENGINSTAL TANDA TANGAN](#INSTALLING_SIGNATURES).*
-
-6) Selanjutnya Anda perlu menghubungkan phpMussel ke sistem atau CMS. Ada beberapa cara yang berbeda untuk menghubungkan skrip seperti phpMussel ke sistem atau CMS, tapi yang paling mudah adalah memasukkan skrip pada permulaan dari file murni dari sistem atau CMS (satu yang akan secara umum di muat ketika seseorang mengakses halaman apapun pada website) berdasarkan pernyataan `require` atau `include`. Umumnya, ini akan menjadi sesuatu yang disimpan di sebuah direktori seperti `/includes`, `/assets` atau `/functions` dan akan selalu di namai sesuatu seperti `init.php`, `common_functions.php`, `functions.php` atau yang sama. Anda harus bekerja pada file apa untuk situasi ini; Jika Anda mengalami kesulitan dalam menentukan ini untuk diri sendiri, kunjungi halaman issues (issues) phpMussel di GitHub atau forum dukungan phpMussel untuk bantuan; Ada kemungkinan bahwa saya sendiri atau pengguna lain mungkin memiliki pengalaman dengan CMS yang Anda gunakan (Anda harus memberitahu kami tahu mana CMS yang Anda gunakan), dan demikian, mungkin dapat memberikan beberapa bantuan kepada Anda. Untuk melakukannya [menggunakan `require` atau `include`], sisipkan baris kode dibawah pada file murni, menggantikan kata-kata berisikan didalam tanda kutip dari alamat file `loader.php` (alamat lokal, tidak alamat HTTP; akan terlihat seperti alamat vault yang di bicarakan sebelumnya).
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-Simpan file dan menutupnya. Upload kembali.
-
--- ATAU ALTERNATIF --
-
-Jika Anda menggunakan webserver Apache dan jika Anda memiliki akses ke `php.ini`, Anda dapat menggunakan `auto_prepend_file` direktif untuk tambahkan phpMussel setiap kali ada permintaan PHP dibuat. Sesuatu seperti:
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-Atau ini di file `.htaccess`:
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-7) Pada titik ini, kamu telah selesai! Bagaimanapun, kamu mungkin seharusnya mencobanya untuk melihat dia bekerja dengan dengan baik. Untuk mencoba file keamanan upload, coba mengupload file-file testing yang dimasukkan dalam paket di `_testfiles` ke website Anda melalui metode upload di browser Anda. (Pastikan Anda menyertakan file tanda tangan `phpmussel*.*db` di direktif konfigurasi `active` untuk memicu file-file test). Jika semua bekerja dengan baik, sebuah pesan akan muncul dari phpMussel mengkonfirmasikan bahwa upload sudah sukses di blok. Jika tidak ada yang terjadi, ada sesuatu yang tidak bekerja dengan baik. Jika Anda menggunakan fitur-fitur lanjut atau jika Anda menggunakan tipe-tipe yang lain untuk memeriksa mungkin dengan alat-alat itu, saya sarankan mencoba dengan nya untuk memastikan dia bekerja seperti yang diharapkan juga.
-
-#### 2.1 MENGINSTAL SECARA MANUAL (UNTUK CLI)
-
-1) Dengan membaca ini, Saya asumsikan Anda telah mengunduh data terkompres nya dan menguraikan isi nya pada mesin komputer lokal Anda. Setelah Anda telah memilih lokasi dari phpMussel, lanjutkan.
-
-2) phpMussel memerlukan PHP untuk diinstall pada mesin host untuk mengeksekusinya. Jika Anda tidak memiliki PHP pada mesin Anda, ikuti instruksi yang di supply oleh installer PHP.
-
-3) Secara fakultatif (sangat direkomendasikan untuk user dengan pengalaman lebih lanjut, tapi tidak untuk pemula atau yang tidak berpengalaman), buka `config.ini` (berada di dalam `vault`) – File ini berisikan semua opsi operasional yang tersedia untuk phpMussel. Di atas tiap opsi seharusnya ada komentar tegas menguraikan tentang apa yang dilakukan dan untuk apa. Atur opsi-opsi ini seperti Anda lihat cocok, seperti apapun yang cocok untuk setup tertentu. Simpan file, menutupnya.
-
-4) Secara fakultatif, Anda dapat menggunakan phpMussel di dalam mode CLI untuk diri Anda sendiri dengan menciptakan file batch untuk secara automatis memuat PHP dan phpMussel. Untuk melakukannya, buka sebuah text editor kosong seperti Notepad atau Notepad++, ketikkan jalur dari file `php.exe` di dalam direktori dari instalasi PHP Anda, diikuti spasi, diikuti dengan jalur lengkap dari file `loader.php` di dalam direktori dari instalasi phpMussel, simpan file dengan ekstensi `.bat` di simpan di tempat yang Anda mudah temukan dan klik dua kali pada file itu untuk menjalankan phpMussel di masa yang akan datang.
-
-5) Instal semua tanda tangan yang Anda perlukan. *Lihat: [MENGINSTAL TANDA TANGAN](#INSTALLING_SIGNATURES).*
-
-6) Pada titik ini, Anda selesai! Bagaimanapun Anda seharusnya mencobanya untuk memastikan berjalan dengan lancar. Untuk mencek phpMussel, jalankan phpMussel dan coba memindai `_testfiles` direktori yang disediakan dengan ini paket.
-
-#### 2.2 MENGINSTAL DENGAN COMPOSER
-
-[phpMussel terdaftar dengan Packagist](https://packagist.org/packages/phpmussel/phpmussel). Jika Anda akrab dengan Composer, Anda dapat menggunakan Composer untuk menginstal phpMussel (Anda masih perlu mempersiapkan konfigurasi, izin, tanda tangan dan kait meskipun; melihat "menginstal secara manual (untuk server web)" langkah 2, 4, 5, dan 6).
+Untuk kenyamanan, Anda dapat menginstal dependensi phpMussel yang paling umum dibutuhkan melalui repositori phpMussel utama lama:
 
 `composer require phpmussel/phpmussel`
 
-#### <a name="INSTALLING_SIGNATURES"></a>2.3 MENGINSTAL TANDA TANGAN
+Atau, Anda dapat memilih secara individual dependensi mana yang Anda perlukan pada implementasi Anda. Sangat mungkin Anda hanya menginginkan dependensi tertentu dan tidak membutuhkan segalanya.
+
+Untuk melakukan apapun dengan phpMussel, Anda membutuhkan basis kode core phpMussel:
+
+`composer require phpmussel/core`
+
+Menyediakan fasilitas administrasi untuk phpMussel:
+
+`composer require phpmussel/frontend`
+
+Menyediakan pemindaian upload file otomatis untuk situs web Anda:
+
+`composer require phpmussel/web`
+
+Menyediakan kemampuan untuk memanfaatkan phpMussel sebagai aplikasi mode CLI interaktif:
+
+`composer require phpmussel/cli`
+
+Menyediakan jembatan antara phpMussel dan PHPMailer, memungkinkan phpMussel untuk menggunakan PHPMailer untuk otentikasi dua faktor, pemberitahuan email tentang upload file yang diblokir, dll:
+
+`composer require phpmussel/phpmailer`
+
+Agar phpMussel dapat mendeteksi apapun, Anda harus memasang tanda tangan. Tidak ada paket khusus untuk ini. Untuk menginstal tanda tangan, lihat bagian selanjutnya dari dokumen ini.
+
+Atau, jika Anda tidak ingin menggunakan Composer, Anda dapat mengunduh ZIP yang sudah dikemas dari sini:
+
+https://github.com/phpMussel/Examples
+
+ZIP yang sudah dikemas mencakup semua dependensi yang disebutkan diatas, serta semua file tanda tangan phpMussel standar, bersama dengan beberapa contoh yang disediakan untuk bagaimana menggunakan phpMussel pada implementasi Anda.
+
+#### <a name="INSTALLING_SIGNATURES"></a>2.1 MENGINSTAL TANDA TANGAN
 
 Sejak v1.0.0, tanda tangan tidak termasuk dalam paket phpMussel. Tanda tangan dibutuhkan oleh phpMussel untuk mendeteksi ancaman tertentu. Ada 3 metode utama untuk menginstal tanda tangan:
 

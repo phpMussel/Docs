@@ -1,4 +1,4 @@
-## phpMussel 설명서 (한국어).
+## phpMussel v3 설명서 (한국어).
 
 ### 목차
 - 1. [서문](#SECTION1)
@@ -32,67 +32,50 @@ phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 h
 
 프로젝트 파일을 호스팅하는 SourceForge, Bitbucket과 GitHub, phpMussel이 활용하는 서명의 추가적인 소스: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 등, 이 프로젝트를 지원해 주신 분들, 제가 잊어버리고 언급하지 못했을 다른 분들과 이 스크립트를 사용하는 당신에게 감사의 말씀을 드립니다.
 
-이 문서와 관련 패키지는 다음 링크에서 무료로 다운로드할 수 있습니다:
-- [GitHub](https://github.com/phpMussel/phpMussel).
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
-- [SourceForge](https://sourceforge.net/projects/phpmussel/).
-
 ---
 
 
 ### 2. <a name="SECTION2"></a>설치 방법
 
-#### 2.0 수동 설치 (웹서버용)
+#### 2.0 COMPOSER를 사용하여 설치한다
 
-1) 이 문서를 읽고 있다는 점에서 당신이 이미 이 스크립트의 압축 파일을 다운로드하고 콘텐츠의 압축을 해제한 것으로 간주합니다. 여기서 호스트 또는 CMS 내에 해당 콘텐츠를 넣을 위치를 결정하세요. `/public_html/phpmussel/` 또는 이와 유사한 디렉토리 (해당 디렉토리가 안전하고 당신이 만족하는 이상 어떤 것을 선택해도 상관 없습니다)면 충분합니다. *업로드하기 전에 계속 읽으세요..*
+phpMussel v3을 설치하는 권장 방법은 Composer를 사용하는 것입니다.
 
-2) `config.ini.RenameMe`의 이름을 `config.ini`로 변경하고 (`vault` 안에 있음), 선택 사항으로 (고급 사용자에게는 권장되지만 초보자나 경험이 부족한 사용자에게는 권장하지 않습니다), 파일을 여세요 (이 파일은 phpMussel에서 사용할 수 있는 모든 지시자를 포함하고 있습니다; 각각의 옵션 위에는 해당 지시자의 기능과 용도를 설명하는 주석이 있습니다). 설치 환경에 적합한 대로 지시자를 수정하고 파일을 저장한 후 닫으세요.
-
-3) 앞서 결정한 디렉토리에 콘텐츠 (phpMussel 및 그 파일들)를 업로드하세요 (`*.txt`/`*.md` 파일은 포함할 필요가 없지만, 일반적으로는 모든 파일을 업로드해야 합니다).
-
-4) `vault` 디렉토리를 "755"로 CHMOD하세요 (문제가 있는 경우 "777"을 시도할 수 있으나 이는 안전하지 않습니다). 보통 (앞서 결정했던) 콘텐츠를 넣은 메인 디렉토리는 그대로 둘 수 있지만 이전에 시스템에서 권한 문제가 발생했던 적이 있다면 CHMOD 상태를 확인해야 합니다 (기본적으로 "755"와 같은 것이어야 합니다). 간단히 말해서: 패키지가 올바르게 작동하려면 PHP가 `vault` 디렉토리 내의 파일을 읽고 쓸 수 있어야 합니다. PHP가 `vault` 디렉토리에 쓸 수 없다면 많은 것들 (업데이트, 로그 등)이 불가능할 것이며, PHP가 `vault` 디렉토리를 읽을 수 없다면 패키지 자체가 아예 작동하지 않을 것입니다. 그러나 최적의 보안을 위해서는 `vault` 디렉토리가 공개적으로 접근 가능해서는 안 됩니다 (`vault` 디렉토리가 공개적으로 접근 가능하다면 `config.ini`나 `frontend.dat`가 포함하고 있는 정보같은 민감한 정보가 잠재적 공격자에게 노출될 수 있습니다).
-
-5) 필요한 서명을 설치하세요. *참조: [서명 설치](#INSTALLING_SIGNATURES).*
-
-6) 다음으로 phpMussel을 시스템 또는 CMS에 "hook"해야 합니다. 시스템이나 CMS에 phpMussel과 같은 스크립트를 "hook"하는 방법은 여러 가지가 있지만, `require` 또는 `include` statement를 사용하여 시스템이나 CMS의 코어 파일 (일반적으로 누군가 웹 사이트의 어떤 페이지에 접근할 때 항상 로드되는 것)의 시작점에 스크립트를 포함하는 방법이 가장 쉽습니다. 보통 이러한 파일은 `/includes`, `/assets` 또는 `/functions`과 같은 디렉토리 내에 있으며 흔히 파일 이름이 `init.php`, `common_functions.php`, `functions.php` 또는 이와 유사할 것입니다. 어떤 파일을 사용할지 상황에 적합하게 결정해야 합니다; 결정하는 데 어려움이 있다면 GitHub에 있는 phpMussel 이슈 페이지나 phpMussel 지원 포럼에 방문하여 도움을 받으세요; 저나 다른 사용자가 당신이 사용하는 CMS에 대한 경험이 있을 수 있으며 (어떤 CMS를 사용하는지 알려야 합니다) 도움을 줄 수 있습니다. 이 작업을 하려면 [`require` 또는 `include` 사용] 다음 코드에서 따옴표 안의 문자열을 `loader.php` 파일의 경로 (로컬 주소이며, HTTP 주소가 아닙니다; 앞서 언급했던 vault 주소와 유사할 것입니다)로 변경하고 이를 코어 파일의 시작점에 삽입하세요.
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-파일을 저장하고 닫은 후 다시 업로드하세요.
-
--- 다른 방법 --
-
-Apache 웹 서버를 사용하고 있으며 `php.ini`에 접근할 수 있는 경우 `auto_prepend_file` 지시자를 사용하여 PHP 요청이 있을 때마다 phpMussel을 앞에 덧붙일 수 있습니다. 예시:
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-`.htaccess` 파일 사용 시 예시:
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-7) 이제 설치가 완료되었습니다만, 만약을 위해 테스트를 합시다. 파일 업로드 보호를 테스트하려면, 패키지에 `_testfiles`에 포함된 테스트 파일을 브라우저를 사용하는 일반적인 방법으로 올립니다. (테스트 파일을 트리거하려면, `phpmussel*.*db` 서명 파일을 `active` 설정 지시어에 포함 시켰는지 확인하십시오). 문제가 없으면 phpMussel에서 업로드를 차단했다는 메시지가 표시되고 그렇지 않은 경우는 무언가가 제대로 작동하지 않습니다. 또한 만약 뭔가 특별한 기능을 사용하고, 혹은 다른 유형의 스캐닝도 사용하고 있는 것 같으면 서로 영향을 걷지 않을지도 점검해 두는 것이 좋습니다.
-
-#### 2.1 수동 설치 (CLI 편)
-
-1) 이 항목을 읽고 있다는 점에서 아카이브 스크립트의 로컬 컴퓨터에 다운로드 및 압축 해제는 종료하고 있다고 생각합니다. phpMussel의 위치가 정해지면 다음으로 이동하세요.
-
-2) phpMussel를 사용하려면 PHP가 호스트 컴퓨터에 설치되어 있어야합니다. 만약 아직이라면 각종 PHP 설치의 어느 것을 사용해도 상관하지 않으므로 설치하십시오.
-
-3) 옵션 수정을 위해 (초보자는 권장하지 않지만, 경험이 풍부한 사용자는 좋습니다). `vault`의`config.ini`를 엽니 다. 이 파일은 phpMussel이 가능한 지시자를 포함하고 있으며, 각각의 옵션에 대한 기능과 목적에 관한 간단한 설명이 있습니다. 설치 환경에 따라 적절한 수정을하고 파일을 저장하십시오.
-
-4) 옵션이지만, 배치 파일을 작성하여 phpMussel의 CLI 모드에서의 사용을 용이하게 할 수 있습니다. 배치 파일은 PHP와 phpMussel를 자동으로로드하는 것입니다. 먼저 Notepad 또는 Notepad ++과 같은 텍스트 편집기를 엽니 다. 그리고 설치 한 PHP의`php.exe`의 절대 경로 공백`loader.php`의 절대 경로를 입력하고 확장자 `.bat`파일을 눈에 띄는 곳에 저장합니다. 이 파일을 더블 클릭하여 phpMussel을 시작할 수 있습니다.
-
-5) 당신이 필요로하는 서명을 설치하십시오. *참조 : [서명 설치](#INSTALLING_SIGNATURES).*
-
-6) 테스트를합시다. 패키지의`_testfiles`을 phpMussel로 스캔 해보세요.
-
-#### 2.2 COMPOSER를 사용하여 설치한다
-
-[phpMussel는 Packagist에 등록되어 있습니다](https://packagist.org/packages/phpmussel/phpmussel). Composer를 익숙한 경우 Composer를 사용하여 phpMussel를 설치할 수 있습니다 (그러나, 당신은 설정 옵션, 권한, 서명 및 후크를 준비해야합니다. "수동 설치 (웹서버 편)"의 2, 4, 5 단계와 6 단계를 참조하십시오).
+편의를 위해 이전 기본 phpMussel 저장소를 통해 가장 일반적으로 필요한 phpMussel 종속성을 설치할 수 있습니다.
 
 `composer require phpmussel/phpmussel`
 
-#### <a name="INSTALLING_SIGNATURES"></a>2.3 서명 설치
+또는, 구현에 필요한 종속성을 개별적으로 선택할 수 있습니다. 특정 종속성 만을 원하고 모든 것이 필요하지는 않을 가능성이 큽니다.
+
+phpMussel로 무엇이든 하기 위해서는, phpMussel 핵심 코드 베이스가 필요합니다 :
+
+`composer require phpmussel/core`
+
+phpMussel을 위한 프론트 엔드 관리 기능을 제공합니다 :
+
+`composer require phpmussel/frontend`
+
+웹 사이트에 대한 자동 파일 업로드 스캔을 제공합니다 :
+
+`composer require phpmussel/web`
+
+phpMussel을 대화식 CLI 모드 응용 프로그램으로 활용할 수 있는 기능을 제공합니다 :
+
+`composer require phpmussel/cli`
+
+phpMussel과 PHPMailer를 연결하여 phpMussel이 2단계 인증, 차단된 파일 업로드에 대한 이메일 알림, 등을 위해 PHPMailer를 활용할 수 있도록 합니다 :
+
+`composer require phpmussel/phpmailer`
+
+phpMussel이 무엇이든 감지하려면 서명을 설치해야 합니다. 그 목적을 위한 특정 패키지는 없습니다. 서명을 설치하려면이 문서의 다음 섹션을 참조하십시오.
+
+또는, Composer를 사용하지 않으려면, 여기에서 사전 패키지 된 ZIP을 다운로드할 수 있습니다 :
+
+https://github.com/phpMussel/Examples
+
+사전 패키지 된 ZIP에는 위에서 언급 한 모든 종속성과 모든 표준 phpMussel 서명 파일과 구현 시 phpMussel을 사용하는 방법에 대한 예제가 포함되어 있습니다.
+
+#### <a name="INSTALLING_SIGNATURES"></a>2.1 서명 설치
 
 v1.0.0 이후 시그니처 phpMussel 패키지에는 포함되어 있지 않습니다. 특정 위협을 감지하기 위해서는, phpMussel 의해 서명이 필요합니다. 서명을 설치하는 주요 방법은 3 가지가 있습니다.
 

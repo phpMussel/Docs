@@ -1,4 +1,4 @@
-## <div dir="rtl">phpMussel بالعربية</div>
+## <div dir="rtl">phpMussel v3 بالعربية</div>
 
 ### <div dir="rtl">المحتويات:</div>
 <div dir="rtl"><ul>
@@ -34,67 +34,50 @@
 
 <div dir="rtl">شكر خاص أيضاً ل SourceForge و Bitbucket و GitHub لإستضافتهم ملفات المشروع، وأيضاً لمصادر التوقيعات التي يستخدمها phpMussel مثل: <a dir="ltr" href="https://www.phishtank.com/">PhishTank</a> و <a dir="ltr" href="https://nlnetlabs.nl/">NLNetLabs</a> و <a dir="ltr" href="https://malware.expert/">Malware.Expert</a> وغيرهم، والشكر مقدم لكل من يدعم المشروع وشكراً لك لاستخدامك للسكربت.<br /><br /></div>
 
-<div dir="rtl">هذا المستند و الحزم المرتبطة به يمكن تحميلها مجاناً من:</div>
-- [GitHub](https://github.com/phpMussel/phpMussel).
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
-- [SourceForge](https://sourceforge.net/projects/phpmussel/).
-
 ---
 
 
 ### <div dir="rtl">٢. <a name="SECTION2"></a>كيفية التحميل</div>
 
-#### <div dir="rtl">٢.٠ تثبيت يدويا (لخدمات الويب)</div>
+#### <div dir="rtl">٢.٠ تثبيت مع COMPOSER</div>
 
-<div dir="rtl">١. بقراءتك لهذا سنفرض بأنك قمت بتحميل السكربت، من هنا عليك العمل على جهازك المحلي أو نظام إدارة المحتوى لإضافة هذه الأمور، مجلد مثل <code dir="ltr">"/public_html/phpmussel/"</code> أو ما شابه سيكون كاف.<br /><br /></div>
+<div dir="rtl">الطريقة الموصى بها لتثبيت phpMussel v3 هي من خلال Composer.<br /><br /></div>
 
-<div dir="rtl">٢. إعادة تسمية <code dir="ltr">"config.ini.RenameMe"</code> إلى "config.ini" (تقع داخل "vault")، واختياريا (هذه الخطوة اختيارية ينصح بها للمستخدمين المتقدمين ولا ينصح بها للمبتدئين)، افتحه، وعدل الخيارات كما يناسبك (أعلى كل خيار يوجد وصف مختصر للوظيفة التي يقوم بها).<br /><br /></div>
-
-<div dir="rtl">٣. إرفع الملفات للمجلد الذي اخترته(لست بحاجة لرفع "<code dir="ltr">*.txt/*.md</code>" لكن في الغالب يجب أن ترفع جميع الملفات).<br /><br /></div>
-
-<div dir="rtl">٤. غير التصريح لمجلد vault للتصريح "755" (إذا كان هناك مشاكل، يمكنك محاولة "777"، ولكن هذه ليست آمنة). المجلد الرئيسي الذي يحتوي على الملفات-المجلد الذي اخترته سابقاً-، بالعادة يمكن تجاهله، لكن يجب التأكد من التصريح إذا واجهت مشاكل في الماضي(إفتراضيا يجب أن يكون "755"). باختصار: لكي تعمل الحزمة بشكل صحيح، يجب أن تكون PHP قادرة على قراءة وكتابة الملفات داخل دليل <code dir="ltr">vault</code>. العديد من الأشياء (التحديث، التسجيل، الخ) لن تكون ممكنة، إذا تعذر على PHP الكتابة إلى دليل <code dir="ltr">vault</code>، ولن تعمل الحزمة على الإطلاق إذا تعذر على PHP القراءة من دليل <code dir="ltr">vault</code>. ومع ذلك، للحصول على الأمان الأمثل، يجب ألا يكون دليل <code dir="ltr">vault</code> متاحًا للجميع (المعلومات الحساسة، مثل المعلومات التي يحتوي عليها <code dir="ltr">config.ini</code> أو <code dir="ltr">frontend.dat</code>، يمكن أن تتعرض لمهاجمين محتملين إذا كان دليل <code dir="ltr">vault</code> متاحًا للجميع).<br /><br /></div>
-
-<div dir="rtl">٥. تثبيت أي التوقيعات التي ستحتاج إليها. <em>نرى: <a href="#INSTALLING_SIGNATURES">تثبيت التوقيعات</a>).</em><br /><br /></div>
-
-<div dir="rtl">٦. الآن أنت بحاجة لربط phpMussel لنظام إدارة المحتوى أو النظام الذي تستخدمه، هناك عدة طرق لفعل هذا لكن أسهل طريقة ببساطة إضافة السكربت لبداية النواة في نظامك (سيتم إعادة التحميل لكل وصول لأي صفحة في الموقع) بإستخدام جمل "require" أو "include"، بالعادة سيتم التخزين في "/includes"، "/assets" أو "/functions"، وسيتم تسميته بالغالب مثل: "init.php"، "common_functions.php"، "functions.php" أو ما شابه. من الممكن أن تكون مستخدم ل CMS لذا يمكن أن أقدم بعض المساعدة بخصوص هذا الموضوع، لإستخدام "require" أو "include" قم بإضافة الكود التالي لبداية الملف الرئيسي لبرنامجك، عدل النص الموجود داخل علامات التنصيص لمسار "loader.php" لديك.<br /><br /></div>
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-<div dir="rtl">إحفظ الملف ثم قم بإعادة رفعه.<br /><br /></div>
-
-<div dir="rtl">-- أو بدلاً من ذلك --<br /><br /></div>
-
-<div dir="rtl">إذا كنت تستخدم Apache webserver وتستطيع الوصول ل "php.ini"، بإستطاعتك إستخدام "auto_prepend_file" للتوجيه ل phpMussel لكل طلب مثل:<br /><br /></div>
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-<div dir="rtl">أو هذا في ملف ".htaccess":<br /><br /></div>
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-<div dir="rtl">٧. لقد إنتهيت لكن يجب عليك التأكد من أن كل شيئ على ما يرام، للتأكد حاول رفع ملفات الفحص الموجودة في الحزمة <code dir="ltr">_testfiles</code> لموقعك. (تأكد من أنك قمت بتضمين ملفات التوقيع `phpmussel*.*db` في إعداد `active` الخاص بك لبدء تشغيل ملفات الاختبار). إذا كل شيئ يعمل على ما يرام يجب أن تظهر رسالة من phpMussel لتأكيد على أنه تم حجب الملفات المرفوعة بنجاح، إذا لم يظهر شيئ إذاً هناك شيئ لا يعمل على ما يرام، إذا كنت تستخدم إضافات متقدمة أو أدوات فحص أخرى أقترح أن تجرب من خلالهم أيضاً للتأكد إذا ما كان كل شيئ على ما يرام.<br /><br /></div>
-
-#### <div dir="rtl">٢.١ تثبيت يدويا (لخدمات واجهة سطر الأوامر)</div>
-
-<div dir="rtl">١. بقراءتك لهذا سنفرض بأنك قمت بتحميل السكربت، من هنا عليك العمل على جهازك المحلي.<br /><br /></div>
-
-<div dir="rtl">٢. يتطلب phpMussel أن يتم تثبيت PHP على الجهاز المضيف من أجل تنفيذه. إذا لم يكن PHP مثبتا على جهازك، الرجاء قم بتثبيت PHP على جهازك، و اتبع أي تعليمات يقدمها مثبت PHP.<br /><br /></div>
-
-<div dir="rtl">٣. هذه الخطوة اختيارية ينصح بها للمستخدمين المتقدمين ولا ينصح بها للمبتدئين، إفتح "config.ini" الموجود داخل vault هذا الملف يحتوي جميع التعليمات ل phpMussel، أعلى كل خيار يوجد وصف مختصر للوظيفة التي يقوم بها، عدل الخيارات كما يناسبك.<br /><br /></div>
-
-<div dir="rtl">٤. بشكل إختياري، يمكنك إستخدام phpMussel لواجهة سطر الأوامر بإنشاء ملف "باتش" لتحميل PHP و phpMussel تلقائياً، للقيام بهذا إفتح محرر النصوص مثل Notepad++ ثم أكتب المسار الكامل لملف "php.exe" الموجود في دليل التثبيت متبوع بمسافة ثم المسار الكامل لملف "loader.php" احفظ الملف بصيغة "bat."، إفتح الملف الذي قمت بإنشاءه لتشغيل phpMussel في المستقبل.<br /><br /></div>
-
-<div dir="rtl">٥. تثبيت أي التوقيعات التي ستحتاج إليها. <em>نرى: <a href="#INSTALLING_SIGNATURES">تثبيت التوقيعات</a>).</em><br /><br /></div>
-
-<div dir="rtl">٦. في هذه المرحلة، لقد انتهيت! ومع ذلك فربما يجب عليك اختباره للتأكد من أنه يعمل بشكل صحيح. لاختبار phpMussel، قم بتشغيله و حاول فحص الدليل <code dir="ltr">_testfiles</code> المتوفر مع الحزمة.<br /><br /></div>
-
-#### <div dir="rtl">٢.٢ تثبيت مع COMPOSER</div>
-
-<div dir="rtl"><a href="https://packagist.org/packages/phpmussel/phpmussel">يتم تسجيل phpMussel مع Packagist</a>، و بالتالي، إذا كنت على دراية به، يمكنك استخدامه لتثبيت phpMussel (ستظل بحاجة إلى إعداده على الرغم من ذلك؛ نرى "تثبيت يدويا (لخدمات الويب)" الخطوتين ٢، ٤، ٥ و ٦).<br /><br /></div>
+<div dir="rtl">من أجل الراحة، يمكنك تثبيت تبعيات phpMussel الأكثر شيوعًا عبر مستودع phpMussel الرئيسي القديم:<br /><br /></div>
 
 `composer require phpmussel/phpmussel`
 
-#### <div dir="rtl"><a name="INSTALLING_SIGNATURES"></a>٢.٣ تثبيت التوقيعات</div>
+<div dir="rtl">بدلاً من ذلك، يمكنك اختيار التبعيات التي ستحتاجها بشكل فردي عند التنفيذ. من المحتمل جدًا أنك ستحتاج فقط إلى تبعيات محددة ولن تحتاج إلى كل شيء.<br /><br /></div>
+
+<div dir="rtl">من أجل القيام بأي شيء باستخدام phpMussel، ستحتاج إلى قاعدة التعليمات البرمجية phpMussel الأساسية:<br /><br /></div>
+
+`composer require phpmussel/core`
+
+<div dir="rtl">يوفر منشأة إدارية أمامية لـ phpMussel:<br /><br /></div>
+
+`composer require phpmussel/frontend`
+
+<div dir="rtl">يوفر فحصًا تلقائيًا لتحميل الملفات لموقعك على الويب:<br /><br /></div>
+
+`composer require phpmussel/web`
+
+<div dir="rtl">يوفر القدرة على استخدام phpMussel كتطبيق تفاعلي لوضع CLI:<br /><br /></div>
+
+`composer require phpmussel/cli`
+
+<div dir="rtl">يوفر جسرًا بين phpMussel و PHPMailer، مما يمكّن phpMussel من استخدام PHPMailer للمصادقة الثنائية، وإشعار البريد الإلكتروني حول تحميل الملفات المحظورة، وما إلى ذلك:<br /><br /></div>
+
+`composer require phpmussel/phpmailer`
+
+<div dir="rtl">لكي يتمكن phpMussel من اكتشاف أي شيء، ستحتاج إلى تثبيت التوقيعات. لا توجد حزمة محددة لذلك. لتثبيت التوقيعات، راجع القسم التالي من هذا المستند.<br /><br /></div>
+
+<div dir="rtl">بدلاً من ذلك، إذا كنت لا تريد استخدام Composer، فيمكنك تنزيل ملفات ZIP المعبأة مسبقًا من هنا:<br /><br /></div>
+
+https://github.com/phpMussel/Examples
+
+<div dir="rtl">تتضمن ملفات ZIP المعبأة مسبقًا جميع التبعيات المذكورة أعلاه، بالإضافة إلى جميع ملفات توقيع phpMussel القياسية، إلى جانب بعض الأمثلة المقدمة حول كيفية استخدام phpMussel في التنفيذ.<br /><br /></div>
+
+#### <div dir="rtl"><a name="INSTALLING_SIGNATURES"></a>٢.١ تثبيت التوقيعات</div>
 
 <div dir="rtl">منذ v1.0.0، لا يتم تضمين التوقيعات في الحزمة الرئيسية. التوقيعات مطلوبة من قبل phpMussel للكشف عن تهديدات محددة. هناك 3 طرق رئيسية لتثبيت التوقيعات:<br /><br /></div>
 

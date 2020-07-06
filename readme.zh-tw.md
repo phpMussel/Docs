@@ -1,4 +1,4 @@
-## phpMussel 中文（傳統）文檔。
+## phpMussel v3 中文（傳統）文檔。
 
 ### 內容
 - 1. [前言](#SECTION1)
@@ -32,67 +32,50 @@
 
 謝謝SourceForge和Bitbucket和GitHub為項目託管，​還有謝謝這些組織為提供一些簽名：​[PhishTank](https://www.phishtank.com/)，​[NLNetLabs](https://nlnetlabs.nl/)，[Malware.Expert](https://malware.expert/)，​等人。
 
-現在phpMussel的代碼文件和關聯包可以從以下地址免費下載：
-- [GitHub](https://github.com/phpMussel/phpMussel)。
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel)。
-- [SourceForge](https://sourceforge.net/projects/phpmussel/)。
-
 ---
 
 
 ### 2. <a name="SECTION2"></a>如何安裝
 
-#### 2.0 安裝手工（WEB服務器）
+#### 2.0 與COMPOSER安裝
 
-1） 在閱讀到這里之前，​我假設您已經下載腳本的一個副本，​已解壓縮其內容並保存在您的機器的某個地方。​現在，​您要決定將腳本放在您服務器上的哪些文件夾中，​例如`/public_html/phpmussel/`或其他任何您覺得滿意和安全的地方。​*上傳完成後，​繼續閱讀。​。​*
+推薦的安裝phpMussel v3的方法是通過Composer。
 
-2） 重命名`config.ini.RenameMe`到`config.ini`（位於內`vault`），​和如果您想（強烈推薦高級用戶，​但不推薦業餘用戶或者新手使用這個方法），​打開它（這個文件包含所有phpMussel的可用配置選項；以上的每一個配置選項應有一個簡介來說明它是做什麼的和它的具有的功能）。​按照您認為合適的參數來調整這些選項，​然後保存文件，​關閉。
-
-3） 上傳（phpMussel和它的文件）到您選定的文件夾（不需要包括`*.txt`/`*.md`文件，​但大多數情況下，​您應上傳所有的文件）。
-
-4） 修改的`vault`文件夾權限為『755』（如果有問題，​您可以試試『777』，​但是這是不太安全）。​注意，​主文件夾也應該是該權限，​如果遇上其他權限問題，​請修改對應文件夾和文件的權限。​簡而言之：為了使包正常工作，PHP需要能夠在`vault`目錄中讀寫文件。​如果PHP無法寫入`vault`目錄，那麼很多事情（更新，記錄等）都是不可能的，如果PHP無法從`vault`目錄中讀取，則包將無法正常工作。​但是，為了獲得最佳安全性，`vault`目錄不得公開訪問（如果`vault`目錄可公開訪問，敏感信息，例如`config.ini`或`frontend.dat`包含的信息，可能會暴露給潛在的攻擊者）。
-
-5） 安裝您需要的任何簽名。​看到：[安裝簽名](#INSTALLING_SIGNATURES)。
-
-6） 接下來，​您需要為您的系統或CMS設定啟動phpMussel的鉤子。​有幾種不同的方式為您的系統或CMS設定鉤子，​最簡單的是在您的系統或CMS的核心文件的開頭中使用`require`或`include`命令直接包含腳本（這個方法通常會導致在有人訪問時每次都加載）。​平時，​這些都是存儲的在文件夾中，​例如`/includes`，​`/assets`或`/functions`等文件夾，​和將經常被命名的某物例如`init.php`，​`common_functions.php`，​`functions.php`。​這是根據您自己的情況決定的，​並不需要完全遵守；如果您遇到困難，​參觀GitHub上的phpMussel issues頁面和/或訪問phpMussel支持論壇和發送問題；可能其他用戶或者我自己也有這個問題並且解決了（您需要讓我們您在使用哪些CMS）。​為了使用`require`或`include`，​插入下面的代碼行到最開始的該核心文件，​更換裡面的數據引號以確切的地址的`loader.php`文件（本地地址，​不是HTTP地址；它會類似於前面提到的vault地址）。
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-保存文件，​關閉，​重新上傳。
-
--- 或替換 --
-
-如果您使用Apache網絡服務器並且您可以訪問`php.ini`，​您可以使用該`auto_prepend_file`指令為任何PHP請求創建附上的phpMussel。​就像是：
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-或在該`.htaccess`文件：
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-7） 到這裡，​您已經完成安裝，​現在您應測試phpMussel以確保它的正常運行！​為了保護系統中的文件（或者應該翻譯為保護上傳的文件），​可以嘗試通過常用的瀏覽器上傳的方式上傳包含在`_testfiles`文件夾內的內容到您的網站。​（確保在`active`配置指令中包含`phpmussel*.*db`簽名文件，以便觸發測試文件）。​如果一切正常，​phpMussel應該出現阻止上傳信息，​如果出現什麼不正常情況例如您使用了其他高級的功能或使用的其它類型的掃描，​我建議嘗試它跟他們一起使用以確保都能工作正常。
-
-#### 2.1 安裝手工（CLI）
-
-1） 在閱讀到這里之前，​我假設您已經下載腳本並且已經解壓縮並且保存在您指定的位置。
-
-2） phpMussel需要PHP運行環境支持。​如果您沒有安裝PHP，​請安裝。
-
-3） 自定義（強烈推薦高級用戶使用，​但不推薦新手或沒有經驗的用戶使用）：打開`config.ini`（位於內`vault`） – 這個文件包含phpMussel所有的配置選項。​每選項應有一個簡評以說明它做什麼和它的功能。​按照您認為合適的參數調整這些選項，​然後保存文件，​關閉。
-
-4） 您如果您創建一個批處理文件來自動加載的PHP和phpMussel，​那麼使用phpMussel的CLI模式將更加方便。​要做到這一點，​打開一個純文本編輯器例如Notepad或Notepad++，​輸入php.exe的完整路徑（注意是絕對路徑不是相對路徑），​其次是一個空格，​然後是`loader.php`的路徑（同php.exe），​最後，​保存此文件使用一個`.bat`擴展名放在常用的位置；在您指定的位置，​能通過雙擊您保存的`.bat`文件來調用phpMussel。
-
-5） 安裝您需要的任何簽名。​看到：[安裝簽名](#INSTALLING_SIGNATURES)。
-
-6） 到這裡，​您完成了CLI模式的安裝！​當然您應測試以確保正常運行。​如果要測試phpMussel，​請通過phpMussel嘗試掃描`_testfiles`文件夾內提供的文件。
-
-#### 2.2 與COMPOSER安裝
-
-[phpMussel是在Packagist上](https://packagist.org/packages/phpmussel/phpmussel)，​所以，​如果您熟悉Composer，​您可以使用Composer安裝phpMussel（您仍然需要準備配置，權限，簽名，和鉤子。參考『安裝手工（WEB服務器）』步驟2，4，5，和6）。
+為了方便起見，您可以通過舊的主要phpMussel存儲庫安裝最常用的phpMussel依賴項：
 
 `composer require phpmussel/phpmussel`
 
-#### <a name="INSTALLING_SIGNATURES"></a>2.3 安裝簽名
+作為備選，您可以單獨選擇所需的依賴項。您很可能只需要特定的依賴項，而不需要所有。
+
+為了使用phpMussel做任何事情，您需要phpMussel核心代碼庫：
+
+`composer require phpmussel/core`
+
+提供phpMussel的前端管理工具：
+
+`composer require phpmussel/frontend`
+
+為您的網站提供自動文件上傳掃描：
+
+`composer require phpmussel/web`
+
+提供了將phpMussel用作交互式CLI模式應用：
+
+`composer require phpmussel/cli`
+
+在phpMussel和PHPMailer之間建立橋樑，使phpMussel可以利用PHPMailer進行雙因素身份驗證，有關阻止的文件上傳的電子郵件通知，等等：
+
+`composer require phpmussel/phpmailer`
+
+為了使phpMussel能夠檢測到任何東西，您需要安裝簽名。沒有特定的程序包。要安裝簽名，請參閱本文檔的下一部分。
+
+作為備選，如果您不想使用Composer，則可以從此處下載預打包的ZIP：
+
+https://github.com/phpMussel/Examples
+
+預先打包的ZIP包含所有上述依賴關係，以及所有標準phpMussel簽名文件，以及一些示例，這些示例說明瞭如何在實現中使用phpMussel。
+
+#### <a name="INSTALLING_SIGNATURES"></a>2.1 安裝簽名
 
 以來v1.0.0，簽名不包括在phpMussel包中。​phpMussel需要簽名來檢測特定的威脅。​安裝簽名有三種主要方法：
 

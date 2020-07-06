@@ -1,4 +1,4 @@
-## Documentation for phpMussel (English).
+## Documentation for phpMussel v3 (English).
 
 ### Contents
 - 1. [PREAMBLE](#SECTION1)
@@ -12,7 +12,6 @@
 - 9. [KNOWN COMPATIBILITY PROBLEMS](#SECTION9)
 - 10. [FREQUENTLY ASKED QUESTIONS (FAQ)](#SECTION10)
 - 11. [LEGAL INFORMATION](#SECTION11)
-- 12. [MIGRATION GUIDE](#SECTION12)
 
 *Note regarding translations: In the event of errors (e.g., discrepancies between translations, typos, etc), the English version of the README is considered the original and authoritative version. If you find any errors, your assistance in correcting them would be welcomed.*
 
@@ -33,67 +32,50 @@ Special thanks to [ClamAV](https://www.clamav.net/) both for project inspiration
 
 Special thanks to SourceForge, Bitbucket, and GitHub for hosting the project files, and to the additional sources of a number of the signatures utilised by phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) and others, and special thanks to all those supporting the project, to anyone else that I may have otherwise forgotten to mention, and to you, for using the script.
 
-This document and its associated package can be downloaded for free from:
-- [GitHub](https://github.com/phpMussel/phpMussel).
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
-- [SourceForge](https://sourceforge.net/projects/phpmussel/).
-
 ---
 
 
 ### 2. <a name="SECTION2"></a>HOW TO INSTALL
 
-#### 2.0 INSTALLING MANUALLY (FOR WEB SERVERS)
+#### 2.0 INSTALLING WITH COMPOSER
 
-1) By your reading this, I'm assuming you've already downloaded an archived copy of the script, decompressed its contents and have it sitting somewhere on your local machine. From here, you'll want to work out where on your host or CMS you want to place those contents. A directory such as `/public_html/phpmussel/` or similar (though, it doesn't matter which you choose, so long as it's something secure and something you're happy with) will suffice. *Before you begin uploading, read on..*
+The recommended way to install phpMussel v3 is through Composer.
 
-2) Rename `config.ini.RenameMe` to `config.ini` (located inside `vault`), and optionally (strongly recommended for advanced users, but not recommended for beginners or for the inexperienced), open it (this file contains all the directives available for phpMussel; above each option should be a brief comment describing what it does and what it's for). Adjust these directives as you see fit, as per whatever is appropriate for your particular setup. Save file, close.
-
-3) Upload the contents (phpMussel and its files) to the directory you'd decided on earlier (you don't need to include the `*.txt`/`*.md` files, but mostly, you should upload everything).
-
-4) CHMOD the `vault` directory to "755" (if there are problems, you can try "777"; this is less secure, though). The main directory storing the contents (the one you chose earlier), usually, can be left alone, but CHMOD status should be checked if you've had permissions issues in the past on your system (by default, should be something like "755"). In short: For the package to work properly, PHP needs to be able to read and write files inside the `vault` directory. Many things (updating, logging, etc) won't be possible, if PHP can't write to the `vault` directory, and the package won't work at all if PHP can't read from the `vault` directory. However, for optimal security, the `vault` directory must NOT be publicly accessible (sensitive information, such as the information contained by `config.ini` or `frontend.dat`, could be exposed to potential attackers if the `vault` directory is publicly accessible).
-
-5) Install any signatures that you'll need. *See: [INSTALLING SIGNATURES](#INSTALLING_SIGNATURES).*
-
-6) Next, you'll need to "hook" phpMussel to your system or CMS. There are several different ways you can "hook" scripts such as phpMussel to your system or CMS, but the easiest is to simply include the script at the beginning of a core file of your system or CMS (one that'll generally always be loaded when someone accesses any page across your website) using a `require` or `include` statement. Usually, this'll be something stored in a directory such as `/includes`, `/assets` or `/functions`, and will often be named something like `init.php`, `common_functions.php`, `functions.php` or similar. You'll have to work out which file this is for your situation; If you encounter difficulties in determining this for yourself, visit the phpMussel issues page at GitHub or the phpMussel support forums for assistance; It's possible that either myself or another user may have experience with the CMS that you're using (you'll need to let us know which CMS you're using), and thus, may be able to provide some assistance in this area. To do this [to use `require` or `include`], insert the following line of code to the very beginning of that core file, replacing the string contained inside the quotation marks with the exact address of the `loader.php` file (local address, not the HTTP address; it'll look similar to the vault address mentioned earlier).
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-Save file, close, reupload.
-
--- OR ALTERNATIVELY --
-
-If you're using an Apache webserver and if you have access to `php.ini`, you can use the `auto_prepend_file` directive to prepend phpMussel whenever any PHP request is made. Something like:
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-Or this in the `.htaccess` file:
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-7) At this point, you're done! However, you should probably test it out to make sure it's working properly. To test out file upload protections, attempt to upload the testing files included in the package under `_testfiles` to your website via your usual browser-based upload methods. (Make sure you've included the `phpmussel*.*db` signature files in your `active` setting for the test files to trigger). If everything is working, a message should appear from phpMussel confirming that the upload was successfully blocked. If nothing appears, something isn't working correctly. If you're using any advanced features or if you're using the other types of scanning possible with the tool, I'd suggest trying it out with those to make sure it works as expected, too.
-
-#### 2.1 INSTALLING MANUALLY (FOR CLI)
-
-1) By your reading this, I'm assuming you've already downloaded an archived copy of the script, decompressed its contents and have it sitting somewhere on your local machine. When you've determined that you're happy with the location chosen for phpMussel, continue.
-
-2) phpMussel requires PHP to be installed on the host machine in order to execute. If you don't have PHP installed on your machine, please install PHP on your machine, following any instructions supplied by the PHP installer.
-
-3) Optionally (strongly recommended for advanced users, but not recommended for beginners or for the inexperienced), open `config.ini` (located inside `vault`) – This file contains all the directives available for phpMussel. Above each option should be a brief comment describing what it does and what it's for. Adjust these options as you see fit, as per whatever is appropriate for your particular setup. Save file, close.
-
-4) Optionally, you can make using phpMussel in CLI mode easier for yourself by creating a batch file to automatically load PHP and phpMussel. To do this, open a plain text editor such as Notepad or Notepad++, type the complete path to the `php.exe` file in the directory of your PHP installation, followed by a space, followed by the complete path to the `loader.php` file in the directory of your phpMussel installation, save the file with a `.bat` extension somewhere that you'll find it easily, and double-click on that file to run phpMussel in the future.
-
-5) Install any signatures that you'll need. *See: [INSTALLING SIGNATURES](#INSTALLING_SIGNATURES).*
-
-6) At this point, you're done! However, you should probably test it out to make sure it's working properly. To test phpMussel, run phpMussel and try scanning the `_testfiles` directory provided with the package.
-
-#### 2.2 INSTALLING WITH COMPOSER
-
-[phpMussel is registered with Packagist](https://packagist.org/packages/phpmussel/phpmussel), and so, if you're familiar with Composer, you can use Composer to install phpMussel (you'll still need to prepare the configuration, permissions, signatures and hooks though; see "installing manually (for web servers)" steps 2, 4, 5, and 6).
+For convenience, you can install the most commonly needed phpMussel dependencies via the old main phpMussel repository:
 
 `composer require phpmussel/phpmussel`
 
-#### 2.3 <a name="INSTALLING_SIGNATURES"></a>INSTALLING SIGNATURES
+Alternatively, you're able to choose individually which dependencies you'll need at your implementation. It's quite possible you'll only want specific dependencies and won't need everything.
+
+In order to do anything with phpMussel, you'll need the phpMussel core codebase:
+
+`composer require phpmussel/core`
+
+Provides a front-end administrative facility for phpMussel:
+
+`composer require phpmussel/frontend`
+
+Provides automatic file upload scanning for your website:
+
+`composer require phpmussel/web`
+
+Provides the ability to utilise phpMussel as an interactive CLI-mode application:
+
+`composer require phpmussel/cli`
+
+Provides a bridge between phpMussel and PHPMailer, enabling phpMussel to utilise PHPMailer for two-factor authentication, email notification about blocked file uploads, etc:
+
+`composer require phpmussel/phpmailer`
+
+In order for phpMussel to be able to detect anything, you'll need to install signatures. There isn't a specific package for that. To install signatures, refer to the next section of this document.
+
+Alternatively, if you don't want to use Composer, you can download prepackaged ZIPs from here:
+
+https://github.com/phpMussel/Examples
+
+The prepackaged ZIPs include all the aforementioned dependencies, as well as all standard phpMussel signature files, along with some examples provided for how to use phpMussel at your implementation.
+
+#### <a name="INSTALLING_SIGNATURES"></a>2.1 INSTALLING SIGNATURES
 
 Since v1.0.0, signatures aren't included in the phpMussel package. Signatures are required by phpMussel for detecting specific threats. There are 3 main methods to install signatures:
 
@@ -1751,63 +1733,6 @@ Because aspects of the regulation may evolve in time, in order to avoid the prop
 
 Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO available at Wikipedia:
 - [General Data Protection Regulation](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation)
-
----
-
-
-### 12. <a name="SECTION12"></a>MIGRATION GUIDE
-
-#### 12.0 MIGRATING FROM v0 TO v1
-
-##### 12.0.0 SUMMARY
-
-There are significant backwards-incompatible changes between v0 and v1, to the extent they could almost be regarded as entirely different packages. Also, at the time of writing this migrating guide, v0 has already reached EoL since a long time ago, so starting again afresh with a completely new installation is the most recommended way forward (preferably just skipping ahead directly to v2 or newer, if possible).
-
-##### 12.0.1 REQUIREMENTS
-
-phpMussel v1 requires at least PHP 5.4 or newer with PCRE support. Ensure you meet the requirements before attempting to install, update, or migrate. BZ2 support, cURL support, LZF support, RAR support, and ZIP support is also strongly recommended (though the package should still mostly function without it).
-
-##### 12.0.2 BACKWARDS-INCOMPATIBLE CHANGES, DEPRECATIONS, ETC
-
-Too many to list.
-
-##### 12.0.3 NEW FEATURES, BENEFITS, OTHER CHANGES, ETC
-
-Too many to list.
-
-#### 12.1 MIGRATING FROM v1 TO v2
-
-##### 12.1.0 SUMMARY
-
-Some backwards-incompatible changes exist between v1 and v2, and migrating directly from the front-end isn't possible. If you haven't changed anything at your existing installation at all (e.g., configuration hasn't changed from any of the default values, no new plugins or signature files have been installed, no custom signatures, etc), or if you don't care about retaining your existing configuration, customistaions, any old logs or other old data, just starting again afresh with a completely new installation would be the easiest, simplest, and most recommended way forward. Otherwise, if you want to preserve anything from your existing installation, follow the steps below to migrate manually from v1 to v2.
-
-##### 12.1.1 REQUIREMENTS
-
-phpMussel v2 requires at least PHP 7.2 or newer with PCRE support. Ensure you meet the requirements before attempting to install, update, or migrate. BZ2 support, cURL support, LZF support, RAR support, and ZIP support is also strongly recommended (though the package should still mostly function without it).
-
-##### 12.1.2 BACKWARDS-INCOMPATIBLE CHANGES, DEPRECATIONS, ETC
-
-- Minimum requirements raised.
-- Some small changes to the loader.
-- The code for processing plugins shifted from the loader to the functions file and reworked.
-- Numerous configuration directives renamed in order to implement snake_case.
-
-##### 12.1.3 NEW FEATURES, BENEFITS, OTHER CHANGES, ETC
-
-- Support for 4 additional languages added (20 total supported by v1; 24 total supported by v2).
-- Very slight overall performance improvements may be noticeable in some circumstances.
-- Slightly stronger typecasting and future-proofing.
-- Codebase refactored to take advantage of syntax and features available to PHP since the raised minimum requirements (e.g., scalar parameter type hints, return type declarations, generators, etc).
-
-##### 12.1.4 STEPS TO MIGRATE
-
-*To-do.*
-
-#### 12.2 MIGRATING FROM v2 TO v3
-
-##### 12.2.0 SUMMARY
-
-v3 doesn't exist yet. More information will be provided at a later time, when it becomes relevant.
 
 ---
 

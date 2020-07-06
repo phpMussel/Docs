@@ -1,4 +1,4 @@
-## Tài liệu của phpMussel (Tiếng Việt).
+## Tài liệu của phpMussel v3 (Tiếng Việt).
 
 ### Nội dung
 - 1. [LỜI GIỚI THIỆU](#SECTION1)
@@ -32,67 +32,50 @@ Chân thành cám ơn [ClamAV](https://www.clamav.net/) cho nguồn cảm hứng
 
 Chân thành cám ơn SourceForge, Bitbucket, và GitHub cho cung cấp một nơi cho các tập tin dự án, và những người cung cấp một số các chữ ký thêm mà được sử dụng bởi phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) vân vân, và chân thành cảm ơn những người đã ủng hộ chương trình này, và bất cứ ai khác mà tôi quên cảm ơn, và bạn, đã sử dụng bản này.
 
-Tài liệu này và các gói liên quan của nó có thể được tải về miễn phí từ:
-- [GitHub](https://github.com/phpMussel/phpMussel).
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
-- [SourceForge](https://sourceforge.net/projects/phpmussel/).
-
 ---
 
 
 ### 2. <a name="SECTION2"></a>CÁCH CÀI ĐẶT
 
-#### 2.0 CÀI ĐẶT THỦ CÔNG (CHO CÁC TRANG MẠNG)
+#### 2.0 CÀI ĐẶT VỚI COMPOSER
 
-1) Nếu bạn đang đọc cái này thì tôi hy vọng là bạn đã tải về một bản sao kho lưu trữ của bản, giải nén nội dung của nó và nó đang nằm ở một nơi nào đó trên máy tính của bạn. Từ đây, bạn sẽ muốn đặt nội dung ở một nơi trên máy chủ hoặc CMS của bạn. Một thư mục chẳng hạn như `/public_html/phpmussel/` hay tương tự (mặc dù sự lựa chọn của bạn không quan trọng, miễn là nó an toàn và bạn hài lòng với sự lựa chọn) sẽ đủ.. *Trước khi bạn bắt đầu tải lên, hảy tiếp tục đọc..*
+Cách được đề xuất để cài đặt phpMussel v3 là thông qua Composer.
 
-2) Đổi tên `config.ini.RenameMe` đến `config.ini` (nằm bên trong `vault`), và nếu bạn muốn (đề nghị mạnh mẽ cho người dùng cao cấp, nhưng không đề nghị cho người mới bắt đầu hay cho người thiếu kinh nghiệm), mở nó (tập tin này bao gồm tất cả các tùy chọn có sẵn cho phpMussel; trên mỗi tùy chọn nên có một nhận xét ngắn gọn mô tả những gì nó làm và những gì nó cho). Điều chỉnh các tùy chọn như bạn thấy phù hợp, theo bất cứ điều gì là thích hợp cho tập hợp cụ thể của bạn lên. Lưu tập tin, đóng.
-
-3) Tải nội dung lên (phpMussel và tập tin của nó) vào thư mục bạn đã chọn trước (bạn không cần phải dùng tập tin `*.txt`/`*.md`, nhưng chủ yếu, bạn nên tải lên tất cả mọi thứ).
-
-4) CHMOD thư mục `vault` thành "755" (nếu có vấn đề, bạn có thể thử "777", mặc dù này là kém an toàn). Các thư mục chính kho lưu trữ các nội dung (một trong những cái bạn đã chọn trước), bình thường, có thể riêng, nhưng tình hình CHMOD nên kiểm tra, nếu bạn đã có vấn đề cho phép trong quá khứ về hệ thống của bạn (theo mặc định, nên giống như "755"). Nói ngắn gọn: Đối với các gói để hoạt động đúng, PHP cần để có thể đọc và ghi các tập tin bên trong thư mục `vault`. Nhiều thứ (cập nhật, đăng nhập, vv) sẽ không thể, nếu PHP không thể ghi vào thư mục `vault`, và gói sẽ không hoạt động chút nào nếu PHP không thể đọc từ thư mục `vault`. Tuy nhiên, để bảo mật tối ưu, đảm bảo rằng thư mục `vault` KHÔNG được truy cập công khai (thông tin nhạy cảm, chẳng hạn như thông tin chứa bởi `config.ini` hoặc `frontend.dat`, có thể tiếp xúc với những kẻ tấn công tiềm năng nếu thư mục `vault` có thể truy cập công khai).
-
-5) Cài đặt bất kỳ chữ ký mà bạn sẽ cần. *Xem: [CÀI ĐẶT CHỮ KÝ](#INSTALLING_SIGNATURES).*
-
-6) Tiếp theo, bạn sẽ cần "nối" phpMussel vào hệ thống của bạn hay CMS. Có một số cách mà bạn có thể "nối" bản chẳng hạn như phpMussel vào hệ thống hoạc CMS, nhưng cách đơn giản nhất là cần có bản vào cốt lõi ở đầu của tập tin hoạc hệ thống hay CMS của bạn (một mà thường sẽ luôn luôn được nạp khi ai đó truy cập bất kỳ trang nào trên trang mạng của bạn) bằng cách sử dụng một lời chỉ thị `require` hoạc `include`. Thường, cái nàu sẽ được lưu trong một thư mục như `/includes`, `/assets` hoạc `/functions`, và sẽ thường được gọi là `init.php`, `common_functions.php`, `functions.php` hoạc tương tự. Bạn sẽ cần tiềm ra tập tin nào cho trường hợp của bạn; Nếu bạn gặp khó khăn trong việc này, hãy truy các trang issues (các vấn đề) của phpMussel hay cập diễn đàn hỗ trợ của phpMussel và cho chúng tôi biêt; Có thể là tôi họac các người dùng khác có có kinh nghiệm với các CMS mà bạn đang sử dụng (bạn phải biết mình đang sử dụng CMS nào), và như vậy, có thể cung cấp hỗ trợ trong trường hợp này. Để làm chuyện này [sử dụng `require` họac `include`], đánh các dòng mã sao đây vào đầu của cốt lõi của tập tin, thay thế các dây chứa bên trong các dấu ngoặc kép với địa chỉ chính xác của tập tin `loader.php` (địa chỉ địa phương, chứ không phải địa chỉ HTTP; nó sẽ nhình gióng địa chỉ kho nói ở trên).
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-Lưu tập tin, đóng lại, tải lên lại.
-
--- CÁCH KHÁC --
-
-Nếu bạn đang sử dụng trang chủ Apache và nếu bạn có thể truy cập `php.ini`, bạn có thể sử dụng `auto_prepend_file` chỉ thị để thêm vào trước phpMussel bất cứ khi nào bất kỳ yêu cầu PHP được xin. Gióng như:
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-Hoạc cái này trong tập tin `.htaccess`:
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-7) Tại điểm này, bạn đã xong! Nhưng mà, bạn nên kiểm tra nó ra để đảm bảo nó hoạt động đúng. Để kiểm tra các tập tin tải lên bảo vệ, thử tải lên các tập tin thử nghiệm bao gồm trong gói dưới `_testfiles` vào trang mạng của bạn thông qua các phương pháp tải lên dựa trên trình duyệt thông thường của bạn. (Đảm bảo bạn đã bao gồm các tập tin chữ ký `phpmussel*.*db` trong chỉ thị cấu hình `active` cho các tập tin thử nghiệm để kích hoạt). Nếu tất cả mọi thứ đang hoạt động, một tin nhắn sẽ xuất hiện từ phpMussel xác nhận là việc tải lên đã bị chặn thành công. Nếu không có gì xuất hiện, đây là điều biểu hiện cho một vấn đề với sự hoạt động. Nếu bạn đang sử dụng chức năng cao cấp, hay sử dụng các loại chức năng quét khác có thể với công cụ này, bạn nên thử nó ra với những điều đó để đảm bảo nó hoạt động như yêu cầu.
-
-#### 2.1 CÀI ĐẶT THỦ CÔNG (CHO CLI)
-
-1) Nếu bạn đang đọc cái này thì tôi hy vọng là bạn đã tải về một bản sao kho lưu trữ của bản, giải nén nội dung của nó và nó đang nằm ở một nơi nào đó trên máy tính của bạn. Một khi bạn đã hài lòng với vị trí của phpMussel, hày tiếp tục.
-
-2) phpMussel cần PHP được cài đặt trên máy chủ để thực hiện. Nếu bạn không có PHP cài trên máy, xin hảy cài PHP, theo hướng dẫn được cung cấp bởi người cài đặt PHP.
-
-3) Theo tùy chọn (khuyến khích những người dùng cao cấp, nhưng những người mới bắt đầu hay chưa có kinh nghiệm không nên chọn), hảy mở `config.ini` (nằm ớ trong `vault`) – Tập tin này có chứa tất cả các chỉ thị sẵn cho phpMussel. Trên mỗi tùy chọn sẽ có chi tiết ngắn mô tả những gì nó làm. Hảy điều chỉnh các tùy chọn như bạn thấy phù hợp, theo bất cứ điều gì là thích hợp cho nhữn cài đặt của bạn. Lưu tập tin, đóng lại.
-
-4) Tùy ý, bạn có thể sử dụng phpMussel trong chế độ CLI dể hơn với cách tạo ra tập tin lô để tự động tải PHP và phpMussel. Để làm điều này, mở một chương trình văn bản đơn giản như Notepad hoạc Notepad++, đánh vào đường dẫn đầy đủ cho tập tin `php.exe` trong thư mục cài đặt PHP của bạn, tiếp theo là một khoảng trống, theo sau là đường dẫn đầy đủ đến tập tin `loader.php` trong thư mục cài đặt phpMussel của bạn, lưu tập tin với tư bổ sung `.bat` một nơi nào bạn sẽ tìm thấy dễ dàng, và nhấn đúp vào vào tập tin đó để chạy phpMussel trong tương lai.
-
-5) Cài đặt bất kỳ chữ ký mà bạn sẽ cần. *Xem: [CÀI ĐẶT CHỮ KÝ](#INSTALLING_SIGNATURES).*
-
-6) Tại thời điểm này, bạ đã xong! Nhưng mà, bạn nên kiểm tra nó để đảm bảo sự hoạt động. Để kiểm tra phpMussel, chạy phpMussel và thử quét `_testfiles` thư mục cung cấp trong gói.
-
-#### 2.2 CÀI ĐẶT VỚI COMPOSER
-
-[phpMussel được đăng ký với Packagist](https://packagist.org/packages/phpmussel/phpmussel), và như vậy, nếu bạn đã quen với Composer, bạn có thể sử dụng Composer để cài đặt phpMussel (bạn vẫn cần phải chuẩn bị cấu hình, quyền CHMOD, chữ ký và kết nối; xem "cài đặt thủ công (cho các trang mạng)" bước 2, 4, 5, và 6).
+Để thuận tiện, bạn có thể cài đặt các phụ thuộc cho phpMussel cần thiết nhất thông qua kho lưu trữ phpMussel chính cũ:
 
 `composer require phpmussel/phpmussel`
 
-#### <a name="INSTALLING_SIGNATURES"></a>2.3 CÀI ĐẶT CHỮ KÝ
+Nếu không thì, bạn có thể chọn riêng những phụ thuộc mà bạn cần. Hoàn toàn có thể bạn sẽ chỉ muốn phụ thuộc cụ thể và sẽ không cần mọi thứ.
+
+Để làm bất cứ điều gì với phpMussel, bạn sẽ cần cơ sở mã phpMussel lõi:
+
+`composer require phpmussel/core`
+
+Cung cấp giao diện quản trị cho phpMussel:
+
+`composer require phpmussel/frontend`
+
+Cung cấp quét tập tin tải lên tự động cho trang web của bạn:
+
+`composer require phpmussel/web`
+
+Cung cấp khả năng sử dụng phpMussel như một ứng dụng chế độ CLI tương tác:
+
+`composer require phpmussel/cli`
+
+Cung cấp một cầu nối giữa phpMussel và PHPMailer, cho phép phpMussel sử dụng PHPMailer để xác thực hai yếu tố, thông báo qua email về việc tập tin tải lên bị chặn, vv:
+
+`composer require phpmussel/phpmailer`
+
+Để phpMussel có thể phát hiện bất cứ điều gì, bạn sẽ cần cài đặt chữ ký. Không có một gói cụ thể cho điều đó. Để cài đặt chữ ký, tham khảo phần tiếp theo của tài liệu này.
+
+Nếu không thì, nếu bạn không muốn sử dụng Composer, bạn có thể tải xuống các tập tin ZIP đóng gói sẵn từ đây:
+
+https://github.com/phpMussel/Examples
+
+Các ZIP được đóng gói sẵn bao gồm tất cả các phụ thuộc đã nói ở trên, cũng như tất cả các tập tin chữ ký phpMussel tiêu chuẩn, cùng với một số ví dụ được cung cấp cho cách sử dụng phpMussel.
+
+#### <a name="INSTALLING_SIGNATURES"></a>2.1 CÀI ĐẶT CHỮ KÝ
 
 Kể từ v1.0.0, chữ ký không được bao gồm trong gói phpMussel. Chữ ký được yêu cầu bởi phpMussel để phát hiện các mối đe dọa cụ thể. Có 3 phương pháp chính để cài đặt chữ ký:
 

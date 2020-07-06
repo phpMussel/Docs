@@ -1,4 +1,4 @@
-## Documentatie voor phpMussel (Nederlandse).
+## Documentatie voor phpMussel v3 (Nederlandse).
 
 ### Inhoud
 - 1. [PREAMBULE](#SECTION1)
@@ -32,67 +32,50 @@ Speciale dank aan [ClamAV](https://www.clamav.net/) zowel voor project inspirati
 
 Speciale dank aan SourceForge, Bitbucket, en GitHub voor het hosten van de project-bestanden, en de extra bronnen van een aantal signatures gebruikt door phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) en anderen, en speciale dank aan allen die het project steunen, aan iemand anders die ik anders misschien vergeten te vermelden, en voor u, voor het gebruik van het script.
 
-Dit document en de bijbehorende pakket kunt gedownload gratis zijn van:
-- [GitHub](https://github.com/phpMussel/phpMussel).
-- [Bitbucket](https://bitbucket.org/Maikuolan/phpmussel).
-- [SourceForge](https://sourceforge.net/projects/phpmussel/).
-
 ---
 
 
 ### 2. <a name="SECTION2"></a>HOE TE INSTALLEREN
 
-#### 2.0 HANDMATIG INSTALLEREN (VOOR WEBSERVERS)
+#### 2.0 INSTALLEREN MET COMPOSER
 
-1) Omdat u zijn lezen dit, ik ben ervan uit u al gedownload een gearchiveerde kopie van het script, uitgepakt zijn inhoud en heeft het ergens op uw lokale computer. Vanaf hier, u nodig te bepalen waar op uw host of CMS die inhoud te plaatsen. Een bestandsmap zoals `/public_html/phpmussel/` of soortgelijk (hoewel, het is niet belangrijk welke u kiest, zolang het is iets veilig en iets waar u blij mee bent) zal volstaan. *Voordat u het uploaden begint, lees verder..*
+De aanbevolen manier om phpMussel v3 te installeren is via Composer.
 
-2) Hernoemen `config.ini.RenameMe` naar `config.ini` (gelegen binnen `vault`), en facultatief (sterk aanbevolen voor ervaren gebruikers, maar niet aan te raden voor beginners of voor de onervaren), open het (dit bestand bevat alle beschikbare phpMussel configuratie opties; boven elke optie moet een korte opmerking te beschrijven wat het doet en wat het voor). Pas deze opties als het u past, volgens welke geschikt is voor uw configuratie. Sla het bestand, sluiten.
-
-3) Upload de inhoud (phpMussel en zijn bestanden) naar het bestandsmap die u zou op eerder besloten (u nodig niet de `*.txt`/`*.md` bestanden opgenomen, maar meestal, u moeten uploaden alles).
-
-4) CHMOD het `vault`-bestandsmap naar "755" (als er problemen, u kan proberen "777"; dit is minder veilig, hoewel). De belangrijkste bestandsmap opslaan van de inhoud (degene die u eerder koos), gewoonlijk, kunt worden genegeerd, maar CHMOD-status moet worden gecontroleerd als u machtigingen problemen heeft in het verleden met uw systeem (standaard, moet iets zijn als "755"). In het kort: Om het pakket goed te laten werken, PHP moet bestanden in de `vault`-bestandsmap kunnen lezen en schrijven. Veel dingen (updaten, loggen, enz) zullen niet mogelijk zijn, als PHP niet naar de `vault`-bestandsmap kan schrijven, en het pakket zal helemaal niet werken als PHP niet kan lezen vanuit de `vault`-bestandsmap. Voor de beste beveiliging echter de `vault`-bestandsmap mag NIET publiek toegankelijk zijn (gevoelige informatie, zoals de informatie in `config.ini` of `frontend.dat`, kan worden blootgesteld aan potentiële aanvallers als de `vault`-bestandsmap publiek toegankelijk is).
-
-5) Installeer alle signatures die u nodig hebt. *Zien: [SIGNATURES INSTALLEREN](#INSTALLING_SIGNATURES).*
-
-6) Volgende, u nodig om "haak" phpMussel om uw systeem of CMS. Er zijn verschillende manieren waarop u kunt "haak" scripts zoals phpMussel om uw systeem of CMS, maar het makkelijkste is om gewoon omvatten voor het script aan het begin van een kern bestand van uw systeem of CMS (een die het algemeen altijd zal worden geladen wanneer iemand heeft toegang tot een pagina in uw website) met behulp van een `require` of `include` opdracht. Meestal is dit wel iets worden opgeslagen in een bestandsmap zoals `/includes`, `/assets` of `/functions`, en zal vaak zijn vernoemd iets als `init.php`, `common_functions.php`, `functions.php` of soortgelijk. U nodig om te bepalen welk bestand dit is voor uw situatie; Als u problemen ondervindt bij het bepalen van dit voor uzelf, ga naar de phpMussel issues pagina op GitHub of de phpMussel support forums voor assistentie; Het is mogelijk dat ofwel mijzelf of een andere gebruiker kunt ervaring met de CMS die u gebruikt heeft (u nodig om ons te laten weten welk CMS u gebruikt), en dus, in staat zijn om wat hulp te bieden in dit gebied. Om dit te doen [te gebruiken `require` of `include`], plaatst u de volgende regel code aan het begin op die kern bestand, vervangen van de string die binnen de aanhalingstekens met het exacte adres van het `loader.php` bestand (lokaal adres, niet het HTTP-adres; zal vergelijkbaar zijn met de eerder genoemde vault adres).
-
-`<?php require '/user_name/public_html/phpmussel/loader.php'; ?>`
-
-Opslaan bestand, sluiten, heruploaden.
-
--- OF ALTERNATIEF --
-
-Als u gebruik een Apache webserver en als u heeft toegang om `php.ini`, u kunt gebruiken de `auto_prepend_file` richtlijn naar prepend phpMussel wanneer een PHP verzoek wordt gemaakt. Zoiets als:
-
-`auto_prepend_file = "/user_name/public_html/phpmussel/loader.php"`
-
-Of dit in het `.htaccess` bestand:
-
-`php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
-
-7) Op dit punt, u bent klaar! Echter, u moet waarschijnlijk test het uit om ervoor te zorgen dat het werken correct. Voor het testen van het bestand upload protecties, proberen om de testen bestanden te uploaden opgenomen in het pakket als `_testfiles` naar uw website via uw gebruikelijke browser-gebaseerde uploaden methoden. (Zorg ervoor dat u de `phpmussel*.*db` signatuurbestanden hebt opgenomen in de `active`-configuratierichtlijn om de testbestanden te activeren). Wanneer alles werkt, verschijnt er een bericht uit phpMussel bevestigen dat de upload met succes werd geblokkeerd. Wanneer er niets, is er iets niet correct werkt. Als u met behulp van een geavanceerde functies of als u met behulp van de andere types van het scannen mogelijk met het gereedschap, ik stel het uit te proberen met die ervoor zorgen dat het werkt zoals verwacht, ook.
-
-#### 2.1 HANDMATIG INSTALLEREN (VOOR CLI)
-
-1) Omdat u zijn lezen dit, ik ben ervan uit u al gedownload een gearchiveerde kopie van het script, uitgepakt zijn inhoud en heeft het ergens op uw lokale computer. Wanneer u heeft beslist dat u bent tevreden met de gekozen phpMussel locatie, voortzetten.
-
-2) phpMussel vereist van PHP moet worden geïnstalleerd op de host machine om uit te werken correct. Als u niet heeft PHP geïnstalleerd op uw machine, installeer PHP op uw machine, volgende instructies door de PHP installateur geleverd.
-
-3) Facultatief (sterk aanbevolen voor ervaren gebruikers, maar niet aan te raden voor beginners of voor de onervaren), open `config.ini` (gelegen binnen `vault`) – Dit bestand bevat alle beschikbare phpMussel configuratie opties. Boven elke optie moet een korte opmerking te beschrijven wat het doet en wat het voor. Wijzigen deze opties volgens welke geschikt is voor uw configuratie. Sla het bestand, sluiten.
-
-4) Facultatief, u kunt om phpMussel in CLI-modus te maken makkelijker voor uzelf door het creëren van een batch-bestand te automatisch laden PHP en phpMussel. Om dit te doen, open een platte tekst editor zoals Notepad of Notepad++, typt u het volledige pad naar de `php.exe` bestand in het bestandsmap van uw PHP-installatie, gevolgd door een spatie, gevolgd door het volledige pad naar de `loader.php` bestand in het bestandsmap van uw phpMussel installatie, Sla het bestand op met een `.bat` extensie ergens dat u het gemakkelijk vinden, en dubbelklik op het bestand om phpMussel te opereren in de toekomst.
-
-5) Installeer alle signatures die u nodig hebt. *Zien: [SIGNATURES INSTALLEREN](#INSTALLING_SIGNATURES).*
-
-6) Op dit punt, u bent klaar! Echter, u moet waarschijnlijk test het uit om ervoor te zorgen dat het werken correct. Om phpMussel testen, draaien phpMussel en probeer het scannen van de `_testfiles` bestandsmap die bij het pakket.
-
-#### 2.2 INSTALLEREN MET COMPOSER
-
-[phpMussel is geregistreerd bij Packagist](https://packagist.org/packages/phpmussel/phpmussel), en dus, als u bekend bent met Composer, kunt u Composer gebruiken om phpMussel installeren (u zult nog steeds nodig om de configuratie, rechten, signatures en haken te bereiden niettemin; zie "handmatig installeren (voor webservers)" stappen 2, 4, 5, en 6).
+Gemakshalve, u kunt de meest benodigde phpMussel-afhankelijkheden installeren via de oude hoofd phpMussel-repository:
 
 `composer require phpmussel/phpmussel`
 
-#### <a name="INSTALLING_SIGNATURES"></a>2.3 SIGNATURES INSTALLEREN
+Als alternatief, u kunt individueel kiezen welke afhankelijkheden u nodig heeft bij uw implementatie. Het is heel goed mogelijk dat u alleen specifieke afhankelijkheden wilt en niet alles nodig heeft.
+
+Om iets met phpMussel te doen, heb u de phpMussel core codebase nodig:
+
+`composer require phpmussel/core`
+
+Biedt een frontend administratieve faciliteit voor phpMussel:
+
+`composer require phpmussel/frontend`
+
+Biedt automatisch scannen van bestandsuploads voor uw website:
+
+`composer require phpmussel/web`
+
+Biedt de mogelijkheid om phpMussel te gebruiken als een interactieve CLI-modus applicatie:
+
+`composer require phpmussel/cli`
+
+Biedt een brug tussen phpMussel en PHPMailer, zodat phpMussel kan gebruiken PHPMailer voor tweefactorauthenticatie, e-mailmelding over geblokkeerde bestandsuploads, enz:
+
+`composer require phpmussel/phpmailer`
+
+Om phpMussel alles te laten detecteren, moet u signatures installeren. Daar is geen specifiek pakket voor dat. Raadpleeg het volgende gedeelte van dit document om signatures te installeren.
+
+Als u Composer niet wilt gebruiken, u kunt ook voorverpakte ZIP's vanaf hier downloaden:
+
+https://github.com/phpMussel/Examples
+
+De voorverpakte ZIP's bevatten alle bovengenoemde afhankelijkheden, evenals alle standaard phpMussel-signatuurbestanden, samen met enkele voorbeelden voor het gebruik van phpMussel bij uw implementatie.
+
+#### <a name="INSTALLING_SIGNATURES"></a>2.1 SIGNATURES INSTALLEREN
 
 Sinds v1.0.0, signatures zijn niet opgenomen in het phpMussel-pakket. Signatures zijn vereist door phpMussel voor het opsporen van specifieke bedreigingen. Er zijn 3 hoofdmethoden om signatures te installeren:
 
@@ -948,7 +931,7 @@ Sjabloongegevens betreft op de HTML-uitvoer die wordt gegenereerd en gebruikt vo
 #### "PHPMailer" (Categorie)
 PHPMailer-configuratie.
 
-Op dit moment gebruikt phpMussel alleen PHPMailer voor front-end two-factor authenticatie. Als u de front-end niet gebruikt, of als u geen twee-factorenauthenticatie gebruikt voor de front-end, kunt u deze richtlijnen negeren.
+Op dit moment gebruikt phpMussel alleen PHPMailer voor frontend two-factor authenticatie. Als u de front-end niet gebruikt, of als u geen twee-factorenauthenticatie gebruikt voor de front-end, kunt u deze richtlijnen negeren.
 
 ##### "event_log"
 - *v1: "EventLog"*
