@@ -110,6 +110,8 @@ Sau đó, tất cả những gì bạn cần làm là vào trang cập nhật c�
 
 *Xem: [Tài liệu SigTool](https://github.com/phpMussel/SigTool#documentation).*
 
+*Cũng lưu ý: SigTool chỉ xử lý chữ ký từ ClamAV. Để có được chữ ký từ các nguồn khác, chẳng hạn như các chữ ký được viết riêng cho phpMussel, bao gồm các chữ ký cần thiết để phát hiện các mẫu thử nghiệm của phpMussel, phương pháp này sẽ cần được bổ sung bằng một trong các phương pháp khác được đề cập ở đây.*
+
 ##### 2.3.3 Tải xuống chữ ký từ "phpMussel/Signatures" và cài đặt thủ công.
 
 Thứ nhất, đi đến [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Kho chứa các tập tin chữ ký nén GZ khác nhau. tải về các tập tin mà bạn cần, giải nén chúng, và sao chép các tập tin giải nén vào thư mục `/vault/signatures` để cài đặt chúng. Liệt kê tên của các tập tin sao chép vào chỉ thị `active` trong cấu hình phpMussel của bạn để kích hoạt chúng.
@@ -1743,4 +1745,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 1 Tháng Ba 2020 (2020.03.01).
+Lần cuối cập nhật: 2020.07.07.

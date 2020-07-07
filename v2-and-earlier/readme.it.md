@@ -110,6 +110,8 @@ Allora, tutto quello che dovrai fare è andare a il front-end pagina degli aggio
 
 *Vedere: [Documentazione SigTool](https://github.com/phpMussel/SigTool#documentation).*
 
+*Nota anche: SigTool elabora le firme da ClamAV solo. Per ottenere la firma da altre fonti, come quelle scritte appositamente per phpMussel, che include le firme necessarie per rilevare i campioni di test di phpMussel, questo metodo dovrà essere integrato da uno degli altri metodi qui menzionati.*
+
 ##### 2.3.3 Scaricare le firme da "phpMussel/Signatures" e installare manualmente.
 
 In primo luogo, vai a [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Il repository contiene vari file di firma compressi GZ. Scarica i file necessari, decomprimere e copiare i file decompressi nella cartella `/vault/signatures` per installarli. Elencare i nomi dei file copiati nella direttiva `active` nella configurazione di phpMussel per attivarli.
@@ -1749,4 +1751,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 1 Marzo 2020 (2020.03.01).
+Ultimo Aggiornamento: 7 Luglio 2020 (2020.07.07).

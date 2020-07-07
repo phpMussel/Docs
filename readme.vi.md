@@ -79,19 +79,14 @@ Các ZIP được đóng gói sẵn bao gồm tất cả các phụ thuộc đã
 
 Kể từ v1.0.0, chữ ký không được bao gồm trong gói phpMussel. Chữ ký được yêu cầu bởi phpMussel để phát hiện các mối đe dọa cụ thể. Có 3 phương pháp chính để cài đặt chữ ký:
 
-1. Cài đặt tự động bằng cách sử dụng trang cập nhật của front-end.
-2. Tạo chữ ký bằng cách sử dụng "SigTool" và cài đặt thủ công.
-3. Tải xuống chữ ký từ "phpMussel/Signatures" và cài đặt thủ công.
+1. Tạo chữ ký bằng cách sử dụng "SigTool" và cài đặt thủ công.
+2. Tải xuống chữ ký từ "phpMussel/Signatures" và cài đặt thủ công.
 
-##### 2.3.1 Cài đặt tự động bằng cách sử dụng trang cập nhật của front-end.
-
-Thứ nhất, bạn sẽ cần đảm bảo rằng front-end được kích hoạt. *Xem: [QUẢN LÝ FRONT-END](#SECTION4).*
-
-Sau đó, tất cả những gì bạn cần làm là vào trang cập nhật của front-end, tìm các tập tin chữ ký cần thiết, và bằng cách sử dụng các tùy chọn được cung cấp trên trang, cài đặt chúng, và kích hoạt chúng.
-
-##### 2.3.2 Tạo chữ ký bằng cách sử dụng "SigTool" và cài đặt thủ công.
+##### 2.1.0 Tạo chữ ký bằng cách sử dụng "SigTool" và cài đặt thủ công.
 
 *Xem: [Tài liệu SigTool](https://github.com/phpMussel/SigTool#documentation).*
+
+*Cũng lưu ý: SigTool chỉ xử lý chữ ký từ ClamAV. Để có được chữ ký từ các nguồn khác, chẳng hạn như các chữ ký được viết riêng cho phpMussel, bao gồm các chữ ký cần thiết để phát hiện các mẫu thử nghiệm của phpMussel, phương pháp này sẽ cần được bổ sung bằng một trong các phương pháp khác được đề cập ở đây.*
 
 ##### 2.3.3 Tải xuống chữ ký từ "phpMussel/Signatures" và cài đặt thủ công.
 
@@ -1726,4 +1721,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 1 Tháng Ba 2020 (2020.03.01).
+Lần cuối cập nhật: 2020.07.07.

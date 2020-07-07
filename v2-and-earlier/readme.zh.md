@@ -110,6 +110,8 @@
 
 *看到：[SigTool文档](https://github.com/phpMussel/SigTool#documentation).*
 
+*另请注意：SigTool仅处理来自ClamAV的签名。为了获得其他来源的签名（例如，专门为p​​hpMussel编写的签名，其中包括检测phpMussel的测试样本所必需的签名），此方法将需要通过此处提到的其他方法之一进行补充。*
+
 ##### 2.3.3 从“phpMussel/Signatures”下载签名并手动安装。
 
 首先，去[phpMussel/Signatures](https://github.com/phpMussel/Signatures)。​存储库包含各种GZ压缩的签名文件。​下载所需的文件，解压缩文件，并将解压缩的文件复制到`/vault/signatures`目录以进行安装。​将文件的名称放在`active`指令中（在您的phpMussel配置）来激活他们。
@@ -1747,4 +1749,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2020年3月1日。
+最后更新：2020年7月7日。

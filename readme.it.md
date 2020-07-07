@@ -79,19 +79,14 @@ I ZIP preconfezionati includono tutte le dipendenze di cui sopra, nonché tutti 
 
 Dal v1.0.0, le firme non sono incluse nel pacchetto phpMussel. Le firme sono richieste da phpMussel per rilevare minacce specifiche. Esistono 3 metodi principali per installare le firme:
 
-1. Installare automaticamente utilizzando il front-end pagina degli aggiornamenti.
-2. Genera firme usando "SigTool" e installa manualmente.
-3. Scaricare le firme da "phpMussel/Signatures" e installare manualmente.
+1. Genera firme usando "SigTool" e installa manualmente.
+2. Scaricare le firme da "phpMussel/Signatures" e installare manualmente.
 
-##### 2.3.1 Installare automaticamente utilizzando il front-end pagina degli aggiornamenti.
-
-In primo luogo, è necessario assicurarsi che il front-end sia abilitato. *Vedere: [GESTIONE FRONT-END](#SECTION4).*
-
-Allora, tutto quello che dovrai fare è andare a il front-end pagina degli aggiornamenti, trovare i file di firma necessari, e utilizzare le opzioni fornite nella pagina, installarle, e attivarle.
-
-##### 2.3.2 Genera firme usando "SigTool" e installa manualmente.
+##### 2.1.0 Genera firme usando "SigTool" e installa manualmente.
 
 *Vedere: [Documentazione SigTool](https://github.com/phpMussel/SigTool#documentation).*
+
+*Nota anche: SigTool elabora le firme da ClamAV solo. Per ottenere la firma da altre fonti, come quelle scritte appositamente per phpMussel, che include le firme necessarie per rilevare i campioni di test di phpMussel, questo metodo dovrà essere integrato da uno degli altri metodi qui menzionati.*
 
 ##### 2.3.3 Scaricare le firme da "phpMussel/Signatures" e installare manualmente.
 
@@ -1732,4 +1727,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 1 Marzo 2020 (2020.03.01).
+Ultimo Aggiornamento: 7 Luglio 2020 (2020.07.07).

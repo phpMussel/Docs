@@ -114,6 +114,8 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 
 <div dir="rtl">دیکھیں: <a href="https://github.com/phpMussel/SigTool#documentation">SigTool دستاویزات</a>.<br /><br /></div>
 
+<div dir="rtl">یہ بھی نوٹ کریں: SigTool صرف ClamAV کے دستخطوں پر کارروائی کرتا ہے. تاکہ دوسرے ذرائع سے دستخط حاصل کریں (مثال کے طور پر، جو خاص طور پر phpMussel کے لئے لکھے گئے ہیں، یا اس کی جانچ فائلوں کا پتہ لگانے کے لئے درکار ہیں)، اس طریقہ کو یہاں ذکر کردہ دیگر طریقوں میں سے کسی ایک کے ذریعہ تکمیل کرنے کی ضرورت ہوگی.<br /><br /></div>
+
 ##### <div dir="rtl">٢.٣.٣ <code dir="ltr">"phpMussel/Signatures"</code> سے دستخط ڈاؤن لوڈ کریں اور دستی طور پر انسٹال کریں.</div>
 
 <div dir="rtl">سب سے پہلے، <a dir="ltr" href="https://github.com/phpMussel/Signatures">phpMussel/Signatures</a> پر جائیں. ذخیرہ پر مشتمل مختلف GZ کمپریسڈ دستخط فائلیں. آپ کی ضرورت فائلوں کو ڈاؤن لوڈ کریں، ان کو ڈسپوز کریں، اور ڈسپلے شدہ فائلوں کو <code dir="ltr">/vault/signatures</code> ڈائریکٹری میں ان کو نصب کرنے کیلئے کاپی کریں. کاپی شدہ فائلوں کے ناموں کو ان کی چالو کرنے کے لئے آپ کے phpMussel ترتیب میں <code dir="ltr">active</code> ڈائریکٹری میں درج کریں.<br /><br /></div>
@@ -2009,4 +2011,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 1 مارچ 2020 (2020.03.01).</div>
+<div dir="rtl">آخری تازہ کاری: 7 جولائی 2020 (2020.07.07).</div>

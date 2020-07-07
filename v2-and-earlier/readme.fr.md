@@ -110,6 +110,8 @@ Ensuite, tout ce que vous aurez à faire est d'aller à la page des mises à jou
 
 *Voir : [Documentation SigTool](https://github.com/phpMussel/SigTool#documentation).*
 
+*Notez également : SigTool traite uniquement les signatures de ClamAV. Afin d'obtenir la signature d'autres sources, telles que celles écrites spécifiquement pour phpMussel, qui incluent les signatures nécessaires pour détecter les échantillons de test de phpMussel, cette méthode devra être complétée par l'une des autres méthodes mentionnées ici.*
+
 ##### 2.3.3 Téléchargez les signatures de « phpMussel/Signatures » et installez-les manuellement.
 
 Premièrement, va à [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Le référentiel contient différents fichiers de signature compressés GZ. Téléchargez les fichiers dont vous avez besoin, décompressez-les et copiez les fichiers décompressés dans le répertoire `/vault/signatures` pour les installer. Listez les noms des fichiers copiés dans la directive `active` dans votre configuration phpMussel pour les activer.
@@ -1759,4 +1761,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 1 Mars 2020 (2020.03.01).
+Dernière mise à jour : 7 Juillet 2020 (2020.07.07).

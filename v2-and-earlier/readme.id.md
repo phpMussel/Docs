@@ -110,6 +110,8 @@ Kemudian, semua yang Anda perlu lakukan adalah pergi ke halaman pembaruan dari b
 
 *Lihat: [Dokumentasi SigTool](https://github.com/phpMussel/SigTool#documentation).*
 
+*Juga mencatat: SigTool hanya memproses tanda tangan dari ClamAV. Untuk mendapatkan tanda tangan dari sumber lain, seperti yang ditulis khusus untuk phpMussel, yang mencakup tanda tangan yang diperlukan untuk mendeteksi sampel uji phpMussel, metode ini perlu ditambah dengan salah satu metode lain yang disebutkan disini.*
+
 ##### 2.3.3 Download tanda tangan dari "phpMussel/Signatures" dan instal secara manual.
 
 Pertama, pergi ke [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Repositori berisi berbagai file tanda tangan yang GZ-dikompres. Download file yang Anda perlukan, dekompresi mereka, dan salin file yang didekompresi ke direktori `/vault/signatures` untuk menginstalnya. Cantumkan nama file yang disalin ke direktif `active` dalam konfigurasi phpMussel Anda untuk mengaktifkannya.
@@ -1746,4 +1748,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 1 Maret 2020 (2020.03.01).
+Terakhir Diperbarui: 7 Juli 2020 (2020.07.07).

@@ -79,19 +79,14 @@ Los archivos ZIP preempaquetados incluyen todas las dependencias mencionadas ant
 
 Desde v1.0.0, las firmas no están incluidas en el paquete phpMussel. Las firmas son requeridas por phpMussel para detectar amenazas específicas. Existen 3 métodos principales para instalar firmas:
 
-1. Instalar automáticamente mediante el front-end página de actualizaciones.
-2. Genere firmas usando "SigTool" e instale manualmente.
-3. Descargue las firmas de "phpMussel/Signatures" e instálelas manualmente.
+1. Genere firmas usando "SigTool" e instale manualmente.
+2. Descargue las firmas de "phpMussel/Signatures" e instálelas manualmente.
 
-##### 2.3.1 Instalar automáticamente mediante el front-end página de actualizaciones.
-
-Primeramente, necesitará asegurarse de que el front-end está habilitado. *Ver: [GESTIÓN DE FRONT-END](#SECTION4).*
-
-Entonces, todo lo que necesitas hacer es ir a el front-end página de actualizaciones, encontrar los archivos de firma necesarios y usar las opciones que se proporcionan en la página, instalarlos y activarlos.
-
-##### 2.3.2 Genere firmas usando "SigTool" e instale manualmente.
+##### 2.1.0 Genere firmas usando "SigTool" e instale manualmente.
 
 *Ver: [SigTool documentación](https://github.com/phpMussel/SigTool#documentation).*
+
+*También tenga en cuenta que SigTool solo procesa las firmas de ClamAV. Para obtener la firma de otras fuentes, como las escritas específicamente para phpMussel, que incluye las firmas necesarias para detectar las muestras de prueba de phpMussel, este método deberá complementarse con uno de los otros métodos mencionados aquí.*
 
 ##### 2.3.3 Descargue las firmas de "phpMussel/Signatures" e instálelas manualmente.
 
@@ -1736,4 +1731,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 1 de Marzo de 2020 (2020.03.01).
+Última Actualización: 7 de Julio de 2020 (2020.07.07).

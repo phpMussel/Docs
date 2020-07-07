@@ -79,19 +79,14 @@ ZIP yang sudah dikemas mencakup semua dependensi yang disebutkan diatas, serta s
 
 Sejak v1.0.0, tanda tangan tidak termasuk dalam paket phpMussel. Tanda tangan dibutuhkan oleh phpMussel untuk mendeteksi ancaman tertentu. Ada 3 metode utama untuk menginstal tanda tangan:
 
-1. Instal secara otomatis menggunakan halaman pembaruan dari bagian depan.
-2. Buat tanda tangan menggunakan "SigTool" dan instal secara manual.
-3. Download tanda tangan dari "phpMussel/Signatures" dan instal secara manual.
+1. Buat tanda tangan menggunakan "SigTool" dan instal secara manual.
+2. Download tanda tangan dari "phpMussel/Signatures" dan instal secara manual.
 
-##### 2.3.1 Instal secara otomatis menggunakan halaman pembaruan dari bagian depan.
-
-Pertama, Anda harus memastikan bahwa akses bagian depan diaktifkan. *Lihat: [MANAJEMEN BAGIAN DEPAN](#SECTION4).*
-
-Kemudian, semua yang Anda perlu lakukan adalah pergi ke halaman pembaruan dari bagian depan, cari file tanda tangan yang diperlukan, dan menggunakan pilihan yang tersedia di halaman, menginstalnya, dan mengaktifkannya.
-
-##### 2.3.2 Buat tanda tangan menggunakan "SigTool" dan instal secara manual.
+##### 2.1.0 Buat tanda tangan menggunakan "SigTool" dan instal secara manual.
 
 *Lihat: [Dokumentasi SigTool](https://github.com/phpMussel/SigTool#documentation).*
+
+*Juga mencatat: SigTool hanya memproses tanda tangan dari ClamAV. Untuk mendapatkan tanda tangan dari sumber lain, seperti yang ditulis khusus untuk phpMussel, yang mencakup tanda tangan yang diperlukan untuk mendeteksi sampel uji phpMussel, metode ini perlu ditambah dengan salah satu metode lain yang disebutkan disini.*
 
 ##### 2.3.3 Download tanda tangan dari "phpMussel/Signatures" dan instal secara manual.
 
@@ -1729,4 +1724,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 1 Maret 2020 (2020.03.01).
+Terakhir Diperbarui: 7 Juli 2020 (2020.07.07).

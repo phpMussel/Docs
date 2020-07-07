@@ -114,6 +114,8 @@
 
 <div dir="rtl">نرى: <a href="https://github.com/phpMussel/SigTool#documentation">وثائق SigTool</a>.<br /><br /></div>
 
+<div dir="rtl">لاحظ أيضًا: يعالج SigTool التوقيعات من ClamAV فقط. من أجل الحصول على التوقيع من مصادر أخرى، مثل تلك المكتوبة خصيصًا لـ phpMussel، والتي تتضمن التوقيعات اللازمة للكشف عن عينات اختبار phpMussel، يجب استكمال هذه الطريقة بإحدى الطرق الأخرى المذكورة هنا.<br /><br /></div>
+
 ##### <div dir="rtl">٢.٣.٣ تحميل التوقيعات من <code dir="ltr">"phpMussel/Signatures"</code> وتثبيت يدويا.</div>
 
 <div dir="rtl">أولا، اذهب إلى <a dir="ltr" href="https://github.com/phpMussel/Signatures">phpMussel/Signatures</a>. يحتوي المستودع على ملفات توقيع GZ مضغوط مختلفة. تحميل الملفات التي تحتاج إليها، فك ضغطها، ونسخ الملفات المضغوطة إلى الدليل <code dir="ltr">/vault/signatures</code> لتثبيتها. قم بإدراج أسماء الملفات المنسوخة إلى التوجيه <code dir="ltr">active</code> في تهيئة phpMussel لتنشيطها.<br /><br /></div>
@@ -2010,4 +2012,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 1 مارس 2020 (2020.03.01).</div>
+<div dir="rtl">آخر تحديث: 7 يوليو 2020 (2020.07.07).</div>

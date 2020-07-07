@@ -79,19 +79,14 @@ De voorverpakte ZIP's bevatten alle bovengenoemde afhankelijkheden, evenals alle
 
 Sinds v1.0.0, signatures zijn niet opgenomen in het phpMussel-pakket. Signatures zijn vereist door phpMussel voor het opsporen van specifieke bedreigingen. Er zijn 3 hoofdmethoden om signatures te installeren:
 
-1. Installeer automatisch met de frontend updates pagina.
-2. Genereer signatures met behulp van "SigTool" en installeer handmatig.
-3. Download signatures van "phpMussel/Signatures" en installeer handmatig.
+1. Genereer signatures met behulp van "SigTool" en installeer handmatig.
+2. Download signatures van "phpMussel/Signatures" en installeer handmatig.
 
-##### 2.3.1 Installeer automatisch met de frontend updates pagina.
-
-Allereerst, moet u ervoor zorgen dat het frontend is ingeschakeld. *Zien: [frontend MANAGEMENT](#SECTION4).*
-
-Dan, alles wat u moet doen is ga naar de frontend updates pagina, vind de nodige signatuurbestanden, en gebruik de opties die op de pagina zijn aangebracht, installeer ze en activeer ze.
-
-##### 2.3.2 Genereer signatures met behulp van "SigTool" en installeer handmatig.
+##### 2.1.0 Genereer signatures met behulp van "SigTool" en installeer handmatig.
 
 *Zien: [SigTool documentatie](https://github.com/phpMussel/SigTool#documentation).*
+
+*Let ook op: SigTool verwerkt alleen de signatures van ClamAV. Om de signatures te verkrijgen van andere bronnen, zoals die speciaal geschreven voor phpMussel, die de signatures bevat die nodig zijn voor het detecteren van phpMussel's testvoorbeelden, zal deze methode moeten worden aangevuld met een van de andere hier genoemde methoden.*
 
 ##### 2.3.3 Download signatures van "phpMussel/Signatures" en installeer handmatig.
 
@@ -1746,4 +1741,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 1 Maart 2020 (2020.03.01).
+Laatste Bijgewerkt: 7 Juli 2020 (2020.07.07).

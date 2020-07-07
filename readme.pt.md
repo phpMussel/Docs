@@ -79,19 +79,14 @@ Os ZIPs pré-empacotados incluem todas as dependências mencionadas acima, bem c
 
 Desde a v1.0.0, as assinaturas não estão incluídas no pacote phpMussel. As assinaturas são requeridas pela phpMussel para detectar ameaças específicas. Existem 3 métodos principais para instalar assinaturas:
 
-1. Instale automaticamente usando o front-end página de atualizações.
-2. Gerar assinaturas usando "SigTool" e instale-se manualmente.
-3. Baixe as assinaturas de "phpMussel/Signatures" e instale-se manualmente.
+1. Gerar assinaturas usando "SigTool" e instale-se manualmente.
+2. Baixe as assinaturas de "phpMussel/Signatures" e instale-se manualmente.
 
-##### 2.3.1 Instale automaticamente usando o front-end página de atualizações.
-
-Primeiramente, você precisará certificar-se de que o front-end está habilitado. *Vejo: [GESTÃO DE FRONT-END](#SECTION4).*
-
-Então, tudo o que você precisa fazer é ir para o front-end página de atualizações, encontre os arquivos de assinatura necessários e use as opções fornecidas na página, instale-as e ative-as.
-
-##### 2.3.2 Gerar assinaturas usando "SigTool" e instale-se manualmente.
+##### 2.1.0 Gerar assinaturas usando "SigTool" e instale-se manualmente.
 
 *Vejo: [Documentação SigTool](https://github.com/phpMussel/SigTool#documentation).*
+
+*Observe também: O SigTool processa apenas as assinaturas do ClamAV. Para obter a assinatura de outras fontes, como as escritas especificamente para o phpMussel, que incluem as assinaturas necessárias para detectar as amostras de teste do phpMussel, esse método precisará ser complementado por um dos outros métodos mencionados aqui.*
 
 ##### 2.3.3 Baixar as assinaturas de "phpMussel/Signatures" e instale-se manualmente.
 
@@ -1732,4 +1727,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 1 de Março de 2020 (2020.03.01).
+Última Atualização: 7 de Julho de 2020 (2020.07.07).

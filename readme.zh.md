@@ -79,19 +79,14 @@ https://github.com/phpMussel/Examples
 
 以来v1.0.0，签名不包括在phpMussel包中。​phpMussel需要签名来检测特定的威胁。​安装签名有三种主要方法：
 
-1. 使用前端更新页面自动安装。
-2. 使用“SigTool”生成签名并手动安装。
-3. 从“phpMussel/Signatures”下载签名并手动安装。
+1. 使用“SigTool”生成签名并手动安装。
+2. 从“phpMussel/Signatures”下载签名并手动安装。
 
-##### 2.3.1 使用前端更新页面自动安装。
-
-首先，您需要确保前端已启用。 *看到：[前端管理](#SECTION4).*
-
-然后，所有您需要做的是转到前端更新页面，找到必要的签名文件，并使用页面上提供的选项，安装它们并激活他们。
-
-##### 2.3.2 使用“SigTool”生成签名并手动安装。
+##### 2.1.0 使用“SigTool”生成签名并手动安装。
 
 *看到：[SigTool文档](https://github.com/phpMussel/SigTool#documentation).*
+
+*另请注意：SigTool仅处理来自ClamAV的签名。为了获得其他来源的签名（例如，专门为p​​hpMussel编写的签名，其中包括检测phpMussel的测试样本所必需的签名），此方法将需要通过此处提到的其他方法之一进行补充。*
 
 ##### 2.3.3 从“phpMussel/Signatures”下载签名并手动安装。
 
@@ -1730,4 +1725,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2020年3月1日。
+最后更新：2020年7月7日。

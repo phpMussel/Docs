@@ -110,6 +110,8 @@ v1.0.0 이후 시그니처 phpMussel 패키지에는 포함되어 있지 않습�
 
 *참조 : [SigTool 설명서](https://github.com/phpMussel/SigTool#documentation).*
 
+*참고 사항 : SigTool은 ClamAV의 서명 만 처리합니다. 다른 출처에서 서명을 얻으려면 (예를 들어 phpMussel의 테스트 샘플을 탐지하는 데 필요한 서명이 포함 된 phpMussel 전용으로 작성된 것), 이 방법은 여기에 언급 된 다른 방법 중 하나로 보완해야합니다.*
+
 ##### 2.3.3 "phpMussel/Signatures"에서 서명을 다운로드하여 수동으로 설치합니다.
 
 첫째, [phpMussel/Signatures](https://github.com/phpMussel/Signatures)간다. 저장소는 다양한 GZ 압축 서명 파일이 포함되어 있습니다. 그들을 설치하려면, 필요한 파일을 다운로드하여 압축을 풉니, 압축이 풀린 파일을 `/vault/signatures` 디렉토리에 복사합니다. 그들을 활성화하려면, 복사 한 파일의 이름을 phpMussel 설정 `active` 지시문에 열거합니다.
@@ -1744,4 +1746,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2020년 3월 1일.
+최종 업데이트 : 2020년 7월 7일.

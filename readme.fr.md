@@ -79,19 +79,14 @@ Les ZIP préemballés incluent toutes les dépendances susmentionnées, ainsi qu
 
 Depuis v1.0.0, les signatures ne sont pas incluses dans le phpMussel. Les signatures sont requises par phpMussel pour détecter des menaces spécifiques. Il existe 3 méthodes principales pour installer des signatures :
 
-1. Installez automatiquement à l'aide de la page des mises à jour de l'accès frontal.
-2. Générer des signatures à l'aide de « SigTool » et installez-les manuellement.
-3. Téléchargez les signatures de « phpMussel/Signatures » et installez-les manuellement.
+1. Générer des signatures à l'aide de « SigTool » et installez-les manuellement.
+2. Téléchargez les signatures de « phpMussel/Signatures » et installez-les manuellement.
 
-##### 2.3.1 Installez automatiquement à l'aide de la page des mises à jour de l'accès frontal.
-
-Premièrement, vous devrez vous assurer que l'accès frontal est activé. *Voir : [GESTION L'ACCÈS FRONTAL](#SECTION4).*
-
-Ensuite, tout ce que vous aurez à faire est d'aller à la page des mises à jour, trouver les fichiers de signature nécessaires et utiliser les options fournies sur la page, installez-les et activez-les.
-
-##### 2.3.2 Générer des signatures à l'aide de « SigTool » et installez-les manuellement.
+##### 2.1.0 Générer des signatures à l'aide de « SigTool » et installez-les manuellement.
 
 *Voir : [Documentation SigTool](https://github.com/phpMussel/SigTool#documentation).*
+
+*Notez également : SigTool traite uniquement les signatures de ClamAV. Afin d'obtenir la signature d'autres sources, telles que celles écrites spécifiquement pour phpMussel, qui incluent les signatures nécessaires pour détecter les échantillons de test de phpMussel, cette méthode devra être complétée par l'une des autres méthodes mentionnées ici.*
 
 ##### 2.3.3 Téléchargez les signatures de « phpMussel/Signatures » et installez-les manuellement.
 
@@ -1742,4 +1737,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 1 Mars 2020 (2020.03.01).
+Dernière mise à jour : 7 Juillet 2020 (2020.07.07).
