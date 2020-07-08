@@ -79,11 +79,11 @@ https://github.com/phpMussel/Examples
 
 #### <div dir="rtl"><a name="INSTALLING_SIGNATURES"></a>٢.١ تثبيت التوقيعات</div>
 
-<div dir="rtl">منذ v1.0.0، لا يتم تضمين التوقيعات في الحزمة الرئيسية. التوقيعات مطلوبة من قبل phpMussel للكشف عن تهديدات محددة. هناك 3 طرق رئيسية لتثبيت التوقيعات:<br /><br /></div>
+<div dir="rtl">التوقيعات مطلوبة من قبل phpMussel للكشف عن تهديدات محددة. هناك 3 طرق رئيسية لتثبيت التوقيعات:<br /><br /></div>
 
 <div dir="rtl"><ul>
  <li>١. توليد التوقيعات باستخدام "SigTool" وتثبيت يدويا.</li>
- <li>٢. تحميل التوقيعات من <code dir="ltr">"phpMussel/Signatures"</code> وتثبيت يدويا.</li>
+ <li>٢. تحميل التوقيعات من <code dir="ltr">"phpMussel/Signatures"</code>أو <code dir="ltr">"phpMussel/Examples"</code> وتثبيت يدويا.</li>
 </ul></div>
 
 ##### <div dir="rtl">٢.١.٠ توليد التوقيعات باستخدام "SigTool" وتثبيت يدويا.</div>
@@ -92,9 +92,11 @@ https://github.com/phpMussel/Examples
 
 <div dir="rtl">لاحظ أيضًا: يعالج SigTool التوقيعات من ClamAV فقط. من أجل الحصول على التوقيع من مصادر أخرى، مثل تلك المكتوبة خصيصًا لـ phpMussel، والتي تتضمن التوقيعات اللازمة للكشف عن عينات اختبار phpMussel، يجب استكمال هذه الطريقة بإحدى الطرق الأخرى المذكورة هنا.<br /><br /></div>
 
-##### <div dir="rtl">٢.٣.٣ تحميل التوقيعات من <code dir="ltr">"phpMussel/Signatures"</code> وتثبيت يدويا.</div>
+##### <div dir="rtl">٢.١.١ تحميل التوقيعات من <code dir="ltr">"phpMussel/Signatures"</code>أو <code dir="ltr">"phpMussel/Examples"</code> وتثبيت يدويا.</div>
 
-<div dir="rtl">أولا، اذهب إلى <a dir="ltr" href="https://github.com/phpMussel/Signatures">phpMussel/Signatures</a>. يحتوي المستودع على ملفات توقيع GZ مضغوط مختلفة. تحميل الملفات التي تحتاج إليها، فك ضغطها، ونسخ الملفات المضغوطة إلى الدليل <code dir="ltr">/vault/signatures</code> لتثبيتها. قم بإدراج أسماء الملفات المنسوخة إلى التوجيه <code dir="ltr">active</code> في تهيئة phpMussel لتنشيطها.<br /><br /></div>
+<div dir="rtl">أولا، اذهب إلى <a dir="ltr" href="https://github.com/phpMussel/Signatures">phpMussel/Signatures</a>. يحتوي المستودع على ملفات توقيع GZ مضغوط مختلفة. تحميل الملفات التي تحتاج إليها، فك ضغطها، ونسخها إلى دليل التوقيعات من التثبيت الخاص بك.<br /><br /></div>
+
+<div dir="rtl">كبديل، قم بتنزيل أحدث ملف ZIP من <a dir="ltr" href="https://github.com/phpMussel/Examples">phpMussel/Examples</a>. يمكنك بعد ذلك نسخ/لصق التوقيعات من هذا الأرشيف إلى التثبيت الخاص بك.<br /><br /></div>
 
 ---
 
@@ -204,192 +206,6 @@ https://github.com/phpMussel/Examples
 ### <div dir="rtl">٦. <a name="SECTION6"></a>الملفات الموجودة في هذه الحزمة</div>
 
 ```
-https://github.com/phpMussel/phpMussel>v2
-│   .gitattributes
-│   .gitignore
-│   .travis.yml
-│   Changelog-v2.txt
-│   codeception.yml
-│   composer.json
-│   LICENSE.txt
-│   loader.php
-│   README.md
-│   web.config
-│
-├───tests
-│   │   .gitignore
-│   │   acceptance.suite.yml
-│   │   functional.suite.yml
-│   │   unit.suite.yml
-│   │
-│   ├───acceptance
-│   │       .gitkeep
-│   │
-│   ├───functional
-│   │       .gitkeep
-│   │
-│   ├───unit
-│   │       .gitkeep
-│   │       LoaderAndScanCest.php
-│   │
-│   ├───_data
-│   │       .gitkeep
-│   │
-│   ├───_output
-│   │       .gitkeep
-│   │
-│   └───_support
-│       │   AcceptanceTester.php
-│       │   FunctionalTester.php
-│       │   UnitTester.php
-│       │
-│       ├───config
-│       │       config.ini
-│       │
-│       ├───Helper
-│       │       Acceptance.php
-│       │       Functional.php
-│       │       Unit.php
-│       │
-│       └───samples
-│               encrypted.zip
-│               hello.txt
-│
-├───vault
-│   │   .htaccess
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-│
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
 ```
 
 ---
@@ -400,849 +216,717 @@ https://github.com/phpMussel/phpMussel>v2
 <div dir="rtl">وفيما يلي قائمة من المتغيرات الموجودة في ملف تكوين "config.ini"، بالإضافة إلى وصف الغرض منه و وظيفته.<br /><br /></div>
 
 ```
-Configuration (v2)
+التكوين (v3)
 │
-├───general
-│       cleanup
-│       scan_log
-│       scan_log_serialized
-│       scan_kills
-│       error_log
-│       truncate
-│       log_rotation_limit
-│       log_rotation_action
-│       timezone
-│       time_offset (v1: timeOffset)
-│       time_format (v1: timeFormat)
-│       ipaddr
-│       enable_plugins
-│       forbid_on_block
-│       delete_on_sight
-│       lang
-│       lang_override
-│       numbers
-│       quarantine_key
-│       quarantine_max_filesize
-│       quarantine_max_usage
-│       quarantine_max_files
-│       honeypot_mode
-│       scan_cache_expiry
-│       disable_cli
-│       disable_frontend
-│       max_login_attempts
-│       frontend_log (v1: FrontEndLog)
-│       disable_webfonts
-│       maintenance_mode
-│       default_algo
-│       statistics
-│       disabled_channels
-│
+├───core
+│       scan_log [string]
+│       scan_log_serialized [string]
+│       error_log [string]
+│       truncate [string]
+│       log_rotation_limit [int]
+│       log_rotation_action [string]
+│       timezone [string]
+│       time_offset [int]
+│       time_format [string]
+│       ipaddr [string]
+│       delete_on_sight [bool]
+│       lang [string]
+│       lang_override [bool]
+│       scan_cache_expiry [int]
+│       maintenance_mode [bool]
+│       statistics [bool]
+│       disabled_channels [string]
 ├───signatures
-│       active (v1: Active)
-│       fail_silently
-│       fail_extensions_silently
-│       detect_adware
-│       detect_joke_hoax
-│       detect_pua_pup
-│       detect_packer_packed
-│       detect_shell
-│       detect_deface
-│       detect_encryption
-│
+│       active [string]
+│       fail_silently [bool]
+│       fail_extensions_silently [bool]
+│       detect_adware [bool]
+│       detect_joke_hoax [bool]
+│       detect_pua_pup [bool]
+│       detect_packer_packed [bool]
+│       detect_shell [bool]
+│       detect_deface [bool]
+│       detect_encryption [bool]
+│       heuristic_threshold [int]
 ├───files
-│       max_uploads
-│       filesize_limit
-│       filesize_response
-│       filetype_whitelist
-│       filetype_blacklist
-│       filetype_greylist
-│       check_archives
-│       filesize_archives
-│       filetype_archives
-│       max_recursion
-│       block_encrypted_archives
-│       max_files_in_archives
-│
-├───attack_specific
-│       chameleon_from_php
-│       can_contain_php_file_extensions
-│       chameleon_from_exe
-│       chameleon_to_archive
-│       chameleon_to_doc
-│       chameleon_to_img
-│       chameleon_to_pdf
-│       archive_file_extensions
-│       block_control_characters
-│       corrupted_exe
-│       decode_threshold
-│       scannable_threshold
-│       allow_leading_trailing_dots
-│       block_macros
-│
-├───compatibility
-│       ignore_upload_errors
-│       only_allow_images
-│
-├───heuristic
-│       threshold
-│
+│       filesize_limit [string]
+│       filesize_response [bool]
+│       filetype_whitelist [string]
+│       filetype_blacklist [string]
+│       filetype_greylist [string]
+│       check_archives [bool]
+│       filesize_archives [bool]
+│       filetype_archives [bool]
+│       max_recursion [int]
+│       block_encrypted_archives [bool]
+│       max_files_in_archives [int]
+│       chameleon_from_php [bool]
+│       can_contain_php_file_extensions [string]
+│       chameleon_from_exe [bool]
+│       chameleon_to_archive [bool]
+│       chameleon_to_doc [bool]
+│       chameleon_to_img [bool]
+│       chameleon_to_pdf [bool]
+│       archive_file_extensions [string]
+│       block_control_characters [bool]
+│       corrupted_exe [bool]
+│       decode_threshold [string]
+│       scannable_threshold [string]
+│       allow_leading_trailing_dots [bool]
+│       block_macros [bool]
+│       only_allow_images [bool]
+├───quarantine
+│       quarantine_key [string]
+│       quarantine_max_filesize [string]
+│       quarantine_max_usage [string]
+│       quarantine_max_files [int]
 ├───virustotal
-│       vt_public_api_key
-│       vt_suspicion_level
-│       vt_weighting
-│       vt_quota_rate
-│       vt_quota_time
-│
+│       vt_public_api_key [string]
+│       vt_suspicion_level [int]
+│       vt_weighting [int]
+│       vt_quota_rate [int]
+│       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts
-│       google_api_key
-│       maximum_api_lookups
-│       maximum_api_lookups_response
-│       cache_time
-│
+│       lookup_hphosts [bool]
+│       google_api_key [string]
+│       maximum_api_lookups [int]
+│       maximum_api_lookups_response [bool]
+│       cache_time [int]
 ├───legal
-│       pseudonymise_ip_addresses
-│       privacy_policy
-│
-├───template_data
-│       theme
-│       magnification (v1: Magnification)
-│       css_url
-│
-├───PHPMailer
-│       event_log (v1: EventLog)
-│       skip_auth_process (v1: SkipAuthProcess)
-│       enable_two_factor (v1: Enable2FA)
-│       host (v1: Host)
-│       port (v1: Port)
-│       smtp_secure (v1: SMTPSecure)
-│       smtp_auth (v1: SMTPAuth)
-│       username (v1: Username)
-│       password (v1: Password)
-│       set_from_address (v1: setFromAddress)
-│       set_from_name (v1: setFromName)
-│       add_reply_to_address (v1: addReplyToAddress)
-│       add_reply_to_name (v1: addReplyToName)
-│
-└───supplementary_cache_options
-        enable_apcu
-        enable_memcached
-        enable_redis
-        enable_pdo
-        memcached_host
-        memcached_port
-        redis_host
-        redis_port
-        redis_timeout
-        pdo_dsn
-        pdo_username
-        pdo_password
+│       pseudonymise_ip_addresses [bool]
+│       privacy_policy [string]
+├───supplementary_cache_options
+│       enable_apcu [bool]
+│       enable_memcached [bool]
+│       enable_redis [bool]
+│       enable_pdo [bool]
+│       memcached_host [string]
+│       memcached_port [int]
+│       redis_host [string]
+│       redis_port [int]
+│       redis_timeout [float]
+│       pdo_dsn [string]
+│       pdo_username [string]
+│       pdo_password [string]
+├───frontend
+│       frontend_log [string]
+│       max_login_attempts [int]
+│       numbers [string]
+│       default_algo [string]
+│       theme [string]
+│       magnification [float]
+├───web
+│       uploads_log [string]
+│       forbid_on_block [bool]
+│       max_uploads [int]
+│       ignore_upload_errors [bool]
+│       theme [string]
+│       magnification [float]
+└───phpmailer
+        event_log [string]
+        enable_two_factor [bool]
+        enable_notifications [bool]
+        skip_auth_process [bool]
+        host [string]
+        port [int]
+        smtp_secure [string]
+        smtp_auth [bool]
+        username [string]
+        password [string]
+        set_from_address [string]
+        set_from_name [string]
+        add_reply_to_address [string]
+        add_reply_to_name [string]
 ```
-
-#### <div dir="rtl">"general" (التصنيف)<br /></div>
-<div dir="rtl">التكوين العام لـ phpMussel.<br /><br /></div>
-
-##### <div dir="rtl">"cleanup"<br /></div>
-<div dir="rtl"><ul>
- <li>إلغاء تعيين المتغيرات وذاكرة التخزين المؤقت التي يستخدمها البرنامج النصي بعد المسح الأولي للتحميل؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي]. إذا كنت -لا -تستخدم البرنامج النصي وراء المسح الأولي للتحميل، يجب تعيين هذا صحيح (نعم)، للحد من استخدام الذاكرة. إذا كنت تستخدم البرنامج النصي وراء المسح الأولي للتحميل، ينبغي أن تحدد إلى زائفة/False =(لا)، لتجنب داع إعادة تحميل البيانات المكررة في الذاكرة. في الممارسة العامة، ينبغي عادة أن يتم تعيين إلى صحيح، ولكن، إذا كنت تفعل ذلك، فإنك لن تكون قادرا على استخدام البرنامج النصي في أي شيء سوى المسح الأولي لتحميل الملف.</li>
- <li>ليس له أي تأثير في وضع CLI "واجهة سطر الأوامر".</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_log"<br /></div>
-<div dir="rtl"><ul>
- <li>اسم الملف لملف تسجيل جميع نتائج المسح. قم بتعيين اسم الملف، أو اتركه فارغا للتعطيل.</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_log_serialized"<br /></div>
-<div dir="rtl"><ul>
- <li>اسم الملف من ملف لتسجيل جميع نتائج المسح إلى (باستخدام تنسيق متسلسل). تحديد اسم الملف، أو اتركه فارغا للتعطيل.</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_kills"<br /></div>
-<div dir="rtl"><ul>
- <li>اسم الملف من ملف لتسجيل كل سجلات الملفات التي منعت او اوقفت من .تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li>
-</ul></div>
 
 <div dir="rtl"><em>نصيحة مفيدة: إن أردت، يمكنك إلحاق تاريخ/المعلومات في الوقت إلى أسماء ملفات السجل من خلال تضمين هذه في اسم: "{yyyy}" لمدة عام كامل، "{yy}" لمدة عام يختصر، "{mm}" لمدة شهر، "{dd}" ليوم واحد، "{hh}" لمدة ساعة (راجع الأمثلة أدناه).</em><br /><br /></div>
 
 ```
  scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'
  scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'
- scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'
+ error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'
 ```
 
-##### <div dir="rtl">"error_log"<br /></div>
-<div dir="rtl"><ul>
- <li>ملف لتسجيل أي أخطاء غير مميتة المكتشفة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li>
+#### <div dir="rtl">"core" (التصنيف)<br /></div>
+<div dir="rtl">التكوين العام (أي التكوين الأساسي لا ينتمي إلى فئات أخرى).<br /><br /></div>
+
+##### <div dir="rtl">"scan_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اسم الملف لملف تسجيل جميع نتائج المسح. قم بتعيين اسم الملف، أو اتركه فارغا للتعطيل.</li></ul></div>
+
+##### <div dir="rtl">"scan_log_serialized" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اسم الملف من ملف لتسجيل جميع نتائج المسح إلى (باستخدام تنسيق متسلسل). تحديد اسم الملف، أو اتركه فارغا للتعطيل.</li></ul></div>
+
+##### <div dir="rtl">"error_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ملف لتسجيل أي أخطاء غير مميتة المكتشفة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
+
+##### <div dir="rtl">"truncate" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اقتطاع ملفات السجل عندما تصل إلى حجم معين؟ القيمة هي الحجم الأقصى في بايت/كيلوبايت/ميغابايت/غيغابايت/تيرابايت الذي قد ينمو ملفات السجل إلى قبل اقتطاعه. القيمة الافتراضية 0KB تعطيل اقتطاع (ملفات السجل يمكن أن تنمو إلى أجل غير مسمى). ملاحظة: ينطبق على ملفات السجل الفردية! ولا يعتبر حجمها جماعيا.</li></ul></div>
+
+##### <div dir="rtl">"log_rotation_limit" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد تدوير السجل عدد ملفات السجل التي يجب أن تكون موجودة في أي وقت. عند إنشاء ملفات السجل الجديدة، إذا تجاوز العدد الإجمالي لبيانات السجل الحد المحدد، فسيتم تنفيذ الإجراء المحدد. يمكنك تحديد الحد المرغوب هنا. ستعمل القيمة 0 على تعطيل تدوير السجل.</li></ul></div>
+
+##### <div dir="rtl">"log_rotation_action" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد تدوير السجل عدد ملفات السجل التي يجب أن تكون موجودة في أي وقت. عند إنشاء ملفات السجل الجديدة، إذا تجاوز العدد الإجمالي لبيانات السجل الحد المحدد، فسيتم تنفيذ الإجراء المحدد. يمكنك تحديد الإجراء المطلوب هنا. Delete = احذف أقدم السجلات، حتى لا يتم تجاوز الحد. Archive = أرشفة أولاً، ثم احذف أقدم السجلات، حتى لا يتم تجاوز الحد.</li></ul></div>
+
+```
+log_rotation_action
+├─Delete ("Delete")
+└─Archive ("Archive")
+```
+
+##### <div dir="rtl">"timezone" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>يتم استخدام هذا لتحديد المنطقة الزمنية للاستخدام (على سبيل المثال، Africa/Cairo، America/New_York، Asia/Tokyo، Australia/Perth، Europe/Berlin، Pacific/Guam، إلخ). حدد "SYSTEM" للسماح لـ PHP بمعالجة هذا الأمر تلقائيًا.</li></ul></div>
+
+```
+timezone
+├─SYSTEM ("استخدام المنطقة الزمنية الافتراضية للنظام.")
+├─UTC ("UTC")
+└─…آخر
+```
+
+##### <div dir="rtl">"time_offset" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>المنطقة الزمنية تعويض في غضون دقائق.</li></ul></div>
+
+##### <div dir="rtl">"time_format" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>شكل التواريخ المستخدم من قبل phpMussel. ويمكن إضافة خيارات إضافية عند الطلب.</li></ul></div>
+
+```
+time_format
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}")
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss}")
+├─{Day}, {dd} {Mon} {yyyy} ("{Day}, {dd} {Mon} {yyyy}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yyyy}.{mm}.{dd} ("{yyyy}.{mm}.{dd}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yyyy}-{mm}-{dd} ("{yyyy}-{mm}-{dd}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yyyy}/{mm}/{dd} ("{yyyy}/{mm}/{dd}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yyyy} ("{dd}.{mm}.{yyyy}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yyyy} ("{dd}-{mm}-{yyyy}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yyyy} ("{dd}/{mm}/{yyyy}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yyyy} ("{mm}.{dd}.{yyyy}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yyyy} ("{mm}-{dd}-{yyyy}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yyyy} ("{mm}/{dd}/{yyyy}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yy}.{mm}.{dd} ("{yy}.{mm}.{dd}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yy}-{mm}-{dd} ("{yy}-{mm}-{dd}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yy}/{mm}/{dd} ("{yy}/{mm}/{dd}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yy} ("{dd}.{mm}.{yy}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yy} ("{dd}-{mm}-{yy}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yy} ("{dd}/{mm}/{yy}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yy} ("{mm}.{dd}.{yy}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yy} ("{mm}-{dd}-{yy}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yy} ("{mm}/{dd}/{yy}")
+├─{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}年{m}月{d}日 ("{yyyy}年{m}月{d}日")
+├─{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yy}年{m}月{d}日 ("{yy}年{m}月{d}日")
+├─{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}년 {m}월 {d}일 ("{yyyy}년 {m}월 {d}일")
+├─{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yy}년 {m}월 {d}일 ("{yy}년 {m}월 {d}일")
+├─{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z} ("{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z}")
+├─{d}. {m}. {yyyy} ("{d}. {m}. {yyyy}")
+└─…آخر
+```
+
+##### <div dir="rtl">"ipaddr" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>أين يمكن العثور على عنوان IP لربط الطلبات؟ (مفيدة للخدمات مثل لايتكلاود و مثلها) الافتراضي = REMOTE_ADDR. تحذير: لا تغير هذا إلا إذا كنت تعرف ما تفعلونه!</li></ul></div>
+
+```
+ipaddr
+├─HTTP_INCAP_CLIENT_IP ("HTTP_INCAP_CLIENT_IP (Incapsula)")
+├─HTTP_CF_CONNECTING_IP ("HTTP_CF_CONNECTING_IP (Cloudflare)")
+├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
+├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
+├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
+└─…آخر
+```
+
+<div dir="rtl">أنظر أيضا:<ul dir="rtl">
+<li><a dir="ltr" href="https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/">NGINX Reverse Proxy</a></li>
+<li><a dir="ltr" href="http://www.squid-cache.org/Doc/config/forwarded_for/">Squid configuration directive forwarded_for</a></li>
 </ul></div>
 
-##### <div dir="rtl">"truncate"<br /></div>
-<div dir="rtl"><ul>
- <li>اقتطاع ملفات السجل عندما تصل إلى حجم معين؟ القيمة هي الحجم الأقصى في بايت/كيلوبايت/ميغابايت/غيغابايت/تيرابايت الذي قد ينمو ملفات السجل إلى قبل اقتطاعه. القيمة الافتراضية 0KB تعطيل اقتطاع (ملفات السجل يمكن أن تنمو إلى أجل غير مسمى). ملاحظة: ينطبق على ملفات السجل الفردية! ولا يعتبر حجمها جماعيا.</li>
-</ul></div>
+##### <div dir="rtl">"delete_on_sight" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>تمكين هذا التوجيه وإرشاد النصي لمحاولة حذف فورا عن أي الممسوحة ضوئيا تحميل ملف محاولة مطابقة أي معايير الكشف، سواء عن طريق التوقيعات أو غير ذلك. لن يكون لمست الملفات مصممة على أن تكون "نظيفة". في حالة المحفوظات، سيتم حذف أرشيف كامل، بغض النظر عن ما إذا كان أو لم يكن ملف المخالف هو واحد فقط من العديد من الملفات الواردة في الأرشيف. بالنسبة لحالة إيداع ملف المسح الضوئي، عادة، فإنه ليس من الضروري لتمكين هذا التوجيه، لأن العادة، PHP وتطهير محتويات ذاكرة التخزين المؤقت تلقائيا عند انتهاء التنفيذ، وهذا يعني انها سوف عادة حذف أي الملفات التي تم تحميلها من خلال ذلك إلى الخادم ما لم يكونوا قد تم نقلها أو نسخها أو حذفها بالفعل. يضاف هذا التوجيه هنا كإجراء إضافي من الأمن لأولئك الذين نسخ من PHP قد لا تتصرف دائما على النحو المتوقع. = كاذبة بعد المسح، وترك الملف وحده [الافتراضي]. صحيح/True = بعد المسح، إن لم يكن نظيفة، تحذف فورا.</li></ul></div>
 
-##### <div dir="rtl">"log_rotation_limit"<br /></div>
-<div dir="rtl"><ul>
- <li>يحدد تدوير السجل عدد ملفات السجل التي يجب أن تكون موجودة في أي وقت. عند إنشاء ملفات السجل الجديدة، إذا تجاوز العدد الإجمالي لبيانات السجل الحد المحدد، فسيتم تنفيذ الإجراء المحدد. يمكنك تحديد الحد المرغوب هنا. ستعمل القيمة 0 على تعطيل تدوير السجل.</li>
-</ul></div>
+##### <div dir="rtl">"lang" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تحديد اللغة الافتراضية الخاصة بـ phpMussel.</li></ul></div>
 
-##### <div dir="rtl">"log_rotation_action"<br /></div>
-<div dir="rtl"><ul>
- <li>يحدد تدوير السجل عدد ملفات السجل التي يجب أن تكون موجودة في أي وقت. عند إنشاء ملفات السجل الجديدة، إذا تجاوز العدد الإجمالي لبيانات السجل الحد المحدد، فسيتم تنفيذ الإجراء المحدد. يمكنك تحديد الإجراء المطلوب هنا. Delete = احذف أقدم السجلات، حتى لا يتم تجاوز الحد. Archive = أرشفة أولاً، ثم احذف أقدم السجلات، حتى لا يتم تجاوز الحد.</li>
-</ul></div>
+```
+lang
+├─en ("English")
+├─ar ("العربية")
+├─bn ("বাংলা")
+├─de ("Deutsch")
+├─es ("Español")
+├─fr ("Français")
+├─hi ("हिंदी")
+├─id ("Bahasa Indonesia")
+├─it ("Italiano")
+├─ja ("日本語")
+├─ko ("한국어")
+├─lv ("Latviešu")
+├─nl ("Nederlandse")
+├─no ("Norsk")
+├─pl ("Polski")
+├─pt ("Português")
+├─ru ("Русский")
+├─sv ("Svenska")
+├─th ("ภาษาไทย")
+├─tr ("Türkçe")
+├─ur ("اردو")
+├─vi ("Tiếng Việt")
+├─zh ("中文（简体）")
+└─zh-TW ("中文（傳統）")
+```
 
-<div dir="rtl">التوضيح الفني: في هذا السياق، تعني كلمة "أقدم"، هذا يعني "الأقل معدلة مؤخرا".<br /><br /></div>
+##### <div dir="rtl">"lang_override" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>الترجمة وفقًا لـ HTTP_ACCEPT_LANGUAGE كلما أمكن ذلك؟ صحيح/True = نعم [افتراضي]؛ زائفة/False = لا.</li></ul></div>
 
-##### <div dir="rtl">"timezone"<br /></div>
-<div dir="rtl"><ul>
- <li>يتم استخدام هذا لتحديد المنطقة الزمنية التي يجب أن يستخدمها phpMussel لعمليات التاريخ / الوقت. إذا لم تكن بحاجة إليه، فتجاهله. يتم تحديد القيم المحتملة بواسطة PHP. يُوصى بشكل عام بدلاً من ضبط توجيه المنطقة الزمنية في ملف <code dir="ltr">php.ini</code>. على الرغم من أنه في بعض الأحيان (على سبيل المثال عند العمل مع موفري استضافة مشتركة محدودة)، لا يكون ذلك ممكنًا دائمًا، وهكذا، يتم توفير هذا الخيار هنا.</li>
-</ul></div>
+##### <div dir="rtl">"scan_cache_expiry" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>إلى متى يجب أن phpMussel تخزين نتائج المسح؟ القيمة هي عدد الثواني لتخزين نتائج المسح ل. الافتراضي هو 21600 ثانية (6 ساعات)؛ وقيمة 0 تعطيل التخزين المؤقت نتائج المسح.</li></ul></div>
 
-##### <div dir="rtl">"time_offset"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "timeOffset"</em></li>
- <li>إذا بالتوقيت المحلي الخاص بك ليست هي نفسها كما الخادم الخاص بك، يمكنك تحديد إزاحة هنا (لضبط التاريخ / المعلومات في الوقت صنعت بواسطة phpMussel). الإزاحة المستندة دقيقة.<br /></li>
- <li>مثال (لإضافة ساعة واحدة):</li>
-</ul></div>
+##### <div dir="rtl">"maintenance_mode" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل تريد تمكين وضع الصيانة؟ صحيح/True = نعم؛ زائفة/False = لا [افتراضي]. تعطيل كل شيء بخلاف front-end. قد تكون مفيدة أحيانا عند تحديث نظام إدارة المحتوى والأطر وما إلى ذلك.</li></ul></div>
 
-`time_offset=60`
+##### <div dir="rtl">"statistics" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل تريد تتبع إحصاءات استخدام phpMussel؟ صحيح/True = نعم؛ زائفة/False = لا [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"time_format"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "timeFormat"</em></li>
- <li>شكل التواريخ المستخدم من قبل phpMussel. الافتراضي:</li>
-</ul></div>
+##### <div dir="rtl">"disabled_channels" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>يمكن استخدام هذا لمنع phpMussel من استخدام قنوات معينة عند إرسال الطلبات (على سبيل المثال، عند التحديث، عند جلب بيانات تعريف المكون، إلخ).</li></ul></div>
 
-`{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`
-
-##### <div dir="rtl">"ipaddr"<br /></div>
-<div dir="rtl"><ul>
- <li>أين يمكن العثور على عنوان IP لربط الطلبات؟ (مفيدة للخدمات مثل لايتكلاود و مثلها) الافتراضي = REMOTE_ADDR. تحذير: لا تغير هذا إلا إذا كنت تعرف ما تفعلونه!</li>
-</ul></div>
-
-<div dir="rtl">القيم الموصى بها ل "ipaddr":<br /><br /></div>
-
-&nbsp; <div dir="rtl" style="display:inline">القيمة</div> | &nbsp; <div dir="rtl" style="display:inline">استعمال</div>
----|---
-`HTTP_INCAP_CLIENT_IP` | Incapsula reverse proxy (إنكابسولا عكس الوكيل).
-`HTTP_CF_CONNECTING_IP` | Cloudflare reverse proxy (كلودفلاري عكس الوكيل).
-`CF-Connecting-IP` | Cloudflare reverse proxy (كلودفلاري عكس الوكيل؛ لبديل؛ إذا كان ما سبق لا يعمل).
-`HTTP_X_FORWARDED_FOR` | Cloudbric reverse proxy.
-`X-Forwarded-For` | [Squid reverse proxy (عكس الوكيل)](http://www.squid-cache.org/Doc/config/forwarded_for/).
-&nbsp; <div dir="rtl" style="display:inline"><em>يحددها تكوين الخادم.</em></div> | [Nginx reverse proxy (إنجن إكس عكس الوكيل)](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
-`REMOTE_ADDR` | &nbsp; <div dir="rtl" style="display:inline">لا يوجد عكس الوكيل (الافتراضي).</div>
-
-##### <div dir="rtl">"enable_plugins"<br /></div>
-<div dir="rtl"><ul>
- <li>تمكين دعم ملحقات phpMussel؟ زائفة/False = لا؛ صحيح/True = نعم [الافتراضي].</li>
-</ul></div>
-
-##### <div dir="rtl">"forbid_on_block"<br /></div>
-<div dir="rtl"><ul>
- <li>هل phpMussel يرسل 403 من العناوين مع الرسالة منعت إيداع الملف، أو يبقى مع المعتادة 200 موافق؟ خطأ = رقم (200). صحيح/True = نعم (403) [الافتراضي].</li>
-</ul></div>
-
-##### <div dir="rtl">"delete_on_sight"<br /></div>
-<div dir="rtl"><ul>
- <li>تمكين هذا التوجيه وإرشاد النصي لمحاولة حذف فورا عن أي الممسوحة ضوئيا تحميل ملف محاولة مطابقة أي معايير الكشف، سواء عن طريق التوقيعات أو غير ذلك. لن يكون لمست الملفات مصممة على أن تكون "نظيفة". في حالة المحفوظات، سيتم حذف أرشيف كامل، بغض النظر عن ما إذا كان أو لم يكن ملف المخالف هو واحد فقط من العديد من الملفات الواردة في الأرشيف. بالنسبة لحالة إيداع ملف المسح الضوئي، عادة، فإنه ليس من الضروري لتمكين هذا التوجيه، لأن العادة، PHP وتطهير محتويات ذاكرة التخزين المؤقت تلقائيا عند انتهاء التنفيذ، وهذا يعني انها سوف عادة حذف أي الملفات التي تم تحميلها من خلال ذلك إلى الخادم ما لم يكونوا قد تم نقلها أو نسخها أو حذفها بالفعل. يضاف هذا التوجيه هنا كإجراء إضافي من الأمن لأولئك الذين نسخ من PHP قد لا تتصرف دائما على النحو المتوقع. = كاذبة بعد المسح، وترك الملف وحده [الافتراضي]. صحيح/True = بعد المسح، إن لم يكن نظيفة، تحذف فورا.</li>
-</ul></div>
-
-##### <div dir="rtl">"lang"<br /></div>
-<div dir="rtl"><ul>
- <li>تحديد اللغة الافتراضية الخاصة بـ phpMussel.</li>
-</ul></div>
-
-##### <div dir="rtl">"lang_override"<br /></div>
-<div dir="rtl"><ul>
- <li>الترجمة وفقًا لـ HTTP_ACCEPT_LANGUAGE كلما أمكن ذلك؟ صحيح/True = نعم [افتراضي]؛ زائفة/False = لا.</li>
-</ul></div>
-
-##### <div dir="rtl">"numbers"<br /></div>
-<div dir="rtl"><ul>
- <li>لتحديد كيفية عرض الأرقام.</li>
-</ul></div>
-
-<div dir="rtl">القيم المدعومة حاليًا:<br /><br /></div>
-
-القيمة | ينتج عنه | وصف
----|---|---
-`NoSep-1` | `1234567.89`
-`NoSep-2` | `1234567,89`
-`Latin-1` | `1,234,567.89` | القيمة القياسية
-`Latin-2` | `1 234 567.89`
-`Latin-3` | `1.234.567,89`
-`Latin-4` | `1 234 567,89`
-`Latin-5` | `1,234,567·89`
-`China-1` | `123,4567.89`
-`India-1` | `12,34,567.89`
-`India-2` | `१२,३४,५६७.८९`
-`India-3` | `૧૨,૩૪,૫૬૭.૮૯`
-`India-4` | `੧੨,੩੪,੫੬੭.੮੯`
-`India-5` | `೧೨,೩೪,೫೬೭.೮೯`
-`India-6` | `౧౨,౩౪,౫౬౭.౮౯`
-`Arabic-1` | `١٢٣٤٥٦٧٫٨٩`
-`Arabic-2` | `١٬٢٣٤٬٥٦٧٫٨٩`
-`Arabic-3` | `۱٬۲۳۴٬۵۶۷٫۸۹`
-`Arabic-4` | `۱۲٬۳۴٬۵۶۷٫۸۹`
-`Bengali-1` | `১২,৩৪,৫৬৭.৮৯`
-`Burmese-1` | `၁၂၃၄၅၆၇.၈၉`
-`Khmer-1` | `១.២៣៤.៥៦៧,៨៩`
-`Lao-1` | `໑໒໓໔໕໖໗.໘໙`
-`Thai-1` | `๑,๒๓๔,๕๖๗.๘๙`
-`Thai-2` | `๑๒๓๔๕๖๗.๘๙`
-
-<div dir="rtl">ملحوظة: هذه القيم ليست موحدة في أي مكان، وربما لن تكون ذات صلة خارج الحزمة. أيضا، قد تتغير القيم المدعومة في المستقبل.<br /><br /></div>
-
-##### <div dir="rtl">"quarantine_key"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel غير قادرة على الحجر ترفع علم حاول تحميل الملف في عزلة داخل "قبو" phpMussel، إذا كان هذا هو ما تريد أن تفعله. المستخدمين العاديين من phpMussel التي ترغب ببساطة لحماية مواقعها على شبكة الإنترنت أو بيئة استضافة دون وجود أي مصلحة في تحليل عميق أي ترفع علم تحميل الملفات حاول يجب ترك هذه الوظيفة ذوي الاحتياجات الخاصة، ولكن أي المستخدمين المهتمين في مزيد من التحليل للترفع علم حاولت تحميل الملفات للبحث عن البرامج الضارة أو ما شابه مثل هذه الأمور ينبغي أن تمكن هذه الوظيفة. الحجر الصحي لترفع العلم تحميل الملفات حاول يمكن في بعض الأحيان أن تساعد في تصحيح ايجابيات كاذبة، إذا كان هذا هو الشيء الذي كثيرا ما يحدث لك. إلى تعطيل وظيفة العزل، ببساطة مغادرة "quarantine_key" التوجيه فارغة، أو مسح محتويات هذا التوجيه إذا لم يكن خاليا بالفعل. لتمكين وظيفة العزل، وإدخال قيمة في التوجيه. و "quarantine_key" هي ميزة أمنية مهمة من وظائف الحجر الصحي المطلوبة كوسيلة لمنع وظيفة الحجر الصحي من أن تستغل من قبل المهاجمين المحتملين، وكوسيلة لمنع أي احتمال تنفيذ البيانات المخزنة داخل الحجر الصحي. و "quarantine_key" ينبغي أن يعامل بنفس الطريقة التي يعامل بها كلمات السر الخاصة بك: وكلما كان ذلك أفضل، وحراسته مشددة. للحصول على أفضل تأثير، استخدم بالتزامن مع "delete_on_sight".</li>
-</ul></div>
-
-##### <div dir="rtl">"quarantine_max_filesize"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لحجم الملف المسموح به من الملفات للحجر الصحي. لن يكون الحجر الصحي الملفات أكبر من القيمة المحددة. هذا التوجيه لا يقل أهمية عن وسيلة لجعل الأمر أكثر صعوبة لأي مهاجمين محتملين لإغراق الحجر الصحي الخاص مع البيانات غير المرغوب فيها مما يمكن أن يسبب استخدام البيانات التشغيل بعيدا عن خدمة الاستضافة. الافتراضي = 2MB.</li>
-</ul></div>
-
-##### <div dir="rtl">"quarantine_max_usage"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لاستخدام الذاكرة يسمح للحجر الصحي. إذا كان إجمالي الذاكرة المستخدمة من قبل الحجر الصحي تصل هذه القيمة، سيتم حذف أقدم الملفات المعزولة حتى الذاكرة الإجمالية المستخدمة لم تعد تصل هذه القيمة. هذا التوجيه لا يقل أهمية عن وسيلة لجعل الأمر أكثر صعوبة لأي مهاجمين محتملين لإغراق الحجر الصحي الخاص مع البيانات غير المرغوب فيها مما يمكن أن يسبب استخدام البيانات التشغيل بعيدا عن خدمة الاستضافة. الافتراضي = 64MB.</li>
-</ul></div>
-
-##### <div dir="rtl">"quarantine_max_files"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لعدد الملفات التي يمكن أن توجد في وحدة العزل. عند إضافة ملفات جديدة إلى وحدة العزل، إذا تم تجاوز هذا الرقم، فسيتم حذف الملفات القديمة حتى لا يتجاوز الجزء المتبقي هذا الرقم. الافتراضي = 100.</li>
-</ul></div>
-
-##### <div dir="rtl">"honeypot_mode"<br /></div>
-<div dir="rtl"><ul>
- <li>عند تمكين وضع مصيدة، و phpMussel محاولة لعزل كل تحميل ملف واحد أن يواجه، بغض النظر عن ما إذا كان أو لم يكن ملف يتم تحميلها يطابق أي وشملت التوقيعات، وسوف لا المسح الفعلي أو تحليل لتلك تحميل الملفات حاول أن يحدث في الواقع. وينبغي أن تكون هذه الوظيفة مفيدة لأولئك الذين يرغبون في استخدام phpMussel لأغراض فيروس / بحث عن البرامج الضارة، ولكن هذا لا يوصى لتمكين هذه الوظيفة إذا كان الغرض من استخدام phpMussel من قبل المستخدم هو الفعلي إيداع ملف المسح، ولا ينصح لاستخدام وظائف مصيدة لأغراض أخرى غير honeypotting. افتراضيا، يتم تعطيل هذا الخيار. زائفة/False = معطل [الافتراضي]. = الحقيقية تمكين.</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_cache_expiry"<br /></div>
-<div dir="rtl"><ul>
- <li>إلى متى يجب أن phpMussel تخزين نتائج المسح؟ القيمة هي عدد الثواني لتخزين نتائج المسح ل. الافتراضي هو 21600 ثانية (6 ساعات)؛ وقيمة 0 تعطيل التخزين المؤقت نتائج المسح.</li>
-</ul></div>
-
-##### <div dir="rtl">"disable_cli"<br /></div>
-<div dir="rtl"><ul>
- <li>وضع تعطيل CLI؟ يتم تمكين وضع CLI افتراضيا، ولكن يمكن أن تتداخل أحيانا مع بعض أدوات الاختبار (مثل PHPUnit، على سبيل المثال) وغيرها من التطبيقات القائمة على المبادرة القطرية. إذا كنت لا تحتاج إلى تعطيل وضع CLI، يجب تجاهل هذا التوجيه. خطأ = تمكين وضع CLI [الافتراضي]. صحيح/True = وضع تعطيل CLI.</li>
-</ul></div>
-
-##### <div dir="rtl">"disable_frontend"<br /></div>
-<div dir="rtl"><ul>
- <li>تعطيل وصول front-end؟ وصول front-end يستطيع جعل phpMussel أكثر قابلية للإدارة، ولكن يمكن أيضا أن تكون مخاطر أمنية محتملة. من المستحسن لإدارة phpMussel عبر back-end متى أمكن، لكن وصول front-end متوفر عندما لم يكن ممكنا. يبقيه المعوقين إلا إذا كنت في حاجة إليها. زائفة/False = تمكين وصول front-end؛ صحيح/True = تعطيل وصول front-end [الافتراضي].</li>
-</ul></div>
-
-##### <div dir="rtl">"max_login_attempts"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لعدد محاولات تسجيل الدخول (front-end). الافتراضي = 5.</li>
-</ul></div>
-
-##### <div dir="rtl">"frontend_log"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "FrontEndLog"</em></li>
- <li>ملف لتسجيل محاولات الدخول الأمامية. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li>
-</ul></div>
-
-##### <div dir="rtl">"disable_webfonts"<br /></div>
-<div dir="rtl"><ul>
- <li>هل تريد تعطيل ويبفونتس؟ صحيح/True = نعم [افتراضي]؛ زائفة/False = لا.</li>
-</ul></div>
-
-##### <div dir="rtl">"maintenance_mode"<br /></div>
-<div dir="rtl"><ul>
- <li>هل تريد تمكين وضع الصيانة؟ صحيح/True = نعم؛ زائفة/False = لا [افتراضي]. تعطيل كل شيء بخلاف front-end. قد تكون مفيدة أحيانا عند تحديث نظام إدارة المحتوى والأطر وما إلى ذلك.</li>
-</ul></div>
-
-##### <div dir="rtl">"default_algo"<br /></div>
-<div dir="rtl"><ul>
- <li>يحدد الخوارزمية التي سيتم استخدامها لكل كلمات المرور والجلسات المستقبلية. خيارات: PASSWORD_DEFAULT (افتراضي)، PASSWORD_BCRYPT، PASSWORD_ARGON2I (يتطلب PHP >= 7.2.0)، PASSWORD_ARGON2ID (يتطلب PHP >= 7.3.0).</li>
-</ul></div>
-
-##### <div dir="rtl">"statistics"<br /></div>
-<div dir="rtl"><ul>
- <li>هل تريد تتبع إحصاءات استخدام phpMussel؟ صحيح/True = نعم؛ زائفة/False = لا [افتراضي].</li>
-</ul></div>
-
-##### <div dir="rtl">"disabled_channels"<br /></div>
-<div dir="rtl"><ul>
- <li>يمكن استخدام هذا لمنع phpMussel من استخدام قنوات معينة عند إرسال الطلبات (على سبيل المثال، عند التحديث، عند جلب بيانات تعريف المكون، إلخ).</li>
-</ul></div>
+```
+disabled_channels
+├─GitHub ("GitHub")
+├─BitBucket ("BitBucket")
+├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
+├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+├─hpHosts_HTTPS ("hpHosts (HTTPS)")
+└─hpHosts_HTTP ("hpHosts (HTTP)")
+```
 
 #### <div dir="rtl">"signatures" (التصنيف)<br /></div>
-<div dir="rtl">تكوين التوقيعات.<br /><br /></div>
+<div dir="rtl">التكوين للتوقيعات، ملفات التوقيع، إلخ.<br /><br /></div>
 
-##### <div dir="rtl">"active"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Active"</em></li>
- <li>قائمة من الملفات توقيع النشطة، محدد بفواصل.</li>
-</ul></div>
+##### <div dir="rtl">"active" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>قائمة من الملفات توقيع النشطة، محدد بفواصل. ملحوظة: يجب أولاً تثبيت ملفات التوقيع، قبل أن تتمكن من تنشيطها. لكي تعمل ملفات الاختبار بشكل صحيح، يجب تثبيت ملفات التوقيع وتنشيطها.</li></ul></div>
 
-<div dir="rtl">ملحوظة:<ul>
- <li>يجب أولاً تثبيت ملفات التوقيع، قبل أن تتمكن من تنشيطها.</li>
- <li>لكي تعمل ملفات الاختبار بشكل صحيح، يجب تثبيت ملفات التوقيع وتنشيطها.</li>
- <li>يتم تخزين قيمة هذا التوجيه في ذاكرة التخزين المؤقت. بعد تغييرها، لتصبح التغييرات سارية المفعول، قد تحتاج إلى حذف ذاكرة التخزين المؤقت.</li>
-</ul></div>
+##### <div dir="rtl">"fail_silently" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على phpMussel الابلاغ عندما يتم توقيع ملفات مفقودة أو تالفة؟ إذا كان <code dir="ltr">fail_silently</code> المعوقين، في عداد المفقودين وسيتم الإبلاغ عن ملفات فساد في المسح، وإذا <code dir="ltr">fail_silently</code> تمكين، في عداد المفقودين وسيتم تجاهل ملفات فساد، مع مسح الإبلاغ عن تلك الملفات أنه لا توجد أي مشاكل. وهذا ين بغي عموما أن تترك وحدها إلا إذا كنت تعاني من أعطال أو مشاكل مشابهة. خطأ = معطل. صحيح/True = ممكن [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"fail_silently"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على phpMussel الابلاغ عندما يتم توقيع ملفات مفقودة أو تالفة؟ إذا كان "fail_silently" المعوقين، في عداد المفقودين وسيتم الإبلاغ عن ملفات فساد في المسح، وإذا "fail_silently" تمكين، في عداد المفقودين وسيتم تجاهل ملفات فساد، مع مسح الإبلاغ عن تلك الملفات أنه لا توجد أي مشاكل. وهذا ين بغي عموما أن تترك وحدها إلا إذا كنت تعاني من أعطال أو مشاكل مشابهة. خطأ = معطل. صحيح/True = ممكن [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"fail_extensions_silently" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على phpMussel الابلاغ عندما تفقد الملحقات؟ إذا تم تعطيل <code dir="ltr">fail_extensions_silently</code>، وسيتم إبلاغ ملحقات مفقودة على المسح، وإذا تم تمكين <code dir="ltr">fail_extensions_silently</code>، سيتم تجاهل ملحقات المفقودة، مع مسح الإبلاغ عن تلك الملفات أنه لا توجد أي مشاكل. تعطيل هذا التوجيه قد يحتمل زيادة الأمان، ولكن قد يؤدي أيضا إلى زيادة من ايجابيات كاذبة. خطأ = معطل. صحيح/True = ممكن [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"fail_extensions_silently"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على phpMussel الابلاغ عندما تفقد الملحقات؟ إذا تم تعطيل "fail_extensions_silently"، وسيتم إبلاغ ملحقات مفقودة على المسح، وإذا تم تمكين "fail_extensions_silently"، سيتم تجاهل ملحقات المفقودة، مع مسح الإبلاغ عن تلك الملفات أنه لا توجد أي مشاكل. تعطيل هذا التوجيه قد يحتمل زيادة الأمان، ولكن قد يؤدي أيضا إلى زيادة من ايجابيات كاذبة. خطأ = معطل. صحيح/True = ممكن [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"detect_adware" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على توقيعات phpMussel الكشف عن تجسس؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"detect_adware"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على توقيعات phpMussel الكشف عن تجسس؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"detect_joke_hoax" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على توقيعات phpMussel الكشف عن خدعة البرمجيات الخبيثة / الفيروسات؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"detect_joke_hoax"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على توقيعات phpMussel الكشف عن خدعة البرمجيات الخبيثة / الفيروسات؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"detect_pua_pup" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على توقيعات phpMussel الكشف عن PUAs؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"detect_pua_pup"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على توقيعات phpMussel الكشف عن PUAs؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"detect_packer_packed" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على توقيعات phpMussel الكشف عن تعبئة والبيانات المعبأة؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"detect_packer_packed"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على توقيعات phpMussel الكشف عن تعبئة والبيانات المعبأة؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"detect_shell" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على توقيعات phpMussel الكشف عن البرامج النصية قذيفة؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"detect_shell"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على توقيعات phpMussel الكشف عن البرامج النصية قذيفة؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"detect_deface" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على توقيعات phpMussel الكشف عن مهاجمات وdefacers؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"detect_deface"<br /></div>
-<div dir="rtl"><ul>
- <li>هل يجب على توقيعات phpMussel الكشف عن مهاجمات وdefacers؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"detect_encryption" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يجب phpMussel كشف ومنع الملفات المشفرة؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"detect_encryption"<br /></div>
-<div dir="rtl"><ul>
- <li>يجب phpMussel كشف ومنع الملفات المشفرة؟ زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"heuristic_threshold" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>هناك توقيعات معينة من phpMussel التي تهدف إلى تحديد الصفات المشبوهة والمحتمل أن تكون ضارة من الملفات التي يتم تحميلها دون في أنفسهم تحديد تلك الملفات التي تم تحميلها على وجه التحديد بأنها خبيثة. هذه القيمة "الحد الأقصى " تقول phpMussel ما الحد الأقصى للوزن الكلي من الصفات المشبوهة والمحتمل أن تكون ضارة من الملفات التي يتم تحميلها هذا المسموح به هو قبل تلك الملفات ليتم وضع علامة بأنها خبيثة. تعريف الوزن في هذا السياق هو العدد الإجمالي من الصفات المشبوهة والمحتمل أن تكون ضارة تحديدها. افتراضيا، سيتم تعيين هذه القيمة إلى 3. القيمة المنخفضة عموما سوف يؤدي إلى حدوث أعلى من ايجابيات كاذبة ولكن عددا أكبر من الملفات الخبيثة التي لوحت، في حين أن أعلى قيمة عموما سوف يؤدي إلى حدوث انخفاض من ايجابيات كاذبة ولكن انخفاض عدد الملفات الخبيثة التي توضع. انها عموما من الأفضل ترك هذه القيمة في الافتراضي إلا إذا كنت تعاني من مشاكل المتعلقة بها.</li></ul></div>
 
 #### <div dir="rtl">"files" (التصنيف)<br /></div>
-<div dir="rtl">ملف التعامل مع التكوين.<br /><br /></div>
+<div dir="rtl">تفاصيل كيفية التعامل مع الملفات عند المسح.<br /><br /></div>
 
-##### <div dir="rtl">"max_uploads"<br /></div>
-<div dir="rtl"><ul>
- <li>العدد الأقصى المسموح به من ملفات لمسح أثناء تحميل الملفات مسح قبل إحباط عملية الفحص وإعلام المستخدم أنهم تحميل أكثر من اللازم في وقت واحد! يوفر الحماية ضد هجوم النظري حيث يحاول أحد المهاجمين دوس النظام الخاص بك أو CMS من الحمولة الزائدة phpMussel إلى إبطاء عملية PHP لوقف طحن. الموصى بها: 10. أنت قد ترغب في رفع أو خفض هذا الرقم اعتمادا على سرعة الجهاز. لاحظ أن هذا الرقم لا يأخذ في الحسبان أو تتضمن محتويات المحفوظات.</li>
-</ul></div>
+##### <div dir="rtl">"filesize_limit" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>حدود حجم الملف بالكيلو بايت. 65536 = 64MB [افتراضي]. 0 = لا يوجد حد (greylisted دائما)، أي (إيجابية) قيمة رقمية قبلت. هذا يمكن أن يكون مفيدا عندما يحد التكوين الخاص بي مقدار الذاكرة عملية يمكن أن تعقد أو إذا كان لديك PHP حدود التكوين حجم الملف من الإضافات.</li></ul></div>
 
-##### <div dir="rtl">"filesize_limit"<br /></div>
-<div dir="rtl"><ul>
- <li>حدود حجم الملف بالكيلو بايت. 65536 = 64MB [افتراضي]. 0 = لا يوجد حد (greylisted دائما)، أي (إيجابية) قيمة رقمية قبلت. هذا يمكن أن يكون مفيدا عندما يحد التكوين الخاص بي مقدار الذاكرة عملية يمكن أن تعقد أو إذا كان لديك PHP حدود التكوين حجم الملف من الإضافات.</li>
-</ul></div>
+##### <div dir="rtl">"filesize_response" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>ماذا تفعل مع الملفات التي تتجاوز الحد الأقصى لحجم الملف (إن وجد). زائفة/False = القائمة البيضاء. صحيح/True = القائمة السوداء [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"filesize_response"<br /></div>
-<div dir="rtl"><ul>
- <li>ماذا تفعل مع الملفات التي تتجاوز الحد الأقصى لحجم الملف (إن وجد). زائفة/False = القائمة البيضاء. صحيح/True = القائمة السوداء [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"filetype_whitelist" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>إذا كان النظام يسمح فقط أنواع معينة من الملفات المراد تحميلها، أو إذا كان النظام ينفي صراحة أنواع معينة من الملفات، تحديد تلك نوع الملف في قوائم بيضاء، القوائم السوداء و القوائم الرمادية يمكن أن تزيد من السرعة التي يتم تنفيذ المسح من خلال السماح للبرنامج بتخطي بعض أنواع الملفات. الشكل هو CSV (قيم مفصولة بفواصل). إذا كنت ترغب في مسح كل شيء، وليس من القائمة البيضاء، القائمة السوداء أو القائمة الرمادية، وترك المتغير (/ ث) فارغة. وبذلك تعطيل القائمة البيضاء / السوداء / القائمة الرمادية. الترتيب المنطقي للمعالجة هو: إذا نوع الملف موجود في القائمة البيضاء، لا يفحص ولا تحجب الملف، وعدم التدقيق في ملف ضد القائمة السوداء أو القائمة الرمادية. إذا نوع الملف موجود في القائمة السوداء، لا تفحص الملف ولكن منع ذلك على أي حال، وعدم التدقيق في ملف ضد قائمة رمادية. إذا كانت قائمة رمادية فارغة أو إذا كانت قائمة رمادية ليس فارغا من نوع الملف، مسح الملفات حسب طبيعتها وتحديد ما إذا كان لمنع ذلك بناء على نتائج الفحص، ولكن إذا كانت قائمة رمادية ليس فارغا ونوع الملف هو ليس ملف قائمة رمادية، معالجة الملف على القائمة السوداء، لذلك لا المسح الضوئي ولكن منع ذلك على أي حال. القائمة البيضاء:</li></ul></div>
 
-##### <div dir="rtl"><code dir="ltr">"filetype_whitelist"</code>، <code dir="ltr">"filetype_blacklist"</code>، <code dir="ltr">"filetype_greylist"</code><br /></div>
-<div dir="rtl"><ul>
- <li>إذا كان النظام يسمح فقط أنواع معينة من الملفات المراد تحميلها، أو إذا كان النظام ينفي صراحة أنواع معينة من الملفات، تحديد تلك نوع الملف في قوائم بيضاء، القوائم السوداء و القوائم الرمادية يمكن أن تزيد من السرعة التي يتم تنفيذ المسح من خلال السماح للبرنامج بتخطي بعض أنواع الملفات. الشكل هو CSV (قيم مفصولة بفواصل). إذا كنت ترغب في مسح كل شيء، وليس من القائمة البيضاء، القائمة السوداء أو القائمة الرمادية، وترك المتغير (/ ث) فارغة. وبذلك تعطيل القائمة البيضاء / السوداء / القائمة الرمادية.</li>
- <li><strong>الترتيب المنطقي للمعالجة هو:</strong></li>
- <ul>
- <li>إذا نوع الملف موجود في القائمة البيضاء، لا يفحص ولا تحجب الملف، وعدم التدقيق في ملف ضد القائمة السوداء أو القائمة الرمادية.</li>
- <li>إذا نوع الملف موجود في القائمة السوداء، لا تفحص الملف ولكن منع ذلك على أي حال، وعدم التدقيق في ملف ضد قائمة رمادية.</li>
- <li>إذا كانت قائمة رمادية فارغة أو إذا كانت قائمة رمادية ليس فارغا من نوع الملف، مسح الملفات حسب طبيعتها وتحديد ما إذا كان لمنع ذلك بناء على نتائج الفحص، ولكن إذا كانت قائمة رمادية ليس فارغا ونوع الملف هو ليس ملف قائمة رمادية، معالجة الملف على القائمة السوداء، لذلك لا المسح الضوئي ولكن منع ذلك على أي حال.</li>
- </ul>
-</ul></div>
+##### <div dir="rtl">"filetype_blacklist" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>القائمة السوداء:</li></ul></div>
 
-##### <div dir="rtl">"check_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>محاولة للتحقق من محتويات المحفوظات؟ = كاذبة لا تحقق. صحيح/True = افحص [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"filetype_greylist" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>قائمة رمادية:</li></ul></div>
 
-&nbsp; <div dir="rtl" style="display:inline">شكل</div> | &nbsp; <div dir="rtl" style="display:inline">يمكن قراءة</div> | &nbsp; <div dir="rtl" style="display:inline">يمكن قراءة بشكل متكرر</div> | &nbsp; <div dir="rtl" style="display:inline">يمكن الكشف عن التشفير</div> | &nbsp; <div dir="rtl" style="display:inline">ملاحظات</div>
----|---|---|---|---
-Zip | ✔️ | ✔️ | ✔️ | &nbsp; <div dir="rtl" style="display:inline">يتطلب <a href="https://secure.php.net/manual/en/zip.requirements.php">libzip</a> (عادة المجمعة مع PHP على أي حال). مدعوم أيضًا (يستخدم تنسيق zip): ✔️ الكشف عن كائن OLE. ✔️ الكشف عن ماكرو في Office.</div>
-Tar | ✔️ | ✔️ | ➖ | &nbsp; <div dir="rtl" style="display:inline">لا يوجد متطلبات خاصة. التنسيق لا يدعم التشفير.</div>
-Rar | ✔️ | ✔️ | ✔️ | &nbsp; <div dir="rtl" style="display:inline">يتطلب الملحق <a href="https://pecl.php.net/package/rar">rar</a> (عند عدم تثبيت هذا الامتداد، يتعذر على phpMussel قراءة ملفات rar).</div>
-Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">تمت إزالة دعم قراءة ملفات phar في الإصدار 1.6.0، ولن تتم إضافته مرة أخرى، نظرًا لوجود مخاوف أمنية.</div>
+##### <div dir="rtl">"check_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>محاولة للتحقق من محتويات المحفوظات؟ = كاذبة لا تحقق. صحيح/True = افحص [افتراضي]. المدعومة: Zip (يتطلب libzip)، Tar، Rar (يتطلب التمديد rar).</li></ul></div>
 
-<div dir="rtl">إذا كان أي شخص قادرًا ومستعدًا للمساعدة في تنفيذ الدعم لقراءة تنسيقات الأرشيفات الأخرى، فسيتم الترحيب بهذه المساعدة.<br /><br /></div>
+##### <div dir="rtl">"filesize_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>ترحيل حجم ملف القائمة السوداء / قائمة بيضاء لمحتويات المحفوظات؟ زائفة/False = لا (فقط كل ما يدرجون)؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"filesize_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>ترحيل حجم ملف القائمة السوداء / قائمة بيضاء لمحتويات المحفوظات؟ زائفة/False = لا (فقط كل ما يدرجون)؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"filetype_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>ترحيل نوع الملف القائمة السوداء / القائمة البيضاء لمحتويات المحفوظات؟ زائفة/False = لا (فقط كل ما يدرجون) [افتراضي]. صحيح/True = نعم.</li></ul></div>
 
-##### <div dir="rtl">"filetype_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>ترحيل نوع الملف القائمة السوداء / القائمة البيضاء لمحتويات المحفوظات؟ زائفة/False = لا (فقط كل ما يدرجون) [افتراضي]. صحيح/True = نعم.</li>
-</ul></div>
+##### <div dir="rtl">"max_recursion" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لإعادة الحد الأقصى لعمق المحفوظات. افتراضي = 3.</li></ul></div>
 
-##### <div dir="rtl">"max_recursion"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لإعادة الحد الأقصى لعمق المحفوظات. افتراضي = 3.</li>
-</ul></div>
+##### <div dir="rtl">"block_encrypted_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>كشف ومنع تشفير المحفوظات؟ لأن phpMussel ليست قادرة على مسح محتويات المحفوظات مشفرة، فمن الممكن أن التشفير أرشيف يجوز توظيف من قبل مهاجم كوسيلة لمحاولة تجاوز phpMussel، والماسحات الضوئية مكافحة الفيروسات وغيرها من مثل هذه الحماية. يمكن أن تعليمات phpMussel لمنع أي المحفوظات التي كان تكتشف لتكون مشفرة المحتمل أن يساعد على الحد من أي مخاطر المرتبطة بهذه مثل هذه الاحتمالات. زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li></ul></div>
 
-##### <div dir="rtl">"block_encrypted_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>كشف ومنع تشفير المحفوظات؟ لأن phpMussel ليست قادرة على مسح محتويات المحفوظات مشفرة، فمن الممكن أن التشفير أرشيف يجوز توظيف من قبل مهاجم كوسيلة لمحاولة تجاوز phpMussel، والماسحات الضوئية مكافحة الفيروسات وغيرها من مثل هذه الحماية. يمكن أن تعليمات phpMussel لمنع أي المحفوظات التي كان تكتشف لتكون مشفرة المحتمل أن يساعد على الحد من أي مخاطر المرتبطة بهذه مثل هذه الاحتمالات. زائفة/False = لا؛ صحيح/True = نعم [افتراضي].</li>
-</ul></div>
+##### <div dir="rtl">"max_files_in_archives" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لعدد الملفات المطلوب مسحها من داخل الأرشيف قبل إحباط الفحص. افتراضي = 0 (ليس أي حد أقصى).</li></ul></div>
 
-##### <div dir="rtl">"max_files_in_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لعدد الملفات المطلوب مسحها من داخل الأرشيف قبل إحباط الفحص. افتراضي = 0 (ليس أي حد أقصى).</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_from_php" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>البحث عن العنوان PHP في الملفات التي ليست ملفات PHP و لا المحفوظات معترفة بها. صحيح/True = على. زائفة/False = إيقاف.</li></ul></div>
 
-#### <div dir="rtl">"attack_specific" (التصنيف)<br /></div>
-<div dir="rtl">تعليمات للهجوم المحدد.<br /><br /></div>
+##### <div dir="rtl">"can_contain_php_file_extensions" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>قائمة ملحقات الملفات المسموح بها تحتوي على شفرة PHP، مفصولة بفواصل. إذا تم تمكين الكشف عن هجوم حرباء PHP، فسيتم الكشف عن الملفات التي تحتوي على كود PHP، والتي تحتوي على ملحقات ليست موجودة في هذه القائمة، على أنها هجمات حرباء على PHP.</li></ul></div>
 
-<div dir="rtl">الكشف عن الهجوم المتقلب: صحيح/True = على. زائفة/False = إيقاف.<br /><br /></div>
+##### <div dir="rtl">"chameleon_from_exe" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>البحث عن العناوين قابلة للتنفيذ في الملفات التي ليست التنفيذية ولا المحفوظات المعترف بها والقابلة للتنفيذ التي هي العناوين غير صحيحة. صحيح/True = على. زائفة/False = إيقاف.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_from_php"<br /></div>
-<div dir="rtl"><ul>
- <li>البحث عن العنوان PHP في الملفات التي ليست ملفات PHP و لا المحفوظات معترفة بها.</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_archive" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>اكتشاف رؤوس غير صحيحة في الأرشيفات والملفات المضغوطة. المدعومة: BZ/BZIP2، GZ/GZIP، LZF، RAR، ZIP صحيح/True = على. زائفة/False = إيقاف.</li></ul></div>
 
-##### <div dir="rtl">"can_contain_php_file_extensions"<br /></div>
-<div dir="rtl"><ul>
- <li>قائمة ملحقات الملفات المسموح بها تحتوي على شفرة PHP، مفصولة بفواصل. إذا تم تمكين الكشف عن هجوم حرباء PHP، فسيتم الكشف عن الملفات التي تحتوي على كود PHP، والتي تحتوي على ملحقات ليست موجودة في هذه القائمة، على أنها هجمات حرباء على PHP.</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_doc" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>البحث عن المستندات التي عناوينها غير صحيحة (المدعومة: DOC، وزارة النقل، PPS، PPT، XLA، XLS، WIZ). صحيح/True = على. زائفة/False = إيقاف.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_from_exe"<br /></div>
-<div dir="rtl"><ul>
- <li>البحث عن العناوين قابلة للتنفيذ في الملفات التي ليست التنفيذية ولا المحفوظات المعترف بها والقابلة للتنفيذ التي هي العناوين غير صحيحة.</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_img" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>البحث عن الصور التي عناوينها غير صحيحة (المدعومة: BMP، DIB، PNG، GIF، JPEG، JPG، XCF، PSD، PDD، WEBP). صحيح/True = على. زائفة/False = إيقاف.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_archive"<br /></div>
-<div dir="rtl"><ul>
- <li>اكتشاف رؤوس غير صحيحة في الأرشيفات والملفات المضغوطة. المدعومة: BZ/BZIP2، GZ/GZIP، LZF، RAR، ZIP</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_pdf" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>البحث عن الملفات PDF التي عناوينها غير صحيحة. صحيح/True = على. زائفة/False = إيقاف.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_doc"<br /></div>
-<div dir="rtl"><ul>
- <li>البحث عن المستندات التي عناوينها غير صحيحة (المدعومة: DOC، وزارة النقل، PPS، PPT، XLA، XLS، WIZ).</li>
-</ul></div>
+##### <div dir="rtl">"archive_file_extensions" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ملحقات ملفات الأرشيف المعترف بها (الشكل هو CSV، وينبغي فقط إضافة أو إزالة عندما تحدث المشاكل؛ إزالة دون داع قد يسبب ايجابيات كاذبة لتظهر لملفات الأرشيف، في حين اضاف داع سوف القائمة البيضاء أساسا ما كنت تقوم بإضافة من كشف المحدد الهجوم؛ تعديل مع الحذر، لاحظ أيضا أن هذا ليس له تأثير على ما المحفوظات يمكن ولا يمكن تحليلها على مستوى المحتوى). القائمة، كما هو في التقصير، يسرد تلك الأشكال الأكثر شيوعا في غالبية النظم واتفاقية الأنواع المهاجرة، ولكن عمدا ليست شاملة بالضرورة.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_img"<br /></div>
-<div dir="rtl"><ul>
- <li>البحث عن الصور التي عناوينها غير صحيحة (المدعومة: BMP، DIB، PNG، GIF، JPEG، JPG، XCF، PSD، PDD، WEBP).</li>
-</ul></div>
+##### <div dir="rtl">"block_control_characters" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>حظر أي ملفات تحتوي على أي أحرف التحكم (عدا أسطر جديدة)؟ (<code dir="ltr">[\x00-\x08\x0b\x0c\x0e\x1f\x7f]</code>) إذا كنت <strong>فقط</strong> تحميل نص عادي، ثم يمكنك تشغيل هذا الخيار لتوفير بعض الحماية إضافية على النظام الخاص بك. ومع ذلك، إذا قمت بتحميل أي شيء آخر غير نص عادي، وتحول هذا على قد يؤدي إلى ايجابيات كاذبة. = كاذبة لا منع [افتراضي]. صحيح/True = بلوك.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_pdf"<br /></div>
-<div dir="rtl"><ul>
- <li>البحث عن الملفات PDF التي عناوينها غير صحيحة.</li>
-</ul></div>
+##### <div dir="rtl">"corrupted_exe" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>تلف الملفات وتحليل الأخطاء. خطأ = تجاهل. صحيح/True = كتلة [افتراضي]. كشف ومنع الملفات المحتمل تلف PE (محمول قابل للتنفيذ)؟ في كثير من الأحيان (ولكن ليس دائما)، عندما تلف جوانب معينة من ملف PE أو لا يمكن تحليله بشكل صحيح، فإنه يمكن أن يكون مؤشرا على وجود عدوى فيروسية. العمليات المستخدمة من قبل معظم برامج مكافحة الفيروسات للكشف عن الفيروسات في ملفات PE تتطلب تحليل تلك الملفات بطرق معينة والتي إذا كان مبرمج للفيروس هو على علم، ومحاولة خصيصا لمنع، من أجل السماح للفيروس لتبقى غير مكتشفة.</li></ul></div>
 
-##### <div dir="rtl">"archive_file_extensions"<br /></div>
-<div dir="rtl"><ul>
- <li>ملحقات ملفات الأرشيف المعترف بها (الشكل هو CSV، وينبغي فقط إضافة أو إزالة عندما تحدث المشاكل؛ إزالة دون داع قد يسبب ايجابيات كاذبة لتظهر لملفات الأرشيف، في حين اضاف داع سوف القائمة البيضاء أساسا ما كنت تقوم بإضافة من كشف المحدد الهجوم؛ تعديل مع الحذر، لاحظ أيضا أن هذا ليس له تأثير على ما المحفوظات يمكن ولا يمكن تحليلها على مستوى المحتوى). القائمة، كما هو في التقصير، يسرد تلك الأشكال الأكثر شيوعا في غالبية النظم واتفاقية الأنواع المهاجرة، ولكن عمدا ليست شاملة بالضرورة.</li>
-</ul></div>
+##### <div dir="rtl">"decode_threshold" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لطول البيانات الخام من خلاله أن يتم الكشف عن أوامر فك (في حالة وجود أي مشكلات في الأداء ملحوظة أثناء المسح). افتراضي = 512KB. صفر أو قيمة فارغة تعطيل عتبة (إزالة مثل هذا القيد على أساس حجم الملف).</li></ul></div>
 
-##### <div dir="rtl">"block_control_characters"<br /></div>
-<div dir="rtl"><ul>
- <li>حظر أي ملفات تحتوي على أي أحرف التحكم (عدا أسطر جديدة)؟ ("[\x00-\x08\x0b\x0c\x0e\x1f\x7f]") إذا كنت <strong>فقط</strong> تحميل نص عادي، ثم يمكنك تشغيل هذا الخيار لتوفير بعض الحماية إضافية على النظام الخاص بك. ومع ذلك، إذا قمت بتحميل أي شيء آخر غير نص عادي، وتحول هذا على قد يؤدي إلى ايجابيات كاذبة. زائفة/False = كاذبة لا منع [افتراضي]. صحيح/True = بلوك.</li>
-</ul></div>
+##### <div dir="rtl">"scannable_threshold" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لطول البيانات الخام التي يسمح phpMussel لقراءة ومسح (في حالة وجود أي مشكلات في الأداء ملحوظة أثناء المسح). افتراضي = 32MB. صفر أو قيمة فارغة تعطيل العتبة. عموما، يجب أن لا تكون هذه القيمة أقل من متوسط حجم الملف من تحميل الملفات التي تريد وتتوقع الحصول على الخادم الخاص بك أو الموقع، لا ينبغي أن يكون أكثر من التوجيه filesize_limit، ويجب أن لا يكون خامس أكثر من ما يقرب من واحد من مجموع تخصيص الذاكرة المسموح منح لPHP عن طريق ملف التكوين "php.ini". هذا التوجيه موجود في محاولة لمنع phpMussel من استخدام ما يصل الكثير من الذاكرة (التي تريد منعها من أن تكون قادرة على مسح بنجاح الملفات فوق حجم الملف معين).</li></ul></div>
 
-##### <div dir="rtl">"corrupted_exe"<br /></div>
-<div dir="rtl"><ul>
- <li>تلف الملفات وتحليل الأخطاء. خطأ = تجاهل. صحيح/True = كتلة [افتراضي]. كشف ومنع الملفات المحتمل تلف PE (محمول قابل للتنفيذ)؟ في كثير من الأحيان (ولكن ليس دائما)، عندما تلف جوانب معينة من ملف PE أو لا يمكن تحليله بشكل صحيح، فإنه يمكن أن يكون مؤشرا على وجود عدوى فيروسية. العمليات المستخدمة من قبل معظم برامج مكافحة الفيروسات للكشف عن الفيروسات في ملفات PE تتطلب تحليل تلك الملفات بطرق معينة والتي إذا كان مبرمج للفيروس هو على علم، ومحاولة خصيصا لمنع، من أجل السماح للفيروس لتبقى غير مكتشفة .</li>
-</ul></div>
+##### <div dir="rtl">"allow_leading_trailing_dots" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>السماح النقاط الرائدة والزائدة في أسماء الملفات؟ يمكن استخدام هذا أحيانًا لإخفاء الملفات أو خداع بعض الأنظمة للسماح بدخول الدليل. زائفة/False = لا تسمح [افتراضي]. صحيح/True = السماح.</li></ul></div>
 
-##### <div dir="rtl">"decode_threshold"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لطول البيانات الخام من خلاله أن يتم الكشف عن أوامر فك (في حالة وجود أي مشكلات في الأداء ملحوظة أثناء المسح). افتراضي = 512KB. صفر أو قيمة فارغة تعطيل عتبة (إزالة مثل هذا القيد على أساس حجم الملف).</li>
-</ul></div>
+##### <div dir="rtl">"block_macros" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>حاول حظر أي ملفات تحتوي على وحدات ماكرو؟ قد تحتوي بعض أنواع المستندات وجداول البيانات على وحدات ماكرو قابلة للتنفيذ، وبالتالي توفير ناقلات برامج ضارة محتملة خطيرة. زائفة/False = لا تمنع [افتراضي]. صحيح/True = تمنع.</li></ul></div>
 
-##### <div dir="rtl">"allow_leading_trailing_dots"<br /></div>
-<div dir="rtl"><ul>
- <li>السماح النقاط الرائدة والزائدة في أسماء الملفات؟ يمكن استخدام هذا أحيانًا لإخفاء الملفات أو خداع بعض الأنظمة للسماح بدخول الدليل. زائفة/False = لا تسمح [افتراضي]. صحيح/True = السماح.</li>
-</ul></div>
+##### <div dir="rtl">"only_allow_images" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>عند التعيين على true، أي ملفات ليست صورًا واجهها الماسح الضوئي سيتم وضع علامة على الفور، دون أن يتم فحصها. قد يساعد هذا في تقليل الوقت اللازم لإكمال الفحص في بعض الحالات. تعيين على false بشكل افتراضي.</li></ul></div>
 
-##### <div dir="rtl">"block_macros"<br /></div>
-<div dir="rtl"><ul>
- <li>حاول حظر أي ملفات تحتوي على وحدات ماكرو؟ قد تحتوي بعض أنواع المستندات وجداول البيانات على وحدات ماكرو قابلة للتنفيذ، وبالتالي توفير ناقلات برامج ضارة محتملة خطيرة. زائفة/False = لا تمنع [افتراضي]. صحيح/True = تمنع.</li>
-</ul></div>
+#### <div dir="rtl">"quarantine" (التصنيف)<br /></div>
+<div dir="rtl">التكوين الحجر الصحي.<br /><br /></div>
 
-##### <div dir="rtl">"scannable_threshold"<br /></div>
-<div dir="rtl"><ul>
- <li>الحد الأقصى لطول البيانات الخام التي يسمح phpMussel لقراءة ومسح (في حالة وجود أي مشكلات في الأداء ملحوظة أثناء المسح). افتراضي = 32MB. صفر أو قيمة فارغة تعطيل العتبة. عموما، يجب أن لا تكون هذه القيمة أقل من متوسط حجم الملف من تحميل الملفات التي تريد وتتوقع الحصول على الخادم الخاص بك أو الموقع، لا ينبغي أن يكون أكثر من التوجيه filesize_limit، ويجب أن لا يكون خامس أكثر من ما يقرب من واحد من مجموع تخصيص الذاكرة المسموح منح لPHP عن طريق ملف التكوين "php.ini". هذا التوجيه موجود في محاولة لمنع phpMussel من استخدام ما يصل الكثير من الذاكرة (التي تريد منعها من أن تكون قادرة على مسح بنجاح الملفات فوق حجم الملف معين).</li>
-</ul></div>
+##### <div dir="rtl">"quarantine_key" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel قادر على عزل تحميل الملفات المحجوبة، إذا كان هذا هو ما تريد أن تفعله. المستخدمين العاديين من phpMussel التي ترغب ببساطة لحماية مواقعها على شبكة الإنترنت أو بيئة استضافة دون وجود أي مصلحة في تحليل عميق أي ترفع علم تحميل الملفات حاول يجب ترك هذه الوظيفة ذوي الاحتياجات الخاصة، ولكن أي المستخدمين المهتمين في مزيد من التحليل للترفع علم حاولت تحميل الملفات للبحث عن البرامج الضارة أو ما شابه مثل هذه الأمور ينبغي أن تمكن هذه الوظيفة. الحجر الصحي لترفع العلم تحميل الملفات حاول يمكن في بعض الأحيان أن تساعد في تصحيح ايجابيات كاذبة، إذا كان هذا هو الشيء الذي كثيرا ما يحدث لك. إلى تعطيل وظيفة العزل، ببساطة مغادرة <code dir="ltr">quarantine_key</code> التوجيه فارغة، أو مسح محتويات هذا التوجيه إذا لم يكن خاليا بالفعل. لتمكين وظيفة العزل، وإدخال قيمة في التوجيه. و <code dir="ltr">quarantine_key</code> هي ميزة أمنية مهمة من وظائف الحجر الصحي المطلوبة كوسيلة لمنع وظيفة الحجر الصحي من أن تستغل من قبل المهاجمين المحتملين، وكوسيلة لمنع أي احتمال تنفيذ البيانات المخزنة داخل الحجر الصحي. و <code dir="ltr">quarantine_key</code> ينبغي أن يعامل بنفس الطريقة التي يعامل بها كلمات السر الخاصة بك: وكلما كان ذلك أفضل، وحراسته مشددة. للحصول على أفضل تأثير، استخدم بالتزامن مع <code dir="ltr">delete_on_sight</code>.</li></ul></div>
 
-#### <div dir="rtl">"compatibility" (التصنيف)<br /></div>
-<div dir="rtl">تعليمات التوافق مع phpMussel.<br /><br /></div>
+##### <div dir="rtl">"quarantine_max_filesize" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لحجم الملف المسموح به من الملفات للحجر الصحي. لن يكون الحجر الصحي الملفات أكبر من القيمة المحددة. هذا التوجيه لا يقل أهمية عن وسيلة لجعل الأمر أكثر صعوبة لأي مهاجمين محتملين لإغراق الحجر الصحي الخاص مع البيانات غير المرغوب فيها مما يمكن أن يسبب استخدام البيانات التشغيل بعيدا عن خدمة الاستضافة. الافتراضي = 2MB.</li></ul></div>
 
-##### <div dir="rtl">"ignore_upload_errors"<br /></div>
-<div dir="rtl"><ul>
- <li>يجب أن يكون هذا التوجيه عموما هو تعطيل ما لم تصبح مطلوبة حصول على الوظائف الصحيحة لـ phpMussel على النظام الخاص بك محددة. عادة، عندما يكون في وضع تعطيل، عندما يكتشف phpMussel وجود عناصر في مجموعة <code dir="ltr">$_FILES</code>، وأنها سوف محاولة لبدء فحص الملفات التي تمثل تلك العناصر، وإذا كانت تلك العناصر هي فارغة أو فارغة، سوف phpMussel العودة رسالة خطأ. هذا هو السلوك الصحيح للـ phpMussel. ومع ذلك، بالنسبة لبعض CMS، العناصر الفارغة في <code dir="ltr">$_FILES</code> يمكن أن تحدث نتيجة لسلوك طبيعي لتلك CMS، أو أخطاء قد يتم الإعلام عندما لم تكن هناك أي، في هذه الحالة، السلوك العادي للphpMussel سوف تتدخل مع السلوك العادي من تلك CMS. في حال حدوث مثل هذه الحالة بالنسبة لك، تمكين هذا الخيار سوف يكلف phpMussel ليست محاولة لبدء المسح الضوئي لمثل هذه العناصر الفارغة، تجاهلها عندما وجدت وعدم إعادة أي رسائل خطأ ذات الصلة، مما يتيح استمرار طلب الصفحة. زائفة/False = أطفئ؛ صحيح/True = تشغيل.</li>
-</ul></div>
+##### <div dir="rtl">"quarantine_max_usage" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لاستخدام الذاكرة يسمح للحجر الصحي. إذا كان إجمالي الذاكرة المستخدمة من قبل الحجر الصحي تصل هذه القيمة، سيتم حذف أقدم الملفات المعزولة حتى الذاكرة الإجمالية المستخدمة لم تعد تصل هذه القيمة. هذا التوجيه لا يقل أهمية عن وسيلة لجعل الأمر أكثر صعوبة لأي مهاجمين محتملين لإغراق الحجر الصحي الخاص مع البيانات غير المرغوب فيها مما يمكن أن يسبب استخدام البيانات التشغيل بعيدا عن خدمة الاستضافة. الافتراضي = 64MB.</li></ul></div>
 
-##### <div dir="rtl">"only_allow_images"<br /></div>
-<div dir="rtl"><ul>
- <li>عند التعيين على true، أي ملفات ليست صورًا واجهها الماسح الضوئي سيتم وضع علامة على الفور، دون أن يتم فحصها. قد يساعد هذا في تقليل الوقت اللازم لإكمال الفحص في بعض الحالات. تعيين على false بشكل افتراضي.</li>
-</ul></div>
-
-#### <div dir="rtl">"heuristic" (التصنيف)<br /></div>
-<div dir="rtl">تعليمات الكشف عن مجريات الأمور.<br /><br /></div>
-
-##### <div dir="rtl">"threshold"<br /></div>
-<div dir="rtl"><ul>
- <li>هناك توقيعات معينة من phpMussel التي تهدف إلى تحديد الصفات المشبوهة والمحتمل أن تكون ضارة من الملفات التي يتم تحميلها دون في أنفسهم تحديد تلك الملفات التي تم تحميلها على وجه التحديد بأنها خبيثة. هذه القيمة "الحد الأقصى " تقول phpMussel ما الحد الأقصى للوزن الكلي من الصفات المشبوهة والمحتمل أن تكون ضارة من الملفات التي يتم تحميلها هذا المسموح به هو قبل تلك الملفات ليتم وضع علامة بأنها خبيثة. تعريف الوزن في هذا السياق هو العدد الإجمالي من الصفات المشبوهة والمحتمل أن تكون ضارة تحديدها. افتراضيا، سيتم تعيين هذه القيمة إلى 3. القيمة المنخفضة عموما سوف يؤدي إلى حدوث أعلى من ايجابيات كاذبة ولكن عددا أكبر من الملفات الخبيثة التي لوحت، في حين أن أعلى قيمة عموما سوف يؤدي إلى حدوث انخفاض من ايجابيات كاذبة ولكن انخفاض عدد الملفات الخبيثة التي توضع. انها عموما من الأفضل ترك هذه القيمة في الافتراضي إلا إذا كنت تعاني من مشاكل المتعلقة بها.</li>
-</ul></div>
+##### <div dir="rtl">"quarantine_max_files" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لعدد الملفات التي يمكن أن توجد في وحدة العزل. عند إضافة ملفات جديدة إلى وحدة العزل، إذا تم تجاوز هذا الرقم، فسيتم حذف الملفات القديمة حتى لا يتجاوز الجزء المتبقي هذا الرقم. الافتراضي = 100.</li></ul></div>
 
 #### <div dir="rtl">"virustotal" (التصنيف)<br /></div>
-<div dir="rtl">تعليمات VirusTotal.com.<br /><br /></div>
+<div dir="rtl">التكوين من أجل Virus Total.<br /><br /></div>
 
-##### <div dir="rtl">"vt_public_api_key"<br /></div>
-<div dir="rtl"><ul>
- <li>اختياريا، phpMussel غير قادرة على مسح الملفات باستخدام الفيروسات مجموع API كوسيلة لتوفير مستوى تتعزز بشكل كبير من الحماية ضد الفيروسات، و ملفات التجسس، والبرمجيات الخبيثة وغيرها من التهديدات. افتراضيا، ملفات المسح الضوئي باستخدام الفيروسات مجموع API يتم تعطيل. لتمكينه، لا بد من وضع مفتاح API من الفيروسات إجمالي. ويرجع ذلك إلى فائدة كبيرة أن هذا يمكن أن توفر لك، هذا شيء أنا أوصي تمكين. يرجى أن يكون على علم، مع ذلك، أن استخدام الفيروسات مجموع API، التي يجب أن تتوافق مع شروط الخدمة، ويجب أن تلتزم جميع المبادئ التوجيهية حسب وصفه الفيروسات مجموع الوثائق! لا يجوز لك استخدام هذه الميزة التكامل ما لم:</li>
- <ul>
-  <li>لقد قرأت ووافقت على شروط الخدمة من فيروس توتال و API لها. شروط الخدمة من فيروس توتال و API ليمكن العثور عليها <a href="https://www.virustotal.com/en/about/terms-of-service/">هنا</a>.</li>
-  <li>لقد قرأت وفهمت، كحد أدنى، ديباجة الفيروسات وثائق API ملفه مجموع (كل شيء بعد "VirusTotal Public API v2.0" ولكن قبل "Contents"). يمكن العثور على وثائق  Virus Total API <a href="https://www.virustotal.com/en/documentation/public-api/">هنا</a>.</li>
- </ul>
+##### <div dir="rtl">"vt_public_api_key" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اختياريا، phpMussel غير قادرة على مسح الملفات باستخدام الفيروسات مجموع API كوسيلة لتوفير مستوى تتعزز بشكل كبير من الحماية ضد الفيروسات، و ملفات التجسس، والبرمجيات الخبيثة وغيرها من التهديدات. افتراضيا، ملفات المسح الضوئي باستخدام الفيروسات مجموع API يتم تعطيل. لتمكينه، لا بد من وضع مفتاح API من الفيروسات إجمالي. ويرجع ذلك إلى فائدة كبيرة أن هذا يمكن أن توفر لك، هذا شيء أنا أوصي تمكين. يرجى أن يكون على علم، مع ذلك، أن استخدام الفيروسات مجموع API، التي يجب أن تتوافق مع شروط الخدمة، ويجب أن تلتزم جميع المبادئ التوجيهية حسب وصفه الفيروسات مجموع الوثائق! لا يجوز لك استخدام هذه الميزة التكامل ما لم: لقد قرأت ووافقت على شروط الخدمة من فيروس توتال و API لها. لقد قرأت وفهمت، كحد أدنى، ديباجة الفيروسات وثائق API ملفه مجموع (كل شيء بعد "فايروس توتال V2.0 API العام" ولكن قبل "المحتويات").</li></ul></div>
+
+<div dir="rtl">أنظر أيضا:<ul dir="rtl">
+<li><a dir="ltr" href="https://www.virustotal.com/en/about/terms-of-service/">Terms of Service</a></li>
+<li><a dir="ltr" href="https://developers.virustotal.com/reference">Getting started</a></li>
 </ul></div>
 
-<div dir="rtl">ملاحظة: إذا مسح الملفات باستخدام فيروس معطل مجموع API، فلن تحتاج إلى مراجعة أي من توجيهات في هذه الفئة ("virustotal")، لأن أيا منهم سوف تفعل أي شيء إذا تم تعطيل هذا. للحصول على الفيروسات مجموع مفتاح API، من أي مكان على موقعه على الانترنت، انقر على الرابط "تاريخ جماعتنا " التي تقع نحو الجزء العلوي الأيسر من الصفحة، أدخل المعلومات المطلوبة، ثم انقر على "اشترك" عند الانتهاء. اتباع جميع التعليمات المرفقة، وعندما كنت قد حصلت على مفتاح API العام، نسخ/لصق هذا المفتاح API العام إلى توجيه "vt_public_api_key" من "config.ini" ملف التكوين.<br /><br /></div>
+##### <div dir="rtl">"vt_suspicion_level" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>افتراضيا، سوف يقوم phpMussel بتقييد الملفات التي تقوم بمسح باستخدام الفيروسات API الكلي لتلك الملفات التي تعتبرها "المشبوهة". يمكنك ضبط اختياريا هذا التقييد عن طريق تغيير قيمة التوجيه "vt_suspicion_level".</li></ul></div>
 
-##### <div dir="rtl">"vt_suspicion_level"<br /></div>
-<div dir="rtl"><ul>
- <li>افتراضيا، سوف يقوم phpMussel بتقييد الملفات التي تقوم بمسح باستخدام الفيروسات API الكلي لتلك الملفات التي تعتبرها "المشبوهة". يمكنك ضبط اختياريا هذا التقييد عن طريق تغيير قيمة التوجيه "vt_suspicion_level".</li>
- <li>"0": تعتبر الملفات فقط مشبوهة إذا، عند مسحها بواسطة phpMussel باستخدام التواقيع الخاصة بها، وتعتبر أنها لحمل الوزن الكشف عن مجريات الأمور. وهذا يعني عمليا أن استخدام الفيروسات أن مجموع API يكون للرأي ثان لأنه عندما يشتبه phpMussel أن ملف يحتمل أن تكون ضارة، ولكن لا يمكن استبعاد تماما إلى أنه قد يحتمل أيضا أن تكون حميدة (غير الخبيثة)، وبالتالي لولاها عادة لا يرفضها أو العلم بأنها خبيثة.</li>
- <li>"1": تعتبر الملفات المشبوهة إذا، عند مسحها بواسطة phpMussel باستخدام التواقيع الخاصة بها، وتعتبر أنها لحمل الوزن الكشف عن مجريات الأمور، إذا كنت معروفة ليكون قابل للتنفيذ (ملفات PE، ملفات mach-o، ELF / لينكس، الخ)، أو إذا كنت معروفة لتكون ذات شكل التي يمكن أن تحتوي على بيانات قابلة للتنفيذ (مثل وحدات الماكرو القابلة للتنفيذ، DOC / ملفات DOCX، ملفات الأرشيف مثل RARS، الكود البريدية وغيرها). هذا هو مستوى الشكوك الافتراضية وأوصت للتطبيق، وهذا يعني فعليا أن استخدام الفيروسات أن مجموع API يكون للرأي ثان لأنه عندما phpMussel لا يجد في البداية أي شيء ضار أو خطأ في ملف أنها تعتبر أن تكون مشبوهة، وبالتالي سوف خلاف ذلك عادة لا يرفضها أو العلم بأنها خبيثة.</li>
- <li>"2": تعتبر جميع الملفات المشبوهة ويجب أن يتم فحصها باستخدام الفيروسات مجموع API. أنا لا أوصي عموما تطبيق هذا المستوى الشك، نظرا لخطر الوصول إلى الحصة API بشكل أسرع مما سيكون عليه الحال كثيرا، ولكن هناك ظروف معينة (مثل عندما المسئول عن الموقع أو المضيف لديها القليل جدا من الإيمان أو الثقة على الإطلاق في أي من المحتويات التي يتم تحميلها من مستخدميها) حيث هذا المستوى شك يمكن أن يكون مناسبا. مع هذا المستوى الشك، كل الملفات لا يتم حظر عادة أو ترفع العلم بأنها خبيثة سيتم مسحها ضوئيا باستخدام الفيروسات مجموع API. نلاحظ مع ذلك، أن phpMussel والتوقف عن استخدام الفيروسات API الكلي عندما تم التوصل إلى الحصص API الخاص بك (بغض النظر عن مستوى الشك)، والتي من المرجح أن يتم التوصل الحصص بشكل أسرع بكثير عند استخدام هذا المستوى الشك.</li>
-</ul></div>
+##### <div dir="rtl">"vt_weighting" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>هل phpMussel يطبق نتائج المسح باستخدام الفيروسات مجموع API كما المكتشفة أو الممكن كشفها؟ يوجد هذا التوجيه لأنه على الرغم من أن مسح ملف باستخدام محركات متعددة (كما فايروس توتال لا) ينبغي أن يؤدي في معدل اكتشاف زيادة (وبالتالي في عدد أكبر من الملفات الخبيثة الوقوع)، فإنه يمكن أن يؤدي أيضا إلى ارتفاع عدد كاذبة الإيجابيات، وبالتالي، في بعض الظروف، فإن نتائج المسح يمكن الاستفادة بشكل أفضل كما على درجة الثقة بدلا من أن تكون نتيجة محددة. إذا تم استخدام قيمة 0، سيتم تطبيق نتائج المسح باستخدام الفيروسات مجموع API كما المكتشفة و بالتالي إذا أي محرك تستخدم من قبل الفيروسات مجموع أعلام الملف تم مسحها ضوئيا بأنها خبيثة، وphpMussel النظر في الملف إلى تكون ضارة. إذا تم استخدام أي قيمة أخرى، سيتم تطبيق نتائج المسح باستخدام الفيروسات مجموع API كما الترجيح الكشف و بالتالي فإن عدد من المحركات المستخدمة من قبل الفيروسات إجمالي هذا العلم الملف تم مسحها ضوئيا بأنها خبيثة سيكون بمثابة نتيجة الثقة (أو الترجيح الكشف) عن ما إذا كان ملف تم مسحها ضوئيا ينبغي النظر الخبيثة التي كتبها phpMussel (القيمة المستخدمة سيمثل الحد الأدنى من الثقة يسجل أو الوزن المطلوب من أجل أن تعتبر ضارة). يتم استخدام قيمة 0 افتراضيا.</li></ul></div>
 
-<div dir="rtl">ملاحظة: بغض النظر عن مستوى الشبهات، لن يتم فحصها أي الملفات التي إما أن تكون على القائمة السوداء أو التي أدرجها phpMussel باستخدام الفيروسات مجموع API، لان لقد أعلن هؤلاء مثل هذه الملفات بالفعل إما خبيثة أو حميدة من قبل phpMussel بحلول الوقت الذي كانوا لظل ذلك تم فحصها من قبل الفيروسات مجموع API، وبالتالي لن تكون هناك حاجة مسح إضافي. والقصد من قدرة phpMussel لمسح الملفات باستخدام الفيروسات مجموع API لبناء المزيد من الثقة لما إذا كان ملف خبيث أو حميد في هذه الظروف حيث phpMussel نفسها ليس من المؤكد تماما ما إذا كان ملف خبيث أو حميد.<br /><br /></div>
+##### <div dir="rtl">"vt_quota_rate" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>استنادا إلى وثائق الفيروسات الكلي API، "فإنه يقتصر على الأكثر 4 طلبات من أي نوع في أي إطار زمني معين 1 دقيقة. إذا قمت بتشغيل honeyclient، مصيدة أو أي أتمتة الآخر الذي يجري لتوفير الموارد اللازمة لفايروس توتال ولا استرداد فقط تقارير يحق لك الحصول على أعلى حصص معدلات الطلب". افتراضيا، سوف phpMussel الالتزام الصارم لهذه القيود، ولكن نظرا لإمكانية هذه الحصص نسبة تجري زيادة، وتقدم هذه التوجيهات اثنين كوسيلة لتتمكن من إرشاد phpMussel على ما الحد الأقصى ينبغي أن تلتزم بها. إلا إذا كنت قد أعطيت تعليمات للقيام بذلك، فإنه من غير المستحسن بالنسبة لك لزيادة هذه القيم و لكن إذا كنت قد واجهت مشاكل تتعلق الوصول الحصص الخاصة بك، وخفض هذه القيم قد يساعد في بعض الأحيان كنت في التعامل مع هذه المشاكل. يتم تحديد الحد الأقصى معدل حسابك عن طلبات "vt_quota_rate" من أي نوع في أي إطار "vt_quota_time" الوقت دقيقة معين.</li></ul></div>
 
-##### <div dir="rtl">"vt_weighting"<br /></div>
-<div dir="rtl"><ul>
- <li>هل phpMussel يطبق نتائج المسح باستخدام الفيروسات مجموع API كما المكتشفة أو الممكن كشفها؟ يوجد هذا التوجيه لأنه على الرغم من أن مسح ملف باستخدام محركات متعددة (كما فايروس توتال لا) ينبغي أن يؤدي في معدل اكتشاف زيادة (وبالتالي في عدد أكبر من الملفات الخبيثة الوقوع)، فإنه يمكن أن يؤدي أيضا إلى ارتفاع عدد كاذبة الإيجابيات، وبالتالي، في بعض الظروف، فإن نتائج المسح يمكن الاستفادة بشكل أفضل كما على درجة الثقة بدلا من أن تكون نتيجة محددة. إذا تم استخدام قيمة 0، سيتم تطبيق نتائج المسح باستخدام الفيروسات مجموع API كما المكتشفة و بالتالي إذا أي محرك تستخدم من قبل الفيروسات مجموع أعلام الملف تم مسحها ضوئيا بأنها خبيثة، وphpMussel النظر في الملف إلى تكون ضارة. إذا تم استخدام أي قيمة أخرى، سيتم تطبيق نتائج المسح باستخدام الفيروسات مجموع API كما الترجيح الكشف و بالتالي فإن عدد من المحركات المستخدمة من قبل الفيروسات إجمالي هذا العلم الملف تم مسحها ضوئيا بأنها خبيثة سيكون بمثابة نتيجة الثقة (أو الترجيح الكشف) عن ما إذا كان ملف تم مسحها ضوئيا ينبغي النظر الخبيثة التي كتبها phpMussel (القيمة المستخدمة سيمثل الحد الأدنى من الثقة يسجل أو الوزن المطلوب من أجل أن تعتبر ضارة). يتم استخدام قيمة 0 افتراضيا.</li>
-</ul></div>
-
-##### <div dir="rtl">"vt_quota_rate" و "vt_quota_time"<br /><br /></div>
-<div dir="rtl"><ul>
- <li>استنادا إلى وثائق الفيروسات الكلي API، "فإنه يقتصر على الأكثر 4 طلبات من أي نوع في أي إطار زمني معين 1 دقيقة. إذا قمت بتشغيل honeyclient، مصيدة أو أي أتمتة الآخر الذي يجري لتوفير الموارد اللازمة لفايروس توتال ولا استرداد فقط تقارير يحق لك الحصول على أعلى حصص معدلات الطلب". افتراضيا، سوف phpMussel الالتزام الصارم لهذه القيود، ولكن نظرا لإمكانية هذه الحصص نسبة تجري زيادة، وتقدم هذه التوجيهات اثنين كوسيلة لتتمكن من إرشاد phpMussel على ما الحد الأقصى ينبغي أن تلتزم بها. إلا إذا كنت قد أعطيت تعليمات للقيام بذلك، فإنه من غير المستحسن بالنسبة لك لزيادة هذه القيم و لكن إذا كنت قد واجهت مشاكل تتعلق الوصول الحصص الخاصة بك، وخفض هذه القيم قد يساعد في بعض الأحيان كنت في التعامل مع هذه المشاكل. يتم تحديد الحد الأقصى معدل حسابك عن طلبات "vt_quota_rate" من أي نوع في أي إطار "vt_quota_time" الوقت دقيقة معين.</li>
-</ul></div>
+##### <div dir="rtl">"vt_quota_time" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>(انظر الوصف أعلاه).</li></ul></div>
 
 #### <div dir="rtl">"urlscanner" (التصنيف)<br /></div>
-<div dir="rtl">مدمج في phpMussel هو ماسح URL، قادر على الكشف عن عناوين المواقع الخبيثة من داخل أي بيانات أو ملفات تم فحصها.<br /><br /></div>
+<div dir="rtl">التكوين من الماسح الضوئي URL.<br /><br /></div>
 
-<div dir="rtl">ملاحظة: إذا تم تعطيل فحص URL، فلن تحتاج إلى مراجعة أي من توجيهات في هذه الفئة ("urlscanner")، لأن لا احد منهم سوف تفعل أي شيء إذا تم تعطيل هذا.<br /><br /></div>
+##### <div dir="rtl">"lookup_hphosts" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>تمكين عمليات بحث API إلى API hpHosts.</li></ul></div>
 
-<div dir="rtl">تكوين بحث API في فحص URL.<br /><br /></div>
-
-##### <div dir="rtl">"lookup_hphosts"<br /></div>
-<div dir="rtl"><ul>
- <li>تمكين عمليات بحث API إلى API <a href="https://hosts-file.net/">hpHosts</a>. hpHosts لا يحتاج الى مفتاح API لأداء عمليات البحث API.</li>
+<div dir="rtl">أنظر أيضا:<ul dir="rtl">
+<li><a dir="ltr" href="https://hosts-file.net/">hosts-file.net</a></li>
 </ul></div>
 
-##### <div dir="rtl">"google_api_key"<br /></div>
-<div dir="rtl"><ul>
- <li>تمكين عمليات بحث API إلى API التصفح الآمن من Google عندما يتم تعريف مفتاح API الضروري. التصفح الآمن في جوجل: عمليات البحث API بحاجة إلى مفتاح API، والتي يمكن الحصول عليها من <a href="https://console.developers.google.com/">هنا</a>.</li>
- <li>ملاحظة: مطلوب تمديد cURL من أجل استخدام هذه الميزة.</li>
+##### <div dir="rtl">"google_api_key" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>العدد الأقصى المسموح به من عمليات بحث واجهة برمجة التطبيقات لأداء في تكرار المسح الفردية.</li></ul></div>
+
+<div dir="rtl">أنظر أيضا:<ul dir="rtl">
+<li><a dir="ltr" href="https://console.developers.google.com/">Google API Console</a></li>
 </ul></div>
 
-##### <div dir="rtl">"maximum_api_lookups"<br /></div>
-<div dir="rtl"><ul>
- <li>العدد الأقصى المسموح به من عمليات بحث واجهة برمجة التطبيقات لأداء في تكرار المسح الفردية. لأن كل بحث API إضافية سوف يضيف إلى الوقت الإجمالي المطلوب لإكمال كل تكرار المسح، قد ترغب في اشتراط وجود قيود من أجل الإسراع في عملية المسح الشاملة. عند تعيينها إلى 0، سيتم تطبيق الحد الأقصى لا هذا العدد المسموح به. تعيين إلى 10 افتراضيا.</li>
-</ul></div>
+##### <div dir="rtl">"maximum_api_lookups" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>العدد الأقصى المسموح به من عمليات بحث واجهة برمجة التطبيقات لأداء في تكرار المسح الفردية. لأن كل بحث API إضافية سوف يضيف إلى الوقت الإجمالي المطلوب لإكمال كل تكرار المسح، قد ترغب في اشتراط وجود قيود من أجل الإسراع في عملية المسح الشاملة. عند تعيينها إلى 0، سيتم تطبيق الحد الأقصى لا هذا العدد المسموح به. تعيين إلى 10 افتراضيا.</li></ul></div>
 
-##### <div dir="rtl">"maximum_api_lookups_response"<br /></div>
-<div dir="rtl"><ul>
- <li>ماذا تفعل إذا تم تجاوز الحد الأقصى المسموح به من عمليات بحث API؟ = كاذبة لا تفعل شيئا (متابعة المعالجة) [افتراضي]. صحيح/True = تحديد الملف.</li>
-</ul></div>
+##### <div dir="rtl">"maximum_api_lookups_response" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>ماذا تفعل إذا تم تجاوز الحد الأقصى المسموح به من عمليات بحث API؟ = كاذبة لا تفعل شيئا (متابعة المعالجة) [افتراضي]. صحيح/True = تحديد الملف.</li></ul></div>
 
-##### <div dir="rtl">"cache_time"<br /></div>
-<div dir="rtl"><ul>
- <li>متى (بالثواني) يجب التوصل إلى نتائج عمليات بحث API؟ الافتراضي هو 3600 ثانية (1 ساعة).</li>
-</ul></div>
+##### <div dir="rtl">"cache_time" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>متى (بالثواني) يجب التوصل إلى نتائج عمليات بحث API؟ الافتراضي هو 3600 ثانية (1 ساعة).</li></ul></div>
 
 #### <div dir="rtl">"legal" (التصنيف)<br /></div>
-<div dir="rtl">التكوين المتعلق بالمتطلبات القانونية.<br /><br /></div>
+<div dir="rtl">التكوين للمتطلبات القانونية.<br /><br /></div>
 
-<div dir="rtl">لمزيد من المعلومات حول المتطلبات القانونية وكيف يمكن أن يؤثر ذلك على متطلبات التهيئة الخاصة بك، يرجى الرجوع إلى قسم <a href="#SECTION11">المعلومات القانونية</a> من الوثائق.<br /><br /></div>
+##### <div dir="rtl">"pseudonymise_ip_addresses" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>إخفاء عناوين IP عند كتابة السجلات؟ صحيح/True = نعم [افتراضي]؛ زائفة/False = لا.</li></ul></div>
 
-##### <div dir="rtl">"pseudonymise_ip_addresses"<br /></div>
-<div dir="rtl"><ul>
- <li>إخفاء عناوين IP عند كتابة السجلات؟ صحيح/True = نعم [افتراضي]؛ زائفة/False = لا.</li>
-</ul></div>
-
-##### <div dir="rtl">"privacy_policy"<br /></div>
-<div dir="rtl"><ul>
- <li>عنوان سياسة الخصوصية ذات الصلة ليتم عرضها في تذييل الصفحات التي تم إنشاؤها. حدد عنوان URL، أو اتركه فارغًا لتعطيله.</li>
-</ul></div>
-
-#### <div dir="rtl">"template_data" (التصنيف)<br /></div>
-<div dir="rtl">توجيهات/متغيرات القوالب والمواضيع.<br /><br /></div>
-
-<div dir="rtl">تتعلق البيانات بقالب انتاج HTML تستخدم لتوليد "رفض تحميل" الرسالة المعروضة للمستخدمين على تحميل ملف حجبها. إذا كنت تستخدم موضوعات مخصصة لـ phpMussel، هو مصدر إخراج HTML من ملف <code dir="ltr">template_custom.html</code> وغيرها، ويتم الحصول على إخراج HTML من ملف <code dir="ltr">template.html</code>. يتم تحليل المتغيرات الخطية لهذا القسم من ملف التكوين إلى إخراج HTML عن طريق استبدال أي أسماء المتغيرات محاط بواسطة الأقواس الموجودة داخل إخراج HTML مع البيانات المتغيرة المناظرة. فمثلا، أين <code dir="ltr">foo="bar"</code>، أي مثيل <code dir="ltr">&lt;p&gt;{foo}&lt;/p&gt;</code> وجدت داخل إخراج HTML ستصبح <code dir="ltr">&lt;p&gt;bar&lt;/p&gt;</code>.<br /><br /></div>
-
-##### <div dir="rtl">"theme"<br /></div>
-<div dir="rtl"><ul>
- <li>الموضوع الافتراضي لاستخدام phpMussel.</li>
-</ul></div>
-
-##### <div dir="rtl">"magnification"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Magnification"</em></li>
- <li>تكبير الخط. افتراضي = 1.</li>
-</ul></div>
-
-##### <div dir="rtl">"css_url"<br /></div>
-<div dir="rtl"><ul>
- <li>ملف الصيغة النموذجية للمواضيع مخصصة يستخدم خصائص CSS الخارجية، في حين أن ملف قالب لموضوع الافتراضي يستخدم خصائص CSS الداخلية. لإرشاد phpMussel لاستخدام ملف النموذجية للمواضيع مخصصة، تحديد عنوان HTTP العام من ملفات CSS موضوع المخصصة لديك باستخدام "css_url" متغير. إذا تركت هذا الحقل فارغا متغير، سوف يقوم phpMussel باستخدام ملف القالب لموضوع التقصير.</li>
-</ul></div>
-
-#### <div dir="rtl">"PHPMailer" (التصنيف)<br /></div>
-<div dir="rtl">تكوين PHPMailer.<br /><br /></div>
-
-<div dir="rtl">حاليا، يستخدم phpMussel PHPMailer فقط من أجل 2FA. إذا لم تستخدم الواجهة الأمامية، أو إذا لم تستخدم 2FA، فيمكنك تجاهل هذه التوجيهات.<br /><br /></div>
-
-##### <div dir="rtl">"event_log"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "EventLog"</em></li>
- <li>ملف لتسجيل جميع الأحداث المتعلقة ب PHPMailer. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li>
-</ul></div>
-
-##### <div dir="rtl">"skip_auth_process"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "SkipAuthProcess"</em></li>
- <li>تعيين هذا التوجيه إلى <code dir="ltr">true</code> يرشد PHPMailer لتخطي عملية المصادقة التي تحدث عادة عند إرسال البريد الإلكتروني عبر SMTP. يجب تجنب هذا، لأن تخطي هذه العملية قد يعرض البريد الإلكتروني الصادر إلى هجمات MITM، ولكنه قد يكون ضروريًا في الحالات التي تمنع فيها هذه العملية من اتصال PHPMailer بخادم SMTP.</li>
-</ul></div>
-
-##### <div dir="rtl">"enable_two_factor"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Enable2FA"</em></li>
- <li>يحدد هذا التوجيه ما إذا كان سيتم استخدام 2FA للحسابات front-end أم لا.</li>
-</ul></div>
-
-##### <div dir="rtl">"host"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Host"</em></li>
- <li>مضيف SMTP الذي يستخدم للبريد الإلكتروني الصادر.</li>
-</ul></div>
-
-##### <div dir="rtl">"port"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Port"</em></li>
- <li>رقم المنفذ المراد استخدامه للبريد الإلكتروني الصادر. افتراضي = 587.</li>
-</ul></div>
-
-##### <div dir="rtl">"smtp_secure"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "SMTPSecure"</em></li>
- <li>البروتوكول المستخدم عند إرسال البريد الإلكتروني عبر SMTP (TLS أو SSL).</li>
-</ul></div>
-
-##### <div dir="rtl">"smtp_auth"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "SMTPAuth"</em></li>
- <li>يحدد هذا التوجيه ما إذا كنت تريد مصادقة جلسات SMTP (يجب ألا يغير هذا عادة).</li>
-</ul></div>
-
-##### <div dir="rtl">"username"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Username"</em></li>
- <li>اسم المستخدم لاستخدامه عند إرسال البريد الإلكتروني عبر SMTP.</li>
-</ul></div>
-
-##### <div dir="rtl">"password"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Password"</em></li>
- <li>كلمة المرور لاستخدامها عند إرسال البريد الإلكتروني عبر SMTP.</li>
-</ul></div>
-
-##### <div dir="rtl">"set_from_address"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "setFromAddress"</em></li>
- <li>عنوان المرسل للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
-</ul></div>
-
-##### <div dir="rtl">"set_from_name"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "setFromName"</em></li>
- <li>اسم المرسل للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
-</ul></div>
-
-##### <div dir="rtl">"add_reply_to_address"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "addReplyToAddress"</em></li>
- <li>عنوان الرد للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
-</ul></div>
-
-##### <div dir="rtl">"add_reply_to_name"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "addReplyToName"</em></li>
- <li>اسم الرد للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li>
-</ul></div>
+##### <div dir="rtl">"privacy_policy" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>عنوان سياسة الخصوصية ذات الصلة ليتم عرضها في تذييل الصفحات التي تم إنشاؤها. حدد عنوان URL، أو اتركه فارغًا لتعطيله.</li></ul></div>
 
 #### <div dir="rtl">"supplementary_cache_options" (التصنيف)<br /></div>
 <div dir="rtl">خيارات ذاكرة التخزين المؤقت التكميلية.<br /><br /></div>
 
-##### <div dir="rtl">"enable_apcu"<br /></div>
-<div dir="rtl"><ul>
- <li>يحدد هذا ما إذا كنت تريد استخدام APCu للتخزين المؤقت. افتراضي = False (زائفة).</li>
-</ul></div>
+##### <div dir="rtl">"enable_apcu" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد هذا ما إذا كنت تريد استخدام APCu للتخزين المؤقت. افتراضي = False (زائفة).</li></ul></div>
 
-##### <div dir="rtl">"enable_memcached"<br /></div>
-<div dir="rtl"><ul>
- <li>يحدد هذا ما إذا كنت تريد استخدام Memcached للتخزين المؤقت. افتراضي = False (زائفة).</li>
-</ul></div>
+##### <div dir="rtl">"enable_memcached" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد هذا ما إذا كنت تريد استخدام Memcached للتخزين المؤقت. افتراضي = False (زائفة).</li></ul></div>
 
-##### <div dir="rtl">"enable_redis"<br /></div>
-<div dir="rtl"><ul>
- <li>يحدد هذا ما إذا كنت تريد استخدام Redis للتخزين المؤقت. افتراضي = False (زائفة).</li>
-</ul></div>
+##### <div dir="rtl">"enable_redis" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد هذا ما إذا كنت تريد استخدام Redis للتخزين المؤقت. افتراضي = False (زائفة).</li></ul></div>
 
-##### <div dir="rtl">"enable_pdo"<br /></div>
-<div dir="rtl"><ul>
- <li>يحدد هذا ما إذا كنت تريد استخدام PDO للتخزين المؤقت. افتراضي = False (زائفة).</li>
-</ul></div>
+##### <div dir="rtl">"enable_pdo" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد هذا ما إذا كنت تريد استخدام PDO للتخزين المؤقت. افتراضي = False (زائفة).</li></ul></div>
 
-##### <div dir="rtl">"memcached_host"<br /></div>
-<div dir="rtl"><ul>
- <li>قيمة المضيف Memcached. افتراضي = "localhost".</li>
-</ul></div>
+##### <div dir="rtl">"memcached_host" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>قيمة المضيف Memcached. افتراضي = "localhost".</li></ul></div>
 
-##### <div dir="rtl">"memcached_port"<br /></div>
-<div dir="rtl"><ul>
- <li>قيمة منفذ Memcached. افتراضي = "11211".</li>
-</ul></div>
+##### <div dir="rtl">"memcached_port" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>قيمة منفذ Memcached. افتراضي = "11211".</li></ul></div>
 
-##### <div dir="rtl">"redis_host"<br /></div>
-<div dir="rtl"><ul>
- <li>قيمة المضيف Redis. افتراضي = "localhost".</li>
-</ul></div>
+##### <div dir="rtl">"redis_host" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>قيمة المضيف Redis. افتراضي = "localhost".</li></ul></div>
 
-##### <div dir="rtl">"redis_port"<br /></div>
-<div dir="rtl"><ul>
- <li>قيمة منفذ Redis. افتراضي = "6379".</li>
-</ul></div>
+##### <div dir="rtl">"redis_port" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>قيمة منفذ Redis. افتراضي = "6379".</li></ul></div>
 
-##### <div dir="rtl">"redis_timeout"<br /></div>
-<div dir="rtl"><ul>
- <li>Redis قيمة المهلة. افتراضي = "2.5".</li>
-</ul></div>
+##### <div dir="rtl">"redis_timeout" <code dir="ltr">[float]</code><br /></div>
+<div dir="rtl"><ul><li>Redis قيمة المهلة. افتراضي = "2.5".</li></ul></div>
 
-##### <div dir="rtl">"pdo_dsn"<br /></div>
-<div dir="rtl"><ul>
- <li>قيمة PDO DSN. افتراضي = "<code dir="ltr">mysql:dbname=phpmussel;host=localhost;port=3306</code>".</li>
-</ul></div>
+##### <div dir="rtl">"pdo_dsn" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>قيمة PDO DSN. افتراضي = "mysql:dbname=phpmussel;host=localhost;port=3306".</li></ul></div>
 
-<div dir="rtl"><em>(نرى: <a href="#HOW_TO_USE_PDO">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a>)</em><br /><br /></div>
+##### <div dir="rtl">"pdo_username" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>PDO اسم المستخدم.</li></ul></div>
 
-##### <div dir="rtl">"pdo_username"<br /></div>
-<div dir="rtl"><ul>
- <li>PDO اسم المستخدم.</li>
-</ul></div>
+##### <div dir="rtl">"pdo_password" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>PDO كلمه السر.</li></ul></div>
 
-##### <div dir="rtl">"pdo_password"<br /></div>
-<div dir="rtl"><ul>
- <li>PDO كلمه السر.</li>
-</ul></div>
+#### <div dir="rtl">"frontend" (التصنيف)<br /></div>
+<div dir="rtl">التكوين للواجهة الأمامية.<br /><br /></div>
+
+##### <div dir="rtl">"frontend_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ملف لتسجيل محاولات الدخول الأمامية. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
+
+##### <div dir="rtl">"max_login_attempts" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>الحد الأقصى لعدد محاولات تسجيل الدخول (front-end). الافتراضي = 5.</li></ul></div>
+
+##### <div dir="rtl">"numbers" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>كيف تفضل الأرقام ليتم عرضها؟ حدد المثال الذي يبدو أكثر صحيح لك.</li></ul></div>
+
+```
+numbers
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Latin-1 ("1,234,567.89")
+├─Latin-2 ("1 234 567.89")
+├─Latin-3 ("1.234.567,89")
+├─Latin-4 ("1 234 567,89")
+├─Latin-5 ("1,234,567·89")
+├─China-1 ("123,4567.89")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
+├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+└─Tibetan ("༡༢༣༤༥༦༧.༨༩")
+```
+
+##### <div dir="rtl">"default_algo" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد الخوارزمية التي سيتم استخدامها لكل كلمات المرور والجلسات المستقبلية. خيارات: PASSWORD_DEFAULT (افتراضي)، PASSWORD_BCRYPT، PASSWORD_ARGON2I (يتطلب PHP &gt;= 7.2.0)، PASSWORD_ARGON2ID (يتطلب PHP &gt;= 7.3.0).</li></ul></div>
+
+```
+default_algo
+├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
+├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+└─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
+```
+
+##### <div dir="rtl">"theme" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الجمالية المراد استخدامها في الواجهة الأمامية phpMussel.</li></ul></div>
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…آخر
+```
+
+##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
+<div dir="rtl"><ul><li>تكبير الخط. افتراضي = 1.</li></ul></div>
+
+#### <div dir="rtl">"web" (التصنيف)<br /></div>
+<div dir="rtl">التكوين لمعالج التحميل.<br /><br /></div>
+
+##### <div dir="rtl">"uploads_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>مكان تسجيل جميع التحميلات المحظورة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
+
+##### <div dir="rtl">"forbid_on_block" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل phpMussel يرسل 403 من العناوين مع الرسالة منعت إيداع الملف، أو يبقى مع المعتادة 200 موافق؟ خطأ = رقم (200). صحيح/True = نعم (403) [الافتراضي].</li></ul></div>
+
+##### <div dir="rtl">"max_uploads" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>العدد الأقصى المسموح به من ملفات لمسح أثناء تحميل الملفات مسح قبل إحباط عملية الفحص وإعلام المستخدم أنهم تحميل أكثر من اللازم في وقت واحد! يوفر الحماية ضد هجوم النظري حيث يحاول أحد المهاجمين دوس النظام الخاص بك أو CMS من الحمولة الزائدة phpMussel إلى إبطاء عملية PHP لوقف طحن. الموصى بها: 10. أنت قد ترغب في رفع أو خفض هذا الرقم اعتمادا على سرعة الجهاز. لاحظ أن هذا الرقم لا يأخذ في الحسبان أو تتضمن محتويات المحفوظات.</li></ul></div>
+
+##### <div dir="rtl">"ignore_upload_errors" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يجب أن يكون هذا التوجيه عموما هو تعطيل ما لم تصبح مطلوبة حصول على الوظائف الصحيحة لـ phpMussel على النظام الخاص بك محددة. عادة، عندما يكون في وضع تعطيل، عندما يكتشف phpMussel وجود عناصر في مجموعة <code dir="ltr">$_FILES</code>، وأنها سوف محاولة لبدء فحص الملفات التي تمثل تلك العناصر، وإذا كانت تلك العناصر هي فارغة أو فارغة، سوف phpMussel العودة رسالة خطأ. هذا هو السلوك الصحيح للـ phpMussel. ومع ذلك، بالنسبة لبعض CMS، العناصر الفارغة في <code dir="ltr">$_FILES</code> يمكن أن تحدث نتيجة لسلوك طبيعي لتلك CMS، أو أخطاء قد يتم الإعلام عندما لم تكن هناك أي، في هذه الحالة، السلوك العادي للphpMussel سوف تتدخل مع السلوك العادي من تلك CMS. في حال حدوث مثل هذه الحالة بالنسبة لك، تمكين هذا الخيار سوف يكلف phpMussel ليست محاولة لبدء المسح الضوئي لمثل هذه العناصر الفارغة، تجاهلها عندما وجدت وعدم إعادة أي رسائل خطأ ذات الصلة، مما يتيح استمرار طلب الصفحة. زائفة/False = أطفئ؛ صحيح/True = تشغيل.</li></ul></div>
+
+##### <div dir="rtl">"theme" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الجمالية المراد استخدامها لصفحة "رفض تحميل".</li></ul></div>
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…آخر
+```
+
+##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
+<div dir="rtl"><ul><li>تكبير الخط. افتراضي = 1.</li></ul></div>
+
+#### <div dir="rtl">"phpmailer" (التصنيف)<br /></div>
+<div dir="rtl">التكوين ل PHPMailer (تستخدم لمصادقة ثنائية العامل).<br /><br /></div>
+
+##### <div dir="rtl">"event_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ملف لتسجيل جميع الأحداث المتعلقة ب PHPMailer. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
+
+##### <div dir="rtl">"enable_two_factor" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد هذا التوجيه ما إذا كان سيتم استخدام 2FA للحسابات front-end أم لا.</li></ul></div>
+
+##### <div dir="rtl">"enable_notifications" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>إرسال إخطارات البريد الإلكتروني عندما يتم حظر التحميل.</li></ul></div>
+
+##### <div dir="rtl">"skip_auth_process" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>تعيين هذا التوجيه إلى <code dir="ltr">true</code> يرشد PHPMailer لتخطي عملية المصادقة التي تحدث عادة عند إرسال البريد الإلكتروني عبر SMTP. يجب تجنب هذا، لأن تخطي هذه العملية قد يعرض البريد الإلكتروني الصادر إلى هجمات MITM، ولكنه قد يكون ضروريًا في الحالات التي تمنع فيها هذه العملية من اتصال PHPMailer بخادم SMTP.</li></ul></div>
+
+##### <div dir="rtl">"host" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>مضيف SMTP الذي يستخدم للبريد الإلكتروني الصادر.</li></ul></div>
+
+##### <div dir="rtl">"port" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>رقم المنفذ المراد استخدامه للبريد الإلكتروني الصادر. افتراضي = 587.</li></ul></div>
+
+##### <div dir="rtl">"smtp_secure" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>البروتوكول المستخدم عند إرسال البريد الإلكتروني عبر SMTP (TLS أو SSL).</li></ul></div>
+
+```
+smtp_secure
+├─default ("-")
+├─tls ("TLS")
+└─ssl ("SSL")
+```
+
+##### <div dir="rtl">"smtp_auth" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>يحدد هذا التوجيه ما إذا كنت تريد مصادقة جلسات SMTP (يجب ألا يغير هذا عادة).</li></ul></div>
+
+##### <div dir="rtl">"username" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اسم المستخدم لاستخدامه عند إرسال البريد الإلكتروني عبر SMTP.</li></ul></div>
+
+##### <div dir="rtl">"password" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>كلمة المرور لاستخدامها عند إرسال البريد الإلكتروني عبر SMTP.</li></ul></div>
+
+##### <div dir="rtl">"set_from_address" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>عنوان المرسل للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li></ul></div>
+
+##### <div dir="rtl">"set_from_name" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اسم المرسل للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li></ul></div>
+
+##### <div dir="rtl">"add_reply_to_address" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>عنوان الرد للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li></ul></div>
+
+##### <div dir="rtl">"add_reply_to_name" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اسم الرد للاستشهاد عند إرسال البريد الإلكتروني عبر SMTP.</li></ul></div>
 
 ---
 
@@ -1873,7 +1557,7 @@ Mon, 21 May 2018 00:48:04 +0800 انتهى.
 
 <div dir="rtl">خيارات التكوين ذات الصلة:<br /></div>
 <div dir="rtl"><ul>
- <li><code dir="ltr">scan_kills</code> &lt;- <code dir="ltr">general</code></li>
+ <li><code dir="ltr">uploads_log</code> &lt;- <code dir="ltr">web</code></li>
 </ul></div>
 
 ##### <div dir="rtl">١١.٣.٢ سجلات الواجهة الأمامية<br /><br /></div>
@@ -1988,4 +1672,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 7 يوليو 2020 (2020.07.07).</div>
+<div dir="rtl">آخر تحديث: 8 يوليو 2020 (2020.07.08).</div>

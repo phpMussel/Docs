@@ -77,20 +77,22 @@ https://github.com/phpMussel/Examples
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 ИНСТАЛЛЯЦИЯ СИГНАТУРЕЙ
 
-Поскольку v1.0.0, сигнатуры не включены в пакет phpMussel. Сигнатуры требуются phpMussel для обнаружения конкретных угроз. Существует три основных метода установки сигнатурей:
+Сигнатуры требуются phpMussel для обнаружения конкретных угроз. Существует три основных метода установки сигнатурей:
 
 1. Создавайте сигнатуры с помощью «SigTool» и установите вручную.
-2. Загрузите сигнатуры из «phpMussel/Signatures» и установите вручную.
+2. Загрузите сигнатуры из «phpMussel/Signatures» или «phpMussel/Examples» и установите вручную.
 
 ##### 2.1.0 Создавайте сигнатуры с помощью «SigTool» и установите вручную.
 
 *Видеть: [Документация SigTool](https://github.com/phpMussel/SigTool#documentation).*
 
-*Также обратите внимание: SigTool обрабатывает только сигнатуры из ClamAV. Чтобы получить сигнатур из других источников, например, написанных специально для phpMussel, которая включает в себя сигнатуры, необходимые для обнаружения тестовых образцов phpMussel, этот метод должен быть дополнен одним из других методов, упомянутых здесь.*
+*Также обратите внимание: SigTool обрабатывает только сигнатуры из ClamAV. Чтобы получить сигнатуры из других источников, например, написанных специально для phpMussel, которая включает в себя сигнатуры, необходимые для обнаружения тестовых образцов phpMussel, этот метод должен быть дополнен одним из других методов, упомянутых здесь.*
 
-##### 2.3.3 Загрузите сигнатуры из «phpMussel/Signatures» и установите вручную.
+##### 2.1.1 Загрузите сигнатуры из «phpMussel/Signatures» или «phpMussel/Examples» и установите вручную.
 
-В первую очередь, перейти к [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Репозиторий содержит различные файлы сигнатур, сжатые GZ. Загрузите нужные вам файлы, распакуйте их и скопируйте распакованные файлы в регистр `/vault/signatures`, чтобы установить их. Перечислите имена скопированных файлов в директиву `active` в вашей конфигурации phpMussel для их активации.
+В первую очередь, перейти к [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Репозиторий содержит различные файлы сигнатур, сжатые GZ. Загрузите нужные вам файлы, распакуйте их, и скопируйте их в каталог сигнатур вашей установки.
+
+Альтернативно, скачать самый последний ZIP из [phpMussel/Examples](https://github.com/phpMussel/Examples). Затем вы можете скопировать/вставить сигнатуры из этого архива в вашу установку.
 
 ---
 
@@ -209,192 +211,6 @@ phpMussel функционирует полностью в автономном 
 ### 6. <a name="SECTION6"></a>СОДЕРЖАНИЕ ПАКЕТА ФАЙЛОВ
 
 ```
-https://github.com/phpMussel/phpMussel>v2
-│   .gitattributes
-│   .gitignore
-│   .travis.yml
-│   Changelog-v2.txt
-│   codeception.yml
-│   composer.json
-│   LICENSE.txt
-│   loader.php
-│   README.md
-│   web.config
-│
-├───tests
-│   │   .gitignore
-│   │   acceptance.suite.yml
-│   │   functional.suite.yml
-│   │   unit.suite.yml
-│   │
-│   ├───acceptance
-│   │       .gitkeep
-│   │
-│   ├───functional
-│   │       .gitkeep
-│   │
-│   ├───unit
-│   │       .gitkeep
-│   │       LoaderAndScanCest.php
-│   │
-│   ├───_data
-│   │       .gitkeep
-│   │
-│   ├───_output
-│   │       .gitkeep
-│   │
-│   └───_support
-│       │   AcceptanceTester.php
-│       │   FunctionalTester.php
-│       │   UnitTester.php
-│       │
-│       ├───config
-│       │       config.ini
-│       │
-│       ├───Helper
-│       │       Acceptance.php
-│       │       Functional.php
-│       │       Unit.php
-│       │
-│       └───samples
-│               encrypted.zip
-│               hello.txt
-│
-├───vault
-│   │   .htaccess
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-│
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
 ```
 
 ---
@@ -405,621 +221,712 @@ https://github.com/phpMussel/phpMussel>v2
 Ниже представлен список переменных данных в файле конфигурации `config.ini`, а также краткое описание их функций.
 
 ```
-Configuration (v2)
+Конфигурация (v3)
 │
-├───general
-│       cleanup
-│       scan_log
-│       scan_log_serialized
-│       scan_kills
-│       error_log
-│       truncate
-│       log_rotation_limit
-│       log_rotation_action
-│       timezone
-│       time_offset (v1: timeOffset)
-│       time_format (v1: timeFormat)
-│       ipaddr
-│       enable_plugins
-│       forbid_on_block
-│       delete_on_sight
-│       lang
-│       lang_override
-│       numbers
-│       quarantine_key
-│       quarantine_max_filesize
-│       quarantine_max_usage
-│       quarantine_max_files
-│       honeypot_mode
-│       scan_cache_expiry
-│       disable_cli
-│       disable_frontend
-│       max_login_attempts
-│       frontend_log (v1: FrontEndLog)
-│       disable_webfonts
-│       maintenance_mode
-│       default_algo
-│       statistics
-│       disabled_channels
-│
+├───core
+│       scan_log [string]
+│       scan_log_serialized [string]
+│       error_log [string]
+│       truncate [string]
+│       log_rotation_limit [int]
+│       log_rotation_action [string]
+│       timezone [string]
+│       time_offset [int]
+│       time_format [string]
+│       ipaddr [string]
+│       delete_on_sight [bool]
+│       lang [string]
+│       lang_override [bool]
+│       scan_cache_expiry [int]
+│       maintenance_mode [bool]
+│       statistics [bool]
+│       disabled_channels [string]
 ├───signatures
-│       active (v1: Active)
-│       fail_silently
-│       fail_extensions_silently
-│       detect_adware
-│       detect_joke_hoax
-│       detect_pua_pup
-│       detect_packer_packed
-│       detect_shell
-│       detect_deface
-│       detect_encryption
-│
+│       active [string]
+│       fail_silently [bool]
+│       fail_extensions_silently [bool]
+│       detect_adware [bool]
+│       detect_joke_hoax [bool]
+│       detect_pua_pup [bool]
+│       detect_packer_packed [bool]
+│       detect_shell [bool]
+│       detect_deface [bool]
+│       detect_encryption [bool]
+│       heuristic_threshold [int]
 ├───files
-│       max_uploads
-│       filesize_limit
-│       filesize_response
-│       filetype_whitelist
-│       filetype_blacklist
-│       filetype_greylist
-│       check_archives
-│       filesize_archives
-│       filetype_archives
-│       max_recursion
-│       block_encrypted_archives
-│       max_files_in_archives
-│
-├───attack_specific
-│       chameleon_from_php
-│       can_contain_php_file_extensions
-│       chameleon_from_exe
-│       chameleon_to_archive
-│       chameleon_to_doc
-│       chameleon_to_img
-│       chameleon_to_pdf
-│       archive_file_extensions
-│       block_control_characters
-│       corrupted_exe
-│       decode_threshold
-│       scannable_threshold
-│       allow_leading_trailing_dots
-│       block_macros
-│
-├───compatibility
-│       ignore_upload_errors
-│       only_allow_images
-│
-├───heuristic
-│       threshold
-│
+│       filesize_limit [string]
+│       filesize_response [bool]
+│       filetype_whitelist [string]
+│       filetype_blacklist [string]
+│       filetype_greylist [string]
+│       check_archives [bool]
+│       filesize_archives [bool]
+│       filetype_archives [bool]
+│       max_recursion [int]
+│       block_encrypted_archives [bool]
+│       max_files_in_archives [int]
+│       chameleon_from_php [bool]
+│       can_contain_php_file_extensions [string]
+│       chameleon_from_exe [bool]
+│       chameleon_to_archive [bool]
+│       chameleon_to_doc [bool]
+│       chameleon_to_img [bool]
+│       chameleon_to_pdf [bool]
+│       archive_file_extensions [string]
+│       block_control_characters [bool]
+│       corrupted_exe [bool]
+│       decode_threshold [string]
+│       scannable_threshold [string]
+│       allow_leading_trailing_dots [bool]
+│       block_macros [bool]
+│       only_allow_images [bool]
+├───quarantine
+│       quarantine_key [string]
+│       quarantine_max_filesize [string]
+│       quarantine_max_usage [string]
+│       quarantine_max_files [int]
 ├───virustotal
-│       vt_public_api_key
-│       vt_suspicion_level
-│       vt_weighting
-│       vt_quota_rate
-│       vt_quota_time
-│
+│       vt_public_api_key [string]
+│       vt_suspicion_level [int]
+│       vt_weighting [int]
+│       vt_quota_rate [int]
+│       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts
-│       google_api_key
-│       maximum_api_lookups
-│       maximum_api_lookups_response
-│       cache_time
-│
+│       lookup_hphosts [bool]
+│       google_api_key [string]
+│       maximum_api_lookups [int]
+│       maximum_api_lookups_response [bool]
+│       cache_time [int]
 ├───legal
-│       pseudonymise_ip_addresses
-│       privacy_policy
-│
-├───template_data
-│       theme
-│       magnification (v1: Magnification)
-│       css_url
-│
-├───PHPMailer
-│       event_log (v1: EventLog)
-│       skip_auth_process (v1: SkipAuthProcess)
-│       enable_two_factor (v1: Enable2FA)
-│       host (v1: Host)
-│       port (v1: Port)
-│       smtp_secure (v1: SMTPSecure)
-│       smtp_auth (v1: SMTPAuth)
-│       username (v1: Username)
-│       password (v1: Password)
-│       set_from_address (v1: setFromAddress)
-│       set_from_name (v1: setFromName)
-│       add_reply_to_address (v1: addReplyToAddress)
-│       add_reply_to_name (v1: addReplyToName)
-│
-└───supplementary_cache_options
-        enable_apcu
-        enable_memcached
-        enable_redis
-        enable_pdo
-        memcached_host
-        memcached_port
-        redis_host
-        redis_port
-        redis_timeout
-        pdo_dsn
-        pdo_username
-        pdo_password
+│       pseudonymise_ip_addresses [bool]
+│       privacy_policy [string]
+├───supplementary_cache_options
+│       enable_apcu [bool]
+│       enable_memcached [bool]
+│       enable_redis [bool]
+│       enable_pdo [bool]
+│       memcached_host [string]
+│       memcached_port [int]
+│       redis_host [string]
+│       redis_port [int]
+│       redis_timeout [float]
+│       pdo_dsn [string]
+│       pdo_username [string]
+│       pdo_password [string]
+├───frontend
+│       frontend_log [string]
+│       max_login_attempts [int]
+│       numbers [string]
+│       default_algo [string]
+│       theme [string]
+│       magnification [float]
+├───web
+│       uploads_log [string]
+│       forbid_on_block [bool]
+│       max_uploads [int]
+│       ignore_upload_errors [bool]
+│       theme [string]
+│       magnification [float]
+└───phpmailer
+        event_log [string]
+        enable_two_factor [bool]
+        enable_notifications [bool]
+        skip_auth_process [bool]
+        host [string]
+        port [int]
+        smtp_secure [string]
+        smtp_auth [bool]
+        username [string]
+        password [string]
+        set_from_address [string]
+        set_from_name [string]
+        add_reply_to_address [string]
+        add_reply_to_name [string]
 ```
-
-#### «general» (Категория)
-Генеральная конфигурация от phpMussel.
-
-##### «cleanup»
-- После исполнения стирает переменные величины данного руководства и очищает кэш-память. Если Вы не используете скрипт для чего-либо, кроме сканирования загрузок, Вам следует установить значение `true`, чтобы минимизировать использование памяти. В противном случае Вам следует установить значение `false`, чтобы сохранить в памяти данные, необходимые для выполнения phpMussel без необходимости его перезагрузки.
-- Не воздействует на CLI-модус.
-
-##### «scan_log»
-- Название файла, в который записываются результаты всех контрольных проверок. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
-
-##### «scan_log_serialized»
-- Название файла, в который записываются результаты всех контрольных проверок (сериализовано Формат). Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
-
-##### «scan_kills»
-- Название файла, в который записываются все заблокированные загрузки. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
 
 *Полезный совет: Если Вы хотите, Вы можете добавить информацию о дате/времени к именам файлов журналов путем включения их во имя: `{yyyy}` для полный год, `{yy}` для сокращенный год, `{mm}` для месяц, `{dd}` для день, `{hh}` для час.*
 
 *Примеры:*
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
-##### «error_log»
+#### «core» (Категория)
+Общая конфигурация (любая конфигурация ядра, не относящаяся к другим категориям).
+
+##### «scan_log» `[string]`
+- Название файла, в который записываются результаты всех контрольных проверок. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
+
+##### «scan_log_serialized» `[string]`
+- Название файла, в который записываются результаты всех контрольных проверок (сериализовано Формат). Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
+
+##### «error_log» `[string]`
 - Файл для регистрации обнаруженных нефатальных ошибок. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
 
-##### «truncate»
+##### «truncate» `[string]`
 - Усекать лог-файлы, когда они достигают определенного размера? Значение это максимальный размер в Б/КБ/МБ/ГБ/ТБ, до которого файл журнала может увеличиться до усечения. Стандартное значение 0КБ отключает усечение (лог-файлы может расти неограниченно). Примечание: относится к отдельным лог-файлы! Размер файлов журнала не учитывается совместно.
 
-##### «log_rotation_limit»
+##### «log_rotation_limit» `[int]`
 - Лог вращения ограничивает количество журнальных лог-файлов, которые должны существовать в любой момент времени. Когда создаются новые лог-файлы, если общее количество лог-файлов превышает указанный предел, указанное действие будет выполнено. Здесь Вы можете указать желаемый лимит. Значение 0 отключит вращение лог.
 
-##### «log_rotation_action»
+##### «log_rotation_action» `[string]`
 - Лог вращения ограничивает количество журнальных лог-файлов, которые должны существовать в любой момент времени. Когда создаются новые лог-файлы, если общее количество лог-файлов превышает указанный предел, указанное действие будет выполнено. Здесь Вы можете указать желаемое действие. Delete = Удалите самые старые лог-файлы, пока лимит больше не будет превышен. Archive = Сначала архивируйте, а затем удалите самые старые лог-файлы, пока лимит больше не будет превышен.
 
-*Техническое разъяснение: В этом контексте, «самые старые» означает наименее недавно измененный.*
+```
+log_rotation_action
+├─Delete ("Delete")
+└─Archive ("Archive")
+```
 
-##### «timezone»
-- Это используется, чтобы указать, какой часового пояса phpMussel должен использовать для операций даты/времени. Если вам это не нужно, игнорируйте его. Возможные значения определяются PHP. Обычно рекомендуется вместо того, чтобы настроить директиву о зоне времени в файле `php.ini`, но иногда (например, при работе с общими хостинг-провайдеров, которые ограничены) это не всегда возможно, и так, эта опция представлена здесь.
+##### «timezone» `[string]`
+- Это используется, чтобы указать часовой пояс для использования (например, Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, и т.д.). Укажите «SYSTEM», чтобы позволить PHP обрабатывать это автоматически.
 
-##### «time_offset»
-- *v1: «timeOffset»*
-- Если ваш сервер времени не соответствует вашему местному времени, Вы можете указать смещение здесь для корректировки информации о дате/времени генерируется от phpMussel в соответствии с вашими потребностями. Обычно рекомендуется вместо того, чтобы настроить директиву о зоне времени в файле `php.ini`, но иногда (например, при работе с общими хостинг-провайдеров, которые ограничены) это не всегда возможно, и так, эта опция представлена здесь. Смещение описывается как минут.
-- Пример (добавить один час): `time_offset=60`
+```
+timezone
+├─SYSTEM ("Использовать часовой пояс по умолчанию.")
+├─UTC ("UTC")
+└─…Другие
+```
 
-##### «time_format»
-- *v1: «timeFormat»*
-- Формат нотации даты, используемый phpMussel. Стандарт = `{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`.
+##### «time_offset» `[int]`
+- Смещение часового пояса в минут.
 
-##### «ipaddr»
+##### «time_format» `[string]`
+- Формат нотации даты, используемый phpMussel. Дополнительные опции могут быть добавлены по запросу.
+
+```
+time_format
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}")
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss}")
+├─{Day}, {dd} {Mon} {yyyy} ("{Day}, {dd} {Mon} {yyyy}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yyyy}.{mm}.{dd} ("{yyyy}.{mm}.{dd}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yyyy}-{mm}-{dd} ("{yyyy}-{mm}-{dd}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yyyy}/{mm}/{dd} ("{yyyy}/{mm}/{dd}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yyyy} ("{dd}.{mm}.{yyyy}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yyyy} ("{dd}-{mm}-{yyyy}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yyyy} ("{dd}/{mm}/{yyyy}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yyyy} ("{mm}.{dd}.{yyyy}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yyyy} ("{mm}-{dd}-{yyyy}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yyyy} ("{mm}/{dd}/{yyyy}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yy}.{mm}.{dd} ("{yy}.{mm}.{dd}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yy}-{mm}-{dd} ("{yy}-{mm}-{dd}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yy}/{mm}/{dd} ("{yy}/{mm}/{dd}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yy} ("{dd}.{mm}.{yy}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yy} ("{dd}-{mm}-{yy}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yy} ("{dd}/{mm}/{yy}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yy} ("{mm}.{dd}.{yy}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yy} ("{mm}-{dd}-{yy}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yy} ("{mm}/{dd}/{yy}")
+├─{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}年{m}月{d}日 ("{yyyy}年{m}月{d}日")
+├─{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yy}年{m}月{d}日 ("{yy}年{m}月{d}日")
+├─{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}년 {m}월 {d}일 ("{yyyy}년 {m}월 {d}일")
+├─{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yy}년 {m}월 {d}일 ("{yy}년 {m}월 {d}일")
+├─{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z} ("{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z}")
+├─{d}. {m}. {yyyy} ("{d}. {m}. {yyyy}")
+└─…Другие
+```
+
+##### «ipaddr» `[string]`
 - Место IP-адреса актуального соединения в общем потоке данных (полезно для Cloud-сервиса). Стандарт = REMOTE_ADDR. Внимание! Изменяйте это значение только в том случае, если Вы уверены в своих действиях!
 
-Рекомендуемые значения для «ipaddr»:
+```
+ipaddr
+├─HTTP_INCAP_CLIENT_IP ("HTTP_INCAP_CLIENT_IP (Incapsula)")
+├─HTTP_CF_CONNECTING_IP ("HTTP_CF_CONNECTING_IP (Cloudflare)")
+├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
+├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
+├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
+└─…Другие
+```
 
-Значения | Контекст
----|---
-`HTTP_INCAP_CLIENT_IP` | Incapsula обратный прокси-сервер.
-`HTTP_CF_CONNECTING_IP` | Cloudflare обратный прокси-сервер.
-`CF-Connecting-IP` | Cloudflare обратный прокси-сервер (альтернатива; если вышеуказанное не работает).
-`HTTP_X_FORWARDED_FOR` | Cloudbric обратный прокси-сервер.
-`X-Forwarded-For` | [Squid обратный прокси-сервер](http://www.squid-cache.org/Doc/config/forwarded_for/).
-*Определяется конфигурацией сервера.* | [Nginx обратный прокси-сервер](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
-`REMOTE_ADDR` | Не обратный прокси-сервер (стандартное значение).
+Смотрите также:
+- [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
+- [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
 
-##### «enable_plugins»
-- Включить поддержку phpMussel плагинов? False = Нет; True = Да [Стандарт].
-
-##### «forbid_on_block»
-- Возвращённый 403-HTTP-заголовок при заблокированной загрузке данных. False = Нет (200); True = Да (403) [Стандарт].
-
-##### «delete_on_sight»
+##### «delete_on_sight» `[bool]`
 - Эта опция позволяет в течение сканирования немедленно удалять файлы при наличии в них опознавательных признаков, содержащихся в сигнатуры или других методах. При этом не будут затрагиваться файлы, идентифицированные как неинфицированные. Если в архиве будет инфицирован хотя бы один файл, то будет удалён весь архив. Во время загрузки файлов эту функцию активировать не обязательно, так как PHP после исполнения удаляет содержимое кэш-памяти. Это означает, что PHP удалит каждый скаченный через сервер файл, если он не перемещён, не скопирован или не удалён. Эта опция, как дополнительная мера, была введена для большей безопасности, но в основном для систем, в которых PHP ведёт себя по-другому. False = После проверки файл останется нетронутым [Стандарт]; True = После проверки инфицированный файл будет немедленно удалён.
 
-##### «lang»
+##### «lang» `[string]`
 - Задаёт phpMussel стандарт языка.
 
-##### «lang_override»
+```
+lang
+├─en ("English")
+├─ar ("العربية")
+├─bn ("বাংলা")
+├─de ("Deutsch")
+├─es ("Español")
+├─fr ("Français")
+├─hi ("हिंदी")
+├─id ("Bahasa Indonesia")
+├─it ("Italiano")
+├─ja ("日本語")
+├─ko ("한국어")
+├─lv ("Latviešu")
+├─nl ("Nederlandse")
+├─no ("Norsk")
+├─pl ("Polski")
+├─pt ("Português")
+├─ru ("Русский")
+├─sv ("Svenska")
+├─th ("ภาษาไทย")
+├─tr ("Türkçe")
+├─ur ("اردو")
+├─vi ("Tiếng Việt")
+├─zh ("中文（简体）")
+└─zh-TW ("中文（傳統）")
+```
+
+##### «lang_override» `[bool]`
 - Локализовать в соответствии с HTTP_ACCEPT_LANGUAGE, когда это возможно? True = Да [Стандарт]; False = Нет.
 
-##### «numbers»
-- Указывает, как отображать числа.
-
-Поддерживаемые значения:
-
-Значение | Производит | Описание
----|---|---
-`NoSep-1` | `1234567.89`
-`NoSep-2` | `1234567,89`
-`Latin-1` | `1,234,567.89` | Значение по умолчанию.
-`Latin-2` | `1 234 567.89`
-`Latin-3` | `1.234.567,89`
-`Latin-4` | `1 234 567,89`
-`Latin-5` | `1,234,567·89`
-`China-1` | `123,4567.89`
-`India-1` | `12,34,567.89`
-`India-2` | `१२,३४,५६७.८९`
-`India-3` | `૧૨,૩૪,૫૬૭.૮૯`
-`India-4` | `੧੨,੩੪,੫੬੭.੮੯`
-`India-5` | `೧೨,೩೪,೫೬೭.೮೯`
-`India-6` | `౧౨,౩౪,౫౬౭.౮౯`
-`Arabic-1` | `١٢٣٤٥٦٧٫٨٩`
-`Arabic-2` | `١٬٢٣٤٬٥٦٧٫٨٩`
-`Arabic-3` | `۱٬۲۳۴٬۵۶۷٫۸۹`
-`Arabic-4` | `۱۲٬۳۴٬۵۶۷٫۸۹`
-`Bengali-1` | `১২,৩৪,৫৬৭.৮৯`
-`Burmese-1` | `၁၂၃၄၅၆၇.၈၉`
-`Khmer-1` | `១.២៣៤.៥៦៧,៨៩`
-`Lao-1` | `໑໒໓໔໕໖໗.໘໙`
-`Thai-1` | `๑,๒๓๔,๕๖๗.๘๙`
-`Thai-2` | `๑๒๓๔๕๖๗.๘๙`
-
-*Заметка: Эти значения нигде не стандартизируются и, вероятно, не будут иметь значения за пределами пакета. Кроме того, поддерживаемые значения могут измениться в будущем.*
-
-##### «quarantine_key»
-- phpMussel способна держать на карантине попытки загрузить файл, если это будет Вам нужно. Эту функцию должны деактивировать те пользователи, которые хотят лишь защитить свои интернет-сайты или окружение своего хоста, но дальнейший контроль выделенных файлов им не интересен. Активировать эту функцию должны те пользователи, которые хотят анализировать изолированные файлы на вредоносность или тому подобное. Изоляция выделенных файлов иногда может использоваться для поиска ошибки при частом появлении сигнала тревоги. Чтобы деактивировать функцию карантина, не заполняйте `quarantine_key`, и удалите содержание строки, если она заполнена. Для активирования функции карантина задайте значение. `quarantine_key` = Это важный элемент карантинной функции, способная защитить функцию карантина от атак вредоносных программ, и предотвратить запуск удерживаемых на карантине файлов. Значение `quarantine_key` Вы должны хранить втайне от всех, как и пароли. Оптимально в сочетании с `delete_on_sight`.
-
-##### «quarantine_max_filesize»
-- Максимально допустимый объём файлов, которые могут быть изолированы в карантине. В карантинном регистре НЕ будет сохраняться файлы, объём которых больше указанного значения. Эта команда важна тем, что затрудняет потенциальному агрессору наводнить нежелательными данными ваш карантинный регистр, а также кэш-память вашего хост-сервера. Стандарт = 2МБ.
-
-##### «quarantine_max_usage»
-- Максимально допустимая загрузка карантина. Когда общий объём файлов на карантине достигает этого значения, то начинают удаляться старые файлы пока не будет достигнуто необходимое значение. Эта команда важна тем, что затрудняет потенциальному агрессору наводнить нежелательными данными ваш карантинный регистр, а также кэш-память вашего хост-сервера. Стандарт = 64МБ.
-
-##### «quarantine_max_files»
-- Максимальное количество файлов, которые могут существовать в карантине. Когда новые файлы добавляются в карантин, если этот номер будет превышен, старые файлы будут удалены до тех пор, пока остаток больше не будет превышать этот номер. Стандарт = 100.
-
-##### «honeypot_mode»
-- При активированном Honeypot-модуса phpMussel изолирует каждый загружаемый файл без всякой проверки, не обращая внимание на сигнатуры. Эта функция предназначена исключительно для исследования вирусов и вредоносных программ. Мы рекомендуем использовать эту функцию phpMussel исключительно для «Honeypotting», а не для проверки загружаемых файлов или других целей. В стандартной комплектации эта функция деактивирована. False = Деактивировано [стандартное значение]; True = Активировано.
-
-##### «scan_cache_expiry»
+##### «scan_cache_expiry» `[int]`
 - Как долго должна phpMussel хранить результаты сканирования в буфере? Значение измеряется секундами. Стандартное значение 21600 секунд (6 часов). Значение равное 0 деактивирует временную память результатов сканирования.
 
-##### «disable_cli»
-- Деактивировать ли CLI-модус? Обычно CLI-модус активирован. Однако иногда он может отрицательно влиять на определённые тестовые программы (например на PHPUnit) и другие приложения, базирующиеся на CLI. Если CLI-модус нельзя деактивировать, то эту команду нужно игнорировать. False = CLI-модус активирован [Стандарт]; True = CLI-модус деактивирован.
-
-##### «disable_frontend»
-- Деактивировать доступ к фронтенд? Доступ к фронтенд может сделать phpMussel более управляемым, но также может быть потенциальный риск безопасности. Рекомендуется чтобы управлять phpMussel через бэкенд когда возможно, но доступ к фронтенд предоставлен для того когда это не возможно. Держите его деактивирована за исключением того если Вам это нужно. False = Активировать доступ к фронтенд; True = Деактивировать доступ к фронтенд [Стандарт].
-
-##### «max_login_attempts»
-- Максимальное количество попыток входа в систему фронтенда. Стандарт = 5.
-
-##### «frontend_log»
-- *v1: «FrontEndLog»*
-- Файл для запись всех попыток входа в фронтенд. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
-
-##### «disable_webfonts»
-- Отключить веб-шрифты? True = Да [Стандарт]; False = Нет.
-
-##### «maintenance_mode»
+##### «maintenance_mode» `[bool]`
 - Включить режим обслуживания? True = Да; False = Нет [Стандарт]. Отключает все, кроме фронтенд. Иногда полезно при обновлении CMS, фреймворков и т.д.
 
-##### «default_algo»
-- Определяет, какой алгоритм использовать для всех будущих паролей и сеансов. Опции: PASSWORD_DEFAULT (стандарт), PASSWORD_BCRYPT, PASSWORD_ARGON2I (требует PHP >= 7.2.0), PASSWORD_ARGON2ID (требует PHP >= 7.3.0).
-
-##### «statistics»
+##### «statistics» `[bool]`
 - Отслеживать статистику использования phpMussel? True = Да; False = Нет [Стандарт].
 
-##### «disabled_channels»
+##### «disabled_channels» `[string]`
 - Это можно использовать для предотвращения использования phpMussel определенных каналов при отправке запросов (например, при обновлении, при извлечении метаданных компонента, и т.д.).
 
+```
+disabled_channels
+├─GitHub ("GitHub")
+├─BitBucket ("BitBucket")
+├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
+├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+├─hpHosts_HTTPS ("hpHosts (HTTPS)")
+└─hpHosts_HTTP ("hpHosts (HTTP)")
+```
+
 #### «signatures» (Категория)
-Конфигурация подписями.
+Конфигурация для сигнатурей, файлов сигнатурей и т.д.
 
-##### «active»
-- *v1: «Active»*
-- Список активных файлов сигнатур, разделенных запятыми.
+##### «active» `[string]`
+- Список активных файлов сигнатур, разделенных запятыми. Заметка: Сначала необходимо установить файлы сигнатуры, прежде чем вы сможете их активировать. Чтобы тестовые файлы работали правильно, файлы сигнатуры должны быть установлены и активированы.
 
-*Заметка:*
-- *Сначала необходимо установить файлы сигнатуры, прежде чем вы сможете их активировать.*
-- *Чтобы тестовые файлы работали правильно, файлы сигнатуры должны быть установлены и активированы.*
-- *Значение этой директивы кэшируется. После его изменения, чтобы изменения вступили в силу, вам может потребоваться удалить кеш.*
-
-##### «fail_silently»
+##### «fail_silently» `[bool]`
 - Реакция phpMussel на отсутсвие сигнатурей или дефект в них. Когда `fail_silently` деактивирована, то в течение сканирования будет сообщаться об отсутствии сигнатуры или изъянах в ней. В случае если `fail_silently` активирована, то отсутствующие или дефектные сигнатуры будут игнорироваться, не сообщая о проблемах. Эта опция должна оставаться такой, если только Вы не ожидаете отказа системы или чего-то подобного. False = Деактивировано; True = Активировано [Стандарт].
 
-##### «fail_extensions_silently»
+##### «fail_extensions_silently» `[bool]`
 - Должна phpMussel сообщать, что отсутствует расширение файла? Если `fail_extensions_silently` деактивирована, то при сканировании придёт сообщение об отсутствии расширения файла, если же `fail_extensions_silently` активирована, то файлы с отсутствующим расширением будут игнорироваться, и при сканировании придёт сообщение, что с этими файлами всё в порядке. Деактивация или активация могут повысить Вашу безопасность, однако способствовать увеличению ложных сообщений. False = Деактивировано; True = Активировано [Стандарт].
 
-##### «detect_adware»
+##### «detect_adware» `[bool]`
 - Интерпретировать сигнатурей для обнаружить рекламное программное? False = Нет; True = Да [Стандарт].
 
-##### «detect_joke_hoax»
+##### «detect_joke_hoax» `[bool]`
 - Интерпретировать сигнатурей для обнаружить шутка вредоносные/вирусы программы? False = Нет; True = Да [Стандарт].
 
-##### «detect_pua_pup»
+##### «detect_pua_pup» `[bool]`
 - Интерпретировать сигнатурей для обнаружить PUAs/PUPs (потенциально нежелательных программы/приложений)? False = Нет; True = Да [Стандарт].
 
-##### «detect_packer_packed»
+##### «detect_packer_packed» `[bool]`
 - Интерпретировать сигнатурей для обнаружить упаковщики и упакованные данные? False = Нет; True = Да [Стандарт].
 
-##### «detect_shell»
+##### «detect_shell» `[bool]`
 - Интерпретировать сигнатурей для обнаружить веб-шелл скрипты? False = Нет; True = Да [Стандарт].
 
-##### «detect_deface»
+##### «detect_deface» `[bool]`
 - Интерпретировать сигнатурей для обнаружить дифейсмент/обезображивание программы? False = Нет; True = Да [Стандарт].
 
-##### «detect_encryption»
+##### «detect_encryption» `[bool]`
 - Должен ли phpMussel обнаруживать и блокировать зашифрованные файлы? False = Нет; True = Да [Стандарт].
 
-#### «files» (Категория)
-Файл обработки конфигурации.
-
-##### «max_uploads»
-- Максимально разрешённое количество проверяемых файлов в течение одной загрузки файлов. Если количество скачиваемых файлов превышает это значение, то, прежде чем сканирование прекратится, пользователь будет об этом проинформирован. Эта опция защищает от теоретической DDoS-атаки на вашу систему или CMS, тем что, пока агрессор перегружает phpMussel, останавливается PHP-процесс. Рекомендуется установить число 10. В зависимости от мощности вашего устройства Вы можете повышать или уменьшать это значение. Внимание! Это значение не учитывает содержание архивов.
-
-##### «filesize_limit»
-- Ограничение объема файла в килобайтах. 65536 = 64MB [Стандарт]; 0 = без ограничений (устанавливается для «серого листа»), принимается любое (положительное) цифровое значение. Это полезно, если PHP-конфигурация Вашей системы в каждом процессе ограничивает использование имеющейся памяти или ограничивает объём загружаемого файла.
-
-##### «filesize_response»
-- Обработка файлов, превышающих ограничение объёма файлов (если указано). False = Добавить к белому списку; True = Добавить к чёрному списку [Стандарт].
-
-##### «filetype_whitelist», «filetype_blacklist», «filetype_greylist»
-- Если ваша система позволяет или полностью запрещает загружать специальные файлы, то, отсортировав их на белый, чёрный или серый список, программа ускоряет процесс сканирования, пропуская эти типы файлов. Формат CSV (comma separated values, отделяемые запятой величины). Если Вы хотите подвергнуть проверке всё, то оставьте переменные величины пустыми, это деактивирует белый, чёрный и серый списки.
-- Логичная последовательность обработки:
-  - Файл, занесённый с белый список, сканирует не блокируя; файл из белого или серого списка не проверяет.
-  - Файл из чёрного списка не сканирует, но всё же блокирует; файл из серого списка не проверяет.
-  - Если файл относится к типу файлов, занесённых в серый список, то независимо от того пуст или заполнен серый список, программа будет сканировать файл как обычно и, базируясь на сканировании, определит должен ли он блокироваться или нет; если серый список заполнен и тип файла не значится в сером списке, то программа поступит с ним так, как будто он занесён в чёрный список, т.е. не сканирует его, но всё равно блокирует.
-
-##### «check_archives»
-- Нужно ли проверять содержимое архивов? False = Нет (никакой проверки); True = Да (будет проверяться) [Стандарт].
-
-Формат | Может читать | Может читать рекурсивно | Может обнаруживать шифрование | Заметки
----|---|---|---|---
-Zip | ✔️ | ✔️ | ✔️ | Требует [libzip](https://secure.php.net/manual/en/zip.requirements.php) (обычно в комплекте с PHP в любом случае). Также поддерживается (использует формат zip): ✔️ Обнаружение объекта OLE. ✔️ Обнаружение макросов Office.
-Tar | ✔️ | ✔️ | ➖ | Никаких особых требований. Формат не поддерживает шифрование.
-Rar | ✔️ | ✔️ | ✔️ | Требуется расширение [rar](https://pecl.php.net/package/rar) (когда это расширение не установлено, phpMussel не может читать файлы rar).
-Phar | ❌ | ❌ | ❌ | Поддержка чтения файлов phar была удалена в v1.6.0, и больше не будет добавлена из-за проблем с безопасностью.
-
-*Если кто-то может и хочет помочь реализовать поддержку чтения других форматов архивов, такая помощь будет приветствоваться.*
-
-##### «filesize_archives»
-- Должен ли объём файла чёрного/белого списка быть перенесён на содержание архива? False = Нет (всё поместить в серый лист); True = Да [Стандарт].
-
-##### «filetype_archives»
-- Должен ли тип файла чёрного/белого списка быть перенесён на содержание архива? False = Нет (всё поместить в серый лист) [Стандарт]; True = Да.
-
-##### «max_recursion»
-- Максимальная граница рекурсионной глубины архивов. Стандарт = 3.
-
-##### «block_encrypted_archives»
-- Нужно ли узнавать и блокировать зашифрованные архивы? phpMussel не может сканировать зашифрованные архивы. Не исключена вероятность того, что кодировка архива используется агрессором, чтобы избежать phpMussel, антивирусных сканеров и других подобных защитных программ. Умение phpMussel блокировать зашифрованные архиВы может быть поможет уменьшить риски, связанные с этой возможностью. False = Нет; True = Да [Стандарт].
-
-##### «max_files_in_archives»
-- Максимальное количество файлов для сканирования из архивов перед прекращением сканирования. Стандарт = 0 (не максимум).
-
-#### «attack_specific» (Категория)
-Атака конкретных директив.
-
-Определение атаки хамелеона: False = Деактивировано; True = Активировано.
-
-##### «chameleon_from_php»
-- Поиск PHP-заголовков в файлах, которые не были опознаны ни как PHP-файлы, ни как архивы.
-
-##### "can_contain_php_file_extensions"
-- Список расширений файлов позволяет содержать PHP-код, разделенный запятыми. Если обнаружение атаки хамелеона PHP включено, файлы, содержащие PHP-код, которые имеют расширения, которые не входят в этот список, будут обнаружены как атаки хамелеона PHP.
-
-##### «chameleon_from_exe»
-- Поиск способных загрузиться заголовков в файлах, которые нельзя ни загрузить, ни определить как архив; поиск способных загрузиться файлов, чьи заголовки не соответствуют требованиям.
-
-##### «chameleon_to_archive»
-- Обнаружение неправильных заголовков в архивах и сжатых файлах. Поддерживаются: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP.
-
-##### «chameleon_to_doc»
-- Поиск офисных документов с некорректными заголовками (поддерживаются: DOC, DOT, PPS, PPT, XLA, XLS, WIZ).
-
-##### «chameleon_to_img»
-- Поиск графиков с некорректными заголовками (поддерживаются: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP).
-
-##### «chameleon_to_pdf»
-- Поиск PDF-файлов с некорректными заголовками.
-
-##### «archive_file_extensions»
-- Опознаёт расширение архива или файла (CSV-формат; включать или удалять только при проблемах; удаление без нужны может вызвать для архива сигнал тревоги; включение без нужды может внести в белый список то, что раньше определялось как возможная атака; изменяйте список очень осторожно; помните, что программа не влияет на функцию архива и не может анализировать содержание). Этот список содержит форматы архивов, наиболее часто используемых большинством систем и CMS, однако он не завершён, но сделано это намеренно.
-
-##### «block_control_characters»
-- Должны ли файлы, содержащие командные сигналы (отличные от Newline/конец строки), быть блокированными (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`)? При загрузке только «голого» текста Вы можете активировать эту опцию, чтобы усилить защиту своей системы. Но когда она активирована, а Вы хотите загрузить не только текст, то программа подаст Вам ложный сигнал тревоги. False = Не блокировать [Стандарт]; True = Блокировать.
-
-##### «corrupted_exe»
-- Дефектные файлы и разобрать ошибки. False = Игнорировать; True = Блокировать [Стандарт]. Должны ли потенциально дефектные файлы при загрузке проверяться и блокироваться? В случае когда определённые аспекты PE-файла повреждены или могут быть неправильно обработаны, то часто (однако не всегда) они идентифицируются как инфицированные файлы. Многие антивирусные программы используют различные методы по опознанию вирусов в таких файлах. Программисты вирусов, зная об этом, прилагают много усилий к тому, чтобы вирус остался неопознанным.
-
-##### «decode_threshold»
-- Порог числа исходных данных, которые должны узнаваться командой декодирования (если во время процесса сканирования не возникнут ощутимые проблемы производительности). Стандартная установка 512КБ. Ноль или нулевое значение деактивирует ограничение (все такие ограничения нужно устранять, ориентируясь на величину файла).
-
-##### «scannable_threshold»
-- Порог числа исходных данных, которые phpMussel должна прочитать и просканировать (если во время процесса сканирования возникнут ощутимые проблемы производительности). Стандартная установка 32МБ. Ноль или нулевое значение деактивирует ограничения. Основное правило: это значение должно быть меньше среднего объёма загружаемых файлов, которые Вы хотите скачать на свой сервер или веб-страницу, не больше нормы filesize_limit, и не превышать пятой части общей PHP-памяти `php.ini` файлов конфигурации. Эти правила не дают phpMussel использовать слишком большой объём памяти (что препятствовало бы phpMussel успешно сканировать файлы, превышающие определенную величину).
-
-##### «allow_leading_trailing_dots»
-- Разрешить точки в начале и конце имен файлов? Иногда это может быть использовано для скрытия файлов или для обмана некоторых систем для разрешения обхода каталога. False = Не разрешать [Стандарт]. True = Разрешать.
-
-##### «block_macros»
-- Попробуйте заблокировать любые файлы, содержащие макросы? Некоторые типы документов и таблиц могут содержать исполняемые макросы, что создает опасный потенциальный вредоносный вектор. False = Не блокировать [Стандарт]; True = Блокировать.
-
-#### «compatibility» (Категория)
-ДиректиВы совместимости для phpMussel.
-
-##### «ignore_upload_errors»
-- Как правило, эта директива находится в положении False/Деактивировано, если только нет потребности в ней для правильного функционирования phpMussel на вашей системе. При находящейся в положении False/Деактивировано директиве phpMussel, опознав нѐкий элемент в `$_FILES` array(), начинает проверять файлы, представляющие этот элемент. В случае если файлы окажутся пустыми, phpMussel подаёт сигнал тревоги. Это нормальная реакция phpMussel. Однако некоторые CMS нормальными считают пустые элементы в `$_FILES`, и сигнал тревоги подаётся в случае отсутствия пустых элементов. В этой ситуации возникает конфликт между нормальным поведением phpMussel и CMS. Если это касается вашей CMS, то Вам необходимо переключить опцию в позицию True/Активировано, тогда phpMussel не будет искать пустые элементы, а найдя будет их игнорировать, не сообщая об ошибке. Сигнал запроса страницы, таким образом, может продолжаться. False = Деактивировано; True = Активировано.
-
-##### «only_allow_images»
-- Когда установлено в true, любые файлы, обнаруженные сканером, которые не являются изображениями, будут помечены немедленно, без сканирования. Это может помочь сократить время, необходимое для завершения сканирования в некоторых случаях. Стандартное значение false.
-
-#### «heuristic» (Категория)
-Эвристические-директиВы для phpMussel.
-
-##### «threshold»
+##### «heuristic_threshold» `[int]`
 - phpMussel имеет определённые сигнатуры, с помощью которых она идентифицирует подозрительные и потенциально вредоносные свойства загружаемых файлов, не проверяя при этом сами файлы на вредоносность. При помощи этой директиВы phpMussel определяет степень опасности подозрительных и потенциально вредоносных файлов, прежде чем назвать их вредоносными. В этой связи, определение степени опасности = это общее количество подозрительных и потенциально вредоносных свойств. Стандартное значение равняется 3. Значение меньше 3, как правило, ведёт к увеличению ложных сигналов тревоги и опознанию большего числа вредных файлов; значение больше 3 вызывает меньшее количество ложных сигналов тревоги и метиться как вредные будет незначительное количество файлов. Оставив это значение таким, Вы должны осознавать проблемы, которые будут вызваны этой установкой.
 
+#### «files» (Категория)
+Специфика работы с файлами при сканировании.
+
+##### «filesize_limit» `[string]`
+- Ограничение объема файла в килобайтах. 65536 = 64MB [Стандарт]; 0 = без ограничений (устанавливается для «серого листа»), принимается любое (положительное) цифровое значение. Это полезно, если PHP-конфигурация Вашей системы в каждом процессе ограничивает использование имеющейся памяти или ограничивает объём загружаемого файла.
+
+##### «filesize_response» `[bool]`
+- Обработка файлов, превышающих ограничение объёма файлов (если указано). False = Добавить к белому списку; True = Добавить к чёрному списку [Стандарт].
+
+##### «filetype_whitelist» `[string]`
+- Если ваша система позволяет или полностью запрещает загружать специальные файлы, то, отсортировав их на белый, чёрный или серый список, программа ускоряет процесс сканирования, пропуская эти типы файлов. Формат CSV (comma separated values, отделяемые запятой величины). Если Вы хотите подвергнуть проверке всё, то оставьте переменные величины пустыми, это деактивирует белый, чёрный и серый списки. Логичная последовательность обработки: Файл, занесённый с белый список, сканирует не блокируя; файл из белого или серого списка не проверяет. Файл из чёрного списка не сканирует, но всё же блокирует; файл из серого списка не проверяет. Если файл относится к типу файлов, занесённых в серый список, то независимо от того пуст или заполнен серый список, программа будет сканировать файл как обычно и, базируясь на сканировании, определит должен ли он блокироваться или нет; если серый список заполнен и тип файла не значится в сером списке, то программа поступит с ним так, как будто он занесён в чёрный список, т.е. не сканирует его, но всё равно блокирует. Белый список:
+
+##### «filetype_blacklist» `[string]`
+- Черный список:
+
+##### «filetype_greylist» `[string]`
+- Серый список:
+
+##### «check_archives» `[bool]`
+- Нужно ли проверять содержимое архивов? False = Нет (никакой проверки); True = Да (будет проверяться) [Стандарт]. Поддерживаются: Zip (требует libzip), Tar, Rar (требует расширения rar).
+
+##### «filesize_archives» `[bool]`
+- Должен ли объём файла чёрного/белого списка быть перенесён на содержание архива? False = Нет (всё поместить в серый лист); True = Да [Стандарт].
+
+##### «filetype_archives» `[bool]`
+- Должен ли тип файла чёрного/белого списка быть перенесён на содержание архива? False = Нет (всё поместить в серый лист) [Стандарт]; True = Да.
+
+##### «max_recursion» `[int]`
+- Максимальная граница рекурсионной глубины архивов. Стандарт = 3.
+
+##### «block_encrypted_archives» `[bool]`
+- Нужно ли узнавать и блокировать зашифрованные архивы? phpMussel не может сканировать зашифрованные архивы. Не исключена вероятность того, что кодировка архива используется агрессором, чтобы избежать phpMussel, антивирусных сканеров и других подобных защитных программ. Умение phpMussel блокировать зашифрованные архиВы может быть поможет уменьшить риски, связанные с этой возможностью. False = Нет; True = Да [Стандарт].
+
+##### «max_files_in_archives» `[int]`
+- Максимальное количество файлов для сканирования из архивов перед прекращением сканирования. Стандарт = 0 (не максимум).
+
+##### «chameleon_from_php» `[bool]`
+- Поиск PHP-заголовков в файлах, которые не были опознаны ни как PHP-файлы, ни как архивы. False = Деактивировано; True = Активировано.
+
+##### «can_contain_php_file_extensions» `[string]`
+- Список расширений файлов позволяет содержать PHP-код, разделенный запятыми. Если обнаружение атаки хамелеона PHP включено, файлы, содержащие PHP-код, которые имеют расширения, которые не входят в этот список, будут обнаружены как атаки хамелеона PHP.
+
+##### «chameleon_from_exe» `[bool]`
+- Поиск способных загрузиться заголовков в файлах, которые нельзя ни загрузить, ни определить как архив; поиск способных загрузиться файлов, чьи заголовки не соответствуют требованиям. False = Деактивировано; True = Активировано.
+
+##### «chameleon_to_archive» `[bool]`
+- Обнаружение неправильных заголовков в архивах и сжатых файлах. Поддерживаются: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Деактивировано; True = Активировано.
+
+##### «chameleon_to_doc» `[bool]`
+- Поиск офисных документов с некорректными заголовками (поддерживаются: DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Деактивировано; True = Активировано.
+
+##### «chameleon_to_img» `[bool]`
+- Поиск графиков с некорректными заголовками (поддерживаются: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Деактивировано; True = Активировано.
+
+##### «chameleon_to_pdf» `[bool]`
+- Поиск PDF-файлов с некорректными заголовками. False = Деактивировано; True = Активировано.
+
+##### «archive_file_extensions» `[string]`
+- Опознаёт расширение архива или файла (CSV-формат; включать или удалять только при проблемах; удаление без нужны может вызвать для архива сигнал тревоги; включение без нужды может внести в белый список то, что раньше определялось как возможная атака; изменяйте список очень осторожно; помните, что программа не влияет на функцию архива и не может анализировать содержание). Этот список содержит форматы архивов, наиболее часто используемых большинством систем и CMS, однако он не завершён, но сделано это намеренно.
+
+##### «block_control_characters» `[bool]`
+- Должны ли файлы, содержащие командные сигналы (отличные от Newline/конец строки), быть блокированными (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`)? При загрузке только «голого» текста Вы можете активировать эту опцию, чтобы усилить защиту своей системы. Но когда она активирована, а Вы хотите загрузить не только текст, то программа подаст вам ложный сигнал тревоги. False = Не блокировать [Стандарт]; True = Блокировать.
+
+##### «corrupted_exe» `[bool]`
+- Дефектные файлы и разобрать ошибки. False = Игнорировать; True = Блокировать [Стандарт]. Должны ли потенциально дефектные файлы при загрузке проверяться и блокироваться? В случае когда определённые аспекты PE-файла повреждены или могут быть неправильно обработаны, то часто (однако не всегда) они идентифицируются как инфицированные файлы. Многие антивирусные программы используют различные методы по опознанию вирусов в таких файлах. Программисты вирусов, зная об этом, прилагают много усилий к тому, чтобы вирус остался неопознанным.
+
+##### «decode_threshold» `[string]`
+- Порог числа исходных данных, которые должны узнаваться командой декодирования (если во время процесса сканирования не возникнут ощутимые проблемы производительности). Стандартная установка 512КБ. Ноль или нулевое значение деактивирует ограничение (все такие ограничения нужно устранять, ориентируясь на величину файла).
+
+##### «scannable_threshold» `[string]`
+- Порог числа исходных данных, которые phpMussel должна прочитать и просканировать (если во время процесса сканирования возникнут ощутимые проблемы производительности). Стандартная установка 32МБ. Ноль или нулевое значение деактивирует ограничения. Основное правило: это значение должно быть меньше среднего объёма загружаемых файлов, которые Вы хотите скачать на свой сервер или веб-страницу, не больше нормы filesize_limit, и не превышать пятой части общей PHP-памяти «php.ini» файлов конфигурации. Эти правила не дают phpMussel использовать слишком большой объём памяти (что препятствовало бы phpMussel успешно сканировать файлы, превышающие определенную величину).
+
+##### «allow_leading_trailing_dots» `[bool]`
+- Разрешить точки в начале и конце имен файлов? Иногда это может быть использовано для скрытия файлов или для обмана некоторых систем для разрешения обхода каталога. False = Не разрешать [Стандарт]. True = Разрешать.
+
+##### «block_macros» `[bool]`
+- Попробуйте заблокировать любые файлы, содержащие макросы? Некоторые типы документов и таблиц могут содержать исполняемые макросы, что создает опасный потенциальный вредоносный вектор. False = Не блокировать [Стандарт]; True = Блокировать.
+
+##### «only_allow_images» `[bool]`
+- Когда установлено в true, любые файлы, обнаруженные сканером, которые не являются изображениями, будут помечены немедленно, без сканирования. Это может помочь сократить время, необходимое для завершения сканирования в некоторых случаях. Стандартное значение false.
+
+#### «quarantine» (Категория)
+Конфигурация для карантина.
+
+##### «quarantine_key» `[string]`
+- phpMussel может изолировать загруженные файлы на карантин, если это будет Вам нужно. Эту функцию должны деактивировать те пользователи, которые хотят лишь защитить свои интернет-сайты или окружение своего хоста, но дальнейший контроль выделенных файлов им не интересен. Активировать эту функцию должны те пользователи, которые хотят анализировать изолированные файлы на вредоносность или тому подобное. Изоляция выделенных файлов иногда может использоваться для поиска ошибки при частом появлении сигнала тревоги. Чтобы деактивировать функцию карантина, не заполняйте `quarantine_key`, и удалите содержание строки, если она заполнена. Для активирования функции карантина задайте значение. `quarantine_key` = Это важный элемент карантинной функции, способная защитить функцию карантина от атак вредоносных программ, и предотвратить запуск удерживаемых на карантине файлов. Значение `quarantine_key` Вы должны хранить втайне от всех, как и пароли. Оптимально в сочетании с `delete_on_sight`.
+
+##### «quarantine_max_filesize» `[string]`
+- Максимально допустимый объём файлов, которые могут быть изолированы в карантине. В карантинном регистре НЕ будет сохраняться файлы, объём которых больше указанного значения. Эта команда важна тем, что затрудняет потенциальному агрессору наводнить нежелательными данными ваш карантинный регистр, а также кэш-память вашего хост-сервера. Стандарт = 2МБ.
+
+##### «quarantine_max_usage» `[string]`
+- Максимально допустимая загрузка карантина. Когда общий объём файлов на карантине достигает этого значения, то начинают удаляться старые файлы пока не будет достигнуто необходимое значение. Эта команда важна тем, что затрудняет потенциальному агрессору наводнить нежелательными данными ваш карантинный регистр, а также кэш-память вашего хост-сервера. Стандарт = 64МБ.
+
+##### «quarantine_max_files» `[int]`
+- Максимальное количество файлов, которые могут существовать в карантине. Когда новые файлы добавляются в карантин, если этот номер будет превышен, старые файлы будут удалены до тех пор, пока остаток больше не будет превышать этот номер. Стандарт = 100.
+
 #### «virustotal» (Категория)
-VirusTotal.com директивы.
+Конфигурация для интеграции Virus Total.
 
-##### «vt_public_api_key»
-- Для большей защиты от вирусов, троянов, вредоносных программ и других угроз phpMussel может сканировать файлы с Virus Total API. Стандартная установка = опция Virus Total API деактивирована. Для активизации нужно воспользоваться API-ключом от Virus Total. Эта опция даёт много преимуществ, поэтому рекомендуется её активировать. Важно осознавать: для использования Virus Total API, необходимо согласиться со всеми условиями пользования и соблюдать все директивы, описанные в документах Virus Total! Эту функцию интеграции нельзя применять КРОМЕ:
-  - Вы прочитали инструкцию по использованию Virus Total и API и согласен с ней. Инструкцию по использованию Virus Total и API можно найти [Здесь](https://www.virustotal.com/en/about/terms-of-service/).
-  - Как минимум, Вы прочитали предисловие к Virus Total Public API документации и понял о чём речь (всё после „VirusTotal Public API v2.0“ но до „Contents“). Документацию Virus Total публичная API можно найти [Здесь](https://www.virustotal.com/en/documentation/public-api/).
+##### «vt_public_api_key» `[string]`
+- Для большей защиты от вирусов, троянов, вредоносных программ и других угроз phpMussel может сканировать файлы с Virus Total API. Стандартная установка = опция Virus Total API деактивирована. Для активизации нужно воспользоваться API-ключом от Virus Total. Эта опция даёт много преимуществ, поэтому рекомендуется её активировать. Важно осознавать: для использования Virus Total API, необходимо согласиться со всеми условиями пользования и соблюдать все директивы, описанные в документах Virus Total! Эту функцию интеграции нельзя применять КРОМЕ: Вы прочитали инструкцию по использованию Virus Total и API и согласен с ней. Как минимум, Вы прочитали предисловие к Virus Total Public API документации и понял о чём речь (всё после „Virus Total Public API v2.0“ но до „Contents“).
 
-Примечание: Когда сканирование файлов с Virus Total API деактивировано, то нет нужды проверять директиВы этой категории (`virustotal`), потому что нельзя проверить то, что деактивировано. Для получения Virus Total API ключа, нужно пойти на их веб-страницу и вверху справа найти ссылку «Вступить в сообщество». Указав все требуемые данные, кликните в «Зарегистрироваться». Выполнив все указания, Вы получите открытые API-ключи, скопируйте их и введите API-ключ в `vt_public_api_key` директиву `config.ini` файла конфигурации.
+Смотрите также:
+- [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
+- [Getting started](https://developers.virustotal.com/reference)
 
-##### «vt_suspicion_level»
+##### «vt_suspicion_level» `[int]`
 - Допуская файлы к сканированию Virus Total API, phpMussel будет ограничиваться только теми файлами, которые рассматриваются «опасными». Опционально Вы можете регулировать эти ограничения, изменив значение `vt_suspicion_level` директивы.
-- `0`: Файлы будут рассматриваться подозрительными только тогда, когда через сканирование собственными подписями phpMussel присвоит им эвристическую степень опасности. Можно считать, что Virus Total API используется как второе мнение в случае, когда phpMussel подозревает, что файл повреждён, и нельзя полностью исключить, что он потенциально безвреден. Обычно такой файл не будет блокироваться или метиться как вредный.
-- `1`: Файлы будут восприниматься подозрительными, когда через сканирование собственными подписями phpMussel присвоит им эвристическую степень опасности; когда они являются файлами, которые можно загружать, такие как PE файлы, Mach-O файлы, ELF/Linux файлы и др., или имеют формат макрос, DOC/DOCX, файлы архивов как RAR, ZIP и др. Это нормальная и рекомендуемая степень подозрительности. В случае когда предположительно опасный файл phpMussel не признаёт вредоносным или противоречивым и, следовательно, не блокирует его и не маркирует как опасный, тогда Virus Total API будет использоваться для второго мнения.
-- `2`: Virus Total API должна просканировать все файлы, так как все они будет рассматриваться как подозрительные. Я не советую применять эту степень подозрительности, потому что при ней API-лимит достигается намного быстрее, чем обычно. Правда, есть определённые обстоятельства, когда эта степень подозрительности была бы уместной, например, веб-мастер или хост-мастер мало доверяют загружаемому содержанию пользователя. При этой степени подозрительности все файлы, которые обычно не блокируются и не маркируются как вредоносные, будут сканироваться Virus Total API. Помни! phpMussel не будет использовать Virus Total API, если достигнут API-лимит, не зависимо от степени подозрительности. API-лимит, скорее всего, будет достигнут намного быстрее, если использовать эту степень подозрительности.
 
-Примечание: Независимо от степени подозрительности файлы находящиеся в белом или чёрном списке будут проверятся не phpMussel, а с помощью Virus Total API. Так как эти файлы, просканированные по-другому, перед этим уже были задекларированы как вредные или безвредные, то дополнительное сканирование не требуется. Совместное сканирование файлов phpMussel и Virus Total API предусмотрено для увеличения доверия независимо от ситуации, когда phpMussel не доверяет сам себе в определении вреден ли файл или безвреден.
-
-##### «vt_weighting»
+##### «vt_weighting» `[int]`
 - Должна phpMussel использовать результаты сканирования с Virus Total API в качестве опознания или как определение степени доверия? Существование этой директиВы объясняется тем, что сканирование файла со многими ядрами должно быть более тщательным (как это делает Virus Total) и, следовательно, будет найдено большее количество вредоносных файлов, что может привести к большему количеству ложных тревог. Есть ситуации, когда результаты сканирования бывают выше степени доверия, и тогда применяется однозначный результат. Применение значения 0 означает, что результаты сканирования будут применяться как опознание. В этом случае phpMussel будет рассматривать файл как вредоносный, если какие-то используемые в сканировании ядра файлов Virus Total обозначил опасными. При установке другого значения, результаты сканирования с Virus Total API будут использоваться как определение степени доверия. Количество используемых Virus Total ядер, обозначающих файл как вредоносный, будет служить степенью доверия (или определением степени доверия). Используемое значение будет определять, какую степень доверия (минимальную или требуемую) примет phpMussel во внимание, чтобы признать сканируемый файл вредоносным или безвредным. Стандартное значение = 0.
 
-##### «vt_quota_rate» и «vt_quota_time»
+##### «vt_quota_rate» `[int]`
 - Согласно Virus Total API-документации «Лимит времени, за которое должны обрабатываться 4 любых запроса, составляет 1 минуту. Используя Honeyclient, Honeypot или какую-либо другую активную систему, которая содействует VirusTotal, и не только вызывает сообщения, то Вы имеете право на более высокий лимит времени». phpMussel будет строго придерживаться этого лимита. Для его повышения даны эти две директивы, указывающие phpMussel на какой лимит она должна ориентироваться. Рекомендуется без необходимости это значение не повышать. С возникновением проблем по достижению лимита, уменьшение этого значения должно немного помочь. Твой лимит будет установлен как `vt_quota_rate` запросы любого типа в каждом `vt_quota_time` минутном промежутке времени.
 
+##### «vt_quota_time» `[int]`
+- (См. Описание выше).
+
 #### «urlscanner» (Категория)
-В phpMussel есть URL сканер, способен обнаружить вредоносные URL-адреса изнутри данных или файлов отсканированных.
+Конфигурация для URL сканер.
 
-Примечание: Если URL сканер деактивирован, то нет нужды проверять директиВы этой категории (`urlscanner`).
+##### «lookup_hphosts» `[bool]`
+- Активировать hpHosts API интеграция если `true`.
 
-URL сканер API конфигурация.
+Смотрите также:
+- [hosts-file.net](https://hosts-file.net/)
 
-##### «lookup_hphosts»
-- Активировать [hpHosts](https://hosts-file.net/) API интеграция если `true`. hpHosts не нужен API ключ для API интеграция.
+##### «google_api_key» `[string]`
+- Активировать Google Safe Browsing API интеграция если необходимое API ключ вводится.
 
-##### «google_api_key»
-- Активировать Google Safe Browsing API интеграция если необходимое API ключ вводится. Google Safe Browsing API нужен API ключ для API интеграция, Вы можете получить [Здесь](https://console.developers.google.com/).
-- Примечание: cURL расширение требуется для того, чтобы использовать эту функцию.
+Смотрите также:
+- [Google API Console](https://console.developers.google.com/)
 
-##### «maximum_api_lookups»
+##### «maximum_api_lookups» `[int]`
 - Максимально допустимая количество API звонков, которые проводятся в каждом сессии сканирования. Потому каждый дополнительный API запрос, увеличивает время для сессии сканирования, Вы мог бы хотите, чтобы указать предел при определенных обстоятельствах чтобы ускорить процесс сканирования по всему. Если 0 установлен, нет предела применяется. Стандарт, значение установленов 10.
 
-##### «maximum_api_lookups_response»
+##### «maximum_api_lookups_response» `[bool]`
 - Что должно произойти, если максимальное число допустимых API запросов будет достигнута? False = Не делайте ничего (Продолжить обработку) [Стандарт]; True = Отметить/блокировки файла.
 
-##### «cache_time»
+##### «cache_time» `[int]`
 - Как долго (в секундах) результаты API вызовов, которые должны быть в кэше? Стандарт 3600 секунд (1 час).
 
 #### «legal» (Категория)
-Конфигурация, относящаяся к требованиям законодательства.
+Конфигурация для юридических требований.
 
-*Для получения дополнительной информации о правовых требованиях и о том, как это может повлиять на ваши требования к конфигурации, обратитесь к разделу «[ЛЕГАЛЬНАЯ ИНФОРМАЦИЯ](#SECTION11)» документации.*
-
-##### «pseudonymise_ip_addresses»
+##### «pseudonymise_ip_addresses» `[bool]`
 - Псевдонимный IP-адреса при записи файлов журнала? True = Да [Стандарт]; False = Нет.
 
-##### «privacy_policy»
+##### «privacy_policy» `[string]`
 - Адрес соответствующей политики конфиденциальности, отображаемый в нижнем колонтитуле любых сгенерированных страниц. Укажите URL-адрес, или оставьте пустым для отключения.
 
-#### «template_data» (Категория)
-Директивы/Переменные для шаблоны и темы.
-
-Шаблонный данных относится к HTML-вывода, используемый для генерации «Загрузить Отказано» сообщения отображается для пользователей когда/на загрузки/уплоад файлов блокируются. Если Вы используете персонализированные темы для phpMussel, HTML-выход получены из `template_custom.html` файл, а в противном случае, HTML-выход получены из `template.html` файл. Переменные, записанные в этом разделе файл конфигурации обрабатываются на HTML-выход в виде заменой любой имена переменных в окружении фигурных скобках найденный в HTML-вывода с соответствующей переменных данных. Например, где `foo="bar"`, любое вхождение `<p>{foo}</p>` найденный в HTML-вывода станет `<p>bar</p>`.
-
-##### «theme»
-- Стандартная тема для phpMussel.
-
-##### «magnification»
-- *v1: «Magnification»*
-- Увеличение шрифта. Стандарт = 1.
-
-##### «css_url»
-- Шаблонный файл для персонализированные темы использует внешние CSS свойства и шаблонный файл для стандарт тема использует внутренние CSS свойства. Поручить phpMussel использовать персонализированные темы шаблонный файл, указать адрес публичного HTTP в CSS файлов вашей темы используя `css_url` переменная. Если оставить это переменная пустым, phpMussel будет использовать шаблонный файл для стандарт тема.
-
-#### «PHPMailer» (Категория)
-Конфигурация PHPMailer.
-
-В настоящее время phpMussel использует PHPMailer только для двухфакторной аутентификации на фронтенд. Если вы не используете фронтенд, или если вы не используете двухфакторную аутентификацию для фронтенд, вы можете игнорировать эти директивы.
-
-##### «event_log»
-- *v1: «EventLog»*
-- Файл для регистрации всех событий в отношении PHPMailer. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
-
-##### «skip_auth_process»
-- *v1: «SkipAuthProcess»*
-- Установка этой директивы на `true` указывает PHPMailer пропустить обычный процесс проверки подлинности, который обычно возникает при отправке электронной почты через SMTP. Этого следует избегать, поскольку пропуская этот процесс может выдать исходящую электронную почту для атак MITM, но может потребоваться в тех случаях, когда этот процесс препятствует подключению PHPMailer к SMTP-серверу.
-
-##### «enable_two_factor»
-- *v1: «Enable2FA»*
-- Эта директива включает/отключает использование 2FA для фронтенд счетов.
-
-##### «host»
-- *v1: «Host»*
-- Хост SMTP используется для исходящей электронной почты.
-
-##### «port»
-- *v1: «Port»*
-- Номер порта для исходящей электронной почты. Стандарт = 587.
-
-##### «smtp_secure»
-- *v1: «SMTPSecure»*
-- Протокол для при отправке электронной почты через SMTP (TLS или SSL).
-
-##### «smtp_auth»
-- *v1: «SMTPAuth»*
-- Эта директива включает/отключает аутентификацию сессия SMTP (обычно ее следует оставить в покое).
-
-##### «username»
-- *v1: «Username»*
-- Имя пользователя для отправки электронной почты через SMTP.
-
-##### «password»
-- *v1: «Password»*
-- Пароль для отправки электронной почты через SMTP.
-
-##### «set_from_address»
-- *v1: «setFromAddress»*
-- Адрес отправителя для отправки электронной почты через SMTP.
-
-##### «set_from_name»
-- *v1: «setFromName»*
-- Имя отправителя для отправки электронной почты через SMTP.
-
-##### «add_reply_to_address»
-- *v1: «addReplyToAddress»*
-- Адрес ответа для отправки электронной почты через SMTP.
-
-##### «add_reply_to_name»
-- *v1: «addReplyToName»*
-- Имя ответа для отправки электронной почты через SMTP.
-
 #### «supplementary_cache_options» (Категория)
-Дополнительные параметры кеша.
+Дополнительные параметры кэша.
 
-##### «enable_apcu»
+##### «enable_apcu» `[bool]`
 - Указывает, использовать ли APCu для кэширования. Стандарт = False.
 
-##### «enable_memcached»
+##### «enable_memcached» `[bool]`
 - Указывает, использовать ли Memcached для кэширования. Стандарт = False.
 
-##### «enable_redis»
+##### «enable_redis» `[bool]`
 - Указывает, использовать ли Redis для кэширования. Стандарт = False.
 
-##### «enable_pdo»
+##### «enable_pdo» `[bool]`
 - Указывает, использовать ли PDO для кэширования. Стандарт = False.
 
-##### «memcached_host»
+##### «memcached_host» `[string]`
 - Значение хоста Memcached. Стандарт = «localhost».
 
-##### «memcached_port»
+##### «memcached_port» `[int]`
 - Значение порта Memcached. Стандарт = «11211».
 
-##### «redis_host»
+##### «redis_host» `[string]`
 - Значение хоста Redis. Стандарт = «localhost».
 
-##### «redis_port»
+##### «redis_port» `[int]`
 - Значение порта Redis. Стандарт = «6379».
 
-##### «redis_timeout»
+##### «redis_timeout» `[float]`
 - Значение тайм-аута Redis. Стандарт = «2.5».
 
-##### «pdo_dsn»
-- Значение DSN PDO. Стандарт = «`mysql:dbname=phpmussel;host=localhost;port=3306`».
+##### «pdo_dsn» `[string]`
+- Значение DSN PDO. Стандарт = «mysql:dbname=phpmussel;host=localhost;port=3306».
 
-*Смотрите также: [Что такое «PDO DSN»? Как я могу использовать PDO с phpMussel?](#HOW_TO_USE_PDO)*
-
-##### «pdo_username»
+##### «pdo_username» `[string]`
 - Имя пользователя PDO.
 
-##### «pdo_password»
+##### «pdo_password» `[string]`
 - Пароль PDO.
+
+#### «frontend» (Категория)
+Конфигурация для фронтенда.
+
+##### «frontend_log» `[string]`
+- Файл для запись всех попыток входа в фронтенд. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
+
+##### «max_login_attempts» `[int]`
+- Максимальное количество попыток входа в систему фронтенда. Стандарт = 5.
+
+##### «numbers» `[string]`
+- Как Вы предпочитаете номера для отображения? Выберите пример, который выглядит наиболее правильным для вас.
+
+```
+numbers
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Latin-1 ("1,234,567.89")
+├─Latin-2 ("1 234 567.89")
+├─Latin-3 ("1.234.567,89")
+├─Latin-4 ("1 234 567,89")
+├─Latin-5 ("1,234,567·89")
+├─China-1 ("123,4567.89")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
+├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+└─Tibetan ("༡༢༣༤༥༦༧.༨༩")
+```
+
+##### «default_algo» `[string]`
+- Определяет, какой алгоритм использовать для всех будущих паролей и сеансов. Опции: PASSWORD_DEFAULT (стандарт), PASSWORD_BCRYPT, PASSWORD_ARGON2I (требует PHP >= 7.2.0), PASSWORD_ARGON2ID (требует PHP >= 7.3.0).
+
+```
+default_algo
+├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
+├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+└─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
+```
+
+##### «theme» `[string]`
+- Эстетика использования для фронтенда phpMussel.
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…Другие
+```
+
+##### «magnification» `[float]`
+- Увеличение шрифта. Стандарт = 1.
+
+#### «web» (Категория)
+Конфигурация для обработчика загрузки.
+
+##### «uploads_log» `[string]`
+- Где все заблокированные загрузки должны быть зарегистрированы. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
+
+##### «forbid_on_block» `[bool]`
+- Возвращённый 403-HTTP-заголовок при заблокированной загрузке данных. False = Нет (200); True = Да (403) [Стандарт].
+
+##### «max_uploads» `[int]`
+- Максимально разрешённое количество проверяемых файлов в течение одной загрузки файлов. Если количество скачиваемых файлов превышает это значение, то, прежде чем сканирование прекратится, пользователь будет об этом проинформирован. Эта опция защищает от теоретической DDoS-атаки на вашу систему или CMS, тем что, пока агрессор перегружает phpMussel, останавливается PHP-процесс. Рекомендуется установить число 10. В зависимости от мощности вашего устройства Вы можете повышать или уменьшать это значение. Внимание! Это значение не учитывает содержание архивов.
+
+##### «ignore_upload_errors» `[bool]`
+- Как правило, эта директива находится в положении False/Деактивировано, если только нет потребности в ней для правильного функционирования phpMussel на вашей системе. При находящейся в положении False/Деактивировано директиве phpMussel, опознав нѐкий элемент в `$_FILES` array(), начинает проверять файлы, представляющие этот элемент. В случае если файлы окажутся пустыми, phpMussel подаёт сигнал тревоги. Это нормальная реакция phpMussel. Однако некоторые CMS нормальными считают пустые элементы в `$_FILES`, и сигнал тревоги подаётся в случае отсутствия пустых элементов. В этой ситуации возникает конфликт между нормальным поведением phpMussel и CMS. Если это касается вашей CMS, то вам необходимо переключить опцию в позицию True/Активировано, тогда phpMussel не будет искать пустые элементы, а найдя будет их игнорировать, не сообщая об ошибке. Сигнал запроса страницы, таким образом, может продолжаться. False = Деактивировано; True = Активировано.
+
+##### «theme» `[string]`
+- Эстетика для использования на странице «Загрузка Отказана».
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…Другие
+```
+
+##### «magnification» `[float]`
+- Увеличение шрифта. Стандарт = 1.
+
+#### «phpmailer» (Категория)
+Конфигурация для PHPMailer (используется для двухфакторной аутентификации).
+
+##### «event_log» `[string]`
+- Файл для регистрации всех событий в отношении PHPMailer. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
+
+##### «enable_two_factor» `[bool]`
+- Эта директива включает/отключает использование 2FA для фронтенд счетов.
+
+##### «enable_notifications» `[bool]`
+- Отправлять уведомления по электронной почте, когда загрузка заблокирована.
+
+##### «skip_auth_process» `[bool]`
+- Установка этой директивы на `true` указывает PHPMailer пропустить обычный процесс проверки подлинности, который обычно возникает при отправке электронной почты через SMTP. Этого следует избегать, поскольку пропуская этот процесс может выдать исходящую электронную почту для атак MITM, но может потребоваться в тех случаях, когда этот процесс препятствует подключению PHPMailer к SMTP-серверу.
+
+##### «host» `[string]`
+- Хост SMTP используется для исходящей электронной почты.
+
+##### «port» `[int]`
+- Номер порта для исходящей электронной почты. Стандарт = 587.
+
+##### «smtp_secure» `[string]`
+- Протокол для при отправке электронной почты через SMTP (TLS или SSL).
+
+```
+smtp_secure
+├─default ("-")
+├─tls ("TLS")
+└─ssl ("SSL")
+```
+
+##### «smtp_auth» `[bool]`
+- Эта директива включает/отключает аутентификацию сессия SMTP (обычно ее следует оставить в покое).
+
+##### «username» `[string]`
+- Имя пользователя для отправки электронной почты через SMTP.
+
+##### «password» `[string]`
+- Пароль для отправки электронной почты через SMTP.
+
+##### «set_from_address» `[string]`
+- Адрес отправителя для отправки электронной почты через SMTP.
+
+##### «set_from_name» `[string]`
+- Имя отправителя для отправки электронной почты через SMTP.
+
+##### «add_reply_to_address» `[string]`
+- Адрес ответа для отправки электронной почты через SMTP.
+
+##### «add_reply_to_name» `[string]`
+- Имя ответа для отправки электронной почты через SMTP.
 
 ---
 
@@ -1632,7 +1539,7 @@ IP-адрес: 127.0.0.1
 - Был ли файл помещен в карантин и под каким внутренним именем.
 
 *Соответствующие директивы конфигурации:*
-- `general` -> `scan_kills`
+- `web` -> `uploads_log`
 
 ##### 11.3.2 ФРОНТЕНД ЖУРНАЛОВ
 
@@ -1725,4 +1632,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 7 Июль 2020 (2020.07.07).
+Последнее обновление: 8 Июль 2020 (2020.07.08).

@@ -1,0 +1,9 @@
+category: |
+ \#\#\#\# <div dir="rtl">"%s" (التصنيف)<br /></div>
+ <div dir="rtl">%s<br /><br /></div>
+directive: |
+ \#\#\#\#\# <div dir="rtl">"%s" <code dir="ltr">[%s]</code><br /></div>
+ <div dir="rtl"><ul><li>%s</li></ul></div>
+menu_open: "<div dir="rtl">%s<ul dir="rtl">"
+menu_item: "<li><a dir="ltr" href="%2$s">%1$s</a></li>"
+menu_close: 0x3C2F756C3E3C2F6469763E0A

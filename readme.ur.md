@@ -79,11 +79,11 @@ https://github.com/phpMussel/Examples
 
 #### <div dir="rtl"><a name="INSTALLING_SIGNATURES"></a>٢.١ تنصیب کا دستخط</div>
 
-<div dir="rtl">چونکہ v1.0.0، دستخط اہم پیکج میں شامل نہیں ہیں. خاص خطرات کا پتہ لگانے کے لئے phpMussel کے دستخط کی ضرورت ہوتی ہے. دستخط کو انسٹال کرنے کے لئے 3 اہم طریقوں ہیں:<br /><br /></div>
+<div dir="rtl">خاص خطرات کا پتہ لگانے کے لئے phpMussel کے دستخط کی ضرورت ہوتی ہے. دستخط کو انسٹال کرنے کے لئے 3 اہم طریقوں ہیں:<br /><br /></div>
 
 <div dir="rtl"><ul>
  <li>١. "SigTool" کا استعمال کرتے ہوئے دستخط پیدا کریں اور دستی طور پر انسٹال کریں.</li>
- <li>٢. <code dir="ltr">"phpMussel/Signatures"</code> سے دستخط ڈاؤن لوڈ کریں اور دستی طور پر انسٹال کریں.</li>
+ <li>٢. <code dir="ltr">"phpMussel/Signatures"</code> یا <code dir="ltr">"phpMussel/Examples"</code> سے دستخط ڈاؤن لوڈ کریں اور دستی طور پر انسٹال کریں.</li>
 </ul></div>
 
 ##### <div dir="rtl">٢.١.٠ "SigTool" کا استعمال کرتے ہوئے دستخط پیدا کریں اور دستی طور پر انسٹال کریں.</div>
@@ -92,9 +92,11 @@ https://github.com/phpMussel/Examples
 
 <div dir="rtl">یہ بھی نوٹ کریں: SigTool صرف ClamAV کے دستخطوں پر کارروائی کرتا ہے. تاکہ دوسرے ذرائع سے دستخط حاصل کریں (مثال کے طور پر، جو خاص طور پر phpMussel کے لئے لکھے گئے ہیں، یا اس کی جانچ فائلوں کا پتہ لگانے کے لئے درکار ہیں)، اس طریقہ کو یہاں ذکر کردہ دیگر طریقوں میں سے کسی ایک کے ذریعہ تکمیل کرنے کی ضرورت ہوگی.<br /><br /></div>
 
-##### <div dir="rtl">٢.٣.٣ <code dir="ltr">"phpMussel/Signatures"</code> سے دستخط ڈاؤن لوڈ کریں اور دستی طور پر انسٹال کریں.</div>
+##### <div dir="rtl">٢.١.١ <code dir="ltr">"phpMussel/Signatures"</code> یا <code dir="ltr">"phpMussel/Examples"</code> سے دستخط ڈاؤن لوڈ کریں اور دستی طور پر انسٹال کریں.</div>
 
-<div dir="rtl">سب سے پہلے، <a dir="ltr" href="https://github.com/phpMussel/Signatures">phpMussel/Signatures</a> پر جائیں. ذخیرہ پر مشتمل مختلف GZ کمپریسڈ دستخط فائلیں. آپ کی ضرورت فائلوں کو ڈاؤن لوڈ کریں، ان کو ڈسپوز کریں، اور ڈسپلے شدہ فائلوں کو <code dir="ltr">/vault/signatures</code> ڈائریکٹری میں ان کو نصب کرنے کیلئے کاپی کریں. کاپی شدہ فائلوں کے ناموں کو ان کی چالو کرنے کے لئے آپ کے phpMussel ترتیب میں <code dir="ltr">active</code> ڈائریکٹری میں درج کریں.<br /><br /></div>
+<div dir="rtl">سب سے پہلے، <a dir="ltr" href="https://github.com/phpMussel/Signatures">phpMussel/Signatures</a> پر جائیں. ذخیرہ پر مشتمل مختلف GZ کمپریسڈ دستخط فائلیں. آپ کی ضرورت فائلوں کو ڈاؤن لوڈ کریں، ان کو ڈسپوز کریں، اور ان کو اپنی تنصیب کی دستخطوں کی ڈائرکٹری میں کاپی کریں.<br /><br /></div>
+
+<div dir="rtl">متبادل کے طور پر، <a dir="ltr" href="https://github.com/phpMussel/Examples">phpMussel/Examples</a> سے تازہ ترین زپ ڈاؤن لوڈ کریں. اس کے بعد آپ اس آرکائوچ سے دستخطوں کو اپنی تنصیب میں کاپی/پیسٹ کرسکتے ہیں.<br /><br /></div>
 
 ---
 
@@ -204,192 +206,6 @@ https://github.com/phpMussel/Examples
 ### <div dir="rtl">٦. <a name="SECTION6"></a>فائل اس پیکیج میں شامل</div>
 
 ```
-https://github.com/phpMussel/phpMussel>v2
-│   .gitattributes
-│   .gitignore
-│   .travis.yml
-│   Changelog-v2.txt
-│   codeception.yml
-│   composer.json
-│   LICENSE.txt
-│   loader.php
-│   README.md
-│   web.config
-│
-├───tests
-│   │   .gitignore
-│   │   acceptance.suite.yml
-│   │   functional.suite.yml
-│   │   unit.suite.yml
-│   │
-│   ├───acceptance
-│   │       .gitkeep
-│   │
-│   ├───functional
-│   │       .gitkeep
-│   │
-│   ├───unit
-│   │       .gitkeep
-│   │       LoaderAndScanCest.php
-│   │
-│   ├───_data
-│   │       .gitkeep
-│   │
-│   ├───_output
-│   │       .gitkeep
-│   │
-│   └───_support
-│       │   AcceptanceTester.php
-│       │   FunctionalTester.php
-│       │   UnitTester.php
-│       │
-│       ├───config
-│       │       config.ini
-│       │
-│       ├───Helper
-│       │       Acceptance.php
-│       │       Functional.php
-│       │       Unit.php
-│       │
-│       └───samples
-│               encrypted.zip
-│               hello.txt
-│
-├───vault
-│   │   .htaccess
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-│
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
 ```
 
 ---
@@ -400,849 +216,717 @@ https://github.com/phpMussel/phpMussel>v2
 <div dir="rtl">مندرجہ ذیل phpMussel کے <code dir="ltr">"config.ini"</code> کنفیگریشن فائل میں پایا، ان کے مقاصد اور تقریب کی ایک وضاحت کے ساتھ ساتھ متغیر کی ایک فہرست ہے.<br /><br /></div>
 
 ```
-Configuration (v2)
+کنفگریشن (v3)
 │
-├───general
-│       cleanup
-│       scan_log
-│       scan_log_serialized
-│       scan_kills
-│       error_log
-│       truncate
-│       log_rotation_limit
-│       log_rotation_action
-│       timezone
-│       time_offset (v1: timeOffset)
-│       time_format (v1: timeFormat)
-│       ipaddr
-│       enable_plugins
-│       forbid_on_block
-│       delete_on_sight
-│       lang
-│       lang_override
-│       numbers
-│       quarantine_key
-│       quarantine_max_filesize
-│       quarantine_max_usage
-│       quarantine_max_files
-│       honeypot_mode
-│       scan_cache_expiry
-│       disable_cli
-│       disable_frontend
-│       max_login_attempts
-│       frontend_log (v1: FrontEndLog)
-│       disable_webfonts
-│       maintenance_mode
-│       default_algo
-│       statistics
-│       disabled_channels
-│
+├───core
+│       scan_log [string]
+│       scan_log_serialized [string]
+│       error_log [string]
+│       truncate [string]
+│       log_rotation_limit [int]
+│       log_rotation_action [string]
+│       timezone [string]
+│       time_offset [int]
+│       time_format [string]
+│       ipaddr [string]
+│       delete_on_sight [bool]
+│       lang [string]
+│       lang_override [bool]
+│       scan_cache_expiry [int]
+│       maintenance_mode [bool]
+│       statistics [bool]
+│       disabled_channels [string]
 ├───signatures
-│       active (v1: Active)
-│       fail_silently
-│       fail_extensions_silently
-│       detect_adware
-│       detect_joke_hoax
-│       detect_pua_pup
-│       detect_packer_packed
-│       detect_shell
-│       detect_deface
-│       detect_encryption
-│
+│       active [string]
+│       fail_silently [bool]
+│       fail_extensions_silently [bool]
+│       detect_adware [bool]
+│       detect_joke_hoax [bool]
+│       detect_pua_pup [bool]
+│       detect_packer_packed [bool]
+│       detect_shell [bool]
+│       detect_deface [bool]
+│       detect_encryption [bool]
+│       heuristic_threshold [int]
 ├───files
-│       max_uploads
-│       filesize_limit
-│       filesize_response
-│       filetype_whitelist
-│       filetype_blacklist
-│       filetype_greylist
-│       check_archives
-│       filesize_archives
-│       filetype_archives
-│       max_recursion
-│       block_encrypted_archives
-│       max_files_in_archives
-│
-├───attack_specific
-│       chameleon_from_php
-│       can_contain_php_file_extensions
-│       chameleon_from_exe
-│       chameleon_to_archive
-│       chameleon_to_doc
-│       chameleon_to_img
-│       chameleon_to_pdf
-│       archive_file_extensions
-│       block_control_characters
-│       corrupted_exe
-│       decode_threshold
-│       scannable_threshold
-│       allow_leading_trailing_dots
-│       block_macros
-│
-├───compatibility
-│       ignore_upload_errors
-│       only_allow_images
-│
-├───heuristic
-│       threshold
-│
+│       filesize_limit [string]
+│       filesize_response [bool]
+│       filetype_whitelist [string]
+│       filetype_blacklist [string]
+│       filetype_greylist [string]
+│       check_archives [bool]
+│       filesize_archives [bool]
+│       filetype_archives [bool]
+│       max_recursion [int]
+│       block_encrypted_archives [bool]
+│       max_files_in_archives [int]
+│       chameleon_from_php [bool]
+│       can_contain_php_file_extensions [string]
+│       chameleon_from_exe [bool]
+│       chameleon_to_archive [bool]
+│       chameleon_to_doc [bool]
+│       chameleon_to_img [bool]
+│       chameleon_to_pdf [bool]
+│       archive_file_extensions [string]
+│       block_control_characters [bool]
+│       corrupted_exe [bool]
+│       decode_threshold [string]
+│       scannable_threshold [string]
+│       allow_leading_trailing_dots [bool]
+│       block_macros [bool]
+│       only_allow_images [bool]
+├───quarantine
+│       quarantine_key [string]
+│       quarantine_max_filesize [string]
+│       quarantine_max_usage [string]
+│       quarantine_max_files [int]
 ├───virustotal
-│       vt_public_api_key
-│       vt_suspicion_level
-│       vt_weighting
-│       vt_quota_rate
-│       vt_quota_time
-│
+│       vt_public_api_key [string]
+│       vt_suspicion_level [int]
+│       vt_weighting [int]
+│       vt_quota_rate [int]
+│       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts
-│       google_api_key
-│       maximum_api_lookups
-│       maximum_api_lookups_response
-│       cache_time
-│
+│       lookup_hphosts [bool]
+│       google_api_key [string]
+│       maximum_api_lookups [int]
+│       maximum_api_lookups_response [bool]
+│       cache_time [int]
 ├───legal
-│       pseudonymise_ip_addresses
-│       privacy_policy
-│
-├───template_data
-│       theme
-│       magnification (v1: Magnification)
-│       css_url
-│
-├───PHPMailer
-│       event_log (v1: EventLog)
-│       skip_auth_process (v1: SkipAuthProcess)
-│       enable_two_factor (v1: Enable2FA)
-│       host (v1: Host)
-│       port (v1: Port)
-│       smtp_secure (v1: SMTPSecure)
-│       smtp_auth (v1: SMTPAuth)
-│       username (v1: Username)
-│       password (v1: Password)
-│       set_from_address (v1: setFromAddress)
-│       set_from_name (v1: setFromName)
-│       add_reply_to_address (v1: addReplyToAddress)
-│       add_reply_to_name (v1: addReplyToName)
-│
-└───supplementary_cache_options
-        enable_apcu
-        enable_memcached
-        enable_redis
-        enable_pdo
-        memcached_host
-        memcached_port
-        redis_host
-        redis_port
-        redis_timeout
-        pdo_dsn
-        pdo_username
-        pdo_password
+│       pseudonymise_ip_addresses [bool]
+│       privacy_policy [string]
+├───supplementary_cache_options
+│       enable_apcu [bool]
+│       enable_memcached [bool]
+│       enable_redis [bool]
+│       enable_pdo [bool]
+│       memcached_host [string]
+│       memcached_port [int]
+│       redis_host [string]
+│       redis_port [int]
+│       redis_timeout [float]
+│       pdo_dsn [string]
+│       pdo_username [string]
+│       pdo_password [string]
+├───frontend
+│       frontend_log [string]
+│       max_login_attempts [int]
+│       numbers [string]
+│       default_algo [string]
+│       theme [string]
+│       magnification [float]
+├───web
+│       uploads_log [string]
+│       forbid_on_block [bool]
+│       max_uploads [int]
+│       ignore_upload_errors [bool]
+│       theme [string]
+│       magnification [float]
+└───phpmailer
+        event_log [string]
+        enable_two_factor [bool]
+        enable_notifications [bool]
+        skip_auth_process [bool]
+        host [string]
+        port [int]
+        smtp_secure [string]
+        smtp_auth [bool]
+        username [string]
+        password [string]
+        set_from_address [string]
+        set_from_name [string]
+        add_reply_to_address [string]
+        add_reply_to_name [string]
 ```
-
-#### <div dir="rtl">"general" (قسم)<br /></div>
-<div dir="rtl">جنرل phpMussel ترتیب.<br /><br /></div>
-
-##### <div dir="rtl">"cleanup"<br /></div>
-<div dir="rtl"><ul>
- <li>ترتیب ختم متغیر اور کیشے ابتدائی اپ لوڈ سکیننگ کے بعد اسکرپٹ طرف سے استعمال کیا؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ]. آپ کے اپ لوڈز کے ابتدائی سکیننگ پرے سکرپٹ کا استعمال کرتے ہوئے نہیں ہیں تو، آپ کو اس TRUE" (ہاں) "کرنے کے لئے، میموری استعمال کو کم سے کم کرنے کے لئے مقرر کیا جانا چاہئے. آپ کے اپ لوڈز کے ابتدائی سکیننگ پرے سکرپٹ کا استعمال کرتے ہوئے ہیں تو، میموری میں دہرے ڈیٹا دوبارہ لوڈ بیکار میں سے بچنے کے لئے FALSE" (کوئی) "لئے مقرر کیا جانا چاہئے. عام پریکٹس میں، یہ عام طور پر TRUE" "لئے مقرر کیا جائے چاہئے، لیکن آپ ایسا کرتے ہیں تو، آپ کو ابتدائی فائل اپ لوڈ کی سکیننگ کے علاوہ کسی اور چیز کے لئے سکرپٹ کو استعمال کرنے کے لئے نہیں کر سکیں گے.</li>
- <li>CLI موڈ میں کوئی اثر و رسوخ ہے.</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_log"<br /></div>
-<div dir="rtl"><ul>
- <li>فائل کی فائل کا نام لئے تمام سکیننگ نتائج لاگ ان کریں. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے خالی چھوڑ دیں.</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_log_serialized"<br /></div>
-<div dir="rtl"><ul>
- <li>فائل کا نام مسل تمام سکیننگ کے نتائج کو (serialized فارمیٹ استعمال کرتے ہوئے) لاگ ان کریں. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے خالی چھوڑ دیں.</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_kills"<br /></div>
-<div dir="rtl"><ul>
- <li>فائل کا نام مسل کو مسدود یا ہلاک کر کے اپ لوڈز کے تمام ریکارڈ لاگ ان کریں. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے خالی چھوڑ دیں.</li>
-</ul></div>
 
 <div dir="rtl"><em>مفید ٹپ: "{yyyy}" مکمل سال کے لئے، "{yy}" مختصر سال کے لئے، "{mm}": اگر آپ چاہتے ہیں تو آپ کے نام میں ان کو شامل کرکے آپ لاگ مسلیں کے ناموں کو تاریخ/وقت کی معلومات شامل کر سکتے ہیں مہینے کے لئے، دن کے لئے، "{hh}" گھنٹے کیلئے "{dd}" (ذیل کی مثالیں دیکھ).</em><br /><br /></div>
 
 ```
  scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'
  scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'
- scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'
+ error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'
 ```
 
-##### <div dir="rtl">"error_log"<br /></div>
-<div dir="rtl"><ul>
- <li>کسی بھی غیر مہلک غلطیوں کو لاگ کرنے کیلئے ایک فائل کا پتہ چلا. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li>
+#### <div dir="rtl">"core" (قسم)<br /></div>
+<div dir="rtl">عام ترتیبات (کنفیگریشن جس کا تعلق دوسری قسموں سے نہیں ہے).<br /><br /></div>
+
+##### <div dir="rtl">"scan_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>فائل کا نام مسل تمام سکیننگ نتائج کے لاگ ان کرنے کے لئے. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li></ul></div>
+
+##### <div dir="rtl">"scan_log_serialized" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>فائل کا نام مسل تمام سکیننگ کے نتائج کو (serialized فارمیٹ استعمال کرتے ہوئے) لاگ ان کریں. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li></ul></div>
+
+##### <div dir="rtl">"error_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>کسی بھی غیر مہلک غلطیوں کو لاگ کرنے کیلئے ایک فائل کا پتہ چلا. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li></ul></div>
+
+##### <div dir="rtl">"truncate" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>وہ ایک خاص سائز تک پہنچنے میں جب صاف لاگ مسلیں؟ ویلیو میں B/KB/MB/GB/TB زیادہ سے زیادہ سائز ہے. جب 0KB، وہ غیر معینہ مدت تک ترقی کر سکتا ہے (پہلے سے طے). نوٹ: واحد فائلوں پر لاگو ہوتا ہے! فائلیں اجتماعی غور نہیں کر رہے ہیں.</li></ul></div>
+
+##### <div dir="rtl">"log_rotation_limit" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>لاگ گرد گردش کسی بھی وقت کسی بھی وقت موجود ہونا لاگ ان کی تعداد محدود کرتا ہے. جب نیا لاگ ان کی تخلیق کی جاتی ہے تو، اگر لاگ ان کی کل تعداد مخصوص حد سے زیادہ ہوتی ہے تو مخصوص کارروائی کی جائے گی. آپ یہاں مطلوبہ حد کی وضاحت کرسکتے ہیں. 0 کی قیمت لاگ گرد گردش کو غیر فعال کرے گی.</li></ul></div>
+
+##### <div dir="rtl">"log_rotation_action" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>لاگ گرد گردش کسی بھی وقت کسی بھی وقت موجود ہونا لاگ ان کی تعداد محدود کرتا ہے. جب نیا لاگ ان کی تخلیق کی جاتی ہے تو، اگر لاگ ان کی کل تعداد مخصوص حد سے زیادہ ہوتی ہے تو مخصوص کارروائی کی جائے گی. آپ یہاں مطلوبہ کارروائی کی وضاحت کرسکتے ہیں. Delete = قدیم ترین لاگ ان کو حذف کریں، جب تک کہ حد تک زیادہ نہیں ہوسکتی ہے. Archive = سب سے پہلے آرکائیو، اور پھر سب سے پرانی لاگ ان کو حذف کریں، جب تک کہ حد زیادہ نہیں ہوسکتی.</li></ul></div>
+
+```
+log_rotation_action
+├─Delete ("Delete")
+└─Archive ("Archive")
+```
+
+##### <div dir="rtl">"timezone" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>استعمال کرنے کے لئے ٹائم زون کی وضاحت کرتا ہے (جیسے، Africa/Cairo، America/New_York، Asia/Tokyo، Australia/Perth، Europe/Berlin، Pacific/Guam، وغیرہ). SYSTEM کی وضاحت کریں تاکہ PHP کو آپ کے لئے خود بخود یہ سنبھل سکے.</li></ul></div>
+
+```
+timezone
+├─SYSTEM ("نظام کو پہلے سے طے شدہ ٹائم زون کا استعمال کریں.")
+├─UTC ("UTC")
+└─…دیگر
+```
+
+##### <div dir="rtl">"time_offset" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>ٹائم زون منٹ میں آفسیٹ.</li></ul></div>
+
+##### <div dir="rtl">"time_format" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel کی طرف سے استعمال کی تاریخوں کا فارم. اضافی اختیارات درخواست پر شامل کیا جا سکتا ہے.</li></ul></div>
+
+```
+time_format
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}")
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss}")
+├─{Day}, {dd} {Mon} {yyyy} ("{Day}, {dd} {Mon} {yyyy}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yyyy}.{mm}.{dd} ("{yyyy}.{mm}.{dd}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yyyy}-{mm}-{dd} ("{yyyy}-{mm}-{dd}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yyyy}/{mm}/{dd} ("{yyyy}/{mm}/{dd}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yyyy} ("{dd}.{mm}.{yyyy}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yyyy} ("{dd}-{mm}-{yyyy}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yyyy} ("{dd}/{mm}/{yyyy}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yyyy} ("{mm}.{dd}.{yyyy}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yyyy} ("{mm}-{dd}-{yyyy}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yyyy} ("{mm}/{dd}/{yyyy}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yy}.{mm}.{dd} ("{yy}.{mm}.{dd}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yy}-{mm}-{dd} ("{yy}-{mm}-{dd}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yy}/{mm}/{dd} ("{yy}/{mm}/{dd}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yy} ("{dd}.{mm}.{yy}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yy} ("{dd}-{mm}-{yy}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yy} ("{dd}/{mm}/{yy}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yy} ("{mm}.{dd}.{yy}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yy} ("{mm}-{dd}-{yy}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yy} ("{mm}/{dd}/{yy}")
+├─{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}年{m}月{d}日 ("{yyyy}年{m}月{d}日")
+├─{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yy}年{m}月{d}日 ("{yy}年{m}月{d}日")
+├─{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}년 {m}월 {d}일 ("{yyyy}년 {m}월 {d}일")
+├─{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yy}년 {m}월 {d}일 ("{yy}년 {m}월 {d}일")
+├─{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z} ("{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z}")
+├─{d}. {m}. {yyyy} ("{d}. {m}. {yyyy}")
+└─…دیگر
+```
+
+##### <div dir="rtl">"ipaddr" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>کہاں درخواستوں منسلک کرنے کے IP ایڈریس کو تلاش کرنے کے لئے؟ پہلے سے طے شدہ = REMOTE_ADDR (جیسا Cloudflare کے اور پسند کرتا ہے کے طور پر خدمات کے لئے مفید). انتباہ: ڈان \ کر رہے T تبدیلی اس الا یہ کہ آپ آپ کو \ کیا معلوم!</li></ul></div>
+
+```
+ipaddr
+├─HTTP_INCAP_CLIENT_IP ("HTTP_INCAP_CLIENT_IP (Incapsula)")
+├─HTTP_CF_CONNECTING_IP ("HTTP_CF_CONNECTING_IP (Cloudflare)")
+├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
+├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
+├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
+└─…دیگر
+```
+
+<div dir="rtl">بھی دیکھو:<ul dir="rtl">
+<li><a dir="ltr" href="https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/">NGINX Reverse Proxy</a></li>
+<li><a dir="ltr" href="http://www.squid-cache.org/Doc/config/forwarded_for/">Squid configuration directive forwarded_for</a></li>
 </ul></div>
 
-##### <div dir="rtl">"truncate"<br /></div>
-<div dir="rtl"><ul>
- <li>وہ ایک خاص سائز تک پہنچنے میں جب صاف لاگ مسلیں؟ ویلیو میں B/KB/MB/GB/TB زیادہ سے زیادہ سائز ہے. جب 0KB، وہ غیر معینہ مدت تک ترقی کر سکتا ہے (پہلے سے طے). نوٹ: واحد فائلوں پر لاگو ہوتا ہے! فائلیں اجتماعی غور نہیں کر رہے ہیں.</li>
-</ul></div>
+##### <div dir="rtl">"delete_on_sight" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>Eفوری طور پر دستخط کے ذریعے یا دوسری صورت میں چاہے، الفاظ کے ملاپ کے کسی بھی پتہ لگانے کے معیار پر کسی بھی سکین کی کوشش کی فائل اپ لوڈ حذف کرنے کی کوشش کرنے کے لئے اس ہدایت nabling سکرپٹ ہدایت کرے گا. "صاف" ہونے کا تعین کیا فائلیں چھوا نہیں کیا جائے گا. ابلیھاگاروں کی صورت میں، پورے آرکائیو حذف کر دیا جائے گا قطع نظر یا نہیں آمیز فائل کا صرف ایک ہی محفوظ شدہ دستاویزات کے اندر موجود کئی فائلوں میں سے ہے. فائل اپ لوڈ کی سکیننگ کے معاملے کے طور پر، عام طور پر، یہ ضروری نہیں ہے، یہ ہدایت چالو کرنے کے لئے عام طور پر PHP کی خود کار طریقے سے اس کی کیشے کے مندرجات مٹا دے گا کیونکہ عملدرآمد ختم ہو گیا ہے جب یہ عام طور پر سرور ہے جب تک کہ اس کے ذریعے اپ لوڈ کردہ کسی بھی فائلوں کو خارج کر دیں گے جس کا مطلب ہے، وہ منتقل کر دیا کاپی یا پہلے سے ہی خارج کر دیا گیا ہے. یہ ہدایت جن PHP کی کاپیاں ہمیشہ انداز کی توقع میں برتاؤ نہیں کر سکتے ہیں ان کے لئے سیکورٹی کی ایک اضافی اقدام کے طور پر یہاں شامل کی جاتی ہے. False (جھوٹی) = سکیننگ کے بعد، اکیلے فائل [پہلے سے طے شدہ] چھوڑ دیں؛ True (سچے) = سکیننگ کے بعد، صاف نہیں ہے تو، فوری طور پر حذف.</li></ul></div>
 
-##### <div dir="rtl">"log_rotation_limit"<br /></div>
-<div dir="rtl"><ul>
- <li>لاگ گرد گردش کسی بھی وقت کسی بھی وقت موجود ہونا لاگ ان کی تعداد محدود کرتا ہے. جب نیا لاگ ان کی تخلیق کی جاتی ہے تو، اگر لاگ ان کی کل تعداد مخصوص حد سے زیادہ ہوتی ہے تو مخصوص کارروائی کی جائے گی. آپ یہاں مطلوبہ حد کی وضاحت کرسکتے ہیں. 0 کی قیمت لاگ گرد گردش کو غیر فعال کرے گی.</li>
-</ul></div>
+##### <div dir="rtl">"lang" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel لئے پہلے سے طے شدہ زبان کی وضاحت.</li></ul></div>
 
-##### <div dir="rtl">"log_rotation_action"<br /></div>
-<div dir="rtl"><ul>
- <li>لاگ گرد گردش کسی بھی وقت کسی بھی وقت موجود ہونا لاگ ان کی تعداد محدود کرتا ہے. جب نیا لاگ ان کی تخلیق کی جاتی ہے تو، اگر لاگ ان کی کل تعداد مخصوص حد سے زیادہ ہوتی ہے تو مخصوص کارروائی کی جائے گی. آپ یہاں مطلوبہ کارروائی کی وضاحت کرسکتے ہیں. Delete = قدیم ترین لاگ ان کو حذف کریں، جب تک کہ حد تک زیادہ نہیں ہوسکتی ہے. Archive = سب سے پہلے آرکائیو، اور پھر سب سے پرانی لاگ ان کو حذف کریں، جب تک کہ حد زیادہ نہیں ہوسکتی.</li>
-</ul></div>
+```
+lang
+├─en ("English")
+├─ar ("العربية")
+├─bn ("বাংলা")
+├─de ("Deutsch")
+├─es ("Español")
+├─fr ("Français")
+├─hi ("हिंदी")
+├─id ("Bahasa Indonesia")
+├─it ("Italiano")
+├─ja ("日本語")
+├─ko ("한국어")
+├─lv ("Latviešu")
+├─nl ("Nederlandse")
+├─no ("Norsk")
+├─pl ("Polski")
+├─pt ("Português")
+├─ru ("Русский")
+├─sv ("Svenska")
+├─th ("ภาษาไทย")
+├─tr ("Türkçe")
+├─ur ("اردو")
+├─vi ("Tiếng Việt")
+├─zh ("中文（简体）")
+└─zh-TW ("中文（傳統）")
+```
 
-<div dir="rtl">تکنیکی وضاحت: اس تناظر میں "سب سے پرانی" کا مطلب "کم از کم ترمیم شدہ" ہے.<br /><br /></div>
+##### <div dir="rtl">"lang_override" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جب بھی ممکن ہو HTTP_ACCEPT_LANGUAGE کے مطابق لوکلائز کریں؟ True (سچے) = جی ہاں [پہلے سے طے شدہ]؛ False (جھوٹی) = نہیں.</li></ul></div>
 
-##### <div dir="rtl">"timezone"<br /></div>
-<div dir="rtl"><ul>
- <li>یہ استعمال کیا جاتا ہے کہ کون سا ٹائم زون phpMussel کو تاریخ/وقت کے آپریشن کے لئے استعمال کرنا چاہئے. اگر آپ کو اس کی ضرورت نہیں ہے تو اسے نظر انداز کریں. ممکنہ اقدار PHP کی طرف سے مقرر ہیں. یہ عام طور پر یہ کرنا ہمیشہ ممکن نہیں ہے، اور تو، اس اختیار کو یہاں فراہم کی جاتی ہے (جیسا محدود مشترکہ ہوسٹنگ فراہم کرنے والے کے ساتھ کام کرتے وقت کے طور پر) آپ <code dir="ltr">php.ini</code> فائل میں ٹائم زون ہدایت کو ایڈجسٹ کرنے کی بجائے سفارش، لیکن کبھی کبھی رہا ہے.</li>
-</ul></div>
+##### <div dir="rtl">"scan_cache_expiry" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>کب تک phpMussel سکیننگ کے نتائج کیشے چاہئے؟ قیمت کے لئے سکیننگ کے نتائج کیشے سیکنڈ کی تعداد ہے. پہلے سے طے شدہ 21600 سیکنڈ (6 گھنٹے) ہے؛ 0 کی قدر سکیننگ کے نتائج کیشنگ کو غیر فعال کریں گے.</li></ul></div>
 
-##### <div dir="rtl">"time_offset"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "timeOffset"</em></li>
- <li>آپ کے سرور کے وقت آپ کے مقامی وقت کے مماثل نہیں ہے تو، آپ کو آپ کی ضروریات کے مطابق phpMussel طرف سے پیدا تاریخ/وقت کی معلومات کو ایڈجسٹ کرنے کے لئے یہاں آفسیٹ ایک وضاحت کر سکتے ہیں. یہ عام طور پر یہ کرنا ہمیشہ ممکن نہیں ہے، اور تو، اس اختیار کو یہاں فراہم کی جاتی ہے (جیسا محدود مشترکہ ہوسٹنگ فراہم کرنے والے کے ساتھ کام کرتے وقت کے طور پر) آپ "php.ini" فائل میں ٹائم زون ہدایت کو ایڈجسٹ کرنے کی بجائے سفارش، لیکن کبھی کبھی رہا ہے. آف سیٹ منٹ میں ہے.</li>
- <li>مثال (ایک گھنٹے کا اضافہ کرنے کے لئے):</li>
-</ul></div>
+##### <div dir="rtl">"maintenance_mode" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>بحالی کا موڈ فعال کریں؟ True (سچے) = جی ہاں؛ False (جھوٹی) = کوئی [پہلے سے طے شدہ]. سامنے کے اختتام کے مقابلے میں سب کچھ غیر فعال کرتا ہے. کبھی کبھی آپ کے CMS، فریم ورک، وغیرہ کو اپ ڈیٹ کرنے کے لئے مفید ہے.</li></ul></div>
 
-`time_offset=60`
+##### <div dir="rtl">"statistics" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel استعمال کے اعداد و شمار کو ٹریک کریں؟ True (سچے) = جی ہاں؛ False (جھوٹی) = نہیں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"time_format"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "timeFormat"</em></li>
- <li>تاریخ کی شکل phpMussel طرف سے استعمال کیا. پہلے سے طے شدہ:</li>
-</ul></div>
+##### <div dir="rtl">"disabled_channels" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>درخواستوں کو بھیجنے کے لئے خاص طور پر چینلز کا استعمال کے لئے phpMussel کو روکنے کے لئے یہ استعمال کیا جا سکتا ہے (مثال کے طور پر، جب اپ ڈیٹ کرنا، اجزاء میٹا ڈیٹا، وغیرہ کو پکڑنے کے بعد).</li></ul></div>
 
-`{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`
-
-##### <div dir="rtl">"ipaddr"<br /></div>
-<div dir="rtl"><ul>
- <li>درخواستوں منسلک کرنے کے IP ایڈریس کو کہاں تلاش کرنے کے لئے؟ پہلے سے طے شدہ = REMOTE_ADDR (جیسا Cloudflare کے اور پسند کرتا ہے کے طور پر خدمات کے لئے مفید). انتباہ: جب تک کہ آپ کو پتہ ہے تم کیا کر رہے ہو اس کو تبدیل نہ کریں!</li>
-</ul></div>
-
-<div dir="rtl">"ipaddr" کے لئے سفارش کی اقدار:<br /><br /></div>
-
-&nbsp; <div dir="rtl" style="display:inline">قدر</div> | &nbsp; <div dir="rtl" style="display:inline">استعمال</div>
----|---
-`HTTP_INCAP_CLIENT_IP` | Incapsula reverse proxy (ریورس پراکسی).
-`HTTP_CF_CONNECTING_IP` | Cloudflare reverse proxy (ریورس پراکسی).
-`CF-Connecting-IP` | Cloudflare reverse proxy (ریورس پراکسی؛ متبادل؛ مندرجہ بالا کام نہیں کرتا تو).
-`HTTP_X_FORWARDED_FOR` | Cloudbric reverse proxy (ریورس پراکسی).
-`X-Forwarded-For` | [Squid reverse proxy (ریورس پراکسی)](http://www.squid-cache.org/Doc/config/forwarded_for/).
-&nbsp; <div dir="rtl" style="display:inline"><em>سرور کی ترتیب کی طرف سے وضاحت کی گئی.</em></div> | [Nginx reverse proxy (ریورس پراکسی)](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
-`REMOTE_ADDR` | &nbsp; <div dir="rtl" style="display:inline">نہیں کسی بھی ریورس پراکسی (پہلے سے طے شدہ قیمت).</div>
-
-##### <div dir="rtl">"enable_plugins"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel پلگ ان کے لئے حمایت فعال کریں؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
-
-##### <div dir="rtl">"forbid_on_block"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel فائل اپ بلاک کر کے پیغام کے ساتھ 403 ہیڈرز بھیجیں، یا کے ساتھ معمول کے 200 OK رہنا چاہیے؟ False (جھوٹی) = نہیں (200)؛ True (سچے) = جی ہاں (403) [پہلے سے طے شدہ].</li>
-</ul></div>
-
-##### <div dir="rtl">"delete_on_sight"<br /></div>
-<div dir="rtl"><ul>
- <li>چاہے دستخط کے ذریعے یا دوسری صورت میں، فوری طور پر الفاظ کے ملاپ کے کسی بھی پتہ لگانے کے معیار پر کسی بھی سکین کی کوشش کی فائل اپ لوڈ حذف کرنے کی کوشش کرنے کے لئے اس ہدایت کو چالو کرنے سکرپٹ ہدایت کرے گا. "صاف" ہونے کا تعین کیا فائلیں چھوا نہیں رکھا جائے گا. ابلیھاگاروں کی صورت میں، پورے آرکائیو حذف کر دیا جائے گا قطع نظر یا نہیں آمیز فائل کا صرف ایک ہی محفوظ شدہ دستاویزات کے اندر موجود کئی فائلوں میں سے ہے. فائل اپ لوڈ کی سکیننگ کے معاملے کے طور پر، عام طور پر، یہ ضروری نہیں ہے، یہ ہدایت چالو کرنے کے لئے عام طور پر PHP کی خود کار طریقے سے اس کی کیشے کے مندرجات مٹا دے گا کیونکہ عملدرآمد ختم ہو گیا ہے جب یہ عام طور پر کرنے کے لئے اس کے ذریعے اپ لوڈ کردہ کسی بھی فائلوں کو خارج کر دیں گے جس کا مطلب ہے، سرور جب تک کہ وہ پہلے ہی منتقل کر دیا کاپی یا خارج کر دیا گیا ہے. یہ ہدایت جن PHP کی کاپیاں ہمیشہ انداز کی توقع میں برتاؤ نہیں کر سکتے ہیں ان کے لئے سیکورٹی کی ایک اضافی اقدام کے طور پر یہاں شامل کی جاتی ہے. False (جھوٹی) = سکیننگ کے بعد، اکیلے فائل [پہلے سے طے شدہ] چھوڑ دیں؛ True (سچے) = سکیننگ کے بعد، صاف نہیں ہے تو، فوری طور پر خارج کر دیں.</li>
-</ul></div>
-
-##### <div dir="rtl">"lang"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel لئے پہلے سے طے شدہ زبان.</li>
-</ul></div>
-
-##### <div dir="rtl">"lang_override"<br /></div>
-<div dir="rtl"><ul>
- <li>جب بھی ممکن ہو HTTP_ACCEPT_LANGUAGE کے مطابق لوکلائز کریں؟ True (سچے) = جی ہاں [پہلے سے طے شدہ]؛ False (جھوٹی) = نہیں.</li>
-</ul></div>
-
-##### <div dir="rtl">"numbers"<br /></div>
-<div dir="rtl"><ul>
- <li>نمبروں کو ظاہر کرنے کی وضاحت کرتا ہے.</li>
-</ul></div>
-
-<div dir="rtl">فی الحال تعاون شدہ اقدار:<br /><br /></div>
-
-قدر | پیدا کرتا ہے | تفصیل
----|---|---
-`NoSep-1` | `1234567.89`
-`NoSep-2` | `1234567,89`
-`Latin-1` | `1,234,567.89` | پہلے سے طے شدہ.
-`Latin-2` | `1 234 567.89`
-`Latin-3` | `1.234.567,89`
-`Latin-4` | `1 234 567,89`
-`Latin-5` | `1,234,567·89`
-`China-1` | `123,4567.89`
-`India-1` | `12,34,567.89`
-`India-2` | `१२,३४,५६७.८९`
-`India-3` | `૧૨,૩૪,૫૬૭.૮૯`
-`India-4` | `੧੨,੩੪,੫੬੭.੮੯`
-`India-5` | `೧೨,೩೪,೫೬೭.೮೯`
-`India-6` | `౧౨,౩౪,౫౬౭.౮౯`
-`Arabic-1` | `١٢٣٤٥٦٧٫٨٩`
-`Arabic-2` | `١٬٢٣٤٬٥٦٧٫٨٩`
-`Arabic-3` | `۱٬۲۳۴٬۵۶۷٫۸۹`
-`Arabic-4` | `۱۲٬۳۴٬۵۶۷٫۸۹`
-`Bengali-1` | `১২,৩৪,৫৬৭.৮৯`
-`Burmese-1` | `၁၂၃၄၅၆၇.၈၉`
-`Khmer-1` | `១.២៣៤.៥៦៧,៨៩`
-`Lao-1` | `໑໒໓໔໕໖໗.໘໙`
-`Thai-1` | `๑,๒๓๔,๕๖๗.๘๙`
-`Thai-2` | `๑๒๓๔๕๖๗.๘๙`
-
-<div dir="rtl">نوٹ: یہ اقدار کہیں بھی معیاری نہیں ہیں، اور شاید پیکج سے باہر متعلقہ نہیں ہوں گے. اس کے علاوہ، معاون اقدار مستقبل میں تبدیل کر سکتے ہیں.<br /><br /></div>
-
-##### <div dir="rtl">"quarantine_key"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel سنگرودھ، phpMussel والٹ کے اندر تنہائی میں فائل اپ لوڈ کی کوشش جھنڈا لگایا اس سے تم نے ایسا کرنا چاہتے ہیں کچھ ہے تو قابل ہے. صرف دل کی گہرائیوں سے کسی بھی پرچم لگایا کوشش کی فائل اپ لوڈ اس فعالیت کو غیر فعال کر چھوڑ دینا چاہئے تجزیہ کرنے میں کوئی دلچسپی کے بغیر ان کی ویب سائٹ یا ہوسٹنگ ماحول کی حفاظت کے لئے چاہتے ہیں کہ phpMussel کے آرام دہ اور پرسکون صارفین، لیکن میلویئر کی تحقیق کے لئے یا اسی طرح کے پرچم لگائے کوشش کی فائل اپ لوڈ کی مزید تجزیہ کرنے میں دلچسپی رکھتے کسی بھی صارفین ایسی چیزوں کو اس فعالیت کو چالو کرنا چاہئے. نشان زدہ کوشش کی فائل اپ لوڈ کی Quarantining کبھی کبھی بھی، جھوٹے مثبت ٹھیک کرنا میں مدد کر سکتے ہیں یہ اکثر آپ کے لئے اس وقت ہوتی ہے کہ کچھ ہے. سنگرودھ فعالیت کو غیر فعال کرنے کیلئے، بس "quarantine_key" ہدایت خالی چھوڑ دیں، یا یہ کہ ہدایت کے مندرجات کو مٹانے یہ پہلے سے خالی نہیں ہے. سنگرودھ فعالیت کو چالو کرنے کے لئے، ہدایت میں کچھ قیمت درج کریں. "quarantine_key" ممکنہ حملہ آوروں کی طرف سے اور سنگرودھ کے اندر اندر ذخیرہ کردہ ڈیٹا کی کسی بھی ممکنہ پھانسی کی روک تھام کا ایک ذریعہ کے طور پر استحصال کیا جا رہا ہے سے قرنطینہ فعالیت کی روک تھام کا ایک ذریعہ کے طور پر ضرورت سنگرودھ فعالیت کا ایک اہم حفاظتی خصوصیت ہے. "quarantine_key" آپ کے پاس ورڈ کے طور پر اسی انداز میں علاج کیا جانا چاہئے: اب بہتر ہے، اور مضبوطی سے اس کی حفاظت. بہترین اثر کے لیے، "delete_on_sight" ساتھ مل کر میں استعمال کرتے ہیں.</li>
-</ul></div>
-
-##### <div dir="rtl">"quarantine_max_filesize"<br /></div>
-<div dir="rtl"><ul>
- <li>فائلوں کی زیادہ سے زیادہ قابل اجازت فائل قرنطینہ جائے. متعین قدر سے بڑی فائلوں قرنطینہ نہیں رکھا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 2MB.</li>
-</ul></div>
-
-##### <div dir="rtl">"quarantine_max_usage"<br /></div>
-<div dir="rtl"><ul>
- <li>زیادہ سے زیادہ میموری کا استعمال سنگرودھ کے لئے کی اجازت دی. سنگرودھ طرف سے استعمال کیا کل میموری اس قیمت تک پہنچ جاتا ہے تو، استعمال کیا کل میموری اب کوئی اس قیمت تک پہنچ جاتا ہے جب تک قدیم ترین قرنطینہ فائلوں کو خارج کر دیا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 64MB.</li>
-</ul></div>
-
-##### <div dir="rtl">"quarantine_max_files"<br /></div>
-<div dir="rtl"><ul>
- <li>قرنطین میں موجود فائلوں کی زیادہ سے زیادہ تعداد. جب قرنطین میں نئی فائلوں کو شامل کیا جاتا ہے تو، اگر یہ نمبر تجاوز کردی جاتی ہے تو، پرانی فائلوں کو حذف کر دیا جائے گا جب باقی باقی اب اس نمبر سے زیادہ نہیں ہیں. پہلے سے طے شدہ = 100.</li>
-</ul></div>
-
-##### <div dir="rtl">"honeypot_mode"<br /></div>
-<div dir="rtl"><ul>
- <li>جب honeypot موڈ چالو حالت میں ہے، phpMussel یہ مقابلوں کہ ہر ایک فائل اپ لوڈ نظرانداز کرنے پر، قطع نظر یا نہیں فائل اپ لوڈ کی جارہی میل کھاتا کی کوشش کرے گا کسی بھی دستخط شامل ہیں، اور ان لوگوں کی کوشش کی فائل اپ لوڈ کی کوئی اصل سکیننگ یا تجزیہ اصل میں واقع ہو گا. یہ فعالیت وائرس/میلویئر کی تحقیق کے مقاصد کے لئے phpMussel استعمال کرنا چاہتے ہیں ان لوگوں کے لئے مفید ہونا چاہئے، لیکن صارف کی طرف phpMussel کے مقصد کے استعمال کی اصل فائل اپ لوڈ کی سکیننگ کے لئے ہے اگر یہ نہ تو اس فعالیت کو چالو کرنے کی سفارش کی، اور نہ ہی استعمال کرنے کے لئے سفارش کی جاتی ہے honeypotting علاوہ دیگر مقاصد کے لئے honeypot فعالیت. بنیادی طور پر، اس اختیار کو غیر فعال ہے. False (جھوٹی) = معذور [پہلے سے طے شدہ]؛ True (سچے) = فعال.</li>
-</ul></div>
-
-##### <div dir="rtl">"scan_cache_expiry"<br /></div>
-<div dir="rtl"><ul>
- <li>کب تک phpMussel سکیننگ کے نتائج کیشے چاہئے؟ قیمت کے لئے سکیننگ کے نتائج کیشے سیکنڈ کی تعداد ہے. پہلے سے طے شدہ 21600 سیکنڈ (6 گھنٹے) ہے؛ 0 کی قدر سکیننگ کے نتائج کیشنگ کو غیر فعال کریں گے.</li>
-</ul></div>
-
-##### <div dir="rtl">"disable_cli"<br /></div>
-<div dir="rtl"><ul>
- <li>فعال CLI موڈ؟ CLI موڈ ڈیفالٹ کی طرف سے چالو حالت میں ہے، لیکن کبھی کبھی بعض جانچ کے آلات (جیسے PHPUnit کے طور پر، مثال کے طور پر) اور دیگر CLI کی بنیاد پر ایپلی کیشنز کے ساتھ مداخلت کر سکتے ہیں. آپ CLI موڈ کو غیر فعال کرنے کی ضرورت نہیں ہے تو، آپ کو اس ہدایت کو نظر انداز کرنا چاہئے. False (جھوٹی) = CLI موڈ [پہلے سے طے شدہ] فعال؛ True (سچے) = غیر فعال CLI موڈ</li>
-</ul></div>
-
-##### <div dir="rtl">"disable_frontend"<br /></div>
-<div dir="rtl"><ul>
- <li>سامنے کے آخر تک رسائی کو غیر فعال کریں؟ سامنے کے آخر میں رسائی phpMussel زیادہ انتظام بنا سکتے ہیں، لیکن یہ بھی بہت ہے، ایک زبردست حفاظتی خطرہ ہو سکتا ہے. یہ جب بھی ممکن ہو واپس کے آخر کے ذریعے phpMussel منظم کرنے کی سفارش کی جاتی ہے، لیکن سامنے کے آخر میں رسائی ممکن نہیں ہے جب کے لئے فراہم کی جاتی ہے. تمہیں اس کی ضرورت ہے جب تک کہ اس کو معذور رکھیں. False (جھوٹی) = سامنے کے آخر میں رسائی کو فعال کریں؛ True (سچے) = غیر فعال سامنے کے آخر میں رسائی [پہلے سے طے شدہ].</li>
-</ul></div>
-
-##### <div dir="rtl">"max_login_attempts"<br /></div>
-<div dir="rtl"><ul>
- <li>لاگ ان کوششوں کی زیادہ سے زیادہ تعداد (سامنے کے آخر میں). پہلے سے طے شدہ = 5.</li>
-</ul></div>
-
-##### <div dir="rtl">"frontend_log"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "FrontEndLog"</em></li>
- <li>لاگنگ سامنے کے آخر میں لاگ ان کوششوں کے لئے فائل. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے خالی چھوڑ دیں.</li>
-</ul></div>
-
-##### <div dir="rtl">"disable_webfonts"<br /></div>
-<div dir="rtl"><ul>
- <li>ویب فونٹس کے غیر فعال کریں؟ True (سچے) = جی ہاں [پہلے سے طے شدہ]؛ False (جھوٹی) = کوئی.</li>
-</ul></div>
-
-##### <div dir="rtl">"maintenance_mode"<br /></div>
-<div dir="rtl"><ul>
- <li>بحالی کا موڈ فعال کریں؟ True (سچے) = جی ہاں؛ False (جھوٹی) = کوئی [پہلے سے طے شدہ]. سامنے کے اختتام کے مقابلے میں سب کچھ غیر فعال کرتا ہے. کبھی کبھی آپ کے CMS، فریم ورک، وغیرہ کو اپ ڈیٹ کرنے کے لئے مفید ہے.</li>
-</ul></div>
-
-##### <div dir="rtl">"default_algo"<br /></div>
-<div dir="rtl"><ul>
- <li>اس بات کی وضاحت کرتا ہے جو تمام مستقبل کے پاس ورڈ اور سیشن کے لئے الگورتھم استعمال کرنا ہے. اختیارات: PASSWORD_DEFAULT (ڈیفالٹ), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 کی ضرورت ہے), PASSWORD_ARGON2ID (PHP >= 7.3.0 کی ضرورت ہے).</li>
-</ul></div>
-
-##### <div dir="rtl">"statistics"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel استعمال کے اعداد و شمار کو ٹریک کریں؟ True (سچے) = جی ہاں؛ False (جھوٹی) = نہیں [پہلے سے طے شدہ].</li>
-</ul></div>
-
-##### <div dir="rtl">"disabled_channels"<br /></div>
-<div dir="rtl"><ul>
- <li>درخواستوں کو بھیجنے کے لئے خاص طور پر چینلز کا استعمال کے لئے phpMussel کو روکنے کے لئے یہ استعمال کیا جا سکتا ہے (مثال کے طور پر، جب اپ ڈیٹ کرنا، اجزاء میٹا ڈیٹا، وغیرہ کو پکڑنے کے بعد).</li>
-</ul></div>
+```
+disabled_channels
+├─GitHub ("GitHub")
+├─BitBucket ("BitBucket")
+├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
+├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+├─hpHosts_HTTPS ("hpHosts (HTTPS)")
+└─hpHosts_HTTP ("hpHosts (HTTP)")
+```
 
 #### <div dir="rtl">"signatures" (قسم)<br /></div>
-<div dir="rtl">دستخط ترتیب.<br /><br /></div>
+<div dir="rtl">دستخطوں، دستخط فائلوں، وغیرہ کے لئے تشکیل.<br /><br /></div>
 
-##### <div dir="rtl">"active"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Active"</em></li>
- <li>فعال دستخط کی فائلوں، کوما سے ختم ہونے والی کی ایک فہرست.</li>
-</ul></div>
+##### <div dir="rtl">"active" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>فعال دستخط کی فائلوں، کوما سے ختم ہونے والی کی ایک فہرست. نوٹ: دستخط فائلوں کو پہلے ہی انسٹال کرنا ضروری ہے، اس سے پہلے کہ آپ ان کو چالو کرسکیں. ٹیسٹ کی فائلوں کو صحیح طریقے سے کام کرنے کے لئے، دستخط فائلوں کو انسٹال کرنا اور چالو کرنا ضروری ہے.</li></ul></div>
 
-<div dir="rtl">نوٹ:<ul>
- <li>دستخط فائلوں کو پہلے ہی انسٹال کرنا ضروری ہے، اس سے پہلے کہ آپ ان کو چالو کرسکیں.</li>
- <li>ٹیسٹ کی فائلوں کو صحیح طریقے سے کام کرنے کے لئے، دستخط فائلوں کو انسٹال کرنا اور چالو کرنا ضروری ہے.</li>
- <li>اس ترتیب کی قیمت کیش میں ذخیرہ کیا جاتا ہے. تبدیل کرنے کے بعد، آپ کو مناسب طریقے سے کام کرنے کے لۓ کیش کو خارج کرنے کی ضرورت ہوسکتی ہے.</li>
-</ul></div>
+##### <div dir="rtl">"fail_silently" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جب دستخط فائلوں غائب یا خراب phpMussel رپورٹ چاہئے؟ تو <code dir="ltr">fail_silently</code> کے، معذور لاپتہ اور خراب فائلوں سکیننگ پر اطلاع دی جائے گی، اور اگر <code dir="ltr">fail_silently</code> کے لاپتہ، فعال ہے اور خراب فائلوں ان فائلوں کے لئے رپورٹنگ سکیننگ کے ساتھ، نظر انداز کر دیا جائے گا کہ کوئی مسئلہ نہیں ہیں. آپ گر کر تباہ یا اسی طرح کے مسائل کا سامنا کر رہے ہیں جب تک کہ یہ عام تنہا چھوڑ دیا جانا چاہئے. False (جھوٹی) = معذور؛ True (سچے) = چالو کیا [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"fail_silently"<br /></div>
-<div dir="rtl"><ul>
- <li>چاہئے phpMussel رپورٹ جب دستخط فائلوں غائب یا خراب ہو؟ اگر "fail_silently"، غیر فعال ہے لاپتہ اور خراب فائلوں سکیننگ پر اطلاع دی جائے گی، اور" اگر fail_silently" فعال لاپتہ اور خراب فائلوں کو کسی بھی مسائل موجود نہیں ہیں کہ ان فائلوں کے لئے رپورٹنگ سکیننگ کے ساتھ، نظر انداز کر دیا جائے گا. آپ گر کر تباہ یا اسی طرح کے مسائل کا سامنا کر رہے ہیں جب تک کہ یہ عام تنہا چھوڑ دیا جانا چاہئے. False (جھوٹی) = معذور؛ True (سچے) = چالو کیا [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"fail_extensions_silently" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>رپورٹ phpMussel چاہئے جب توسیعات لاپتہ ہیں؟ تو <code dir="ltr">fail_extensions_silently</code> کے معذور، لاپتہ توسیعات سکیننگ پر اطلاع دی جائے گی، اور اگر <code dir="ltr">fail_extensions_silently</code> کے چالو حالت میں ہے، ملانے لاپتہ وہاں نہیں کسی بھی ہیں کہ سکیننگ ان فائلوں کے لئے رپورٹنگ کے ساتھ، نظر انداز کر دیا جائے گا مسائل. اس حکم کو غیر فعال ممکنہ طور پر آپ کی سیکورٹی میں اضافہ ہو سکتا ہے، بلکہ جھوٹے مثبت کا اضافہ کا باعث بن سکتا. False (جھوٹی) = معذور؛ True (سچے) = چالو کیا [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"fail_extensions_silently"<br /></div>
-<div dir="rtl"><ul>
- <li>چاہئے phpMussel رپورٹ توسیعات لاپتہ ہیں جب؟ fail_extensions_silently" غیر فعال ہے "تو، لاپتہ توسیعات سکیننگ پر اطلاع دی جائے گی، اور" اگر fail_extensions_silently" چالو حالت میں ہے، لاپتہ توسیعات کسی بھی مسائل موجود نہیں ہیں کہ ان فائلوں کے لئے رپورٹنگ سکیننگ کے ساتھ، نظر انداز کر دیا جائے گا. اس حکم کو غیر فعال ممکنہ طور پر آپ کی سیکورٹی میں اضافہ ہو سکتا ہے، بلکہ جھوٹے مثبت کا اضافہ کا باعث بن سکتا. False (جھوٹی) = معذور؛ True (سچے) = چالو کیا [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"detect_adware" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel ایڈویئر کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"detect_adware"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel ایڈویئر کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"detect_joke_hoax" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel مذاق / چکما میلویئر / وائرس کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"detect_joke_hoax"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel مذاق/چکما میلویئر/وائرس کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"detect_pua_pup" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel PUA/PUP کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"detect_pua_pup"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel PUAs/بچوں کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"detect_packer_packed" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel پیکرز اور پیک کے اعداد و شمار کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"detect_packer_packed"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel پیکرز اور پیک کے اعداد و شمار کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"detect_shell" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel شیل اسکرپٹ کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"detect_shell"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel شیل اسکرپٹ کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"detect_deface" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel defacements اور defacers کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"detect_deface"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel defacements اور defacers کا پتہ لگانے کے لئے دستخط تجزیہ کرنا چاہیے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"detect_encryption" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel کو خفیہ کاری فائلوں کا پتہ لگانے اور بلاک کرنا چاہئے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"detect_encryption"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel کو خفیہ کاری فائلوں کا پتہ لگانے اور بلاک کرنا چاہئے؟ False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"heuristic_threshold" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>فائلوں کی مشکوک اور ممکنہ طور پر بدنیتی پر مبنی خصوصیات کی شناخت کے لئے ارادہ کر رہے ہیں کہ phpMussel کے بعض دستخط خود میں بغیر اپ لوڈ کیا جا رہا ہے ان فائلوں بدنیتی پر مبنی ہونے کے طور پر خاص طور پر اپ لوڈ کیا جا رہا ہے کی شناخت ہیں. یہ "دہلیز" قدر phpMussel بتاتا ہے ان فائلوں درنساوناپورن کا جھنڈا لگا ہو رہے ہیں اس سے پہلے کیا فائلوں کی مشکوک اور ممکنہ طور پر بدنیتی پر مبنی خصوصیات کے زیادہ سے زیادہ کل وزن اپ لوڈ کیا جا رہا ہے کی اجازت ہے. اس تناظر میں وزن کی تعریف کی شناخت مشکوک اور ممکنہ طور پر بدنیتی پر مبنی خصوصیات کی کل تعداد ہے. بنیادی طور پر، اس کی قیمت 3. ایک کم قیمت عام طور پر جھوٹے مثبت کے ایک اعلی موجودگی کے نتیجے میں جائے کرنے کے لئے مقرر کیا جائے گا لیکن بدنیتی پر مبنی فائلوں کی ایک بڑی تعداد جھنڈا لگایا جا رہا ہے، ایک زیادہ قیمت عام طور پر جھوٹے مثبت کی ایک کم موجودگی لیکن ایک کے نتیجے میں جائے جبکہ بدنیتی پر مبنی فائلوں کی کم تعداد جھنڈا لگایا جا رہا ہے. یہ آپ کو اس سے متعلق دشواریاں پیش آ رہے ہیں \ جب تک کہ اس کا بنیادی میں اس قدر چھوڑنے کے لئے عام طور پر سب سے بہتر ہے.</li></ul></div>
 
 #### <div dir="rtl">"files" (قسم)<br /></div>
-<div dir="rtl">کنفیگریشن ہینڈلنگ فائل.<br /><br /></div>
+<div dir="rtl">اسکین کرتے وقت فائلوں کو ہینڈل کرنے کا طریقہ کی تفصیلات.<br /><br /></div>
 
-##### <div dir="rtl">"max_uploads"<br /></div>
-<div dir="rtl"><ul>
- <li>فائلوں کی زیادہ سے زیادہ قابل اجازت تعداد میں اپ لوڈ کے دوران فائلوں کو اسکین اسکین کرنے اسکین اسقاط اور صارف کو وہ بہت زیادہ ایک ہی بار میں اپ لوڈ کر رہے ہیں مطلع کرنے سے پہلے! ایک نظریاتی حملے ہیں جس کے تحت ایک حملہ آور ایک پیسنے رک PHP عمل کو سست کرنے phpMussel اوور لوڈنگ کی طرف سے آپ کے سسٹم یا CMS DDOS کرنے کی کوشش کے خلاف تحفظ فراہم کرتا ہے. تجویز کردہ: 10. آپ کو بڑھانے یا اس نمبر سے آپ ہارڈ ویئر کی رفتار پر منحصر ہے کو کم کر سکتے ہیں. کہ اس نمبر کے لئے اکاؤنٹ یا ابلیھاگاروں کے مندرجات شامل نہیں ہے یاد رکھیں کہ.</li>
-</ul></div>
+##### <div dir="rtl">"filesize_limit" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>میں KB فائل کی حد. 65536 = 64MB [پہلے سے طے شدہ]؛ 0 = کوئی حد نہیں (ہمیشہ سرمئی درج)، کسی بھی (مثبت) عددی قیمت قبول کر لیا. آپ PHP کی ترتیب میموری ایک عمل کو پکڑ کر سکتے کے یا اگر رقم کو محدود کر دیتی ہے جب یہ مفید ہو سکتا اپ لوڈز آپ PHP کی ترتیب حدود فائل.</li></ul></div>
 
-##### <div dir="rtl">"filesize_limit"<br /></div>
-<div dir="rtl"><ul>
- <li>میں KB فائل کی حد. 65536 = 64MB [پہلے سے طے شدہ]؛ 0 = کوئی حد نہیں (ہمیشہ سرمئی درج)، کسی بھی (مثبت) عددی قیمت قبول کر لیا. آپ PHP کی ترتیب میموری کی رقم ایک عمل کو پکڑ کر سکتے محدود کر دیتی ہے یا اپ لوڈز آپ PHP کی ترتیب حدود فائل اگر تو یہ مفید ہو سکتا ہے.</li>
-</ul></div>
+##### <div dir="rtl">"filesize_response" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>فائل کی حد سے تجاوز ہے کہ (اگر موجود ہو) فائلوں کے ساتھ کیا کیا جائے. False (جھوٹی) = وائٹ فہرست; True (سچے) = بلیک لسٹ [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"filesize_response"<br /></div>
-<div dir="rtl"><ul>
- <li>کیا فائل کی حد سے تجاوز ہے کہ (اگر موجود ہو) فائلوں کے ساتھ کیا کرنا. False (جھوٹی) = وائٹ لسٹ؛ True (سچے) = بلیک لسٹ [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"filetype_whitelist" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>آپ کے سسٹم صرف فائلوں کی مخصوص اقسام اپ لوڈ کیا جا کرنے کی اجازت دیتا ہے، یا آپ کے سسٹم کو واضح طور پر، فائلوں کی بعض اقسام کی تردید کرتے ہیں وائٹ لسٹیں، بلیک لسٹ اور سرمئی فہرستوں میں ان قسم کی فائلوں کی وضاحت جس میں رفتار سکیننگ جائیں کرنے سکرپٹ اجازت دے کر کیا جاتا ہے بڑھا سکتے ہیں اگر تو بعض قسم کی فائلوں کے دوران. ڈاک CSV (علامت سے علیحدہ اقدار) ہے. آپ کو سب کچھ، بلکہ وائٹ لسٹ، بلیک لسٹ یا بھوری رنگ کی فہرست کے مقابلے میں اسکین کرنے کے لئے چاہتے ہیں، متغیر خالی چھوڑ؛ ایسا کرنے سے وائٹ لسٹ/بلیک لسٹ/سرمئی فہرست کو غیر فعال کریں گے. وائٹ لسٹ:</li></ul></div>
 
-##### <div dir="rtl"><code dir="ltr">"filetype_whitelist"</code>، <code dir="ltr">"filetype_blacklist"</code>، <code dir="ltr">"filetype_greylist"</code><br /></div>
-<div dir="rtl"><ul>
- <li>آپ کے سسٹم صرف فائلوں کی مخصوص اقسام اپ لوڈ کیا جا کرنے کی اجازت دیتا ہے، یا آپ کے سسٹم کو واضح طور پر، فائلوں کی بعض اقسام کی تردید کرتے ہیں وائٹ لسٹیں، بلیک لسٹ اور سرمئی فہرستوں میں ان قسم کی فائلوں کی وضاحت جس میں رفتار سکیننگ جائیں کرنے سکرپٹ اجازت دے کر کیا جاتا ہے بڑھا سکتے ہیں اگر تو بعض قسم کی فائلوں کے دوران. ڈاک CSV (علامت سے علیحدہ اقدار) ہے. آپ کو سب کچھ، بلکہ وائٹ لسٹ، بلیک لسٹ یا بھوری رنگ کی فہرست کے مقابلے میں اسکین کرنے کے لئے چاہتے ہیں، متغیر خالی چھوڑ؛ ایسا کرنے سے وائٹ لسٹ/بلیک لسٹ/سرمئی فہرست کو غیر فعال کریں گے.</li>
- <li><strong>پروسیسنگ کے منطقی حکم ہے:</strong></li>
- <ul>
- <li>قسم کی فائل کو وائٹ لسٹ میں ہے، تو اسکین نہیں اور فائل کو مسدود نہ کریں، اور بلیک لسٹ یا سرمئی فہرست خلاف کی فائل کو چیک نہیں کرتے.</li>
- <li>قسم کی فائل کو بلیک لسٹ کیا جاتا ہے تو، فائل کو اسکین نہیں لیکن بہرحال اس پر بلاک، اور سرمئی فہرست خلاف کی فائل کو چیک نہیں کرتے.</li>
- <li>سرمئی لسٹ خالی ھے یا سرمئی لسٹ خالی نہیں ہے اور قسم کی فائل سرمئی مندرج ہے تو، عام طور پر فی فائل کو اسکین اور اسکین کے نتائج کی بنیاد پر اسے مسدود کرنا چاہے تعین، لیکن بھوری رنگ لسٹ خالی نہیں ہے تو تو اور قسم کی فائل، درج ہوتا نہیں گرے بلیک لسٹ کے طور پر فائل کا علاج، اس وجہ سے اس کو سکین لیکن ویسے یہ مسدود نہیں.</li>
- </ul>
-</ul></div>
+##### <div dir="rtl">"filetype_blacklist" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>بلیک لسٹ:</li></ul></div>
 
-##### <div dir="rtl">"check_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>ابلیھاگاروں کے مندرجات کو چیک کرنے کی کوشش؟ False (جھوٹی) = چیک نہ کریں؛ True (سچے) = چیک کریں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"filetype_greylist" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>گرے فہرست:</li></ul></div>
 
-&nbsp; <div dir="rtl" style="display:inline">شکل</div> | &nbsp; <div dir="rtl" style="display:inline">پڑھ سکتے ہیں</div> | &nbsp; <div dir="rtl" style="display:inline">دوبارہ پڑھ سکتے ہیں</div> | &nbsp; <div dir="rtl" style="display:inline">خفیہ کاری کا پتہ لگانا</div> | &nbsp; <div dir="rtl" style="display:inline">نوٹس</div>
----|---|---|---|---
-Zip | ✔️ | ✔️ | ✔️ | &nbsp; <div dir="rtl" style="display:inline"><a href="https://secure.php.net/manual/en/zip.requirements.php">libzip</a> کی ضرورت ہوتی ہے (عام طور پر PHP کے ساتھ شامل). بھی حمایت کی (zip فارمیٹ استعمال کرتا ہے): ✔️ OLE اعتراض کا سراغ لگانا. ✔️ آفس میکرو کا پتہ لگانا.</div>
-Tar | ✔️ | ✔️ | ➖ | &nbsp; <div dir="rtl" style="display:inline">کوئی خاص ضروریات نہیں. فارمیٹ خفیہ کاری کی حمایت نہیں کرتا.</div>
-Rar | ✔️ | ✔️ | ✔️ | &nbsp; <div dir="rtl" style="display:inline"><a href="https://pecl.php.net/package/rar">rar</a> توسیع کی ضرورت ہوتی ہے (جب یہ توسیع انسٹال نہیں ہے تو، phpMussel rar فائلوں کو پڑھ نہیں سکتے).</div>
-Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">سپورٹ v1.6.0 میں ہٹا دیا گیا ہے. محفوظ نہیں. دوبارہ شامل نہیں کیا جائے گا.</div>
+##### <div dir="rtl">"check_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>ابلیھاگاروں کے مندرجات کو چیک کرنے کی کوشش؟ False (جھوٹی) = چیک نہ کریں؛ True (سچے) = چیک کریں [پہلے سے طے شدہ]. تائید: Zip (libzip کی ضرورت ہے)، Tar، Rar (rar توسیع کی ضرورت ہے).</li></ul></div>
 
-<div dir="rtl">معاونت کا خیر مقدم ہے، اگر کوئی اسے بہتر بنانا چاہتا ہے.<br /><br /></div>
+##### <div dir="rtl">"filesize_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>ابلیھاگاروں کے مندرجات کو فائل بلیک لسٹ / وہسلنگ لے؟ False (جھوٹی) = نہیں (صرف بھوری رنگ کی فہرست میں سب کچھ); True (سچے) = ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"filesize_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>ابلیھاگاروں کے مندرجات کو فائل بلیک لسٹ/وہسلنگ لے؟ False (جھوٹی) = کوئی (صرف greylist سب کچھ)؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"filetype_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>قسم کی فائل بلیک لسٹ/دستاویز کے مندرجات کو وہسلنگ لے؟ False (جھوٹی) = کوئی (صرف greylist سب کچھ) [پہلے سے طے شدہ]؛ True (سچے) = جی ہاں.</li></ul></div>
 
-##### <div dir="rtl">"filetype_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>قسم کی فائل بلیک لسٹ/دستاویز کے مندرجات کو وہسلنگ لے؟ False (جھوٹی) = کوئی (صرف greylist سب کچھ) [پہلے سے طے شدہ]؛ True (سچے) = جی ہاں.</li>
-</ul></div>
+##### <div dir="rtl">"max_recursion" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>ابلیھاگاروں کے لئے زیادہ سے زیادہ تکرار کی گہرائی کی حد. پہلے سے طے شدہ = 3.</li></ul></div>
 
-##### <div dir="rtl">"max_recursion"<br /></div>
-<div dir="rtl"><ul>
- <li>ابلیھاگاروں کے لئے زیادہ سے زیادہ تکرار کی گہرائی کی حد. پہلے سے طے شدہ = 3.</li>
-</ul></div>
+##### <div dir="rtl">"block_encrypted_archives" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>پتہ لگانے اور بلاک مرموز آرکائیوز؟ کیونکہ phpMussel مرموز ابلیھاگاروں کے مندرجات کو اسکین کرنے کے قابل نہیں ہے، یہ ممکن ہے کہ محفوظ شدہ دستاویزات خفیہ کاری phpMussel، اینٹی وائرس سکینر اور ایسی دیگر تحفظات کو نظرانداز کرنے کی کوشش کرنے کا ایک ذریعہ کے طور پر ایک حملہ آور کی طرف سے ملازم ہو جائے. یہ مرموز جائے کرنے کو پتہ چلتا ہے کہ کسی بھی تاریخی دستاویز کو بلاک کرنے phpMussel تربیت؛ ممکنہ طور پر یہ اس طرح کے امکانات کے ساتھ منسلک کسی بھی خطرے کو کم کرنے میں مدد کر سکتا ہے. False (جھوٹی) = نہیں; True (سچے) = ہاں [پہلے سے طے شدہ].</li></ul></div>
 
-##### <div dir="rtl">"block_encrypted_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>پتہ لگانے اور مرموز آرکائیوز کو بلاک؟ کیونکہ phpMussel مرموز ابلیھاگاروں کے مندرجات کو اسکین کرنے کے قابل نہیں ہے، یہ ممکن ہے کہ محفوظ شدہ دستاویزات خفیہ کاری phpMussel، اینٹی وائرس سکینر اور ایسی دیگر تحفظات کو نظرانداز کرنے کی کوشش کرنے کا ایک ذریعہ کے طور پر ایک حملہ آور کی طرف سے ملازم ہو جائے. phpMussel جو مرموز جائے کرنے کو پتہ چلتا ہے کہ کسی بھی تاریخی دستاویز کو بلاک کرنے کی تربیت؛ ممکنہ طور پر یہ اس طرح کے امکانات کے ساتھ منسلک کسی بھی خطرے کو کم کرنے میں مدد کر سکتا ہے. False (جھوٹی) = کوئی؛ True (سچے) = جی ہاں [پہلے سے طے شدہ].</li>
-</ul></div>
+##### <div dir="rtl">"max_files_in_archives" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>اسکین کو ختم کرنے سے قبل آرکائیوز کے اندر سے اسکین کرنے کی فائلوں کی زیادہ سے زیادہ تعداد. پہلے سے طے شدہ = 0 (زیادہ سے زیادہ نہیں ہے).</li></ul></div>
 
-##### <div dir="rtl">"max_files_in_archives"<br /></div>
-<div dir="rtl"><ul>
- <li>اسکین کو ختم کرنے سے قبل آرکائیوز کے اندر سے اسکین کرنے کی فائلوں کی زیادہ سے زیادہ تعداد. پہلے سے طے شدہ = 0 (زیادہ سے زیادہ نہیں ہے).</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_from_php" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>نہ تو PHP فائلوں کو نہ پہچان لیا آرکائیوز ہیں کہ فائلوں میں PHP ہیڈر لئے تلاش. False (جھوٹی) = بند; True (سچے) = پر.</li></ul></div>
 
-#### <div dir="rtl">"attack_specific" (قسم)<br /></div>
-<div dir="rtl">حملہ مخصوص ہدایات.<br /><br /></div>
+##### <div dir="rtl">"can_contain_php_file_extensions" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>فائل کی توسیع کی ایک فہرست PHP کوڈ پر مشتمل ہونے کی اجازت دیتا ہے، جو کمم کے ذریعہ الگ ہوتی ہے. اگر PHP کی چیلنج حملے کا پتہ چلتا ہے تو، PHP کوڈ پر مشتمل فائلوں، جو اس فہرست پر مشتمل نہیں ہیں، اس PHP کی چیلنج حملوں کے طور پر پتہ چلا جائے گا.</li></ul></div>
 
-<div dir="rtl">گرگٹ حملے کا پتہ لگانے: False (جھوٹی) = بند؛ True (سچے) = پر.<br /><br /></div>
+##### <div dir="rtl">"chameleon_from_exe" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>نہ تو چلنے نہ ہی تسلیم کیا آرکائیوز ہیں کہ فائلوں میں اور چلنے جن ہیڈرز غلط ہیں کے لئے کارکردگی قابل ہیڈرز کے لئے تلاش کریں. False (جھوٹی) = بند; True (سچے) = پر.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_from_php"<br /></div>
-<div dir="rtl"><ul>
- <li>نہ تو PHP فائلوں کو نہ پہچان لیا آرکائیوز ہیں کہ فائلوں میں PHP ہیڈر تلاش کریں.</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_archive" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>آرکائیو اور کمپریسڈ فائلوں میں غلط ہیڈر کا پتہ لگائیں. تائید: BZ/BZIP2، GZ/GZIP، LZF، RAR، ZIP False (جھوٹی) = بند; True (سچے) = پر.</li></ul></div>
 
-##### <div dir="rtl">"can_contain_php_file_extensions"<br /></div>
-<div dir="rtl"><ul>
- <li>فائل کی توسیع کی ایک فہرست PHP کوڈ پر مشتمل ہونے کی اجازت دیتا ہے، جو کمم کے ذریعہ الگ ہوتی ہے. اگر PHP کی چیلنج حملے کا پتہ چلتا ہے تو، PHP کوڈ پر مشتمل فائلوں، جو اس فہرست پر مشتمل نہیں ہیں، اس PHP کی چیلنج حملوں کے طور پر پتہ چلا جائے گا.</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_doc" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جن ہیڈرز غلط ہیں دفتر کی دستاویزات کے لئے تلاش کریں (تائید: DOC، ڈاٹ، پی پی ایس، PPT، XLA، XLS، جانکار). False (جھوٹی) = بند; True (سچے) = پر.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_from_exe"<br /></div>
-<div dir="rtl"><ul>
- <li>نہ تو چلنے نہ ہی تسلیم کیا آرکائیوز ہیں کہ فائلوں میں اور چلنے جن ہیڈرز غلط ہیں کے لئے کارکردگی قابل ہیڈر کے لئے تلاش کریں.</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_img" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جن ہیڈرز ہیں تصاویر کے لئے تلاش غلط (تائید: BMP، DIB، PNG، GIF، JPEG، JPG، XCF، PSD، PDD، WEBP). False (جھوٹی) = بند; True (سچے) = پر.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_archive"<br /></div>
-<div dir="rtl"><ul>
- <li>آرکائیو اور کمپریسڈ فائلوں میں غلط ہیڈر کا پتہ لگائیں. تائید: BZ/BZIP2، GZ/GZIP، LZF، RAR، ZIP</li>
-</ul></div>
+##### <div dir="rtl">"chameleon_to_pdf" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>پی ڈی ایف فائلوں جن ہیڈرز غلط ہیں کے لئے تلاش کریں. False (جھوٹی) = بند; True (سچے) = پر.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_doc"<br /></div>
-<div dir="rtl"><ul>
- <li>جس کا ہیڈرز ہیں غلط دفتر دستاویزات کے لئے تلاش کریں (تائید: DOC، ڈاٹ، پی پی ایس، PPT، XLA، XLS، جانکار).</li>
-</ul></div>
+##### <div dir="rtl">"archive_file_extensions" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تسلیم شدہ آرکائیو فائل ایکسٹنشن (شکل CSV ہے، صرف شامل کرنے یا ہٹانے چاہئے مسائل پائے جاتے ہیں جب، غیر ضروری طور پر ہٹانے کے جھوٹے مثبت غیر ضروری طور پر انہوں نے مزید کہا جبکہ آپ کو حملے کی مخصوص پتہ لگانے سے شامل کر رہے ہیں کیا بنیادی طور پر وائٹ لسٹ گے، ذخیرہ فائلوں کے لئے ظاہر کرنے کے لئے کی وجہ سے ہو سکتا ہے، احتیاط کے ساتھ نظر ثانیw یہ بھی نوٹ کریں کہ اس تاریخی دستاویز اور مواد کی سطح پر تجزیہ نہیں کیا جا سکتا کر سکتے ہیں پر کوئی اثر) ہے. فہرست، ڈیفالٹ میں ہے کے طور پر، نظام اور CMS کی اکثریت کے اس پار سب سے زیادہ عام طور پر استعمال والوں فارمیٹس کی فہرست، لیکن جان بوجھ ضروری جامع نہیں ہے.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_img"<br /></div>
-<div dir="rtl"><ul>
- <li>جس کا ہیڈرز غلط ہیں تصاویر کے لئے تلاش کریں (تائید: BMP، DIB، PNG، GIF، JPEG، JPG، XCF، PSD، PDD، WEBP.</li>
-</ul></div>
+##### <div dir="rtl">"block_control_characters" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>(نیولائنز علاوہ) کسی بھی کنٹرول حروف پر مشتمل کسی بھی فائلوں کو مسدود کریں؟ (<code dir="ltr">[\x00-\x08\x0b\x0c\x0e\x1f\x7f]</code>) اگر تم ہو صرف سادہ ٹیکسٹ اپ لوڈ کرنے، اس کے بعد آپ کے سسٹم کے لئے کچھ اضافی تحفظ فراہم کرنے پر آپ اس اختیار کو تبدیل کر سکتے ہیں. تاہم، اگر آپ کو سادہ متن کے علاوہ اور کچھ پر اس رخ جھوٹے مثبت نتیجے میں اپ لوڈ کریں. False (جھوٹی) = مسدود نہ کریں [پہلے سے طے شدہ]؛ True (سچے) = بلاک.</li></ul></div>
 
-##### <div dir="rtl">"chameleon_to_pdf"<br /></div>
-<div dir="rtl"><ul>
- <li>پی ڈی ایف فائلوں جن ہیڈرز غلط ہیں کے لئے تلاش کریں.</li>
-</ul></div>
+##### <div dir="rtl">"corrupted_exe" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>خراب فائلوں اور غلطیوں کا تجزیہ. False (جھوٹی) = نظرانداز کریں. True (سچے) = بلاک [پہلے سے طے شدہ]. پتہ لگانے اور ممکنہ طور پر خراب PE (پورٹ ایبل نفاذ پذیر) فائلوں کو بلاک؟ اکثر ایسا ہوتا ہے (لیکن ہمیشہ نہیں)، ایک PE فائل کے کچھ پہلوؤں کو خراب کر رہے ہیں یا\ سکتے ٹی صحیح تجزیہ کیا جائے تو یہ ایک وائرل انفیکشن کا اشارہ ہو سکتا ہے. سب سے زیادہ اینٹی وائرس پروگراموں کی طرف سے استعمال کیا جاتا ہے عمل UN رہنے کے لئے ان کے وائرس اجازت کرنے کے لئے، کچھ طریقوں سے، ایک وائرس کے پروگرامر کے بارے میں معلوم ہو تو خاص طور پر روکنے کی کوشش کریں گے، جس میں ان فائلوں کی تصریف ضرورت ہوتی PE فائلوں میں وائرس کا پتہ لگانے کے پتہ لگایا.</li></ul></div>
 
-##### <div dir="rtl">"archive_file_extensions"<br /></div>
-<div dir="rtl"><ul>
- <li>تسلیم شدہ آرکائیو فائل ایکسٹنشن (شکل CSV ہے؛ مسائل پائے جاتے ہیں جب صرف شامل کرنے یا ہٹانے چاہئے؛ غیر ضروری طور پر ہٹانے کے بغیر وجہ انہوں نے مزید کہا کہ آپ حملے مخصوص پتہ لگانے سے اضافہ کر رہے ہیں کیا بنیادی طور پر وائٹ لسٹ گے جبکہ جھوٹے مثبت، ذخیرہ فائلوں کے لئے ظاہر کرنے کے لئے کی وجہ سے ہو سکتا ہے، کے ساتھ نظر ثانی احتیاط بھی نوٹ کریں کہ اس تاریخی دستاویز اور مواد کی سطح پر تجزیہ نہیں کیا جا سکتا کر سکتے ہیں پر کوئی اثر) ہے. فہرست، ڈیفالٹ میں ہے کے طور پر، نظام اور CMS کی اکثریت کے اس پار سب سے زیادہ عام طور پر استعمال والوں فارمیٹس کی فہرست، لیکن جان بوجھ ضروری جامع نہیں ہے.</li>
-</ul></div>
+##### <div dir="rtl">"decode_threshold" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>خام ڈیٹا جس کے اندر ڈیکوڈ کمانڈز کے پتہ جانی چاہئے کی لمبائی کے حد سے (کے معاملے میں کسی بھی نمایاں کارکردگی کے مسائل جبکہ سکیننگ سے ہیں). پہلے سے طے شدہ = 512KB. زیرو یا شہوت انگیز null قیمت (فائل کی بنیاد پر اس طرح کے کسی بھی حد کو ہٹانے کے) حد سے نااہل کیا.</li></ul></div>
 
-##### <div dir="rtl">"block_control_characters"<br /></div>
-<div dir="rtl"><ul>
- <li>کسی بھی کنٹرول حروف (نیولائنز علاوہ) استعمال میں کسی بھی فائلوں کو مسدود کریں؟ ("[\x00-\x08\x0b\x0c\x0e\x1f\x7f]") آپ ہو تو <strong><em>صرف</em></strong> اپ لوڈ سادہ ٹیکسٹ، تو آپ اس اختیار کو کچھ اضافی تحفظ فراہم کرنے کے لئے پر تبدیل کر سکتے ہیں آپ کے سسٹم. تاہم، اگر آپ کو سادہ متن کے علاوہ اور کچھ پر اس رخ جھوٹے مثبت نتیجے میں اپ لوڈ کریں. False (جھوٹی) = مسدود نہ کریں [پہلے سے طے شدہ]؛ True (سچے) = بلاک.</li>
-</ul></div>
+##### <div dir="rtl">"scannable_threshold" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>کہ phpMussel پڑھیں اور سکین کرنے کی اجازت ہے خام ڈیٹا کی لمبائی کی حد (کے معاملے میں کوئی نمایاں کارکردگی کے مسائل جبکہ سکیننگ ہیں). پہلے سے طے شدہ = 32MB. زیرو یا خالی قدر حد سے غیر فعال. عام طور پر، اس کی قیمت آپ چاہتے ہیں اور filesize_limit ہدایت کے مقابلے میں زیادہ نہیں ہونا چاہئے، آپ کے سرور یا ویب سائٹ کو حاصل کرنے کی توقع ہے کہ فائل اپ لوڈ کی اوسط فائل سے کم نہیں ہونا چاہئے، اور میں سے ایک تقریبا سے زیادہ پانچویں نہیں ہونا چاہئے کل قابل اجازت میموری مختص "php.ini" ترتیب دینے کی فائل کے ذریعے PHP کے لئے عطا کی. یہ ہدایت بہت زیادہ میموری کا استعمال کرتے ہوئے کی طرف سے phpMussel کو روکنے کے لئے کوشش کرنے کے لئے موجود ہے (کہ کامیابی کی ایک مخصوص فائل کے اوپر فائلوں کو اسکین کرنے کے قابل ہونے سے روکنے کروں گا).</li></ul></div>
 
-##### <div dir="rtl">"corrupted_exe"<br /></div>
-<div dir="rtl"><ul>
- <li>خراب فائلوں اور غلطیوں کا تجزیہ. False (جھوٹی) = نظرانداز کریں. سچا = بلاک [پہلے سے طے شدہ]. پتہ لگانے اور ممکنہ طور پر خراب PE (پورٹ ایبل نفاذ پذیر) فائلوں کو بلاک؟ اکثر ایسا ہوتا ہے (لیکن ہمیشہ نہیں)، ایک PE فائل کے کچھ پہلوؤں کو خراب کر رہے ہیں یا صحیح طریقے سے پارس نہیں کیا جا سکتا ہے جب، یہ ایک وائرل انفیکشن کا اشارہ ہو سکتا ہے. سب سے زیادہ اینٹی وائرس پروگراموں کی طرف سے استعمال کیا جاتا ہے عمل PE فائلوں میں وائرس کا پتہ لگانے کے لئے ان کے وائرس undetected رہنے کی اجازت دینے کے لئے ہے، بعض طریقوں، ایک وائرس کے پروگرامر کے بارے میں معلوم ہو تو خاص طور پر روکنے کی کوشش کریں گے، جس میں ان فائلوں کی تصریف کی ضرورت ہوتی ہے.</li>
-</ul></div>
+##### <div dir="rtl">"allow_leading_trailing_dots" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>فائلوں کے آغاز اور اختتام پر نقطہ نظر کی اجازت دیں؟ یہ کبھی کبھی استعمال کرنے کے لئے فائلوں کو چھپانے کے لئے، یا کچھ نظام کو ڈائل کرنے کے لئے استعمال کیا جا سکتا ہے ڈائرکٹری کے تبادلوں کی اجازت دیتا ہے. False (جھوٹی) = اجازت نہ دیں [پہلے سے طے شدہ]؛ True (سچے) = اجازت دیں.</li></ul></div>
 
-##### <div dir="rtl">"decode_threshold"<br /></div>
-<div dir="rtl"><ul>
- <li>خام ڈیٹا جس کے اندر ڈیکوڈ کمانڈز کے پتہ جانی چاہئے کی لمبائی کے حد سے (کے معاملے میں کسی بھی نمایاں کارکردگی کے مسائل جبکہ سکیننگ سے ہیں). پہلے سے طے شدہ = 512KB. زیرو یا شہوت انگیز null قیمت (فائل کی بنیاد پر اس طرح کے کسی بھی حد کو ہٹانے کے) حد سے نااہل کیا.</li>
-</ul></div>
+##### <div dir="rtl">"block_macros" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>میکروس پر مشتمل کسی بھی فائل کو روکنے کی کوشش کریں؟ کچھ قسم کے دستاویزات اور سپریڈ شیٹوں میں قابل عمل میکروس شامل ہوسکتا ہے، اس طرح ایک خطرناک ممکنہ میلویئر ویکٹر فراہم کرتا ہے. False (جھوٹی) = مسدود نہ کریں [پہلے سے طے شدہ]؛ True (سچے) = بلاک.</li></ul></div>
 
-##### <div dir="rtl">"scannable_threshold"<br /></div>
-<div dir="rtl"><ul>
- <li>کہ phpMussel پڑھیں اور سکین کرنے کی اجازت ہے خام ڈیٹا کی لمبائی کی حد (کے معاملے میں کوئی نمایاں کارکردگی کے مسائل جبکہ سکیننگ ہیں). پہلے سے طے شدہ = 32MB. زیرو یا خالی قدر حد سے غیر فعال. عام طور پر، اس کی قیمت آپ چاہتے ہیں اور filesize_limit ہدایت کے مقابلے میں زیادہ نہیں ہونا چاہئے، آپ کے سرور یا ویب سائٹ کو حاصل کرنے کی توقع ہے کہ فائل اپ لوڈ کی اوسط فائل سے کم نہیں ہونا چاہئے، اور میں سے ایک تقریبا سے زیادہ پانچویں نہیں ہونا چاہئے کل قابل اجازت میموری مختص "php.ini" ترتیب دینے کی فائل کے ذریعے PHP کے لئے عطا کی. یہ ہدایت بہت زیادہ میموری کا استعمال کرتے ہوئے کی طرف سے phpMussel کو روکنے کے لئے کوشش کرنے کے لئے موجود ہے (کہ کامیابی کی ایک مخصوص فائل کے اوپر فائلوں کو اسکین کرنے کے قابل ہونے سے روکنے کروں گا).</li>
-</ul></div>
+##### <div dir="rtl">"only_allow_images" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جب true پر سیٹ کریں، اسکینر کے ذریعہ پائے جانے والی غیر تصویر والی فائلوں کو فوری طور پر نشان زد کیا جائے گا، اسکین کیے بغیر. اس سے کچھ معاملات میں اسکین مکمل کرنے کے لئے درکار وقت کو کم کرنے میں مدد مل سکتی ہے. بطور ڈیفالٹ false پر سیٹ کریں.</li></ul></div>
 
-##### <div dir="rtl">"allow_leading_trailing_dots"<br /></div>
-<div dir="rtl"><ul>
- <li>فائلوں کے آغاز اور اختتام پر نقطہ نظر کی اجازت دیں؟ یہ کبھی کبھی استعمال کرنے کے لئے فائلوں کو چھپانے کے لئے، یا کچھ نظام کو ڈائل کرنے کے لئے استعمال کیا جا سکتا ہے ڈائرکٹری کے تبادلوں کی اجازت دیتا ہے. False (جھوٹی) = اجازت نہ دیں [پہلے سے طے شدہ]؛ True (سچے) = اجازت دیں.</li>
-</ul></div>
+#### <div dir="rtl">"quarantine" (قسم)<br /></div>
+<div dir="rtl">سنگرودھ کے لئے ترتیبات.<br /><br /></div>
 
-##### <div dir="rtl">"block_macros"<br /></div>
-<div dir="rtl"><ul>
- <li>میکروس پر مشتمل کسی بھی فائل کو روکنے کی کوشش کریں؟ کچھ قسم کے دستاویزات اور سپریڈ شیٹوں میں قابل عمل میکروس شامل ہوسکتا ہے، اس طرح ایک خطرناک ممکنہ میلویئر ویکٹر فراہم کرتا ہے. False (جھوٹی) = مسدود نہ کریں [پہلے سے طے شدہ]؛ True (سچے) = بلاک.</li>
-</ul></div>
+##### <div dir="rtl">"quarantine_key" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel مسدود فائل اپلوڈز کو الگ تھلگ کرنے کے قابل ہے، اگر یہ وہ چیز ہے جو آپ چاہتے ہیں. صرف دل کی گہرائیوں سے کسی بھی پرچم لگایا کوشش کی فائل اپ لوڈ اس فعالیت کو غیر فعال کر چھوڑ دینا چاہئے تجزیہ کرنے میں کوئی دلچسپی کے بغیر ان کی ویب سائٹ یا ہوسٹنگ ماحول کی حفاظت کے لئے چاہتے ہیں کہ phpMussel کے آرام دہ اور پرسکون صارفین، لیکن میلویئر کی تحقیق کے لئے یا اسی طرح کے پرچم لگائے کوشش کی فائل اپ لوڈ کی مزید تجزیہ کرنے میں دلچسپی رکھتے کسی بھی صارفین ایسی چیزوں کو اس فعالیت کو چالو کرنا چاہئے. نشان زدہ کوشش کی فائل اپ لوڈ کی Quarantining کبھی کبھی بھی، جھوٹے مثبت ٹھیک کرنا میں مدد کر سکتے ہیں یہ اکثر آپ کے لئے اس وقت ہوتی ہے کہ کچھ ہے. سنگرودھ فعالیت کو غیر فعال کرنے کیلئے، بس <code dir="ltr"> quarantine_key </code> کے ہدایت خالی چھوڑ دیں، یا یہ کہ ہدایت کے مندرجات کو مٹانے یہ پہلے سے خالی نہیں ہے. سنگرودھ فعالیت کو چالو کرنے کے لئے، ہدایت میں کچھ قیمت درج کریں. <code dir="ltr"> quarantine_key </code> کے ممکنہ حملہ آوروں کی طرف سے اور سنگرودھ کے اندر اندر ذخیرہ کردہ ڈیٹا کی کسی بھی ممکنہ پھانسی کی روک تھام کا ایک ذریعہ کے طور پر استحصال کیا جا رہا ہے سے قرنطینہ فعالیت کی روک تھام کا ایک ذریعہ کے طور پر ضرورت سنگرودھ فعالیت کا ایک اہم حفاظتی خصوصیت ہے. <code dir="ltr"> quarantine_key </code> کے آپ کے پاس ورڈ کے طور پر اسی انداز میں علاج کیا جانا چاہئے: اب بہتر ہے، اور مضبوطی سے اس کی حفاظت. بہترین اثر کے لیے، کے ساتھ مل کر میں استعمال کرتے ہیں <code dir="ltr">delete_on_sight</code>.</li></ul></div>
 
-#### <div dir="rtl">"compatibility" (قسم)<br /></div>
-<div dir="rtl">phpMussel لئے مطابقت ہدایات.<br /><br /></div>
+##### <div dir="rtl">"quarantine_max_filesize" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>فائلوں کی زیادہ سے زیادہ قابل اجازت فائل قرنطینہ جائے. متعین قدر سے بڑی فائلوں قرنطینہ نہیں رکھا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن ​​دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 2MB.</li></ul></div>
 
-##### <div dir="rtl">"ignore_upload_errors"<br /></div>
-<div dir="rtl"><ul>
- <li>جب تک یہ آپ کی مخصوص نظام پر phpMussel کا صحیح فعالیت کے لئے ضروری ہے یہ ہدایت عام طور پر غیر فعال کر دیا جائے چاہئے. عام طور پر، جب معذور، phpMussel میں عناصر کی موجودگی کا پتہ لگاتا ہے جب <code dir="ltr">$_FILES</code> <code dir="ltr">array()</code>، یہ phpMussel ایک غلطی پیغام واپس آ جائیں گے، ان عناصر کو خالی یا خالی ہو تو، فائلوں ان عناصر کی نمائندگی کرتے ہیں کی ایک اسکین شروع کرنے کی کوشش کرتے ہیں، اور کرے گا. یہ phpMussel لئے مناسب رویہ ہے. تاہم، کچھ CMS کے لئے، میں خالی عناصر <code dir="ltr">$_FILES</code> وہاں نہ کوئی بھی ہوتے ہیں تو اس صورت میں، phpMussel لئے عام رویہ ان لوگوں CMS کے عام رویے کے ساتھ مداخلت کی جائے گی رپورٹ کیا جا سکتا ہے ان لوگوں کے CMS، یا غلطیوں کے قدرتی رویے کے نتیجے میں ہو سکتا ہے. ایک ایسی صورتحال نے اس وقت ہوتی ہے، تو اس اختیار کو چالو کرنے کے، phpMussel طرح خالی عناصر کے لئے علیحدہ اسکین کی ضرورت شروع کرنے کی کوشش نہ کرنے کی ہدایت دیں گے، اس طرح کے صفحے کی درخواست کے تسلسل کی اجازت دی چلا جب ان کو نظر انداز اور کسی بھی متعلقہ خرابی کے پیغامات واپس نہیں کرنا. False (جھوٹی) = بند کر؛ True (سچے) = چالو کردیا.</li>
-</ul></div>
+##### <div dir="rtl">"quarantine_max_usage" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>زیادہ سے زیادہ میموری کا استعمال سنگرودھ کے لئے کی اجازت دی. سنگرودھ طرف سے استعمال کیا کل میموری اس قیمت تک پہنچ جاتا ہے تو، استعمال کیا کل میموری اب کوئی اس قیمت تک پہنچ جاتا ہے جب تک قدیم ترین قرنطینہ فائلوں کو خارج کر دیا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن ​​دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 64MB.</li></ul></div>
 
-##### <div dir="rtl">"only_allow_images"<br /></div>
-<div dir="rtl"><ul>
- <li>جب true پر سیٹ کریں، اسکینر کے ذریعہ پائے جانے والی غیر تصویر والی فائلوں کو فوری طور پر نشان زد کیا جائے گا، اسکین کیے بغیر. اس سے کچھ معاملات میں اسکین مکمل کرنے کے لئے درکار وقت کو کم کرنے میں مدد مل سکتی ہے. بطور ڈیفالٹ false پر سیٹ کریں.</li>
-</ul></div>
-
-#### <div dir="rtl">"heuristic" (قسم)<br /></div>
-<div dir="rtl">انکشافی ہدایات.<br /><br /></div>
-
-##### <div dir="rtl">"threshold"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel فائلوں کی مشکوک اور ممکنہ طور پر بدنیتی پر مبنی خصوصیات کی شناخت کے لئے ارادہ کر رہے ہیں کہ بعض دستخط موجود ہیں خود میں بغیر اپ لوڈ کیا جا رہا ہے ان فائلوں بدنیتی پر مبنی ہونے کے طور پر خاص طور پر اپ لوڈ کیا جا رہا ہے کی شناخت. یہ "دہلیز" قدر بتاتا ہے ان فائلوں درنساوناپورن کا جھنڈا لگا ہو رہے ہیں اس سے پہلے phpMussel فائلوں کی مشکوک اور ممکنہ طور پر بدنیتی پر مبنی خصوصیات کے زیادہ سے زیادہ کل وزن ہے کہ قابل اجازت ہے اپ لوڈ کیا جا رہا ہے. اس تناظر میں وزن کی تعریف کی شناخت مشکوک اور ممکنہ طور پر بدنیتی پر مبنی خصوصیات کی کل تعداد ہے. بنیادی طور پر، اس کی قیمت 3. ایک کم قیمت عام طور پر جھوٹے مثبت کے ایک اعلی موجودگی کے نتیجے میں جائے کرنے کے لئے مقرر کیا جائے گا لیکن بدنیتی پر مبنی فائلوں کی ایک بڑی تعداد جھنڈا لگایا جا رہا ہے، ایک زیادہ قیمت عام طور پر جھوٹے مثبت کی ایک کم موجودگی لیکن ایک کے نتیجے میں جائے جبکہ بدنیتی پر مبنی فائلوں کی کم تعداد جھنڈا لگایا جا رہا ہے. یہ آپ کو اس سے متعلق مسائل کا سامنا کر رہے ہیں جب تک کہ اس کا بنیادی میں اس قدر چھوڑنے کے لئے عام طور پر سب سے بہتر ہے.</li>
-</ul></div>
+##### <div dir="rtl">"quarantine_max_files" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>قرنطین میں موجود فائلوں کی زیادہ سے زیادہ تعداد. جب قرنطین میں نئی فائلوں کو شامل کیا جاتا ہے تو، اگر یہ نمبر تجاوز کردی جاتی ہے تو، پرانی فائلوں کو حذف کر دیا جائے گا جب باقی باقی اب اس نمبر سے زیادہ نہیں ہیں. پہلے سے طے شدہ = 100.</li></ul></div>
 
 #### <div dir="rtl">"virustotal" (قسم)<br /></div>
-<div dir="rtl">VirusTotal.com ہدایات.<br /><br /></div>
+<div dir="rtl">Virus Total انضمام کی ترتیبات.<br /><br /></div>
 
-##### <div dir="rtl">"vt_public_api_key"<br /></div>
-<div dir="rtl"><ul>
- <li>اختیاری، phpMussel وائرس، ٹروجن، میلویئر اور دیگر خطرات کے خلاف تحفظ کی ایک بہت بڑھا سطح فراہم کرنے کے لئے ایک طریقہ کے طور پر وائرس کل API کا استعمال کرتے ہوئے فائلوں کو اسکین کرنے کے قابل ہے. بطور ڈیفالٹ، سکیننگ فائلوں وائرس کل API کا استعمال غیر فعال ہے. یہ فعال کرنے کیلئے، وائرس کل سے ایک API کلید درکار ہے. اگر آپ کے ساتھ فراہم کر سکتے ہیں کہ اہم فائدہ کی وجہ سے، جو میں انتہائی چالو کرنے کی سفارش کرتے ہیں کہ کچھ ہے. براہ کرم آگاہ رہیں، تاہم، کہ وائرس کل API استعمال کرنے کے لئے، آپ کو <strong><em>ضروری</em></strong> ان سروس کی شرائط سے اتفاق کرتا ہوں اور تم <strong><em>ضروری</em></strong> مطابق وائرس کل دستاویزات کی طرف سے بیان تمام ہدایات پر عمل! تم جب تک یہ انضمام خصوصیت کو استعمال کرنے کی اجازت نہیں ہے:</li>
- <ul>
-  <li>آپ کو پڑھ اور وائرس کل اور اس API کے سروس کی شرائط سے اتفاق کرتا ہوں. وائرس کل اور اس API کے سروس کی شرائط پایا جا سکتا ہے <a href="https://www.virustotal.com/en/about/terms-of-service/">یہاں</a>.</li>
-  <li>آپ نے پڑھا ہے اور آپ کو ایک کم از کم، سمجھنے، وائرس کل پبلک API دستاویزات کا کردار (بعد "VirusTotal Public API v2.0" لیکن "Contents" سے پہلے سب کچھ). Virus Total پبلک API دستاویزات پایا جا سکتا ہے <a href="https://www.virustotal.com/en/documentation/public-api/">یہاں</a>.</li>
- </ul>
+##### <div dir="rtl">"vt_public_api_key" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اختیاری، phpMussel وائرس، trojans، میلویئر اور دیگر خطرات کے خلاف تحفظ کی ایک بہت بڑھا سطح فراہم کرنے کے لئے ایک طریقہ کے طور پر وائرس کل API کا استعمال کرتے ہوئے فائلوں کو اسکین کرنے کے قابل ہے. بطور ڈیفالٹ، سکیننگ فائلوں وائرس کل API کا استعمال غیر فعال ہے. یہ فعال کرنے کیلئے، وائرس کل سے ایک API کلید درکار ہے. اہم فائدہ کی وجہ سے اس سے آپ کے لئے میں انتہائی چالو کرنے کی سفارش کرتے ہیں کہ، یہ 'ے کچھ فراہم کر سکتا ہے. براہ کرم آگاہ رہیں، تاہم، کہ وائرس کل API استعمال کرنے کے لئے، آپ <em><strong> پر ضروری ہے </strong></em> کو ان کے سروس کی شرائط سے اتفاق کرتا ہوں اور آپ <em><strong> پر ضروری ہے </strong></em> مطابق وائرس کل دستاویزات کی طرف سے بیان کو تمام ہدایات پر عمل! آپ پڑھیں اور وائرس کل اور اس API کے سروس کی شرائط سے اتفاق کرتا ہوں: آپ جب تک یہ انضمام خصوصیت کو استعمال کرنے کی اجازت نہیں ہے. تم نے پڑھا ہے اور آپ کو ایک کم از کم، سمجھنے، وائرس کل پبلک API دستاویزات کے (بعد "VirusTotal کی عوامی API V2.0" سب کچھ لیکن "فہرست" سے پہلے) تمہید.</li></ul></div>
+
+<div dir="rtl">بھی دیکھو:<ul dir="rtl">
+<li><a dir="ltr" href="https://www.virustotal.com/en/about/terms-of-service/">Terms of Service</a></li>
+<li><a dir="ltr" href="https://developers.virustotal.com/reference">Getting started</a></li>
 </ul></div>
 
-<div dir="rtl">نوٹ: وائرس کل API غیر فعال ہے کا استعمال کرتے ہوئے فائلوں کو سکین تو، آپ کو اس زمرے میں ہدایت میں سے کسی پر نظرثانی کرنے کی ضرورت نہیں کرے گا ("virustotal")، اس غیر فعال ہو تو ان میں سے کوئی کچھ بھی کرے گا کیونکہ. ان کی ویب سائٹ پر کسی بھی جگہ سے، ایک وائرس کل API کلید حاصل کرنے کے لئے،، صفحے کے سب سے اوپر دائیں جانب واقع "ہماری کمیونٹی میں شامل" کے لنک پر کلک کر درخواست کی معلومات میں درج کریں، اور کلک کریں "سائن اپ" کیا جب. فراہم کی تمام ہدایات پر عمل کریں، اور آپ اپنے عوامی API کلید، کاپی/پیسٹ <code dir="ltr">config.ini</code> کنفیگریشن فائل کے<code dir="ltr">vt_public_api_key</code> ہدایت ہے کہ عوامی API کلید مل گیا ہے جب.<br /><br /></div>
+##### <div dir="rtl">"vt_suspicion_level" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>بطور ڈیفالٹ، phpMussel جس فائلوں کی یہ "مشکوک" سمجھتی ہے کہ ان فائلوں کو وائرس کل API کا استعمال کرتے ہوئے کو سکین کرتا ہے کو محدود کریں گے. آپ اختیاری <code dir="ltr"> vt_suspicion_level </code> کے ہدایت کی قدر میں تبدیلی کرتے ہوئے اس پابندی کو ایڈجسٹ کر سکتے ہیں.</li></ul></div>
 
-##### <div dir="rtl">"vt_suspicion_level"<br /></div>
-<div dir="rtl"><ul>
- <li>ڈیفالٹ کی طرف سے، phpMussel جس فائلوں کی یہ "مشکوک" سمجھتی ہے کہ ان فائلوں کو وائرس کل API کا استعمال کرتے ہوئے کو سکین کرتا ہے کو محدود کریں گے. آپ اختیاری <code dir="ltr">vt_suspicion_level</code> ہدایت کی قدر میں تبدیلی کرتے ہوئے اس پابندی کو ایڈجسٹ کر سکتے ہیں.</li>
- <li>"0": فائلیں صرف phpMussel اس کے اپنے دستخط کا استعمال کرتے ہوئے کی طرف سے سکین کیا جا رہا ہے کے بعد، اگر مشکوک سمجھا جاتا ہے، وہ ایک انکشافی وزن لے جانے کے لئے تصور کیا جاتا ہے. یہ مؤثر طریقے سے وائرس کل API لئے جب phpMussel ایک فائل ممکنہ طور پر بدنیتی پر مبنی ہو سکتا ہے کہ شبہ ہے ایک دوسرے کی رائے کے لئے ہو جائے گا کے اس کے استعمال کا مطلب ہو گا، لیکن مکمل طور پر یہ بھی ممکنہ طور پر سومی (غیر درنساوناپورن) ہو سکتا ہے کو مسترد نہیں کر سکتے ہیں اور اس وجہ سے دوسری صورت میں عام طور پر بدنیتی پر مبنی ہونے کے طور پر اس کا یا اس پر پرچم لگا مسدود نہ کریں گے.</li>
- <li>"1": فائلیں اس کے اپنے دستخط کا استعمال کرتے ہوئے phpMussel طرف سے سکین کیا جا رہا ہے کے بعد، اگر مشکوک سمجھا جاتا ہے، وہ (ایگزیکیوٹیبل ہو جانا جاتا رہے تو PE فائلوں، مچھ-O فائلیں، ایک انکشافی وزن لے جانے کے لئے تصور کیا جاتا ہے، تیر/لینکس فائلوں، وغیرہ)، یا وہ ایک شکل ہے کہ ممکنہ طور پر کارکردگی کا ڈیٹا (جیسے جیسے RARs، زپ اور وغیرہ) کارکردگی میکرو، DOC/DOCX فائلوں، ذخیرہ فائلوں پر مشتمل کر سکتے کے طور پر جانا جاتا رہے ہیں. یہ مؤثر طریقے سے وائرس کے استعمال کل API جب phpMussel ابتدائی طور پر بدنیتی پر مبنی یا ایک فائل جو مشکوک ہونے کے لئے اور اس وجہ سے کرے گا سمجھتی ہے کہ ساتھ کچھ غلط کچھ بھی نہیں کرتا ہے کے لئے ایک دوسرے کی رائے کے لئے ہو جائے گا کہ جس کا مطلب لاگو کرنے کے لئے پہلے سے طے شدہ اور سفارش شبہ سطح ہے دوسری صورت میں عام طور پر یہ یا بدنیتی پر مبنی ہونے کے طور پر پرچم لگا مسدود نہ.</li>
- <li>"2": تمام فائلوں کو مشکوک سمجھا جاتا ہے اور وائرس کل API کا استعمال کرتے ہوئے اسکین کیا جانا چاہئے. میں عام طور پر بہت تیز وگرنہ صورت ہو گا کے مقابلے میں آپ API کوٹہ پہنچنے کے خطرے کی وجہ سے، اس شک کی سطح کا اطلاق کرنے کی سفارش نہیں کرتے، لیکن بعض حالات (جیسا کہ ویب ماسٹر یا hostmaster میں بہت کم ایمان یا اعتماد جو کچھ ہے جب سے ہیں ان صارفین کی اپ لوڈ کردہ مواد) اس شک کی سطح پر مناسب ہو سکتا ہے جہاں کے کسی بھی. اس شک کی سطح کے ساتھ، تمام فائلوں کو عام طور پر مسدود یا جھنڈا لگایا نہیں بدنیتی پر مبنی ہونے کی وجہ سے وائرس کل API کا استعمال کرتے ہوئے اسکین کیا جائے گا. نوٹ، تاہم، phpMussel اپنے API کوٹہ (قطع نظر اس شک کی سطح کی) تک پہنچ گیا ہے جب وائرس کل API کا استعمال ختم ہو جائے گا، اور اس شک کی سطح کا استعمال کرتے وقت آپ کے کوٹے کا امکان زیادہ تیزی سے تک پہنچ جائے گی.</li>
-</ul></div>
+##### <div dir="rtl">"vt_weighting" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel detections کر کے طور پر یا پتہ لگانے weighting کے طور وائرس کل API کا استعمال کرتے ہوئے سکیننگ کے نتائج کو درخواست دینی چاہیے؟ (اور بدنیتی پر مبنی فائلوں کی ایک بڑی تعداد پکڑے جانے لہذا میں) ایک سے زیادہ کے انجن کو استعمال کرتے ہوئے (جیسا وائرس کل کرتا ہے) ایک فائل کو سکین ایک اضافہ کا پتہ لگانے کی شرح کے نتیجے چاہئے، اگرچہ، یہ بھی جھوٹے کی زیادہ تعداد کے نتیجے کر سکتے ہیں، کیونکہ یہ ہدایت موجود ہے، مثبت ہے، اور اس وجہ سے، کچھ حالات میں، سکیننگ کے نتائج بہتر ایک حتمی نتیجے پر اس اعتماد کا سکور کے طور پر کی بجائے استعمال کیا جا سکتا ہے. 0 کی قدر استعمال کیا جاتا ہے تو، وائرس کل API کا استعمال کرتے ہوئے سکیننگ کے نتائج کسی بھی انجن وائرس کل پرچم فائل کو بدنیتی پر مبنی ہونے کے طور پر سکین کیا جا رہا ہے کی طرف سے استعمال کیا جاتا ہے تو، detections کر کے طور پر لاگو کیا جائے گا، اور اس وجہ سے، phpMussel بدنیتی پر مبنی ہونے کے لئے فائل پر غور کریں گے. کسی دوسرے کی قدر استعمال کیا جاتا ہے تو، وائرس کل API کا استعمال کرتے ہوئے سکیننگ کے نتائج کا پتہ لگانے weighting کے طور پر لاگو کیا جائے گا، اور اس وجہ سے، فائل پرچم کہ وائرس کل کی طرف سے استعمال کے انجن کی تعداد سکین کیا جا رہا ہے درنساوناپورن ہونے (ایک اعتماد سکور کے طور پر کام کرے گا کے طور پر یا پتہ لگانے weighting کے) کے لئے ہے یا نہیں کی فائل کو سکین کیا جا رہا phpMussel طرف بدنیتی پر مبنی سمجھا جانا چاہئے (استعمال کیا کم از کم اعتماد کی نمائندگی کریں گے ویلیو سکور یا ترتیب میں کی ضرورت وزن بدنیتی پر مبنی سمجھا جائے). 0 کی قدر سے طے شدہ کی طرف سے استعمال کیا جاتا ہے.</li></ul></div>
 
-<div dir="rtl">نوٹ: قطع شبہ سطح کے، یا تو phpMussel طرف سے بلیک لسٹ یا وائٹ لسٹ کر رہے ہیں کہ کسی بھی فائلوں وائرس کل API کا استعمال کرتے ہوئے اسکین نہیں کیا جائے گا، ان لوگوں کو اس طرح کی فائلوں کو پہلے ہی وقت کی طرف سے phpMussel طرف درنساوناپورن یا سومی یا تو کے طور پر اعلان کیا گیا ہے گی کیونکہ کہ وہ دوسری صورت میں وائرس کل API کی طرف سے سکین کریں گے لیا ہے کیا گیا ہے، اور اس وجہ سے، اضافی سکیننگ کی ضرورت نہیں ہو گی. وائرس کل API کا استعمال کرتے ہوئے فائلوں کو اسکین کرنے phpMussel کی صلاحیت ہے کہ آیا ایک فائل درنساوناپورن یا ان حالات میں جہاں phpMussel خود چاہے ایک فائل درنساوناپورن یا سومی ہے کرنے کے طور پر مکمل طور پر یقین نہیں ہے میں سومی ہے کے لئے مزید اعتماد کی تعمیر کرنا ہے.<br /><br /></div>
+##### <div dir="rtl">"vt_quota_rate" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>وائرس کل API دستاویزات کے مطابق، "یہ کسی بھی 1 منٹ ٹائم فریم میں کسی بھی نوعیت کی زیادہ سے زیادہ 4 درخواستوں تک محدود ہے. آپ کو ایک honeyclient، honeypot یا اور نہ صرف VirusTotal کی کرنے کے لئے وسائل فراہم کرنے کے لئے کی جا رہی ہے کہ کسی دوسرے آٹومیشن چلاتے ہیں تو رپورٹیں آپ کو ایک اعلی کی درخواست کی شرح کوٹہ "کے حقدار ہیں بازیافت. بطور ڈیفالٹ، phpMussel سختی سے ان حدود پر عمل کرے گا، لیکن ان کی شرح کوٹہ کے امکان میں اضافہ کیا جا رہا ہے کی وجہ سے، ان دو ہدایات آپ اس پر کیا عمل کرنا چاہئے محدود کرنے کے طور phpMussel ہدایت کرنے کے لئے ایک وسیلہ کے طور پر فراہم کی جاتی ہیں. آپ \ جب تک، ایسا کرنے کی ہدایت کی گئی ہے، یہ ہے، آپ کو ان اقدار میں اضافہ کرنے کے لئے سفارش کی نہیں ہے، لیکن آپ کو \ تو آپ کی شرح کوٹہ پہنچنے سے متعلق سامنا کرنا پڑا مسائل کردینے گھٹ ان اقدار <em><strong> پر MAY </ مضبوط> </em> کو کبھی کبھی ان مسائل سے نمٹنے میں آپ کی مدد. آپ کی شرح کی حد <code dir="ltr"> vt_quota_rate </code> کے کسی بھی <code dir="ltr"> میں کسی بھی نوعیت کی درخواستوں vt_quota_time </code> کے لمحے وقت کی حد کے طور پر مقرر کیا جاتا ہے.</li></ul></div>
 
-##### <div dir="rtl">"vt_weighting"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel کا پتہ لگانے کے کر کے طور پر یا پتہ لگانے وزن کے طور وائرس کل API کا استعمال کرتے ہوئے سکیننگ کے نتائج کو درخواست دینی چاہیے؟ (اور بدنیتی پر مبنی فائلوں کی ایک بڑی تعداد پکڑے جانے لہذا میں) ایک سے زیادہ کے انجن کو استعمال کرتے ہوئے (جیسا وائرس کل کرتا ہے) ایک فائل کو سکین ایک اضافہ کا پتہ لگانے کی شرح کے نتیجے چاہئے، اگرچہ، یہ بھی جھوٹے کی زیادہ تعداد کے نتیجے کر سکتے ہیں، کیونکہ یہ ہدایت موجود ہے، مثبت ہے، اور اس وجہ سے، کچھ حالات میں، سکیننگ کے نتائج بہتر ایک حتمی نتیجے پر اس اعتماد کا سکور کے طور پر کی بجائے استعمال کیا جا سکتا ہے. 0 کی قدر استعمال کیا جاتا ہے تو، وائرس کل API کا استعمال کرتے ہوئے سکیننگ کے نتائج کسی بھی انجن وائرس کل پرچم فائل کو بدنیتی پر مبنی ہونے کے طور پر سکین کیا جا رہا ہے کی طرف سے استعمال کیا تو اس کا پتہ لگانے کے طور پر لاگو کیا جائے گا، اور اس وجہ سے، phpMussel بدنیتی پر مبنی ہونے کے لئے فائل پر غور کریں گے. کسی دوسرے کی قدر استعمال کیا جاتا ہے تو، وائرس کل API کا استعمال کرتے ہوئے سکیننگ کے نتائج کا پتہ لگانے وزن کے طور پر لاگو کیا جائے گا، اور اس وجہ سے، فائل پرچم کہ وائرس کل کی طرف سے استعمال کے انجن کی تعداد سکین کیا جا رہا ہے درنساوناپورن ہونے (ایک اعتماد سکور کے طور پر کام کرے گا کے طور پر یا پتہ لگانے وزن کے) کے لئے ہے یا نہیں کی فائل کو سکین کیا جا رہا phpMussel طرف بدنیتی پر مبنی سمجھا جانا چاہئے (استعمال کیا کم از کم اعتماد کی نمائندگی کریں گے ویلیو سکور یا ترتیب میں کی ضرورت وزن بدنیتی پر مبنی سمجھا جائے). 0 کی قدر سے طے شدہ کی طرف سے استعمال کیا جاتا ہے.</li>
-</ul></div>
-
-##### <div dir="rtl">"vt_quota_rate" اور "vt_quota_time"<br /></div>
-<div dir="rtl"><ul>
- <li>وائرس کل API دستاویزات کے مطابق، "یہ کسی بھی 1 منٹ ٹائم فریم میں کسی بھی نوعیت کی زیادہ سے زیادہ 4 درخواستوں تک محدود ہے آپ کو ایک honeyclient، honeypot یا VirusTotal کی اور نہ کرنے کے لئے وسائل فراہم کرنے کے لئے کی جا رہی ہے کہ کسی دوسرے آٹومیشن چلاتے ہیں تو. صرف رپورٹیں آپ کو ایک اعلی کی درخواست کی شرح کوٹہ" کے حقدار ہیں بازیافت. بطور ڈیفالٹ، phpMussel سختی سے ان حدود پر عمل کرے گا، لیکن ان کی شرح کوٹہ کے امکان میں اضافہ کیا جا رہا ہے کی وجہ سے، ان دو ہدایات آپ اس پر کیا عمل کرنا چاہئے محدود کرنے کے طور phpMussel ہدایت کرنے کے لئے ایک وسیلہ کے طور پر فراہم کی جاتی ہیں. جب تک آپ کو ایسا کرنے کی ہدایت کی گئی ہے، یہ آپ کو ان اقدار کو کم، آپ کو آپ کی شرح کوٹہ پہنچنے سے متعلق مسائل کا سامنا کرنا پڑا ہے تو، ان اقدار میں اضافہ کرنے کے لئے، لیکن کبھی کبھی آپ نمٹنے میں مدد مل سکتی ہے کی سفارش کی نہیں ہے ان مسائل کے ساتھ. آپ کی شرح کی حد کسی بھی 'vt_quota_time' منٹ ٹائم فریم میں کسی بھی نوعیت کی 'vt_quota_rate' درخواستوں کے طور پر مقرر کیا جاتا ہے.</li>
-</ul></div>
+##### <div dir="rtl">"vt_quota_time" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>(مندرجہ بالا وضاحت ملاحظہ کریں).</li></ul></div>
 
 #### <div dir="rtl">"urlscanner" (قسم)<br /></div>
-<div dir="rtl">میں ایک یو آر ایل سکینر phpMussel کے ساتھ شامل، سکین کسی بھی ڈیٹا یا فائلوں کے اندر سے درنساوناپورن یو آر ایل کا پتہ لگانے کی صلاحیت رکھتا.<br /><br /></div>
+<div dir="rtl">URL سکینر کی ترتیبات.<br /><br /></div>
 
-<div dir="rtl">نوٹ: یو آر ایل سکینر غیر فعال ہے تو، آپ کو اس غیر فعال ہے اگر ان میں سے کوئی کچھ بھی کرے گا، کیونکہ اس زمرے ("urlscanner") میں ہدایت میں سے کسی پر نظرثانی کرنے کی ضرورت نہیں کرے گا.<br /><br /></div>
+##### <div dir="rtl">"lookup_hphosts" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>درست پر سیٹ ہونے hpHosts API کو API لک اپ کو فعال کرتا ہے.</li></ul></div>
 
-<div dir="rtl">URL سکینر API لک اپ ترتیب.<br /><br /></div>
-
-##### <div dir="rtl">"lookup_hphosts"<br /></div>
-<div dir="rtl"><ul>
- <li>صحیح پر مقرر کرتے وقت <a href="https://hosts-file.net/">hpHosts</a> API کے لئے API لک اپ فعال کرتا ہے. hpHosts API لک اپ کو انجام کے لئے ایک API کلید کی ضرورت نہیں ہے.</li>
+<div dir="rtl">بھی دیکھو:<ul dir="rtl">
+<li><a dir="ltr" href="https://hosts-file.net/">hosts-file.net</a></li>
 </ul></div>
 
-##### <div dir="rtl">"google_api_key"<br /></div>
-<div dir="rtl"><ul>
- <li>ضروری API کلید وضاحت کی گئی ہے جب گوگل محفوظ براؤزنگ API کو API لک اپ فعال کرتا ہے. گوگل محفوظ براؤزنگ API لک اپ <a href="https://console.developers.google.com/">یہاں</a> سے حاصل کیا جا سکتا ہے جس میں ایک API کلید کی ضرورت ہے.</li>
- <li>نوٹ: cURL توسیع اس خصوصیت کو استعمال کرنے کے لئے ضروری ہے.</li>
+##### <div dir="rtl">"google_api_key" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ضروری API کلید وضاحت کی گئی ہے جب گوگل محفوظ براؤزنگ API کو API لک اپ کو فعال کرتا ہے.</li></ul></div>
+
+<div dir="rtl">بھی دیکھو:<ul dir="rtl">
+<li><a dir="ltr" href="https://console.developers.google.com/">Google API Console</a></li>
 </ul></div>
 
-##### <div dir="rtl">"maximum_api_lookups"<br /></div>
-<div dir="rtl"><ul>
- <li>انفرادی اسکین تکرار کے مطابق انجام دینے کے لئے API لک اپ کی زیادہ سے زیادہ قابل اجازت تعداد. ہر اضافی API لک اپ ہر ایک اسکین تکرار مکمل کرنے کی ضرورت کل وقت کا اضافہ کریں گے، لہذا آپ کو مجموعی طور پر اسکین کے عمل کو تیز کرنے کے لئے ایک حد مقرر کر سکتے ہیں. 0 مقرر کرتے وقت، کوئی ایسی زیادہ سے زیادہ قابل اجازت تعداد میں لاگو کیا جائے گا. پہلے سے طے شدہ کی طرف سے 10 مقرر کریں.</li>
-</ul></div>
+##### <div dir="rtl">"maximum_api_lookups" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>انفرادی اسکین iteration کے مطابق انجام دینے کے لئے API لک اپ کی زیادہ سے زیادہ قابل اجازت تعداد. ہر اضافی API لک اپ ہر ایک اسکین تکرار مکمل کرنے کی ضرورت کل وقت کا اضافہ کریں گے، لہذا آپ کو مجموعی طور پر اسکین کے عمل کو تیز کرنے کے لئے ایک حد مقرر کر سکتے ہیں. 0 مقرر کرتے وقت، کوئی ایسی زیادہ سے زیادہ قابل اجازت تعداد میں لاگو کیا جائے گا. پہلے سے طے شدہ کی طرف سے 10 سیٹ کریں.</li></ul></div>
 
-##### <div dir="rtl">"maximum_api_lookups_response"<br /></div>
-<div dir="rtl"><ul>
- <li>API لک اپ کی زیادہ سے زیادہ قابل اجازت تعداد سے تجاوز کر جاتا ہے تو کیا کیا جائے؟ False (جھوٹی) = کچھ بھی نہیں (پروسیسنگ جاری رہے) [پہلے سے طے شدہ] ہو؛ True (سچے) = فلیگ/بلاک فائل.</li>
-</ul></div>
+##### <div dir="rtl">"maximum_api_lookups_response" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>API لک اپ کی زیادہ سے زیادہ قابل اجازت تعداد سے تجاوز کر جاتا ہے تو کیا کیا جائے؟ False (جھوٹی) = کچھ بھی نہیں (پروسیسنگ جاری رہے) [پہلے سے طے شدہ] ہو؛ True (سچے) = فلیگ / فائل بلاک.</li></ul></div>
 
-##### <div dir="rtl">"cache_time"<br /></div>
-<div dir="rtl"><ul>
- <li>کب تک (سیکنڈوں میں) API لک اپ کے نتائج کے لئے محفوظ ہو جائے چاہئے؟ پہلے سے طے شدہ 3600 سیکنڈ (1 گھنٹہ) ہے.</li>
-</ul></div>
+##### <div dir="rtl">"cache_time" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>کب تک (سیکنڈوں میں) API لک اپ کے نتائج کے لئے محفوظ ہو جائے چاہئے؟ پہلے سے طے شدہ 3600 سیکنڈ ہے (1 گھنٹہ).</li></ul></div>
 
 #### <div dir="rtl">"legal" (قسم)<br /></div>
-<div dir="rtl">قانونی ضروریات سے متعلق ترتیب.<br /><br /></div>
+<div dir="rtl">قانونی تقاضوں کے لئے ترتیبات.<br /><br /></div>
 
-<div dir="rtl">قانونی ضروریات کے بارے میں مزید معلومات کے لئے اور یہ آپ کی ترتیبات کی ضروریات کو کس طرح اثر انداز کر سکتا ہے، براہ کرم دستاویزات کے "<a href="#SECTION11">قانونی معلومات</a>" حصے کا حوالہ دیتے ہیں.<br /><br /></div>
+##### <div dir="rtl">"pseudonymise_ip_addresses" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>لاگ ان کرتے وقت پی ایس ڈی نامناسب IP پتے؟ True (سچے) = جی ہاں [پہلے سے طے شدہ]؛ False (جھوٹی) = نہیں.</li></ul></div>
 
-##### <div dir="rtl">"pseudonymise_ip_addresses"<br /></div>
-<div dir="rtl"><ul>
- <li>لاگ ان کرتے وقت پی ایس ڈی نامناسب IP پتے؟ True (سچے) = جی ہاں [پہلے سے طے شدہ]؛ False (جھوٹی) = نہیں.</li>
-</ul></div>
-
-##### <div dir="rtl">"privacy_policy"<br /></div>
-<div dir="rtl"><ul>
- <li>کسی بھی پیدا کردہ صفحات کے فوٹر میں ظاہر ہونے والی متعلقہ رازداری کی پالیسی کا پتہ. ایک URL کی وضاحت کریں، یا غیر فعال کرنے کیلئے خالی چھوڑ دیں.</li>
-</ul></div>
-
-#### <div dir="rtl">"template_data" (قسم)<br /></div>
-<div dir="rtl">سانچوں اور موضوعات کے لئے ہدایات/متغیر.<br /><br /></div>
-
-<div dir="rtl">"رسائی نہیں ہوئی" کے صفحے پیدا کرنے کے لئے استعمال HTML پیداوار سے متعلق ہے. آپ phpMussel لئے اپنی مرضی کے موضوعات کا استعمال کرتے ہوئے کر رہے ہیں، ایچ ٹی ایم ایل کی پیداوار <code dir="ltr">template_custom.html</code> فائل سے کیے جاتا ہے، اور دوسری صورت میں، HTML پیداوار <code dir="ltr">template.html</code> فائل سے کیے جاتا ہے. ترتیب فائل کے اس شعبہ کو لکھا تغیر اسی متغیر ڈیٹا کے ساتھ ایچ ٹی ایم ایل کی پیداوار کے اندر اندر پایا گھوبگھرالی بریکٹ طرف circumfixed کوئی بھی متغیرہ کے ناموں کی جگہ کی راہ کی طرف HTML پیداوار میں پارس کر رہے ہیں. مثال کے طور پر، جہاں <code dir="ltr">foo="bar"</code> بار کے کسی بھی مثال <code dir="ltr">&lt;p&gt;{foo}&lt;/p&gt;</code> HTML پیداوار کے اندر اندر پایا بن جائے گا <code dir="ltr">&lt;p&gt;bar&lt;/p&gt;</code>.<br /><br /></div>
-
-##### <div dir="rtl">"theme"<br /></div>
-<div dir="rtl"><ul>
- <li>phpMussel لئے استعمال کرنے کے لئے مرکزی خیال، موضوع پہلے سے طے شدہ.</li>
-</ul></div>
-
-##### <div dir="rtl">"magnification"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Magnification"</em></li>
- <li>فونٹ اضافہ. پہلے سے طے شدہ = 1.</li>
-</ul></div>
-
-##### <div dir="rtl">"css_url"<br /></div>
-<div dir="rtl"><ul>
- <li>ڈیفالٹ تھیم کے لئے سانچے کی فائل اندرونی سی ایس ایس خصوصیات کا استعمال، جبکہ اپنی مرضی کے موضوعات کے لئے سانچے کی فائل، خارجی سی ایس ایس خصوصیات کا استعمال. اپنی مرضی کے موضوعات کے لئے سانچے کی فائل کو استعمال کرنے phpMussel ہدایت کرنے کے لئے، "css_url" متغیر کا استعمال کرتے ہوئے آپ کی اپنی مرضی کے موضوع کی سی ایس ایس فائلوں کے عوامی HTTP ایڈریس کی وضاحت. آپ کو اس متغیر خالی چھوڑ تو، phpMussel ڈیفالٹ تھیم کے لئے سانچے کی فائل کو استعمال کریں گے.</li>
-</ul></div>
-
-#### <div dir="rtl">"PHPMailer" (قسم)<br /></div>
-<div dir="rtl">PHPMailer ترتیب.<br /><br /></div>
-
-<div dir="rtl">فی الحال، phpMussel صرف 2FA کے لئے صرف PHPMailer کا استعمال کرتا ہے. اگر آپ سامنے کے اختتام کا استعمال نہیں کرتے ہیں، یا اگر آپ 2FA استعمال نہیں کرتے ہیں، تو آپ ان ہدایات کو نظر انداز کر سکتے ہیں.<br /><br /></div>
-
-##### <div dir="rtl">"event_log"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "EventLog"</em></li>
- <li>PHPMailer کے سلسلے میں تمام واقعات کو لاگ ان کرنے کے لئے ایک فائل. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li>
-</ul></div>
-
-##### <div dir="rtl">"skip_auth_process"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "SkipAuthProcess"</em></li>
- <li>جب <code dir="ltr">true</code>، SMTP کی تصدیق کے عمل کو چھوڑ دیا گیا ہے. اس سے بچنا چاہئے. اگر عمل ختم ہو جاتا ہے تو، آؤٹ باؤنڈ ای میل MITM حملوں سے بے نقاب ہوسکتا ہے. مخصوص معاملات میں ضروری ہوسکتا ہے (مثال کے طور پر، جب SMTP سرور مناسب طریقے سے منسلک نہیں کرے گا).</li>
-</ul></div>
-
-##### <div dir="rtl">"enable_two_factor"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Enable2FA"</em></li>
- <li>یہ تعین کرتا ہے کہ 2FA استعمال کیا جانا چاہئے.</li>
-</ul></div>
-
-##### <div dir="rtl">"host"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Host"</em></li>
- <li>آؤٹ پاؤنڈ ای میل کے لئے استعمال کرنے کے لئے SMTP میزبان.</li>
-</ul></div>
-
-##### <div dir="rtl">"port"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Port"</em></li>
- <li>آؤٹ پاؤنڈ ای میل کے لئے استعمال کرنے کے لئے پورٹ نمبر. پہلے سے طے شدہ = 587.</li>
-</ul></div>
-
-##### <div dir="rtl">"smtp_secure"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "SMTPSecure"</em></li>
- <li>ای میل بھیجنے پر پروٹوکول استعمال کرنے کے لئے (TLS یا SSL).</li>
-</ul></div>
-
-##### <div dir="rtl">"smtp_auth"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "SMTPAuth"</em></li>
- <li>کیا SMTP سیشن کو مستند کیا جاسکتا ہے؟ (عام طور پر اس کو نظر انداز کرنا چاہئے).</li>
-</ul></div>
-
-##### <div dir="rtl">"username"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Username"</em></li>
- <li>ای میل بھیجنے کے لئے صارف کا نام.</li>
-</ul></div>
-
-##### <div dir="rtl">"password"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "Password"</em></li>
- <li>ای میل بھیجنے کے لئے پاس ورڈ.</li>
-</ul></div>
-
-##### <div dir="rtl">"set_from_address"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "setFromAddress"</em></li>
- <li>ای میل بھیجنے کے لئے بھیجنے والے کا پتہ.</li>
-</ul></div>
-
-##### <div dir="rtl">"set_from_name"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "setFromName"</em></li>
- <li>ای میل بھیجنے کے لئے بھیجنے کا نام.</li>
-</ul></div>
-
-##### <div dir="rtl">"add_reply_to_address"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "addReplyToAddress"</em></li>
- <li>ای میل بھیجنے پر جواب کا پتہ.</li>
-</ul></div>
-
-##### <div dir="rtl">"add_reply_to_name"<br /></div>
-<div dir="rtl"><ul>
- <li><em>v1: "addReplyToName"</em></li>
- <li>ای میل بھیجنے پر جواب کا نام.</li>
-</ul></div>
+##### <div dir="rtl">"privacy_policy" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>کسی بھی پیدا کردہ صفحات کے فوٹر میں ظاہر ہونے والی متعلقہ رازداری کی پالیسی کا پتہ. ایک URL کی وضاحت کریں، یا غیر فعال کرنے کیلئے خالی چھوڑ دیں.</li></ul></div>
 
 #### <div dir="rtl">"supplementary_cache_options" (قسم)<br /></div>
-<div dir="rtl">اضافی کیشنگ کے اختیارات.<br /><br /></div>
+<div dir="rtl">ضمنی کیشے کے اختیارات.<br /><br /></div>
 
-##### <div dir="rtl">"enable_apcu"<br /></div>
-<div dir="rtl"><ul>
- <li>اس کی وضاحت کرتا ہے کہ کیش کے لئے APCu استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li>
-</ul></div>
+##### <div dir="rtl">"enable_apcu" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>اس کی وضاحت کرتا ہے کہ کیش کے لئے APCu استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li></ul></div>
 
-##### <div dir="rtl">"enable_memcached"<br /></div>
-<div dir="rtl"><ul>
- <li>اس کی وضاحت کرتا ہے کہ کیش کے لئے Memcached استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li>
-</ul></div>
+##### <div dir="rtl">"enable_memcached" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>اس کی وضاحت کرتا ہے کہ کیش کے لئے Memcached استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li></ul></div>
 
-##### <div dir="rtl">"enable_redis"<br /></div>
-<div dir="rtl"><ul>
- <li>اس کی وضاحت کرتا ہے کہ کیش کے لئے Redis استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li>
-</ul></div>
+##### <div dir="rtl">"enable_redis" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>اس کی وضاحت کرتا ہے کہ کیش کے لئے Redis استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li></ul></div>
 
-##### <div dir="rtl">"enable_pdo"<br /></div>
-<div dir="rtl"><ul>
- <li>اس کی وضاحت کرتا ہے کہ کیش کے لئے PDO استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li>
-</ul></div>
+##### <div dir="rtl">"enable_pdo" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>اس کی وضاحت کرتا ہے کہ کیش کے لئے PDO استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li></ul></div>
 
-##### <div dir="rtl">"memcached_host"<br /></div>
-<div dir="rtl"><ul>
- <li>Memcached کے میزبان نام. پہلے سے طے شدہ = "localhost".</li>
-</ul></div>
+##### <div dir="rtl">"memcached_host" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>Memcached کے میزبان نام. پہلے سے طے شدہ = "localhost".</li></ul></div>
 
-##### <div dir="rtl">"memcached_port"<br /></div>
-<div dir="rtl"><ul>
- <li>Memcached کے لئے بندرگاہ. پہلے سے طے شدہ = "11211".</li>
-</ul></div>
+##### <div dir="rtl">"memcached_port" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>Memcached کے لئے بندرگاہ. پہلے سے طے شدہ = "11211".</li></ul></div>
 
-##### <div dir="rtl">"redis_host"<br /></div>
-<div dir="rtl"><ul>
- <li>Redis کے میزبان نام. پہلے سے طے شدہ = "localhost".</li>
-</ul></div>
+##### <div dir="rtl">"redis_host" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>Redis کے میزبان نام. پہلے سے طے شدہ = "localhost".</li></ul></div>
 
-##### <div dir="rtl">"redis_port"<br /></div>
-<div dir="rtl"><ul>
- <li>Redis کے لئے بندرگاہ. پہلے سے طے شدہ = "6379".</li>
-</ul></div>
+##### <div dir="rtl">"redis_port" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>Redis کے لئے بندرگاہ. پہلے سے طے شدہ = "6379".</li></ul></div>
 
-##### <div dir="rtl">"redis_timeout"<br /></div>
-<div dir="rtl"><ul>
- <li>Redis کے لئے ٹائم آؤٹ. پہلے سے طے شدہ = "2.5".</li>
-</ul></div>
+##### <div dir="rtl">"redis_timeout" <code dir="ltr">[float]</code><br /></div>
+<div dir="rtl"><ul><li>Redis کے لئے ٹائم آؤٹ. پہلے سے طے شدہ = "2.5".</li></ul></div>
 
-##### <div dir="rtl">"pdo_dsn"<br /></div>
-<div dir="rtl"><ul>
- <li>PDO کے لئے DSN. پہلے سے طے شدہ = "<code dir="ltr">mysql:dbname=phpmussel;host=localhost;port=3306</code>".</li>
-</ul></div>
+##### <div dir="rtl">"pdo_dsn" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>PDO کے لئے DSN. پہلے سے طے شدہ = "mysql:dbname=phpmussel;host=localhost;port=3306".</li></ul></div>
 
-<div dir="rtl"><em>(بھی دیکھو: <a href="#HOW_TO_USE_PDO">"PDO DSN" کیا ہے؟ میں phpMussel کے ساتھ PDO کیسے استعمال کرسکتا ہوں؟</a>)</em><br /><br /></div>
+##### <div dir="rtl">"pdo_username" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>PDO کے لئے صارف نام.</li></ul></div>
 
-##### <div dir="rtl">"pdo_username"<br /></div>
-<div dir="rtl"><ul>
- <li>PDO کے لئے صارف نام.</li>
-</ul></div>
+##### <div dir="rtl">"pdo_password" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>PDO کیلئے پاس ورڈ.</li></ul></div>
 
-##### <div dir="rtl">"pdo_password"<br /></div>
-<div dir="rtl"><ul>
- <li>PDO کیلئے پاس ورڈ.</li>
-</ul></div>
+#### <div dir="rtl">"frontend" (قسم)<br /></div>
+<div dir="rtl">سامنے کے آخر کے لئے ترتیبات.<br /><br /></div>
+
+##### <div dir="rtl">"frontend_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>سامنے کے آخر میں لاگ ان کوششوں لاگنگ کے لئے دائر. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li></ul></div>
+
+##### <div dir="rtl">"max_login_attempts" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>لاگ ان کوششوں کی زیادہ سے زیادہ تعداد (سامنے کے آخر میں). پہلے سے طے شدہ = 5.</li></ul></div>
+
+##### <div dir="rtl">"numbers" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>آپ کس طرح تعداد میں ظاہر کرنے کے لئے پسند کرتے ہیں؟ مثال کے طور پر منتخب کریں جو آپ کے لئے سب سے زیادہ درست نظر آتے ہیں.</li></ul></div>
+
+```
+numbers
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Latin-1 ("1,234,567.89")
+├─Latin-2 ("1 234 567.89")
+├─Latin-3 ("1.234.567,89")
+├─Latin-4 ("1 234 567,89")
+├─Latin-5 ("1,234,567·89")
+├─China-1 ("123,4567.89")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
+├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+└─Tibetan ("༡༢༣༤༥༦༧.༨༩")
+```
+
+##### <div dir="rtl">"default_algo" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اس بات کی وضاحت کرتا ہے جو تمام مستقبل کے پاس ورڈ اور سیشن کے لئے الگورتھم استعمال کرنا ہے. اختیارات: PASSWORD_DEFAULT (ڈیفالٹ), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP &gt;= 7.2.0 کی ضرورت ہے), PASSWORD_ARGON2ID (PHP &gt;= 7.3.0 کی ضرورت ہے).</li></ul></div>
+
+```
+default_algo
+├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
+├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+└─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
+```
+
+##### <div dir="rtl">"theme" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel سامنے کے آخر کے لئے استعمال کرنے کے لئے جمالیاتی.</li></ul></div>
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…دیگر
+```
+
+##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
+<div dir="rtl"><ul><li>فونٹ اضافہ. پہلے سے طے شدہ = 1.</li></ul></div>
+
+#### <div dir="rtl">"web" (قسم)<br /></div>
+<div dir="rtl">اپ لوڈ ہینڈلر کیلئے ترتیبات.<br /><br /></div>
+
+##### <div dir="rtl">"uploads_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>جہاں تمام مسدود شدہ اپ لوڈز لاگ ان ہوجائیں. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li></ul></div>
+
+##### <div dir="rtl">"forbid_on_block" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>phpMussel فائل اپ بلاک کر کے پیغام کے ساتھ 403 ہیڈرز بھیجیں، یا کے ساتھ معمول کے 200 OK رہنا چاہیے؟ False (جھوٹی) = نہیں (200)؛ True (سچے) = جی ہاں (403) [پہلے سے طے شدہ].</li></ul></div>
+
+##### <div dir="rtl">"max_uploads" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>فائلوں کی زیادہ سے زیادہ قابل اجازت تعداد میں فائلوں کو اپ لوڈ اسکین اسکین اسقاط اور صارف کو وہ ایک ہی بار میں بہت زیادہ اپ لوڈ کررہے ہیں مطلع کرنے سے پہلے دوران اسکین کرنے کے! ایک نظریاتی حملے ہیں جس کے تحت ایک حملہ آور ایک پیسنے رک PHP عمل کو سست کرنے phpMussel اوور لوڈنگ کی طرف سے آپ کے سسٹم یا CMS DDOS کرنے کی کوشش کے خلاف تحفظ فراہم کرتا ہے. تجویز کردہ: 10. آپ کو بڑھانے یا اس نمبر سے آپ ہارڈ ویئر کی رفتار پر منحصر ہے کو کم کر سکتے ہیں. کہ اس نمبر کے لئے اکاؤنٹ یا ابلیھاگاروں کے مندرجات شامل نہیں ہے یاد رکھیں کہ..</li></ul></div>
+
+##### <div dir="rtl">"ignore_upload_errors" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جب تک یہ آپ کی مخصوص نظام پر phpMussel کا صحیح فعالیت کے لئے ضروری ہے یہ ہدایت عام طور پر غیر فعال کر دیا جائے چاہئے. عام طور پر، جب معذور، phpMussel میں عناصر کی موجودگی کا پتہ لگاتا ہے جب <code dir="ltr">$_FILES</code> <code dir="ltr">array()</code>، یہ phpMussel ایک غلطی پیغام واپس آ جائیں گے، ان عناصر کو خالی یا خالی ہو تو، فائلوں ان عناصر کی نمائندگی کرتے ہیں کی ایک اسکین شروع کرنے کی کوشش کرتے ہیں، اور کرے گا. یہ phpMussel لئے مناسب رویہ ہے. تاہم، کچھ CMS کے لئے، میں خالی عناصر <code dir="ltr">$_FILES</code> وہاں نہ کوئی بھی ہوتے ہیں تو اس صورت میں، phpMussel لئے عام رویہ ان لوگوں CMS کے عام رویے کے ساتھ مداخلت کی جائے گی رپورٹ کیا جا سکتا ہے ان لوگوں کے CMS، یا غلطیوں کے قدرتی رویے کے نتیجے میں ہو سکتا ہے. ایک ایسی صورتحال نے اس وقت ہوتی ہے، تو اس اختیار کو چالو کرنے کے، phpMussel طرح خالی عناصر کے لئے علیحدہ اسکین کی ضرورت شروع کرنے کی کوشش نہ کرنے کی ہدایت دیں گے، اس طرح کے صفحے کی درخواست کے تسلسل کی اجازت دی چلا جب ان کو نظر انداز اور کسی بھی متعلقہ خرابی کے پیغامات واپس نہیں کرنا. False (جھوٹی) = بند کر؛ True (سچے) = چالو کردیا.</li></ul></div>
+
+##### <div dir="rtl">"theme" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>"اپ لوڈ کریں تردید" صفحہ کیلئے استعمال کرنے کے لئے جمالیاتی.</li></ul></div>
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…دیگر
+```
+
+##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
+<div dir="rtl"><ul><li>فونٹ اضافہ. پہلے سے طے شدہ = 1.</li></ul></div>
+
+#### <div dir="rtl">"phpmailer" (قسم)<br /></div>
+<div dir="rtl">PHPMailer کی ترتیبات (دو عنصر کی توثیق کے لئے استعمال کیا جاتا ہےn).<br /><br /></div>
+
+##### <div dir="rtl">"event_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>PHPMailer کے سلسلے میں تمام واقعات کو لاگ ان کرنے کے لئے ایک فائل. ایک فائل کا نام کی وضاحت کریں، یا غیر فعال کرنے کو خالی چھوڑ.</li></ul></div>
+
+##### <div dir="rtl">"enable_two_factor" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>یہ تعین کرتا ہے کہ 2FA استعمال کیا جانا چاہئے.</li></ul></div>
+
+##### <div dir="rtl">"enable_notifications" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جب اپ لوڈ روک دیا جاتا ہے تو ای میل کی اطلاعات بھیجیں.</li></ul></div>
+
+##### <div dir="rtl">"skip_auth_process" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>جب <code dir="ltr">true</code>، SMTP کی تصدیق کے عمل کو چھوڑ دیا گیا ہے. اس سے بچنا چاہئے. اگر عمل ختم ہو جاتا ہے تو، آؤٹ باؤنڈ ای میل MITM حملوں سے بے نقاب ہوسکتا ہے. مخصوص معاملات میں ضروری ہوسکتا ہے (مثال کے طور پر، جب SMTP سرور مناسب طریقے سے منسلک نہیں کرے گا).</li></ul></div>
+
+##### <div dir="rtl">"host" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>آؤٹ پاؤنڈ ای میل کے لئے استعمال کرنے کے لئے SMTP میزبان.</li></ul></div>
+
+##### <div dir="rtl">"port" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>آؤٹ پاؤنڈ ای میل کے لئے استعمال کرنے کے لئے پورٹ نمبر. پہلے سے طے شدہ = 587.</li></ul></div>
+
+##### <div dir="rtl">"smtp_secure" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ای میل بھیجنے پر پروٹوکول استعمال کرنے کے لئے (TLS یا SSL).</li></ul></div>
+
+```
+smtp_secure
+├─default ("-")
+├─tls ("TLS")
+└─ssl ("SSL")
+```
+
+##### <div dir="rtl">"smtp_auth" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>کیا SMTP سیشن کو مستند کیا جاسکتا ہے؟ (عام طور پر اس کو نظر انداز کرنا چاہئے).</li></ul></div>
+
+##### <div dir="rtl">"username" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ای میل بھیجنے کے لئے صارف کا نام.</li></ul></div>
+
+##### <div dir="rtl">"password" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ای میل بھیجنے کے لئے پاس ورڈ.</li></ul></div>
+
+##### <div dir="rtl">"set_from_address" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ای میل بھیجنے کے لئے بھیجنے والے کا پتہ.</li></ul></div>
+
+##### <div dir="rtl">"set_from_name" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ای میل بھیجنے کے لئے بھیجنے کا نام.</li></ul></div>
+
+##### <div dir="rtl">"add_reply_to_address" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ای میل بھیجنے پر جواب کا پتہ.</li></ul></div>
+
+##### <div dir="rtl">"add_reply_to_name" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ای میل بھیجنے پر جواب کا نام.</li></ul></div>
 
 ---
 
@@ -1873,7 +1557,7 @@ IP پتہ: <code dir="ltr">127.0.0.1</code>
 
 <div dir="rtl">متعلقہ ترتیب ہدایات:<br /></div>
 <div dir="rtl"><ul>
- <li><code dir="ltr">scan_kills</code> &lt;- <code dir="ltr">general</code></li>
+ <li><code dir="ltr">uploads_log</code> &lt;- <code dir="ltr">web</code></li>
 </ul></div>
 
 ##### <div dir="rtl">١١.٣.٢ سامنے کے آخر لاگ<br /><br /></div>
@@ -1987,4 +1671,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 7 جولائی 2020 (2020.07.07).</div>
+<div dir="rtl">آخری تازہ کاری: 8 جولائی 2020 (2020.07.08).</div>

@@ -110,7 +110,7 @@ Ensuite, tout ce que vous aurez à faire est d'aller à la page des mises à jou
 
 *Voir : [Documentation SigTool](https://github.com/phpMussel/SigTool#documentation).*
 
-*Notez également : SigTool traite uniquement les signatures de ClamAV. Afin d'obtenir la signature d'autres sources, telles que celles écrites spécifiquement pour phpMussel, qui incluent les signatures nécessaires pour détecter les échantillons de test de phpMussel, cette méthode devra être complétée par l'une des autres méthodes mentionnées ici.*
+*Notez également : SigTool traite uniquement les signatures de ClamAV. Afin d'obtenir des signatures d'autres sources, telles que celles écrites spécifiquement pour phpMussel, qui incluent les signatures nécessaires pour détecter les échantillons de test de phpMussel, cette méthode devra être complétée par l'une des autres méthodes mentionnées ici.*
 
 ##### 2.3.3 Téléchargez les signatures de « phpMussel/Signatures » et installez-les manuellement.
 

@@ -110,7 +110,7 @@ Entonces, todo lo que necesitas hacer es ir a el front-end página de actualizac
 
 *Ver: [SigTool documentación](https://github.com/phpMussel/SigTool#documentation).*
 
-*También tenga en cuenta que SigTool solo procesa las firmas de ClamAV. Para obtener la firma de otras fuentes, como las escritas específicamente para phpMussel, que incluye las firmas necesarias para detectar las muestras de prueba de phpMussel, este método deberá complementarse con uno de los otros métodos mencionados aquí.*
+*También tenga en cuenta que SigTool solo procesa las firmas de ClamAV. Para obtener firmas de otras fuentes, como las escritas específicamente para phpMussel, que incluye las firmas necesarias para detectar las muestras de prueba de phpMussel, este método deberá complementarse con uno de los otros métodos mencionados aquí.*
 
 ##### 2.3.3 Descargue las firmas de "phpMussel/Signatures" e instálelas manualmente.
 

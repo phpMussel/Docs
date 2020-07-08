@@ -77,10 +77,10 @@ ZIP yang sudah dikemas mencakup semua dependensi yang disebutkan diatas, serta s
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 MENGINSTAL TANDA TANGAN
 
-Sejak v1.0.0, tanda tangan tidak termasuk dalam paket phpMussel. Tanda tangan dibutuhkan oleh phpMussel untuk mendeteksi ancaman tertentu. Ada 3 metode utama untuk menginstal tanda tangan:
+Tanda tangan dibutuhkan oleh phpMussel untuk mendeteksi ancaman tertentu. Ada 3 metode utama untuk menginstal tanda tangan:
 
 1. Buat tanda tangan menggunakan "SigTool" dan instal secara manual.
-2. Download tanda tangan dari "phpMussel/Signatures" dan instal secara manual.
+2. Download tanda tangan dari "phpMussel/Signatures" atau "phpMussel/Examples" dan instal secara manual.
 
 ##### 2.1.0 Buat tanda tangan menggunakan "SigTool" dan instal secara manual.
 
@@ -88,9 +88,11 @@ Sejak v1.0.0, tanda tangan tidak termasuk dalam paket phpMussel. Tanda tangan di
 
 *Juga mencatat: SigTool hanya memproses tanda tangan dari ClamAV. Untuk mendapatkan tanda tangan dari sumber lain, seperti yang ditulis khusus untuk phpMussel, yang mencakup tanda tangan yang diperlukan untuk mendeteksi sampel uji phpMussel, metode ini perlu ditambah dengan salah satu metode lain yang disebutkan disini.*
 
-##### 2.3.3 Download tanda tangan dari "phpMussel/Signatures" dan instal secara manual.
+##### 2.1.1 Download tanda tangan dari "phpMussel/Signatures" atau "phpMussel/Examples" dan instal secara manual.
 
-Pertama, pergi ke [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Repositori berisi berbagai file tanda tangan yang GZ-dikompres. Download file yang Anda perlukan, dekompresi mereka, dan salin file yang didekompresi ke direktori `/vault/signatures` untuk menginstalnya. Cantumkan nama file yang disalin ke direktif `active` dalam konfigurasi phpMussel Anda untuk mengaktifkannya.
+Pertama, pergi ke [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Repositori berisi berbagai file tanda tangan yang GZ-dikompres. Download file yang Anda perlukan, dekompresi mereka, dan salin ke direktori tanda tangan instalasi Anda.
+
+Sebagai alternatif, download ZIP terbaru dari [phpMussel/Examples](https://github.com/phpMussel/Examples). Anda kemudian dapat menyalin/menempelkan tanda tangan dari arsip ini ke instalasi Anda.
 
 ---
 
@@ -209,192 +211,6 @@ Sebagai tambahan, bagi yang berminat, sebuah video tutorial untuk bagaimana meng
 ### 6. <a name="SECTION6"></a>FILE YANG DIIKUTKAN DALAM PAKET INI
 
 ```
-https://github.com/phpMussel/phpMussel>v2
-│   .gitattributes
-│   .gitignore
-│   .travis.yml
-│   Changelog-v2.txt
-│   codeception.yml
-│   composer.json
-│   LICENSE.txt
-│   loader.php
-│   README.md
-│   web.config
-│
-├───tests
-│   │   .gitignore
-│   │   acceptance.suite.yml
-│   │   functional.suite.yml
-│   │   unit.suite.yml
-│   │
-│   ├───acceptance
-│   │       .gitkeep
-│   │
-│   ├───functional
-│   │       .gitkeep
-│   │
-│   ├───unit
-│   │       .gitkeep
-│   │       LoaderAndScanCest.php
-│   │
-│   ├───_data
-│   │       .gitkeep
-│   │
-│   ├───_output
-│   │       .gitkeep
-│   │
-│   └───_support
-│       │   AcceptanceTester.php
-│       │   FunctionalTester.php
-│       │   UnitTester.php
-│       │
-│       ├───config
-│       │       config.ini
-│       │
-│       ├───Helper
-│       │       Acceptance.php
-│       │       Functional.php
-│       │       Unit.php
-│       │
-│       └───samples
-│               encrypted.zip
-│               hello.txt
-│
-├───vault
-│   │   .htaccess
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-│
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
 ```
 
 ---
@@ -405,621 +221,712 @@ https://github.com/phpMussel/phpMussel>v2
 Berikut list variabel yang ditemukan pada file konfigurasi phpMussel `config.ini`, dengan deskripsi dari tujuan dan fungsi.
 
 ```
-Configuration (v2)
+Konfigurasi (v3)
 │
-├───general
-│       cleanup
-│       scan_log
-│       scan_log_serialized
-│       scan_kills
-│       error_log
-│       truncate
-│       log_rotation_limit
-│       log_rotation_action
-│       timezone
-│       time_offset (v1: timeOffset)
-│       time_format (v1: timeFormat)
-│       ipaddr
-│       enable_plugins
-│       forbid_on_block
-│       delete_on_sight
-│       lang
-│       lang_override
-│       numbers
-│       quarantine_key
-│       quarantine_max_filesize
-│       quarantine_max_usage
-│       quarantine_max_files
-│       honeypot_mode
-│       scan_cache_expiry
-│       disable_cli
-│       disable_frontend
-│       max_login_attempts
-│       frontend_log (v1: FrontEndLog)
-│       disable_webfonts
-│       maintenance_mode
-│       default_algo
-│       statistics
-│       disabled_channels
-│
+├───core
+│       scan_log [string]
+│       scan_log_serialized [string]
+│       error_log [string]
+│       truncate [string]
+│       log_rotation_limit [int]
+│       log_rotation_action [string]
+│       timezone [string]
+│       time_offset [int]
+│       time_format [string]
+│       ipaddr [string]
+│       delete_on_sight [bool]
+│       lang [string]
+│       lang_override [bool]
+│       scan_cache_expiry [int]
+│       maintenance_mode [bool]
+│       statistics [bool]
+│       disabled_channels [string]
 ├───signatures
-│       active (v1: Active)
-│       fail_silently
-│       fail_extensions_silently
-│       detect_adware
-│       detect_joke_hoax
-│       detect_pua_pup
-│       detect_packer_packed
-│       detect_shell
-│       detect_deface
-│       detect_encryption
-│
+│       active [string]
+│       fail_silently [bool]
+│       fail_extensions_silently [bool]
+│       detect_adware [bool]
+│       detect_joke_hoax [bool]
+│       detect_pua_pup [bool]
+│       detect_packer_packed [bool]
+│       detect_shell [bool]
+│       detect_deface [bool]
+│       detect_encryption [bool]
+│       heuristic_threshold [int]
 ├───files
-│       max_uploads
-│       filesize_limit
-│       filesize_response
-│       filetype_whitelist
-│       filetype_blacklist
-│       filetype_greylist
-│       check_archives
-│       filesize_archives
-│       filetype_archives
-│       max_recursion
-│       block_encrypted_archives
-│       max_files_in_archives
-│
-├───attack_specific
-│       chameleon_from_php
-│       can_contain_php_file_extensions
-│       chameleon_from_exe
-│       chameleon_to_archive
-│       chameleon_to_doc
-│       chameleon_to_img
-│       chameleon_to_pdf
-│       archive_file_extensions
-│       block_control_characters
-│       corrupted_exe
-│       decode_threshold
-│       scannable_threshold
-│       allow_leading_trailing_dots
-│       block_macros
-│
-├───compatibility
-│       ignore_upload_errors
-│       only_allow_images
-│
-├───heuristic
-│       threshold
-│
+│       filesize_limit [string]
+│       filesize_response [bool]
+│       filetype_whitelist [string]
+│       filetype_blacklist [string]
+│       filetype_greylist [string]
+│       check_archives [bool]
+│       filesize_archives [bool]
+│       filetype_archives [bool]
+│       max_recursion [int]
+│       block_encrypted_archives [bool]
+│       max_files_in_archives [int]
+│       chameleon_from_php [bool]
+│       can_contain_php_file_extensions [string]
+│       chameleon_from_exe [bool]
+│       chameleon_to_archive [bool]
+│       chameleon_to_doc [bool]
+│       chameleon_to_img [bool]
+│       chameleon_to_pdf [bool]
+│       archive_file_extensions [string]
+│       block_control_characters [bool]
+│       corrupted_exe [bool]
+│       decode_threshold [string]
+│       scannable_threshold [string]
+│       allow_leading_trailing_dots [bool]
+│       block_macros [bool]
+│       only_allow_images [bool]
+├───quarantine
+│       quarantine_key [string]
+│       quarantine_max_filesize [string]
+│       quarantine_max_usage [string]
+│       quarantine_max_files [int]
 ├───virustotal
-│       vt_public_api_key
-│       vt_suspicion_level
-│       vt_weighting
-│       vt_quota_rate
-│       vt_quota_time
-│
+│       vt_public_api_key [string]
+│       vt_suspicion_level [int]
+│       vt_weighting [int]
+│       vt_quota_rate [int]
+│       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts
-│       google_api_key
-│       maximum_api_lookups
-│       maximum_api_lookups_response
-│       cache_time
-│
+│       lookup_hphosts [bool]
+│       google_api_key [string]
+│       maximum_api_lookups [int]
+│       maximum_api_lookups_response [bool]
+│       cache_time [int]
 ├───legal
-│       pseudonymise_ip_addresses
-│       privacy_policy
-│
-├───template_data
-│       theme
-│       magnification (v1: Magnification)
-│       css_url
-│
-├───PHPMailer
-│       event_log (v1: EventLog)
-│       skip_auth_process (v1: SkipAuthProcess)
-│       enable_two_factor (v1: Enable2FA)
-│       host (v1: Host)
-│       port (v1: Port)
-│       smtp_secure (v1: SMTPSecure)
-│       smtp_auth (v1: SMTPAuth)
-│       username (v1: Username)
-│       password (v1: Password)
-│       set_from_address (v1: setFromAddress)
-│       set_from_name (v1: setFromName)
-│       add_reply_to_address (v1: addReplyToAddress)
-│       add_reply_to_name (v1: addReplyToName)
-│
-└───supplementary_cache_options
-        enable_apcu
-        enable_memcached
-        enable_redis
-        enable_pdo
-        memcached_host
-        memcached_port
-        redis_host
-        redis_port
-        redis_timeout
-        pdo_dsn
-        pdo_username
-        pdo_password
+│       pseudonymise_ip_addresses [bool]
+│       privacy_policy [string]
+├───supplementary_cache_options
+│       enable_apcu [bool]
+│       enable_memcached [bool]
+│       enable_redis [bool]
+│       enable_pdo [bool]
+│       memcached_host [string]
+│       memcached_port [int]
+│       redis_host [string]
+│       redis_port [int]
+│       redis_timeout [float]
+│       pdo_dsn [string]
+│       pdo_username [string]
+│       pdo_password [string]
+├───frontend
+│       frontend_log [string]
+│       max_login_attempts [int]
+│       numbers [string]
+│       default_algo [string]
+│       theme [string]
+│       magnification [float]
+├───web
+│       uploads_log [string]
+│       forbid_on_block [bool]
+│       max_uploads [int]
+│       ignore_upload_errors [bool]
+│       theme [string]
+│       magnification [float]
+└───phpmailer
+        event_log [string]
+        enable_two_factor [bool]
+        enable_notifications [bool]
+        skip_auth_process [bool]
+        host [string]
+        port [int]
+        smtp_secure [string]
+        smtp_auth [bool]
+        username [string]
+        password [string]
+        set_from_address [string]
+        set_from_name [string]
+        add_reply_to_address [string]
+        add_reply_to_name [string]
 ```
-
-#### "general" (Kategori)
-Konfigurasi umum dari phpMussel.
-
-##### "cleanup"
-- Membersihkan variabel skrip dan cache setelah eksekusi? False = Tidak; True = Ya [Default]. Jika Anda tidak menggunakan skrip untuk apapun selain memindai unggahan, Anda harus mengkonfigurasikannya ke `true` untuk meminimalkan penggunaan memori. Jika tidak demikian, Anda harus mengkonfigurasikannya ke `false`, untuk menyimpan dalam memori data yang diperlukan untuk mengeksekusi phpMussel tanpa perlu memuatnya kembali. Tidak memiliki pengaruh di dalam mode CLI.
-- Tidak memiliki pengaruh di dalam mode CLI.
-
-##### "scan_log"
-- Nama dari file untuk mencatat semua hasil pemindaian. Spesifikasikan nama atau biarkan kosong untuk menonaktifkan.
-
-##### "scan_log_serialized"
-- Nama dari file untuk mencatat semua hasil pemindaian (menggunakan format serial). Spesifikasikan nama atau biarkan kosong untuk menonaktifkan.
-
-##### "scan_kills"
-- Nama dari fata untuk mencatat semua rekord dari upload terblok atau terbunuh. Spesifikan nama atau biarkan kosong untuk menonaktifkan.
 
 *Tip berguna: Jika Anda mau, Anda dapat menambahkan informasi tanggal/waktu untuk nama-nama file log Anda oleh termasuk ini dalam nama: `{yyyy}` untuk tahun lengkap, `{yy}` untuk tahun disingkat, `{mm}` untuk bulan, `{dd}` untuk hari, `{hh}` untuk jam.*
 
 *Contoh:*
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
-##### "error_log"
+#### "core" (Kategori)
+Konfigurasi umum (konfigurasi inti apapun yang bukan milik kategori lain).
+
+##### "scan_log" `[string]`
+- Nama dari file untuk mencatat semua hasil pemindaian. Spesifikasikan nama atau biarkan kosong untuk menonaktifkan.
+
+##### "scan_log_serialized" `[string]`
+- Nama dari file untuk mencatat semua hasil pemindaian (menggunakan format serial). Spesifikasikan nama atau biarkan kosong untuk menonaktifkan.
+
+##### "error_log" `[string]`
 - File untuk mencatat kesalahan tidak fatal yang terdeteksi. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
 
-##### "truncate"
+##### "truncate" `[string]`
 - Memotong file log ketika mereka mencapai ukuran tertentu? Nilai adalah ukuran maksimum dalam B/KB/MB/GB/TB yang bisa ditambahkan untuk file log sebelum dipotong. Nilai default 0KB menonaktifkan pemotongan (file log dapat tumbuh tanpa batas waktu). Catat: Berlaku untuk file log individu! Ukuran file log tidak dianggap secara kolektif.
 
-##### "log_rotation_limit"
+##### "log_rotation_limit" `[int]`
 - Rotasi log membatasi jumlah file log yang seharusnya ada pada satu waktu. Ketika file log baru dibuat, jika jumlah total file log melebihi batas yang ditentukan, tindakan yang ditentukan akan dilakukan. Anda dapat menentukan batas yang diinginkan disini. Nilai 0 akan menonaktifkan rotasi log.
 
-##### "log_rotation_action"
+##### "log_rotation_action" `[string]`
 - Rotasi log membatasi jumlah file log yang seharusnya ada pada satu waktu. Ketika file log baru dibuat, jika jumlah total file log melebihi batas yang ditentukan, tindakan yang ditentukan akan dilakukan. Anda dapat menentukan tindakan yang diinginkan disini. Delete = Hapus file log tertua, hingga batasnya tidak lagi terlampaui. Archive = Pertama arsipkan, lalu hapus file log tertua, hingga batasnya tidak lagi terlampaui.
 
-*Klarifikasi teknis: Dalam konteks ini, "tertua" berarti tidak dimodifikasi baru-baru.*
+```
+log_rotation_action
+├─Delete ("Delete")
+└─Archive ("Archive")
+```
 
-##### "timezone"
-- Ini digunakan untuk menentukan zona waktu mana yang harus digunakan oleh phpMussel untuk operasi tanggal/waktu. Jika Anda tidak membutuhkannya, abaikan saja. Nilai yang mungkin ditentukan oleh PHP. Ini umumnya direkomendasikan sebagai gantinya untuk menyesuaikan direktif zona waktu dalam file `php.ini` Anda, tapi terkadang (seperti ketika bekerja dengan terbatas penyedia shared hosting) ini tidak selalu mungkin untuk melakukan, dan demikian, opsi ini disediakan disini.
+##### "timezone" `[string]`
+- Ini digunakan untuk menentukan zona waktu yang akan digunakan (misalnya, Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, dll). Menentukan "SYSTEM" untuk membiarkan PHP menangani ini untuk Anda secara otomatis.
 
-##### "time_offset"
-- *v1: "timeOffset"*
-- Jika waktu server Anda tidak cocok waktu lokal Anda, Anda dapat menentukan offset sini untuk menyesuaikan informasi tanggal/waktu dihasilkan oleh phpMussel sesuai dengan kebutuhan Anda. Ini umumnya direkomendasikan sebagai gantinya untuk menyesuaikan direktif zona waktu dalam file `php.ini` Anda, tapi terkadang (seperti ketika bekerja dengan terbatas penyedia shared hosting) ini tidak selalu mungkin untuk melakukan, dan demikian, opsi ini disediakan disini. Offset adalah dalam menit.
-- Contoh (untuk menambahkan satu jam): `time_offset=60`
+```
+timezone
+├─SYSTEM ("Gunakan zona waktu default sistem.")
+├─UTC ("UTC")
+└─…Lain
+```
 
-##### "time_format"
-- *v1: "timeFormat"*
-- Format notasi tanggal/waktu yang digunakan oleh phpMussel. Default = `{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`.
+##### "time_offset" `[int]`
+- Offset zona waktu dalam hitungan menit.
 
-##### "ipaddr"
+##### "time_format" `[string]`
+- Format notasi tanggal/waktu yang digunakan oleh phpMussel. Opsi tambahan dapat ditambahkan atas permintaan.
+
+```
+time_format
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}")
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss}")
+├─{Day}, {dd} {Mon} {yyyy} ("{Day}, {dd} {Mon} {yyyy}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yyyy}.{mm}.{dd} ("{yyyy}.{mm}.{dd}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yyyy}-{mm}-{dd} ("{yyyy}-{mm}-{dd}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yyyy}/{mm}/{dd} ("{yyyy}/{mm}/{dd}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yyyy} ("{dd}.{mm}.{yyyy}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yyyy} ("{dd}-{mm}-{yyyy}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yyyy} ("{dd}/{mm}/{yyyy}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yyyy} ("{mm}.{dd}.{yyyy}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yyyy} ("{mm}-{dd}-{yyyy}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yyyy} ("{mm}/{dd}/{yyyy}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yy}.{mm}.{dd} ("{yy}.{mm}.{dd}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yy}-{mm}-{dd} ("{yy}-{mm}-{dd}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yy}/{mm}/{dd} ("{yy}/{mm}/{dd}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yy} ("{dd}.{mm}.{yy}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yy} ("{dd}-{mm}-{yy}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yy} ("{dd}/{mm}/{yy}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yy} ("{mm}.{dd}.{yy}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yy} ("{mm}-{dd}-{yy}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yy} ("{mm}/{dd}/{yy}")
+├─{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}年{m}月{d}日 ("{yyyy}年{m}月{d}日")
+├─{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yy}年{m}月{d}日 ("{yy}年{m}月{d}日")
+├─{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}년 {m}월 {d}일 ("{yyyy}년 {m}월 {d}일")
+├─{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yy}년 {m}월 {d}일 ("{yy}년 {m}월 {d}일")
+├─{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z} ("{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z}")
+├─{d}. {m}. {yyyy} ("{d}. {m}. {yyyy}")
+└─…Lain
+```
+
+##### "ipaddr" `[string]`
 - Dimana menemukan alamat IP dari permintaan alamat? (Bergunak untuk pelayanan-pelayanan seperti Cloudflare dan sejenisnya). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
 
-Nilai yang disarankan untuk "ipaddr":
+```
+ipaddr
+├─HTTP_INCAP_CLIENT_IP ("HTTP_INCAP_CLIENT_IP (Incapsula)")
+├─HTTP_CF_CONNECTING_IP ("HTTP_CF_CONNECTING_IP (Cloudflare)")
+├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
+├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
+├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
+└─…Lain
+```
 
-Nilai | Menggunakan
----|---
-`HTTP_INCAP_CLIENT_IP` | Incapsula reverse proxy.
-`HTTP_CF_CONNECTING_IP` | Cloudflare reverse proxy.
-`CF-Connecting-IP` | Cloudflare reverse proxy (alternatif; jika di atas tidak bekerja).
-`HTTP_X_FORWARDED_FOR` | Cloudbric reverse proxy.
-`X-Forwarded-For` | [Squid reverse proxy](http://www.squid-cache.org/Doc/config/forwarded_for/).
-*Ditetapkan oleh konfigurasi server.* | [Nginx reverse proxy](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
-`REMOTE_ADDR` | Tidak ada reverse proxy (nilai default).
+Lihat juga:
+- [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
+- [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
 
-##### "enable_plugins"
-- Mengaktifkan dukungan untuk plugin phpMussel? False = Tidak; True = Ya [Default].
-
-##### "forbid_on_block"
-- Seharusnya phpMussel mengirimkan 403 headers dengan pesan upload file yang terblok, atau cocok dengan 200 OK? False = Tidak (200); True = Ya (403) [Default].
-
-##### "delete_on_sight"
+##### "delete_on_sight" `[bool]`
 - Mengaktifkan opsi ini akan menginstruksikan skrip untuk berusaha secepatnya menghapus file apapun yang ditemukannya selama scan yang mencocokkan pada kriteria deteksi apapun, baik melalui tanda tangan atau yang lain. file-file ditentukan "clean" tidak akan disentuh. Pada kasus file terkompress seluruh file terkompress akan didelate (kecuali file yang menyerang adalah satu-satunya dari beberapa file yang menjadi isi file terkompress). Untuk kasus pemindaian upload file biasanya, tidak cocok untuk mengaktifkan opsi ini, karena biasanya PHP akan secara otomatis menyatukan isi dari cache ketika eksekusi selesai, berarti bahwa dia akan selalu menghapus file terupload apapun melalui server jika tidak dipindahkan, dikopi atau dihapus sebelumnya. Opsi tersebut ditambahkan disini sebagai ukuran keamanan ekstra untuk semua salinan PHP yang tidak selalu bersikap pada perilaku yang diharapkan. False = Setelah pemindahaian, biarkan file [Default]; True = Setelah pemindaian, jika tidak bersih, hapus langsung.
 
-##### "lang"
+##### "lang" `[string]`
 - Tentukan bahasa default untuk phpMussel.
 
-##### "lang_override"
+```
+lang
+├─en ("English")
+├─ar ("العربية")
+├─bn ("বাংলা")
+├─de ("Deutsch")
+├─es ("Español")
+├─fr ("Français")
+├─hi ("हिंदी")
+├─id ("Bahasa Indonesia")
+├─it ("Italiano")
+├─ja ("日本語")
+├─ko ("한국어")
+├─lv ("Latviešu")
+├─nl ("Nederlandse")
+├─no ("Norsk")
+├─pl ("Polski")
+├─pt ("Português")
+├─ru ("Русский")
+├─sv ("Svenska")
+├─th ("ภาษาไทย")
+├─tr ("Türkçe")
+├─ur ("اردو")
+├─vi ("Tiếng Việt")
+├─zh ("中文（简体）")
+└─zh-TW ("中文（傳統）")
+```
+
+##### "lang_override" `[bool]`
 - Melokalisasikan sesuai dengan HTTP_ACCEPT_LANGUAGE jika memungkinkan? True = Ya [Default]; False = Tidak.
 
-##### "numbers"
-- Menentukan bagaimana menampilkan nomor-nomor.
-
-Nilai yang didukung saat ini:
-
-Nilai | Menghasilkan | Deskripsi
----|---|---
-`NoSep-1` | `1234567.89`
-`NoSep-2` | `1234567,89`
-`Latin-1` | `1,234,567.89` | Nilai default.
-`Latin-2` | `1 234 567.89`
-`Latin-3` | `1.234.567,89`
-`Latin-4` | `1 234 567,89`
-`Latin-5` | `1,234,567·89`
-`China-1` | `123,4567.89`
-`India-1` | `12,34,567.89`
-`India-2` | `१२,३४,५६७.८९`
-`India-3` | `૧૨,૩૪,૫૬૭.૮૯`
-`India-4` | `੧੨,੩੪,੫੬੭.੮੯`
-`India-5` | `೧೨,೩೪,೫೬೭.೮೯`
-`India-6` | `౧౨,౩౪,౫౬౭.౮౯`
-`Arabic-1` | `١٢٣٤٥٦٧٫٨٩`
-`Arabic-2` | `١٬٢٣٤٬٥٦٧٫٨٩`
-`Arabic-3` | `۱٬۲۳۴٬۵۶۷٫۸۹`
-`Arabic-4` | `۱۲٬۳۴٬۵۶۷٫۸۹`
-`Bengali-1` | `১২,৩৪,৫৬৭.৮৯`
-`Burmese-1` | `၁၂၃၄၅၆၇.၈၉`
-`Khmer-1` | `១.២៣៤.៥៦៧,៨៩`
-`Lao-1` | `໑໒໓໔໕໖໗.໘໙`
-`Thai-1` | `๑,๒๓๔,๕๖๗.๘๙`
-`Thai-2` | `๑๒๓๔๕๖๗.๘๙`
-
-*Catat: Nilai-nilai ini tidak terstandardisasi dimana pun, dan mungkin tidak akan relevan di luar paket. Juga, nilai yang didukung dapat berubah di masa depan.*
-
-##### "quarantine_key"
-- phpMussel dapat mengkarantina upload file ditandai dalam isolasi dalam vault phpMussel, jika ini adalah sesuatu yang Anda ingin lakukan. Pengguna biasa dari phpMussel yang hanya ingin memproteksi website mereka dan/atau lingkungan hosting mereka tanpa memiliki minat dalam-dalam menganalisis setiap ditandai upload file harus meninggalkan fungsi ini dinonaktifkan, tapi setiap pengguna yang tertarik pada analisis lebih lanjut dari ditandai upload file bagi penelitian malware atau untuk hal-hal seperti serupa harus mengaktifkan fungsi ini. Mengkarantina ditandai upload file dapat kadang-kadang juga membantu dalam men-debug false-positif, jika ini adalah sesuatu yang sering terjadi untuk Anda. Untuk menonaktifkan fungsi karantina, meninggalkan `quarantine_key` direktif kosong, atau menghapus isi dari direktif ini jika tidak sudah kosong. Untuk mengaktifkan fungsi karantina, masukkan beberapa nilai dalam direktif ini. `quarantine_key` adalah fitur keamanan penting dari fungsi karantina diharuskan sebagai sarana untuk mencegah fungsi karantina dari dieksploitasi oleh penyerang potensial dan sebagai sarana mencegah eksekusi potensi file yang disimpan dalam karantina. `quarantine_key` harus diperlakukan dengan cara yang sama seperti password Anda: Semakin lama semakin baik, dan menjaganya diproteksi erat. Bagi efek terbaik, gunakan dalam hubungannya dengan `delete_on_sight`.
-
-##### "quarantine_max_filesize"
-- Ukuran file maksimum yang diijinkan dari file yang akan dikarantina. File yang lebih besar dari nilai yang ditentukan dibawah ini TIDAK akan dikarantina. Direktif ini penting sebagai sarana untuk membuat lebih sulit bagi setiap penyerang potensial untuk banjir karantina Anda dengan file yang tidak diinginkan berpotensi menyebabkan penggunaan file kelebihan pada layanan hosting Anda. Default = 2MB.
-
-##### "quarantine_max_usage"
-- Penggunaan memori maksimal yang diijinkan untuk karantina. Jika total penggunaan memori oleh karantina mencapai nilai ini, file yang dikarantina tertua akan dihapus sampai total penggunaan memori tidak lagi mencapai nilai ini. Direktif ini penting sebagai sarana untuk membuat lebih sulit bagi setiap penyerang potensial untuk banjir karantina Anda dengan file yang tidak diinginkan berpotensi menyebabkan penggunaan file kelebihan pada layanan hosting Anda. Default = 64MB.
-
-##### "quarantine_max_files"
-- Jumlah maksimum file yang dapat ada di karantina. Ketika file baru ditambahkan ke karantina, jika nomor ini terlampaui, file lama akan dihapus hingga sisanya tidak lagi melebihi nomor ini. Default = 100.
-
-##### "honeypot_mode"
-- Bila modus honeypot diaktifkan, phpMussel akan mencoba untuk karantina setiap file upload yang dia menemui, terlepas dari apakah atau tidak file yang di-upload cocok dengan tanda tangan yang disertakan, dan tidak ada pemindaian aktual atau analisis dari upload file akan terjadi. Fungsi ini akan berguna bagi mereka yang ingin menggunakan phpMussel untuk tujuan virus/malware penelitian, tapi tidak direkomendasikan untuk mengaktifkan fungsi ini jika tujuan penggunaan dari phpMussel oleh pengguna adalah bagi aktual upload file pemindaian dan juga tidak direkomendasikan untuk menggunakan fungsi honeypot untuk tujuan selain bagi honeypot. Biasanya, opsi ini dinonaktifkan. False = Dinonaktifkan [Default]; True = Diaktifkan.
-
-##### "scan_cache_expiry"
+##### "scan_cache_expiry" `[int]`
 - Untuk berapa lama harus phpMussel cache hasil-hasil? Nilai adalah jumlah detik untuk cache hasil-hasil untuk. Default adalah 21600 detik (6 jam); Nilai 0 akan menonaktifkan caching hasil-hasil.
 
-##### "disable_cli"
-- Menonaktifkan modus CLI? Modus CLI diaktifkan secara default, tapi kadang-kadang dapat mengganggu alat pengujian tertentu (seperti PHPUnit, sebagai contoh) dan aplikasi CLI berbasis lainnya. Jika Anda tidak perlu menonaktifkan modus CLI, Anda harus mengabaikan direktif ini. False = Mengaktifkan modus CLI [Default]; True = Menonaktifkan modus CLI.
-
-##### "disable_frontend"
-- Menonaktifkan akses bagian depan? Akses bagian depan dapat membuat phpMussel lebih mudah dikelola, tapi juga dapat menjadi potensial resiko keamanan. Itu direkomendasi untuk mengelola phpMussel melalui bagian belakang bila mungkin, tapi akses bagian depan yang disediakan untuk saat itu tidak mungkin. Memilikinya dinonaktifkan kecuali jika Anda membutuhkannya. False = Mengaktifkan akses bagian depan; True = Menonaktifkan akses bagian depan [Default].
-
-##### "max_login_attempts"
-- Jumlah maksimum upaya memasukkan ke bagian depan. Default = 5.
-
-##### "frontend_log"
-- *v1: "FrontEndLog"*
-- File untuk mencatat upaya masuk bagian depan. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
-
-##### "disable_webfonts"
-- Menonaktifkan webfonts? True = Ya [Default]; False = Tidak.
-
-##### "maintenance_mode"
+##### "maintenance_mode" `[bool]`
 - Aktifkan modus perawatan? True = Ya; False = Tidak [Default]. Nonaktifkan semuanya selain bagian depan. Terkadang berguna saat memperbarui CMS, kerangka kerja, dll.
 
-##### "default_algo"
-- Mendefinisikan algoritma mana yang akan digunakan untuk semua password dan sesi di masa depan. Opsi: PASSWORD_DEFAULT (default), PASSWORD_BCRYPT, PASSWORD_ARGON2I (membutuhkan PHP >= 7.2.0), PASSWORD_ARGON2ID (membutuhkan PHP >= 7.3.0).
-
-##### "statistics"
+##### "statistics" `[bool]`
 - Lacak statistik penggunaan phpMussel? True = Ya; False = Tidak [Default].
 
-##### "disabled_channels"
+##### "disabled_channels" `[string]`
 - Ini dapat digunakan untuk mencegah phpMussel dari menggunakan saluran tertentu saat mengirim permintaan (misalnya, saat memperbarui, saat mengambil metadata komponen, dll).
 
+```
+disabled_channels
+├─GitHub ("GitHub")
+├─BitBucket ("BitBucket")
+├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
+├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+├─hpHosts_HTTPS ("hpHosts (HTTPS)")
+└─hpHosts_HTTP ("hpHosts (HTTP)")
+```
+
 #### "signatures" (Kategori)
-Konfigurasi untuk tanda tangan.
+Konfigurasi untuk tanda tangan, file tanda tangan, dll.
 
-##### "active"
-- *v1: "Active"*
-- Daftar file tanda tangan yang aktif, dipisahkan oleh koma.
+##### "active" `[string]`
+- Daftar file tanda tangan yang aktif, dipisahkan oleh koma. Catat: File tanda tangan harus diinstal pertama-tama, sebelum Anda dapat mengaktifkannya. Agar file test berfungsi dengan benar, file tanda tangan harus diinstal dan diaktifkan.
 
-*Catat:*
-- *File tanda tangan harus diinstal pertama-tama, sebelum Anda dapat mengaktifkannya.*
-- *Agar file test berfungsi dengan benar, file tanda tangan harus diinstal dan diaktifkan.*
-- *Nilai dari arahan ini di-cache. Setelah mengubahnya, agar perubahan diterapkan, Anda mungkin perlu menghapus cache.*
-
-##### "fail_silently"
+##### "fail_silently" `[bool]`
 - Seharusnya laporan phpMussel ketika file tanda tangan hilang atau dikorup? Jika `fail_silently` dinonaktifkan, file dikorup dan hilang akan dilaporkan ketika pemindaian, dan jika `fail_silently` diaktifkan, file dikorup dan hilang akan diabaikan, dengan pemindaian melaporkan untuk file-file ini bahwa tidak ada masalah. Harus ini dibiarkan sendirian jika Anda pernah mengalami crash atau masalah lain. False = Dinonaktifkan; True = Diaktifkan [Default].
 
-##### "fail_extensions_silently"
+##### "fail_extensions_silently" `[bool]`
 - Seharusnya laporan phpMussel ketika ekstensi hilang? Jika `fail_extensions_silently` dinonaktifkan, ekstensi hilang akan dilaporkan ketika pemindaian, dan jika `fail_extensions_silently` diaktifkan, ekstensi hilang akan diabaikan, dengan pemindaian melaporkan untuk file-file ini bahwa tidak ada masalah. Menonaktifkan direktif ini berpotensi dapat meningkatkan keamanan Anda, tapi juga dapat menyebabkan peningkatan positif palsu. False = Dinonaktifkan; True = Diaktifkan [Default].
 
-##### "detect_adware"
+##### "detect_adware" `[bool]`
 - Harus phpMussel menggunakan tanda tangan untuk mendeteksi adware? False = Tidak; True = Ya [Default].
 
-##### "detect_joke_hoax"
+##### "detect_joke_hoax" `[bool]`
 - Harus phpMussel menggunakan tanda tangan untuk mendeteksi lelucon/kebohongan malware/virus? False = Tidak; True = Ya [Default].
 
-##### "detect_pua_pup"
+##### "detect_pua_pup" `[bool]`
 - Harus phpMussel menggunakan tanda tangan untuk mendeteksi PUAs/PUPs? False = Tidak; True = Ya [Default].
 
-##### "detect_packer_packed"
+##### "detect_packer_packed" `[bool]`
 - Harus phpMussel menggunakan tanda tangan untuk mendeteksi pengepakan dan file dikemas? False = Tidak; True = Ya [Default].
 
-##### "detect_shell"
+##### "detect_shell" `[bool]`
 - Harus phpMussel menggunakan tanda tangan untuk mendeteksi skrip shell? False = Tidak; True = Ya [Default].
 
-##### "detect_deface"
+##### "detect_deface" `[bool]`
 - Harus phpMussel menggunakan tanda tangan untuk mendeteksi perusakan dan perusak? False = Tidak; True = Ya [Default].
 
-##### "detect_encryption"
+##### "detect_encryption" `[bool]`
 - Harus phpMussel mendeteksi dan memblokir file terenkripsi? False = Tidak; True = Ya [Default].
 
-#### "files" (Kategori)
-Konfigurasi umum untuk mengambil alih file-file.
-
-##### "max_uploads"
-- Maksimum jumla file-file yang diizinkan untuk dipindai selama pemindaian upload file sebelum menghentikan pemindaian dan menginformasikan pengguna bahwa pengguna mengupload terlalu banyak! Menyediakan perlindungan pada serangan teoritis dimana penyerang mencoba DDoS pada sistem Anda atau CMS ada dengan overloading phpMussel supaya berjalan lambat. Proses PHP ke penghentian keras. Recommendasi: 10. Anda dapat menaikkan atau menurunkan angka ini bergantung dari kecepatan hardware Anda. Catat itu nomor ini tidak mengakuntabilitas atau mengikutkan konten dari file terkompres.
-
-##### "filesize_limit"
-- Batasan ukuran file dalam KB. 65536 = 64MB [Default]; 0 = Tidak ada batasa (selalu bertanda abu-abu), nilai angka positif apapun diterima. Ini dapat berguna ketika batasan konfigurasi PHP Anda membatasi jumah memori dari proses yang dapat ditampungnya atau jika konfigurasi PHP Anda membatasi jumlah ukuran upload Anda.
-
-##### "filesize_response"
-- Apa yang Anda lakukan dengan file-file yang melebihi batasan ukuran (jika ada). False = Bertanda putih; True = Bertanda hitam [Default].
-
-##### "filetype_whitelist", "filetype_blacklist", "filetype_greylist"
-- Jika sistem Anda hanya mengizinkan tipe file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak tipe file-file tertentu, menspesifikasikan tipe file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan tipe file tertentu. Format adalah CSV (comma separated values). Jika Anda ingin memindai semuanya, daripada daftar putih, daftar hitam atau daftar abu-abu, tinggalkan variabel kosong; Melakukannya akan menonaktifkan daftar putih/hitam/abu-abu.
-- Urutan logis dari pengolahan:
-  - Jika tipe file bertanda putih, tidak memindai dan tidak memblokir file, dan tidak memeriksa file terhadap daftar hitam atau daftar abu-abu.
-  - Jika tipe file bertanda hitem, tidak memindai file tapi memblokir bagaimanapun, dan tidak memeriksa file terhadap daftar abu-abu.
-  - Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan tipe file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan tipe file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
-
-##### "check_archives"
-- Berusaha mencek isi file terkompress? False = Tidak (Tidak mencek); True = Ya (Mencek) [Default].
-
-Format | Dapat membaca | Dapat membaca secara rekursif | Dapat mendeteksi enkripsi | Catatan
----|---|---|---|---
-Zip | ✔️ | ✔️ | ✔️ | Membutuhkan [libzip](https://secure.php.net/manual/en/zip.requirements.php) (biasanya dibundel dengan PHP pula). Juga didukung (menggunakan format zip): ✔️ Deteksi objek OLE. ✔️ Deteksi makro Office.
-Tar | ✔️ | ✔️ | ➖ | Tidak ada persyaratan khusus. Format tidak mendukung enkripsi.
-Rar | ✔️ | ✔️ | ✔️ | Membutuhkan ekstensi [rar](https://pecl.php.net/package/rar) (ketika ekstensi ini tidak diinstal, phpMussel tidak dapat membaca file rar).
-Phar | ❌ | ❌ | ❌ | Dukungan untuk membaca file phar telah dihapus di v1.6.0, dan tidak akan ditambahkan lagi, karena masalah keamanan.
-
-*Jika ada seseorang yang mampu dan bersedia membantu mengimplementasikan dukungan untuk membaca format arsip lain, bantuan ini akan disambut baik.*
-
-##### "filesize_archives"
-- Memperlalaikan ukuran daftar hitam/putih dari isi file terkompress? False = Tidak (Bertanda abu-abu semua); True = Ya [Default].
-
-##### "filetype_archives"
-- Memperlalaikan jenis file daftar hitam/putih dari isi file terkompress? False = Tidak (Bertanda abu-abu semua) [Default]; True = Ya.
-
-##### "max_recursion"
-- Batas kedalaman rekursi maksimum untuk arsip. Default = 3.
-
-##### "block_encrypted_archives"
-- Mendeteksi dan memblokir dienkripsi arsip? Karena phpMussel tidak mampu memindai isi arsip dienkripsi, itu mungkin bahwa enkripsi arsip dapat digunakan oleh penyerang sebagai sarana mencoba untuk memotong phpMussel, anti-virus pemindai dan perlindungan mirip lainnya. Menginstruksikan phpMussel untuk memblokir setiap arsip dienkripsi ditemukan akan berpotensi membantu mengurangi risiko terkait dengan kemungkinan tersebut. False = Tidak; True = Ya [Default].
-
-##### "max_files_in_archives"
-- Jumlah maksimum file yang akan dipindai dari dalam arsip sebelum membatalkan pemindaian. Default = 0 (tidak ada maksimal).
-
-#### "attack_specific" (Kategori)
-Direktif serangan spesifik.
-
-Deteksi chameleon serangan: False = Dinonaktifkan; True = Diaktifkan.
-
-##### "chameleon_from_php"
-- Cari header PHP tidak di dalam file-file PHP atau file terkompress.
-
-##### "can_contain_php_file_extensions"
-- Daftar ekstensi file diperbolehkan untuk berisi kode PHP, dipisahkan oleh koma. Jika deteksi serangan chameleon PHP diaktifkan, file yang berisi kode PHP, yang memiliki ekstensi yang tidak ada dalam daftar ini, akan terdeteksi sebagai serangan chameleon PHP.
-
-##### "chameleon_from_exe"
-- Cari header yang dapat dieksekusi di dalam file-file yang dapat dieksekusi atau file terkompress yang dikenali dan untuk file dapat dieksekusi yang headernya tidak benar.
-
-##### "chameleon_to_archive"
-- Mendeteksi header yang salah dalam arsip dan file terkompresi. Didukung: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP.
-
-##### "chameleon_to_doc"
-- Cari dokumen office yang header nya tidak benar (Didukung: DOC, DOT, PPS, PPT, XLA, XLS, WIZ).
-
-##### "chameleon_to_img"
-- Cari gambar yang header nya tidak benar (Didukung: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP).
-
-##### "chameleon_to_pdf"
-- Cari file PDF yang headernya tidak benar.
-
-##### "archive_file_extensions"
-- Ekstensi file terkompres yang dikenali (format nya CSV; seharusnya hanya menambah atau menghapus ketika masalah terjadi; Tidak cocok langsung menghapus karena dapat menyebabkan angka positif yang salah terjadi pada file terkompres, dimana juga menambahkan deteksi; memodifikasi dengan peringatan; Juga dicatat bahwa ini tidak memberi efek pada file terkompress apa yang dapat dan tidak dapat di analisa pada level isi). Daftar sebagaimana defaultnya, memberi daftar format-format yang digunakan yang paling umum melalui melalui mayoritas sistem dan CMS, tapi bermaksud tidak komprehensif.
-
-##### "block_control_characters"
-- Memblokir file apapun yang berisi karakter pengendali (lain dari baris baru)? (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`) Jika Anda hanya sedang mengupload file teks biasa, maka Anda dapat menghidupkan opsi ini untuk menyediakan perlindungan tambahan ke sistem Anda. Bagaimanapun jika Anda mengupload apapun lebih dari file teks biasa, menghidupkan opsi ini mungkin mengakibatkan angka positif salah. False = Jangan memblokirnya [Default]; True = Memblokirnya.
-
-##### "corrupted_exe"
-- File korup dan diurai kesalahan. False = Mengabaikan; True = Memblokir [Default]. Mendeteksi dan memblokir file PE (Portable Executable) berpotensi korup? Sering (tapi tidak selalu), ketika aspek-aspek tertentu dari file PE yang korup atau tidak bisa diurai dengan benar, itu dapat menjadi indikasi dari infeksi virus. Proses yang digunakan oleh sebagian besar program anti-virus untuk mendeteksi virus dalam file PE memerlukan parsing file-file dengan cara tertentu, yang, jika programmer virus menyadari, secara khusus akan mencoba untuk mencegah, untuk memungkinkan virus mereka untuk tetap tidak terdeteksi.
-
-##### "decode_threshold"
-- Ambang batas dengan panjang file mentah yang dalam decode perintah harus terdeteksi (dalam kasus ada masalah kinerja sementara pemindaian). Default = 512KB. Nol atau nilai null menonaktifkan ambang batas (menghapus apapun batasan berdasarkan ukuran file).
-
-##### "scannable_threshold"
-- Ambang batas dengan panjang file mentah yang phpMussel diperbolehkan untuk membaca dan memindai (dalam kasus ada masalah kinerja sementara pemindaian). Default = 32MB. Nol atau nilai null menonaktifkan ambang batas. Umumnya, nilai ini tidak seharusnya kurang dari ukuran file rata-rata upload file yang Anda inginkan dan Anda harapkan untuk menerima ke server atau website, tidak seharusnya lebih dari direktif filesize_limit, dan tidak seharusnya lebih dari sekitar seperlima dari total alokasi memori yang diijinkan ke PHP melalui file konfigurasi `php.ini`. Direktif ini ada untuk mencegah phpMussel menggunakan terlalu banyak memori (yang bisa mencegah dari yang berhasil memindai file di atas tertentu ukuran file).
-
-##### "allow_leading_trailing_dots"
-- Izinkan memimpin dan mengikuti titik-titik dalam nama file? Ini kadang-kadang dapat digunakan untuk menyembunyikan file, atau untuk mengelabui beberapa sistem agar memungkinkan direktori traversal. False = Jangan izinkan [Default]. True = Izinkan.
-
-##### "block_macros"
-- Cobalah untuk memblokir semua file yang mengandung macro? Beberapa jenis dokumen dan spreadsheet mungkin berisi makro yang dapat dijalankan, sehingga menyediakan vektor berbahaya berpotensi. False = Jangan memblokirnya [Default]; True = Memblokirnya.
-
-#### "compatibility" (Kategori)
-Direktif-direktif kompatibilitas pada phpMussel.
-
-##### "ignore_upload_errors"
-- Direktif ini umumnya harus DINONAKTIFKAN kecuali diharuskan untuk fungsi yang benar dari phpMussel pada sistem tertentu. Biasanya, ketika DINONAKTIFKAN, ketika phpMussel mendeteksi adanya elemen dalam `$_FILES` array(), itu akan mencoba untuk memulai scan file yang mewakili elemen, dan, jika elemen yang kosong, phpMussel akan mengembalikan pesan kesalahan. Ini adalah perilaku yang tepat untuk phpMussel. Namun, untuk beberapa CMS, elemen kosong di `$_FILES` dapat terjadi sebagai akibat dari perilaku alami itu CMS, atau kesalahan dapat dilaporkan bila tidak ada, dalam kasus seperti itu, perilaku normal untuk phpMussel akan mengganggu untuk perilaku normal itu CMS. Jika situasi seperti itu terjadi untuk Anda, MENGAKTIFKAN direktif ini akan menginstruksikan phpMussel untuk tidak mencoba untuk memulai scan untuk elemen kosong, mengabaikan saat ditemui dan untuk tidak kembali terkait pesan kesalahan, sehingga memungkinkan kelanjutan dari halaman permintaan. False = DINONAKTIFKAN; True = DIAKTIFKAN.
-
-##### "only_allow_images"
-- Bila diset ke true, file apapun ditemukan oleh pemindai yang bukan gambar akan segera ditandai, tanpa dipindai. Ini dapat membantu mengurangi waktu yang dibutuhkan untuk menyelesaikan pemindaian dalam beberapa kasus. Diset ke false secara default.
-
-#### "heuristic" (Kategori)
-Direktif-direktif heuristik pada phpMussel.
-
-##### "threshold"
+##### "heuristic_threshold" `[int]`
 - Ada tanda tangan tertentu dari phpMussel yang dimaksudkan untuk mengidentifikasi kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload tanpa di diri mereka mengidentifikasi file-file yang di-upload spesifik sebagai berbahaya. Ini "threshold" nilai memberitahu phpMussel apa total berat maksimum untuk kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload yang diijinkan adalah sebelum file-file yang akan diidentifikasi sebagai berbahaya. Definisi berat dalam konteks ini adalah jumlah total kualitas mencurigakan dan berpotensi berbahaya diidentifikasi. Secara default, nilai ini akan ditetapkan sebagai 3. Sebuah nilai lebih rendah umumnya akan menghasilkan sebagai lebih tinggi positif palsu kejadian tapi sebuah jumlah lebih tinggi file berbahaya diidentifikasi, sedangkan sebuah nilai lebih tinggi umumnya akan menghasilkan sebagai lebih rendah positif palsu kejadian tapi sebuah jumlah lebih rendah pada file berbahaya yang diidentifikasi. Ini umumnya terbaik untuk meninggalkan nilai ini di default kecuali jika Anda mengalami masalah berhubungan dengan itu.
 
+#### "files" (Kategori)
+Rincian cara menangani file saat memindai.
+
+##### "filesize_limit" `[string]`
+- Batasan ukuran file dalam KB. 65536 = 64MB [Default]; 0 = Tidak ada batasa (selalu bertanda abu-abu), nilai angka positif apapun diterima. Ini dapat berguna ketika batasan konfigurasi PHP Anda membatasi jumah memori dari proses yang dapat ditampungnya atau jika konfigurasi PHP Anda membatasi jumlah ukuran upload Anda.
+
+##### "filesize_response" `[bool]`
+- Apa yang Anda lakukan dengan file-file yang melebihi batasan ukuran (jika ada). False = Bertanda putih; True = Bertanda hitam [Default].
+
+##### "filetype_whitelist" `[string]`
+- Jika sistem Anda hanya mengizinkan tipe file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak tipe file-file tertentu, menspesifikasikan tipe file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan tipe file tertentu. Format adalah CSV (comma separated values). Jika Anda ingin memindai semuanya, daripada daftar putih, daftar hitam atau daftar abu-abu, tinggalkan variabel kosong; Melakukannya akan menonaktifkan dafter putih/hitam/abu-abu. Urutan logis dari pengolahan: Jika tipe file bertanda putih, tidak memindai dan tidak memblokir file, dan tidak memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika tipe file bertanda hitem, tidak memindai file tapi memblokir bagaimanapun, dan tidak memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan tipe file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan tipe file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun. Daftar Putih:
+
+##### "filetype_blacklist" `[string]`
+- Daftar Hitam:
+
+##### "filetype_greylist" `[string]`
+- Daftar Abu-Abu:
+
+##### "check_archives" `[bool]`
+- Berusaha mencek isi file terkompress? False = Tidak (Tidak mencek); True = Ya (Mencek) [Default]. Didukung: Zip (membutuhkan libzip), Tar, Rar (membutuhkan ekstensi rar).
+
+##### "filesize_archives" `[bool]`
+- Memperlalaikan ukuran daftar hitam/putih dari isi file terkompress? False = Tidak (Bertanda abu-abu semua); True = Ya [Default].
+
+##### "filetype_archives" `[bool]`
+- Memperlalaikan jenis file daftar hitam/putih dari isi file terkompress? False = Tidak (Bertanda abu-abu semua) [Default]; True = Ya.
+
+##### "max_recursion" `[int]`
+- Batas kedalaman rekursi maksimum untuk arsip. Default = 3.
+
+##### "block_encrypted_archives" `[bool]`
+- Mendeteksi dan memblokir dienkripsi arsip? Karena phpMussel tidak mampu memindai isi arsip dienkripsi, itu mungkin bahwa enkripsi arsip dapat digunakan oleh penyerang sebagai sarana mencoba untuk memotong phpMussel, anti-virus pemindai dan perlindungan mirip lainnya. Menginstruksikan phpMussel untuk memblokir setiap arsip dienkripsi ditemukan akan berpotensi membantu mengurangi risiko terkait dengan kemungkinan tersebut. False = Tidak; True = Ya [Default].
+
+##### "max_files_in_archives" `[int]`
+- Jumlah maksimum file yang akan dipindai dari dalam arsip sebelum membatalkan pemindaian. Default = 0 (tidak ada maksimal).
+
+##### "chameleon_from_php" `[bool]`
+- Cari header PHP tidak di dalam file-file PHP atau file terkompress. False = Dinonaktifkan; True = Diaktifkan.
+
+##### "can_contain_php_file_extensions" `[string]`
+- Daftar ekstensi file diperbolehkan untuk berisi kode PHP, dipisahkan oleh koma. Jika deteksi serangan chameleon PHP diaktifkan, file yang berisi kode PHP, yang memiliki ekstensi yang tidak ada dalam daftar ini, akan terdeteksi sebagai serangan chameleon PHP.
+
+##### "chameleon_from_exe" `[bool]`
+- Cari header yang dapat dieksekusi di dalam file-file yang dapat dieksekusi atau file terkompress yang dikenali dan untuk file dapat dieksekusi yang headernya tidak benar. False = Dinonaktifkan; True = Diaktifkan.
+
+##### "chameleon_to_archive" `[bool]`
+- Mendeteksi header yang salah dalam arsip dan file terkompresi. Didukung: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Dinonaktifkan; True = Diaktifkan.
+
+##### "chameleon_to_doc" `[bool]`
+- Cari dokumen office yang header nya tidak benar (Didukung: DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Dinonaktifkan; True = Diaktifkan.
+
+##### "chameleon_to_img" `[bool]`
+- Cari gambar yang header nya tidak benar (Didukung: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Dinonaktifkan; True = Diaktifkan.
+
+##### "chameleon_to_pdf" `[bool]`
+- Cari file PDF yang headernya tidak benar. False = Dinonaktifkan; True = Diaktifkan.
+
+##### "archive_file_extensions" `[string]`
+- Ekstensi file terkompres yang dikenali (format nya CSV; seharusnya hanya menambah atau menghapus ketika masalah terjadi; Tidak cocok langsung menghapus karena dapat menyebabkan angka positif yang salah terjadi pada file terkompres, dimana juga menambahkan deteksi; memodifikasi dengan peringatan; Juga dicatat bahwa ini tidak memberi efek pada file terkompress apa yang dapat dan tidak dapat di analisa pada level isi). Daftar sebagaimana defaultnya, memberi daftar format-format yang digunakan yang paling umum melalui melalui mayoritas sistem dan CMS, tapi bermaksud tidak komprehensif.
+
+##### "block_control_characters" `[bool]`
+- Memblokir file apapun yang berisi karakter pengendali (lain dari baris baru)? (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`) Jika Anda hanya sedang mengupload file teks biasa, maka Anda dapat menghidupkan opsi ini untuk menyediakan perlindungan tambahan ke sistem Anda. Bagaimanapun jika Anda mengupload apapun lebih dari file teks biasa, menghidupkan opsi ini mungkin mengakibatkan angka positif salah. False = Jangan memblokirnya [Default]; True = Memblokirnya.
+
+##### "corrupted_exe" `[bool]`
+- File korup dan diurai kesalahan. False = Mengabaikan; True = Memblokir [Default]. Mendeteksi dan memblokir file PE (Portable Executable) berpotensi korup? Sering (tapi tidak selalu), ketika aspek-aspek tertentu dari file PE yang korup atau tidak bisa diurai dengan benar, itu dapat menjadi indikasi dari infeksi virus. Proses yang digunakan oleh sebagian besar program anti-virus untuk mendeteksi virus dalam file PE memerlukan parsing file-file dengan cara tertentu, yang, jika programmer virus menyadari, secara khusus akan mencoba untuk mencegah, untuk memungkinkan virus mereka untuk tetap tidak terdeteksi.
+
+##### "decode_threshold" `[string]`
+- Ambang batas dengan panjang file mentah yang dalam decode perintah harus terdeteksi (dalam kasus ada masalah kinerja sementara pemindaian). Default = 512KB. Nol atau nilai null menonaktifkan ambang batas (menghapus apapun batasan berdasarkan ukuran file).
+
+##### "scannable_threshold" `[string]`
+- Ambang batas dengan panjang file mentah yang phpMussel diperbolehkan untuk membaca dan memindai (dalam kasus ada masalah kinerja sementara pemindaian). Default = 32MB. Nol atau nilai null menonaktifkan ambang batas. Umumnya, nilai ini tidak seharusnya kurang dari ukuran file rata-rata upload file yang Anda inginkan dan Anda harapkan untuk menerima ke server atau website, tidak seharusnya lebih dari direktif filesize_limit, dan tidak seharusnya lebih dari sekitar seperlima dari total alokasi memori yang diijinkan ke PHP melalui file konfigurasi "php.ini". Direktif ini ada untuk mencegah phpMussel menggunakan terlalu banyak memori (yang bisa mencegah dari yang berhasil memindai file di atas tertentu ukuran file).
+
+##### "allow_leading_trailing_dots" `[bool]`
+- Izinkan memimpin dan mengikuti titik-titik dalam nama file? Ini kadang-kadang dapat digunakan untuk menyembunyikan file, atau untuk mengelabui beberapa sistem agar memungkinkan direktori traversal. False = Jangan izinkan [Default]. True = Izinkan.
+
+##### "block_macros" `[bool]`
+- Cobalah untuk memblokir semua file yang mengandung macro? Beberapa jenis dokumen dan spreadsheet mungkin berisi makro yang dapat dijalankan, sehingga menyediakan vektor berbahaya berpotensi. False = Jangan memblokirnya [Default]; True = Memblokirnya.
+
+##### "only_allow_images" `[bool]`
+- Bila diset ke true, file apapun ditemukan oleh pemindai yang bukan gambar akan segera ditandai, tanpa dipindai. Ini dapat membantu mengurangi waktu yang dibutuhkan untuk menyelesaikan pemindaian dalam beberapa kasus. Diset ke false secara default.
+
+#### "quarantine" (Kategori)
+Konfigurasi untuk karantina.
+
+##### "quarantine_key" `[string]`
+- phpMussel dapat mengkarantina upload file yang diblokir, jika ini adalah sesuatu yang Anda ingin lakukan. Pengguna biasa dari phpMussel yang hanya ingin memproteksi website mereka dan/atau lingkungan hosting mereka tanpa memiliki minat dalam-dalam menganalisis setiap ditandai upload file harus meninggalkan fungsi ini dinonaktifkan, tapi setiap pengguna yang tertarik pada analisis lebih lanjut dari ditandai upload file bagi penelitian malware atau untuk hal-hal seperti serupa harus mengaktifkan fungsi ini. Mengkarantina ditandai upload file dapat kadang-kadang juga membantu dalam men-debug false-positif, jika ini adalah sesuatu yang sering terjadi untuk Anda. Untuk menonaktifkan fungsi karantina, meninggalkan `quarantine_key` direktif kosong, atau menghapus isi dari direktif ini jika tidak sudah kosong. Untuk mengaktifkan fungsi karantina, masukkan beberapa nilai dalam direktif ini. `quarantine_key` adalah fitur keamanan penting dari fungsi karantina diharuskan sebagai sarana untuk mencegah fungsi karantina dari dieksploitasi oleh penyerang potensial dan sebagai sarana mencegah eksekusi potensi file yang disimpan dalam karantina. `quarantine_key` harus diperlakukan dengan cara yang sama seperti password Anda: Semakin lama semakin baik, dan menjaganya diproteksi erat. Bagi efek terbaik, gunakan dalam hubungannya dengan `delete_on_sight`.
+
+##### "quarantine_max_filesize" `[string]`
+- Ukuran file maksimum yang diijinkan dari file yang akan dikarantina. File yang lebih besar dari nilai yang ditentukan dibawah ini TIDAK akan dikarantina. Direktif ini penting sebagai sarana untuk membuat lebih sulit bagi setiap penyerang potensial untuk banjir karantina Anda dengan file yang tidak diinginkan berpotensi menyebabkan penggunaan file kelebihan pada layanan hosting Anda. Default = 2MB.
+
+##### "quarantine_max_usage" `[string]`
+- Penggunaan memori maksimal yang diijinkan untuk karantina. Jika total penggunaan memori oleh karantina mencapai nilai ini, file yang dikarantina tertua akan dihapus sampai total penggunaan memori tidak lagi mencapai nilai ini. Direktif ini penting sebagai sarana untuk membuat lebih sulit bagi setiap penyerang potensial untuk banjir karantina Anda dengan file yang tidak diinginkan berpotensi menyebabkan penggunaan file kelebihan pada layanan hosting Anda. Default = 64MB.
+
+##### "quarantine_max_files" `[int]`
+- Jumlah maksimum file yang dapat ada di karantina. Ketika file baru ditambahkan ke karantina, jika nomor ini terlampaui, file lama akan dihapus hingga sisanya tidak lagi melebihi nomor ini. Default = 100.
+
 #### "virustotal" (Kategori)
-Konfigurasi untuk Virus Total integrasi.
+Konfigurasi untuk integrasi Virus Total.
 
-##### "vt_public_api_key"
-- Secara fakultatif, phpMussel mampu memindai file menggunakan Virus Total API sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan Virus Total API dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan Virus Total API, Anda _**HARUS**_ setuju untuk Terms of Service dan Anda _**HARUS**_ mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU:
-  - Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Terms of Service dari Virus Total dan API mereka dapat ditemukan di [Sini](https://www.virustotal.com/en/about/terms-of-service/).
-  - Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents"). Virus Total dokumentasi API umum dapat ditemukan di [Sini](https://www.virustotal.com/en/documentation/public-api/).
+##### "vt_public_api_key" `[string]`
+- Secara fakultatif, phpMussel mampu memindai file menggunakan Virus Total API sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan Virus Total API dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan Virus Total API, Anda *__HARUS__* setuju untuk Terms of Service dan Anda *__HARUS__* mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents").
 
-Mencatat: Jika memindai file menggunakan Virus Total API dinonaktifkan, Anda tidak akan perlu meninjau salah di direktif-direktif dalam kategori ini (`virustotal`), karena tidak satupun dari mereka akan melakukan apapun jika ini dinonaktifkan. Untuk memperoleh Virus Total kunci API, dari dimanapun di website mereka, mengklik atas "Join our Community" link yang terletak ke arah kanan atas dari halaman, memasukkan informasi yang diminta, dan mengklik "Sign up" ketika dilakukan. Ikuti semua instruksi yang diberikan, dan ketika Anda punya kunci API umum Anda, menyalin/menempelkan bahwa kunci API umum untuk `vt_public_api_key` direktif dari `config.ini` file konfigurasi.
+Lihat juga:
+- [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
+- [Getting started](https://developers.virustotal.com/reference)
 
-##### "vt_suspicion_level"
+##### "vt_suspicion_level" `[int]`
 - Secara default, phpMussel akan membatasi file dipindai menggunakan Virus Total API untuk file-file yang dianggap "mencurigakan". Anda dapat menyesuaikan pembatasan ini dengan mengubah nilai direktif `vt_suspicion_level`.
-- `0`: File hanya dianggap mencurigakan jika, setelah dipindai oleh phpMussel menggunakan tanda tangan sendiri, mereka dianggap membawa berat heuristik. Ini akan efektif berarti bahwa penggunaan Virus Total API akan untuk pendapat kedua ketika phpMussel mencurigai bahwa file berpotensi menjadi berbahaya, tapi tidak dapat sepenuhnya mengesampingkan bahwa hal itu juga berpotensi menjadi jinak (atau tidak berbahaya) dan demikian akan dinyatakan biasanya tidak memblokir atau mengindikasi itu sebagai berbahaya.
-- `1`: File dianggap mencurigakan jika, setelah dipindai oleh phpMussel menggunakan tanda tangan sendiri, mereka dianggap membawa berat heuristik, jika mereka diketahui executable (PE file, Mach-O file, ELF/Linux file, dll), atau jika mereka diketahui dari format yang berpotensi berisi file executable (seperti macro executable, DOC/DOCX file, arsip file seperti RAR, ZIP dan dll). Ini adalah default dan direkomendasikan tingkat kecurigaan untuk menerapkan, efektif berarti bahwa penggunaan Virus Total API akan untuk pendapat kedua ketika phpMussel tidak awalnya mendeteksi sesuatu yang berbahaya atau yang salah dengan file yang dianggap mencurigakan dan demikian akan dinyatakan biasanya tidak memblokir atau mengindikasi itu sebagai berbahaya.
-- `2`: Semua file dianggap mencurigakan dan harus dipindai menggunakan Virus Total API. Saya biasanya tidak merekomendasikan menerapkan tingkat kecurigaan ini, karena risiko mencapai kuota API Anda lebih cepat daripada yang akan terjadi, tapi ada kondisi beberapa (seperti ketika webmaster atau hostmaster memiliki sedikit iman atau kepercayaan apakah gerangan dalam apapun diupload dari pengguna mereka) dimana tingkat kecurigaan ini dapat bisa sesuai. Dengan tingkat kecurigaan ini, semua file biasanya tidak diblokir atau ditandai sebagai berbahaya akan dipindai menggunakan Virus Total API. Mencatat, bagaimanapun, phpMussel akan berhenti menggunakan Virus Total API ketika kuota API Anda telah tercapai (terlepas dari tingkat kecurigaan), dan kuota Anda kemungkinan akan dicapai jauh lebih cepat bila menggunakan tingkat kecurigaan ini.
 
-Mencatat: Terlepas dari tingkat kecurigaan, setiap file yang masuk daftar hitam atau daftar putih oleh phpMussel tidak akan dipindai menggunakan Virus Total API, karena file seperti ini akan sudah dinyatakan sebagai jinak atau berbahaya oleh phpMussel pada saat itu mereka akan sudah dinyatakan telah dipindai oleh Virus Total API, dan demikian, memindai tambahan tidak akan diperlukan. Kemampuan phpMussel untuk memindai file menggunakan Virus Total API dimaksudkan untuk membangun kepercayaan lebih lanjut untuk apakah file yang berbahaya atau jinak pada mereka situasi dimana phpMussel sendiri tidak sepenuhnya yakin apakah file yang berbahaya atau jinak.
-
-##### "vt_weighting"
+##### "vt_weighting" `[int]`
 - Apakah Anda ingin phpMussel menerapkan hasil pemindaian menggunakan Virus Total API sebagai deteksi atau deteksi pembobotan? Direktif ini ada, karena, meskipun memindai file menggunakan mesin-mesin kelipatan (sebagai Virus Total melakukannya) harus menghasilkan tingkat deteksi meningkat (dan demikian lebih banyak file berbahaya tertangkap), juga dapat menghasilkan jumlah yang lebih banyak dari positif palsu, dan demikian, dalam kondisi beberapa, hasil pemindaian dapat digunakan lebih efektif sebagai nilai keyakinan daripada daripada sebagai kesimpulan definitif. Jika nilai 0 digunakan, hasil pemindaian menggunakan Virus Total API akan diaplikasikan sebagai pendeteksian, dan demikian, jika mesin-mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya, phpMussel akan menganggap file yang berbahaya. Jika nilai lain yang digunakan, hasil pemindaian menggunakan Virus Total API akan diaplikasikan sebagai deteksi pembobotan, dan demikian, jumlah mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya akan berfungsi sebagai nilai keyakinan (atau deteksi pembobotan) untuk jika file dipindai harus dianggap berbahaya oleh phpMussel (nilai digunakan akan mewakili nilai keyakinan minimum atau pembobotan minimum diperlukan untuk dianggap berbahaya). Nilai 0 digunakan secara default.
 
-##### "vt_quota_rate" dan "vt_quota_time"
-- Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang _**DAPAT**_ membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai `vt_quota_rate` permintaan dalam bentuk apapun dalam jangka waktu `vt_quota_time` menit.
+##### "vt_quota_rate" `[int]`
+- Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang *__DAPAT__* membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai `vt_quota_rate` permintaan dalam bentuk apapun dalam jangka waktu `vt_quota_time` menit.
+
+##### "vt_quota_time" `[int]`
+- (Lihat uraian di atas).
 
 #### "urlscanner" (Kategori)
-Scanner URL adalah disertakan dengan phpMussel, mampu mendeteksi URL berbahaya dari dalam data atau file dipindai.
+Konfigurasi untuk pemindai URL.
 
-Mencatat: Jika scanner URL dinonaktifkan, Anda tidak perlu meninjaunya direktif-direktif dalam kategori ini (`urlscanner`), karena tidak satupun dari mereka akan melakukan apa-apa jika ini dinonaktifkan.
+##### "lookup_hphosts" `[bool]`
+- Memungkinkan pemeriksaan API ke hpHosts API ketika diset untuk true.
 
-Konfigurasi scanner URL memeriksa API.
+Lihat juga:
+- [hosts-file.net](https://hosts-file.net/)
 
-##### "lookup_hphosts"
-- Memungkinkan pemeriksaan API ke [hpHosts](https://hosts-file.net/) API ketika diset untuk true. hpHosts tidak memerlukan kunci API untuk melakukan pemeriksaan API.
+##### "google_api_key" `[string]`
+- Memungkinkan pemeriksaan API ke Google Safe Browsing API ketika kunci API diperlukan didefinisikan.
 
-##### "google_api_key"
-- Memungkinkan pemeriksaan API ke Google Safe Browsing API ketika kunci API diperlukan didefinisikan. Pemeriksaan Google Safe Browsing API memerlukan kunci API, diperoleh dari di [Sini](https://console.developers.google.com/).
-- Mencatat: Ekstensi cURL diperlukan untuk menggunakan fitur ini.
+Lihat juga:
+- [Google API Console](https://console.developers.google.com/)
 
-##### "maximum_api_lookups"
+##### "maximum_api_lookups" `[int]`
 - Jumlah maksimum pemeriksaan API melakukan per iterasi memindai individual. Karena setiap API pemeriksaan akan menambah tambahan waktu total dibutuhkan untuk menyelesaikan setiap iterasi pemindaian, Anda mungkin ingin menetapkan batasan untuk mempercepat proses pemindaian secara keseluruhan. Bila diset untuk 0, sejumlah maksimum tidak akan diterapkan. Diset untuk 10 secara default.
 
-##### "maximum_api_lookups_response"
+##### "maximum_api_lookups_response" `[bool]`
 - Apa yang harus dilakukan jika jumlah maksimal pemeriksaan API dilampaui? False = Tidak melakukan apa-apa (melanjutkan pemrosesan) [Default]; True = Memblokir file.
 
-##### "cache_time"
+##### "cache_time" `[int]`
 - Berapa lama (dalam detik) harus hasil API untuk disimpan dalam cache? Default adalah 3600 detik (1 jam).
 
 #### "legal" (Kategori)
-Konfigurasi yang berkaitan dengan persyaratan hukum.
+Konfigurasi untuk persyaratan hukum.
 
-*Untuk informasi lebih lanjut tentang persyaratan hukum dan bagaimana ini dapat mempengaruhi persyaratan konfigurasi Anda, silahkan lihat bagian "[LEGAL INFORMATION](#SECTION11)" pada dokumentasi.*
-
-##### "pseudonymise_ip_addresses"
+##### "pseudonymise_ip_addresses" `[bool]`
 - Pseudonymise alamat IP saat menulis file log? True = Ya [Default]; False = Tidak.
 
-##### "privacy_policy"
+##### "privacy_policy" `[string]`
 - Alamat dari kebijakan privasi yang relevan untuk ditampilkan di footer dari setiap halaman yang dihasilkan. Spesifikasikan URL, atau biarkan kosong untuk menonaktifkan.
-
-#### "template_data" (Kategori)
-Direktif-direktif dan variabel-variabel untuk template-template dan tema-tema.
-
-File template berkaitan untuk HTML diproduksi yang digunakan untuk menghasilkan pesan "Upload Ditolak" yang ditampilkan kepada pengguna-pengguna ketika file upload yang diblokir. Jika Anda menggunakan tema kustom untuk phpMussel, HTML diproduksi yang bersumber dari file `template_custom.html`, dan sebaliknya, HTML diproduksi yang bersumber dari file `template.html`. Variabel ditulis untuk file konfigurasi bagian ini yang diurai untuk HTML diproduksi dengan cara mengganti nama-nama variabel dikelilingi dengan kurung keriting ditemukan dalam HTML diproduksi dengan file variabel sesuai. Sebagai contoh, dimana `foo="bar"`, setiap terjadinya `<p>{foo}</p>` ditemukan dalam HTML diproduksi akan menjadi `<p>bar</p>`.
-
-##### "theme"
-- Tema default untuk phpMussel.
-
-##### "magnification"
-- *v1: "Magnification"*
-- Perbesaran font. Default = 1.
-
-##### "css_url"
-- File template untuk tema kustom menggunakan properti CSS eksternal, sedangkan file template untuk tema default menggunakan properti CSS internal. Untuk menginstruksikan phpMussel menggunakan file template untuk tema kustom, menentukan alamat HTTP publik file CSS tema kustom Anda menggunakan variable `css_url`. Jika Anda biarkan kosong variabel ini, phpMussel akan menggunakan file template untuk tema default.
-
-#### "PHPMailer" (Kategori)
-Konfigurasi PHPMailer.
-
-Saat ini, phpMussel menggunakan PHPMailer hanya untuk otentikasi dua faktor untuk bagian depan. Jika Anda tidak menggunakan bagian depan, atau jika Anda tidak menggunakan otentikasi dua-faktor untuk bagian depan, Anda dapat mengabaikan direktif ini.
-
-##### "event_log"
-- *v1: "EventLog"*
-- File untuk mencatat semua kejadian yang terkait dengan PHPMailer. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
-
-##### "skip_auth_process"
-- *v1: "SkipAuthProcess"*
-- Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses otentikasi normal yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.
-
-##### "enable_two_factor"
-- *v1: "Enable2FA"*
-- Direktif ini menentukan apakah akan menggunakan 2FA untuk akun depan.
-
-##### "host"
-- *v1: "Host"*
-- Host SMTP yang digunakan untuk email keluar.
-
-##### "port"
-- *v1: "Port"*
-- Nomor port yang digunakan untuk email keluar. Default = 587.
-
-##### "smtp_secure"
-- *v1: "SMTPSecure"*
-- Protokol yang digunakan saat mengirim email melalui SMTP (TLS atau SSL).
-
-##### "smtp_auth"
-- *v1: "SMTPAuth"*
-- Direktif ini menentukan apakah akan mengotentikasi sesi SMTP (biasanya harus dibiarkan sendiri).
-
-##### "username"
-- *v1: "Username"*
-- Nama pengguna yang digunakan saat mengirim email melalui SMTP.
-
-##### "password"
-- *v1: "Password"*
-- Kata sandi yang digunakan saat mengirim email melalui SMTP.
-
-##### "set_from_address"
-- *v1: "setFromAddress"*
-- Alamat pengirim yang dikutip saat mengirim email melalui SMTP.
-
-##### "set_from_name"
-- *v1: "setFromName"*
-- Nama pengirim yang dikutip saat mengirim email melalui SMTP.
-
-##### "add_reply_to_address"
-- *v1: "addReplyToAddress"*
-- Alamat balasan yang dikutip saat mengirim email melalui SMTP.
-
-##### "add_reply_to_name"
-- *v1: "addReplyToName"*
-- Nama balasan yang dikutip saat mengirim email melalui SMTP.
 
 #### "supplementary_cache_options" (Kategori)
 Opsi cache tambahan.
 
-##### "enable_apcu"
+##### "enable_apcu" `[bool]`
 - Menentukan apakah akan mencoba menggunakan APCu untuk cache. Default = False.
 
-##### "enable_memcached"
+##### "enable_memcached" `[bool]`
 - Menentukan apakah akan mencoba menggunakan Memcached untuk cache. Default = False.
 
-##### "enable_redis"
+##### "enable_redis" `[bool]`
 - Menentukan apakah akan mencoba menggunakan Redis untuk cache. Default = False.
 
-##### "enable_pdo"
+##### "enable_pdo" `[bool]`
 - Menentukan apakah akan mencoba menggunakan PDO untuk cache. Default = False.
 
-##### "memcached_host"
+##### "memcached_host" `[string]`
 - Nilai host Memcached. Default = "localhost".
 
-##### "memcached_port"
+##### "memcached_port" `[int]`
 - Nilai port Memcached. Default = "11211".
 
-##### "redis_host"
+##### "redis_host" `[string]`
 - Nilai host Redis. Default = "localhost".
 
-##### "redis_port"
+##### "redis_port" `[int]`
 - Nilai port Redis. Default = "6379".
 
-##### "redis_timeout"
+##### "redis_timeout" `[float]`
 - Nilai batas waktu Redis. Default = "2.5".
 
-##### "pdo_dsn"
-- Nilai DSN PDO. Default = "`mysql:dbname=phpmussel;host=localhost;port=3306`".
+##### "pdo_dsn" `[string]`
+- Nilai DSN PDO. Default = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
-*Lihat juga: [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#HOW_TO_USE_PDO)*
-
-##### "pdo_username"
+##### "pdo_username" `[string]`
 - Nama pengguna PDO.
 
-##### "pdo_password"
+##### "pdo_password" `[string]`
 - Kata sandi PDO.
+
+#### "frontend" (Kategori)
+Konfigurasi untuk bagian depan.
+
+##### "frontend_log" `[string]`
+- File untuk mencatat upaya masuk bagian depan. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
+
+##### "max_login_attempts" `[int]`
+- Jumlah maksimum upaya memasukkan ke bagian depan. Default = 5.
+
+##### "numbers" `[string]`
+- Cara apa yang kamu suka nomor menjadi ditampilkan? Pilih contoh yang paling sesuai untuk Anda.
+
+```
+numbers
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Latin-1 ("1,234,567.89")
+├─Latin-2 ("1 234 567.89")
+├─Latin-3 ("1.234.567,89")
+├─Latin-4 ("1 234 567,89")
+├─Latin-5 ("1,234,567·89")
+├─China-1 ("123,4567.89")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
+├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+└─Tibetan ("༡༢༣༤༥༦༧.༨༩")
+```
+
+##### "default_algo" `[string]`
+- Mendefinisikan algoritma mana yang akan digunakan untuk semua password dan sesi di masa depan. Opsi: PASSWORD_DEFAULT (default), PASSWORD_BCRYPT, PASSWORD_ARGON2I (membutuhkan PHP >= 7.2.0), PASSWORD_ARGON2ID (membutuhkan PHP >= 7.3.0).
+
+```
+default_algo
+├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
+├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+└─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
+```
+
+##### "theme" `[string]`
+- Estetika yang digunakan untuk bagian depan phpMussel.
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…Lain
+```
+
+##### "magnification" `[float]`
+- Perbesaran font. Default = 1.
+
+#### "web" (Kategori)
+Konfigurasi untuk penangan upload.
+
+##### "uploads_log" `[string]`
+- Dimana semua upload yang diblokir harus dicatat. Spesifikan nama atau biarkan kosong untuk menonaktifkan.
+
+##### "forbid_on_block" `[bool]`
+- Seharusnya phpMussel mengirimkan 403 headers dengan pesan upload file yang terblok, atau cocok dengan 200 OK? False = Tidak (200); True = Ya (403) [Default].
+
+##### "max_uploads" `[int]`
+- Maksimum jumla file-file yang diizinkan untuk dipindai selama pemindaian upload file sebelum menghentikan pemindaian dan menginformasikan pengguna bahwa pengguna mengupload terlalu banyak! Menyediakan perlindungan pada serangan teoritis dimana penyerang mencoba DDoS pada sistem Anda atau CMS ada dengan overloading phpMussel supaya berjalan lambat. Proses PHP ke penghentian keras. Recommendasi: 10. Anda dapat menaikkan atau menurunkan angka ini bergantung dari kecepatan hardware Anda. Catat itu nomor ini tidak mengakuntabilitas atau mengikutkan konten dari file terkompres.
+
+##### "ignore_upload_errors" `[bool]`
+- Direktif ini umumnya harus DINONAKTIFKAN kecuali diharuskan untuk fungsi yang benar dari phpMussel pada sistem tertentu. Biasanya, ketika DINONAKTIFKAN, ketika phpMussel mendeteksi adanya elemen dalam `$_FILES` array(), itu akan mencoba untuk memulai scan file yang mewakili elemen, dan, jika elemen yang kosong, phpMussel akan mengembalikan pesan kesalahan. Ini adalah perilaku yang tepat untuk phpMussel. Namun, untuk beberapa CMS, elemen kosong di `$_FILES` dapat terjadi sebagai akibat dari perilaku alami itu CMS, atau kesalahan dapat dilaporkan bila tidak ada, dalam kasus seperti itu, perilaku normal untuk phpMussel akan mengganggu untuk perilaku normal itu CMS. Jika situasi seperti itu terjadi untuk Anda, MENGAKTIFKAN direktif ini akan menginstruksikan phpMussel untuk tidak mencoba untuk memulai scan untuk elemen kosong, mengabaikan saat ditemui dan untuk tidak kembali terkait pesan kesalahan, sehingga memungkinkan kelanjutan dari halaman permintaan. False = DINONAKTIFKAN; True = DIAKTIFKAN.
+
+##### "theme" `[string]`
+- Estetika yang digunakan untuk halaman "Upload Ditolak".
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…Lain
+```
+
+##### "magnification" `[float]`
+- Perbesaran font. Default = 1.
+
+#### "phpmailer" (Kategori)
+Konfigurasi untuk PHPMailer (digunakan untuk otentikasi dua-faktor).
+
+##### "event_log" `[string]`
+- File untuk mencatat semua kejadian yang terkait dengan PHPMailer. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
+
+##### "enable_two_factor" `[bool]`
+- Direktif ini menentukan apakah akan menggunakan 2FA untuk akun depan.
+
+##### "enable_notifications" `[bool]`
+- Kirim pemberitahuan email saat upload diblokir.
+
+##### "skip_auth_process" `[bool]`
+- Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses otentikasi normal yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.
+
+##### "host" `[string]`
+- Host SMTP yang digunakan untuk email keluar.
+
+##### "port" `[int]`
+- Nomor port yang digunakan untuk email keluar. Default = 587.
+
+##### "smtp_secure" `[string]`
+- Protokol yang digunakan saat mengirim email melalui SMTP (TLS atau SSL).
+
+```
+smtp_secure
+├─default ("-")
+├─tls ("TLS")
+└─ssl ("SSL")
+```
+
+##### "smtp_auth" `[bool]`
+- Direktif ini menentukan apakah akan mengotentikasi sesi SMTP (biasanya harus dibiarkan sendiri).
+
+##### "username" `[string]`
+- Nama pengguna yang digunakan saat mengirim email melalui SMTP.
+
+##### "password" `[string]`
+- Kata sandi yang digunakan saat mengirim email melalui SMTP.
+
+##### "set_from_address" `[string]`
+- Alamat pengirim yang dikutip saat mengirim email melalui SMTP.
+
+##### "set_from_name" `[string]`
+- Nama pengirim yang dikutip saat mengirim email melalui SMTP.
+
+##### "add_reply_to_address" `[string]`
+- Alamat balasan yang dikutip saat mengirim email melalui SMTP.
+
+##### "add_reply_to_name" `[string]`
+- Nama balasan yang dikutip saat mengirim email melalui SMTP.
 
 ---
 
@@ -1633,7 +1540,7 @@ Entri ke log untuk file yang diblokir oleh pemindai biasanya mencakup informasi 
 - Apakah file adalah dikarantina, dan dibawah nama internal apa.
 
 *Direktif konfigurasi yang relevan:*
-- `general` -> `scan_kills`
+- `web` -> `uploads_log`
 
 ##### 11.3.2 LOG BAGIAN DEPAN
 
@@ -1724,4 +1631,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 7 Juli 2020 (2020.07.07).
+Terakhir Diperbarui: 8 Juli 2020 (2020.07.08).

@@ -111,7 +111,7 @@ Dann alles was Sie tun müssen, ist auf die Frontend-Aktualisierungsseite gehen,
 
 *Sehen: [SigTool Dokumentation](https://github.com/phpMussel/SigTool#documentation).*
 
-*Beachten Sie auch: SigTool verarbeitet nur die Signaturen von ClamAV. Um die Signatur aus anderen Quellen zu erhalten, z.B. diejenigen die speziell für phpMussel geschriebenen, die einschließlich der zum Nachweis der Testproben von phpMussel erforderlichen Signaturen, muss diese Methode durch eine der anderen hier genannten Methoden ergänzt werden.*
+*Beachten Sie auch: SigTool verarbeitet nur die Signaturen von ClamAV. Um Signaturen aus anderen Quellen zu erhalten, z.B. diejenigen die speziell für phpMussel geschriebenen, die einschließlich der zum Nachweis der Testproben von phpMussel erforderlichen Signaturen, muss diese Methode durch eine der anderen hier genannten Methoden ergänzt werden.*
 
 ##### 2.3.3 Signaturen aus "phpMussel/Signatures" herunterladen und manuell installieren.
 

@@ -110,7 +110,7 @@ Dan, alles wat u moet doen is ga naar de frontend updates pagina, vind de nodige
 
 *Zien: [SigTool documentatie](https://github.com/phpMussel/SigTool#documentation).*
 
-*Let ook op: SigTool verwerkt alleen de signatures van ClamAV. Om de signatures te verkrijgen van andere bronnen, zoals die speciaal geschreven voor phpMussel, die de signatures bevat die nodig zijn voor het detecteren van phpMussel's testvoorbeelden, zal deze methode moeten worden aangevuld met een van de andere hier genoemde methoden.*
+*Let ook op: SigTool verwerkt alleen de signatures van ClamAV. Om signatures van andere bronnen te verkrijgen, zoals die speciaal geschreven voor phpMussel, die de signatures bevat die nodig zijn voor het detecteren van phpMussel's testvoorbeelden, zal deze methode moeten worden aangevuld met een van de andere hier genoemde methoden.*
 
 ##### 2.3.3 Download signatures van "phpMussel/Signatures" en installeer handmatig.
 

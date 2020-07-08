@@ -1,0 +1,9 @@
+category: |
+ \#\#\#\# "%s" (카테고리)
+ %s
+directive: |
+ \#\#\#\#\# "%s" `[%s]`
+ - %s
+menu_open: "%s"
+menu_item: "- [%s](%s)"
+menu_close: ""

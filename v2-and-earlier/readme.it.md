@@ -110,7 +110,7 @@ Allora, tutto quello che dovrai fare è andare a il front-end pagina degli aggio
 
 *Vedere: [Documentazione SigTool](https://github.com/phpMussel/SigTool#documentation).*
 
-*Nota anche: SigTool elabora le firme da ClamAV solo. Per ottenere la firma da altre fonti, come quelle scritte appositamente per phpMussel, che include le firme necessarie per rilevare i campioni di test di phpMussel, questo metodo dovrà essere integrato da uno degli altri metodi qui menzionati.*
+*Nota anche: SigTool elabora le firme da ClamAV solo. Per ottenere firme da altre fonti, come quelle scritte appositamente per phpMussel, che include le firme necessarie per rilevare i campioni di test di phpMussel, questo metodo dovrà essere integrato da uno degli altri metodi qui menzionati.*
 
 ##### 2.3.3 Scaricare le firme da "phpMussel/Signatures" e installare manualmente.
 
@@ -854,7 +854,7 @@ Chameleon attacco rilevamento: False = Disattivato; True = Attivato.
 - Soglia per la lunghezza dei dati grezzi dove phpMussel è permesso di leggere e scansione (nel caso in cui vi siano notevoli problemi di prestazioni durante la scansione). Predefinito = 32MB. Un zero o un nullo valore disabilita la soglia. In generale, questo valore non dovrebbe essere meno quella media dimensione dei file che si desidera e si aspettano di ricevere al vostro server o al vostro web sito, non dovrebbe essere più di la filesize_limit direttiva, e non dovrebbe essere più di circa un quinto del totale ammissibile allocazione della memoria concesso al PHP tramite il file di configurazione `php.ini`. Questa direttiva esiste per tenta di evitare avendo phpMussel utilizzare troppa memoria (di cui sarebbe impedirebbe di essere capace di completare la file scansione correttamente per i file piú d'una certa dimensione).
 
 ##### "allow_leading_trailing_dots"
-- Consenti punti iniziali e finali nei nomi dei file? Questo a volte può essere usato per nascondere file, o per ingannare alcuni sistemi per consentire l'attraversamento di directory. False = Non permettere [Predefinito]. True = Permettere.
+- Consenti punti iniziali e finali nei nomi dei file? Questo a volte può essere usato per nascondere file, o per ingannare alcuni sistemi per consentire l'attraversamento di cartella. False = Non permettere [Predefinito]. True = Permettere.
 
 ##### "block_macros"
 - Prova a bloccare qualsiasi file contenente macro? Alcuni tipi di documenti e fogli di calcolo possono contenere macro eseguibili, fornendo così un pericoloso vettore potenziale di malware. False = Ignorarli; True = Bloccarli [Predefinito].
@@ -1299,7 +1299,7 @@ Diciamo che c'è una cartella che vuoi scansionare. In questa cartella, hai alcu
 
 Supponiamo che tu stia utilizzando la modalità CLI o l'API phpMussel per la scansione.
 
-Quando si utilizza PHP < 7.1.0, su alcuni sistemi, phpMussel non vedrà questi file quando si tenta di eseguire la scansione della cartella e, quindi, non sarà in grado di eseguire la scansione di questi file. Probabilmente vedrai gli stessi risultati come se dovessi eseguire la scansione di una directory vuota:
+Quando si utilizza PHP < 7.1.0, su alcuni sistemi, phpMussel non vedrà questi file quando si tenta di eseguire la scansione della cartella e, quindi, non sarà in grado di eseguire la scansione di questi file. Probabilmente vedrai gli stessi risultati come se dovessi eseguire la scansione di una cartella vuota:
 
 ```
  Sun, 01 Apr 2018 22:27:41 +0800 Iniziato.

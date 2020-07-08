@@ -77,10 +77,10 @@ https://github.com/phpMussel/Examples
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 서명 설치
 
-v1.0.0 이후 시그니처 phpMussel 패키지에는 포함되어 있지 않습니다. 특정 위협을 감지하기 위해서는, phpMussel 의해 서명이 필요합니다. 서명을 설치하는 주요 방법은 3 가지가 있습니다.
+특정 위협을 감지하기 위해서는, phpMussel 의해 서명이 필요합니다. 서명을 설치하는 주요 방법은 3 가지가 있습니다.
 
 1. "SigTool"를 사용하여 서명을 생성하여 수동으로 설치합니다.
-2. "phpMussel/Signatures"에서 서명을 다운로드하여 수동으로 설치합니다.
+2. "phpMussel/Signatures" 또는 "phpMussel/Examples"에서 서명을 다운로드하여 수동으로 설치합니다.
 
 ##### 2.1.0 "SigTool"를 사용하여 서명을 생성하여 수동으로 설치합니다.
 
@@ -88,9 +88,11 @@ v1.0.0 이후 시그니처 phpMussel 패키지에는 포함되어 있지 않습�
 
 *참고 사항 : SigTool은 ClamAV의 서명 만 처리합니다. 다른 출처에서 서명을 얻으려면 (예를 들어 phpMussel의 테스트 샘플을 탐지하는 데 필요한 서명이 포함 된 phpMussel 전용으로 작성된 것), 이 방법은 여기에 언급 된 다른 방법 중 하나로 보완해야합니다.*
 
-##### 2.3.3 "phpMussel/Signatures"에서 서명을 다운로드하여 수동으로 설치합니다.
+##### 2.1.1 "phpMussel/Signatures" 또는 "phpMussel/Examples"에서 서명을 다운로드하여 수동으로 설치합니다.
 
-첫째, [phpMussel/Signatures](https://github.com/phpMussel/Signatures)간다. 저장소는 다양한 GZ 압축 서명 파일이 포함되어 있습니다. 그들을 설치하려면, 필요한 파일을 다운로드하여 압축을 풉니, 압축이 풀린 파일을 `/vault/signatures` 디렉토리에 복사합니다. 그들을 활성화하려면, 복사 한 파일의 이름을 phpMussel 설정 `active` 지시문에 열거합니다.
+첫째, [phpMussel/Signatures](https://github.com/phpMussel/Signatures)간다. 저장소는 다양한 GZ 압축 서명 파일이 포함되어 있습니다. 그들을 설치하려면, 필요한 파일을 다운로드하여 압축을 품니, 설치 시그니처 디렉터리로 복사하십시오.
+
+대안 적으로, [phpMussel/Examples](https://github.com/phpMussel/Examples)에서 최신 ZIP을 다운로드하십시오. 그런 다음 해당 아카이브의 서명을 설치에 복사/붙여 넣기 할 수 있습니다.
 
 ---
 
@@ -209,192 +211,6 @@ CLI 프롬프트에서`c`를 입력하고 엔터를 누르면 사용 가능한 C
 ### 6. <a name="SECTION6"></a>패키지에 포함된 파일
 
 ```
-https://github.com/phpMussel/phpMussel>v2
-│   .gitattributes
-│   .gitignore
-│   .travis.yml
-│   Changelog-v2.txt
-│   codeception.yml
-│   composer.json
-│   LICENSE.txt
-│   loader.php
-│   README.md
-│   web.config
-│
-├───tests
-│   │   .gitignore
-│   │   acceptance.suite.yml
-│   │   functional.suite.yml
-│   │   unit.suite.yml
-│   │
-│   ├───acceptance
-│   │       .gitkeep
-│   │
-│   ├───functional
-│   │       .gitkeep
-│   │
-│   ├───unit
-│   │       .gitkeep
-│   │       LoaderAndScanCest.php
-│   │
-│   ├───_data
-│   │       .gitkeep
-│   │
-│   ├───_output
-│   │       .gitkeep
-│   │
-│   └───_support
-│       │   AcceptanceTester.php
-│       │   FunctionalTester.php
-│       │   UnitTester.php
-│       │
-│       ├───config
-│       │       config.ini
-│       │
-│       ├───Helper
-│       │       Acceptance.php
-│       │       Functional.php
-│       │       Unit.php
-│       │
-│       └───samples
-│               encrypted.zip
-│               hello.txt
-│
-├───vault
-│   │   .htaccess
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-│
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
 ```
 
 ---
@@ -405,621 +221,712 @@ https://github.com/phpMussel/phpMussel>v2
 다음은 `config.ini`설정 파일에있는 변수 및 그 목적과 기능의 목록입니다.
 
 ```
-Configuration (v2)
+구성 (v3)
 │
-├───general
-│       cleanup
-│       scan_log
-│       scan_log_serialized
-│       scan_kills
-│       error_log
-│       truncate
-│       log_rotation_limit
-│       log_rotation_action
-│       timezone
-│       time_offset (v1: timeOffset)
-│       time_format (v1: timeFormat)
-│       ipaddr
-│       enable_plugins
-│       forbid_on_block
-│       delete_on_sight
-│       lang
-│       lang_override
-│       numbers
-│       quarantine_key
-│       quarantine_max_filesize
-│       quarantine_max_usage
-│       quarantine_max_files
-│       honeypot_mode
-│       scan_cache_expiry
-│       disable_cli
-│       disable_frontend
-│       max_login_attempts
-│       frontend_log (v1: FrontEndLog)
-│       disable_webfonts
-│       maintenance_mode
-│       default_algo
-│       statistics
-│       disabled_channels
-│
+├───core
+│       scan_log [string]
+│       scan_log_serialized [string]
+│       error_log [string]
+│       truncate [string]
+│       log_rotation_limit [int]
+│       log_rotation_action [string]
+│       timezone [string]
+│       time_offset [int]
+│       time_format [string]
+│       ipaddr [string]
+│       delete_on_sight [bool]
+│       lang [string]
+│       lang_override [bool]
+│       scan_cache_expiry [int]
+│       maintenance_mode [bool]
+│       statistics [bool]
+│       disabled_channels [string]
 ├───signatures
-│       active (v1: Active)
-│       fail_silently
-│       fail_extensions_silently
-│       detect_adware
-│       detect_joke_hoax
-│       detect_pua_pup
-│       detect_packer_packed
-│       detect_shell
-│       detect_deface
-│       detect_encryption
-│
+│       active [string]
+│       fail_silently [bool]
+│       fail_extensions_silently [bool]
+│       detect_adware [bool]
+│       detect_joke_hoax [bool]
+│       detect_pua_pup [bool]
+│       detect_packer_packed [bool]
+│       detect_shell [bool]
+│       detect_deface [bool]
+│       detect_encryption [bool]
+│       heuristic_threshold [int]
 ├───files
-│       max_uploads
-│       filesize_limit
-│       filesize_response
-│       filetype_whitelist
-│       filetype_blacklist
-│       filetype_greylist
-│       check_archives
-│       filesize_archives
-│       filetype_archives
-│       max_recursion
-│       block_encrypted_archives
-│       max_files_in_archives
-│
-├───attack_specific
-│       chameleon_from_php
-│       can_contain_php_file_extensions
-│       chameleon_from_exe
-│       chameleon_to_archive
-│       chameleon_to_doc
-│       chameleon_to_img
-│       chameleon_to_pdf
-│       archive_file_extensions
-│       block_control_characters
-│       corrupted_exe
-│       decode_threshold
-│       scannable_threshold
-│       allow_leading_trailing_dots
-│       block_macros
-│
-├───compatibility
-│       ignore_upload_errors
-│       only_allow_images
-│
-├───heuristic
-│       threshold
-│
+│       filesize_limit [string]
+│       filesize_response [bool]
+│       filetype_whitelist [string]
+│       filetype_blacklist [string]
+│       filetype_greylist [string]
+│       check_archives [bool]
+│       filesize_archives [bool]
+│       filetype_archives [bool]
+│       max_recursion [int]
+│       block_encrypted_archives [bool]
+│       max_files_in_archives [int]
+│       chameleon_from_php [bool]
+│       can_contain_php_file_extensions [string]
+│       chameleon_from_exe [bool]
+│       chameleon_to_archive [bool]
+│       chameleon_to_doc [bool]
+│       chameleon_to_img [bool]
+│       chameleon_to_pdf [bool]
+│       archive_file_extensions [string]
+│       block_control_characters [bool]
+│       corrupted_exe [bool]
+│       decode_threshold [string]
+│       scannable_threshold [string]
+│       allow_leading_trailing_dots [bool]
+│       block_macros [bool]
+│       only_allow_images [bool]
+├───quarantine
+│       quarantine_key [string]
+│       quarantine_max_filesize [string]
+│       quarantine_max_usage [string]
+│       quarantine_max_files [int]
 ├───virustotal
-│       vt_public_api_key
-│       vt_suspicion_level
-│       vt_weighting
-│       vt_quota_rate
-│       vt_quota_time
-│
+│       vt_public_api_key [string]
+│       vt_suspicion_level [int]
+│       vt_weighting [int]
+│       vt_quota_rate [int]
+│       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts
-│       google_api_key
-│       maximum_api_lookups
-│       maximum_api_lookups_response
-│       cache_time
-│
+│       lookup_hphosts [bool]
+│       google_api_key [string]
+│       maximum_api_lookups [int]
+│       maximum_api_lookups_response [bool]
+│       cache_time [int]
 ├───legal
-│       pseudonymise_ip_addresses
-│       privacy_policy
-│
-├───template_data
-│       theme
-│       magnification (v1: Magnification)
-│       css_url
-│
-├───PHPMailer
-│       event_log (v1: EventLog)
-│       skip_auth_process (v1: SkipAuthProcess)
-│       enable_two_factor (v1: Enable2FA)
-│       host (v1: Host)
-│       port (v1: Port)
-│       smtp_secure (v1: SMTPSecure)
-│       smtp_auth (v1: SMTPAuth)
-│       username (v1: Username)
-│       password (v1: Password)
-│       set_from_address (v1: setFromAddress)
-│       set_from_name (v1: setFromName)
-│       add_reply_to_address (v1: addReplyToAddress)
-│       add_reply_to_name (v1: addReplyToName)
-│
-└───supplementary_cache_options
-        enable_apcu
-        enable_memcached
-        enable_redis
-        enable_pdo
-        memcached_host
-        memcached_port
-        redis_host
-        redis_port
-        redis_timeout
-        pdo_dsn
-        pdo_username
-        pdo_password
+│       pseudonymise_ip_addresses [bool]
+│       privacy_policy [string]
+├───supplementary_cache_options
+│       enable_apcu [bool]
+│       enable_memcached [bool]
+│       enable_redis [bool]
+│       enable_pdo [bool]
+│       memcached_host [string]
+│       memcached_port [int]
+│       redis_host [string]
+│       redis_port [int]
+│       redis_timeout [float]
+│       pdo_dsn [string]
+│       pdo_username [string]
+│       pdo_password [string]
+├───frontend
+│       frontend_log [string]
+│       max_login_attempts [int]
+│       numbers [string]
+│       default_algo [string]
+│       theme [string]
+│       magnification [float]
+├───web
+│       uploads_log [string]
+│       forbid_on_block [bool]
+│       max_uploads [int]
+│       ignore_upload_errors [bool]
+│       theme [string]
+│       magnification [float]
+└───phpmailer
+        event_log [string]
+        enable_two_factor [bool]
+        enable_notifications [bool]
+        skip_auth_process [bool]
+        host [string]
+        port [int]
+        smtp_secure [string]
+        smtp_auth [bool]
+        username [string]
+        password [string]
+        set_from_address [string]
+        set_from_name [string]
+        add_reply_to_address [string]
+        add_reply_to_name [string]
 ```
-
-#### "general" (카테고리)
-일반 설정.
-
-##### "cleanup"
-- 처음 업로드 후 변수 및 캐시 설정을 클리어 여부에 대한 스크립트입니다. `false` (가짜) = 아니오; `true` (진정한) = 예 (Default / 기본 설정). 업로드 스캔 이외의 용도로 스크립트를 사용하지 않는 경우 메모리 사용을 최소화하려면이 값을 `true`로 설정해야합니다. 그렇지 않으면, 필요에 따라 다시로드하지 않고 phpMussel을 실행하는 데 필요한 데이터를 메모리에 유지하려면 `false`로 설정해야합니다. CLI 모드에서 영향을주지 않습니다.
-- CLI 모드에서 영향을주지 않습니다.
-
-##### "scan_log"
-- 전체 스캔 결과를 기록하는 파일의 파일 이름. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
-
-##### "scan_log_serialized"
-- 전체 스캔 결과를 기록하는 파일의 파일 이름 (serialization 형식을 이용). 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
-
-##### "scan_kills"
-- 차단되거나 삭제 된 업로드의 모든 것을 기록하는 파일의 파일 이름. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
 *유용한 팁 : 당신이 원하는 경우 로그 파일 이름에 날짜/시간 정보를 부가 할 수 있습니다 이름 이들을 포함하여 : 전체 연도에 대한 `{yyyy}`생략 된 년간 `{yy}`달 `{mm}`일 `{dd}`시간 `{hh}`.*
 
 *예 :*
 - *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 - *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_kills='scan_kills.{yyyy}-{mm}-{dd}-{hh}.txt'`*
+- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
-##### "error_log"
+#### "core" (카테고리)
+일반 설정 (다른 카테고리에 속하지 않는 설정).
+
+##### "scan_log" `[string]`
+- 전체 스캔 결과를 기록하는 파일의 파일 이름. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+
+##### "scan_log_serialized" `[string]`
+- 전체 스캔 결과를 기록하는 파일의 파일 이름 (serialization 형식을 이용). 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+
+##### "error_log" `[string]`
 - 치명적이지 않은 오류를 탐지하기위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-##### "truncate"
-- 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
+##### "truncate" `[string]`
+- 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
 
-##### "log_rotation_limit"
+##### "log_rotation_limit" `[int]`
 - 로그 회전은 한 번에 존재해야하는 로그 파일 수를 제한합니다. 새 로그 파일을 만들 때 총 로그, 파일 수가 지정된 제한을 초과하면, 지정된 작업이 수행됩니다. 여기서 원하는 한계를 지정할 수 있습니다. 값 0은 로그 회전을 비활성화합니다.
 
-##### "log_rotation_action"
+##### "log_rotation_action" `[string]`
 - 로그 회전은 한 번에 존재해야하는 로그 파일 수를 제한합니다. 새 로그 파일을 만들 때 총 로그, 파일 수가 지정된 제한을 초과하면, 지정된 작업이 수행됩니다. 여기서 원하는 동작을 지정할 수 있습니다. Delete = 제한이 더 이상 초과되지 않을 때까지, 가장 오래된 로그 파일을 삭제하십시오. Archive = 제한이 더 이상 초과되지 않을 때까지, 가장 오래된 로그 파일을 보관 한 다음 삭제하십시오.
 
-*기술적 설명 : 이 문맥에서 "가장 오래된"은 "최근에 수정되지 않은"을 의미합니다.*
+```
+log_rotation_action
+├─Delete ("Delete")
+└─Archive ("Archive")
+```
 
-##### "timezone"
-- 이것은 phpMussel이 날짜/시간 작업에 사용해야하는 시간대를 지정하는 데 사용됩니다. 필요하지 않으면 무시하십시오. 가능한 값은 PHP에 의해 결정됩니다. 하지만 그 대신에 일반적으로 시간대 지시문 (당신의`php.ini` 파일)을 조정 る 것이 좋습니다,하지만 때때로 (같은 제한 공유 호스팅 제공 업체에서 작업 할 때) 이것은 무엇을하는 것이 항상 가능하지는 않습니다 따라서이 옵션은 여기에서 볼 수 있습니다.
+##### "timezone" `[string]`
+- 사용할 시간대를 지정합니다 (예 : Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, 등등). PHP가 자동으로 처리하도록하려면, "SYSTEM"을 지정하십시오.
 
-##### "time_offset"
-- *v1 : "timeOffset"*
-- 귀하의 서버 시간은 로컬 시간과 일치하지 않는 경우, 당신의 요구에 따라 시간을 조정하기 위해, 당신은 여기에 오프셋을 지정할 수 있습니다. 하지만 그 대신에 일반적으로 시간대 지시문 (당신의`php.ini` 파일)을 조정 る 것이 좋습니다,하지만 때때로 (같은 제한 공유 호스팅 제공 업체에서 작업 할 때) 이것은 무엇을하는 것이 항상 가능하지는 않습니다 따라서이 옵션은 여기에서 볼 수 있습니다. 오프셋 분이며 있습니다.
-- 예 (1 시간을 추가합니다) : `time_offset=60`
+```
+timezone
+├─SYSTEM ("시스템 기본 시간대를 사용하십시오.")
+├─UTC ("UTC")
+└─…다른
+```
 
-##### "time_format"
-- *v1 : "timeFormat"*
-- phpMussel에서 사용되는 날짜 형식. Default (기본 설정) = `{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}`.
+##### "time_offset" `[int]`
+- 시간대 오프셋 (분).
 
-##### "ipaddr"
-- 연결 요청의 IP 주소를 어디에서 찾을 것인가에 대해 (Cloudflare 같은 서비스에 대해 유효). Default (기본 설정) = REMOTE_ADDR. 주의 : 당신이 무엇을하고 있는지 모르는 한이를 변경하지 마십시오.
+##### "time_format" `[string]`
+- phpMussel에서 사용되는 날짜 형식. 추가 옵션이 요청에 따라 추가 될 수 있습니다.
 
-"ipaddr"의 권장 값입니다 :
+```
+time_format
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} {tz}")
+├─{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss} ("{Day}, {dd} {Mon} {yyyy} {hh}:{ii}:{ss}")
+├─{Day}, {dd} {Mon} {yyyy} ("{Day}, {dd} {Mon} {yyyy}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yyyy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yyyy}.{mm}.{dd} ("{yyyy}.{mm}.{dd}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yyyy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yyyy}-{mm}-{dd} ("{yyyy}-{mm}-{dd}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yyyy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yyyy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yyyy}/{mm}/{dd} ("{yyyy}/{mm}/{dd}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yyyy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yyyy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yyyy} ("{dd}.{mm}.{yyyy}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yyyy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yyyy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yyyy} ("{dd}-{mm}-{yyyy}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yyyy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yyyy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yyyy} ("{dd}/{mm}/{yyyy}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yyyy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yyyy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yyyy} ("{mm}.{dd}.{yyyy}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yyyy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yyyy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yyyy} ("{mm}-{dd}-{yyyy}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yyyy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yyyy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yyyy} ("{mm}/{dd}/{yyyy}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}.{mm}.{dd} {hh}:{ii}:{ss} ("{yy}.{mm}.{dd} {hh}:{ii}:{ss}")
+├─{yy}.{mm}.{dd} ("{yy}.{mm}.{dd}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}-{mm}-{dd} {hh}:{ii}:{ss} ("{yy}-{mm}-{dd} {hh}:{ii}:{ss}")
+├─{yy}-{mm}-{dd} ("{yy}-{mm}-{dd}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss} {tz}")
+├─{yy}/{mm}/{dd} {hh}:{ii}:{ss} ("{yy}/{mm}/{dd} {hh}:{ii}:{ss}")
+├─{yy}/{mm}/{dd} ("{yy}/{mm}/{dd}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}.{mm}.{yy} {hh}:{ii}:{ss} ("{dd}.{mm}.{yy} {hh}:{ii}:{ss}")
+├─{dd}.{mm}.{yy} ("{dd}.{mm}.{yy}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}-{mm}-{yy} {hh}:{ii}:{ss} ("{dd}-{mm}-{yy} {hh}:{ii}:{ss}")
+├─{dd}-{mm}-{yy} ("{dd}-{mm}-{yy}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{dd}/{mm}/{yy} {hh}:{ii}:{ss} ("{dd}/{mm}/{yy} {hh}:{ii}:{ss}")
+├─{dd}/{mm}/{yy} ("{dd}/{mm}/{yy}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}.{dd}.{yy} {hh}:{ii}:{ss} ("{mm}.{dd}.{yy} {hh}:{ii}:{ss}")
+├─{mm}.{dd}.{yy} ("{mm}.{dd}.{yy}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}-{dd}-{yy} {hh}:{ii}:{ss} ("{mm}-{dd}-{yy} {hh}:{ii}:{ss}")
+├─{mm}-{dd}-{yy} ("{mm}-{dd}-{yy}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss} {tz}")
+├─{mm}/{dd}/{yy} {hh}:{ii}:{ss} ("{mm}/{dd}/{yy} {hh}:{ii}:{ss}")
+├─{mm}/{dd}/{yy} ("{mm}/{dd}/{yy}")
+├─{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yyyy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yyyy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}年{m}月{d}日 ("{yyyy}年{m}月{d}日")
+├─{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒 ("{yy}年{m}月{d}日 {hh}時{ii}分{ss}秒")
+├─{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz} ("{yy}年{m}月{d}日 {hh}:{ii}:{ss} {tz}")
+├─{yy}年{m}月{d}日 ("{yy}年{m}月{d}日")
+├─{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yyyy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yyyy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yyyy}년 {m}월 {d}일 ("{yyyy}년 {m}월 {d}일")
+├─{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초 ("{yy}년 {m}월 {d}일 {hh}시 {ii}분 {ss}초")
+├─{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz} ("{yy}년 {m}월 {d}일 {hh}:{ii}:{ss} {tz}")
+├─{yy}년 {m}월 {d}일 ("{yy}년 {m}월 {d}일")
+├─{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z} ("{yyyy}-{mm}-{dd}T{hh}:{ii}:{ss}{t:z}")
+├─{d}. {m}. {yyyy} ("{d}. {m}. {yyyy}")
+└─…다른
+```
 
-값 | 사용
----|---
-`HTTP_INCAP_CLIENT_IP` | Incapsula 리버스 프록시.
-`HTTP_CF_CONNECTING_IP` | Cloudflare 리버스 프록시.
-`CF-Connecting-IP` | Cloudflare 리버스 프록시 (대체; 위가 잘되지 않는 경우).
-`HTTP_X_FORWARDED_FOR` | Cloudbric 리버스 프록시.
-`X-Forwarded-For` | [Squid 리버스 프록시](http://www.squid-cache.org/Doc/config/forwarded_for/).
-*서버 구성에 의해 정의됩니다.* | [Nginx 리버스 프록시](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
-`REMOTE_ADDR` | 리버스 프록시는 없습니다 (기본값).
+##### "ipaddr" `[string]`
+- 연결 요청의 IP 주소를 어디에서 찾을 것인가에 대해 (Cloudflare 같은 서비스에 대해 유효). Default (기본 설정) = REMOTE_ADDR. 주의 : 당신이 무엇을하고 있는지 모르는 한이를 변경하지 마십시오.
 
-##### "enable_plugins"
-- 플러그인 지원을 활성화 하시겠습니까? `false` = 아니오; `true` = 예 (Default / 기본 설정).
+```
+ipaddr
+├─HTTP_INCAP_CLIENT_IP ("HTTP_INCAP_CLIENT_IP (Incapsula)")
+├─HTTP_CF_CONNECTING_IP ("HTTP_CF_CONNECTING_IP (Cloudflare)")
+├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
+├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
+├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
+└─…다른
+```
 
-##### "forbid_on_block"
-- 업로드 파일이 차단 된 메시지와 함께 phpMussel에서 403 헤더를 보내야하거나 일반 200 좋은지에 대해. `false` = 아니오 (200) Default / 기본 설정; `true` = 예 (403).
+또한보십시오 :
+- [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
+- [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
 
-##### "delete_on_sight"
+##### "delete_on_sight" `[bool]`
 - 이 지시문을 사용하면 감지 기준 (서명이든 뭐든)에 있던 업로드 파일은 즉시 삭제됩니다. 클린 판단 된 파일은 그대로입니다. 아카이브의 경우, 문제의 파일이 일부라도 아카이브 모든이 삭제 대상이됩니다. 업로드 파일 검사에서는 본 지시어를 활성화 할 필요는 없습니다. 왜냐하면 PHP는 스크립트 실행 후 자동으로 캐시의 내용을 파기하기 때문입니다. 즉, 파일이 이동되거나 복사되거나 삭제되지 않는 한, PHP는 서버에 업로드 한 파일을 남겨 두는 것은 보통 없습니다. 이 지시어는 보안에 공을들이는 목적으로 설치되어 있습니다. PHP는 드물게 예상치 못한 행동을 할 수 있기 때문입니다. `false` = 스캔 후 파일은 그대로 (기본 설정). `true` = 스캔 후 깨끗해야 즉시 삭제합니다.
 
-##### "lang"
+##### "lang" `[string]`
 - phpMussel의 기본 언어를 설정합니다.
 
-##### "lang_override"
+```
+lang
+├─en ("English")
+├─ar ("العربية")
+├─bn ("বাংলা")
+├─de ("Deutsch")
+├─es ("Español")
+├─fr ("Français")
+├─hi ("हिंदी")
+├─id ("Bahasa Indonesia")
+├─it ("Italiano")
+├─ja ("日本語")
+├─ko ("한국어")
+├─lv ("Latviešu")
+├─nl ("Nederlandse")
+├─no ("Norsk")
+├─pl ("Polski")
+├─pt ("Português")
+├─ru ("Русский")
+├─sv ("Svenska")
+├─th ("ภาษาไทย")
+├─tr ("Türkçe")
+├─ur ("اردو")
+├─vi ("Tiếng Việt")
+├─zh ("中文（简体）")
+└─zh-TW ("中文（傳統）")
+```
+
+##### "lang_override" `[bool]`
 - 가능할 때마다 HTTP_ACCEPT_LANGUAGE에 따라 현지화 하시겠습니까? True = 예 (Default / 기본값); False = 아니오.
 
-##### "numbers"
-- 숫자를 표시하는 방법을 지정합니다.
-
-현재 지원되는 값 :
-
-값 | 생산하다 | 설명
----|---|---
-`NoSep-1` | `1234567.89`
-`NoSep-2` | `1234567,89`
-`Latin-1` | `1,234,567.89` | 기본값.
-`Latin-2` | `1 234 567.89`
-`Latin-3` | `1.234.567,89`
-`Latin-4` | `1 234 567,89`
-`Latin-5` | `1,234,567·89`
-`China-1` | `123,4567.89`
-`India-1` | `12,34,567.89`
-`India-2` | `१२,३४,५६७.८९`
-`India-3` | `૧૨,૩૪,૫૬૭.૮૯`
-`India-4` | `੧੨,੩੪,੫੬੭.੮੯`
-`India-5` | `೧೨,೩೪,೫೬೭.೮೯`
-`India-6` | `౧౨,౩౪,౫౬౭.౮౯`
-`Arabic-1` | `١٢٣٤٥٦٧٫٨٩`
-`Arabic-2` | `١٬٢٣٤٬٥٦٧٫٨٩`
-`Arabic-3` | `۱٬۲۳۴٬۵۶۷٫۸۹`
-`Arabic-4` | `۱۲٬۳۴٬۵۶۷٫۸۹`
-`Bengali-1` | `১২,৩৪,৫৬৭.৮৯`
-`Burmese-1` | `၁၂၃၄၅၆၇.၈၉`
-`Khmer-1` | `១.២៣៤.៥៦៧,៨៩`
-`Lao-1` | `໑໒໓໔໕໖໗.໘໙`
-`Thai-1` | `๑,๒๓๔,๕๖๗.๘๙`
-`Thai-2` | `๑๒๓๔๕๖๗.๘๙`
-
-*노트 : 이 값은 패키지 외에도 관련이 없습니다. 또한, 지원되는 값은 앞으로 변경 될 수 있습니다.*
-
-##### "quarantine_key"
-- phpMussel은 필요하다면, phpMussel의 보루 토에서 독립적으로 플래그 첨부 파일의 업로드를 검역 할 수 있습니다. 일반적인 phpMussel 사용자는 웹 사이트 및 호스팅 환경 보호가 있으면 충분하다고 생각하고 플래그가있는 같은 것이 추가 분석을 가하려까지 요청이없는 것이므로 무효로 될 수 있습니다. 그렇지만 상세하게 분석하여 악성 코드에 대비하려는 사용자는 사용하면 좋습니다. 플래그 첨부 파일 업로드 격리 가양 디버깅에 도움이 될 수 있습니다. 격리 기능을 해제하려면`quarantine_key` 지시문을 비워 두거나 비어 있지 않은 경우 지시문의 내용을 삭제하십시오. 활성화하려면 데이레쿠티부에 어떤 값을 넣어주세요. `quarantine_key` 격리 기능의 중요한 보안 요소이며, 검역 기능에 저장된 데이터의 집행을 각종 공격으로부터 지키고 있습니다. `quarantine_key`는 암호처럼 생각하세요. 긴 것이 더 안전 할 수 있습니다. 가장 효과적인 사용법은`delete_on_sight`과 함께합니다.
-
-##### "quarantine_max_filesize"
-- 격리 된 파일 크기 제한. 이 값보다 큰 파일은 격리되지 않습니다. 쿠오란팅의 용량을 초과 비정상적으로 큰 파일 크기 공격에서 메모리가 낭비되는 것을 방지하는 의미에서 중요합니다. 기본값은 2MB입니다.
-
-##### "quarantine_max_usage"
-- 검역을 위해 사용할 최대 메모리 량. 전체 메모리 양이 사용되면이 범위에 맞게 오래된 파일이 삭제 대상이됩니다. 쿠오란팅의 용량을 초과 비정상적으로 큰 파일 크기 공격에서 메모리가 낭비되는 것을 방지하는 의미에서 중요합니다. 기본 설정은 64MB입니다.
-
-##### "quarantine_max_files"
-- 격리에 존재할 수있는 최대 파일 수입니다. 격리 저장소에 새 파일이 추가되면이 수가 초과되면 나머지 파일이 더 이상이 수를 초과하지 않을 때까지 오래된 파일이 삭제됩니다. 기본 설정은 100입니다.
-
-##### "honeypot_mode"
-- 허니팟 모드가 활성화되어 있으면 phpMussel 업로드되어 온 모든 파일을 예외없이 검역합니다. 서명에 부합하는지 여부는 문제가되지 않습니다. 스캐닝 및 분석도 이루어지지 않습니다. phpMussel를 바이러스/악성 코드 리서치에 사용할 생각하는 사용자에게 유익 할 것입니다. 그러나 업로드 파일 스캐닝이라는 점에서는 그다지 권장되지 않으며, 허니 모드를 본래의 목적 이외에 사용하는 것이 좋습니다 수 없습니다. 그러나 업로드 파일 스캐닝이라는 점에서는 그다지 권장되지 않으며, 허니 모드를 본래의 목적 이외에 사용하는 것이 좋습니다 수 없습니다. 기본 설정은 무효입니다. `false` = Disabled/장애인 (Default / 기본 설정); `true` = Enabled/유효.
-
-##### "scan_cache_expiry"
+##### "scan_cache_expiry" `[int]`
 - phpMussel는 스캐닝 결과를 얼마 동안 캐시해야합니까? 초이며, 기본값은 21,600 초 (6 시간)로되어 있습니다. 0으로 설정하면 캐시 비활성화됩니다.
 
-##### "disable_cli"
-- CLI 모드를 해제 하는가? CLI 모드 (시에루아이 모드)는 기본적으로 활성화되어 있지만, 테스트 도구 (PHPUnit 등) 및 CLI 기반의 응용 프로그램과 간섭하는 가능성이 없다고는 단언 할 수 없습니다. CLI 모드를 해제 할 필요가 없으면이 데레쿠티부 무시 받고 괜찮습니다. `false` = CLI 모드를 활성화합니다 (Default / 기본 설정); `true` = CLI 모드를 해제합니다.
-
-##### "disable_frontend"
-- 프론트 엔드에 대한 액세스를 비활성화하거나? 프론트 엔드에 대한 액세스는 phpMussel을 더 쉽게 관리 할 수 있습니다. 상기 그것은 또한 잠재적 인 보안 위험이 될 수 있습니다. 백엔드를 통해 관리하는 것이 좋습니다,하지만 이것이 불가능한 경우 프론트 엔드에 대한 액세스를 제공. 당신이 그것을 필요로하지 않는 한 그것을 해제합니다. `false` = 프론트 엔드에 대한 액세스를 활성화합니다; `true` = 프론트 엔드에 대한 액세스를 비활성화합니다 (Default / 기본 설정).
-
-##### "max_login_attempts"
-- 로그인 시도 횟수 (프론트 엔드). Default / 기본 설정 = 5.
-
-##### "frontend_log"
-- *v1 : "FrontEndLog"*
-- 프론트 엔드 로그인 시도를 기록하는 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
-
-##### "disable_webfonts"
-- 웹 글꼴을 사용하지 않도록 설정 하시겠습니까? True = 예 (Default / 기본 설정); False = 아니오.
-
-##### "maintenance_mode"
+##### "maintenance_mode" `[bool]`
 - 유지 관리 모드를 사용 하시겠습니까? True = 예; False = 아니오 (Default / 기본 설정). 프런트 엔드 이외의 모든 것을 비활성화합니다. CMS, 프레임 워크 등을 업데이트 할 때 유용합니다.
 
-##### "default_algo"
-- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다. 옵션 : PASSWORD_DEFAULT (default / 기본 설정), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 가 필요합니다), PASSWORD_ARGON2ID (PHP >= 7.3.0 가 필요합니다).
-
-##### "statistics"
+##### "statistics" `[bool]`
 - phpMussel 사용 통계를 추적합니까? True = 예; False = 아니오 (Default / 기본 설정).
 
-##### "disabled_channels"
+##### "disabled_channels" `[string]`
 - 이것은 phpMussel이 요청을 보낼 때 특정 채널을 사용하지 못하게하는 데 사용할 수 있습니다 (예를 들어, 업데이트 할 때, 구성 요소 메타 데이터를 가져올 때, 등등).
 
+```
+disabled_channels
+├─GitHub ("GitHub")
+├─BitBucket ("BitBucket")
+├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
+├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+├─hpHosts_HTTPS ("hpHosts (HTTPS)")
+└─hpHosts_HTTP ("hpHosts (HTTP)")
+```
+
 #### "signatures" (카테고리)
-시그니처.
+서명, 서명 파일, 등의 설정.
 
-##### "active"
-- *v1 : "Active"*
-- 쉼표로 구분 된 활성 시그니처 파일의 목록입니다.
+##### "active" `[string]`
+- 쉼표로 구분 된 활성 시그니처 파일의 목록입니다. 노트 : 활성화하기 전에, 첫째로, 서명 파일을 설치해야 합니다. 테스트 파일이 올바르게 작동하려면, 서명 파일을 설치하고 활성화해야 합니다.
 
-*노트 :*
-- *활성화하기 전에, 첫째로, 서명 파일을 설치해야 합니다.*
-- *테스트 파일이 올바르게 작동하려면, 서명 파일을 설치하고 활성화해야 합니다.*
-- *이 지시문의 값은 캐시 됩니다. 변경 후, 변경 사항을 적용하려면 캐시를 삭제해야 할 수 있습니다.*
-
-##### "fail_silently"
+##### "fail_silently" `[bool]`
 - 서명 파일이 없거나 손상된 경우 phpMussel 그것을 리포트 해야하는지 여부? `fail_silently`이 유효하지 않으면 문제가 리포트되어 유효하면 문제는 무시 된 스캔 보고서가 작성됩니다. 충돌하는 같은 피해가 없으면 기본 설정을 그대로 유지한다. `false` = Disabled/장애인; `true` = Enabled/유효 (Default / 기본 설정).
 
-##### "fail_extensions_silently"
+##### "fail_extensions_silently" `[bool]`
 - 확장자가없는 경우 phpMussel이 그것을보고해야하는지 여부? `fail_extensions_silently`이 잘못된 경우 확장자없이는 스캐닝시에보고되고 활성화되면 무시됩니다 문제는보고되지 않습니다. 이 지시어를 무효로하는 것은 보안을 향상시킬 수 있지만, 오진도 증가 할 수 있습니다. `false` = Disabled/장애인; `true` = Enabled/유효 (Default / 기본 설정).
 
-##### "detect_adware"
+##### "detect_adware" `[bool]`
 - phpMussel 애드웨어 탐지를 위해 서명을 분석해야하는지 여부? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
-##### "detect_joke_hoax"
+##### "detect_joke_hoax" `[bool]`
 - phpMussel 장난 / 위조 및 악성 코드 / 바이러스 탐지를 위해 서명을 분석해야하는지 여부? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
-##### "detect_pua_pup"
+##### "detect_pua_pup" `[bool]`
 - phpMussel는 PUAs/PUPs 탐지를 위해 서명을 분석해야하는지 여부? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
-##### "detect_packer_packed"
+##### "detect_packer_packed" `[bool]`
 - phpMussel는 패커와 팩 데이터 검출을 위해 서명을 분석해야하는지 여부? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
-##### "detect_shell"
+##### "detect_shell" `[bool]`
 - phpMussel는 shell 스크립트 탐지를 위해 서명을 분석해야하는지 여부? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
-##### "detect_deface"
+##### "detect_deface" `[bool]`
 - phpMussel를 위조 및 디훼사 탐지를 위해 서명을 분석해야하는지 여부? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
-##### "detect_encryption"
+##### "detect_encryption" `[bool]`
 - phpMussel이 암호화 된 파일을 탐지하고 차단해야합니까? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
-#### "files" (카테고리)
-파일 취급 설정.
-
-##### "max_uploads"
-- 한 번에 스캔 할 수있는 업로드 파일 수 제한으로이를 초과하면 스캔을 중단하고 사용자에게 그 사실을 알리고 논리적 공격으로부터 보호 역할을합니다. 시스템과 CMS가 DDoS 공격을 만나 phpMussel가 오버로드하여 PHP 프로세스에 지장을 초래하는 일이 없도록하기 위해서입니다. 권장 수는 10이지만, 하드웨어의 속도에 따라 더 이상 / 이하이 좋은 것도있을 것입니다. 이 숫자는 아카이브의 내용을 포함하지 않는 것을 기억하십시오.
-
-##### "filesize_limit"
-- 파일 크기 제한의 단위는 KB입니다. 65536 = 64MB (Default / 기본 설정); 0 = 제한하지 않습니다 (제한없이 항상 그레이리스트 화) 양수이면 무엇이든 상관 없습니다. PHP 설정에서 메모리에 제한이 있고, 업로드 파일 크기 제한이 설정되어있는 경우에 효과적입니다.
-
-##### "filesize_response"
-- 최대 크기보다 큰 파일을 처리하는 방법에 관한 것입니다. `false` = Whitelist/화이트리스트; `true` = Blacklist/블랙리스트 (Default / 기본 설정).
-
-##### "filetype_whitelist", "filetype_blacklist", "filetype_greylist"
-- 시스템이 특정 유형의 파일 만 업로드를 허용하거나 거절하는 경우 파일 유형을 적절히 화이트리스트, 블랙리스트, 그레이리스트로 분류 해두면 파일 유형에 튀겨 진 파일은 스캔을 건너 뛸 수 때문에 속도로 연결됩니다. 형식은 CSV (쉼표로 구분)입니다. 목록에 의하지 않고 모두를 검사 할 경우 변수는 빈 상태로 유지하고 화이트리스트 / 블랙리스트 / 그레이리스트를 해제합니다.
-- 프로세스의 논리적 순서:
- - 파일 형식이 화이트리스트에 포함되어 있으면, 스캔하지 않고 블록하지 않고 블랙리스트 및 그레이리스트에 체크를하지 않습니다.
- - 파일 형식이 블랙리스트에 있으면 스캔하지 않고 즉시 차단하고 그레이리스트에 체크를하지 않습니다.
- - 회색 목록이 비어 또는 그레이리스트가 하늘이 아닌 한편 그 파일 타입이 있으면 정상적으로 스캔 차단 여부를 판단합니다. 그레이리스트가 하늘이 아닌 한편 그 파일 유형이 포함되어 있지 않으면 블랙리스트와 같은 취급을 할 수 있고 스캔없이 차단합니다.
-
-##### "check_archives"
-- 아카이브의 컨텐츠에 대해 체크를 시도 여부에 대해서입니다. `false` = 체크하지 않는다; `true` = 확인 (Default / 기본 설정).
-
-체재 | 읽을 수 있음 | 재귀 적으로 읽을 수 있음 | 암호화를 탐지 할 수 있습니다 | 노트
----|---|---|---|---
-Zip | ✔️ | ✔️ | ✔️ | [libzip](https://secure.php.net/manual/en/zip.requirements.php)가 필요합니다 (이것은 보통 PHP에 포함되어 있습니다). 추가 지원 (zip 형식 사용) : ✔️ OLE 개체 감지. ✔️ Office 매크로 감지.
-Tar | ✔️ | ✔️ | ➖ | 특별한 요구 사항이 없습니다. 형식은 암호화를 지원하지 않습니다.
-Rar | ✔️ | ✔️ | ✔️ | [rar](https://pecl.php.net/package/rar) 확장자가 필요합니다 (이 확장 기능이 설치되어 있지 않으면, phpMussel은 rar 파일을 읽을 수 없습니다).
-Phar | ❌ | ❌ | ❌ | phar 파일 읽기 지원이 v1.6.0에서 제거되었습니다. 보안 문제로 인해 다시 추가되지 않습니다.
-
-*다른 보관 형식을 읽는 지원을 구현하는 데 도움을 줄 수 있다면, 당신의 도움을 주시면 감사하겠습니다.*
-
-##### "filesize_archives"
-- 파일 크기 블랙리스트/화이트리스트 화를 아카이브의 컨텐츠에 반입 여부? `false` = 아니오 (단지 그레이리스트 모두); `true` = 예 (Default / 기본 설정).
-
-##### "filetype_archives"
-- 파일 타입 블랙리스트/화이트리스트 화를 아카이브의 컨텐츠에 반입 여부? `false` = 아니오 (단지 그레이리스트 모두) (Default / 기본 설정); `true` = 예.
-
-##### "max_recursion"
-- 아카이브에 대한 최대 재귀 깊이입니다. 기본 설정 = 3.
-
-##### "block_encrypted_archives"
-- 암호화 된 아카이브를 감지하고 차단 여부? phpMussel은 암호화 된 아카이브를 검색 할 수 없기 때문에 아카이브의 암호화를 통해 phpMussel 안티 바이러스 스캐너 등을 かいくぐろ하려는 공격자가 있을지도 모릅니다. 암호화 된 아카이브를 차단함으로써 이러한 위험을 방지 할 수 있습니다. `false` = 아니오; `true` = 예 (Default / 기본 설정).
-
-##### "max_files_in_archives"
-- 검사를 중단하기 전에 보관소에서 검사 할 최대 파일 수입니다. 기본 설정 = 0 (최대 값 없음).
-
-#### "attack_specific" (카테고리)
-어택 자 스페시 픽 지시어.
-
-카멜레온 공격 감지. `false` = 해제. `true` = 온.
-
-##### "chameleon_from_php"
-- 파일도 아니고 PHP 아카이브도 인식 할 수없는 파일에서 PHP 헤더를 찾습니다.
-
-##### "can_contain_php_file_extensions"
-- 쉼표로 구분 된 PHP 코드를 포함 할 수있는 파일 확장명 목록. PHP 카멜레온 공격 탐지가 활성화 된 경우이 목록에없는 확장자를 가진 PHP 코드가 포함 된 파일은 PHP 카멜레온 공격으로 탐지됩니다.
-
-##### "chameleon_from_exe"
-- 실행 파일없이 실행 파일의 아카이브도 인식 할 수없는 파일의 실행 헤더 및 악성 헤더의 실행 파일을 찾습니다.
-
-##### "chameleon_to_archive"
-- 아카이브 및 압축 파일에서 잘못된 헤더를 탐지합니다 (BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP 지원).
-
-##### "chameleon_to_doc"
-- 헤더가 잘못 오피스 문서를 찾습니다 (DOC, DOT, PPS, PPT, XLA XLS, WIZ 지원).
-
-##### "chameleon_to_img"
-- 헤더가 잘못된 이미지 파일을 찾습니다 (BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP 지원).
-
-##### "chameleon_to_pdf"
-- 헤더가 잘못 PDF 파일을 찾습니다.
-
-##### "archive_file_extensions"
-- 인식 가능한 아카이브 파일 확장입니다 (CSV 형식; 문제가있을 경우에만 추가 또는 제거해야합니다. 실수로 제거하면 오진의 원인이 될 수 있습니다. 반대로 실수로 추가하면 어택 자 스페시 픽 검출에서 추가 된 화이트리스트 화되어 버립니다. 충분히주의 위 변경하십시오. 또한 컨텐트 수준에서 아카이브를 분석 할 수 있는지 여부에는 영향을주지 않습니다). 기본적으로 가장 일반적 형식을 나열하고 있지만 의도적으로 포괄적으로하지 않습니다.
-
-##### "block_control_characters"
-- 제어 문자를 포함한 파일을 차단 여부 (줄 바꿈을 제외한)? 에 관한 것입니다 ([\x00-\x08\x0b\x0c\x0e\x1f\x7f]). 만약 텍스트를 업로드하는 경우,이 옵션을 사용하여 추가 보호를 강화할 수 있습니다. 텍스트 이외도 업로드 할 경우, 사용하면 오진의 원인이 될 수 있습니다. `false` = 차단하지 (Default / 기본 설정); `true` = 차단합니다.
-
-##### "corrupted_exe"
-- 손상된 파일과 오류 분석. `false` = 무시; `true` = 차단 (Default / 기본 설정). 손상의 가능성이있는 PE 파일을 차단 검출 여부? 관한 것입니다. PE 파일의 일부가 손상되어 제대로 분석 할 수없는 것은 드물지 않고, 바이러스 감염을 보는 바로미터가됩니다. PE 파일의 바이러스를 감지하는 안티 바이러스 프로그램은 PE 파일 분석을 실시 합니다만, 바이러스를 만드는 사람이 바이러스가 검출되지 않도록 그것을 피하려고 할 것이기 때문입니다.
-
-##### "decode_threshold"
-- 디코드 명령이 감지 될 원시 데이터의 길이 제한 (스캐닝 중에 눈에 띄는 문제가있는 경우에는 필요에 따라 설정). 기본값 = 512KB. 제로 또는 값 없음 (null)은 임계 값을 비활성화합니다 (파일 크기의 제한을 제거합니다).
-
-##### "scannable_threshold"
-- phpMussel이 읽고 스캔 할 수있는 원시 데이터의 길이에 대한 임계 값 (스캐닝 중에 눈에 띄는 문제가있는 경우에는 필요에 따라 설정). 기본값 = 32MB. 제로 또는 값 없음 (null)은 임계 값을 비활성화합니다. 값은 서버 나 웹 사이트에 업로드되는 파일의 평균 파일 크기보다 크고 filesize_limit 지시어보다 작게 설정해야합니다. 또한 `php.ini` 설정에 따라 PHP에 할당 된 메모리의 대략 5 분의 1을 초과해서는 없습니다. 이 지시문은 phpMussel가 메모리를 너무 많이 사용하지 않도록하기위한 것입니다. (일정 크기 이상의 파일은 스캔하지 못할 수도 있습니다).
-
-##### "allow_leading_trailing_dots"
-- 파일 이름에 선행 및 후행 점을 허용 하시겠습니까? 이것은 때때로 파일을 숨기거나 디렉토리 트래버 설을 허용하도록 일부 시스템을 속이는 데 사용될 수 있습니다. `false` = 허용되지 않습니다 (Default / 기본 설정). `true` = 허용된다.
-
-##### "block_macros"
-- 매크로가 포함 된 파일을 차단하려고합니까? 일부 유형의 문서 및 스프레드 시트에는 실행 매크로가 포함될 수 있으므로 위험 할 수있는 맬웨어 벡터를 제공합니다. `false` = 차단하지 (Default / 기본 설정); `true` = 차단합니다.
-
-#### "compatibility" (카테고리)
-phpMussel 호환성 지시문.
-
-##### "ignore_upload_errors"
-- 시스템에서 phpMussel의 기능에 수정이 필요한 경우가 아니면이 지시문은 일반적으로 사용할 수 없습니다. 비활성화하면 `$_FILES` array()요소를 감지했을 때, 그 요소가 나타내는 파일의 스캔이 시작됩니다, 요소가 비어 있거나없는 경우 phpMussel는 오류 메시지를 반환합니다. 이것은 본래 phpMussel가 있어야 할 모습입니다. 그러나 CMS에서는 $_FILES 하늘 요소는 일반적으로 발생하는 것이며, 정상적인 phpMussel의 행동이 정상적인 CMS의 거동을 저해 할 우려가 있습니다. 이러한 경우에는 본 옵션을 사용하여 phpMussel 빈 요소를 검사하고 오류 메시지를 반환을 피하고 요청한 페이지로 원활하게 진행할 수 있도록합니다. `false` = OFF (해제입니다); `true` = ON (온입니다).
-
-##### "only_allow_images"
-- true로 설정하면, 스캐너가 발견한 이미지가 아닌 파일은 스캔하지 않고 즉시 신고됩니다. 이는 때에 따라 스캔을 완료하는 데 필요한 시간을 줄이는 데 도움이 될 수 있습니다. 기본 설정에 따라 false로 설정되어 있습니다.
-
-#### "heuristic"
-경험적 지시문 그림.
-
-##### "threshold"
+##### "heuristic_threshold" `[int]`
 - phpMussel이 파일은 의심 위험성이 높다고 판단하는 서명이 있습니다. 임계 값은 업로드 된 파일의 위험의 최대 값이며이를 초과하면 악성 코드로 판단됩니다. 여기에서 위험의 정의는 의심과 특정되었지만 수입니다. 기본적으로 3으로 설정되어 있습니다. 이보다 낮은 오진의 가능성이 증가하고, 너무 크면 오류 검출은 감소하지만 위험성이있는 파일이 검색되지 않을 수 증가하게됩니다. 특히 문제가 없으면 기본 설정을 유지하는 것이 좋습니다.
 
+#### "files" (카테고리)
+스캔 시 파일을 처리하는 방법에 대한 세부 사항.
+
+##### "filesize_limit" `[string]`
+- 파일 크기 제한의 단위는 KB입니다. 65536 = 64MB (Default / 기본 설정); 0 = 제한하지 않습니다 (제한없이 항상 그레이리스트 화) 양수이면 무엇이든 상관 없습니다. PHP 설정에서 메모리에 제한이 있고, 업로드 파일 크기 제한이 설정되어있는 경우에 효과적입니다.
+
+##### "filesize_response" `[bool]`
+- 최대 크기보다 큰 파일을 처리하는 방법에 관한 것입니다. `false` = Whitelist/화이트리스트; `true` = Blacklist/블랙리스트 (Default / 기본 설정).
+
+##### "filetype_whitelist" `[string]`
+- 시스템이 특정 유형의 파일 만 업로드를 허용하거나 거절하는 경우 파일 유형을 적절히 화이트리스트, 블랙리스트, 그레이리스트로 분류 해두면 파일 유형에 튀겨 진 파일은 스캔을 건너 뛸 수 때문에 속도로 연결됩니다. 형식은 CSV (쉼표로 구분)입니다. 목록에 의하지 않고 모두를 검사 할 경우 변수는 빈 상태로 유지하고 화이트리스트 / 블랙리스트 / 그레이리스트를 해제합니다. 프로세스의 논리적 순서 : 파일 형식이 화이트리스트에 포함되어 있으면, 스캔하지 않고 블록하지 않고 블랙리스트 및 그레이리스트에 체크를하지 않습니다. 파일 형식이 블랙리스트에 있으면 스캔하지 않고 즉시 차단하고 그레이리스트에 체크를하지 않습니다. 회색 목록이 비어 또는 그레이리스트가 하늘이 아닌 한편 그 파일 타입이 있으면 정상적으로 스캔 차단 여부를 판단합니다. 그레이리스트가 하늘이 아닌 한편 그 파일 유형이 포함되어 있지 않으면 블랙리스트와 같은 취급을 할 수 있고 스캔없이 차단합니다. 파일 유형 화이트리스트 :
+
+##### "filetype_blacklist" `[string]`
+- 파일 유형 블랙리스트 :
+
+##### "filetype_greylist" `[string]`
+- 파일 유형 그레이리스트 :
+
+##### "check_archives" `[bool]`
+- 아카이브의 컨텐츠에 대해 체크를 시도 여부에 대해서입니다. `false` = 체크하지 않는다; `true` = 확인 (Default / 기본 설정). Zip (libzip이 필요합니다), Tar, Rar (rar 확장이 필요합니다)이 지원됩니다.
+
+##### "filesize_archives" `[bool]`
+- 파일 크기 블랙리스트/화이트리스트 화를 아카이브의 컨텐츠에 반입 여부? `false` = 아니오 (단지 그레이리스트 모두); `true` = 예 (Default / 기본 설정).
+
+##### "filetype_archives" `[bool]`
+- 파일 타입 블랙리스트/화이트리스트 화를 아카이브의 컨텐츠에 반입 여부? `false` = 아니오 (단지 그레이리스트 모두) (Default / 기본 설정); `true` = 예.
+
+##### "max_recursion" `[int]`
+- 아카이브에 대한 최대 재귀 깊이입니다. 기본 설정 = 3.
+
+##### "block_encrypted_archives" `[bool]`
+- 암호화 된 아카이브를 감지하고 차단 여부? phpMussel은 암호화 된 아카이브를 검색 할 수 없기 때문에 아카이브의 암호화를 통해 phpMussel 안티 바이러스 스캐너 등을 かいくぐろ하려는 공격자가 있을지도 모릅니다. 암호화 된 아카이브를 차단함으로써 이러한 위험을 방지 할 수 있습니다. `false` = 아니오; `true` = 예 (Default / 기본 설정).
+
+##### "max_files_in_archives" `[int]`
+- 검사를 중단하기 전에 보관소에서 검사 할 최대 파일 수입니다. 기본 설정 = 0 (최대 값 없음).
+
+##### "chameleon_from_php" `[bool]`
+- 파일도 아니고 PHP 아카이브도 인식 할 수없는 파일에서 PHP 헤더를 찾습니다. `false` = 해제; `true` = 온.
+
+##### "can_contain_php_file_extensions" `[string]`
+- 쉼표로 구분 된 PHP 코드를 포함 할 수있는 파일 확장명 목록. PHP 카멜레온 공격 탐지가 활성화 된 경우이 목록에없는 확장자를 가진 PHP 코드가 포함 된 파일은 PHP 카멜레온 공격으로 탐지됩니다.
+
+##### "chameleon_from_exe" `[bool]`
+- 실행 파일없이 실행 파일의 아카이브도 인식 할 수없는 파일의 실행 헤더 및 악성 헤더의 실행 파일을 찾습니다. `false` = 해제; `true` = 온.
+
+##### "chameleon_to_archive" `[bool]`
+- 아카이브 및 압축 파일에서 잘못된 헤더를 탐지합니다 (BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP이 지원됩니다). `false` = 해제; `true` = 온.
+
+##### "chameleon_to_doc" `[bool]`
+- 헤더가 잘못 오피스 문서를 찾습니다 (DOC, DOT, PPS, PPT, XLA XLS, WIZ이 지원됩니다). `false` = 해제; `true` = 온.
+
+##### "chameleon_to_img" `[bool]`
+- 헤더가 잘못된 이미지 파일을 찾습니다 (BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP이 지원됩니다). `false` = 해제; `true` = 온.
+
+##### "chameleon_to_pdf" `[bool]`
+- 헤더가 잘못 PDF 파일을 찾습니다. `false` = 해제; `true` = 온.
+
+##### "archive_file_extensions" `[string]`
+- 인식 가능한 아카이브 파일 확장입니다 (CSV 형식; 문제가있을 경우에만 추가 또는 제거해야합니다. 실수로 제거하면 오진의 원인이 될 수 있습니다. 반대로 실수로 추가하면 어택 자 스페시 픽 검출에서 추가 된 화이트리스트 화되어 버립니다. 충분히주의 위 변경하십시오. 또한 컨텐트 수준에서 아카이브를 분석 할 수 있는지 여부에는 영향을주지 않습니다). 기본적으로 가장 일반적 형식을 나열하고 있지만 의도적으로 포괄적으로하지 않습니다.
+
+##### "block_control_characters" `[bool]`
+- 제어 문자를 포함한 파일을 차단 여부 (줄 바꿈을 제외한)? 에 관한 것입니다 (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`). 만약 텍스트를 업로드하는 경우,이 옵션을 사용하여 추가 보호를 강화할 수 있습니다. 텍스트 이외도 업로드 할 경우, 사용하면 오진의 원인이 될 수 있습니다. `false` = 차단하지 (Default / 기본 설정); `true` = 차단합니다.
+
+##### "corrupted_exe" `[bool]`
+- 손상된 파일과 오류 분석. `false` = 무시; `true` = 차단 (Default / 기본 설정). 손상의 가능성이있는 PE 파일을 차단 검출 여부? 관한 것입니다. PE 파일의 일부가 손상되어 제대로 분석 할 수없는 것은 드물지 않고, 바이러스 감염을 보는 바로미터가됩니다. PE 파일의 바이러스를 감지하는 안티 바이러스 프로그램은 PE 파일 분석을 실시 합니다만, 바이러스를 만드는 사람이 바이러스가 검출되지 않도록 그것을 피하려고 할 것이기 때문입니다.
+
+##### "decode_threshold" `[string]`
+- 디코드 명령이 감지 될 원시 데이터의 길이 제한 (스캐닝 중에 눈에 띄는 문제가있는 경우에는 필요에 따라 설정). 기본값 = 512KB. 제로 또는 값 없음 (null)은 임계 값을 비활성화합니다 (파일 크기의 제한을 제거합니다).
+
+##### "scannable_threshold" `[string]`
+- phpMussel이 읽고 스캔 할 수있는 원시 데이터의 길이에 대한 임계 값 (스캐닝 중에 눈에 띄는 문제가있는 경우에는 필요에 따라 설정). 기본값 = 32MB. 제로 또는 값 없음 (null)은 임계 값을 비활성화합니다. 값은 서버 나 웹 사이트에 업로드되는 파일의 평균 파일 크기보다 크고 filesize_limit 지시어보다 작게 설정해야합니다. 또한 "php.ini" 설정에 따라 PHP에 할당 된 메모리의 대략 5 분의 1을 초과해서는 없습니다. 이 지시문은 phpMussel가 메모리를 너무 많이 사용하지 않도록하기위한 것입니다. (일정 크기 이상의 파일은 스캔하지 못할 수도 있습니다).
+
+##### "allow_leading_trailing_dots" `[bool]`
+- 파일 이름에 선행 및 후행 점을 허용 하시겠습니까? 이것은 때때로 파일을 숨기거나 디렉토리 트래버 설을 허용하도록 일부 시스템을 속이는 데 사용될 수 있습니다. `false` = 허용되지 않습니다 (Default / 기본 설정). `true` = 허용된다.
+
+##### "block_macros" `[bool]`
+- 매크로가 포함 된 파일을 차단하려고합니까? 일부 유형의 문서 및 스프레드 시트에는 실행 매크로가 포함될 수 있으므로 위험 할 수있는 맬웨어 벡터를 제공합니다. `false` = 차단하지 (Default / 기본 설정); `true` = 차단합니다.
+
+##### "only_allow_images" `[bool]`
+- True로 설정하면, 스캐너가 발견한 이미지가 아닌 파일은 스캔하지 않고 즉시 신고됩니다. 이는 때에 따라 스캔을 완료하는 데 필요한 시간을 줄이는 데 도움이 될 수 있습니다. 기본 설정에 따라 false로 설정되어 있습니다.
+
+#### "quarantine" (카테고리)
+검역 설정.
+
+##### "quarantine_key" `[string]`
+- phpMussel은, 필요하다면, 차단된 파일 업로드를 격리 할 수 ​​있습니다. 일반적인 phpMussel 사용자는 웹 사이트 및 호스팅 환경 보호가 있으면 충분하다고 생각하고 플래그가있는 같은 것이 추가 분석을 가하려까지 요청이없는 것이므로 무효로 될 수 있습니다. 그렇지만 상세하게 분석하여 악성 코드에 대비하려는 사용자는 사용하면 좋습니다. 플래그 첨부 파일 업로드 격리 가양 디버깅에 도움이 될 수 있습니다. 격리 기능을 해제하려면`quarantine_key` 지시문을 비워 두거나 비어 있지 않은 경우 지시문의 내용을 삭제하십시오. 활성화하려면 데이레쿠티부에 어떤 값을 넣어주세요. `quarantine_key` 격리 기능의 중요한 보안 요소이며, 검역 기능에 저장된 데이터의 집행을 각종 공격으로부터 지키고 있습니다. `quarantine_key`는 암호처럼 생각하세요. 긴 것이 더 안전 할 수 있습니다. 가장 효과적인 사용법은`delete_on_sight`과 함께합니다.
+
+##### "quarantine_max_filesize" `[string]`
+- 격리 된 파일 크기 제한. 이 값보다 큰 파일은 격리되지 않습니다. 쿠오란팅의 용량을 초과 비정상적으로 큰 파일 크기 공격에서 메모리가 낭비되는 것을 방지하는 의미에서 중요합니다. 기본값은 2MB입니다.
+
+##### "quarantine_max_usage" `[string]`
+- 검역을 위해 사용할 최대 메모리 량. 전체 메모리 양이 사용되면이 범위에 맞게 오래된 파일이 삭제 대상이됩니다. 쿠오란팅의 용량을 초과 비정상적으로 큰 파일 크기 공격에서 메모리가 낭비되는 것을 방지하는 의미에서 중요합니다. 기본 설정은 64MB입니다.
+
+##### "quarantine_max_files" `[int]`
+- 격리에 존재할 수있는 최대 파일 수입니다. 격리 저장소에 새 파일이 추가되면이 수가 초과되면 나머지 파일이 더 이상이 수를 초과하지 않을 때까지 오래된 파일이 삭제됩니다. 기본 설정은 100입니다.
+
 #### "virustotal" (카테고리)
-VirusTotal.com 지시문 그림.
+Virus Total 통합 설정.
 
-##### "vt_public_api_key"
-- 옵션이지만, phpMussel은 Virus Total API를 사용하여 파일을 검색 할 수 있습니다. 바이러스, 트로이 목마, 악성 코드 및 기타 공격에 매우 효과적으로 작동합니다. 기본적으로 Virus Total API를 사용한 스캐닝은 비활성화되어 있습니다. 활성화하려면 Virus Total의 API 키가 필요합니다. 이점이 매우 크기 때문에 사용하는 것이 좋습니다. Virus Total API의 사용에 있어서는 Virus Total 문서에있는대로 이용 규정 및 지침을 준수하지 않으면 안됩니다. 이 통합 기능을 사용하기 위해서는 :
- - Virus Total와 API의 서비스 규정을 읽고 동의해야합니다. [서비스 규정은 여기에서](https://www.virustotal.com/en/about/terms-of-service/).
- - 최소 Virus Total Public API 문서의 전문을 읽고 이해하여 ("VirusTotal Public API v2.0"이후 "Contents"이전까지). Virus Total Public API [문서는 여기에서](https://www.virustotal.com/en/documentation/public-api/).
+##### "vt_public_api_key" `[string]`
+- 옵션이지만, phpMussel은 Virus Total API를 사용하여 파일을 검색 할 수 있습니다. 바이러스, 트로이 목마, 악성 코드 및 기타 공격에 매우 효과적으로 작동합니다. 기본적으로 Virus Total API를 사용한 스캐닝은 비활성화되어 있습니다. 활성화하려면 Virus Total의 API 키가 필요합니다. 이점이 매우 크기 때문에 사용하는 것이 좋습니다. Virus Total API의 사용에 있어서는 Virus Total 문서에있는대로 이용 규정 및 지침을 준수하지 않으면 안됩니다. 이 통합 기능을 사용하기 위해서는 : Virus Total와 API의 서비스 규정을 읽고 동의해야합니다. 최소 Virus Total Public API 문서의 전문을 읽고 이해하여 (VirusTotalPublic API v2.0 이후 Contents "콘텐츠"이전까지).
 
-주의 : Virus Total API 사용한 스캐닝이 비활성화되어있는 경우, 이 카테고리 (`virustotal`) 지시문을 참조 할 필요가 없습니다. 무효이면, 모두 작동하지 않습니다. Virus Total API 키를 얻으려면, Virus Total 사이트의 페이지 오른쪽 상단에있는 링크 "커뮤니티에 가입"을 클릭하여 필요한 사항을 기입하여 가입합니다. 지침에 따라 공용 API 키를 취득한 후`config.ini` 설정 파일`vt_public_api_key` 지시문 그것을 복사 및 붙여 넣기하십시오.
+또한보십시오 :
+- [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
+- [Getting started](https://developers.virustotal.com/reference)
 
-##### "vt_suspicion_level"
+##### "vt_suspicion_level" `[int]`
 - 기본 설정은 phpMussel이 Virus Total API를 사용하여 스캔 파일 (疑がわし 주물)에 제한이 있습니다. `vt_suspicion_level` 지시문을 편집 할 더, 이 제한을 변경할 수 있습니다.
-- `0` : phpMussel의 시그니처를 사용하여 검사 한 결과 경험적 가중치가 있다고 판단 된 경우에만 의심스러운 파일 결론됩니다. 즉 Virus Total API는 phpMussel가 위험을 감지는했지만 완전히 그렇다고 단언하고, 따라서 블록도하지 않고 플래그를 붙이는 것도하지 않았을 때의 다른 의견입니다.
-- `1` : phpMussel의 시그니처를 사용하여 검사 한 결과, 실행 파일과 같습니다 (PE 파일, Mach-O 파일은, ELF/Linux 파일 등), 혹은 실행 가능한 데이터를 포함한 포맷 (매크로, DOC/DOCX 파일 아카이브 RAR/ZIP 파일 등)이 있으면 경험적 가중치가 있다고 의심 파일과 결론됩니다. 이것은 기본 설정이며 권장 수준이기도합니다. Virus Total API는 phpMussel가 위험없이 판단하고 따라서 블록도하지 않고 플래그를 붙이는 것도하지 않았을 때의 다른 의견입니다.
-- `2` : 파일은 모든 의심스러운 것으로되어 Virus Total API를 사용하여 스캔됩니다. API 할당을 고갈 우려가 있기 때문에 권장 앞두고 있지만 상황에 따라 적절하다고 말할 수 있습니다 (예를 들어, 웹 마스터 나 호스트 마스터가 업로드되는 내용을 신뢰할 수없는 상황 등). 이 경보 수준은 보통 블록 / 플래그도 대상이되지 않는 파일도 모두 Virus Total API를 사용하여 스캔됩니다. 따라서 Virus Total API의 할당을 서서히 소비 해 버리는 일도 얻고 또한 API 할당을 使い切れ하면 phpMussel은 Virus Total API의 사용을 중지합니다 (경계 수준에 관계없이).
 
-주의 : phpMussel 의해 블랙리스트, 화이트리스트 된 파일은 Virus Total API를 사용한 스캔의 대상이되지 않습니다. 이들은 이미 선악이 결론 낸 것이며, Virus Total API에서 다시 스캔 할 필요는 없기 때문입니다. phpMussel가 Virus Total API를 사용하는 것은 phpMussel 자신이 위험 여부에 대해 판단하기 어려운 상황에서 보조 할 수 있습니다.
-
-##### "vt_weighting"
+##### "vt_weighting" `[int]`
 - phpMussel이 Virus Total API를 사용한 스캐닝 결과를 감지으로 대우하거나, 검색 가중치로 취급 할 것인가? 여러 엔진 (Virus Total처럼)을 사용한 스캐닝은 검색 속도 향상 (더 많은 악성 코드가 감지)을 가져다 한편 오진의 증가도 발생하므로이 지시어가 존재합니다. 따라서 스캐닝 결과는 결정적인 판단이 아니라 신뢰 점수로 사용하는 것이 적절한 경우도 있습니다. 값이 0이면 Virus Total API를 사용한 검색은 검색으로 처리되어 Virus Total 엔진이 악성 코드 및 플래그가 지정된 파일은 phpMussel도 악성 코드로 판단합니다. 다른 값의 경우 결과는 검출 가중되고, 스캔 된 파일이 악성 코드 여부 phpMussel가 결정하는 신뢰 점수 (또는 감지 가중치)입니다 (값은 악성이라고 판단하기위한 최소 신뢰 점수 또는 가중치). 기본값은 0입니다.
 
-##### "vt_quota_rate"와 "vt_quota_time"
+##### "vt_quota_rate" `[int]`
 - Virus Total API 문서에 따르면 "1 분간의 타임 프레임 사이에 요청 최대 4 회" 의 제한이 있습니다. 허니 클라이언트와 허니팟 등의 자동화를 사용하여 리포트를받을뿐만 아니라 VirusTotal 자원을 제공하는 경우, 상한은 올라갑니다. phpMussel 기본적으로 최대 4 번을 준수하고 있습니다 만, 위의 상황에서이 두 디렉토리를 준비하고 상황에 맞게 변경할 수 있도록되어 있습니다. 한계에 도달 버리는 등의 불편이나 문제가 없으면 기본값을 변경하는 것은 권장되지 않지만 값을 작게하는 것이 적절한 경우도 있습니다. 상한은 시간 프레임`vt_quota_time` (분 내에) `vt_quota_rate`로 설정합니다.
 
+##### "vt_quota_time" `[int]`
+- (위의 설명 참조).
+
 #### "urlscanner" (카테고리)
-phpMussel에는 URL 스캐너가 내장되어 스캔 된 파일이나 데이터의 악의적 인 URL을 감지 할 수 있습니다.
+URL 스캐너 설정.
 
-주의 : URL 스캐너를 사용하지 않을 경우이 카테고리 (`urlscanner`)를 참조 할 필요가 없습니다.
+##### "lookup_hphosts" `[bool]`
+- True로하면 API를 hpHosts 조회가 활성화됩니다.
 
-URL 스캐너 API 조회 설정.
+또한보십시오 :
+- [hosts-file.net](https://hosts-file.net/)
 
-##### "lookup_hphosts"
-- True로하면 API를 [hpHosts](https://hosts-file.net/) 조회가 활성화됩니다. hpHosts은 API 조회를 수행하기 위해 API 키가 필요하지 않습니다.
+##### "google_api_key" `[string]`
+- 필요한 API 키가 정의되면, API는 Google Safe Browsing API 조회가 활성화됩니다.
 
-##### "google_api_key"
-- 필요한 API 키가 정의되면, API는 Google Safe Browsing API 조회가 활성화됩니다. Google Safe Browsing API 룩 앱스에 필요한 API 키는에서 [얻을 수 있습니다](https://console.developers.google.com/).
-- 참고 : Google Safe Browsing API 조회는 아직 완성되지 않기 때문에 미래의 이용을 상정하고 있습니다.
+또한보십시오 :
+- [Google API Console](https://console.developers.google.com/)
 
-##### "maximum_api_lookups"
+##### "maximum_api_lookups" `[int]`
 - 스캔 반복의 API 조회의 최대 수입니다. API 조회 때마다 스캔 반복의 시간이 쌓여 버리므로, 스캔 처리 속도 향상을 위해 제한을두고 싶다고 생각할지도 모릅니다. 0은 제한 없음을 의미합니다. 기본값은 10입니다.
 
-##### "maximum_api_lookups_response"
+##### "maximum_api_lookups_response" `[bool]`
 - API 조회 횟수 제한을 초과했을 때의 대응입니다. `false` = 아무것도 / 처리를 계속한다 (Default / 기본 설정); `true` = 파일에 플래그를 지정 / 차단한다.
 
-##### "cache_time"
+##### "cache_time" `[int]`
 - API 조회의 결과를 얼마나 캐시할지 (초 단위)? 기본값은 3600 초 (한 시간).
 
 #### "legal" (카테고리)
-법적 요구 사항과 관련된 구성.
+법적 요구 사항 설정.
 
-*법적 요구 사항 및 이것이 구성 요구 사항에 미치는 영향에 대한 자세한 내용은 설명서의 "[법률 정보](#SECTION11)"절을 참조하십시오.*
-
-##### "pseudonymise_ip_addresses"
+##### "pseudonymise_ip_addresses" `[bool]`
 - 로그 파일을 쓸 때 가명으로 하다 IP 주소? True = 예 (Default / 기본 설정); False = 아니오.
 
-##### "privacy_policy"
+##### "privacy_policy" `[string]`
 - 생성 된 페이지의 꼬리말에 표시 할 관련 개인 정보 정책 방침의 주소입니다. URL 지정, 또는 사용하지 않으려면 비워 두십시오.
-
-#### "template_data" (카테고리)
-템플릿과 테마 지시어 / 변수.
-
-템플릿의 데이터는 사용자를 향해 업로드 거부 메시지를 HTML 형식으로 출력 할 때 사용됩니다. 사용자 지정 테마를 사용하는 경우는`template_custom.html`를 사용하고, 그렇지 않은 경우는`template.html`를 사용하여 HTML 출력이 생성됩니다. 설정 파일에서이 섹션의 변수는 HTML 출력에 대한 해석되어로 둘러싸인 변수 이름은 해당 변수 데이터로 대체합니다. 예를 들어`foo="bar"`하면 HTML 출력의`<p>{foo}</p>`는`<p>bar</p>`입니다.
-
-##### "theme"
-- phpMussel에 사용할 기본 테마.
-
-##### "magnification"
-- *v1 : "Magnification"*
-- 글꼴 배율. Default (기본 설정) = 1.
-
-##### "css_url"
-- 사용자 지정 테마 템플릿 파일은 외부 CSS 속성을 사용하고 있습니다. 한편, 기본 테마는 내부 CSS입니다. 사용자 정의 테마를 적용하는 CSS 파일의 공개적 HTTP 주소를 "css_url"변수를 사용하여 지정하십시오. 이 변수가 공백이면 기본 테마가 적용됩니다.
-
-#### "PHPMailer" (카테고리)
-PHPMailer 구성.
-
-현재 phpMussel은 프런트 엔드 2FA (이중 인증)만 PHPMailer를 사용합니다. 프런트 엔드를 사용하지, 않거나 프런트 엔드에 2FA (이중 인증)을 사용하지 않는 경우, 이러한 지침을 무시할 수 있습니다.
-
-##### "event_log"
-- *v1 : "EventLog"*
-- PHPMailer와 관련된 모든 이벤트를 기록하는 파일입니다. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
-
-##### "skip_auth_process"
-- *v1 : "SkipAuthProcess"*
-- `true` 일 때, PHPMailer는 전자 메일 전송을위한 SMTP 인증 프로세스를 건너 뛰도록 지시합니다. 이 프로세스를 건너 뛰면 아웃 바운드 전자 메일이 MITM 공격에 노출 될 수 있으므로 피해야합니다. 특정 경우에 필요할 수 있음 (예 : PHPMailer가 SMTP 서버에 제대로 연결할 수없는 경우).
-
-##### "enable_two_factor"
-- *v1 : "Enable2FA"*
-- 이 지시문은 프런트 엔드 계정에 2FA를 사용할지 여부를 결정합니다.
-
-##### "host"
-- *v1 : "Host"*
-- 아웃 바운드 전자 메일에 사용할 SMTP 호스트입니다.
-
-##### "port"
-- *v1 : "Port"*
-- 아웃 바운드 이메일에 사용할 포트 번호입니다. Default (기본 설정) = 587.
-
-##### "smtp_secure"
-- *v1 : "SMTPSecure"*
-- SMTP를 통해 이메일을 보낼 때 사용할 프로토콜 (TLS 또는 SSL).
-
-##### "smtp_auth"
-- *v1 : "SMTPAuth"*
-- 이 지시문은 SMTP 세션을 인증할지 여부를 결정합니다 (보통 이것을 무시해야합니다).
-
-##### "username"
-- *v1 : "Username"*
-- SMTP를 통해 이메일을 보낼 때 사용할 사용자 이름입니다.
-
-##### "password"
-- *v1 : "Password"*
-- SMTP를 통해 이메일을 보낼 때 사용할 비밀번호입니다.
-
-##### "set_from_address"
-- *v1 : "setFromAddress"*
-- SMTP를 통해 전자 메일을 보낼 때 인용 할 보낸 사람 주소입니다.
-
-##### "set_from_name"
-- *v1 : "setFromName"*
-- SMTP를 통해 전자 메일을 보낼 때 인용 할 보낸 사람 이름입니다.
-
-##### "add_reply_to_address"
-- *v1 : "addReplyToAddress"*
-- SMTP를 통해 전자 메일을 보낼 때 인용 할 회신 주소입니다.
-
-##### "add_reply_to_name"
-- *v1 : "addReplyToName"*
-- SMTP를 통해 이메일을 보낼 때 인용 할 회신 이름입니다.
 
 #### "supplementary_cache_options" (카테고리)
 보충 캐시 옵션.
 
-##### "enable_apcu"
+##### "enable_apcu" `[bool]`
 - 캐싱에 APCu를 사용할지 여부를 지정합니다. Default (기본값) = False.
 
-##### "enable_memcached"
+##### "enable_memcached" `[bool]`
 - 캐싱에 Memcached를 사용할지 여부를 지정합니다. Default (기본값) = False.
 
-##### "enable_redis"
+##### "enable_redis" `[bool]`
 - 캐싱에 Redis를 사용할지 여부를 지정합니다. Default (기본값) = False.
 
-##### "enable_pdo"
+##### "enable_pdo" `[bool]`
 - 캐싱에 PDO를 사용할지 여부를 지정합니다. Default (기본값) = False.
 
-##### "memcached_host"
+##### "memcached_host" `[string]`
 - Memcached 호스트 값. Default (기본값) = "localhost".
 
-##### "memcached_port"
+##### "memcached_port" `[int]`
 - Memcached 포트 값. Default (기본값) = "11211".
 
-##### "redis_host"
+##### "redis_host" `[string]`
 - Redis 호스트 값. Default (기본값) = "localhost".
 
-##### "redis_port"
+##### "redis_port" `[int]`
 - Redis 포트 값. Default (기본값) = "6379".
 
-##### "redis_timeout"
+##### "redis_timeout" `[float]`
 - Redis 시간 초과 값. Default (기본값) = "2.5".
 
-##### "pdo_dsn"
-- PDO DSN 값. Default (기본값) = "`mysql:dbname=phpmussel;host=localhost;port=3306`".
+##### "pdo_dsn" `[string]`
+- PDO DSN 값. Default (기본값) = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
-*또한보십시오 : ["PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?](#HOW_TO_USE_PDO)*
-
-##### "pdo_username"
+##### "pdo_username" `[string]`
 - PDO 사용자 이름.
 
-##### "pdo_password"
+##### "pdo_password" `[string]`
 - PDO 암호.
+
+#### "frontend" (카테고리)
+프론트 엔드 설정.
+
+##### "frontend_log" `[string]`
+- 프론트 엔드 로그인 시도를 기록하는 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+
+##### "max_login_attempts" `[int]`
+- 로그인 시도 최대 횟수입니다 (프론트 엔드). Default / 기본 설정 = 5.
+
+##### "numbers" `[string]`
+- 어떻게 숫자를 표시하는 것을 선호합니까? 가장 정확한 것으로 보이는 예제를 선택하십시오.
+
+```
+numbers
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Latin-1 ("1,234,567.89")
+├─Latin-2 ("1 234 567.89")
+├─Latin-3 ("1.234.567,89")
+├─Latin-4 ("1 234 567,89")
+├─Latin-5 ("1,234,567·89")
+├─China-1 ("123,4567.89")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
+├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+└─Tibetan ("༡༢༣༤༥༦༧.༨༩")
+```
+
+##### "default_algo" `[string]`
+- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다. 옵션 : PASSWORD_DEFAULT (default / 기본 설정), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 가 필요합니다), PASSWORD_ARGON2ID (PHP >= 7.3.0 가 필요합니다).
+
+```
+default_algo
+├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
+├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+└─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
+```
+
+##### "theme" `[string]`
+- phpMussel 프론트 엔드에 사용할 미학.
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…다른
+```
+
+##### "magnification" `[float]`
+- 글꼴 배율. Default (기본 설정) = 1.
+
+#### "web" (카테고리)
+업로드 핸들러 설정.
+
+##### "uploads_log" `[string]`
+- 차단된 모든 업로드를 기록해야 하는 위치. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+
+##### "forbid_on_block" `[bool]`
+- 업로드 파일이 차단 된 메시지와 함께 phpMussel에서 403 헤더를 보내야하거나 일반 200 좋은지에 대해. `false` = 아니오 (200) Default / 기본 설정; `true` = 예 (403).
+
+##### "max_uploads" `[int]`
+- 한 번에 스캔 할 수있는 업로드 파일 수 제한으로이를 초과하면 스캔을 중단하고 사용자에게 그 사실을 알리고 논리적 공격으로부터 보호 역할을합니다. 시스템과 CMS가 DDoS 공격을 만나 phpMussel가 오버로드하여 PHP 프로세스에 지장을 초래하는 일이 없도록하기 위해서입니다. 권장 수는 10이지만, 하드웨어의 속도에 따라 더 이상 / 이하이 좋은 것도있을 것입니다. 이 숫자는 아카이브의 내용을 포함하지 않는 것을 기억하십시오.
+
+##### "ignore_upload_errors" `[bool]`
+- 시스템에서 phpMussel의 기능에 수정이 필요한 경우가 아니면이 지시문은 일반적으로 사용할 수 없습니다. 비활성화하면 `$_FILES` array()요소를 감지했을 때, 그 요소가 나타내는 파일의 스캔이 시작됩니다, 요소가 비어 있거나없는 경우 phpMussel는 오류 메시지를 반환합니다. 이것은 본래 phpMussel가 있어야 할 모습입니다. 그러나 CMS에서는 $_FILES 하늘 요소는 일반적으로 발생하는 것이며, 정상적인 phpMussel의 행동이 정상적인 CMS의 거동을 저해 할 우려가 있습니다. 이러한 경우에는 본 옵션을 사용하여 phpMussel 빈 요소를 검사하고 오류 메시지를 반환을 피하고 요청한 페이지로 원활하게 진행할 수 있도록합니다. `false` = OFF (해제입니다); `true` = ON (온입니다).
+
+##### "theme" `[string]`
+- "업로드 거부"페이지에 사용할 미학.
+
+```
+theme
+├─default ("Default")
+├─rbi ("Red-Blue Inverted")
+├─slate ("Slate")
+├─bluemetal ("Blue Metal")
+├─moss ("Moss")
+├─fullmoon ("Full Moon")
+└─…다른
+```
+
+##### "magnification" `[float]`
+- 글꼴 배율. Default (기본 설정) = 1.
+
+#### "phpmailer" (카테고리)
+PHPMailer 설정 (이중 인증에 사용).
+
+##### "event_log" `[string]`
+- PHPMailer와 관련된 모든 이벤트를 기록하는 파일입니다. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+
+##### "enable_two_factor" `[bool]`
+- 이 지시문은 프런트 엔드 계정에 2FA를 사용할지 여부를 결정합니다.
+
+##### "enable_notifications" `[bool]`
+- 업로드가 차단되면 이메일 알림을 보냅니다.
+
+##### "skip_auth_process" `[bool]`
+- `true` 일 때, PHPMailer는 전자 메일 전송을위한 SMTP 인증 프로세스를 건너 뛰도록 지시합니다. 이 프로세스를 건너 뛰면 아웃 바운드 전자 메일이 MITM 공격에 노출 될 수 있으므로 피해야합니다. 특정 경우에 필요할 수 있음 (예 : PHPMailer가 SMTP 서버에 제대로 연결할 수없는 경우).
+
+##### "host" `[string]`
+- 아웃 바운드 전자 메일에 사용할 SMTP 호스트입니다.
+
+##### "port" `[int]`
+- 아웃 바운드 이메일에 사용할 포트 번호입니다. Default (기본 설정) = 587.
+
+##### "smtp_secure" `[string]`
+- SMTP를 통해 이메일을 보낼 때 사용할 프로토콜 (TLS 또는 SSL).
+
+```
+smtp_secure
+├─default ("-")
+├─tls ("TLS")
+└─ssl ("SSL")
+```
+
+##### "smtp_auth" `[bool]`
+- 이 지시문은 SMTP 세션을 인증할지 여부를 결정합니다 (보통 이것을 무시해야합니다).
+
+##### "username" `[string]`
+- SMTP를 통해 이메일을 보낼 때 사용할 사용자 이름입니다.
+
+##### "password" `[string]`
+- SMTP를 통해 이메일을 보낼 때 사용할 비밀번호입니다.
+
+##### "set_from_address" `[string]`
+- SMTP를 통해 전자 메일을 보낼 때 인용 할 보낸 사람 주소입니다.
+
+##### "set_from_name" `[string]`
+- SMTP를 통해 전자 메일을 보낼 때 인용 할 보낸 사람 이름입니다.
+
+##### "add_reply_to_address" `[string]`
+- SMTP를 통해 전자 메일을 보낼 때 인용 할 회신 주소입니다.
+
+##### "add_reply_to_name" `[string]`
+- SMTP를 통해 이메일을 보낼 때 인용 할 회신 이름입니다.
 
 ---
 
@@ -1626,7 +1533,7 @@ phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)을 발견했습�
 - 파일이 격리되었는지 여부 및 내부 이름 사용 여부.
 
 *관련 설정 지시어 :*
-- `general` -> `scan_kills`
+- `web` -> `uploads_log`
 
 ##### 11.3.2 프론트 엔드 로깅
 
@@ -1722,4 +1629,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2020년 7월 7일.
+최종 업데이트 : 2020년 7월 8일.
