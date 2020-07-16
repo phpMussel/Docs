@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ Se incluye un escáner URL con phpMussel, capaz de detectar las maliciosas URL d
 Notar: Si la URL escáner está desactivado, usted no tendrá que revisar cualquiera de las directivas en esta categoría (`urlscanner`), porque ninguno de ellos hará cualquier cosa si desactiva.
 
 URL escáner API configuración.
-
-##### "lookup_hphosts"
-- Permite API búsquedas al [hpHosts](https://hosts-file.net/) API cuando se define como true. hpHosts no requiere un API clave para llevar a cabo API búsquedas.
 
 ##### "google_api_key"
 - Permite API búsquedas al Google Safe Browsing API cuando la necesario API clave es define. El uso de Google Safe Browsing API requiere un API clave, que puede ser obtenido a partir de [Aquí](https://console.developers.google.com/).
@@ -1580,10 +1577,9 @@ Algunos temas personalizados, así como la interfaz de usuario estándar para el
 
 ##### 11.2.1 ESCÁNER URL
 
-Las URL que se encuentran dentro de las subidas de archivos se pueden compartir con la API de hpHosts o la API de Google Safe Browsing, según cómo esté configurado el paquete. En el caso de la API de hpHosts, este comportamiento está habilitado de forma predeterminada. La API de Google Safe Browsing requiere claves API para funcionar correctamente y, por lo tanto, está desactivada de manera predeterminada.
+Las URL que se encuentran dentro de las subidas de archivos se pueden compartir con la API de Google Safe Browsing, según cómo esté configurado el paquete. La API de Google Safe Browsing requiere claves API para funcionar correctamente y, por lo tanto, está desactivada de manera predeterminada.
 
 *Directivas de configuración relevantes:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1755,4 +1751,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 7 de Julio de 2020 (2020.07.07).
+Última Actualización: 16 de Julio de 2020 (2020.07.16).

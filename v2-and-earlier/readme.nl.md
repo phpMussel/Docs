@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ Een URL scanner wordt meegeleverd met phpMussel, het opsporen van kwaadaardige U
 Noteren: Als de URL scanner wordt uitgeschakeld, zult u geen behoefte aan een van de richtlijnen in dit categorie te herzien (`urlscanner`), omdat geen van hen zal alles doen als dit is uitgeschakeld.
 
 URL scanner API configuratie.
-
-##### "lookup_hphosts"
-- Inschakelt gebruik van de [hpHosts](https://hosts-file.net/) API wanneer zet op true. hpHosts nodig geen API sleutel voor het uitvoeren API verzoeken.
 
 ##### "google_api_key"
 - Inschakelt gebruik van de Google Safe Browsing API wanneer de noodzakelijke API sleutel wordt gedefinieerd. Google Safe Browsing API nodig hebben een API sleutel, dat kan worden verkregen van [Hier](https://console.developers.google.com/).
@@ -1589,10 +1586,9 @@ Sommige aangepaste thema's, evenals de standaard UI ("gebruikersinterface") voor
 
 ##### 11.2.1 URL SCANNER
 
-URL's die worden gevonden in bestandsuploads kunnen worden gedeeld met de hpHosts API of de Google Safe Browsing API, afhankelijk van hoe het pakket is geconfigureerd. In het geval van de hpHosts API is dit gedrag standaard ingeschakeld. De Google Safe Browsing API heeft API-sleutels nodig om correct te werken, en is daarom standaard uitgeschakeld.
+URL's die worden gevonden in bestandsuploads kunnen worden gedeeld met de Google Safe Browsing API, afhankelijk van hoe het pakket is geconfigureerd. De Google Safe Browsing API heeft API-sleutels nodig om correct te werken, en is daarom standaard uitgeschakeld.
 
 *Relevante configuratie-opties:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1765,4 +1761,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 7 Juli 2020 (2020.07.07).
+Laatste Bijgewerkt: 16 Juli 2020 (2020.07.16).

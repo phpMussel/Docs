@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ phpMusselにはURLスキャナーがビルトインされていて、​スキ�
 注意：URLスキャナーが無効の場合、​このカテゴリー（`urlscanner`）を参照する必要はありません。
 
 URLスキャナーAPIルックアップ設定。
-
-##### "lookup_hphosts" （ルックアップ・エイチピーホスツ）
-- Trueにすると、​APIの[hpHosts](https://hosts-file.net/)ルックアップが有効になります。​hpHostsはAPIルックアップを実行するのに API鍵を必要としません。
 
 ##### "google_api_key" （グーグル・エーピーアイ・キー）
 - 必要なAPI鍵が定義されれば、​APIのGoogle Safe Browsing APIルックアップが有効になります。​Google Safe Browsing APIルックアップスに必要なAPI鍵は、​[から取得することができます](https://console.developers.google.com/)。
@@ -1573,10 +1570,9 @@ phpMusselのフロントエンドと「アップロード拒否」ページの�
 
 ##### 11.2.1 ＵＲＬスキャナ
 
-ファイルのアップロード内に見つかったＵＲＬは、パッケージ・コンフィギュレーションに応じて、hpHosts APIまたはGoogleセーフ・ブラウジングAPIと共有できます。​hpHosts APIの場合、この動作はデフォルトで有効になっています。​Googleセーフ・ブラウジングAPIは、正常に動作するためにはAPIキーが必要です。​したがって、デフォルトでは無効になっています。
+ファイルのアップロード内に見つかったＵＲＬは、パッケージ・コンフィギュレーションに応じて、Googleセーフ・ブラウジングAPIと共有できます。​Googleセーフ・ブラウジングAPIは、正常に動作するためにはAPIキーが必要です。​したがって、デフォルトでは無効になっています。
 
 *関連するコンフィギュレーション・ディレクティブ：*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL （ウイルス・トータル）
@@ -1748,4 +1744,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２０年７月７日。
+最終アップデート：２０２０年７月１６日。

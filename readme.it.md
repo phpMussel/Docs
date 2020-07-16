@@ -107,22 +107,21 @@ Scansionare di file caricamenti è automatizzato e abilitato per predefinita, pe
 
 Ma, si è anche in grado di istruire phpMussel per la scansione per i specifici file, cartelle o archivi. Per fare questo, in primo luogo, è necessario assicurarsi che l'appropriata configurazione è impostato nella `config.ini` file (`cleanup` deve essere disattivato), e quando fatto, in un PHP file che è collegato allo phpMussel, utilizzare la seguente funzione nelle codice:
 
-`$phpMussel['Scan']($cosa_a_scansione, $tipi_di_output, $output_pianura);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$cosa_a_scansione` può essere una stringa, un array o un array di array multipli, e indica quale d'il file, cartella e/o cartelle a scansiona.
+- `$Target` può essere una stringa, un array o un array di array multipli, e indica quale d'il file, cartella e/o cartelle a scansiona.
 - `$tipi_di_output` è un valore booleano, indicanti il formato per i risultati della scansione a essere restituire come. `false` istruisce la funzione a restituire i risultati come un intero. `true` istruisce la funzione a restituire i risultati come testo leggibile. In aggiunta, in ogni caso, i risultati sono accessibili tramite variabili globali dopo la scansione è stata completata. Questa variabile è facoltativa, inadempiente su `false`. Di seguito vengono descritti i risultati interi:
 
-| Risultati | Descrizioni |
-|---|---|
-| -4 | Indica che i dati non possono essere scansionati a causa della crittografia. |
-| -3 | Indica che sono stati incontrati problemi con i file di firme phpMussel. |
-| -2 | Indica che i corrotto dato è stato rilevato durante la scansione e quindi la scansione non abbia completato. |
-| -1 | Indica che estensioni o addon richiesti per PHP a eseguire la scansione erano assente e quindi la scansione non abbia completato. |
-| 0 | Indica che l'obiettivo di scansione non esiste e quindi non c'era nulla a scansione. |
-| 1 | Indica che l'obiettivo è stato scansionata correttamente e non problemi stati rilevati. |
-| 2 | Indica che l'obiettivo è stato scansionata correttamente e problemi stati rilevati. |
-
-- `$output_pianura` è un valore booleano, indicanti alla funzione se restituire i risultati della scansione (quando ci sono multipli obiettivi di scansione) come un array o una stringa. `false` restituirà i risultati come un array. `true` restituirà i risultati come una stringa. Questa variabile è facoltativa, inadempiente su `false`.
+Risultati | Descrizioni
+--:|:--
+-5 | Indica che la scansione non è stata completata per altri motivi.
+-4 | Indica che i dati non possono essere scansionati a causa della crittografia.
+-3 | Indica che sono stati incontrati problemi con i file di firme phpMussel.
+-2 | Indica che i corrotto dato è stato rilevato durante la scansione e quindi la scansione non abbia completato.
+-1 | Indica che estensioni o addon richiesti per PHP a eseguire la scansione erano assente e quindi la scansione non abbia completato.
+0 | Indica che l'obiettivo di scansione non esiste e quindi non c'era nulla a scansione.
+1 | Indica che l'obiettivo è stato scansionata correttamente e non problemi stati rilevati.
+2 | Indica che l'obiettivo è stato scansionata correttamente e problemi stati rilevati.
 
 Esempi:
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### "signatures" (Categoria)
@@ -1035,10 +1032,7 @@ Non controllo i file di firma, la documentazione o altri contenuti periferici. I
 - [Sono uno sviluppatore, un designer di siti web o un programmatore. Posso accettare o offrire lavori relativi a questo progetto?](#ACCEPT_OR_OFFER_WORK)
 - [Voglio contribuire al progetto; Posso farlo?](#WANT_TO_CONTRIBUTE)
 - [Come accedere a dettagli specifici sui file quando vengono scansionati?](#SCAN_DEBUGGING)
-- [Posso utilizzare il cron per aggiornare automaticamente?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [phpMussel può eseguire la scansione di file con nomi non ANSI?](#SCAN_NON_ANSI)
 - [Blacklists (liste nere) – Whitelists (liste bianche) – Greylists (liste grigie) – Cosa sono e come li uso?](#BLACK_WHITE_GREY)
-- [Quando si attivano o disattivano file di firma tramite la pagina degli aggiornamenti, li ordina in ordine alfanumerico nella configurazione. Posso cambiare il modo in cui vengono ordinati?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?](#HOW_TO_USE_PDO)
 - [Mia funzionalità di caricamento è asincrona (ad esempio, utilizza ajax, ajaj, json, ecc). Non vedo alcun messaggio o avviso speciale quando un caricamento è bloccato. Cosa sta succedendo?](#AJAX_AJAJ_JSON)
 
@@ -1169,67 +1163,6 @@ Facoltativamente, questa matrice può essere distrutta utilizzando quanto segue:
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>Posso utilizzare il cron per aggiornare automaticamente?
-
-Sì. Una API è incorporata nel front-end per interagire con la pagina degli aggiornamenti tramite script esterni. È disponibile uno script separato, "[Cronable](https://github.com/Maikuolan/Cronable)", e può essere utilizzato dal tuo cron manager o cron scheduler per aggiornare automaticamente questo e altri pacchetti supportati (questo script fornisce la propria documentazione).
-
-#### <a name="SCAN_NON_ANSI"></a>phpMussel può eseguire la scansione di file con nomi non ANSI?
-
-Diciamo che c'è una cartella che vuoi scansionare. In questa cartella, hai alcuni file con nomi non ANSI.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Supponiamo che tu stia utilizzando la modalità CLI o l'API phpMussel per la scansione.
-
-Quando si utilizza PHP < 7.1.0, su alcuni sistemi, phpMussel non vedrà questi file quando si tenta di eseguire la scansione della cartella e, quindi, non sarà in grado di eseguire la scansione di questi file. Probabilmente vedrai gli stessi risultati come se dovessi eseguire la scansione di una cartella vuota:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniziato.
- Sun, 01 Apr 2018 22:27:41 +0800 Finito.
-```
-
-Inoltre, quando si utilizza PHP < 7.1.0, la scansione dei file individualmente produce risultati come questi:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniziato.
- > Verifica 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> File non valido!
- Sun, 01 Apr 2018 22:27:41 +0800 Finito.
-```
-
-O questi:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniziato.
- > X:/directory/??????.txt non è né un file né una cartella.
- Sun, 01 Apr 2018 22:27:41 +0800 Finito.
-```
-
-Questo è dovuto al modo in cui PHP gestiva i nomi di file non ANSI prima di PHP 7.1.0. Se riscontri questo problema, la soluzione è aggiornare la tua installazione PHP a 7.1.0 o più recente. In PHP >= 7.1.0, i nomi dei file non ANSI vengono gestiti meglio e phpMussel dovrebbe essere in grado di eseguire correttamente la scansione dei file.
-
-Per confronto, i risultati quando si tenta di eseguire la scansione della cartella utilizzando PHP >= 7.1.0:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniziato.
- -> Verifica '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> Nessun problema rilevato.
- -> Verifica '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> Nessun problema rilevato.
- -> Verifica '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> Nessun problema rilevato.
- Sun, 01 Apr 2018 22:27:41 +0800 Finito.
-```
-
-E tentando di scansionare i file individualmente:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniziato.
- > Verifica 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> Nessun problema rilevato.
- Sun, 01 Apr 2018 22:27:41 +0800 Finito.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists (liste nere) – Whitelists (liste bianche) – Greylists (liste grigie) – Cosa sono e come li uso?
 
 I termini hanno significati diversi in diversi contesti. In phpMussel, ci sono tre contesti in cui vengono utilizzati questi termini: Risposta alla dimensione del file, risposta al tipo di file e, greylist delle firme.
@@ -1245,24 +1178,6 @@ In questi due contesti, essere nella whitelist significa che non dovrebbe essere
 La greylist delle firme è una lista di firme che dovrebbe essere essenzialmente ignorata (questo è brevemente menzionato prima nella documentazione). Quando viene innescata una firma nella greylist delle firme, phpMussel continua a lavorare attraverso le sue firme e non intraprende alcuna azione particolare riguardo alla firma nella greylist. Non esiste una blacklist delle firme, perché il comportamento implicito è comunque un comportamento normale per le firme innescate, e non esiste una whitelist delle firme, perché il comportamento implicito non avrebbe davvero senso in considerazione di come funziona phpMussel normal e delle funzionalità che già possiede.
 
 La greylist delle firme è utile se è necessario risolvere i problemi causati da una particolare firma senza disabilitare o disinstallare l'intero file di firme.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>Quando si attivano o disattivano file di firma tramite la pagina degli aggiornamenti, li ordina in ordine alfanumerico nella configurazione. Posso cambiare il modo in cui vengono ordinati?
-
-Sì. Se è necessario forzare alcuni file per l'esecuzione in un ordinamento specifico, è possibile aggiungere alcuni dati arbitrari prima dei loro nomi nella direttiva di configurazione in cui sono elencati, separati da due punti. Quando la pagina degli aggiornamenti ordina di nuovo i file, questi dati arbitrari aggiunti influenzeranno l'ordinamento, causandoli di conseguenza nell'ordinamento che si desidera, senza dover rinominare nessuno di essi.
-
-Ad esempio, assumendo una direttiva di configurazione con file elencati come segue:
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-Se si desidera che `file3.php` esegua prima, potresti aggiungere qualcosa come `aaa:` prima del nome del file:
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Quindi, se un nuovo file, `file6.php`, viene attivato, quando la pagina degli aggiornamenti li ordina di nuovo tutti, dovrebbe finire in questo modo:
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-Stessa situazione quando un file è disattivato. Al contrario, se si desidera che il file venga eseguito per ultimo, è possibile aggiungere qualcosa come `zzz:` prima del nome del file. In ogni caso, non sarà necessario rinominare il file in questione.
 
 #### <a name="HOW_TO_USE_PDO"></a>Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?
 
@@ -1455,19 +1370,11 @@ Il modo in cui queste informazioni possono essere utilizzate da queste terze par
 
 Ai fini della trasparenza, il tipo di informazioni condivise e con chi è descritto di seguito.
 
-##### 11.2.0 WEBFONTS
-
-Alcuni temi personalizzati, nonché l'interfaccia utente standard ("UI") per il front-end phpMussel, e la pagina "Caricamento Negato", possono utilizzare i webfonts per motivi estetici. I webfonts sono disabilitati per impostazione predefinita, ma quando abilitati, avviene una comunicazione diretta tra il browser dell'utente e il servizio che ospita i webfonts. Ciò potrebbe implicare la comunicazione di informazioni quali l'indirizzo IP dell'utente, l'agente utente, il sistema operativo, e altri dettagli disponibili per la richiesta. La maggior parte di questi webfonts è ospitata dal servizio [Google Fonts](https://fonts.google.com/).
-
-*Direttive di configurazione rilevanti:*
-- `general` -> `disable_webfonts`
-
 ##### 11.2.1 URL SCANNER
 
-Gli URL trovati nei caricamenti dei file possono essere condivisi con l'API hpHosts o l'API Navigazione sicura di Google, a seconda di come è configurato il pacchetto. Nel caso dell'API hpHosts, questo comportamento è abilitato per impostazione predefinita. L'API Navigazione sicura di Google richiede le chiavi API per funzionare correttamente, ed è quindi disabilitata per impostazione predefinita.
+Gli URL trovati nei caricamenti dei file possono essere condivisi con l'API Navigazione Sicura di Google, a seconda di come è configurato il pacchetto. L'API Navigazione sicura di Google richiede le chiavi API per funzionare correttamente, ed è quindi disabilitata per impostazione predefinita.
 
 *Direttive di configurazione rilevanti:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1634,4 +1541,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 8 Luglio 2020 (2020.07.08).
+Ultimo Aggiornamento: 16 Luglio 2020 (2020.07.16).

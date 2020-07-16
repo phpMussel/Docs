@@ -518,7 +518,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -1057,11 +1057,6 @@ Phar | ❌ | ❌ | ❌ | &nbsp; <div dir="rtl" style="display:inline">سپورٹ
 <div dir="rtl">نوٹ: یو آر ایل سکینر غیر فعال ہے تو، آپ کو اس غیر فعال ہے اگر ان میں سے کوئی کچھ بھی کرے گا، کیونکہ اس زمرے ("urlscanner") میں ہدایت میں سے کسی پر نظرثانی کرنے کی ضرورت نہیں کرے گا.<br /><br /></div>
 
 <div dir="rtl">URL سکینر API لک اپ ترتیب.<br /><br /></div>
-
-##### <div dir="rtl">"lookup_hphosts"<br /></div>
-<div dir="rtl"><ul>
- <li>صحیح پر مقرر کرتے وقت <a href="https://hosts-file.net/">hpHosts</a> API کے لئے API لک اپ فعال کرتا ہے. hpHosts API لک اپ کو انجام کے لئے ایک API کلید کی ضرورت نہیں ہے.</li>
-</ul></div>
 
 ##### <div dir="rtl">"google_api_key"<br /></div>
 <div dir="rtl"><ul>
@@ -1807,11 +1802,10 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 
 ##### <div dir="rtl">١١.٢.١ URL سکینر<br /><br /></div>
 
-<div dir="rtl">فائل اپ لوڈوں کے اندر پایا URL، <code dir="ltr">hpHosts API</code> یا <code dir="ltr">Google Safe Browsing API</code>، کے ساتھ اشتراک کیا جا سکتا ہے، اس سلسلے پر منحصر ہے کہ کس طرح پیکج کو ترتیب دیا گیا ہے.<br /><br /></div>
+<div dir="rtl">فائل اپ لوڈوں کے اندر پایا URL <code dir="ltr">Google Safe Browsing API</code> کے ساتھ اشتراک کیا جا سکتا ہے، اس سلسلے پر منحصر ہے کہ کس طرح پیکج کو ترتیب دیا گیا ہے.<br /><br /></div>
 
 <div dir="rtl">متعلقہ ترتیب ہدایات:<br /></div>
 <div dir="rtl"><ul>
- <li><code dir="ltr">lookup_hphosts</code> &lt;- <code dir="ltr">urlscanner</code></li>
  <li><code dir="ltr">google_api_key</code> &lt;- <code dir="ltr">urlscanner</code></li>
 </ul></div>
 
@@ -2011,4 +2005,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 7 جولائی 2020 (2020.07.07).</div>
+<div dir="rtl">آخری تازہ کاری: 16 جولائی 2020 (2020.07.16).</div>

@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ Uno scanner URL è incluso in phpMussel, in grado di rilevare URL malevoli all'i
 Notare: Se l'URL scanner è disabilitato, non sarà necessario rivedere nessuna delle direttive in questa categoria (`urlscanner`), perché nessuno di loro farà nulla se questo è disabilitato.
 
 API configurazione per l'URL scanner.
-
-##### "lookup_hphosts"
-- Abilita API richieste per l'API di [hpHosts](https://hosts-file.net/) quando impostato su true. hpHosts non richiede un API chiave per l'esecuzione di API richieste.
 
 ##### "google_api_key"
 - Abilita API richieste per l'API di Google Safe Browsing quando le API chiave necessarie è definito. L'API di Google Safe Browsing richiede un API chiave, che può essere ottenuto da [Qui](https://console.developers.google.com/).
@@ -1581,10 +1578,9 @@ Alcuni temi personalizzati, nonché l'interfaccia utente standard ("UI") per il 
 
 ##### 11.2.1 URL SCANNER
 
-Gli URL trovati nei caricamenti dei file possono essere condivisi con l'API hpHosts o l'API Navigazione sicura di Google, a seconda di come è configurato il pacchetto. Nel caso dell'API hpHosts, questo comportamento è abilitato per impostazione predefinita. L'API Navigazione sicura di Google richiede le chiavi API per funzionare correttamente, ed è quindi disabilitata per impostazione predefinita.
+Gli URL trovati nei caricamenti dei file possono essere condivisi con l'API Navigazione Sicura di Google, a seconda di come è configurato il pacchetto. L'API Navigazione sicura di Google richiede le chiavi API per funzionare correttamente, ed è quindi disabilitata per impostazione predefinita.
 
 *Direttive di configurazione rilevanti:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1751,4 +1747,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 7 Luglio 2020 (2020.07.07).
+Ultimo Aggiornamento: 16 Luglio 2020 (2020.07.16).

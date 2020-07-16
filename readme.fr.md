@@ -107,22 +107,21 @@ L'analyses des téléchargements des fichiers est automatisée et activée par d
 
 Cependant, vous êtes également capable d'instruire phpMussel à analyser spécifiques fichiers, répertoires et/ou archives. Pour ce faire, premièrement, vous devez assurer que la configuration appropriée est imposé dans le `config.ini` fichier (`cleanup` doit être désactivé), et lorsque vous avez terminé, dans un fichier PHP qui est attaché à phpMussel, utilisez la fonction suivante dans votre code :
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$what_to_scan` peut être une chaîne, un tableau, ou un tableau de tableaux, et indique quel fichier, fichiers, répertoire et/ou répertoires à analyser.
+- `$Target` peut être une chaîne, un tableau, ou un tableau de tableaux, et indique quel fichier, fichiers, répertoire et/ou répertoires à analyser.
 - `$output_type` est un booléen, indiquant le format dont les résultats d'analyse doivent être retournées sous. `false` instruit la fonction à retourner des résultats comme un entier. `true` instruit la fonction à retourner des résultats sous forme de texte lisible par humain. De plus, dans tout le cas, les résultats peuvent être accessibles via les variables globales après l'analyse est terminée. Cette variable est optionnel, imposé par défaut comme `false`. Ce qui suit décrit les résultats entiers :
 
-| Résultats | Description |
-|---|---|
-| -4 | Indique que les données n'ont pas pu être analysées à cause du cryptage. |
-| -3 | Indique que des problèmes ont été rencontrés avec les fichiers de signature phpMussel. |
-| -2 | Indique que données corrompues était détecté lors de l'analyse et donc l'analyse n'ont pas réussi à compléter. |
-| -1 | Indique que les extensions ou addons requis par PHP pour exécuter l'analyse sont manquaient et donc l'analyse n'ont pas réussi à compléter. |
-| 0 | Indique qu'il n'existe pas cible à analyser et donc il n'y avait rien à analyser. |
-| 1 | Indique que la cible était analysé avec succès et aucun problème n'été détectée. |
-| 2 | Indique que la cible était analysé avec succès et problèmes ont été détectés. |
-
-- `$output_flatness` est un booléen, indiquant à la fonction soit à retourner les résultats de l'analyse (quand il ya plusieurs cibles d'analyse) comme un tableau ou une chaîne. `false` sera retour les résultats comme un tableau. `true` sera retour les résultats comme une chaîne. Cette variable est optionnel, imposé par défaut comme `false`.
+Résultats | Description
+--:|:--
+-5 | Indique que l'analyse n'a pas pu se compléter pour d'autres raisons.
+-4 | Indique que les données n'ont pas pu être analysées à cause du cryptage.
+-3 | Indique que des problèmes ont été rencontrés avec les fichiers de signature phpMussel.
+-2 | Indique que données corrompues était détecté lors de l'analyse et donc l'analyse n'ont pas réussi à compléter.
+-1 | Indique que les extensions ou addons requis par PHP pour exécuter l'analyse sont manquaient et donc l'analyse n'ont pas réussi à compléter.
+0 | Indique qu'il n'existe pas cible à analyser et donc il n'y avait rien à analyser.
+1 | Indique que la cible était analysé avec succès et aucun problème n'été détectée.
+2 | Indique que la cible était analysé avec succès et problèmes ont été détectés.
 
 Exemples :
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### « signatures » (Catégorie)
@@ -1035,10 +1032,7 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 - [Je suis un développeur, un concepteur de site Web ou un programmeur. Puis-je accepter ou offrir des travaux relatifs à ce projet ?](#ACCEPT_OR_OFFER_WORK)
 - [Je veux contribuer au projet ; Puis-je faire cela ?](#WANT_TO_CONTRIBUTE)
 - [Comment accéder à des détails spécifiques sur les fichiers lorsqu'ils sont analysés ?](#SCAN_DEBUGGING)
-- [Puis-je utiliser cron pour mettre à jour automatiquement ?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [Est-ce que phpMussel peut analyser des fichiers avec des noms non-ANSI ?](#SCAN_NON_ANSI)
 - [Listes noires – Listes blanches – Listes grises – Quels sont-ils, et comment puis-je les utiliser ?](#BLACK_WHITE_GREY)
-- [Lorsque j'activer ou désactiver des fichiers de signatures via la page des mises à jour, il les trie de manière alphanumérique dans la configuration. Puis-je changer la façon dont ils sont triés ?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?](#HOW_TO_USE_PDO)
 - [Ma fonctionnalité de téléchargement est asynchrone (par exemple, utilise ajax, ajaj, json, etc). Je ne vois aucun message ni avertissement spécial lorsqu'un téléchargement est bloqué. Que se passe-t-il ?](#AJAX_AJAJ_JSON)
 
@@ -1169,67 +1163,6 @@ En option, ce tableau peut être détruit en utilisant ce qui suit :
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>Puis-je utiliser cron pour mettre à jour automatiquement ?
-
-Oui. Une API est intégrée dans le frontal pour interagir avec la page des mises à jour via des scripts externes. Un script séparé, « [Cronable](https://github.com/Maikuolan/Cronable) », est disponible, et peut être utilisé par votre gestionnaire de cron ou cron scheduler pour mettre à jour ce paquet et d'autres paquets supportés automatiquement (ce script fournit sa propre documentation).
-
-#### <a name="SCAN_NON_ANSI"></a>Est-ce que phpMussel peut analyser des fichiers avec des noms non-ANSI ?
-
-Disons qu'il y a un répertoire que vous voulez scanner. Dans ce répertoire, vous avez des fichiers avec des noms non-ANSI.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Supposons que vous utilisez le mode CLI ou l'API phpMussel pour analyser.
-
-Lors de l'utilisation de PHP < 7.1.0, sur certains systèmes, phpMussel ne verra pas ces fichiers lors de l'analyse du répertoire, et ne pourra donc pas analyser ces fichiers. Vous verrez probablement les mêmes résultats que si vous deviez analyser un répertoire vide :
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Commencé.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminé.
-```
-
-De plus, lorsque vous utilisez PHP < 7.1.0, l'analyse des fichiers individuellement produit des résultats comme ceux-ci :
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Commencé.
- > Vérification 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> Fichier non valide !
- Sun, 01 Apr 2018 22:27:41 +0800 Terminé.
-```
-
-Ou ceux-ci :
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Commencé.
- > X:/directory/??????.txt n'est pas un fichier ou un répertoire.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminé.
-```
-
-C'est à cause de la façon dont PHP a traité les noms de fichiers non-ANSI avant PHP 7.1.0. Si vous rencontrez ce problème, la solution consiste à mettre à jour votre installation PHP à 7.1.0 ou plus récent. En PHP >= 7.1.0, les noms de fichiers non-ANSI sont mieux gérés, et phpMussel devrait être capable d'analyser les fichiers correctement.
-
-Pour comparaison, les résultats lors de l'analyse du répertoire en utilisant PHP >= 7.1.0 :
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Commencé.
- -> Vérification '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> Pas problème trouvé.
- -> Vérification '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> Pas problème trouvé.
- -> Vérification '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> Pas problème trouvé.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminé.
-```
-
-Et en analysant les fichiers individuellement :
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Commencé.
- > Vérification 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> Pas problème trouvé.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminé.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Listes noires – Listes blanches – Listes grises – Quels sont-ils, et comment puis-je les utiliser ?
 
 Les termes véhiculent des significations différentes dans différents contextes. Dans phpMussel, il existe trois contextes où ces termes sont utilisés : La réponse à la taille du fichier, la réponse au type du fichier, et la liste grise des signatures.
@@ -1245,24 +1178,6 @@ Dans ces deux contextes, être sur liste blanche signifie qu'il ne doit pas êtr
 La liste grise des signatures est une liste de signatures qui devraient être ignorées (ceci est brièvement mentionné plus haut dans la documentation). Quand une signature sur le liste grise des signatures est déclenchée, phpMussel continue à travailler à travers ses signatures et ne prend aucune action particulière en ce qui concerne la signature sur le liste grise. Il n'y a pas de liste noire des signatures, car le comportement implicite est un comportement normal pour les signatures déclenchées en tous cas, et il n'y a pas de liste blanche des signatures, parce que le comportement implicite n'aurait pas vraiment de sens compte tenu du fonctionnement normal de phpMussel et des capacités qu'il possède déjà.
 
 Le liste grise des signatures est utile si vous avez besoin de résoudre des problèmes causés par une signature particulière sans désactiver ou désinstaller le fichier de signatures entier.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>Lorsque j'activer ou désactiver des fichiers de signatures via la page des mises à jour, il les trie de manière alphanumérique dans la configuration. Puis-je changer la façon dont ils sont triés ?
-
-Oui. Si vous devez forcer l'exécution de certains fichiers dans un ordre spécifique, vous pouvez ajouter des données arbitraires avant leurs noms dans la directive de configuration où elles sont listées, séparées par un signe deux-points. Lorsque la page des mises à jour trie à nouveau les fichiers, ces données arbitraires ajoutées affectent l'ordre de tri, en leur faisant par conséquent exécuter dans l'ordre que vous voulez, sans avoir besoin de renommer l'un d'entre eux.
-
-Par exemple, en supposant une directive de configuration avec des fichiers listés comme suit :
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-Si vous voulez que `file3.php` s'exécute en premier, vous pouvez ajouter quelque chose comme `aaa:` avant le nom du fichier :
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Ensuite, si un nouveau fichier, `file6.php`, est activé, lorsque la page des mises à jour les trie à nouveau, elle devrait se terminer comme suit :
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-Inversement, si vous voulez que le fichier s'exécute en dernier, vous pouvez ajouter quelque chose comme `zzz:` avant le nom du fichier. Dans tous les cas, vous n'aurez pas besoin de renommer le fichier en question.
 
 #### <a name="HOW_TO_USE_PDO"></a>Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?
 
@@ -1461,19 +1376,11 @@ La manière dont ces informations peuvent être utilisées par ces tiers est sou
 
 Dans un souci de transparence, le type d'informations partagées, et avec qui, est décrit ci-dessous.
 
-##### 11.2.0 WEBFONTS
-
-Certains thèmes personnalisés, et aussi l'interface utilisateur standard pour l'accès frontal de phpMussel, et la page « Téléchargement Refusé », peuvent utiliser des webfonts pour des raisons esthétiques. Les webfonts sont désactivées par défaut, mais lorsqu'elles sont activées, la communication directe entre le navigateur de l'utilisateur et le service hébergeant les webfonts produit. Cela peut éventuellement impliquer la communication d'informations telles que l'adresse IP de l'utilisateur, l'agent utilisateur, le système d'exploitation et d'autres informations disponibles à la demande. La plupart de ces webfonts sont hébergées par le service [Google Fonts](https://fonts.google.com/).
-
-*Directives de configuration pertinentes :*
-- `general` -> `disable_webfonts`
-
 ##### 11.2.1 SCANNER D'URL
 
-Les URL trouvées dans les téléchargements de fichiers peuvent être partagées avec l'API hpHosts ou l'API Google Safe Browsing, en fonction de la configuration du package. Dans le cas de l'API hpHosts, ce comportement est activé par défaut. L'API Google Safe Browsing requiert des clés API pour fonctionner correctement, et est donc désactivée par défaut.
+Les URL trouvées dans les téléchargements de fichiers peuvent être partagées avec l'API Google Safe Browsing, en fonction de la configuration du package. L'API Google Safe Browsing requiert des clés API pour fonctionner correctement, et est donc désactivée par défaut.
 
 *Directives de configuration pertinentes :*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1644,4 +1551,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 8 Juillet 2020 (2020.07.08).
+Dernière mise à jour : 16 Juillet 2020 (2020.07.16).

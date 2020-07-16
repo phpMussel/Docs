@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ Um URL analisador está incluído com phpMussel, capaz de detectar URLs malicios
 Notar: Se o URL analisador é desativado, você não terá que rever alguma das directivas nesta categoria (`urlscanner`), porque nenhum deles fará de tudo se este é desativado.
 
 URL analisador API uso configuração.
-
-##### "lookup_hphosts"
-- Permite o uso do [hpHosts](https://hosts-file.net/) API quando definido para true. hpHosts não requer uma API chave para o uso de sua API.
 
 ##### "google_api_key"
 - Permite o uso do Google Safe Browsing API quando a API chave necessária está definida. Para o uso de sua API, Google Safe Browsing API requerer uma API chave, que pode ser obtido a partir de [Aqui](https://console.developers.google.com/).
@@ -1581,10 +1578,9 @@ Alguns temas personalizados, bem como a interface de usuário ("UI") padrão par
 
 ##### 11.2.1 URL ANALISADOR
 
-Os URLs encontrados nos uploads de arquivos podem ser compartilhados com a API hpHosts ou com a API de navegação segura do Google, dependendo de como o pacote está configurado. No caso da API hpHosts, esse comportamento é ativado por padrão. A API de navegação segura do Google requer as chaves de API para funcionar corretamente e, portanto, é desativada por padrão.
+Os URLs encontrados nos uploads de arquivos podem ser compartilhados com a API de navegação segura do Google, dependendo de como o pacote está configurado. A API de navegação segura do Google requer as chaves de API para funcionar corretamente e, portanto, é desativada por padrão.
 
 *Diretivas de configuração relevantes:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1751,4 +1747,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 7 de Julho de 2020 (2020.07.07).
+Última Atualização: 16 de Julho de 2020 (2020.07.16).

@@ -107,22 +107,21 @@ Escaneo de archivos subidos es automatizado y activado como estándar, así, nad
 
 Pero, también es capaz instruirá phpMussel para escanear específicos archivos, directorios y/o compactados archivos. Para ello, primeramente, usted tendrá asegurarse de que la adecuada configuración se establece el la `config.ini` archivo (`cleanup` debe estar desactivado), y cuando hecho, en un PHP archivo conectado a phpMussel, utilice la siguiente closure en su código:
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$what_to_scan` puede ser una cadena, una matriz o una matriz de matrices, e indica qué archivo, archivos, directorio y/o directorios a escanear.
+- `$Target` puede ser una cadena, una matriz o una matriz de matrices, e indica qué archivo, archivos, directorio y/o directorios a escanear.
 - `$output_type` es un booleano, indicando el formato de los resultados del análisis para ser devueltos como. `false` instruye la función para devolver resultados como un entero. `true` instruye la función para devolver resultados como texto legible por humanos. Además, en cualquier caso, los resultados pueden ser acceder a través de globales variables después escaneo ha completado. Esta variable es opcional, predefinido como `false`. As siguientes se describen los números enteros:
 
-| Resultados | Descripción |
-|---|---|
-| -4 | Indica que los datos no se pudieron escanear debido al cifrado. |
-| -3 | Indica que se encontraron problemas con los archivos de firmas phpMussel. |
-| -2 | Indica que se ha corruptos datos detectados durante el escanear y por lo tanto el escanear no pudo completar. |
-| -1 | Indica que las extensiones o complementos requeridos por PHP para ejecutar el escaneo faltaban y por lo tanto el escanear no pudo completar, 0 indica que la escanear objetivo no existe y por lo tanto no había nada para escanear. |
-| 0 | Indica que la escanear objetivo no existe y por lo tanto no había nada para escanear. |
-| 1 | Indica que el objetivo fue escaneado con éxito y no se detectaron problemas. |
-| 2 | Indica que el objetivo fue escaneado con éxito y se detectaron problemas. |
-
-- `$output_flatness` es un booleano, indicando a la función si se deben devolver los resultados de la escaneo (cuando hay varios objetivos a escanear) como una matriz o una cadena. `false` devolverá los resultados como una matriz. `true` devolverá los resultados como una cadena. Esta variable es opcional, predefinido como `false`.
+Resultados | Descripción
+--:|:--
+-5 | Indica que el escanear no se pudo completar por otros motivos.
+-4 | Indica que los datos no se pudieron escanear debido al cifrado.
+-3 | Indica que se encontraron problemas con los archivos de firmas phpMussel.
+-2 | Indica que se ha corruptos datos detectados durante el escanear y por lo tanto el escanear no pudo completar.
+-1 | Indica que las extensiones o complementos requeridos por PHP para ejecutar el escaneo faltaban y por lo tanto el escanear no pudo completar, 0 indica que la escanear objetivo no existe y por lo tanto no había nada para escanear.
+0 | Indica que la escanear objetivo no existe y por lo tanto no había nada para escanear.
+1 | Indica que el objetivo fue escaneado con éxito y no se detectaron problemas.
+2 | Indica que el objetivo fue escaneado con éxito y se detectaron problemas.
 
 Ejemplos:
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### "signatures" (Categoría)
@@ -1035,10 +1032,7 @@ No verifico los archivos de firma, la documentación u otro contenido periféric
 - [Soy desarrollador, diseñador de sitios web o programador. ¿Puedo aceptar u ofrecer trabajos relacionados con este proyecto?](#ACCEPT_OR_OFFER_WORK)
 - [Quiero contribuir al proyecto; ¿Puedo hacer esto?](#WANT_TO_CONTRIBUTE)
 - [¿Cómo acceder a detalles específicos sobre los archivos cuando se escanean?](#SCAN_DEBUGGING)
-- [¿Puedo usar cron para actualizar automáticamente?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [¿Puede phpMussel escanear archivos con nombres que no sean ANSI?](#SCAN_NON_ANSI)
 - [Listas negras – Listas blancas – Listas grises – ¿Qué son y cómo los uso?](#BLACK_WHITE_GREY)
-- [Cuando activar o desactivar archivos de firmas a través de la página de actualizaciones, los ordena de forma alfanumérica en la configuración. ¿Puedo cambiar la forma en que se ordenan?](#CHANGE_COMPONENT_SORT_ORDER)
 - [¿Qué es un "PDO DSN"? Cómo puedo usar PDO con phpMussel?](#HOW_TO_USE_PDO)
 - [Mi recurso de subido es asíncrono (por ejemplo, usa ajax, ajaj, json, etc). No veo ningún mensaje especial o advertencia cuando se bloquea una subida. ¿Que esta pasando?](#AJAX_AJAJ_JSON)
 
@@ -1169,67 +1163,6 @@ Opcionalmente, esta matriz se puede destruir utilizando lo siguiente:
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>¿Puedo usar cron para actualizar automáticamente?
-
-Sí. Una API está integrada en el front-end para interactuar con la página de actualizaciones a través de scripts externos. Un script separado, "[Cronable](https://github.com/Maikuolan/Cronable)", está disponible, y puede ser utilizado por su cron manager o cron scheduler para actualizar este y otros paquetes soportados automáticamente (este script proporciona su propia documentación).
-
-#### <a name="SCAN_NON_ANSI"></a>¿Puede phpMussel escanear archivos con nombres que no sean ANSI?
-
-Digamos que hay un directorio que quiere escanear. En este directorio, tiene algunos archivos con nombres que no son ANSI.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Supongamos que está utilizando el modo CLI o la API de phpMussel para escanear.
-
-Al usar PHP < 7.1.0, en algunos sistemas, phpMussel no verá estos archivos cuando intente escanear el directorio y, por lo tanto, no podrá escanear estos archivos. Es probable que vea los mismos resultados que si escaneara un directorio vacío:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniciado.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-Además, al usar PHP < 7.1.0, el escaneo de los archivos individualmente produce resultados como estos:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniciado.
- > Comprobando 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> ¡Archivo no válido!
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-O estos:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniciado.
- > X:/directory/??????.txt no es un archivo o directorio.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-Esto se debe a la forma en que PHP manejó los nombres de archivo no ANSI antes de PHP 7.1.0. Si experimenta este problema, la solución es actualizar su instalación de PHP a 7.1.0 o más reciente. En PHP >= 7.1.0, los nombres de archivo no ANSI se manejan mejor, y phpMussel debería poder escanear los archivos correctamente.
-
-A modo de comparación, los resultados al intentar escanear el directorio usando PHP >= 7.1.0:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniciado.
- -> Comprobando '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> No problemas encontrado.
- -> Comprobando '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> No problemas encontrado.
- -> Comprobando '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> No problemas encontrado.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-E intentando escanear los archivos individualmente:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Iniciado.
- > Comprobando 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> No problemas encontrado.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Listas negras – Listas blancas – Listas grises – ¿Qué son y cómo los uso?
 
 Los términos transmiten diferentes significados en diferentes contextos. En phpMussel, hay tres contextos en los que se usan estos términos: Respuesta del tamaño de archivo, respuesta del tipo de archivo, y la lista gris de firmas.
@@ -1245,24 +1178,6 @@ En estos dos contextos, al ser incluido en la lista blanca significa que no debe
 La lista gris de firmas es una lista de firmas que esencialmente deben ignorarse (esto se menciona brevemente anteriormente en la documentación). Cuando se desencadena una firma en la lista gris de la firma, phpMussel continúa trabajando a través de sus firmas y no toma ninguna medida particular con respecto a la firma desencadenada. No hay una lista negra de firmas, porque el comportamiento implícito es un comportamiento normal para las firmas desencadenadas de todos modos, y no hay una lista blanca de firmas, porque el comportamiento implícito no tendría sentido considerando el funcionamiento normal de phpMussel y las capacidades que ya posee.
 
 La lista gris de firmas es útil si necesita resolver problemas causados por una firma particular sin deshabilitar o desinstalar todo el archivo de firmas.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>Cuando activar o desactivar archivos de firmas a través de la página de actualizaciones, los ordena de forma alfanumérica en la configuración. ¿Puedo cambiar la forma en que se ordenan?
-
-Sí. Si necesita forzar algunos archivos se ejecuten en un orden específico, puede agregar algunos datos arbitrarios antes de sus nombres en la directiva de configuración donde están listados, separados por dos puntos. Cuando la página de actualizaciones clasifique los archivos nuevamente, esta información adicional arbitraria afectará el orden de clasificación, haciendo que, en consecuencia, se ejecuten en el orden que desee, sin necesidad de cambiar el nombre de ninguno de ellos.
-
-Por ejemplo, suponiendo una directiva de configuración con los archivos enumerados de la siguiente manera:
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-Si quería ejecutar `file3.php` primero, puede agregar algo como `aaa:` antes del nombre del archivo:
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Entonces, si se activa un archivo nuevo, `file6.php`, cuando la página de actualizaciones los clasifique nuevamente, debería terminar así:
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-La misma situación cuando un archivo está desactivado. Por el contrario, si quería que el archivo se ejecuta al final, podría agregar algo como `zzz:` antes del nombre del archivo. En cualquier caso, no necesitará cambiar el nombre del archivo en cuestión.
 
 #### <a name="HOW_TO_USE_PDO"></a>¿Qué es un "PDO DSN"? Cómo puedo usar PDO con phpMussel?
 
@@ -1454,19 +1369,11 @@ La forma en que esta información puede ser utilizada por estos terceros está s
 
 A los efectos de la transparencia, el tipo de información compartida, y con quién, se describe a continuación.
 
-##### 11.2.0 WEBFONTS
-
-Algunos temas personalizados, así como la interfaz de usuario estándar para el front-end de phpMussel, y la página "Subida Denegada", pueden usar webfonts por razones estéticas. Los webfonts están deshabilitados de forma predeterminada, pero cuando están habilitados, se produce una comunicación directa entre el navegador del usuario y el servicio que aloja los webfonts. Esto puede implicar la comunicación de información tal como la dirección IP del usuario, el agente de usuario, el sistema operativo, y otros detalles disponibles para la solicitud. La mayoría de estas webfonts están alojadas en el servicio [Google Fonts](https://fonts.google.com/).
-
-*Directivas de configuración relevantes:*
-- `general` -> `disable_webfonts`
-
 ##### 11.2.1 ESCÁNER URL
 
-Las URL que se encuentran dentro de las subidas de archivos se pueden compartir con la API de hpHosts o la API de Google Safe Browsing, según cómo esté configurado el paquete. En el caso de la API de hpHosts, este comportamiento está habilitado de forma predeterminada. La API de Google Safe Browsing requiere claves API para funcionar correctamente y, por lo tanto, está desactivada de manera predeterminada.
+Las URL que se encuentran dentro de las subidas de archivos se pueden compartir con la API de Google Safe Browsing, según cómo esté configurado el paquete. La API de Google Safe Browsing requiere claves API para funcionar correctamente y, por lo tanto, está desactivada de manera predeterminada.
 
 *Directivas de configuración relevantes:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1638,4 +1545,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 8 de Julio de 2020 (2020.07.08).
+Última Actualización: 16 de Julio de 2020 (2020.07.16).

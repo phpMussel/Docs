@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ phpMussel에는 URL 스캐너가 내장되어 스캔 된 파일이나 데이터�
 주의 : URL 스캐너를 사용하지 않을 경우이 카테고리 (`urlscanner`)를 참조 할 필요가 없습니다.
 
 URL 스캐너 API 조회 설정.
-
-##### "lookup_hphosts"
-- True로하면 API를 [hpHosts](https://hosts-file.net/) 조회가 활성화됩니다. hpHosts은 API 조회를 수행하기 위해 API 키가 필요하지 않습니다.
 
 ##### "google_api_key"
 - 필요한 API 키가 정의되면, API는 Google Safe Browsing API 조회가 활성화됩니다. Google Safe Browsing API 룩 앱스에 필요한 API 키는에서 [얻을 수 있습니다](https://console.developers.google.com/).
@@ -1573,10 +1570,9 @@ phpMussel 프론트 엔드 및 "업로드 거부"페이지의 표준 UI ("사용
 
 ##### 11.2.1 URL 스캐너
 
-파일 업로드 내에서 발견 된 URL은 패키지 구성 방식에 따라 hpHosts API 또는 Google 안전 브라우징 API와 공유 될 수 있습니다. hpHosts API의 경우이 동작은 기본적으로 사용됩니다. Google 안전 브라우징 API는 제대로 작동하려면 API 키가 있어야하며 기본적으로 사용 중지됩니다.
+파일 업로드 내에서 발견 된 URL은 패키지 구성 방식에 따라 Google 안전 브라우징 API와 공유 될 수 있습니다. Google 안전 브라우징 API는 제대로 작동하려면 API 키가 있어야하며 기본적으로 사용 중지됩니다.
 
 *관련 설정 지시어 :*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1746,4 +1742,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2020년 7월 7일.
+최종 업데이트 : 2020년 7월 16일.

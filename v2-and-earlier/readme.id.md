@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ Scanner URL adalah disertakan dengan phpMussel, mampu mendeteksi URL berbahaya d
 Mencatat: Jika scanner URL dinonaktifkan, Anda tidak perlu meninjaunya direktif-direktif dalam kategori ini (`urlscanner`), karena tidak satupun dari mereka akan melakukan apa-apa jika ini dinonaktifkan.
 
 Konfigurasi scanner URL memeriksa API.
-
-##### "lookup_hphosts"
-- Memungkinkan pemeriksaan API ke [hpHosts](https://hosts-file.net/) API ketika diset untuk true. hpHosts tidak memerlukan kunci API untuk melakukan pemeriksaan API.
 
 ##### "google_api_key"
 - Memungkinkan pemeriksaan API ke Google Safe Browsing API ketika kunci API diperlukan didefinisikan. Pemeriksaan Google Safe Browsing API memerlukan kunci API, diperoleh dari di [Sini](https://console.developers.google.com/).
@@ -1580,10 +1577,9 @@ Beberapa tema kustom, serta UI standar ("antarmuka pengguna") untuk halaman bagi
 
 ##### 11.2.1 SCANNER URL
 
-URL ditemukan dalam upload file dapat dibagikan dengan API hpHosts atau API Google Safe Browsing, tergantung bagaimana paket dikonfigurasi. Dalam kasus API hpHosts, perilaku ini diaktifkan secara default. API Google Safe Browsing memerlukan kunci API agar berfungsi dengan benar, dan karenanya dinonaktifkan secara default.
+URL ditemukan dalam upload file dapat dibagikan dengan API Google Safe Browsing, tergantung bagaimana paket dikonfigurasi. API Google Safe Browsing memerlukan kunci API agar berfungsi dengan benar, dan karenanya dinonaktifkan secara default.
 
 *Direktif konfigurasi yang relevan:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1748,4 +1744,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 7 Juli 2020 (2020.07.07).
+Terakhir Diperbarui: 16 Juli 2020 (2020.07.16).

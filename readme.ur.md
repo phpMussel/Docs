@@ -111,13 +111,23 @@ https://github.com/phpMussel/Examples
 
 <div dir="rtl">تاہم، آپ کو بھی مخصوص فائلوں، ڈائریکٹریز اور/یا ابلیھاگار اسکین کرنے phpMussel ہدایت کرنے کے قابل ہو. ایسا کرنے کے لئے، سب سے پہلے، آپ کو مناسب ترتیب (<code dir="ltr">cleanup</code> غیر فعال کر دیا جائے ضروری ہے) <code dir="ltr">config.ini</code> فائل میں مقرر کیا گیا ہے، اور کیا جب phpMussel کو جھکا دیا گیا ہے کہ ایک PHP کی فائل میں، استعمال یقینی بنانے کے لئے کی ضرورت ہو گی مندرجہ ذیل آپ کے کوڈ میں بندش.<br /><br /></div>
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
 <div dir="rtl"><ul>
- <li><code dir="ltr">$what_to_scan</code> ایک سٹرنگ، ایک صف، یا arrays کے ایک صف ہو، اور فائل، فائلوں، ڈائریکٹری اور/یا ڈائریکٹریز کو اسکین کرنے کے لئے جس کی طرف اشارہ کر سکتے ہیں.</li>
+ <li><code dir="ltr">$Target</code> ایک سٹرنگ، ایک صف، یا arrays کے ایک صف ہو، اور فائل، فائلوں، ڈائریکٹری اور/یا ڈائریکٹریز کو اسکین کرنے کے لئے جس کی طرف اشارہ کر سکتے ہیں.</li>
  <li><code dir="ltr">$output_type</code> طور واپس کرنے کے اسکین کے نتائج کے لئے کی شکل کا اشارہ، ایک بولین ہے. جھوٹی ایک عدد صحیح (کے -4 اشارہ کرتا ہے کہ ڈیٹا کو خفیہ کاری کی وجہ سے سکینڈ نہیں کیا جا سکتا، -3 اشارہ کرتا ہے کہ دستخط فائلوں کے ساتھ مسائل کا سامنا کرنا پڑا، -2 کی طرف اشارہ کرتا ہے کہ بدعنوان ڈیٹا دوران پتہ چلا تھا اسکین اور اس طرح اسکین مکمل کرنے میں ناکام رہے، -1 طرف اشارہ کرتا ہے کہ ملانے یا addons کے اسکین پر عمل کرنے PHP طرف سے کی ضرورت لاپتہ تھے اور اس طرح اسکین، کو مکمل کرنے میں ناکام رہے 0 اشارہ کرتا اسکین ہدف موجود نہیں ہے کہ اس طرح اور اسکین کرنے کی کوئی بات نہیں تھی 1 ہدف کو کامیابی سے سکین کر رہا تھا اور کوئی مسائل کا پتہ چلا رہے تھے کہ اشارہ کرتا ہے، اور 2 کی طرف اشارہ ہدف کو کامیابی سے سکین کر رہا تھا کہ اور مسائل کا پتہ چلا رہے تھے). یہ سچ ہے کہ انسانی قابل مطالعہ متن کے طور پر نتائج واپس کرنے کے لئے تقریب کی ہدایات. اس کے علاوہ، دونوں صورتوں میں، نتائج عالمی متغیر کے ذریعے جانے کے بعد سکیننگ مکمل کر لیا ہے حاصل کیا جا سکتا ہے. یہ متغیر غلط پر مجرم، اختیاری ہے.</li>
- <li><code dir="ltr">$output_flatness</code> تقریب کرنے کا اشارہ ایک صف یا ایک تار کے طور پر سکیننگ کے نتائج (ایک سے زیادہ اسکین اہداف ہیں جب) واپس کرنے کے لئے، چاہے ایک بولین ہے. جھوٹی ایک صف کے طور پر نتائج واپس کرے گا. یہ سچ ہے کہ ایک تار کے طور پر نتائج واپس کرے گا. یہ متغیر غلط پر مجرم، اختیاری ہے.</li>
 </ul></div>
+
+نتائج | تفصیل
+--:|--:
+-5 | Indicates that the scan failed to complete for other reasons.
+-4 | Indicates that data couldn't be scanned due to encryption.
+-3 | Indicates that problems were encountered with the phpMussel signatures files.
+-2 | Indicates that corrupt data was detected during the scan and thus the scan failed to complete.
+-1 | Indicates that extensions or addons required by PHP to execute the scan were missing and thus the scan failed to complete.
+0 | Indicates that the scan target doesn't exist and thus there was nothing to scan.
+1 | Indicates that the target was successfully scanned and no problems were detected.
+2 | Indicates that the target was successfully scanned and problems were detected.
 
 <div dir="rtl">مثالیں:<br /><br /></div>
 
@@ -540,8 +550,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### <div dir="rtl">"signatures" (قسم)<br /></div>
@@ -1039,10 +1047,7 @@ smtp_secure
  <li><a href="#ACCEPT_OR_OFFER_WORK">میں نے ایک ڈویلپر، ویب سائٹ ڈیزائنر، یا پروگرامر ہوں. میں اس منصوبے سے متعلق کام کر سکتے ہیں؟</a></li>
  <li><a href="#WANT_TO_CONTRIBUTE">میں نے اس منصوبے میں شراکت کے لئے چاہتے ہیں؛ میں یہ کر سکتا ہوں؟</a></li>
  <li><a href="#SCAN_DEBUGGING">کس طرح وہ سکین کر رہے ہیں جب فائلوں کے بارے میں مزید تفصیلات تک رسائی حاصل کرنے کے لئے؟</a></li>
- <li><a href="#CRON_TO_UPDATE_AUTOMATICALLY">کیا میں خود کار طریقے سے اپ ڈیٹ کرنے کیلئے cron استعمال کرسکتا ہوں؟</a></li>
- <li><a href="#SCAN_NON_ANSI">غیر ANSI ناموں کے ساتھ فائلوں کو phpMussel اسکین کرسکتے ہیں؟</a></li>
  <li><a href="#BLACK_WHITE_GREY">بلیک لسٹ – سفید لسٹ – سرمئی لسٹ – وہ کیا ہیں، اور میں ان کا کیسے استعمال کروں؟</a></li>
- <li><a href="#CHANGE_COMPONENT_SORT_ORDER">جب میں دستخط شدہ فائلوں کے ذریعہ دستخط شدہ فائلوں کو چالو یا غیر فعال کروں تو، یہ انفرادی طور پر ترتیب میں تبدیل کرتا ہے. کیا میں اس راستہ کو تبدیل کر سکتا ہوں جسے وہ ترتیب دیں گے؟</a></li>
  <li><a href="#HOW_TO_USE_PDO">"PDO DSN" کیا ہے؟ میں phpMussel کے ساتھ PDO کیسے استعمال کرسکتا ہوں؟</a></li>
  <li><a href="#AJAX_AJAJ_JSON">میری اپ لوڈ کی فعالیت نہیں ہم وقت ساز (مثال کے طور پر، ajax، ajaj، json، وغیرہ استعمال کرتا ہے). اپلوڈ مسدود ہونے پر مجھے کوئی خاص پیغام یا انتباہ نظر نہیں آتا ہے. کیا ہو رہا ہے؟</a></li>
 </ul></div>
@@ -1175,68 +1180,6 @@ var_dump($Foo);
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <div dir="rtl"><a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>کیا میں خود کار طریقے سے اپ ڈیٹ کرنے کیلئے cron استعمال کرسکتا ہوں؟<br /><br /></div>
-
-<div dir="rtl">جی ہاں. بیرونی سکرپٹ کے ذریعہ اپ ڈیٹس صفحہ کے ساتھ بات چیت کرنے کے لئے ایک API سامنے کے آخر میں بنایا جاتا ہے. ایک علیحدہ لکھاوٹ، "<a href="https://github.com/Maikuolan/Cronable">Cronable</a>"، دستیاب ہے، اور اس کے اور دیگر معاون پیکجوں کو خود کار طریقے سے اپ ڈیٹ کرنے کے لئے آپ کے cron manager یا cron scheduler کا استعمال کیا جا سکتا ہے (یہ اسکرپٹ اپنی اپنی دستاویزات فراہم کرتا ہے).<br /><br /></div>
-
-#### <div dir="rtl"><a name="SCAN_NON_ANSI"></a>غیر ANSI ناموں کے ساتھ فائلوں کو phpMussel اسکین کرسکتے ہیں؟<br /><br /></div>
-
-<div dir="rtl">فرض کریں کہ اس ڈائریکٹری میں آپ اسکین کرنا چاہتے ہیں. اس ڈائرکٹری میں، آپ کے پاس غیر ANSI ناموں کے ساتھ کچھ فائلیں ہیں.<br /><br /></div>
-
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-<div dir="rtl">فرض کریں آپ اسکین کرنے کے لئے CLI موڈ یا phpMussel API استعمال کر رہے ہیں.<br /><br /></div>
-
-<div dir="rtl">کچھ نظام پر <code dir="ltr">PHP &lt; 7.1.0</code> کا استعمال کرتے ہوئے، phpMussel کو ڈائرکٹری کو اسکین کرنے کے دوران ان فائلوں کو نہیں ملیں گے. آپ کو یہ ممکنہ طور پر وہی نتیجہ مل جائے گا جیسے آپ کو ایک خالی ڈائرکٹری اسکین کرنا پڑا تھا:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">اس کے علاوہ، <code dir="ltr">PHP &lt; 7.1.0</code> کا استعمال کرتے ہوئے، انفرادی طور پر فائلوں کو اسکیننگ ان طرح کے نتائج پیدا کرتا ہے:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > Checking 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> Invalid file!
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">یا یہ:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > X:/directory/??????.txt is not a file or directory.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">یہ اس وجہ سے ہے کہ غیر ANSI فائلوں کے <code dir="ltr">PHP 7.1.0</code> سے پہلے کس طرح سنبھال لیا گیا تھا. اگر آپ اس مسئلے کا تجربہ کرتے ہیں تو، حل آپ کے PHP کی تنصیب کو اپ ڈیٹ کرنا ہے. <code dir="ltr">PHP &gt;= 7.1.0</code> میں، غیر ANSI فائلوں کے نام کو بہتر بنا دیا جاتا ہے، اور phpMussel کو مناسب طریقے سے اسکین کرنے کے قابل ہونا چاہئے.<br /><br /></div>
-
-<div dir="rtl">مقابلے کے لئے، <code dir="ltr">PHP &gt;= 7.1.0</code> کا استعمال کرتے ہوئے ڈائرکٹری کو اسکین کرنے کے لۓ نتائج:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- -> Checking '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> No problems found.
- -> Checking '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> No problems found.
- -> Checking '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> No problems found.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">اور انفرادی طور پر فائلوں کو اسکین کرنے کی کوشش:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > Checking 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> No problems found.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
 #### <div dir="rtl"><a name="BLACK_WHITE_GREY"></a>بلیک لسٹ – سفید لسٹ – سرمئی لسٹ – وہ کیا ہیں، اور میں ان کا کیسے استعمال کروں؟<br /><br /></div>
 
 <div dir="rtl">سیاق و ضوابط پر منحصر ہے، یہ الفاظ مختلف چیزوں کا مطلب ہے. phpMussel میں، تین شرائط ہیں جہاں یہ شرائط استعمال کیا جاتا ہے: فائل کا ناپ، فائل کی قسم، اور سرمئی لسٹ دستخط.<br /><br /></div>
@@ -1252,24 +1195,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 <div dir="rtl">دستخط سرمئی لسٹ دستخط کی ایک فہرست ہے جو لازمی طور پر نظر انداز کی جانی چاہئے (اس دستاویز میں پہلے ہی مختصر بیان کی گئی ہے). جب سرمئی لسٹ پر دستخط ہوجائے تو، phpMussel اپنے دستخط کے ذریعہ کام جاری رکھتا ہے اور سرمئی لسٹ پر دستخط کے حوالے سے کوئی خاص کارروائی نہیں کرتا ہے. کوئی دستخط بلیک لسٹ نہیں ہے، کیونکہ تخیل شدہ دستخط کے لئے منسلک سلوک رویہ عام رویے ہے. اس میں کوئی دستخط نہیں ہے، کیونکہ یہ اس سلسلے میں ضروری نہیں ہے.<br /><br /></div>
 
 <div dir="rtl">اگر آپ کو دستخط یا مکمل دستخط فائل غیر فعال کرنے کے بغیر کسی خاص دستخط کی وجہ سے مسائل کو حل کرنے کی ضرورت ہوتی ہے تو دستخط سرمئی لسٹ مفید ہے.<br /><br /></div>
-
-#### <div dir="rtl"><a name="CHANGE_COMPONENT_SORT_ORDER"></a>جب میں دستخط شدہ فائلوں کے ذریعہ دستخط شدہ فائلوں کو چالو یا غیر فعال کروں تو، یہ انفرادی طور پر ترتیب میں تبدیل کرتا ہے. کیا میں اس راستہ کو تبدیل کر سکتا ہوں جسے وہ ترتیب دیں گے؟<br /><br /></div>
-
-<div dir="rtl">جی ہاں. اگر آپ کو مخصوص فائلوں میں عمل درآمد کرنے کے لئے کچھ فائلوں پر مجبور کرنے کی ضرورت ہے تو، آپ ان کے نام سے پہلے ان ترتیبات کو ہدایت دیتے ہیں جہاں وہ فہرست میں درج ہوتے ہیں، ان سے پہلے کسی بھی مباحثہ کے اعداد و شمار کو شامل کرسکتے ہیں. جب اپ ڈیٹس کے صفحے کو بعد میں فائلوں کو دوبارہ ترتیب دیتا ہے، تو اس نے مزید کہا کہ خود مختار اعداد و شمار اس طرح کے حکم کو متاثر کرے گی، جس کے نتیجے میں ان کے نتیجے میں عملدرآمد کرنے کے نتیجے میں عملدرآمد کرنے کے لۓ، بغیر کسی کو تبدیل کرنے کی ضرورت ہے.<br /><br /></div>
-
-<div dir="rtl">مثال کے طور پر، مندرجہ ذیل درج ذیل فائلوں کے ساتھ ایک ترتیب ڈائریکٹری کو فرض کرنا:<br /><br /></div>
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-<div dir="rtl">اگر آپ چاہتے تھے کہ <code dir="ltr">file3.php</code> سب سے پہلے عمل کرنے کیلئے، آپ فائل کے نام سے پہلے <code dir="ltr">aaa:</code> کی طرح کچھ شامل کرسکتے ہیں:<br /><br /></div>
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-<div dir="rtl">پھر، اگر ایک نئی فائل، <code dir="ltr">file6.php</code>، چالو کر دیا جاتا ہے، جب اپ ڈیٹس صفحہ ان کو دوبارہ دوبارہ تبدیل کرتا ہے، تو اسے اس طرح ختم کرنا چاہئے:<br /><br /></div>
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-<div dir="rtl">ایک ہی صورت حال حال ہی میں ایک فائل غیر فعال ہے. اس کے برعکس، اگر آپ چاہتے تھے کہ آخری فائل کو عمل کرنے کے لۓ، آپ فائل کے نام سے پہلے <code dir="ltr">zzz:</code> کی طرح کچھ شامل کرسکیں. کسی بھی صورت میں، آپ کو سوال میں فائل کا نام تبدیل کرنے کی ضرورت نہیں ہوگی.<br /><br /></div>
 
 #### <div dir="rtl"><a name="HOW_TO_USE_PDO"></a>"PDO DSN" کیا ہے؟ میں phpMussel کے ساتھ PDO کیسے استعمال کرسکتا ہوں؟<br /><br /></div>
 
@@ -1456,22 +1381,12 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 
 <div dir="rtl">شفافیت کے مقصد کے لئے، مشترکہ معلومات کی قسم ذیل میں بیان کی گئی ہے.<br /><br /></div>
 
-##### <div dir="rtl">١١.٢.٠ ویب فونٹس<br /><br /></div>
-
-<div dir="rtl">کچھ اپنی مرضی کے مطابق موضوعات، معیاری phpMussel صارف انٹرفیس، اور "اپ لوڈ کریں تردید" صفحہ، ویب فونٹس کو جمالیاتی وجوہات کے لۓ استعمال کرسکتے ہیں. ویب فونٹس ڈیفالٹ کے ذریعہ غیر فعال ہیں. فعال ہونے پر، صارف کے برائوزر اور ویب فونٹ میزبان کے درمیان براہ راست مواصلات موجود ہے. یہ ممکنہ طور پر مواصلاتی معلومات جیسے صارف کے IP ایڈریس، صارف ایجنٹ، آپریٹنگ سسٹم، اور درخواست کے لئے دستیاب دیگر تفصیلات شامل ہوسکتا ہے. ان میں سے زیادہ تر ویب فونٹس <a dir="ltr" href="https://fonts.google.com/">Google Fonts</a> سروس کی طرف سے میزبان ہیں.<br /><br /></div>
-
-<div dir="rtl">متعلقہ ترتیب ہدایات:<br /></div>
-<div dir="rtl"><ul>
- <li><code dir="ltr">disable_webfonts</code> &lt;- <code dir="ltr">general</code></li>
-</ul></div>
-
 ##### <div dir="rtl">١١.٢.١ URL سکینر<br /><br /></div>
 
-<div dir="rtl">فائل اپ لوڈوں کے اندر پایا URL، <code dir="ltr">hpHosts API</code> یا <code dir="ltr">Google Safe Browsing API</code>، کے ساتھ اشتراک کیا جا سکتا ہے، اس سلسلے پر منحصر ہے کہ کس طرح پیکج کو ترتیب دیا گیا ہے.<br /><br /></div>
+<div dir="rtl">فائل اپ لوڈوں کے اندر پایا URL <code dir="ltr">Google Safe Browsing API</code> کے ساتھ اشتراک کیا جا سکتا ہے، اس سلسلے پر منحصر ہے کہ کس طرح پیکج کو ترتیب دیا گیا ہے.<br /><br /></div>
 
 <div dir="rtl">متعلقہ ترتیب ہدایات:<br /></div>
 <div dir="rtl"><ul>
- <li><code dir="ltr">lookup_hphosts</code> &lt;- <code dir="ltr">urlscanner</code></li>
  <li><code dir="ltr">google_api_key</code> &lt;- <code dir="ltr">urlscanner</code></li>
 </ul></div>
 
@@ -1671,4 +1586,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 8 جولائی 2020 (2020.07.08).</div>
+<div dir="rtl">آخری تازہ کاری: 16 جولائی 2020 (2020.07.16).</div>

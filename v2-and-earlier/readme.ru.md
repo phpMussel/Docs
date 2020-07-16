@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ VirusTotal.com директивы.
 Примечание: Если URL сканер деактивирован, то нет нужды проверять директиВы этой категории (`urlscanner`).
 
 URL сканер API конфигурация.
-
-##### «lookup_hphosts»
-- Активировать [hpHosts](https://hosts-file.net/) API интеграция если `true`. hpHosts не нужен API ключ для API интеграция.
 
 ##### «google_api_key»
 - Активировать Google Safe Browsing API интеграция если необходимое API ключ вводится. Google Safe Browsing API нужен API ключ для API интеграция, Вы можете получить [Здесь](https://console.developers.google.com/).
@@ -1579,10 +1576,9 @@ phpMussel предоставляет возможность использова
 
 ##### 11.2.1 СКАНЕР URL
 
-URL-адреса, найденные в файлах, могут быть переданы API hpHosts или API Google Safe Browsing, в зависимости от того, как настроен пакет. В случае API hpHosts, это поведение включено по умолчанию. Для правильной работы API Google Safe Browsing требуется использовать ключи API, поэтому по умолчанию он отключен.
+URL-адреса, найденные в файлах, могут быть переданы API Google Safe Browsing, в зависимости от того, как настроен пакет. Для правильной работы API Google Safe Browsing требуется использовать ключи API, поэтому по умолчанию он отключен.
 
 *Соответствующие директивы конфигурации:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1749,4 +1745,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 7 Июль 2020 (2020.07.07).
+Последнее обновление: 16 Июль 2020 (2020.07.16).

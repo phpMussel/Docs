@@ -107,22 +107,21 @@ File upload scanning is automated and enabled by default, so nothing is required
 
 However, you're also able to instruct phpMussel to scan specific files, directories and/or archives. To do this, firstly, you'll need to ensure that the appropriate configuration is set in the `config.ini` file (`cleanup` must be disabled), and when done, in a PHP file that's hooked to phpMussel, use the following closure in your code:
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$what_to_scan` can be a string, an array, or an array of arrays, and indicates which file, files, directory and/or directories to scan.
+- `$Target` can be a string, an array, or an array of arrays, and indicates which file, files, directory and/or directories to scan.
 - `$output_type` is a boolean, indicating the format for the scan results to be returned as. `false` instructs the function to return results as an integer. `true` instructs the function to return results as human readable text. Additionally, in either case, the results can be accessed via global variables after scanning has completed. This variable is optional, defaulting to `false`. The following describes the integer results:
 
-| Results | Description |
-|---|---|
-| -4 | Indicates that data couldn't be scanned due to encryption. |
-| -3 | Indicates that problems were encountered with the phpMussel signatures files. |
-| -2 | Indicates that corrupt data was detected during the scan and thus the scan failed to complete. |
-| -1 | Indicates that extensions or addons required by PHP to execute the scan were missing and thus the scan failed to complete. |
-| 0 | Indicates that the scan target doesn't exist and thus there was nothing to scan. |
-| 1 | Indicates that the target was successfully scanned and no problems were detected. |
-| 2 | Indicates that the target was successfully scanned and problems were detected. |
-
-- `$output_flatness` is a boolean, indicating to the function whether to return the results of scanning (when there are multiple scan targets) as an array or a string. `false` will return the results as an array. `true` will return the results as a string. This variable is optional, defaulting to `false`.
+Results | Description
+--:|:--
+-5 | Indicates that the scan failed to complete for other reasons.
+-4 | Indicates that data couldn't be scanned due to encryption.
+-3 | Indicates that problems were encountered with the phpMussel signatures files.
+-2 | Indicates that corrupt data was detected during the scan and thus the scan failed to complete.
+-1 | Indicates that extensions or addons required by PHP to execute the scan were missing and thus the scan failed to complete.
+0 | Indicates that the scan target doesn't exist and thus there was nothing to scan.
+1 | Indicates that the target was successfully scanned and no problems were detected.
+2 | Indicates that the target was successfully scanned and problems were detected.
 
 Examples:
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### "signatures" (Category)
@@ -1035,10 +1032,7 @@ I don't check the signature files, documentation, or other peripheral content. T
 - [I'm a developer, website designer, or programmer. Can I accept or offer work relating to this project?](#ACCEPT_OR_OFFER_WORK)
 - [I want to contribute to the project; Can I do this?](#WANT_TO_CONTRIBUTE)
 - [How to access specific details about files when they are scanned?](#SCAN_DEBUGGING)
-- [Can I use cron to update automatically?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [Can phpMussel scan files with non-ANSI names?](#SCAN_NON_ANSI)
 - [Blacklists – Whitelists – Greylists – What are they, and how do I use them?](#BLACK_WHITE_GREY)
-- [When I activate or deactivate signature files via the updates page, it sorts them alphanumerically in the configuration. Can I change the way that they get sorted?](#CHANGE_COMPONENT_SORT_ORDER)
 - [What is a "PDO DSN"? How can I use PDO with phpMussel?](#HOW_TO_USE_PDO)
 - [My upload facility is asynchronous (e.g., uses ajax, ajaj, json, etc). I don't see any special message or warning when an upload is blocked. What's going on?](#AJAX_AJAJ_JSON)
 
@@ -1169,67 +1163,6 @@ Optionally, this array can be destroyed by using the following:
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>Can I use cron to update automatically?
-
-Yes. An API is built into the front-end for interacting with the updates page via external scripts. A separate script, "[Cronable](https://github.com/Maikuolan/Cronable)", is available, and can be used by your cron manager or cron scheduler to update this and other supported packages automatically (this script provides its own documentation).
-
-#### <a name="SCAN_NON_ANSI"></a>Can phpMussel scan files with non-ANSI names?
-
-Let's say there's a directory you want to scan. In this directory, you have some files with non-ANSI names.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Let's assume that you're either using CLI mode or the phpMussel API to scan.
-
-When using PHP < 7.1.0, on some systems, phpMussel won't see these files when attempting to scan the directory, and so, won't be able to scan these files. You'll likely see the same results as if you were to scan an empty directory:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-Additionally, when using PHP < 7.1.0, scanning the files individually produces results like these:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > Checking 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> Invalid file!
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-Or these:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > X:/directory/??????.txt is not a file or directory.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-This is because of the way that PHP handled non-ANSI filenames prior to PHP 7.1.0. If you experience this problem, the solution is to update your PHP installation to 7.1.0 or newer. In PHP >= 7.1.0, non-ANSI filenames are handled better, and phpMussel should be able to scan the files properly.
-
-For comparison, the results when attempting to scan the directory using PHP >= 7.1.0:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- -> Checking '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> No problems found.
- -> Checking '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> No problems found.
- -> Checking '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> No problems found.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-And attempting to scan the files individually:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > Checking 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> No problems found.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists – Whitelists – Greylists – What are they, and how do I use them?
 
 The terms convey different meanings in different contexts. In phpMussel, there are three contexts where these terms are used: Filesize response, filetype response, and the signature greylist.
@@ -1245,24 +1178,6 @@ In these two contexts, being whitelisted means that it shouldn't be scanned or f
 The signature greylist is a list of signatures that should essentially be ignored (this is briefly mentioned earlier in the documentation). When a signature on the signature greylist is triggered, phpMussel continues working through its signatures and takes no particular action in regards to the greylisted signature. There's no signature blacklist, because the implied behaviour is normal behaviour for triggered signatures anyway, and there's no signature whitelist, because the implied behaviour wouldn't really make sense in consideration of how phpMussel normal works and the capabilities it already has.
 
 The signature greylist is useful if you need to resolve problems caused by a particular signature without disabling or uninstalling the entire signature file.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>When I activate or deactivate signature files via the updates page, it sorts them alphanumerically in the configuration. Can I change the way that they get sorted?
-
-Yes. If you need to force some files to execute in a specific order, you can add some arbitrary data before their names in the configuration directive where they're listed, separated by a colon. When the updates page subsequently sorts the files again, this added arbitrary data will affect the sort order, causing them consequently to execute in the order that you want, without needing to rename any of them.
-
-For example, assuming a configuration directive with files listed as follows:
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-If you wanted `file3.php` to execute first, you could add something like `aaa:` before the name of the file:
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Then, if a new file, `file6.php`, is activated, when the updates page resorts them all, it should end up like this:
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-Same situation when a file is deactivated. Conversely, if you wanted the file to execute last, you could add something like `zzz:` before the name of the file. In any case, you won't need to rename the file in question.
 
 #### <a name="HOW_TO_USE_PDO"></a>What is a "PDO DSN"? How can I use PDO with phpMussel?
 
@@ -1452,19 +1367,11 @@ How this information may be used by these third parties, is subject to the vario
 
 For the purpose of transparency, the type of information shared, and with whom, is described below.
 
-##### 11.2.0 WEBFONTS
-
-Some custom themes, as well as the standard UI ("user interface") for the phpMussel front-end and the "Upload Denied" page, may use webfonts for aesthetic reasons. Webfonts are disabled by default, but when enabled, direct communication between the user's browser and the service hosting the webfonts occurs. This may potentially involve communicating information such as the user's IP address, user agent, operating system, and other details available to the request. Most of these webfonts are hosted by the [Google Fonts](https://fonts.google.com/) service.
-
-*Relevant configuration directives:*
-- `general` -> `disable_webfonts`
-
 ##### 11.2.1 URL SCANNER
 
-URLs found within file uploads may be shared with the hpHosts API or the Google Safe Browsing API, depending on how the package is configured. In the case of the hpHosts API, this behaviour is enabled by default. The Google Safe Browsing API requires API keys in order to work correctly, and is therefore disabled by default.
+URLs found within file uploads may be shared with the Google Safe Browsing API, depending on how the package is configured. The Google Safe Browsing API requires API keys in order to work correctly, and is therefore disabled by default.
 
 *Relevant configuration directives:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1639,4 +1546,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 8 July 2020 (2020.07.08).
+Last Updated: 16 July 2020 (2020.07.16).

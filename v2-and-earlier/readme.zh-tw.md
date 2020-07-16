@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ phpMussel包含URL掃描程序，​能夠檢測惡意URL在任何數據或文�
 請注意：如果URL掃描儀已關閉，​您將不需要復習任何指令在這個類別（`urlscanner`），​因為沒有指令會做任何事如果這個已關閉。
 
 URL掃描儀API配置。
-
-##### 『lookup_hphosts』
-- 激活[hpHosts](https://hosts-file.net/) API當設置`true`。​hpHosts不需要API密鑰為了執行API請求。
 
 ##### 『google_api_key』
 - 激活Google Safe Browsing API當API密鑰是設置。​Google Safe Browsing API需要API密鑰，​可以得到從[這裡](https://console.developers.google.com/)。
@@ -1573,10 +1570,9 @@ phpMussel的`pdo_dsn`應配置如下。
 
 ##### 11.2.1 URL掃描程序
 
-上文件上傳中找到的URL可能會與hpHosts API或Google安全瀏覽API共享，取決於軟件包的具體配置方式。​在hpHosts API的情況下，默認情況下此行為是啟用的。​Google安全瀏覽API的使用需要API密鑰，因此默認情況下是禁用。
+上文件上傳中找到的URL可能會與Google安全瀏覽API共享，取決於軟件包的具體配置方式。​Google安全瀏覽API的使用需要API密鑰，因此默認情況下是禁用。
 
 *相關配置指令：*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1749,4 +1745,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2020年7月7日。
+最後更新：2020年7月16日。

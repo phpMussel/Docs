@@ -107,22 +107,21 @@ Het scannen van het bestanden uploaden is geautomatiseerd en ingeschakeld door s
 
 Echter, u bent ook in staat om te instrueren phpMussel om te scannen specifiek bestanden, bestandsmappen en/of archieven. Om dit te doen, ten eerste, moet u ervoor zorgen dat de juiste configuratie is ingesteld in het `config.ini` configuratiebestand (`cleanup` moet worden uitgeschakeld), en als u klaar bent, in een PHP-bestand dat wordt gehaakt op phpMussel, gebruik de volgende functie in uw code:
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$what_to_scan` kunt worden een string, een array, of een array van arrays, en vermelding welk bestand, bestanden, bestandsmap en/of bestandsmappen om scannen.
+- `$Target` kunt worden een string, een array, of een array van arrays, en vermelding welk bestand, bestanden, bestandsmap en/of bestandsmappen om scannen.
 - `$output_type` is een boolean, met vermelding van het formaat voor de scanresultaten te worden geretourneerd als. `false` instrueert de functie om de resultaten als een integer retourneer. `true` instrueert de functie om de resultaten als leesbare tekst retourneer. Bovendien, in elk geval, de resultaten kunnen worden geraadpleegd via globale variabelen na het scannen is voltooid. Deze variabele is optioneel, voorgedefinieerd als `false`. Deze integer resultaten worden hieronder beschreven:
 
-| Resultaten | Beschrijving |
-|---|---|
-| -4 | Betekent dat de data niet konden worden gescand vanwege encryptie. |
-| -3 | Betekent problemen werden aangetroffen met de phpMussel signatuurbestanden. |
-| -2 | Betekent dat beschadigd gegevens tijdens de scan werd ontdekt en dus de scan niet voltooid. |
-| -1 | Betekent dat uitbreidingen of addons vereist door PHP om de scan te voeren werd ontbraken zijn en dus de scan niet voltooid. |
-| 0 | Betekent dat het scandoel bestaat niet en dus was er niets te scannen. |
-| 1 | Betekent dat het doel met succes werden gescand en geen problemen gedetecteerd. |
-| 2 | Betekent dat het doel met succes werd gescand en problemen werden gedetecteerd. |
-
-- `$output_flatness` is een boolean, vermelding van de functie of de resultaten van de scan retourneren (wanneer er meerdere scandoelen) als een array of een string. `false` zullen de resultaten als een array retourneer. `true` zullen de resultaten als een string retourneer. Deze variabele is optioneel, voorgedefinieerd als `false`.
+Resultaten | Beschrijving
+--:|:--
+-5 | Betekent dat de scan om andere redenen niet is voltooid.
+-4 | Betekent dat de data niet konden worden gescand vanwege encryptie.
+-3 | Betekent problemen werden aangetroffen met de phpMussel signatuurbestanden.
+-2 | Betekent dat beschadigd gegevens tijdens de scan werd ontdekt en dus de scan niet voltooid.
+-1 | Betekent dat uitbreidingen of addons vereist door PHP om de scan te voeren werd ontbraken zijn en dus de scan niet voltooid.
+0 | Betekent dat het scandoel bestaat niet en dus was er niets te scannen.
+1 | Betekent dat het doel met succes werden gescand en geen problemen gedetecteerd.
+2 | Betekent dat het doel met succes werd gescand en problemen werden gedetecteerd.
 
 Voorbeeld:
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### "signatures" (Categorie)
@@ -1472,10 +1469,9 @@ Sommige aangepaste thema's, evenals de standaard UI ("gebruikersinterface") voor
 
 ##### 11.2.1 URL SCANNER
 
-URL's die worden gevonden in bestandsuploads kunnen worden gedeeld met de hpHosts API of de Google Safe Browsing API, afhankelijk van hoe het pakket is geconfigureerd. In het geval van de hpHosts API is dit gedrag standaard ingeschakeld. De Google Safe Browsing API heeft API-sleutels nodig om correct te werken, en is daarom standaard uitgeschakeld.
+URL's die worden gevonden in bestandsuploads kunnen worden gedeeld met de Google Safe Browsing API, afhankelijk van hoe het pakket is geconfigureerd. De Google Safe Browsing API heeft API-sleutels nodig om correct te werken, en is daarom standaard uitgeschakeld.
 
 *Relevante configuratie-opties:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1648,4 +1644,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 8 Juli 2020 (2020.07.08).
+Laatste Bijgewerkt: 16 Juli 2020 (2020.07.16).

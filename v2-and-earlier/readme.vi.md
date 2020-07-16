@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ Một máy quét URL được bao gồm với phpMussel, khả năng phát hiệ
 Lưu ý: Nếu máy quét URL bị vô hiệu hóa, bạn sẽ không cần phải xem xét bất kỳ tùy chọn trong phần này (`urlscanner`), bởi vì không một ai trong số họ sẽ làm bất cứ điều gì nếu bị vô hiệu hóa này.
 
 Cấu hình cho tra cứu API của máy quét URL.
-
-##### "lookup_hphosts"
-- Cho phép tra cứu API đến API của [hpHosts](https://hosts-file.net/) khi xác định như true. hpHosts không yêu cầu một khóa API để thực hiện tra cứu API.
 
 ##### "google_api_key"
 - Cho phép tra cứu API đến API của Google Safe Browsing khi khóa API cần thiết được xác định. Tra cứu đến API của Google Safe Browsing yêu cầu một khoá API, mà có thể thu được từ [Ở ĐÂY](https://console.developers.google.com/).
@@ -1577,10 +1574,9 @@ Một số chủ đề tùy chỉnh, cũng như UI chuẩn ("giao diện ngườ
 
 ##### 11.2.1 MÁY QUÉT URL
 
-Các URL được tìm thấy trong các tải lên tập tin có thể được chia sẻ với API hpHosts hay API duyệt web an toàn của Google, tùy thuộc vào cách gói được định cấu hình. Trong trường hợp của API hpHosts, hành vi này được kích hoạt theo mặc định. API duyệt web an toàn của Google yêu cầu các khóa API để hoạt động chính xác, và do đó được vô hiệu hóa theo mặc định.
+Các URL được tìm thấy trong các tải lên tập tin có thể được chia sẻ với API duyệt web an toàn của Google, tùy thuộc vào cách gói được định cấu hình. API duyệt web an toàn của Google yêu cầu các khóa API để hoạt động chính xác, và do đó được vô hiệu hóa theo mặc định.
 
 *Chỉ thị cấu hình có liên quan:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1745,4 +1741,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2020.07.07.
+Lần cuối cập nhật: 2020.07.16.

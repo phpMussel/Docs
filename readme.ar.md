@@ -111,13 +111,23 @@ https://github.com/phpMussel/Examples
 
 <div dir="rtl">مع ذلك، فإنك قادراً أيضاً على إرشاد phpMussel لمسح ملفات معينة مثل الدلائل و/ أو المحفوظات. للقيام بذلك فعليك أولاً: سوف تحتاج إلى التأكد من أن يتم تعيين التكوين المناسب في ملف "config.ini" (يجب تعطيل عملية التنظيف) وعندما تنتهي من ذلك، في ملف PHP و الذي تم ربطه مع phpMussel، استخدم الدالة التالية في التعليمة البرمجية "الكود" الذي ستضعه:<br /><br /></div>
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
 <div dir="rtl"><ul>
- <li><code dir="ltr">$what_to_scan</code> يمكن أن تكون سلسلة، مصفوفة، أو مجموعة من المصفوفات، وتشير إلى أي ملف/ملفات، دليل و/أو دلائل ليتم إجراء المسح عليها.</li>
+ <li><code dir="ltr">$Target</code> يمكن أن تكون سلسلة، مصفوفة، أو مجموعة من المصفوفات، وتشير إلى أي ملف/ملفات، دليل و/أو دلائل ليتم إجراء المسح عليها.</li>
  <li><code dir="ltr">$output_type</code> هي قيمة منطقية تدل على نتائج الفحص ليتم إرجاعها كالتالي، الخطأ يرشد الدالة لإرجاع نتائج الفحص على شكل عدد (النتائج المرجعة -4 يشير إلى أن البيانات لا يمكن فحصها بسبب التشفير، -3 يشير إلى أن مشاكل تمت مواجهتها مع ملفات التوقيعات، -2 تشير إلى أنه تم الكشف عن بيانات تالفة خلال الفحص وبالتالي فشل في إكمال الفحص، 0 يشير إلى أن هدف الفحص غير موجود و بالتالي لم تكن هناك حاجة لعملية الفحص، 1 يشير إلى أن الهدف تم فحصه بنجاح و لم يتم الكشف عن أي مشاكل، 2 يشير إلى أن الهدف تم فحصه بنجاح و تم الكشف عن مشاكل. القيمة الصحيحة ترشد الدالة لإرجاع نتائج الفحص كنص مقروء للبشر. بالإضافة إلى ذلك، في كلتا الحالتين، يمكن الوصول إلى النتائج عبر المتغيرات العالمية بعد اكتمال الفحص. هذا المتغير هو اختياري و إذا لم تحدد فالافتراضي هو القيمة الخطأ.</li>
- <li><code dir="ltr">$output_flatness</code> هي قيمة منطقية تشير إلى دالة بالعودة لنتائج الفحص من النوعين (عندما يكون هناك أهداف فحص متعددة)، سواء خاطئة فتعود النتائج على شكل مصفوفة، أو صحيحة فتعود النتائج على شكل سلسلة. هذا المتغير هو اختياري و إذا لم تحدد فالافتراضي هو القيمة الخطأ.</li>
 </ul></div>
+
+النتائج | وصف
+--:|--:
+-5 | Indicates that the scan failed to complete for other reasons.
+-4 | Indicates that data couldn't be scanned due to encryption.
+-3 | Indicates that problems were encountered with the phpMussel signatures files.
+-2 | Indicates that corrupt data was detected during the scan and thus the scan failed to complete.
+-1 | Indicates that extensions or addons required by PHP to execute the scan were missing and thus the scan failed to complete.
+0 | Indicates that the scan target doesn't exist and thus there was nothing to scan.
+1 | Indicates that the target was successfully scanned and no problems were detected.
+2 | Indicates that the target was successfully scanned and problems were detected.
 
 <div dir="rtl">أمثلة:<br /><br /></div>
 
@@ -540,8 +550,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### <div dir="rtl">"signatures" (التصنيف)<br /></div>
@@ -1039,10 +1047,7 @@ smtp_secure
  <li><a href="#ACCEPT_OR_OFFER_WORK">أنا مطور، مصمم موقع، أو مبرمج. هل يمكنني قبول أو عرض العمل المتعلق بهذا المشروع؟</a></li>
  <li><a href="#WANT_TO_CONTRIBUTE">أريد أن أساهم في المشروع؛ هل يمكنني فعل هذا؟</a></li>
  <li><a href="#SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a></li>
- <li><a href="#CRON_TO_UPDATE_AUTOMATICALLY">هل يمكنني استخدام cron لتحديث تلقائيا؟</a></li>
- <li><a href="#SCAN_NON_ANSI">هل يمكن فحص ملفات phpMussel بأسماء غير ANSI؟</a></li>
  <li><a href="#BLACK_WHITE_GREY">القوائم السوداء – القوائم البيضاء – القائمة الرمادية – ما هي، وكيف أستخدمها؟</a></li>
- <li><a href="#CHANGE_COMPONENT_SORT_ORDER">عندما أقوم بتنشيط أو إلغاء تنشيط ملفات التوقيع عبر صفحة التحديثات، فإنها تقوم بترتيبها أبجديًا في التكوين. هل يمكنني تغيير الطريقة التي يتم تصنيفها بها؟</a></li>
  <li><a href="#HOW_TO_USE_PDO">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a></li>
  <li><a href="#AJAX_AJAJ_JSON">تحميلاتي غير متزامنة (على سبيل المثال، يستخدم ajax، ajaj، json، إلخ). لا أرى أي رسالة أو تحذير خاص عند حظر التحميل. ماذا يحدث هنا؟</a></li>
 </ul></div>
@@ -1175,68 +1180,6 @@ var_dump($Foo);
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <div dir="rtl"><a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>هل يمكنني استخدام cron لتحديث تلقائيا؟<br /><br /></div>
-
-<div dir="rtl">نعم. يتم تضمين API في front-end للتفاعل مع صفحة التحديثات عبر النصوص البرمجية الخارجية. وهناك نص منفصل، <a href="https://github.com/Maikuolan/Cronable">Cronable</a>، هو متاح، ويمكن استخدامها من قبل مدير كرون أو كرون جدولة لتحديث هذا وغيرها من الحزم المعتمدة تلقائيا (يوفر هذا البرنامج النصي وثائقه الخاصة).<br /><br /></div>
-
-#### <div dir="rtl"><a name="SCAN_NON_ANSI"></a>هل يمكن فحص ملفات phpMussel بأسماء غير ANSI؟<br /><br /></div>
-
-<div dir="rtl">لنفترض أن هناك مجلدًا تريد مسحه ضوئيًا. في هذا المجلد، لديك بعض الملفات ذات أسماء غير ANSI.<br /><br /></div>
-
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-<div dir="rtl">لنفترض أنك إما تستخدم وضع CLI أو واجهة برمجة تطبيقات phpMussel لإجراء المسح الضوئي.<br /><br /></div>
-
-<div dir="rtl">عند استخدام <code dir="ltr">PHP &lt; 7.1.0</code>، على بعض الأنظمة، لن يرى phpMussel هذه الملفات عند محاولة مسح المجلد، وبالتالي، لن تتمكن من فحص هذه الملفات ضوئيًا. من المرجح أن ترى النتائج نفسها كما لو كنت تفحص مجلدًا فارغًا:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">بالإضافة إلى ذلك، عند استخدام <code dir="ltr">PHP &lt; 7.1.0</code>، ينتج عن فحص الملفات بشكل فردي نتائج مثل هذه:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > Checking 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> Invalid file!
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">أو هذه:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > X:/directory/??????.txt is not a file or directory.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">هذا بسبب الطريقة التي تعامل بها PHP مع أسماء ملفات غير ANSI قبل <code dir="ltr">PHP 7.1.0</code>. إذا واجهت هذه المشكلة، فإن الحل هو تحديث تثبيت PHP الخاص بك إلى الإصدار <code dir="ltr">7.1.0</code> أو الأحدث. في <code dir="ltr">PHP &gt;= 7.1.0</code>، يتم التعامل مع أسماء ملفات غير ANSI بشكل أفضل، ويجب أن يكون phpMussel قادرًا على فحص الملفات بشكل صحيح.<br /><br /></div>
-
-<div dir="rtl">للمقارنة، فإن النتائج عند محاولة مسح المجلد باستخدام <code dir="ltr">PHP &gt;= 7.1.0</code>:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- -> Checking '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> No problems found.
- -> Checking '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> No problems found.
- -> Checking '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> No problems found.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
-<div dir="rtl">ومحاولة مسح الملفات بشكل فردي:<br /><br /></div>
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Started.
- > Checking 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> No problems found.
- Sun, 01 Apr 2018 22:27:41 +0800 Finished.
-```
-
 #### <div dir="rtl"><a name="BLACK_WHITE_GREY"></a>القوائم السوداء – القوائم البيضاء – القائمة الرمادية – ما هي، وكيف أستخدمها؟<br /><br /></div>
 
 <div dir="rtl">تعبر المصطلحات معان مختلفة في سياقات مختلفة. في phpMussel، هناك ثلاث سياقات حيث يتم استخدام هذه المصطلحات: استجابة حجم الملف، استجابة نوع الملف، والتوقيع القائمة الرمادية.<br /><br /></div>
@@ -1252,24 +1195,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 <div dir="rtl">القائمة الرمادية هو قائمة بالتوقيعات التي يجب تجاهلها (هذا يذكر لفترة وجيزة في وقت سابق من الوثائق). عندما يتم تشغيل التوقيع على توقيع القائمة الرمادية، يستمر phpMussel بالعمل من خلال توقيعاته ولا يتخذ أي إجراء معين فيما يتعلق بالتوقيع. لا توجد قائمة سوداء مميزة، لأن السلوك الضمني هو سلوك طبيعي للتوقيعات المشغلة على أي حال، وليس هناك قائمة بيضاء مميزة، لأن السلوك الضمني لن يكون منطقيًا حقًا بالنظر إلى كيفية عمل phpMussel العادي والإمكانيات المتوفرة لديه بالفعل.<br /><br /></div>
 
 <div dir="rtl">يكون توقيع القائمة الرمادية مفيدًا إذا كنت بحاجة إلى حل المشكلات التي يسببها توقيع معين دون تعطيل أو إلغاء تثبيت ملف التوقيع بأكمله.<br /><br /></div>
-
-#### <div dir="rtl"><a name="CHANGE_COMPONENT_SORT_ORDER"></a>عندما أقوم بتنشيط أو إلغاء تنشيط ملفات التوقيع عبر صفحة التحديثات، فإنها تقوم بترتيبها أبجديًا في التكوين. هل يمكنني تغيير الطريقة التي يتم تصنيفها بها؟<br /><br /></div>
-
-<div dir="rtl">نعم. إذا كنت بحاجة إلى فرض بعض الملفات للتنفيذ بترتيب معين، فيمكنك إضافة بعض البيانات الاعتباطية قبل أسمائها في توجيه التهيئة حيث يتم إدراجها، مفصولة بنقطتين. عندما تقوم صفحة التحديثات بفرز الملفات في وقت لاحق، ستؤثر هذه البيانات العشوائية المضافة على ترتيب الفرز، مما يؤدي إلى تنفيذها وفقًا للترتيب الذي تريده، دون الحاجة إلى إعادة تسمية أي منها.<br /><br /></div>
-
-<div dir="rtl">على سبيل المثال، بافتراض توجيه تكوين مع الملفات المسرودة كما يلي:<br /><br /></div>
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-<div dir="rtl">إذا كنت تريد <code dir="ltr">file3.php</code> تنفيذ أولاً، يمكنك إضافة شيء مثل <code dir="ltr">aaa:</code> قبل اسم الملف:<br /><br /></div>
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-<div dir="rtl">وبعد ذلك، إذا تم تنشيط ملف جديد، <code dir="ltr">file6.php</code>، فعندما تقوم صفحة التحديثات بفرزها مرة أخرى، يجب أن ينتهي الأمر بهذا الشكل:<br /><br /></div>
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-<div dir="rtl">نفس الموقف عندما يتم إلغاء تنشيط الملف. وبالعكس، إذا أردت تنفيذ الملف آخر، فيمكنك إضافة شيء مثل <code dir="ltr">zzz:</code> قبل اسم الملف. على أي حال، لن تحتاج إلى إعادة تسمية الملف المعني.<br /><br /></div>
 
 #### <div dir="rtl"><a name="HOW_TO_USE_PDO"></a>ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟<br /><br /></div>
 
@@ -1456,22 +1381,12 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 
 <div dir="rtl">لغرض الشفافية، يتم وصف نوع المعلومات المشتركة أدناه.<br /><br /></div>
 
-##### <div dir="rtl">١١.٢.٠ خطوط الويب<br /><br /></div>
-
-<div dir="rtl">بعض السمات المخصصة، واجهة المستخدم القياسية phpMussel، وصفحة "رفض تحميل" قد تستخدم خطوط الويب لأسباب جمالية. يتم تعطيل خطوط الويب بشكل افتراضي. عند التمكين، هناك اتصال مباشر بين متصفح المستخدم ومضيف الويب. قد ينطوي ذلك على نقل معلومات مثل عنوان IP الخاص بالمستخدم، وكيل المستخدم، نظام التشغيل، وغيرها من التفاصيل المتاحة للطلب. تستضيف <a href="https://fonts.google.com/">خدمة خطوط Google</a> معظم خطوط الويب هذه.<br /><br /></div>
-
-<div dir="rtl">خيارات التكوين ذات الصلة:<br /></div>
-<div dir="rtl"><ul>
- <li><code dir="ltr">disable_webfonts</code> &lt;- <code dir="ltr">general</code></li>
-</ul></div>
-
 ##### <div dir="rtl">١١.٢.١ ماسح URL<br /><br /></div>
 
-<div dir="rtl">قد تتم مشاركة عناوين URL الموجودة داخل عمليات تحميل الملفات مع واجهة برمجة التطبيقات لـ hpHosts أو واجهة برمجة تطبيقات التصفح الآمن من Google، بناءً على كيفية تهيئة الحزمة. في حالة API hpHosts، يتم تمكين هذا السلوك بشكل افتراضي. تتطلب واجهة برمجة تطبيقات التصفح الآمن من Google مفاتيح API لكي تعمل بشكل صحيح، وبالتالي يتم تعطيلها افتراضيًا.<br /><br /></div>
+<div dir="rtl">قد تتم مشاركة عناوين URL الموجودة داخل عمليات تحميل الملفات مع براجهة برمجة تطبيقات التصفح الآمن Google، بناءً على كيفية تهيئة الحزمة. تتطلب واجهة برمجة تطبيقات التصفح الآمن من Google مفاتيح API لكي تعمل بشكل صحيح، وبالتالي يتم تعطيلها افتراضيًا.<br /><br /></div>
 
 <div dir="rtl">خيارات التكوين ذات الصلة:<br /></div>
 <div dir="rtl"><ul>
- <li><code dir="ltr">lookup_hphosts</code> &lt;- <code dir="ltr">urlscanner</code></li>
  <li><code dir="ltr">google_api_key</code> &lt;- <code dir="ltr">urlscanner</code></li>
 </ul></div>
 
@@ -1672,4 +1587,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 8 يوليو 2020 (2020.07.08).</div>
+<div dir="rtl">آخر تحديث: 16 يوليو 2020 (2020.07.16).</div>

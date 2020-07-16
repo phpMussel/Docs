@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ Un scanner d'URL est inclus avec phpMussel, capable de détecter les URLs malvei
 Noter : Si le scanner d'URLs est désactivé, vous ne serez pas besoin de revoir quelconque du directives dans cette catégorie (`urlscanner`), parce qu'aucun d'eux avoir une fonction si cette directive est désactivée.
 
 Configuration du scanner d'URLs API chercher.
-
-##### « lookup_hphosts »
-- Permet cherches de l'API [hpHosts](https://hosts-file.net/) quand définit comme true. hpHosts ne nécessite pas une clé de l'API pour effectuer des cherches de l'API.
 
 ##### « google_api_key »
 - Permet cherches de l'API Google Safe Browsing quand l'API clé nécessaire est définie. API Google Safe Browsing cherches nécessite une clé de l'API, qui peut être obtenu à partir [d'ici](https://console.developers.google.com/).
@@ -1587,10 +1584,9 @@ Certains thèmes personnalisés, et aussi l'interface utilisateur standard pour 
 
 ##### 11.2.1 SCANNER D'URL
 
-Les URL trouvées dans les téléchargements de fichiers peuvent être partagées avec l'API hpHosts ou l'API Google Safe Browsing, en fonction de la configuration du package. Dans le cas de l'API hpHosts, ce comportement est activé par défaut. L'API Google Safe Browsing requiert des clés API pour fonctionner correctement, et est donc désactivée par défaut.
+Les URL trouvées dans les téléchargements de fichiers peuvent être partagées avec l'API Google Safe Browsing, en fonction de la configuration du package. L'API Google Safe Browsing requiert des clés API pour fonctionner correctement, et est donc désactivée par défaut.
 
 *Directives de configuration pertinentes :*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1761,4 +1757,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 7 Juillet 2020 (2020.07.07).
+Dernière mise à jour : 16 Juillet 2020 (2020.07.16).

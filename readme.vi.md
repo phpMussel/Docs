@@ -107,22 +107,21 @@ Quét tập tin tải lên là tự động và kích hoạt theo mặc định,
 
 Tuy nhiên, bạn cũng có thể nói với phpMussel để quét tập tin cụ thể, thư mục hay kho lưu trữ. Để làm điều này, trước hết, bạn sẽ cần phải đảm bảo rằng các cấu hình thích hợp được thiết lập trong tập tin `config.ini` (`cleanup` phải được vô hiệu hóa), và khi thực hiện, trong một tập tin PHP được kết nối với phpMussel, sử dụng sau đây trong mã của bạn:
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$what_to_scan` có thể là một string, hoặc một hay nhiều của array, và chỉ ra đó tập tin hay thư mục để quét.
+- `$Target` có thể là một string, hoặc một hay nhiều của array, và chỉ ra đó tập tin hay thư mục để quét.
 - `$output_type` là một boolean, và chỉ ra đó định dạng cho kết quả quét được trả về như. `false` hướng dẫn các chức năng để trả về kết quả là một số nguyên. `true` hướng dẫn các chức năng trả lại kết quả dưới dạng văn bản có thể đọc được con người. Ngoài ra, trong cả hai trường hợp, kết quả có thể được truy cập thông qua biến toàn cầu sau khi quét đã hoàn thành. Biến này là tùy chọn, mặc định là `false`. Sau đây mô tả các kết quả số nguyên:
 
-| Các kết quả | Sự miêu tả |
-|---|---|
-| -4 | Chỉ ra rằng không thể quét dữ liệu vì mã hóa. |
-| -3 | Chỉ ra rằng vấn đề gặp phải với các tập tin chữ ký. |
-| -2 | Chỉ ra rằng dữ liệu bị hỏng đã được phát hiện trong quá trình quét và như vậy quét không hoàn thành. |
-| -1 | Chỉ ra rằng mở rộng hay bổ sung theo yêu cầu của PHP để thực hiện quá trình quét bị mất tích và như vậy quét không hoàn thành. |
-| 0 | Chỉ ra rằng mục tiêu quét không tồn tại và như vậy không có gì để quét. |
-| 1 | Chỉ ra rằng các mục tiêu đã được quét thành công và không có vấn đề đã được phát hiện. |
-| 2 | Chỉ ra rằng các mục tiêu đã được quét thành công và vấn đề đã được phát hiện. |
-
-- `$output_flatness` là một boolean, chỉ ra cho các chức năng liệu có nên trả lại kết quả quét (khi có nhiều mục tiêu quét) như là một array hoặc một string. `false` sẽ trả lại kết quả như là một array. `true` sẽ trả lại kết quả như là một string. Biến này là tùy chọn, mặc định là `false`.
+Các kết quả | Sự miêu tả
+--:|:--
+-5 | Chỉ ra rằng việc quét không hoàn thành vì lý do khác.
+-4 | Chỉ ra rằng không thể quét dữ liệu vì mã hóa.
+-3 | Chỉ ra rằng vấn đề gặp phải với các tập tin chữ ký.
+-2 | Chỉ ra rằng dữ liệu bị hỏng đã được phát hiện trong quá trình quét và như vậy quét không hoàn thành.
+-1 | Chỉ ra rằng mở rộng hay bổ sung theo yêu cầu của PHP để thực hiện quá trình quét bị mất tích và như vậy quét không hoàn thành.
+0 | Chỉ ra rằng mục tiêu quét không tồn tại và như vậy không có gì để quét.
+1 | Chỉ ra rằng các mục tiêu đã được quét thành công và không có vấn đề đã được phát hiện.
+2 | Chỉ ra rằng các mục tiêu đã được quét thành công và vấn đề đã được phát hiện.
 
 Các ví dụ:
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### "signatures" (Thể loại)
@@ -1035,10 +1032,7 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 - [Tôi là nhà phát triển, nhà thiết kế trang web, hay lập trình viên. Tôi có thể chấp nhận hay cung cấp các công việc liên quan đến dự án này không?](#ACCEPT_OR_OFFER_WORK)
 - [Tôi muốn đóng góp cho dự án; Tôi có thể làm được điều này?](#WANT_TO_CONTRIBUTE)
 - [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#SCAN_DEBUGGING)
-- [Tôi có thể sử dụng cron để cập nhật tự động không?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [Có thể phpMussel quét các tập tin có tên không ANSI?](#SCAN_NON_ANSI)
 - [Danh sách đen – Danh sách trắng – Danh sách xám – Họ là gì, và làm cách nào để sử dụng chúng?](#BLACK_WHITE_GREY)
-- [Khi tôi kích hoạt hoặc hủy kích hoạt các tập tin chữ ký thông qua trang cập nhật, nó sắp xếp chúng theo thứ tự chữ và số trong cấu hình. Tôi có thể thay đổi cách họ được sắp xếp không?](#CHANGE_COMPONENT_SORT_ORDER)
 - ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#HOW_TO_USE_PDO)
 - [Chức năng tải lên của tôi không đồng bộ (ví dụ, sử dụng ajax, ajaj, json, vv). Tôi không thấy bất kỳ thông báo hoặc cảnh báo đặc biệt nào khi tải lên bị chặn. Chuyện gì đang xảy ra vậy?](#AJAX_AJAJ_JSON)
 
@@ -1169,67 +1163,6 @@ Nếu bạn muốn, mảng này có thể bị phá hủy bằng cách sử dụ
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>Tôi có thể sử dụng cron để cập nhật tự động không?
-
-Vâng. API được tích hợp trong front-end để tương tác với trang cập nhật thông qua các kịch bản bên ngoài. Một kịch bản riêng biệt, "[Cronable](https://github.com/Maikuolan/Cronable)", là có sẵn, và có thể được sử dụng bởi cron manager hay cron scheduler để tự động cập nhật gói này và gói hỗ trợ khác (kịch bản này cung cấp tài liệu riêng của nó).
-
-#### <a name="SCAN_NON_ANSI"></a>Có thể phpMussel quét các tập tin có tên không ANSI?
-
-Giả sử có một thư mục bạn muốn quét. Trong thư mục này, bạn có một số tập tin có tên không ANSI.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Giả sử rằng bạn đang sử dụng chế độ CLI hoặc phpMussel API để quét.
-
-Khi sử dụng PHP < 7.1.0, trên một số hệ thống, phpMussel sẽ không thấy các tập tin này khi cố gắng quét thư mục, và do đó, sẽ không thể quét các tập tin này. Bạn có thể sẽ thấy kết quả tương tự như khi bạn quét một thư mục rỗng:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Đã bắt đầu.
- Sun, 01 Apr 2018 22:27:41 +0800 Hoàn thành.
-```
-
-Ngoài ra, khi sử dụng PHP < 7.1.0, quét các tập tin riêng lẻ tạo kết quả như sau:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Đã bắt đầu.
- > Đang kiểm tra 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> Tập tin không hợp lệ!
- Sun, 01 Apr 2018 22:27:41 +0800 Hoàn thành.
-```
-
-Hoặc những điều sau:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Đã bắt đầu.
- > X:/directory/??????.txt không phải là file hoạc thư mục.
- Sun, 01 Apr 2018 22:27:41 +0800 Hoàn thành.
-```
-
-Điều này là do cách mà PHP xử lý các tên tập tin không phải ANSI trước PHP 7.1.0. Nếu bạn gặp vấn đề này, giải pháp là cập nhật cài đặt PHP lên phiên bản 7.1.0 trở lên. Trong PHP >= 7.1.0, tên tập tin không phải ANSI được xử lý tốt hơn, và phpMussel sẽ có thể quét các tập tin đúng cách.
-
-Để so sánh, kết quả khi cố gắng quét các thư mục bằng cách sử dụng PHP >= 7.1.0:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Đã bắt đầu.
- -> Đang kiểm tra '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> Không tiềm được vấn đề.
- -> Đang kiểm tra '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> Không tiềm được vấn đề.
- -> Đang kiểm tra '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> Không tiềm được vấn đề.
- Sun, 01 Apr 2018 22:27:41 +0800 Hoàn thành.
-```
-
-Và cố gắng để quét các tập tin riêng biệt:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Đã bắt đầu.
- > Đang kiểm tra 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> Không tiềm được vấn đề.
- Sun, 01 Apr 2018 22:27:41 +0800 Hoàn thành.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Danh sách đen – Danh sách trắng – Danh sách xám – Họ là gì, và làm cách nào để sử dụng chúng?
 
 Các thuật ngữ mang ý nghĩa khác nhau trong các ngữ cảnh khác nhau. Trong phpMussel, có ba ngữ cảnh mà các thuật ngữ này được sử dụng: Đáp ứng kích thước tập tin, đáp ứng loại tập tin, và danh sách xám cho chữ ký.
@@ -1245,24 +1178,6 @@ Trong hai ngữ cảnh này, nằm trong danh sách trắng có nghĩa là khôn
 Danh sách xám cho chữ ký là một danh sách các chữ ký mà về cơ bản sẽ được bỏ qua (điều này đã được đề cập trước đó trong tài liệu). Khi một chữ ký trên danh sách xám được kích hoạt, phpMussel tiếp tục làm việc thông qua các chữ ký của nó và không có hành động cụ thể liên quan đến chữ ký trên danh sách xám. Không có danh sách đen chữ ký, bởi vì hành vi ngụ ý là hành vi bình thường cho chữ ký kích hoạt, và không có danh sách trắng chữ ký, bởi vì hành vi ngụ ý sẽ không thực sự có ý nghĩa trong việc xem xét như thế nào phpMussel hoạt động bình thường và những điều đã có thể đã làm.
 
 Danh sách xám chữ ký rất hữu ích nếu bạn cần giải quyết các vấn đề gây ra bởi một chữ ký cụ thể mà không cần vô hiệu hoặc gỡ cài đặt toàn bộ tập tin chữ ký.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>Khi tôi kích hoạt hoặc hủy kích hoạt các tập tin chữ ký thông qua trang cập nhật, nó sắp xếp chúng theo thứ tự chữ và số trong cấu hình. Tôi có thể thay đổi cách họ được sắp xếp không?
-
-Vâng. Nếu bạn cần buộc một số tập tin thực thi theo thứ tự cụ thể, bạn có thể thêm một số dữ liệu tùy ý trước tên của chúng trong chỉ thị cấu hình nơi chúng được liệt kê, được phân tách bằng dấu hai chấm. Khi trang cập nhật sau đó sắp xếp lại các tập tin, dữ liệu tùy ý được thêm này sẽ ảnh hưởng đến thứ tự sắp xếp, gây ra chúng do đó để thực hiện theo thứ tự mà bạn muốn, mà không cần phải đổi tên bất kỳ người nào trong số họ.
-
-Ví dụ, giả sử một chỉ thị cấu hình với các tập tin được liệt kê như sau:
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-Nếu bạn muốn `file3.php` thực hiện trước, bạn có thể thêm một cái gì đó như `aaa:` trước tên của tập tin:
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Sau đó, nếu một tập tin mới, `file6.php`, được kích hoạt, khi trang cập nhật sắp xếp lại tất cả, nó sẽ kết thúc như sau:
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-Tình huống tương tự khi một tập tin bị hủy kích hoạt. Ngược lại, nếu bạn muốn tập tin thực thi cuối cùng, bạn có thể thêm một cái gì đó như `zzz:` trước tên của tập tin. Trong mọi trường hợp, bạn sẽ không cần đổi tên tập tin đang được đề cập đến.
 
 #### <a name="HOW_TO_USE_PDO"></a>"PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?
 
@@ -1451,19 +1366,11 @@ Thông tin này có thể được các bên thứ ba này sử dụng như th�
 
 Với mục đích minh bạch, loại thông tin được chia sẻ, và với ai, được mô tả dưới đây.
 
-##### 11.2.0 WEBFONT
-
-Một số chủ đề tùy chỉnh, cũng như UI chuẩn ("giao diện người dùng") cho front-end phpMussel và trang "Sự tải lên đã bị từ chối", có thể sử dụng các webfont vì lý do thẩm mỹ. Các webfont được vô hiệu hóa theo mặc định, nhưng khi được kích hoạt, giao tiếp trực tiếp giữa trình duyệt của người dùng và dịch vụ lưu trữ webfont sẽ xảy ra. Điều này có thể liên quan đến việc truyền thông tin như địa chỉ IP của người dùng, đại lý người dùng, hệ điều hành, và các chi tiết khác có sẵn cho yêu cầu. Hầu hết các webfont này được lưu trữ bởi dịch vụ [Google Fonts](https://fonts.google.com/).
-
-*Chỉ thị cấu hình có liên quan:*
-- `general` -> `disable_webfonts`
-
 ##### 11.2.1 MÁY QUÉT URL
 
-Các URL được tìm thấy trong các tải lên tập tin có thể được chia sẻ với API hpHosts hay API duyệt web an toàn của Google, tùy thuộc vào cách gói được định cấu hình. Trong trường hợp của API hpHosts, hành vi này được kích hoạt theo mặc định. API duyệt web an toàn của Google yêu cầu các khóa API để hoạt động chính xác, và do đó được vô hiệu hóa theo mặc định.
+Các URL được tìm thấy trong các tải lên tập tin có thể được chia sẻ với API duyệt web an toàn của Google, tùy thuộc vào cách gói được định cấu hình. API duyệt web an toàn của Google yêu cầu các khóa API để hoạt động chính xác, và do đó được vô hiệu hóa theo mặc định.
 
 *Chỉ thị cấu hình có liên quan:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1628,4 +1535,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2020.07.08.
+Lần cuối cập nhật: 2020.07.16.

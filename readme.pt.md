@@ -107,22 +107,21 @@ Análise dos arquivos carregados via upload é automatizado e ativado por padrã
 
 Porém, você também é capaz de instruir phpMussel para verificar arquivos e/ou diretórios específicos. Para fazer isso, em primeiro lugar, você vai precisar assegurar que a configuração apropriada é definida no arquivo `config.ini` (`cleanup` deve ser desativado), e quando feito, em um arquivo PHP que está enganchado ao phpMussel, usar a seguinte função no seu código:
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$what_to_scan` pode ser uma string, um matriz, ou um matriz de matrizes, e indica qual arquivo, arquivos, diretório e/ou diretórios para analisar.
+- `$Target` pode ser uma string, um matriz, ou um matriz de matrizes, e indica qual arquivo, arquivos, diretório e/ou diretórios para analisar.
 - `$output_type` é um booleano, indicando o formato para os resultados da verificação a serem retornados. `false` instrui a função para retornar resultados como um número inteiro. `true` instrui a função para retornar os resultados como texto legível. Adicionalmente, em ambos os casos, os resultados podem ser acessados através de variáveis globais após o análise já concluída. Esta variável é opcional, definida como `false` por padrão. O seguinte descreve os resultados inteiros:
 
-| Resultados | Descrição |
-|---|---|
-| -4 | Indica que os dados não puderam ser analisados devido a encriptação. |
-| -3 | Indica que problemas foram encontrados com os arquivos de assinatura do phpMussel. |
-| -2 | Indica que dados corrompidos foram detectados durante a análise, e portanto, a análise não foi concluída. |
-| -1 | Indica que extensões ou complementos necessários pelo PHP para executar a análise estavam faltando, e portanto, a análise não foi concluída. |
-| 0 | Indica que o alvo de análise não existe, e portanto, havia nada para verificar. |
-| 1 | Indica que o alvo foi analisado e não foram detectados problemas. |
-| 2 | Indica que o alvo foi analisado e problemas foram detectados. |
-
-- `$output_flatness` é um booleano, indicando para a função ou retornar os resultados de análise (quando há vários alvos para analisando) como uma matriz ou uma string. `false` irá retornar os resultados como uma matriz. `true` irá retornar os resultados como uma string. Esta variável é opcional, definida como `false` por padrão.
+Resultados | Descrição
+--:|:--
+-5 | Indica que a análise falhou ao concluir por outros motivos.
+-4 | Indica que os dados não puderam ser analisados devido a encriptação.
+-3 | Indica que problemas foram encontrados com os arquivos de assinatura do phpMussel.
+-2 | Indica que dados corrompidos foram detectados durante a análise, e portanto, a análise não foi concluída.
+-1 | Indica que extensões ou complementos necessários pelo PHP para executar a análise estavam faltando, e portanto, a análise não foi concluída.
+0 | Indica que o alvo de análise não existe, e portanto, havia nada para verificar.
+1 | Indica que o alvo foi analisado e não foram detectados problemas.
+2 | Indica que o alvo foi analisado e problemas foram detectados.
 
 Exemplos:
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### "signatures" (Categoria)
@@ -1035,10 +1032,7 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 - [Eu sou um desenvolvedor, designer de site, ou programador. Posso aceitar ou oferecer trabalho relacionado a este projeto?](#ACCEPT_OR_OFFER_WORK)
 - [Quero contribuir para o projeto; Posso fazer isso?](#WANT_TO_CONTRIBUTE)
 - [Como acessar detalhes específicos sobre os arquivos quando eles são analisados?](#SCAN_DEBUGGING)
-- [Posso usar o cron para atualizar automaticamente?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [O phpMussel pode analisar arquivos com nomes não-ANSI?](#SCAN_NON_ANSI)
 - [Blacklists (listas negras) – Whitelists (listas brancas) – Greylists (listas cinzentas) – Quais são eles e como eu os uso?](#BLACK_WHITE_GREY)
-- [Quando eu ativar ou desativar os arquivos de assinatura através da página de atualizações, eles os classificam alfanumericamente na configuração. Posso mudar a maneira como eles são classificados?](#CHANGE_COMPONENT_SORT_ORDER)
 - [O que é um "PDO DSN"? Como posso usar o PDO com o phpMussel?](#HOW_TO_USE_PDO)
 - [Meu recurso de upload é assíncrono (p.e., usa ajax, ajaj, json, etc). Não vejo nenhuma mensagem ou aviso especial quando um upload é bloqueado. O que está acontecendo?](#AJAX_AJAJ_JSON)
 
@@ -1169,67 +1163,6 @@ Opcionalmente, esta matriz pode ser destruída usando o seguinte:
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>Posso usar o cron para atualizar automaticamente?
-
-Sim. Uma API é integrada no front-end para interagir com a página de atualizações por meio de scripts externos. Um script separado, "[Cronable](https://github.com/Maikuolan/Cronable)", está disponível, e pode ser usado pelo seu cron manager ou cron scheduler para atualizar este e outros pacotes suportados automaticamente (este script fornece sua própria documentação).
-
-#### <a name="SCAN_NON_ANSI"></a>O phpMussel pode analisar arquivos com nomes não-ANSI?
-
-Digamos que haja um diretório que você queira analisar. Neste diretório, você tem alguns arquivos com nomes não-ANSI.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Vamos supor que você esteja usando o modo CLI ou a API do phpMussel para fazer a análise.
-
-Ao usar o PHP < 7.1.0, em alguns sistemas, o phpMussel não verá esses arquivos ao tentar analisar o diretório e, portanto, não conseguirá analisar esses arquivos. Você provavelmente verá os mesmos resultados como se fosse analisar um diretório vazio:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Começado.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-Além disso, ao usar o PHP < 7.1.0, analisando os arquivos individualmente produz resultados como estes:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Começado.
- > Verificando 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> Arquivo inválido!
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-Ou estes:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Começado.
- > X:/directory/??????.txt não é um arquivo ou diretório.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-Isto é devido à maneira como o PHP lidou com nomes de arquivos não-ANSI antes do PHP 7.1.0. Se você tiver esse problema, a solução é atualizar sua instalação do PHP para 7.1.0 ou mais recente. No PHP >= 7.1.0, nomes de arquivos não-ANSI são tratados melhor, e o phpMussel deve ser capaz de analisar os arquivos corretamente.
-
-Para comparação, os resultados ao tentar analisar o diretório usando PHP >= 7.1.0:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Começado.
- -> Verificando '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> Não problemas encontrados.
- -> Verificando '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> Não problemas encontrados.
- -> Verificando '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> Não problemas encontrados.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
-E tentando analisar os arquivos individualmente:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Começado.
- > Verificando 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> Não problemas encontrados.
- Sun, 01 Apr 2018 22:27:41 +0800 Terminado.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists (listas negras) – Whitelists (listas brancas) – Greylists (listas cinzentas) – Quais são eles e como eu os uso?
 
 Os termos têm diferentes significados em diferentes contextos. No phpMussel, existem três contextos em que esses termos são usados: Resposta do tamanho do arquivo, resposta do tipo de arquivo, e a lista cinza das assinaturas.
@@ -1245,24 +1178,6 @@ Nestes dois contextos, a lista branca significa que não deve ser analisada ou m
 A lista cinza da assinaturas é uma lista de assinaturas que devem ser essencialmente ignoradas (isso é brevemente mencionado anteriormente na documentação). Quando uma assinatura na lista cinza é desencadeadas, o phpMussel continua a trabalhar através de suas assinaturas e não toma nenhuma ação específica em relação à assinatura na lista cinza. Não há lista negra da assinaturas, porque o comportamento implícito é o comportamento normal para assinaturas desencadeadas de qualquer maneira, e não há lista branca da assinaturas, porque o comportamento implícito não faria realmente sentido em relação ao funcionamento normal do phpMussel e aos recursos que ele já possui.
 
 A lista de cinza da assinaturas é útil se você precisar resolver problemas causados por uma assinatura específica sem desabilitar ou desinstalar todo os arquivo do assinaturas.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>Quando eu ativar ou desativar os arquivos de assinatura através da página de atualizações, eles os classificam alfanumericamente na configuração. Posso mudar a maneira como eles são classificados?
-
-Sim. Se você precisar forçar alguns arquivos a serem executados numa ordem específica, você pode adicionar alguns dados arbitrários antes de seus nomes na diretiva de configuração, onde eles estão listados, separados por dois pontos. Quando a página de atualizações subseqüentemente classifica os arquivos novamente, esses dados arbitrários adicionados afetarão a ordem de classificação, fazendo com que eles sejam executados na ordem que você deseja, sem precisar renomear nenhum deles.
-
-Por exemplo, assumindo uma diretiva de configuração com arquivos listados da seguinte maneira:
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-Se você queria `file3.php` para executar primeiro, você poderia adicionar algo como `aaa:` antes do nome do arquivo:
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Então, se um novo arquivo, `file6.php`, estiver ativado, quando a página de atualizações classifica os novamente, ele deve terminar assim:
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-Mesma situação quando um arquivo é desativado. Por outro lado, se você quiser que o arquivo seja executado por último, você poderia adicionar algo como `zzz:` antes do nome do arquivo. Em qualquer caso, você não precisará renomear o arquivo em questão.
 
 #### <a name="HOW_TO_USE_PDO"></a>O que é um "PDO DSN"? Como posso usar o PDO com o phpMussel?
 
@@ -1455,19 +1370,11 @@ Como esta informação pode ser usada por estes terceiros, está sujeita às vá
 
 Para fins de transparência, o tipo de informação compartilhada e com quem está descrito abaixo.
 
-##### 11.2.0 WEBFONTS
-
-Alguns temas personalizados, bem como a interface de usuário ("UI") padrão para o front-end do phpMussel e a página "Carregar Negado", podem usar webfonts por motivos estéticos. Os webfonts são desabilitados por padrão, mas, quando habilitados, ocorre comunicação direta entre o navegador do usuário e o serviço que hospeda o webfonts. Isso pode envolver informações de comunicação, tal como o endereço IP do usuário, o agente do usuário, o sistema operacional, e outros detalhes disponíveis para a solicitação. A maioria desses webfonts é hospedada pelo serviço [Google Fonts](https://fonts.google.com/).
-
-*Diretivas de configuração relevantes:*
-- `general` -> `disable_webfonts`
-
 ##### 11.2.1 URL ANALISADOR
 
-Os URLs encontrados nos uploads de arquivos podem ser compartilhados com a API hpHosts ou com a API de navegação segura do Google, dependendo de como o pacote está configurado. No caso da API hpHosts, esse comportamento é ativado por padrão. A API de navegação segura do Google requer as chaves de API para funcionar corretamente e, portanto, é desativada por padrão.
+Os URLs encontrados nos uploads de arquivos podem ser compartilhados com a API de navegação segura do Google, dependendo de como o pacote está configurado. A API de navegação segura do Google requer as chaves de API para funcionar corretamente e, portanto, é desativada por padrão.
 
 *Diretivas de configuração relevantes:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1634,4 +1541,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 8 de Julho de 2020 (2020.07.08).
+Última Atualização: 16 de Julho de 2020 (2020.07.16).

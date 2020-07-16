@@ -107,22 +107,21 @@ Memindai upload file secara automatis dan di mungkinkan secara default, jadi tid
 
 Bagaimanapun, Anda juga bisa menginstruksikan phpMussel untuk memindai file, direktori dan/atau arsip spesifik. Untuk melakukannya, pertama-tama Anda harus memastikan konfigurasi yang cocok diset di file `config.ini` (`cleanup` harus dinonaktifkan) dan ketika selesai, di sebuah file PHP yang di hubungkan ke phpMussel, gunakan fungsi berikut pada kode Anda:
 
-`$phpMussel['Scan']($what_to_scan, $output_type, $output_flatness);`
+`$Results = $ScannerObject->scan($Target, $Format);`
 
-- `$what_to_scan` dapat berupa string, array, atau array mengandung array-array, mengindikasikan apa file, file-file, direktori dan/atau direktori-direktori untuk memindai.
+- `$Target` dapat berupa string, array, atau array mengandung array-array, mengindikasikan apa file, file-file, direktori dan/atau direktori-direktori untuk memindai.
 - `$output_type` adalah boolean, mengindikasikan format untuk hasil pemindaian untuk dikembalikan sebagai. `false` menginstruksikan fungsi untuk mengembalikan hasil sebagai integer. `true` menginstruksikan fungsi untuk mengembalikan hasil sebagai teks yang dapat dibaca manusia. Tambahan, dalam kedua kasus, hasilnya dapat diakses melalui variabel global setelah memindai selesai. Variabel ini adalah opsional, default untuk `false`. Berikut ini adalah deskripsi untuk hasil integer:
 
-| Hasil | Deskripsi |
-|---|---|
-| -4 | Mengindikasikan bahwa data tidak dapat dipindai karena enkripsi. |
-| -3 | Mengindikasikan bahwa masalah adalah ditemui dengan file tanda tangan phpMussel. |
-| -2 | Mengindikasikan bahwa file dikorup terdeteksi selama proses memindai dan proses memindai gagal selesai. |
-| -1 | Mengindikasikan bahwa ekstensi atau addon yang dibutuhkan oleh PHP untuk mengeksekusi pemindaian hilang dan demikian gagal selesai. |
-| 0 | Mengindikasikan bahwa target pemindaian tidak ada dan tidak ada yang dipindai. |
-| 1 | Mengindikasikan bahwa target sukses dipindai dan tidak ada masalah terdeteksi. |
-| 2 | Mengindikasikan target sukses di scan namun ada masalah terdeteksi. |
-
-- `$output_flatness` adalah boolean, mengindikasikan ke fungsi apakah akan mengembalikan hasil pemindaian (ketika ada beberapa target pemindaian) sebagai array atau string. `false` akan mengembalikan hasil sebagai array. `true` akan mengembalikan hasil sebagai string. Variabel ini adalah opsional, default untuk `false`.
+Hasil | Deskripsi
+--:|:--
+-5 | Mengindikasikan bahwa pemindaian gagal diselesaikan karena alasan lain.
+-4 | Mengindikasikan bahwa data tidak dapat dipindai karena enkripsi.
+-3 | Mengindikasikan bahwa masalah adalah ditemui dengan file tanda tangan phpMussel.
+-2 | Mengindikasikan bahwa file dikorup terdeteksi selama proses memindai dan proses memindai gagal selesai.
+-1 | Mengindikasikan bahwa ekstensi atau addon yang dibutuhkan oleh PHP untuk mengeksekusi pemindaian hilang dan demikian gagal selesai.
+0 | Mengindikasikan bahwa target pemindaian tidak ada dan tidak ada yang dipindai.
+1 | Mengindikasikan bahwa target sukses dipindai dan tidak ada masalah terdeteksi.
+2 | Mengindikasikan target sukses di scan namun ada masalah terdeteksi.
 
 Contoh:
 
@@ -543,8 +542,6 @@ disabled_channels
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 ├─VirusTotal_HTTP ("VirusTotal (HTTP)")
-├─hpHosts_HTTPS ("hpHosts (HTTPS)")
-└─hpHosts_HTTP ("hpHosts (HTTP)")
 ```
 
 #### "signatures" (Kategori)
@@ -1035,10 +1032,7 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 - [Saya seorang pengembang, perancang situs web, atau programmer. Dapatkah saya menerima atau menawarkan pekerjaan yang berkaitan dengan proyek ini?](#ACCEPT_OR_OFFER_WORK)
 - [Saya ingin berkontribusi pada proyek ini; Dapatkah saya melakukan ini?](#WANT_TO_CONTRIBUTE)
 - [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#SCAN_DEBUGGING)
-- [Dapatkah saya menggunakan cron untuk mengupdate secara otomatis?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [Dapatkah phpMussel memindai file dengan nama yang tidak ANSI?](#SCAN_NON_ANSI)
 - [Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?](#BLACK_WHITE_GREY)
-- [Ketika saya mengaktifkan atau menonaktifkan file tanda tangan melalui halaman pembaruan, itu memilah mereka secara alfanumerik dalam konfigurasi. Bisakah saya mengubah cara mereka disortir?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#HOW_TO_USE_PDO)
 - [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#AJAX_AJAJ_JSON)
 
@@ -1169,67 +1163,6 @@ Opsional, array ini bisa dihancurkan dengan menggunakan berikut ini:
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>Dapatkah saya menggunakan cron untuk mengupdate secara otomatis?
-
-Ya. API dibangun dalam bagian depan untuk berinteraksi dengan halaman pembaruan melalui skrip eksternal. Skrip terpisah, "[Cronable](https://github.com/Maikuolan/Cronable)", tersedia, dan dapat digunakan oleh cron manager atau cron scheduler untuk mengupdate paket ini dan paket didukung lainnya secara otomatis (script ini menyediakan dokumentasi sendiri).
-
-#### <a name="SCAN_NON_ANSI"></a>Dapatkah phpMussel memindai file dengan nama yang tidak ANSI?
-
-Misalkanlah ada direktori yang Anda ingin pindai. Di direktori ini, Anda memiliki beberapa file dengan nama non-ANSI.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Anggaplah Anda menggunakan mode CLI atau API phpMussel untuk memindai.
-
-Ketika menggunakan PHP < 7.1.0, pada beberapa sistem, phpMussel tidak akan melihat file-file ini ketika mencoba untuk memindai direktori, dan karenanya, tidak akan dapat memindai file-file ini. Anda mungkin akan melihat hasil yang sama seperti jika Anda memindai direktori kosong:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Dimulai.
- Sun, 01 Apr 2018 22:27:41 +0800 Selesai.
-```
-
-Juga, ketika menggunakan PHP < 7.1.0, memindai file secara individual menghasilkan hasil seperti ini:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Dimulai.
- > Memeriksa 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> File tidak valid!
- Sun, 01 Apr 2018 22:27:41 +0800 Selesai.
-```
-
-Atau ini:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Dimulai.
- > X:/directory/??????.txt bukan file atau direktori.
- Sun, 01 Apr 2018 22:27:41 +0800 Selesai.
-```
-
-Ini karena cara PHP menangani nama file non-ANSI sebelum PHP 7.1.0. Jika Anda mengalami masalah ini, solusinya adalah memperbarui instalasi PHP Anda ke 7.1.0 atau yang lebih baru. Di PHP >= 7.1.0, nama file non-ANSI ditangani lebih baik, dan phpMussel harus dapat memindai file dengan benar.
-
-Sebagai perbandingan, hasil ketika mencoba untuk memindai direktori menggunakan PHP >= 7.1.0:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Dimulai.
- -> Memeriksa '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> Tidak ada masalah yang diketahui.
- -> Memeriksa '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> Tidak ada masalah yang diketahui.
- -> Memeriksa '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> Tidak ada masalah yang diketahui.
- Sun, 01 Apr 2018 22:27:41 +0800 Selesai.
-```
-
-Dan mencoba memindai file secara individual:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Dimulai.
- > Memeriksa 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> Tidak ada masalah yang diketahui.
- Sun, 01 Apr 2018 22:27:41 +0800 Selesai.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?
 
 Istilah-istilah ini menyampaikan makna yang berbeda dalam konteks yang berbeda. Di phpMussel, ada tiga konteks dimana istilah-istilah ini digunakan: Respons ukuran file, respons jenis file, dan daftar abu-abu tanda tangan.
@@ -1245,24 +1178,6 @@ Dalam dua konteks ini, menjadi masuk daftar putih berarti tidak boleh dipindai a
 Daftar abu-abu tanda tangan adalah daftar tanda tangan yang pada dasarnya harus diabaikan (ini secara singkat disebutkan sebelumnya dalam dokumentasi). Ketika tanda tangan di daftar abu-abu tanda tangan dipicu, phpMussel terus bekerja melalui tandatangannya dan tidak mengambil tindakan khusus dalam hal tanda tangan dalam daftar abu-abu. Tidak ada daftar hitam tanda tangan, karena perilaku tersirat adalah perilaku normal untuk tanda tangan yang dipicu, dan tidak ada daftar putih tanda tangan, karena perilaku tersirat tidak akan benar-benar masuk akal dengan pertimbangan bagaimana phpMussel bekerja normal dan kemampuan yang sudah dimiliki.
 
 Daftar abu-abu tanda tangan berguna jika Anda perlu menyelesaikan masalah yang disebabkan oleh tanda tangan tertentu tanpa menonaktifkan atau menghapus seluruh file tanda tangan.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>Ketika saya mengaktifkan atau menonaktifkan file tanda tangan melalui halaman pembaruan, itu memilah mereka secara alfanumerik dalam konfigurasi. Bisakah saya mengubah cara mereka disortir?
-
-Ya. Jika Anda perlu memaksa beberapa file untuk dieksekusikan dalam urutan tertentu, Anda dapat menambahkan beberapa data sewenang-wenang sebelum nama mereka di direktif konfigurasi dimana mereka terdaftar, dipisahkan oleh titik dua. Ketika halaman pembaruan selanjutnya mengurutkan file lagi, data tambahan ini akan mempengaruhi urutan, menyebabkan mereka secara konsekuen mengeksekusi dalam urutan yang Anda inginkan, tanpa perlu mengganti nama mereka.
-
-Misalnya, dengan asumsi direktif konfigurasi dengan file yang tercantum sebagai berikut:
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-Jika Anda ingin `file3.php` untuk mengeksekusi terlebih dahulu, Anda bisa menambahkan sesuatu seperti `aaa:` sebelum nama file:
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Kemudian, jika file baru, `file6.php`, diaktifkan, ketika halaman pembaruan mengurutkan semuanya lagi, itu akan berakhir seperti ini:
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-Situasi adalah sama ketika file dinonaktifkan. Sebaliknya, jika Anda ingin file dieksekusi terakhir, Anda bisa menambahkan sesuatu seperti `zzz:` sebelum nama file. Dalam hal apapun, Anda tidak perlu mengganti nama file yang dimaksud.
 
 #### <a name="HOW_TO_USE_PDO"></a>Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?
 
@@ -1454,19 +1369,11 @@ Bagaimana informasi ini dapat digunakan oleh pihak ketiga ini, tunduk pada berba
 
 Untuk tujuan transparansi, jenis informasi yang dibagikan, dan dengan siapa, dijelaskan dibawah ini.
 
-##### 11.2.0 FONT WEB
-
-Beberapa tema kustom, serta UI standar ("antarmuka pengguna") untuk halaman bagian depan phpMussel dan halaman "Upload Ditolak", dapat menggunakan font web untuk alasan estetika. Font web dinonaktifkan secara default, tetapi ketika diaktifkan, komunikasi langsung antara browser pengguna dan layanan hosting font web terjadi. Ini mungkin melibatkan informasi komunikasi seperti alamat IP pengguna, agen pengguna, sistem operasi, dan detail lainnya yang tersedia untuk permintaan tersebut. Sebagian besar font web ini dihosting oleh layanan [Google Fonts](https://fonts.google.com/).
-
-*Direktif konfigurasi yang relevan:*
-- `general` -> `disable_webfonts`
-
 ##### 11.2.1 SCANNER URL
 
-URL ditemukan dalam upload file dapat dibagikan dengan API hpHosts atau API Google Safe Browsing, tergantung bagaimana paket dikonfigurasi. Dalam kasus API hpHosts, perilaku ini diaktifkan secara default. API Google Safe Browsing memerlukan kunci API agar berfungsi dengan benar, dan karenanya dinonaktifkan secara default.
+URL ditemukan dalam upload file dapat dibagikan dengan API Google Safe Browsing, tergantung bagaimana paket dikonfigurasi. API Google Safe Browsing memerlukan kunci API agar berfungsi dengan benar, dan karenanya dinonaktifkan secara default.
 
 *Direktif konfigurasi yang relevan:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1631,4 +1538,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 8 Juli 2020 (2020.07.08).
+Terakhir Diperbarui: 16 Juli 2020 (2020.07.16).

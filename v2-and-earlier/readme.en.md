@@ -523,7 +523,7 @@ Configuration (v2)
 │       vt_quota_time
 │
 ├───urlscanner
-│       lookup_hphosts
+│       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
@@ -904,9 +904,6 @@ A URL scanner in included with phpMussel, capable of detecting malicious URLs fr
 Note: If the URL scanner is disabled, you won't need to review any of the directives in this category (`urlscanner`), because none of them will do anything if this is disabled.
 
 URL scanner API lookup configuration.
-
-##### "lookup_hphosts"
-- Enables API lookups to the [hpHosts](https://hosts-file.net/) API when set to true. hpHosts doesn't require an API key for performing API lookups.
 
 ##### "google_api_key"
 - Enables API lookups to the Google Safe Browsing API when the necessary API key is defined. Google Safe Browsing API lookups requires an API key, which can be obtained from [Here](https://console.developers.google.com/).
@@ -1578,10 +1575,9 @@ Some custom themes, as well as the standard UI ("user interface") for the phpMus
 
 ##### 11.2.1 URL SCANNER
 
-URLs found within file uploads may be shared with the hpHosts API or the Google Safe Browsing API, depending on how the package is configured. In the case of the hpHosts API, this behaviour is enabled by default. The Google Safe Browsing API requires API keys in order to work correctly, and is therefore disabled by default.
+URLs found within file uploads may be shared with the Google Safe Browsing API, depending on how the package is configured. The Google Safe Browsing API requires API keys in order to work correctly, and is therefore disabled by default.
 
 *Relevant configuration directives:*
-- `urlscanner` -> `lookup_hphosts`
 - `urlscanner` -> `google_api_key`
 
 ##### 11.2.2 VIRUS TOTAL
@@ -1756,4 +1752,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 7 July 2020 (2020.07.07).
+Last Updated: 16 July 2020 (2020.07.16).
