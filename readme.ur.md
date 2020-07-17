@@ -79,7 +79,7 @@ https://github.com/phpMussel/Examples
 
 #### <div dir="rtl"><a name="INSTALLING_SIGNATURES"></a>٢.١ تنصیب کا دستخط</div>
 
-<div dir="rtl">خاص خطرات کا پتہ لگانے کے لئے phpMussel کے دستخط کی ضرورت ہوتی ہے. دستخط کو انسٹال کرنے کے لئے 3 اہم طریقوں ہیں:<br /><br /></div>
+<div dir="rtl">خاص خطرات کا پتہ لگانے کے لئے phpMussel کے دستخط کی ضرورت ہوتی ہے. دستخط کو انسٹال کرنے کے لئے 2 اہم طریقوں ہیں:<br /><br /></div>
 
 <div dir="rtl"><ul>
  <li>١. "SigTool" کا استعمال کرتے ہوئے دستخط پیدا کریں اور دستی طور پر انسٹال کریں.</li>
@@ -103,20 +103,7 @@ https://github.com/phpMussel/Examples
 
 ### <div dir="rtl">٣. <a name="SECTION3"></a>کس طرح استعمال</div>
 
-#### <div dir="rtl">٣.٠ (ویب سرورز کے لئے) استعمال کرنے کا طریقہ</div>
-
-<div dir="rtl">phpMussel آپ کے حصہ پر کم سے کم ضروریات کے ساتھ درست طریقے سے کام کرنے کے قابل ہونا چاہئے: یہ انسٹال کرنے کے بعد، یہ فوری طور پر کام کرتے ہیں اور فوری طور پر قابل استعمال ہونا چاہئے.<br /><br /></div>
-
-<div dir="rtl">فائل اپ لوڈ کی سکیننگ خود کار ہے اور فطری طور پر قابل ہے، تو کچھ بھی نہیں اس مخصوص فعالیت کے لئے آپ کی طرف سے کی ضرورت ہے.<br /><br /></div>
-
-<div dir="rtl">تاہم، آپ کو بھی مخصوص فائلوں، ڈائریکٹریز اور/یا ابلیھاگار اسکین کرنے phpMussel ہدایت کرنے کے قابل ہو. ایسا کرنے کے لئے، سب سے پہلے، آپ کو مناسب ترتیب (<code dir="ltr">cleanup</code> غیر فعال کر دیا جائے ضروری ہے) <code dir="ltr">config.ini</code> فائل میں مقرر کیا گیا ہے، اور کیا جب phpMussel کو جھکا دیا گیا ہے کہ ایک PHP کی فائل میں، استعمال یقینی بنانے کے لئے کی ضرورت ہو گی مندرجہ ذیل آپ کے کوڈ میں بندش.<br /><br /></div>
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-<div dir="rtl"><ul>
- <li><code dir="ltr">$Target</code> ایک سٹرنگ، ایک صف، یا arrays کے ایک صف ہو، اور فائل، فائلوں، ڈائریکٹری اور/یا ڈائریکٹریز کو اسکین کرنے کے لئے جس کی طرف اشارہ کر سکتے ہیں.</li>
- <li><code dir="ltr">$output_type</code> طور واپس کرنے کے اسکین کے نتائج کے لئے کی شکل کا اشارہ، ایک بولین ہے. جھوٹی ایک عدد صحیح (کے -4 اشارہ کرتا ہے کہ ڈیٹا کو خفیہ کاری کی وجہ سے سکینڈ نہیں کیا جا سکتا، -3 اشارہ کرتا ہے کہ دستخط فائلوں کے ساتھ مسائل کا سامنا کرنا پڑا، -2 کی طرف اشارہ کرتا ہے کہ بدعنوان ڈیٹا دوران پتہ چلا تھا اسکین اور اس طرح اسکین مکمل کرنے میں ناکام رہے، -1 طرف اشارہ کرتا ہے کہ ملانے یا addons کے اسکین پر عمل کرنے PHP طرف سے کی ضرورت لاپتہ تھے اور اس طرح اسکین، کو مکمل کرنے میں ناکام رہے 0 اشارہ کرتا اسکین ہدف موجود نہیں ہے کہ اس طرح اور اسکین کرنے کی کوئی بات نہیں تھی 1 ہدف کو کامیابی سے سکین کر رہا تھا اور کوئی مسائل کا پتہ چلا رہے تھے کہ اشارہ کرتا ہے، اور 2 کی طرف اشارہ ہدف کو کامیابی سے سکین کر رہا تھا کہ اور مسائل کا پتہ چلا رہے تھے). یہ سچ ہے کہ انسانی قابل مطالعہ متن کے طور پر نتائج واپس کرنے کے لئے تقریب کی ہدایات. اس کے علاوہ، دونوں صورتوں میں، نتائج عالمی متغیر کے ذریعے جانے کے بعد سکیننگ مکمل کر لیا ہے حاصل کیا جا سکتا ہے. یہ متغیر غلط پر مجرم، اختیاری ہے.</li>
-</ul></div>
+#### <div dir="rtl">٣.٤ اسکینر API</div>
 
 نتائج | تفصیل
 --:|--:
@@ -129,35 +116,7 @@ https://github.com/phpMussel/Examples
 1 | Indicates that the target was successfully scanned and no problems were detected.
 2 | Indicates that the target was successfully scanned and problems were detected.
 
-<div dir="rtl">مثالیں:<br /><br /></div>
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-<div dir="rtl">کچھ اس طرح (ایک تار کے طور پر) واپسی:<br /><br /></div>
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Started.
- > Checking '/user_name/public_html/my_file.html':
- -> No problems found.
- Wed, 16 Sep 2013 02:49:47 +0000 Finished.
-```
-
-<div dir="rtl">دستخط کس قسم کی ایک مکمل بریک ڈاون کے phpMussel اس کے علیحدہ اسکین کے دوران استعمال کرتا ہے اور یہ ان کے دستخط کو کس طرح ہینڈل، اس README فائل کا <a href="#SECTION8">دستخط فارمیٹ</a> سیکشن سے رجوع کریں.<br /><br /></div>
-
-<div dir="rtl">آپ کو کسی بھی جھوٹے مثبت سامنا کرتے ہیں، آپ کو کچھ نیا آپ کو لگتا ہے کہ کا سامنا ہے تو بلاک کر دیا جائے چاہئے، یا کچھ اور دستخط کے بارے میں کے طور پر، اس کے بارے میں مجھ سے رابطہ کریں تا کہ میں ضروری تبدیلیاں کر سکتے ہیں، آپ مجھ سے، مجھے سے رابطہ نہیں کرتے تو لازمی طور سے آگاہ نہیں ہو سکتا. <em>(دیکھیں: <a href="#WHAT_IS_A_FALSE_POSITIVE">ایک "جھوٹی مثبت" سے کیا مراد ہے؟</a>).</em><br /><br /></div>
-
-<div dir="rtl">phpMussel ساتھ شامل دستخطوں کو غیر فعال کرنے کے لئے (جیسا کہ آپ کو آپ کے مقاصد عموما مین لائن سے ہٹایا نہیں کیا جانا چاہئے کہ ایک جھوٹی مثبت مخصوص سامنا کر رہے ہیں کے طور پر اگر)، سرمئی لسٹ کے دستخط کے ناموں کو شامل کریں (<code dir="ltr">/vault/greylist.csv</code>)، کاموں کی طرف سے الگ.<br /><br /></div>
-
 <div dir="rtl">بھی دیکھو: <a href="#SCAN_DEBUGGING">کس طرح وہ سکین کر رہے ہیں جب فائلوں کے بارے میں مزید تفصیلات تک رسائی حاصل کرنے کے لئے؟</a><br /><br /></div>
-
-#### <div dir="rtl">٣.١ (CLI کے لئے) استعمال کرنے کا طریقہ</div>
-
-<div dir="rtl">"دستی طور پر نصب (CLI کے لئے)" اس README فائل کا سیکشن سے رجوع کریں.<br /><br /></div>
-
-<div dir="rtl">اس کے علاوہ اس بات سے آگاہ phpMussel ایک <em>ڈیمانڈ</em> سکینر ہے کہ ہو؛ یہ ہے <strong>نہیں</strong> ایک <em>پر رسائی</em> سکینر (اپ لوڈ کے وقت، فائل اپ لوڈ ماسوائے) اور روایتی اینٹی وائرس سوئٹ کے برعکس، فعال میموری کی نگرانی نہیں کرتا! یہ صرف فائل اپ لوڈ کی طرف سے موجود وائرس کا پتہ لگانے، اور ان لوگوں کے مخصوص فائلوں کو آپ کو واضح طور پر اسکین پر یہ بتانے کے کہ کر لیں گے.<br /><br /></div>
 
 ---
 
@@ -297,7 +256,6 @@ https://github.com/phpMussel/Examples
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -335,7 +293,7 @@ https://github.com/phpMussel/Examples
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -347,14 +305,6 @@ https://github.com/phpMussel/Examples
         set_from_name [string]
         add_reply_to_address [string]
         add_reply_to_name [string]
-```
-
-<div dir="rtl"><em>مفید ٹپ: "{yyyy}" مکمل سال کے لئے، "{yy}" مختصر سال کے لئے، "{mm}": اگر آپ چاہتے ہیں تو آپ کے نام میں ان کو شامل کرکے آپ لاگ مسلیں کے ناموں کو تاریخ/وقت کی معلومات شامل کر سکتے ہیں مہینے کے لئے، دن کے لئے، "{hh}" گھنٹے کیلئے "{dd}" (ذیل کی مثالیں دیکھ).</em><br /><br /></div>
-
-```
- scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'
- scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'
- error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'
 ```
 
 #### <div dir="rtl">"core" (قسم)<br /></div>
@@ -521,6 +471,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -549,7 +500,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### <div dir="rtl">"signatures" (قسم)<br /></div>
@@ -709,13 +660,6 @@ disabled_channels
 
 #### <div dir="rtl">"urlscanner" (قسم)<br /></div>
 <div dir="rtl">URL سکینر کی ترتیبات.<br /><br /></div>
-
-##### <div dir="rtl">"lookup_hphosts" <code dir="ltr">[bool]</code><br /></div>
-<div dir="rtl"><ul><li>درست پر سیٹ ہونے hpHosts API کو API لک اپ کو فعال کرتا ہے.</li></ul></div>
-
-<div dir="rtl">بھی دیکھو:<ul dir="rtl">
-<li><a dir="ltr" href="https://hosts-file.net/">hosts-file.net</a></li>
-</ul></div>
 
 ##### <div dir="rtl">"google_api_key" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>ضروری API کلید وضاحت کی گئی ہے جب گوگل محفوظ براؤزنگ API کو API لک اپ کو فعال کرتا ہے.</li></ul></div>
@@ -893,8 +837,8 @@ theme
 ##### <div dir="rtl">"enable_two_factor" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>یہ تعین کرتا ہے کہ 2FA استعمال کیا جانا چاہئے.</li></ul></div>
 
-##### <div dir="rtl">"enable_notifications" <code dir="ltr">[bool]</code><br /></div>
-<div dir="rtl"><ul><li>جب اپ لوڈ روک دیا جاتا ہے تو ای میل کی اطلاعات بھیجیں.</li></ul></div>
+##### <div dir="rtl">"enable_notifications" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اگر اپ لوڈ بند ہونے پر آپ ای میل کے ذریعہ مطلع کرنا چاہتے ہیں تو، وصول کنندہ کا ای میل پتہ یہاں بتائیں.</li></ul></div>
 
 ##### <div dir="rtl">"skip_auth_process" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>جب <code dir="ltr">true</code>، SMTP کی تصدیق کے عمل کو چھوڑ دیا گیا ہے. اس سے بچنا چاہئے. اگر عمل ختم ہو جاتا ہے تو، آؤٹ باؤنڈ ای میل MITM حملوں سے بے نقاب ہوسکتا ہے. مخصوص معاملات میں ضروری ہوسکتا ہے (مثال کے طور پر، جب SMTP سرور مناسب طریقے سے منسلک نہیں کرے گا).</li></ul></div>

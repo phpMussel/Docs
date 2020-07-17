@@ -77,7 +77,7 @@ Os ZIPs pré-empacotados incluem todas as dependências mencionadas acima, bem c
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 INSTALANDO ASSINATURAS
 
-As assinaturas são requeridas pela phpMussel para detectar ameaças específicas. Existem 3 métodos principais para instalar assinaturas:
+As assinaturas são requeridas pela phpMussel para detectar ameaças específicas. Existem 2 métodos principais para instalar assinaturas:
 
 1. Gerar assinaturas usando "SigTool" e instale-se manualmente.
 2. Baixe as assinaturas de "phpMussel/Signatures" ou "phpMussel/Examples" e instale-se manualmente.
@@ -99,18 +99,7 @@ Alternativamente, faça o download do ZIP mais recente de [phpMussel/Examples](h
 
 ### 3. <a name="SECTION3"></a>COMO USAR
 
-#### 3.0 COMO USAR (PARA WEB SERVIDORES)
-
-phpMussel deve ser capaz de operar corretamente com requisitos mínimos sobre a sua parte: Após instalá-lo, ele deve funcionar imediatamente e ser imediatamente utilizável.
-
-Análise dos arquivos carregados via upload é automatizado e ativado por padrão, por isso nada é exigido de você por essa função particular.
-
-Porém, você também é capaz de instruir phpMussel para verificar arquivos e/ou diretórios específicos. Para fazer isso, em primeiro lugar, você vai precisar assegurar que a configuração apropriada é definida no arquivo `config.ini` (`cleanup` deve ser desativado), e quando feito, em um arquivo PHP que está enganchado ao phpMussel, usar a seguinte função no seu código:
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` pode ser uma string, um matriz, ou um matriz de matrizes, e indica qual arquivo, arquivos, diretório e/ou diretórios para analisar.
-- `$output_type` é um booleano, indicando o formato para os resultados da verificação a serem retornados. `false` instrui a função para retornar resultados como um número inteiro. `true` instrui a função para retornar os resultados como texto legível. Adicionalmente, em ambos os casos, os resultados podem ser acessados através de variáveis globais após o análise já concluída. Esta variável é opcional, definida como `false` por padrão. O seguinte descreve os resultados inteiros:
+#### 3.4 API DO SCANNER
 
 Resultados | Descrição
 --:|:--
@@ -123,35 +112,7 @@ Resultados | Descrição
 1 | Indica que o alvo foi analisado e não foram detectados problemas.
 2 | Indica que o alvo foi analisado e problemas foram detectados.
 
-Exemplos:
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-Retorna algo tal como esta (como uma string):
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Começado.
- > Verificando '/user_name/public_html/my_file.html':
- -> Não problemas encontrados.
- Wed, 16 Sep 2013 02:49:47 +0000 Terminado.
-```
-
-Por completos detalhes sobre que tipo de assinaturas phpMussel usa durante a análise e como ele usa essas assinaturas, consulte a [FORMATOS DE ASSINATURAS](#SECTION8) seção deste arquivo README.
-
-Se você encontrar quaisquer falsos positivos, se você encontrar algo novo que você acha deve ser bloqueado, ou para qualquer outra coisa com relação a assinatura, entre em contato comigo sobre isso para que eu possa fazer as mudanças necessárias, que, se você não entrar em contato comigo, eu posso não ser necessariamente conscientes de. *(Vejo: [O que é um "falso positivo"?](#WHAT_IS_A_FALSE_POSITIVE)).*
-
-Para desativar as assinaturas que estão incluídos com phpMussel (tal como se você está experimentando falsos positivos específico para seus fins que não deve normalmente ser removidos da agilize), adicione os nomes das assinaturas específicas a ser desabilitadas para o arquivo greyist das assinaturas (`/vault/greylist.csv`), separados por vírgulas.
-
 *Veja também: [Como acessar detalhes específicos sobre os arquivos quando eles são analisados?](#SCAN_DEBUGGING)*
-
-#### 3.1 COMO USAR (PARA CLI)
-
-Por favor, consulte a seção "INSTALANDO MANUALMENTE (PARA CLI)" deste arquivo README.
-
-Também estar ciente de que phpMussel é um scanner *on-demand*; *NÃO* é um scanner *on-access* (exceto para o carregamento de arquivos, no momento de carregamento), e ao contrário de antivírus suítes convencionais, não monitora memória ativa! Ele só vai detectar vírus contidos pelo carregamento de arquivos, e por esses arquivos específicos que você explicitamente diga a ele analisar.
 
 ---
 
@@ -291,7 +252,6 @@ Configuração (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ Configuração (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ Configuração (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Dica útil: Se você quiser, você pode acrescentar informações tempo/hora aos nomes dos seus arquivos de registro através incluir estas em nome: `{yyyy}` para o ano completo, `{yy}` para o ano abreviado, `{mm}` por mês, `{dd}` por dia, `{hh}` por hora.*
-
-*Exemplos:*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" (Categoria)
 Configuração geral (qualquer configuração principal que não pertença a outras categorias).
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" (Categoria)
@@ -701,12 +655,6 @@ Veja também:
 #### "urlscanner" (Categoria)
 Configuração para o analisador de URL.
 
-##### "lookup_hphosts" `[bool]`
-- Permite o uso do hpHosts API quando definido para true.
-
-Veja também:
-- [hosts-file.net](https://hosts-file.net/)
-
 ##### "google_api_key" `[string]`
 - Permite o uso do Google Safe Browsing API quando a API chave necessária está definida.
 
@@ -842,7 +790,7 @@ theme
 - Ampliação de fonte. Padrão = 1.
 
 #### "web" (Categoria)
-Configuração para o manipulador de upload.
+Configuração para o manipulador de carregamentos.
 
 ##### "uploads_log" `[string]`
 - Onde todos os carregamentos bloqueados devem ser registrados. Especifique um arquivo nome, ou deixe branco para desativar.
@@ -882,8 +830,8 @@ Configuração para PHPMailer (usado para autenticação de dois fatores).
 ##### "enable_two_factor" `[bool]`
 - Esta diretiva determina se deve usar 2FA para contas front-end.
 
-##### "enable_notifications" `[bool]`
-- Envie notificações por email quando um upload estiver bloqueado.
+##### "enable_notifications" `[string]`
+- Se você deseja ser notificado por email quando um carregamento estiver bloqueado, especifique o endereço de email do destinatário aqui.
 
 ##### "skip_auth_process" `[bool]`
 - Definir essa diretiva como `true` instrui o PHPMailer a ignorar o processo de autenticação que normalmente ocorre ao enviar e-mail via SMTP. Isso deve ser evitado, porque ignorar esse processo pode expor o e-mail de saída a ataques MITM, mas pode ser necessário nos casos em que esse processo impedir que o PHPMailer se conecte a um servidor SMTP.

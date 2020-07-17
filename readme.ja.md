@@ -77,7 +77,7 @@ https://github.com/phpMussel/Examples
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 シグネチャ・インストール
 
-特定の脅威を検出するためには、phpMusselによってシグネチャが必要です。​シグネチャをインストールする主な方法は３つあります。
+特定の脅威を検出するためには、phpMusselによってシグネチャが必要です。​シグネチャをインストールする主な方法は２つあります。
 
 1. 「SigTool」を使用してシグネチャを生成し、手動でインストールします。
 2. 「phpMussel/Signatures」または「phpMussel/Examples」からシグネチャをダウンロードし、手動でインストールします。
@@ -99,18 +99,7 @@ https://github.com/phpMussel/Examples
 
 ### ３.<a name="SECTION3"></a>使用方法
 
-#### 3.0 使用方法（ウェーブサーバー編）
-
-phpMusselは特別な使用環境を必要としないスクリプトです。​一度インストールされれば、​充分に機能します。
-
-デフォルトでは、​アップロードされたファイルのスキャンは自動的に行うように設定されています。​従って基本的に何もすることはありません。
-
-ですが、​特定のファイル、​ディレクトリ、​アーカイブをスキャンするよう設定することも可能です。​`config.ini`を適切に設定し直して下さい（クリーンアップは無効でなくてはなりません）。​その後phpMusselがフックされているＰＨＰファイル内において、​以下のコードを使用します。
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` には、​文字列あるいは（多次元）配列を代入することができます。​どのファイル（一つないしは複数）あるいはディレクトリ（一つないしは複数）をスキャンすべきか指定します。
-- `$output_type` はブーレアンで、​スキャン結果のフォーマットを指定できます。​`false`は結果を整数型で返します。​`true`（真）は結果をテキスト形式で返します。​どちらを選択しても、​スキャン後にグローバル変数によって結果にアクセスすることが可能です。​`$output_type`はオプションでデフォルト設定は`false`（偽）になっています。​次に、整数結果について説明します。
+#### 3.4 スキャナーＡＰＩ
 
 結果 | 説明
 --:|:--
@@ -123,35 +112,7 @@ phpMusselは特別な使用環境を必要としないスクリプトです。�
 ​1 | 対象のスキャンを完了しかつ問題がないこと。
 ​2 | 対象のスキャンを完了しかつ問題を検出したことを意味します。
 
-例：
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-の場合、​返り値は：
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 開始。
- > チェック '/user_name/public_html/my_file.html':
- -> 問題は検出されませんでした。
- Wed, 16 Sep 2013 02:49:47 +0000 完了。
-```
-
-phpMusselがどのようなシグネチャを使ったか等の詳細な情報については、​本ファイルのセクション『[シグネチャ（署名）フォーマット](#SECTION8)』を参照して下さい。
-
-誤検出や新種の疑わしきものに遭遇した、​あるいはシグネチャに関することについては何でもお知らせ下さい。​そうすれば、​即時対応でき、​必要な修正を行うことができます。 *（参照する：​[「偽陽性」とは何ですか？​](#WHAT_IS_A_FALSE_POSITIVE)）。*
-
-phpMusselに含まれるシグネチャを無効にするには（通常除かれるべきではないと考えられるものがブロックされてしまうような場合）、​それらの名前をグレーリスト・ファイルに追加する（`/vault/greylist.csv`）、カンマで区切られた。
-
 *また見てください： [ファイルのスキャン時に特定の詳細情報にアクセスするにはどうすればよいですか？](#SCAN_DEBUGGING)*
-
-#### 3.1 使用方法（ＣＬＩ編）
-
-本READMEファイルの「手動インストール（ＣＬＩ編）」を参照して下さい。
-
-なお、​phpMusselを通常のウィルスソフトと混同しないで下さい。​アクティブメモリーを監視してウィルスを即時検出するものではありません（phpMusselは、​オンデマンドスキャナです；phpMusselは、​オンアクセススキャナではありません）。​指定されたファイルのみをスキャンし（また、​ファイルのアップロード）、​含まれるウィルスを検出します。
 
 ---
 
@@ -291,7 +252,6 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ phpMusselはウィンドウズベースのシステムでは、​ＣＬＩモ�
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*有用な先端：​あなたがしたい場合は、​ログ・ファイルの名前に日付/時刻情報を付加することができます、​名前にこれらを含めることで:完全な年のため`{yyyy}`、​省略された年のため`{yy}`、​月`{mm}`、​日`{dd}`、​時間`{hh}`。​*
-
-*例：*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" （カテゴリ）
 全般的な設定（他のカテゴリに属さないの設定）。
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" （カテゴリ）
@@ -700,12 +654,6 @@ Virus Total統合の設定。
 
 #### "urlscanner" （カテゴリ）
 URLスキャナーの設定。
-
-##### "lookup_hphosts" `[bool]`
-- Trueにすると、​APIのhpHostsルックアップが有効になります。
-
-参照してください：
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### "google_api_key" `[string]`
 - 必要なＡＰＩ鍵が定義されれば、​ＡＰＩのGoogle Safe Browsing APIルックアップが有効になります。
@@ -882,8 +830,8 @@ PHPMailerの設定（二要素認証に使用されます）。
 ##### "enable_two_factor" `[bool]`
 - このディレクティブは、フロントエンド・アカウントに２ＦＡを使用するかどうかを決定します。
 
-##### "enable_notifications" `[bool]`
-- アップロードがブロックされたときにＥメール通知を送信します。
+##### "enable_notifications" `[string]`
+- アップロードがブロックされたときにＥメールで通知を受け取りたい場合は、ここで受信者のＥメール・アドレスを指定します。
 
 ##### "skip_auth_process" `[bool]`
 - このディレクティブを`true`に設定すると、PHPMailerはSMTP経由で電子Ｅメールを送信する際に通常発生する認証プロセスをスキップします。​このプロセスをスキップすると、送信ＥメールがＭＩＴＭ攻撃にさらされる可能性があるため、これは避けるべきです。​しかし、PHPMailerがSMTPサーバに接続できない場合、このプロセスが必要な場合があります。

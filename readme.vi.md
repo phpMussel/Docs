@@ -77,7 +77,7 @@ Các ZIP được đóng gói sẵn bao gồm tất cả các phụ thuộc đã
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 CÀI ĐẶT CHỮ KÝ
 
-Chữ ký được yêu cầu bởi phpMussel để phát hiện các mối đe dọa cụ thể. Có 3 phương pháp chính để cài đặt chữ ký:
+Chữ ký được yêu cầu bởi phpMussel để phát hiện các mối đe dọa cụ thể. Có 2 phương pháp chính để cài đặt chữ ký:
 
 1. Tạo chữ ký bằng cách sử dụng "SigTool" và cài đặt thủ công.
 2. Tải xuống chữ ký từ "phpMussel/Signatures" hoặc "phpMussel/Examples" và cài đặt thủ công.
@@ -99,18 +99,7 @@ Như một sự thay thế, tải xuống ZIP gần đây nhất từ [phpMussel
 
 ### 3. <a name="SECTION3"></a>CÁCH SỬ DỤNG
 
-#### 3.0 CÁCH SỬ DỤNG (CHO CÁC TRANG MẠNG)
-
-phpMussel sẽ có thể hoạt động một cách chính xác với yêu cầu tối thiểu từ bạn: Sau khi cài đặt nó, nó có thể được sử dụng ngay lập tức.
-
-Quét tập tin tải lên là tự động và kích hoạt theo mặc định, như vậy không có gì là cần thiết từ bạn cho các chức năng đặc biệt này.
-
-Tuy nhiên, bạn cũng có thể nói với phpMussel để quét tập tin cụ thể, thư mục hay kho lưu trữ. Để làm điều này, trước hết, bạn sẽ cần phải đảm bảo rằng các cấu hình thích hợp được thiết lập trong tập tin `config.ini` (`cleanup` phải được vô hiệu hóa), và khi thực hiện, trong một tập tin PHP được kết nối với phpMussel, sử dụng sau đây trong mã của bạn:
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` có thể là một string, hoặc một hay nhiều của array, và chỉ ra đó tập tin hay thư mục để quét.
-- `$output_type` là một boolean, và chỉ ra đó định dạng cho kết quả quét được trả về như. `false` hướng dẫn các chức năng để trả về kết quả là một số nguyên. `true` hướng dẫn các chức năng trả lại kết quả dưới dạng văn bản có thể đọc được con người. Ngoài ra, trong cả hai trường hợp, kết quả có thể được truy cập thông qua biến toàn cầu sau khi quét đã hoàn thành. Biến này là tùy chọn, mặc định là `false`. Sau đây mô tả các kết quả số nguyên:
+#### 3.4 API MÁY QUÉT
 
 Các kết quả | Sự miêu tả
 --:|:--
@@ -123,35 +112,7 @@ Các kết quả | Sự miêu tả
 1 | Chỉ ra rằng các mục tiêu đã được quét thành công và không có vấn đề đã được phát hiện.
 2 | Chỉ ra rằng các mục tiêu đã được quét thành công và vấn đề đã được phát hiện.
 
-Các ví dụ:
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-Trả về một cái gì đó như thế này (như một string):
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Đã bắt đầu.
- > Đang kiểm tra '/user_name/public_html/my_file.html':
- -> Không tiềm được vấn đề.
- Wed, 16 Sep 2013 02:49:47 +0000 Hoàn thành.
-```
-
-Đối với một phân tích đầy đủ những gì sắp xếp của chữ ký phpMussel sử dụng trong quá trình quét của nó và cách nó xử lý chữ ký của nó, tham khảo các phần [ĐỊNH DẠNG CỦA CHỬ KÝ](#SECTION8) của tập tin README này.
-
-Nếu bạn gặp bất kỳ sai tích cực, nếu bạn gặp một số điều mới bạn nghĩ rằng nên bị chặn, hay cho bất cứ điều gì khác có liên quan đến chữ ký, xin vui lòng liên hệ với tôi vì vậy mà tôi có thể thực hiện các thay đổi cần thiết, mà, nếu bạn không liên hệ với tôi, tôi có thể không nhất thiết phải nhận thức được. *(Xem: ["Sai tích cực" là gì?](#WHAT_IS_A_FALSE_POSITIVE)).*
-
-Để vô hiệu hóa chữ ký đã bao gồm trong phpMussel (chẳng hạn như nếu bạn gặp một sai tích cực và bạn không thể loại bỏ nó), đặt tên của chữ ký cụ thể để được vô hiệu hóa vào tập tin danh sách xám chữ ký (`/vault/greylist.csv`), được phân cách bằng dấu phẩy.
-
 *Xem thêm: [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#SCAN_DEBUGGING)*
-
-#### 3.1 CÁCH SỬ DỤNG (CHO CLI)
-
-Tham khảo phần "CÀI ĐẶT THỦ CÔNG (CHO CLI)" của tập tin README này.
-
-Ngoài ra, ý thức được rằng phpMussel là một máy quét *khi yêu cầu* (hay *on-demand*); Nó *KHÔNG PHẢI* là một máy quét *khi truy cập* (hay *on-access*; khác hơn cho tập tin tải lên, tại thời điểm tải lên), và không giống như chống vi rút thông thường, nó không theo dõi bộ nhớ hoạt động! Nó sẽ chỉ phát hiện vi rút chứa của tập tin tải lên, và bởi những tập tin cụ thể rằng bạn rõ ràng nói với nó để quét.
 
 ---
 
@@ -291,7 +252,6 @@ Cấu Hình (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ Cấu Hình (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ Cấu Hình (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Mẹo hữu ích: Nếu bạn muốn, bạn có thể bao gồm thông tin ngày/giờ trong tên các tập tin bản ghi (`scan_log`, `scan_log_serialized`, `error_log`, vv) của bạn bằng cách bao gồm những trong tên: `{yyyy}` cho năm hoàn thành, `{yy}` cho năm viết tắt, `{mm}` cho tháng, `{dd}` cho ngày, `{hh}` cho giờ.*
-
-*Các ví dụ:*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" (Thể loại)
 Cấu hình chung (bất kỳ cấu hình cốt lõi nào không thuộc về các loại khác).
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" (Thể loại)
@@ -700,12 +654,6 @@ Xem thêm:
 
 #### "urlscanner" (Thể loại)
 Cấu hình cho trình quét URL.
-
-##### "lookup_hphosts" `[bool]`
-- Cho phép tra cứu API đến API của hpHosts khi xác định như true.
-
-Xem thêm:
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### "google_api_key" `[string]`
 - Cho phép tra cứu API đến API của Google Safe Browsing khi khóa API cần thiết được xác định.
@@ -882,8 +830,8 @@ Cấu hình cho PHPMailer (được sử dụng để xác thực hai yếu tố
 ##### "enable_two_factor" `[bool]`
 - Chỉ thị này xác định có nên sử dụng 2FA cho tài khoản front-end hay không.
 
-##### "enable_notifications" `[bool]`
-- Gửi thông báo email khi tải lên bị chặn.
+##### "enable_notifications" `[string]`
+- Nếu bạn muốn được thông báo qua email khi tải lên bị chặn, hãy chỉ định địa chỉ email người nhận ở đây.
 
 ##### "skip_auth_process" `[bool]`
 - Đặt chỉ thị này thành `true` chỉ thị cho PHPMailer bỏ qua quy trình xác thực thông thường thường xảy ra khi gửi email qua SMTP. Điều này nên tránh, bởi vì bỏ qua quá trình này có thể tiết lộ email gửi đến các cuộc tấn công MITM, nhưng có thể cần thiết trong trường hợp quá trình này ngăn PHPMailer kết nối với máy chủ SMTP.

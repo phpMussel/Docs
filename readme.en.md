@@ -77,7 +77,7 @@ The prepackaged ZIPs include all the aforementioned dependencies, as well as all
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 INSTALLING SIGNATURES
 
-Signatures are required by phpMussel for detecting specific threats. There are 3 main methods to install signatures:
+Signatures are required by phpMussel for detecting specific threats. There are 2 main methods to install signatures:
 
 1. Generate signatures using "SigTool" and install manually.
 2. Download signatures from "phpMussel/Signatures" or "phpMussel/Examples" and install manually.
@@ -99,18 +99,246 @@ Alternatively, download the most recent ZIP from [phpMussel/Examples](https://gi
 
 ### 3. <a name="SECTION3"></a>HOW TO USE
 
-#### 3.0 HOW TO USE (FOR WEB SERVERS)
+#### 3.0 CONFIGURING PHPMUSSEL
 
-phpMussel should be able to operate correctly with minimal requirements on your part: After installing it, it should work immediately and be immediately usable.
+After installing phpMussel, you'll need a configuration file so that you can configure it. phpMussel configuration files can be formatted as either INI or YML files. If you're working from one of the example ZIPs, you'll already have two example configuration files available, `phpmussel.ini` and `phpmussel.yml`; you can choose one of those to work from, if you'd like. If you're not working from one of the example ZIPs, you'll need to create a new file.
 
-File upload scanning is automated and enabled by default, so nothing is required on your behalf for this particular functionality.
+If you're satisfied with the default configuration for phpMussel and don't want to change anything, you can use an empty file as your configuration file. Anything not configured by your configuration file will utilise its default, so you only need to explicitly configure something if you want it to be different from its default (meaning, an empty configuration file will cause phpMussel to utilise all its default configuration).
 
-However, you're also able to instruct phpMussel to scan specific files, directories and/or archives. To do this, firstly, you'll need to ensure that the appropriate configuration is set in the `config.ini` file (`cleanup` must be disabled), and when done, in a PHP file that's hooked to phpMussel, use the following closure in your code:
+If you want to use the phpMussel front-end, you can configure everything from the front-end configuration page. But, since v3 onward, front-end login information is stored in your configuration file, so to log into the front-end, you'll need to at least configure an account and username to use to log in, and then, from there, you'll be able to log in and use the front-end configuration page to configure everything else.
 
-`$Results = $ScannerObject->scan($Target, $Format);`
+The below excerpts will add a new account the front-end with the username "admin", and the password "password".
 
-- `$Target` can be a string, an array, or an array of arrays, and indicates which file, files, directory and/or directories to scan.
-- `$output_type` is a boolean, indicating the format for the scan results to be returned as. `false` instructs the function to return results as an integer. `true` instructs the function to return results as human readable text. Additionally, in either case, the results can be accessed via global variables after scanning has completed. This variable is optional, defaulting to `false`. The following describes the integer results:
+For INI files:
+```
+[user.admin]
+password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
+permissions='1'
+```
+
+For YML files:
+```
+user.admin:
+ password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
+ permissions: 1
+```
+
+You can name your configuration whatever you want (as long as you retain its extension, so that phpMussel knows which format it uses), and you can store it wherever you want. You can tell phpMussel where to find your configuration file by supplying its path when instantiating the loader. If no path is supplied, phpMussel will try to locate it within the parent of the vendor directory.
+
+Refer to the configuration section of this document for more information about the various configuration directives available to phpMussel.
+
+#### 3.1 PHPMUSSEL CORE
+
+No matter how you want to use phpMussel, almost every implementation will contain something like this, at a minimum:
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+As the names of these classes imply, the loader is responsible for the preparing of the the basic necessities of using phpMussel, and the scanner is responsible for all the core scanning functionality.
+
+The constructor for the loader accepts five parameters, all optional.
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+The first parameter is the complete path to your configuration file. When omitted, phpMussel will look for a configuration file in the parent of the vendor directory.
+
+The second parameter is the path to a directory which you permit phpMussel to use for caching and temporary file storage. When omitted, phpMussel will attempt to create a new directory to use, named as `phpmussel-cache`, in the parent of the vendor directory. If you want to specify this path yourself, it would be best to choose an empty directory, as to avoid the unwanted loss of other data in the specified directory.
+
+The third parameter is the path to a directory which you permit phpMussel to use for its quarantine. When omitted, phpMussel will attempt to create a new directory to use, named as `phpmussel-quarantine`, in the parent of the vendor directory. If you want to specify this path yourself, it would be best to choose an empty directory, as to avoid the unwanted loss of other data in the specified directory. It is strongly recommended that you prevent public access to the directory used for quarantine.
+
+The fourth parameter is the path to the directory containing the signature files for phpMussel. When omitted, phpMussel will try looking for the signature files in a directory named as `phpmussel-signatures`, in the parent of the vendor directory.
+
+The fifth parameter is the path to your vendor directory. It should never point to anything else. When omitted, phpMussel will try to locate this directory for itself. This parameter is provided in order to faciliate easier integration with implementations that mightn't necessarily have the same structure as a typical Composer project.
+
+The constructor for the scanner accepts only one parameter, and it is mandatory: The instantiated loader object. As it is passed by reference, the loader must be instantiated to a variable (instantiation the loader directly into the scanner in order to pass by value is not the correct way to use phpMussel).
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
+#### 3.2 AUTOMATIC FILE UPLOAD SCANNING
+
+To instantiate the upload handler:
+
+```PHP
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+```
+
+To scan file uploads:
+
+```PHP
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+```
+
+Optionally, phpMussel can attempt to repair the names of uploads in case there's something wrong, if you'd like:
+
+```PHP
+$Web->scan();
+```
+
+As a complete example:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Cleanup.
+unset($Web, $Scanner, $Loader);
+
+?><html>
+    <form enctype="multipart/form-data" name="upload" action="" method="post">
+      <div class="spanner">
+        <input type="file" name="upload_test[]" value="" />
+        <input type="submit" value="OK" />
+      </div>
+    </form>
+</html>
+```
+
+*Attempting to upload the file `ascii_standard_testfile.txt`, a benign sample provided for the sole purpose of testing phpMussel:*
+
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
+
+#### 3.3 CLI-MODE
+
+To instantiate the CLI handler:
+
+```PHP
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+```
+
+As a complete example:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+
+unset($CLI, $Scanner, $Loader);
+```
+
+*Screenshot:*
+
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+
+#### 3.3 FRONT-END
+
+To instantiate the front-end:
+
+```PHP
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+```
+
+As a complete example:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Load the front-end.
+$FrontEnd->view();
+
+// Cleanup.
+unset($Web, $FrontEnd, $Scanner, $Loader);
+```
+
+*Screenshot:*
+
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+
+#### 3.4 SCANNER API
+
+You can also implement the phpMussel scanner API within other programs and scripts, if you'd like.
+
+As a complete example:
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+The important part to note from that example is the `scan()` method. The `scan()` method accepts two parameters:
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+The first parameter can be a string or an array, and tells the scanner what it should scan. It can be string indicating a specific file or directory, or an array of such strings to specify multiple files/directories.
+
+When as a string, it should point to where the data can be found. When as an array, the array keys should indicate the original names of the items to be scanned, and the values should point to where the data can be found.
+
+The second parameter is an integer, and tells the scanner how it should return its scan results.
+
+Specify 1 to return the scan results as an array for each item scanned as integers.
+
+These integers have the following meanings:
 
 Results | Description
 --:|:--
@@ -123,35 +351,101 @@ Results | Description
 1 | Indicates that the target was successfully scanned and no problems were detected.
 2 | Indicates that the target was successfully scanned and problems were detected.
 
-Examples:
+Specify 2 to return the scan results as a boolean.
 
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
+Results | Description
+:-:|:--
+`true` | Problems were detected (scan target is bad/dangerous).
+`false` | Problems were not detected (scan target is probably okay).
+
+Specify 3 to return the scan results as an array for each item scanned as human-readable text.
+
+*Example output:*
+
+```
+array(15) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+  ["Data not available.:5632:exe_standard_testfile.exe"]=>
+  string(49) "Filetype blacklisted (exe_standard_testfile.exe)!"
+  ["8e39388e6e605902d1192aecc5ea77f9a62547eb164562266c0060cf52cb6ec9:653:general_standard_testfile.txt"]=>
+  string(77) "Detected phpMussel-Testfile.General.Standard (general_standard_testfile.txt)!"
+  ["d188d46c87f2174c78ed4aaf8b0d24bfafc684c789df36572110355f59443ff7:632:graphics_standard_testfile.gif"]=>
+  string(79) "Detected phpMussel-Testfile.Graphics.Standard (graphics_standard_testfile.gif)!"
+  ["4b4e349e8103d105b8dd0f5fce5ec9be0b263d203597e87abf3644089aea095f:19:hash_testfile_md5.txt"]=>
+  string(61) "Detected phpMussel-Testfile.HASH.MD5 (hash_testfile_md5.txt)!"
+  ["c8ff1888b2802f8824a59191d4ad0a7f5261840541044ca5313fd4ca0962063b:20:hash_testfile_sha1.txt"]=>
+  string(63) "Detected phpMussel-Testfile.HASH.SHA1 (hash_testfile_sha1.txt)!"
+  ["f90054161ed9c4ffcda720769cb1c563eb0fd0e770004db352c4e225522e9a93:22:hash_testfile_sha256.txt"]=>
+  string(67) "Detected phpMussel-Testfile.HASH.SHA256 (hash_testfile_sha256.txt)!"
+  ["bf059f3112049d7299f9dc39397fe721c560e790611bfdc163adadbebb4e9ca9:13:hello.txt"]=>
+  string(0) ""
+  ["fbb49f897c8f8310f6c5ecacbd541d6873b18c7119ba71688d1bcdd3d7ea98fe:1488:html_standard_testfile.html"]=>
+  string(72) "Detected phpMussel-Testfile.HTML.Standard (html_standard_testfile.html)!"
+  ["14fb5b708076142cf38131ccc3827ff0a0ff28db1ee5db4583432cadafc8a4bf:658:ole_testfile.bin"]=>
+  string(60) "Detected phpMussel-Testfile.OLE.Standard (ole_testfile.bin)!"
+  ["1043d8e6c0deb7f7264952a163cbfe9f724251064f9c9d2ccbb3996ea79ebe1c:20882:pdf_standard_testfile.pdf"]=>
+  string(69) "Detected phpMussel-Testfile.PDF.Standard (pdf_standard_testfile.pdf)!"
+  ["Data not available.:5632:pe_sectional_testfile.exe"]=>
+  string(49) "Filetype blacklisted (pe_sectional_testfile.exe)!"
+  ["d1e1ec9461e107beee203d2c7f909d0dab026046a89d5b9a84bece02b5b93ca9:31662:swf_standard_testfile.swf"]=>
+  string(69) "Detected phpMussel-Testfile.SWF.Standard (swf_standard_testfile.swf)!"
+}
 ```
 
-Returns something like this (as a string):
+Specify 4 to return the scan results as a string of human-readable text (like 3, but imploded).
+
+*Example output:*
 
 ```
- Wed, 16 Sep 2013 02:49:46 +0000 Started.
- > Checking '/user_name/public_html/my_file.html':
- -> No problems found.
- Wed, 16 Sep 2013 02:49:47 +0000 Finished.
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
 ```
 
-For a full break-down of what sort of signatures phpMussel uses during its scans and how it handles these signatures, refer to the [SIGNATURE FORMAT](#SECTION8) section of this README file.
+Specify *any other value* to return formatted text (i.e., the scan results seen when using CLI).
 
-If you encounter any false positives, if you encounter something new that you think should be blocked, or for anything else regarding signatures, please contact me about it so that I may make the necessary changes, which, if you do not contact me, I may not necessarily be aware of. *(See: [What is a "false positive"?](#WHAT_IS_A_FALSE_POSITIVE)).*
+*Example output:*
 
-To disable specific signatures included with phpMussel (such as, if you're experiencing a false positive specific to your purposes that shouldn't normally be removed from mainline), add the names of the specific signature to be disabled to the signatures greylist file (`/vault/greylist.csv`), separated by commas.
+```
+string(1826) "Fri, 17 Jul 2020 18:50:47 +0800 Started.
+─→ Checking "ascii_standard_testfile.txt".
+──→ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+─→ Checking "coex_testfile.rtf".
+──→ Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!
+─→ Checking "encrypted.zip".
+──→ Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+─→ Checking "exe_standard_testfile.exe".
+──→ Filetype blacklisted (exe_standard_testfile.exe)!
+─→ Checking "general_standard_testfile.txt".
+──→ Detected phpMussel-Testfile.General.Standard (general_standard_testfile.txt)!
+─→ Checking "graphics_standard_testfile.gif".
+──→ Detected phpMussel-Testfile.Graphics.Standard (graphics_standard_testfile.gif)!
+─→ Checking "hash_testfile_md5.txt".
+──→ Detected phpMussel-Testfile.HASH.MD5 (hash_testfile_md5.txt)!
+─→ Checking "hash_testfile_sha1.txt".
+──→ Detected phpMussel-Testfile.HASH.SHA1 (hash_testfile_sha1.txt)!
+─→ Checking "hash_testfile_sha256.txt".
+──→ Detected phpMussel-Testfile.HASH.SHA256 (hash_testfile_sha256.txt)!
+─→ Checking "hello.txt".
+──→ No problems found.
+─→ Checking "html_standard_testfile.html".
+──→ Detected phpMussel-Testfile.HTML.Standard (html_standard_testfile.html)!
+─→ Checking "ole_testfile.ole".
+────→ Detected phpMussel-Testfile.OLE.Standard (ole_testfile.bin)!
+─→ Checking "pdf_standard_testfile.pdf".
+──→ Detected phpMussel-Testfile.PDF.Standard (pdf_standard_testfile.pdf)!
+─→ Checking "pe_sectional_testfile.exe".
+──→ Filetype blacklisted (pe_sectional_testfile.exe)!
+─→ Checking "swf_standard_testfile.swf".
+──→ Detected phpMussel-Testfile.SWF.Standard (swf_standard_testfile.swf)!
+Fri, 17 Jul 2020 18:50:50 +0800 Finished.
+"
+```
 
 *See also: [How to access specific details about files when they are scanned?](#SCAN_DEBUGGING)*
-
-#### 3.1 HOW TO USE (FOR CLI)
-
-Please refer to the "INSTALLING MANUALLY (FOR CLI)" section of this README file.
-
-Also be aware that phpMussel is an *on-demand* scanner; It is *NOT* an *on-access* scanner (other than for file uploads, at the time of upload), and unlike conventional anti-virus suites, doesn't monitor active memory! It'll only detect viruses contained by file uploads, and by those specific files that you explicitly tell it to scan.
 
 ---
 
@@ -291,7 +585,6 @@ Configuration (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +622,7 @@ Configuration (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +635,6 @@ Configuration (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Useful tip: If you want, you can append date/time information to the names of your logfiles by including these in the name: `{yyyy}` for complete year, `{yy}` for abbreviated year, `{mm}` for month, `{dd}` for day, `{hh}` for hour.*
-
-*Examples:*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" (Category)
 General configuration (any core configuration not belonging to other categories).
@@ -513,6 +799,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +828,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" (Category)
@@ -700,12 +987,6 @@ See also:
 
 #### "urlscanner" (Category)
 Configuration for the URL scanner.
-
-##### "lookup_hphosts" `[bool]`
-- Enables API lookups to the hpHosts API when set to true.
-
-See also:
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### "google_api_key" `[string]`
 - Enables API lookups to the Google Safe Browsing API when the necessary API key is defined.
@@ -882,8 +1163,8 @@ Configuration for PHPMailer (used for two-factor authentication).
 ##### "enable_two_factor" `[bool]`
 - This directive determines whether to use 2FA for front-end accounts.
 
-##### "enable_notifications" `[bool]`
-- Send email notifications when an upload is blocked.
+##### "enable_notifications" `[string]`
+- If you want to be notified by email when an upload is blocked, specify the recipient email address here.
 
 ##### "skip_auth_process" `[bool]`
 - Setting this directive to `true` instructs PHPMailer to skip the normal authentication process that normally occurs when sending email via SMTP. This should be avoided, because skipping this process may expose outbound email to MITM attacks, but may be necessary in cases where this process prevents PHPMailer from connecting to an SMTP server.

@@ -77,7 +77,7 @@ ZIP yang sudah dikemas mencakup semua dependensi yang disebutkan diatas, serta s
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 MENGINSTAL TANDA TANGAN
 
-Tanda tangan dibutuhkan oleh phpMussel untuk mendeteksi ancaman tertentu. Ada 3 metode utama untuk menginstal tanda tangan:
+Tanda tangan dibutuhkan oleh phpMussel untuk mendeteksi ancaman tertentu. Ada 2 metode utama untuk menginstal tanda tangan:
 
 1. Buat tanda tangan menggunakan "SigTool" dan instal secara manual.
 2. Download tanda tangan dari "phpMussel/Signatures" atau "phpMussel/Examples" dan instal secara manual.
@@ -99,18 +99,7 @@ Sebagai alternatif, download ZIP terbaru dari [phpMussel/Examples](https://githu
 
 ### 3. <a name="SECTION3"></a>BAGAIMANA CARA MENGGUNAKAN
 
-#### 3.0 BAGAIMANA CARA MENGGUNAKAN (UNTUK SERVER WEB)
-
-phpMussel harus mampu beroperasi benar dengan persyaratan minimal darimu: Setelah instalasi, harus bekerja segera dan harus berguna segera.
-
-Memindai upload file secara automatis dan di mungkinkan secara default, jadi tidak ada yang diharuskan pada Anda untuk fungsi ini.
-
-Bagaimanapun, Anda juga bisa menginstruksikan phpMussel untuk memindai file, direktori dan/atau arsip spesifik. Untuk melakukannya, pertama-tama Anda harus memastikan konfigurasi yang cocok diset di file `config.ini` (`cleanup` harus dinonaktifkan) dan ketika selesai, di sebuah file PHP yang di hubungkan ke phpMussel, gunakan fungsi berikut pada kode Anda:
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` dapat berupa string, array, atau array mengandung array-array, mengindikasikan apa file, file-file, direktori dan/atau direktori-direktori untuk memindai.
-- `$output_type` adalah boolean, mengindikasikan format untuk hasil pemindaian untuk dikembalikan sebagai. `false` menginstruksikan fungsi untuk mengembalikan hasil sebagai integer. `true` menginstruksikan fungsi untuk mengembalikan hasil sebagai teks yang dapat dibaca manusia. Tambahan, dalam kedua kasus, hasilnya dapat diakses melalui variabel global setelah memindai selesai. Variabel ini adalah opsional, default untuk `false`. Berikut ini adalah deskripsi untuk hasil integer:
+#### 3.4 API PEMINDAI
 
 Hasil | Deskripsi
 --:|:--
@@ -123,35 +112,7 @@ Hasil | Deskripsi
 1 | Mengindikasikan bahwa target sukses dipindai dan tidak ada masalah terdeteksi.
 2 | Mengindikasikan target sukses di scan namun ada masalah terdeteksi.
 
-Contoh:
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-Menghasilkan seperti ini (sebagai kata-kata):
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Dimulai.
- > Memeriksa '/user_name/public_html/my_file.html':
- -> Tidak ada masalah yang diketahui.
- Wed, 16 Sep 2013 02:49:47 +0000 Selesai.
-```
-
-Untuk sebuah pemecahan penuh dari jenis tanda tangan phpMussel yang digunakan selama pemindaian dan bagaimana dia memegang tanda tangan-tanda tangan ini, mencocokkan ke [FORMAT TANDA TANGAN](#SECTION8) dari file README.
-
-Jika Anda menjumpai bilangan positif yang salah, jika Anda menemukan hal baru yang harus di blok atau untuk apapun dalam tanda tangan mohon hubungi saya mengenainya sehingga saya dapat membuat perubahan yang perlu, dimana, jika Anda tidak menghubungi saya saya tidak tahu. *(Lihat: [Apa yang dimaksud dengan "positif palsu"?](#WHAT_IS_A_FALSE_POSITIVE)).*
-
-Untuk menonaktifkan tanda tangan-tanda tangan yang dimasukkan dalam phpMussel (seperti jika Anda berpengalaman sebuah angka positif yang salah untuk tujuan Anda yang seharusnya secara normal di hapus dari aliran), tambahkan nama tanda tangan spesifik yang harus dinonaktifkan ke file tanda tangan daftar abu-abu (`/vault/greylist.csv`), dipisahkan dengan koma.
-
 *Lihat juga: [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#SCAN_DEBUGGING)*
-
-#### 3.1 BAGAIMANA CARA MENGGUNAKAN (UNTUK CLI)
-
-Silahkan lihat "MENGINSTAL SECARA MANUAL (UNTUK CLI)" dari file README.
-
-Mohon diingat bahwa phpMussel adalah scanner *on-demand*; adalah *BUKAN* scanner *on-access* (dengan pengecualian upload file, pada saat upload), dan tidak seperti anti virus, tidak memonitor memori aktif! phpMussel hanya mendeteksi virus dalam upload file dan dalam file yang Anda perintahkan untuk dipindai.
 
 ---
 
@@ -291,7 +252,6 @@ Konfigurasi (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ Konfigurasi (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ Konfigurasi (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Tip berguna: Jika Anda mau, Anda dapat menambahkan informasi tanggal/waktu untuk nama-nama file log Anda oleh termasuk ini dalam nama: `{yyyy}` untuk tahun lengkap, `{yy}` untuk tahun disingkat, `{mm}` untuk bulan, `{dd}` untuk hari, `{hh}` untuk jam.*
-
-*Contoh:*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" (Kategori)
 Konfigurasi umum (konfigurasi inti apapun yang bukan milik kategori lain).
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" (Kategori)
@@ -700,12 +654,6 @@ Lihat juga:
 
 #### "urlscanner" (Kategori)
 Konfigurasi untuk pemindai URL.
-
-##### "lookup_hphosts" `[bool]`
-- Memungkinkan pemeriksaan API ke hpHosts API ketika diset untuk true.
-
-Lihat juga:
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### "google_api_key" `[string]`
 - Memungkinkan pemeriksaan API ke Google Safe Browsing API ketika kunci API diperlukan didefinisikan.
@@ -882,8 +830,8 @@ Konfigurasi untuk PHPMailer (digunakan untuk otentikasi dua-faktor).
 ##### "enable_two_factor" `[bool]`
 - Direktif ini menentukan apakah akan menggunakan 2FA untuk akun depan.
 
-##### "enable_notifications" `[bool]`
-- Kirim pemberitahuan email saat upload diblokir.
+##### "enable_notifications" `[string]`
+- Jika Anda ingin diberi tahu melalui email saat upload diblokir, tentukan alamat email penerima disini.
 
 ##### "skip_auth_process" `[bool]`
 - Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses otentikasi normal yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.

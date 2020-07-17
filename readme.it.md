@@ -77,7 +77,7 @@ I ZIP preconfezionati includono tutte le dipendenze di cui sopra, nonché tutti 
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 INSTALLAZIONE DI FIRME
 
-Le firme sono richieste da phpMussel per rilevare minacce specifiche. Esistono 3 metodi principali per installare le firme:
+Le firme sono richieste da phpMussel per rilevare minacce specifiche. Esistono 2 metodi principali per installare le firme:
 
 1. Genera firme usando "SigTool" e installa manualmente.
 2. Scaricare le firme da "phpMussel/Signatures" o "phpMussel/Examples" e installare manualmente.
@@ -99,18 +99,7 @@ In alternativa, scarica l'ultimo ZIP da [phpMussel/Examples](https://github.com/
 
 ### 3. <a name="SECTION3"></a>COME USARE
 
-#### 3.0 COME USARE (PER WEB SERVER)
-
-phpMussel dovrebbe essere in grado di funzionare correttamente con requisiti minimi da parte vostra: Dopo l'installazione, dovrebbe funzionare immediatamente ed essere immediatamente utilizzabile.
-
-Scansionare di file caricamenti è automatizzato e abilitato per predefinita, perciò nulla è richiesto a vostro nome per questa particolare funzione.
-
-Ma, si è anche in grado di istruire phpMussel per la scansione per i specifici file, cartelle o archivi. Per fare questo, in primo luogo, è necessario assicurarsi che l'appropriata configurazione è impostato nella `config.ini` file (`cleanup` deve essere disattivato), e quando fatto, in un PHP file che è collegato allo phpMussel, utilizzare la seguente funzione nelle codice:
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` può essere una stringa, un array o un array di array multipli, e indica quale d'il file, cartella e/o cartelle a scansiona.
-- `$tipi_di_output` è un valore booleano, indicanti il formato per i risultati della scansione a essere restituire come. `false` istruisce la funzione a restituire i risultati come un intero. `true` istruisce la funzione a restituire i risultati come testo leggibile. In aggiunta, in ogni caso, i risultati sono accessibili tramite variabili globali dopo la scansione è stata completata. Questa variabile è facoltativa, inadempiente su `false`. Di seguito vengono descritti i risultati interi:
+#### 3.4 API SCANNER
 
 Risultati | Descrizioni
 --:|:--
@@ -123,35 +112,7 @@ Risultati | Descrizioni
 1 | Indica che l'obiettivo è stato scansionata correttamente e non problemi stati rilevati.
 2 | Indica che l'obiettivo è stato scansionata correttamente e problemi stati rilevati.
 
-Esempi:
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-Restituisce qualcosa come (in forma di una stringa):
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Iniziato.
- > Verifica '/user_name/public_html/my_file.html':
- -> Nessun problema rilevato.
- Wed, 16 Sep 2013 02:49:47 +0000 Finito.
-```
-
-Per una dettagliata spiegazione del tipo di firme di cui phpMussel usa durante le sue scansioni e come le sue gestisce queste firme, fare riferimento alla [FIRMA FORMATO](#SECTION8) sezione di questo file README.
-
-Se si incontrano qualsiasi falsi positivi, se si incontrano qualcosa nuova che si pensa dovrebbe essere bloccato, o per qualsiasi altri scopi o materia a riguardo delle firme, si prega di contattare me a riguardo esso così che io possa apportare le necessarie modifiche, di cui, se si non contatto me, io non necessariamente essere consapevole ne. *(Vedere: [Che cosa è un "falso positivo"?](#WHAT_IS_A_FALSE_POSITIVE)).*
-
-Per disabilita firme incluso con phpMussel (come se stai sperimentando falsi positivi specifico alle vostri scopi di cui non dovrebbero normalmente essere rimosso dalla mainline), aggiungere i nomi delle firme specifiche da disabilitare al file greylist (`/vault/greylist.csv`), separati da virgole.
-
 *Guarda anche: [Come accedere a dettagli specifici sui file quando vengono scansionati?](#SCAN_DEBUGGING)*
-
-#### 3.1 COME USARE (PER CLI)
-
-Si prega di fare riferimento alla "INSTALLAZIONE MANUALMENTE (PER CLI)" sezione di questo file README.
-
-Anche essere consapevoli che phpMussel è uno scanner *on-demand* (cioè, su richiesta); *NON* è uno scanner *on-access* (cioè, in accesso; ad eccezione di caricamenti di file, al momento del caricamento), e diverso dai convenzionali anti-virus suite, non protegge la memoria attiva! Essa solo rileva virus contenuti dai caricamenti di file, e contenuti da quei file specifici che si esplicitamente dica per scansione.
 
 ---
 
@@ -291,7 +252,6 @@ Configurazione (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ Configurazione (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ Configurazione (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Consiglio utile: Se vuoi, è possibile aggiungere data/ora informazioni per i nomi dei file per la registrazione par includendo queste nel nome: `{yyyy}` per l'anno completo, `{yy}` per l'anno abbreviato, `{mm}` per mese, `{dd}` per giorno, `{hh}` per ora.*
-
-*Esempi:*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" (Categoria)
 Configurazione generale (qualsiasi configurazione di base non appartenente ad altre categorie).
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" (Categoria)
@@ -700,12 +654,6 @@ Guarda anche:
 
 #### "urlscanner" (Categoria)
 Configurazione per lo scanner URL.
-
-##### "lookup_hphosts" `[bool]`
-- Abilita API richieste per l'API di hpHosts quando impostato su true.
-
-Guarda anche:
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### "google_api_key" `[string]`
 - Abilita API richieste per l'API di Google Safe Browsing quando le API chiave necessarie è definito.
@@ -882,8 +830,8 @@ Configurazione per PHPMailer (utilizzato per l'autenticazione a due fattori).
 ##### "enable_two_factor" `[bool]`
 - Questa direttiva determina se utilizzare 2FA per gli account front-end.
 
-##### "enable_notifications" `[bool]`
-- Invia notifiche e-mail quando un caricamento è bloccato.
+##### "enable_notifications" `[string]`
+- Se desideri ricevere una notifica via e-mail quando un caricamento è bloccato, specifica qui l'indirizzo e-mail del destinatario.
 
 ##### "skip_auth_process" `[bool]`
 - Impostando questa direttiva su `true`, PHPMailer salta il normale processo di autenticazione che normalmente si verifica quando si invia una posta elettronica via SMTP. Questo dovrebbe essere evitato, perché saltare questo processo potrebbe esporre la posta elettronica in uscita agli attacchi MITM, ma potrebbe essere necessario nei casi in cui questo processo impedisce a PHPMailer di connettersi a un server SMTP.

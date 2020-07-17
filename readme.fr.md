@@ -77,7 +77,7 @@ Les ZIP préemballés incluent toutes les dépendances susmentionnées, ainsi qu
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 INSTALLATION DES SIGNATURES
 
-Les signatures sont requises par phpMussel pour détecter des menaces spécifiques. Il existe 3 méthodes principales pour installer des signatures :
+Les signatures sont requises par phpMussel pour détecter des menaces spécifiques. Il existe 2 méthodes principales pour installer des signatures :
 
 1. Générer des signatures à l'aide de « SigTool » et installez-les manuellement.
 2. Téléchargez les signatures de « phpMussel/Signatures » ou « phpMussel/Examples » et installez-les manuellement.
@@ -99,18 +99,7 @@ Alternativement, télécharger le ZIP le plus récent de [phpMussel/Examples](ht
 
 ### 3. <a name="SECTION3"></a>COMMENT UTILISER
 
-#### 3.0 COMMENT UTILISER (POUR SERVEURS WEB)
-
-phpMussel devrait être capable de fonctionner correctement avec des exigences minimales de votre part : Après l'avoir installé, il devrait fonctionner immédiatement et être immédiatement utilisable.
-
-L'analyses des téléchargements des fichiers est automatisée et activée par défaut, donc rien est nécessaire à partir de vous pour cette fonction particulière.
-
-Cependant, vous êtes également capable d'instruire phpMussel à analyser spécifiques fichiers, répertoires et/ou archives. Pour ce faire, premièrement, vous devez assurer que la configuration appropriée est imposé dans le `config.ini` fichier (`cleanup` doit être désactivé), et lorsque vous avez terminé, dans un fichier PHP qui est attaché à phpMussel, utilisez la fonction suivante dans votre code :
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` peut être une chaîne, un tableau, ou un tableau de tableaux, et indique quel fichier, fichiers, répertoire et/ou répertoires à analyser.
-- `$output_type` est un booléen, indiquant le format dont les résultats d'analyse doivent être retournées sous. `false` instruit la fonction à retourner des résultats comme un entier. `true` instruit la fonction à retourner des résultats sous forme de texte lisible par humain. De plus, dans tout le cas, les résultats peuvent être accessibles via les variables globales après l'analyse est terminée. Cette variable est optionnel, imposé par défaut comme `false`. Ce qui suit décrit les résultats entiers :
+#### 3.4 API DU SCANNER
 
 Résultats | Description
 --:|:--
@@ -123,35 +112,7 @@ Résultats | Description
 1 | Indique que la cible était analysé avec succès et aucun problème n'été détectée.
 2 | Indique que la cible était analysé avec succès et problèmes ont été détectés.
 
-Exemples :
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-Retours quelque chose comme ça (comme une string) :
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Commencé.
- > Vérification '/user_name/public_html/my_file.html':
- -> Pas problème trouvé.
- Wed, 16 Sep 2013 02:49:47 +0000 Terminé.
-```
-
-Pour un complet itinéraire de signatures que sera utilisé par phpMussel pour l'analyse et la façon dont il gère ces signatures, référer à la [SIGNATURE FORMAT](#SECTION8) section de ce fichier README.
-
-Si vous rencontrez des faux positifs, si vous rencontrez quelque chose nouveau que vous pensez doit être bloqué, ou pour toute autre chose en ce qui concerne les signatures, s'il vous plaît, contactez moi à ce sujet afin que je puisse effectuer les nécessaires changements, dont, si vous ne contactez moi pas, j'ai peut n'être pas conscient. *(Voir : [Qu'est-ce qu'un « faux positif » ?](#WHAT_IS_A_FALSE_POSITIVE)).*
-
-Pour désactiver les signatures qui sont incluent avec phpMussel (comme si vous rencontrez un faux positif spécifique à vos besoins dont ne devrait normalement pas être retiré à partir de rationaliser), ajouter les noms des signatures spécifiques à désactiver dans la liste grise des signatures (`/vault/greylist.csv`), séparé par des virgules.
-
 *Voir également : [Comment accéder à des détails spécifiques sur les fichiers lorsqu'ils sont analysés ?](#SCAN_DEBUGGING)*
-
-#### 3.1 COMMENT UTILISER (POUR CLI)
-
-S'il vous plaît, référer à la section « INSTALLATION MANUELLE (POUR CLI) » de ce fichier README.
-
-Aussi soyez conscient que phpMussel est un scanner *à la demande* (ou *on-demand*) ; Il n'est *PAS* un scanner *à l'accès* (ou *on-access* ; autres que pour le téléchargement de fichiers, au moment du téléchargement), et contrairement anti-virus suites conventionnelles, ne surveille pas la mémoire active ! Il seulement détecte les virus contenue par le téléchargement de fichiers, et dans les fichiers que vous explicitement spécifier pour d'analyse.
 
 ---
 
@@ -291,7 +252,6 @@ Configuration (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ Configuration (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ Configuration (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Conseil utile : Si vous souhaitez, vous pouvez ajouter l'information pour la date/l'heure à les noms de vos fichiers pour enregistrement par des incluant ceux-ci au nom : `{yyyy}` pour l'année complète, `{yy}` pour l'année abrégée, `{mm}` pour mois, `{dd}` pour le jour, `{hh}` pour l'heure.*
-
-*Exemples :*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### « core » (Catégorie)
 Configuration générale (toute configuration de base n'appartenant pas à d'autres catégories).
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### « signatures » (Catégorie)
@@ -700,12 +654,6 @@ Voir également :
 
 #### « urlscanner » (Catégorie)
 Configuration pour le scanner d'URL.
-
-##### « lookup_hphosts » `[bool]`
-- Permet cherches de l'API hpHosts quand définit comme true.
-
-Voir également :
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### « google_api_key » `[string]`
 - Permet cherches de l'API Google Safe Browsing quand l'API clé nécessaire est définie.
@@ -882,8 +830,8 @@ Configuration pour PHPMailer (utilisé pour l'authentification à deux facteurs)
 ##### « enable_two_factor » `[bool]`
 - Cette directive détermine s'il faut utiliser 2FA pour les comptes frontaux.
 
-##### « enable_notifications » `[bool]`
-- Envoyez des notifications par e-mail lorsqu'un téléchargement est bloqué.
+##### « enable_notifications » `[string]`
+- Si vous souhaitez être averti par e-mail lorsqu'un téléchargement est bloqué, indiquez ici l'adresse e-mail du destinataire.
 
 ##### « skip_auth_process » `[bool]`
 - Définir cette directive sur `true` instruit à PHPMailer de sauter le processus d'authentification qui se produit normalement lors de l'envoi d'e-mail via SMTP. Cela doit être évité, car sauter du processus peut exposer l'e-mail sortant aux attaques MITM, mais peut être nécessaire dans les cas où ce processus empêche PHPMailer de se connecter à un serveur SMTP.

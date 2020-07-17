@@ -77,7 +77,7 @@ Die vorgefertigten ZIPs enthalten alle oben genannten Abhängigkeiten sowie alle
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 SIGNATUREN INSTALLIEREN
 
-Signaturen werden von phpMussel benötigt, um bestimmte Bedrohungen zu erkennen. Es gibt 3 Hauptmethoden, um Signaturen zu installieren:
+Signaturen werden von phpMussel benötigt, um bestimmte Bedrohungen zu erkennen. Es gibt 2 Hauptmethoden, um Signaturen zu installieren:
 
 1. Signaturen mit "SigTool" generieren und manuell installieren.
 2. Signaturen aus "phpMussel/Signatures" oder "phpMussel/Examples" herunterladen und manuell installieren.
@@ -99,18 +99,7 @@ Alternativ können Sie die neueste ZIP-Datei von [phpMussel/Examples](https://gi
 
 ### 3. <a name="SECTION3"></a>BENUTZUNG
 
-#### 3.0 BENUTZUNG (SERVER)
-
-phpMussel ist dafür vorgesehen, fast vollständig autonom zu funktionieren, ohne dass Sie etwas tun müssen: Sobald es installiert ist, führt es die Tätigkeiten allein aus.
-
-Das Scannen von Dateiuploads ist automatisiert und standardmäßig eingeschaltet, Sie müssen nichts weiter unternehmen.
-
-Sie sind jedoch auch in der Lage, phpMussel anzuweisen, spezifische Dateien, Ordner und/oder Archive zu scannen. Um dies auszuführen, stellen Sie sicher, dass diese Konfiguration in der `config.ini` festgelegt ist (`cleanup` muss deaktiviert sein). Erstellen Sie eine mit phpMussel eingebundene PHP-Datei mit folgender Closure:
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` kann ein String, ein Array oder ein Array von Arrays sein und gibt an, welche Datei, Dateien, Ordner und/oder Ordner gescannt werden sollen.
-- `$output_type` ist ein boolescher Wert und gibt an, in welchem Format die Scan-Ergebnisse zurückgegeben werden sollen. `false` weist die Funktion an, Ergebnisse als Integer (Ganzzahl) zurückzugeben. `true` weist die Funktion an, Ergebnisse als lesbaren Text zurückzugeben. Zusätzlich können in beiden Fällen auf die Ergebnisse über globale Variablen nach dem Scannen zugegriffen werden. Diese Variable ist optional und standardmäßig auf `false`. Im Folgenden werden die Integer-Ergebnisse beschrieben:
+#### 3.4 SCANNER-API
 
 Ergebnisse | Beschreibung
 --:|:--
@@ -123,35 +112,7 @@ Ergebnisse | Beschreibung
 1 | Zeigt an, dass das Ziel erfolgreich geprüft wurde und keine Probleme erkannt wurden.
 2 | Zeigt an, dass das Ziel erfolgreich geprüft wurde, jedoch Probleme gefunden wurden.
 
-Beispiel:
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-Gibt so etwas wie dies (als ein String):
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Gestartet.
- > Überprüfung '/user_name/public_html/my_file.html':
- -> Keine Probleme gefunden.
- Wed, 16 Sep 2013 02:49:47 +0000 Fertig.
-```
-
-Eine vollständige Liste der Signaturen, die phpMussel nutzt und wie diese verarbeitet werden, finden Sie im Abschnitt [SIGNATURENFORMAT](#SECTION8).
-
-Sollten irgendwelche Fehlalarme (oder "Falsch-Positivs") auftreten, Sie etwas entdecken, was Ihrer Meinung nach blockiert werden sollte oder etwas mit den Signaturen nicht funktionieren, so informieren Sie den Autor, damit die erforderlichen Änderungen durchgeführt werden können. *(Beziehen auf: [Was ist ein "Falsch-Positiv"?](#WHAT_IS_A_FALSE_POSITIVE)).*
-
-Um die Signaturen, die in phpMussel enthalten sind, zu deaktivieren, fügen Sie die Namen der spezifischen Signatur, die deaktiviert werden soll, durch Kommata abgetrennt, in die Signaturen-Greylist-Datei ein (`/vault/greylist.csv`).
-
 *Siehe auch: [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#SCAN_DEBUGGING)*
-
-#### 3.1 BENUTZUNG (CLI - BEFEHLSZEILENMODUS)
-
-Bitte lesen Sie den Abschnitt "MANUELL INSTALLIEREN (CLI - BEFEHLSZEILENMODUS)".
-
-Beachten Sie außerdem, dass phpMussel eine *On-Demand-Scanner*; Keine *On-Access-Scanner* (andere als für das Hochladen von Dateien, zum Zeitpunkt der Upload), und nicht den aktiven Speicher überwacht! Es erkennt nur Viren in den Dateien, die hochgeladen werden, und die Sie explizit zum Scannen angegeben haben.
 
 ---
 
@@ -291,7 +252,6 @@ Konfiguration (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ Konfiguration (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ Konfiguration (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Nützlicher Tipp: Wenn du willst, Sie können die Datum/Uhrzeit um die Aufzeichnungen hinzufügen durch diese im Namen einschließlich: `{yyyy}` für komplette Jahr, `{yy}` für abgekürzten Jahr, `{mm}` für Monat, `{dd}` für Tag, `{hh}` für Stunde.*
-
-*Beispielen:*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" (Kategorie)
 Allgemeine Konfiguration (jede Kernkonfiguration, die nicht zu anderen Kategorien gehört).
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" (Kategorie)
@@ -700,12 +654,6 @@ Siehe auch:
 
 #### "urlscanner" (Kategorie)
 Konfiguration für den URL-Scanner.
-
-##### "lookup_hphosts" `[bool]`
-- Aktiviert API-Abfragen zur hpHosts API wenn der Wert auf `true` gesetzt ist.
-
-Siehe auch:
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### "google_api_key" `[string]`
 - Aktiviert API-Abfragen zur Google Safe Browsing API wenn der benötigte API-Schlüssel festgelegt ist.
@@ -882,8 +830,8 @@ Konfiguration für PHPMailer (für Zwei-Faktor-Authentifizierung verwendet).
 ##### "enable_two_factor" `[bool]`
 - Diese Direktive bestimmt, ob 2FA für Frontend-Konten verwendet werden soll.
 
-##### "enable_notifications" `[bool]`
-- Senden Sie E-Mail-Benachrichtigungen wenn ein Upload ist blockiert.
+##### "enable_notifications" `[string]`
+- Wenn Sie per E-Mail benachrichtigt werden möchten, wenn ein Upload blockiert ist, geben Sie hier die E-Mail-Adresse des Empfängers an.
 
 ##### "skip_auth_process" `[bool]`
 - Wenn Sie diese Direktive auf `true` setzen, wird PHPMailer angewiesen, den normalen Authentifizierungsprozess zu überspringen, der normalerweise beim Senden von E-Mails über SMTP auftritt. Dies sollte vermieden werden, da das Überspringen dieses Prozesses ausgehende E-Mails MITM-Angriffen aussetzen kann. Dies kann jedoch in Fällen erforderlich sein, in denen dieser Prozess die Verbindung von PHPMailer zu einem SMTP-Server verhindert.

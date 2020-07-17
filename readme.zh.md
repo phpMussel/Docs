@@ -77,7 +77,7 @@ https://github.com/phpMussel/Examples
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 安装签名
 
-phpMussel需要签名来检测特定的威胁。​安装签名有三种主要方法：
+phpMussel需要签名来检测特定的威胁。​安装签名有二种主要方法：
 
 1. 使用“SigTool”生成签名并手动安装。
 2. 从“phpMussel/Signatures”或“phpMussel/Examples”下载签名并手动安装。
@@ -99,18 +99,7 @@ phpMussel需要签名来检测特定的威胁。​安装签名有三种主要�
 
 ### 3. <a name="SECTION3"></a>如何使用
 
-#### 3.0 如何使用（对于WEB服务器）
-
-phpMussel应该能够正确操作与最低要求从您：安装后，​它应该立即开展工作和应该立即有用。
-
-文件上传扫描是自动的和按照设定规则激活的，​所以，​您不需要做任何额外的事情。
-
-另外，​您能手动使用phpMussel扫描文件，​文件夹或存档当您需要时。​要做到这一点，​首先，​您需要确保`config.ini`文件（`cleanup`【清理】必须关闭）的配置是正常的，​然后通过任何一个PHP文件的钩子至phpMussel，​在您的代码中添加以下代码：
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target`可以是字符串，​数组，​或多维数组，​和表明什么文件，​收集的文件，​文件夹和/或文件夹至扫描。
-- `$output_type`是布尔，​和表明什么格式到回报扫描结果作为。​False【假/负】指示关于功能以回报扫描结果作为整数。​True【真/正】指示关于功能以回报扫描结果作为人类可读文本。​此外，​在任一情况下，​结果可以访问通过全局变量后扫描是完成。​变量是自选，​确定作为False【假/负】作为标准。​以下描述整数结果：
+#### 3.4 扫描程序API
 
 结果 | 说明
 --:|:--
@@ -123,35 +112,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 1 | 表明扫描目标是成功扫描和没有任何问题检测。
 2 | 表明扫描目标是成功扫描和至少一些问题是检测。
 
-例子：
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-返回结果类似于（作为字符串）：
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 开始。
- > 检查 '/user_name/public_html/my_file.html':
- -> 没有任何问题发现。
- Wed, 16 Sep 2013 02:49:47 +0000 完了。
-```
-
-对一个签名类型进行完整的检查测试以及phpMussel如何扫描和使用签名文件，​请参阅【[签名格式](#SECTION8)】部分的自述文件。
-
-如果您遇到任何误报，​如果您遇到无法检测的新类型，​或者关于签名的其他任何问题，​请联系我以便于后续的版本支持，​该，​如果您不联系我，​我可能不会知道并在下一版本中进行处理。 *(看到：[什么是“假阳性”？​](#WHAT_IS_A_FALSE_POSITIVE))。​*
-
-如果您遇到误报严重或者不需要检测该签名下的文件或者其他不需要使用签名验证的场景，​将要禁用的特定签名的名称添加到签名灰名单文件（`/vault/greylist.csv`），被逗号隔开。
-
 *也可以看看： [扫描时如何访问文件的具体细节？](#SCAN_DEBUGGING)*
-
-#### 3.1 如何使用（CLI）
-
-请参考“安装手工（CLI）”部分的这个自述文件。
-
-还注意，​phpMussel是“*一经请求*”扫描程序；不是“*一经访问*”扫描程序（除了文件上传，​在上传时候），​而不像传统的防病毒套件，​它不监控活动内存！​它将会只检测病毒从文件上传，​而从那些具体文件您明确地告诉它需要扫描。
 
 ---
 
@@ -291,7 +252,6 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ phpMussel应该能够正确操作与最低要求从您：安装后，​它应�
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*有用的建议：如果您想，​可以追加日期/时间信息至附加到你的日志文件的名称通过包括这些中的名称：`{yyyy}` 为今年完整，​`{yy}` 为今年缩写，​`{mm}` 为今月，​`{dd}` 为今日，​`{hh}` 为今小时。​*
-
-*例子：*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### “core” （类别）
 基本配置（任何不属于其他类别的核心配置）。
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### “signatures” （类别）
@@ -611,7 +565,7 @@ disabled_channels
 - 最大存档递归深度限。​默认=3。
 
 ##### “block_encrypted_archives” `[bool]`
-- 检测和受阻加密的存档吗？​因为phpMussel是不能够扫描加密的存档内容，​它是可能存档加密可能的可以使用通过一个攻击者作为一种手段尝试绕过phpMussel，​杀毒扫描仪和其他这样的保护。​指示phpMussel受阻任何存档它发现被加密可能的可以帮助减少任何风险有关联这些可能性。​False（假）=不受阻；True（真）=受阻【默认】。
+- 检测和受阻加密的存档吗？​因为phpMussel是不能够扫描加密的存档内容，​它是可能存档加密可能的可以使用通过一个攻击者作为一种手段尝试绕过phpMussel，​杀毒扫描程序和其他这样的保护。​指示phpMussel受阻任何存档它发现被加密可能的可以帮助减少任何风险有关联这些可能性。​False（假）=不受阻；True（真）=受阻【默认】。
 
 ##### “max_files_in_archives” `[int]`
 - 在中止扫描之前从档案中扫描的最大文件数。​默认=0（没有最大文件数）。
@@ -659,7 +613,7 @@ disabled_channels
 - 尝试阻止任何包含宏的文件吗？​某些文档和电子表格类型可能包含可执行的宏，因此提供了危险的潜在恶意软件向量。​False（假）=不阻止【默认】；​True（真）=阻止。
 
 ##### “only_allow_images” `[bool]`
-- 设置为true时，扫描仪遇到的任何非图像文件将被立即标记，而不会被扫描。​在某些情况下，这可能有助于减少完成扫描所需的时间。​默认情况下设置为false。
+- 设置为true时，扫描程序遇到的任何非图像文件将被立即标记，而不会被扫描。​在某些情况下，这可能有助于减少完成扫描所需的时间。​默认情况下设置为false。
 
 #### “quarantine” （类别）
 隔离配置。
@@ -700,12 +654,6 @@ Virus Total整合的配置。
 
 #### “urlscanner” （类别）
 URL扫描程序的配置。
-
-##### “lookup_hphosts” `[bool]`
-- 激活hpHosts API当设置`true`。
-
-也可以看看：
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### “google_api_key” `[string]`
 - 激活Google Safe Browsing API当API密钥是设置。
@@ -882,8 +830,8 @@ PHPMailer的配置（用于双因素身份验证）。
 ##### “enable_two_factor” `[bool]`
 - 该指令确定是否将2FA用于前端帐户。
 
-##### “enable_notifications” `[bool]`
-- 当阻止上传时发送电子邮件通知。
+##### “enable_notifications” `[string]`
+- 如果要在阻止上传时通过电子邮件收到通知，请在此处指定收件人电子邮件地址。
 
 ##### “skip_auth_process” `[bool]`
 - 将此指令设置为`true`会指示PHPMailer跳过通过SMTP发送电子邮件时通常会发生的正常身份验证过程。​应该避免这种情况，因为跳过此过程可能会将出站电子邮件暴露给MITM攻击，但在此过程阻止PHPMailer连接到SMTP服务器的情况下可能是必要的。

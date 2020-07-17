@@ -77,7 +77,7 @@ De voorverpakte ZIP's bevatten alle bovengenoemde afhankelijkheden, evenals alle
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 SIGNATURES INSTALLEREN
 
-Signatures zijn vereist door phpMussel voor het opsporen van specifieke bedreigingen. Er zijn 3 hoofdmethoden om signatures te installeren:
+Signatures zijn vereist door phpMussel voor het opsporen van specifieke bedreigingen. Er zijn 2 hoofdmethoden om signatures te installeren:
 
 1. Genereer signatures met behulp van "SigTool" en installeer handmatig.
 2. Download signatures van "phpMussel/Signatures" of "phpMussel/Examples" en installeer handmatig.
@@ -99,18 +99,7 @@ Alternatief, download de meest recente ZIP van [phpMussel/Examples](https://gith
 
 ### 3. <a name="SECTION3"></a>HOE TE GEBRUIKEN
 
-#### 3.0 HOE TE GEBRUIKEN (VOOR WEBSERVERS)
-
-phpMussel moet in staat zijn om correct te werken met minimale eisen van uw kant: Na de installatie, het moeten onmiddellijk aan het werk en zijn onmiddellijk bruikbare.
-
-Het scannen van het bestanden uploaden is geautomatiseerd en ingeschakeld door standaard, zo niets is vereist op namens u voor deze specifieke functie.
-
-Echter, u bent ook in staat om te instrueren phpMussel om te scannen specifiek bestanden, bestandsmappen en/of archieven. Om dit te doen, ten eerste, moet u ervoor zorgen dat de juiste configuratie is ingesteld in het `config.ini` configuratiebestand (`cleanup` moet worden uitgeschakeld), en als u klaar bent, in een PHP-bestand dat wordt gehaakt op phpMussel, gebruik de volgende functie in uw code:
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-- `$Target` kunt worden een string, een array, of een array van arrays, en vermelding welk bestand, bestanden, bestandsmap en/of bestandsmappen om scannen.
-- `$output_type` is een boolean, met vermelding van het formaat voor de scanresultaten te worden geretourneerd als. `false` instrueert de functie om de resultaten als een integer retourneer. `true` instrueert de functie om de resultaten als leesbare tekst retourneer. Bovendien, in elk geval, de resultaten kunnen worden geraadpleegd via globale variabelen na het scannen is voltooid. Deze variabele is optioneel, voorgedefinieerd als `false`. Deze integer resultaten worden hieronder beschreven:
+#### 3.4 SCANNER-API
 
 Resultaten | Beschrijving
 --:|:--
@@ -123,35 +112,7 @@ Resultaten | Beschrijving
 1 | Betekent dat het doel met succes werden gescand en geen problemen gedetecteerd.
 2 | Betekent dat het doel met succes werd gescand en problemen werden gedetecteerd.
 
-Voorbeeld:
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-Retourneren iets als dit (als een string):
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Gestart.
- > Verifiëren '/user_name/public_html/my_file.html':
- -> Geen problemen gevonden.
- Wed, 16 Sep 2013 02:49:47 +0000 Afgewerkt.
-```
-
-Voor een volledige beschrijving van de soorten van de signatures gebruikt door phpMussel tijdens de scans en hoe het omgaat met deze signatures, raadpleeg de [SIGNATURE FORMAAT](#SECTION8) sectie van dit README bestand.
-
-Als u tegenkomen valse positieven, als u iets nieuws tegenkomen waarvan u denkt dat zou moeten geblokkeerd worden, of voor iets anders met betrekking tot signatures, neem dan contact met mij over het zo dat ik de noodzakelijke veranderingen kunnen maken, die, als u niet contact met mij over, ik zou niet per se bewust van. *(Zien: [Wat is een "vals positieve"?](#WHAT_IS_A_FALSE_POSITIVE)).*
-
-Voor uitschakelen om de signatures die bij phpMussel (zoals als u het ervaren van een vals positief specifiek voor uw doeleinden dat mag niet normaal van stroomlijn worden verwijderd), voeg de namen van de specifieke signatures die moet worden uitgeschakeld toe aan het greylist-bestand (`/vault/greylist.csv`), gescheiden door komma's.
-
 *Zie ook: [Hoe krijgt u toegang tot specifieke gegevens over bestanden als ze worden gescand?](#SCAN_DEBUGGING)*
-
-#### 3.1 HOE TE GEBRUIKEN (VOOR CLI)
-
-Raadpleeg de "HANDMATIG INSTALLEREN (VOOR CLI)" sectie van dit README bestand.
-
-Eveneens, noteren dat phpMussel is een *on-demand* scanner; Het is *GEEN* *on-access* scanner (anders dan voor het uploaden van bestanden, bij de tijd van de upload), en in tegenstelling tot conventionele anti-virus suites, het maakt niet actief geheugen controleren! Het zal alleen virussen te detecteren, in de bestand uploaden en in specifieke bestanden dat u expliciet zeggen dat het te scannen.
 
 ---
 
@@ -291,7 +252,6 @@ Configuratie (v3)
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -329,7 +289,7 @@ Configuratie (v3)
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -342,13 +302,6 @@ Configuratie (v3)
         add_reply_to_address [string]
         add_reply_to_name [string]
 ```
-
-*Handige tip: Als u wil, U kunt datum/tijd informatie toevoegen om de namen van uw logbestanden door deze op in naam inclusief: `{yyyy}` voor volledige jaar, `{yy}` voor verkorte jaar, `{mm}` voor maand, `{dd}` voor dag, `{hh}` voor het uur.*
-
-*Voorbeelden:*
-- *`scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'`*
-- *`error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'`*
 
 #### "core" (Categorie)
 Algemene configuratie (elke kernconfiguratie die niet tot andere categorieën behoort).
@@ -513,6 +466,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -541,7 +495,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### "signatures" (Categorie)
@@ -700,12 +654,6 @@ Zie ook:
 
 #### "urlscanner" (Categorie)
 Configuratie voor de URL-scanner.
-
-##### "lookup_hphosts" `[bool]`
-- Inschakelt gebruik van de hpHosts API wanneer zet op true.
-
-Zie ook:
-- [hosts-file.net](https://hosts-file.net/)
 
 ##### "google_api_key" `[string]`
 - Inschakelt gebruik van de Google Safe Browsing API wanneer de noodzakelijke API sleutel wordt gedefinieerd.
@@ -882,8 +830,8 @@ Configuratie voor PHPMailer (gebruikt voor tweefactorauthenticatie).
 ##### "enable_two_factor" `[bool]`
 - Deze richtlijn bepaalt of 2FA wordt gebruikt voor frontend-accounts.
 
-##### "enable_notifications" `[bool]`
-- Stuur e-mailmeldingen wanneer een upload is geblokkeerd.
+##### "enable_notifications" `[string]`
+- Als u via e-mail op de hoogte wilt worden gehouden wanneer een upload wordt geblokkeerd, geeft u hier het e-mailadres van de ontvanger op.
 
 ##### "skip_auth_process" `[bool]`
 - Wanneer `true`, geeft PHPMailer opdracht om het verificatieproces over te slaan dat normaal optreedt bij het verzenden van e-mail via SMTP. Dit moet worden vermeden, omdat bij het overslaan van dit verificatieproces uitgaande e-mail aan MITM-aanvallen kan worden blootgesteld, maar kan nodig zijn in gevallen waarin dit verificatieproces verhindert dat PHPMailer verbinding maakt met een SMTP-server.

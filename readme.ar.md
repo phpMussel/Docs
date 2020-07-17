@@ -79,7 +79,7 @@ https://github.com/phpMussel/Examples
 
 #### <div dir="rtl"><a name="INSTALLING_SIGNATURES"></a>٢.١ تثبيت التوقيعات</div>
 
-<div dir="rtl">التوقيعات مطلوبة من قبل phpMussel للكشف عن تهديدات محددة. هناك 3 طرق رئيسية لتثبيت التوقيعات:<br /><br /></div>
+<div dir="rtl">التوقيعات مطلوبة من قبل phpMussel للكشف عن تهديدات محددة. هناك 2 طرق رئيسية لتثبيت التوقيعات:<br /><br /></div>
 
 <div dir="rtl"><ul>
  <li>١. توليد التوقيعات باستخدام "SigTool" وتثبيت يدويا.</li>
@@ -103,20 +103,7 @@ https://github.com/phpMussel/Examples
 
 ### <div dir="rtl">٣. <a name="SECTION3"></a>كيفية الإستخدام</div>
 
-#### <div dir="rtl">٣.٠ كيفية الإستخدام (لخدمات الويب)</div>
-
-<div dir="rtl">لقد تم إعداد phpMussel ليكون البرنامج النصي الذي سوف يعمل بشكل مرضي على جهازك مع الحد الأدنى من المتطلبات على جهازك: بمجرد تثبيته بشكلي أساسي فإنه ببساطة يجب أن يعمل.<br /><br /></div>
-
-<div dir="rtl">سيتم فحص الملفات تلقائياً لقد تم إعداده إفتراضياً لذا ليس عليك القيام بشيئ.<br /><br /></div>
-
-<div dir="rtl">مع ذلك، فإنك قادراً أيضاً على إرشاد phpMussel لمسح ملفات معينة مثل الدلائل و/ أو المحفوظات. للقيام بذلك فعليك أولاً: سوف تحتاج إلى التأكد من أن يتم تعيين التكوين المناسب في ملف "config.ini" (يجب تعطيل عملية التنظيف) وعندما تنتهي من ذلك، في ملف PHP و الذي تم ربطه مع phpMussel، استخدم الدالة التالية في التعليمة البرمجية "الكود" الذي ستضعه:<br /><br /></div>
-
-`$Results = $ScannerObject->scan($Target, $Format);`
-
-<div dir="rtl"><ul>
- <li><code dir="ltr">$Target</code> يمكن أن تكون سلسلة، مصفوفة، أو مجموعة من المصفوفات، وتشير إلى أي ملف/ملفات، دليل و/أو دلائل ليتم إجراء المسح عليها.</li>
- <li><code dir="ltr">$output_type</code> هي قيمة منطقية تدل على نتائج الفحص ليتم إرجاعها كالتالي، الخطأ يرشد الدالة لإرجاع نتائج الفحص على شكل عدد (النتائج المرجعة -4 يشير إلى أن البيانات لا يمكن فحصها بسبب التشفير، -3 يشير إلى أن مشاكل تمت مواجهتها مع ملفات التوقيعات، -2 تشير إلى أنه تم الكشف عن بيانات تالفة خلال الفحص وبالتالي فشل في إكمال الفحص، 0 يشير إلى أن هدف الفحص غير موجود و بالتالي لم تكن هناك حاجة لعملية الفحص، 1 يشير إلى أن الهدف تم فحصه بنجاح و لم يتم الكشف عن أي مشاكل، 2 يشير إلى أن الهدف تم فحصه بنجاح و تم الكشف عن مشاكل. القيمة الصحيحة ترشد الدالة لإرجاع نتائج الفحص كنص مقروء للبشر. بالإضافة إلى ذلك، في كلتا الحالتين، يمكن الوصول إلى النتائج عبر المتغيرات العالمية بعد اكتمال الفحص. هذا المتغير هو اختياري و إذا لم تحدد فالافتراضي هو القيمة الخطأ.</li>
-</ul></div>
+#### <div dir="rtl">٣.٤ API الماسح</div>
 
 النتائج | وصف
 --:|--:
@@ -129,35 +116,7 @@ https://github.com/phpMussel/Examples
 1 | Indicates that the target was successfully scanned and no problems were detected.
 2 | Indicates that the target was successfully scanned and problems were detected.
 
-<div dir="rtl">أمثلة:<br /><br /></div>
-
-```PHP
- $results = $phpMussel['Scan']('/user_name/public_html/my_file.html', true, true);
- echo $results;
-```
-
-<div dir="rtl">يتحول كالتالي (كسلسلة):<br /><br /></div>
-
-```
- Wed, 16 Sep 2013 02:49:46 +0000 Started.
- > Checking '/user_name/public_html/my_file.html':
- -> No problems found.
- Wed, 16 Sep 2013 02:49:47 +0000 Finished.
-```
-
-<div dir="rtl">للحصول على مفعول كامل لأي من التوقيعات التي يستخدمها phpMussel أثناء التفحص، وكيف يتعامل مع هذه التوقيعات، راجع قسم (٨) <a href="#SECTION8">دستخط فارمیٹ</a> في هذا الملف التمهيدي.<br /><br /></div>
-
-<div dir="rtl">إذا واجهت أي إيجابيات زائفة أي إذا واجهت شيئا جديدا تعتقد أنه يجب أن يكون قد تم حظره أو أي شيء آخر بخصوص التوقيعات، فيرجى الاتصال بي لإبلاغي عن ذلك حتى أستطيع إجراء التغييرات اللازمة، والتي إذا لم تقوم بالاتصال بي، فإنني قد لا أكون منتبه لها. <em>(نرى: <a href="#WHAT_IS_A_FALSE_POSITIVE">ما هو "إيجابية خاطئة"؟</a>).</em><br /><br /></div>
-
-<div dir="rtl">لتعطيل التواقيع التي يتضمنها phpMussel (مثل إذا كنت تعاني من إيجابية زائفة محددة لأغراضك التي لا ينبغي أن يتم عادة إزالتها)، قم بإضافة أسماء التوقيع المحدد المراد تعطيله إلى التوقيعات ملف قائمة رمادية (<code dir="ltr">/vault/greylist.csv</code>)، مفصولة بفواصل.<br /><br /></div>
-
 <div dir="rtl">أنظر أيضا: <a href="#SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a><br /></div>
-
-#### <div dir="rtl">٣.١ كيفية الاستخدام (لخدمات واجهة سطر الأوامر)</div>
-
-<div dir="rtl">يرجى الرجوع إلى قسم "تثبيت يدويا (لخدمات واجهة سطر الأوامر)" من هذا الملف التمهيدي.<br /><br /></div>
-
-<div dir="rtl">كما يجب أن تدرك أن phpMussel فمن الماسح الضوئي <em>على الطلب</em>؛ وهي ليست الماسح الضوئي <em>على وصول</em> (مع استثناء ل تحميل الملف، عندما يحدث). وعلى عكس البرامج التقليدية لمكافحة الفيروسات فإنها لا تراقب الذاكرة النشطة! لكنها سوف تكشف عن الفيروسات فقط الواردة في تلك الملفات المحددة التي طلبت منه فحصها، وفي تحميل الملف.<br /><br /></div>
 
 ---
 
@@ -297,7 +256,6 @@ https://github.com/phpMussel/Examples
 │       vt_quota_rate [int]
 │       vt_quota_time [int]
 ├───urlscanner
-│       lookup_hphosts [bool]
 │       google_api_key [string]
 │       maximum_api_lookups [int]
 │       maximum_api_lookups_response [bool]
@@ -335,7 +293,7 @@ https://github.com/phpMussel/Examples
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
-        enable_notifications [bool]
+        enable_notifications [string]
         skip_auth_process [bool]
         host [string]
         port [int]
@@ -347,14 +305,6 @@ https://github.com/phpMussel/Examples
         set_from_name [string]
         add_reply_to_address [string]
         add_reply_to_name [string]
-```
-
-<div dir="rtl"><em>نصيحة مفيدة: إن أردت، يمكنك إلحاق تاريخ/المعلومات في الوقت إلى أسماء ملفات السجل من خلال تضمين هذه في اسم: "{yyyy}" لمدة عام كامل، "{yy}" لمدة عام يختصر، "{mm}" لمدة شهر، "{dd}" ليوم واحد، "{hh}" لمدة ساعة (راجع الأمثلة أدناه).</em><br /><br /></div>
-
-```
- scan_log='scan_log.{yyyy}-{mm}-{dd}-{hh}.txt'
- scan_log_serialized='scan_log_serialized.{yyyy}-{mm}-{dd}-{hh}.txt'
- error_log='error_log.{yyyy}-{mm}-{dd}-{hh}.txt'
 ```
 
 #### <div dir="rtl">"core" (التصنيف)<br /></div>
@@ -521,6 +471,7 @@ lang
 ├─pt ("Português")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
 ├─ur ("اردو")
@@ -549,7 +500,7 @@ disabled_channels
 ├─GitHub ("GitHub")
 ├─BitBucket ("BitBucket")
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
-├─VirusTotal_HTTP ("VirusTotal (HTTP)")
+└─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
 #### <div dir="rtl">"signatures" (التصنيف)<br /></div>
@@ -709,13 +660,6 @@ disabled_channels
 
 #### <div dir="rtl">"urlscanner" (التصنيف)<br /></div>
 <div dir="rtl">التكوين من الماسح الضوئي URL.<br /><br /></div>
-
-##### <div dir="rtl">"lookup_hphosts" <code dir="ltr">[bool]</code><br /></div>
-<div dir="rtl"><ul><li>تمكين عمليات بحث API إلى API hpHosts.</li></ul></div>
-
-<div dir="rtl">أنظر أيضا:<ul dir="rtl">
-<li><a dir="ltr" href="https://hosts-file.net/">hosts-file.net</a></li>
-</ul></div>
 
 ##### <div dir="rtl">"google_api_key" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>العدد الأقصى المسموح به من عمليات بحث واجهة برمجة التطبيقات لأداء في تكرار المسح الفردية.</li></ul></div>
@@ -893,8 +837,8 @@ theme
 ##### <div dir="rtl">"enable_two_factor" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>يحدد هذا التوجيه ما إذا كان سيتم استخدام 2FA للحسابات front-end أم لا.</li></ul></div>
 
-##### <div dir="rtl">"enable_notifications" <code dir="ltr">[bool]</code><br /></div>
-<div dir="rtl"><ul><li>إرسال إخطارات البريد الإلكتروني عندما يتم حظر التحميل.</li></ul></div>
+##### <div dir="rtl">"enable_notifications" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>إذا كنت تريد أن يتم إعلامك عبر البريد الإلكتروني عند حظر التحميل، فحدد عنوان البريد الإلكتروني للمستلم هنا.</li></ul></div>
 
 ##### <div dir="rtl">"skip_auth_process" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>تعيين هذا التوجيه إلى <code dir="ltr">true</code> يرشد PHPMailer لتخطي عملية المصادقة التي تحدث عادة عند إرسال البريد الإلكتروني عبر SMTP. يجب تجنب هذا، لأن تخطي هذه العملية قد يعرض البريد الإلكتروني الصادر إلى هجمات MITM، ولكنه قد يكون ضروريًا في الحالات التي تمنع فيها هذه العملية من اتصال PHPMailer بخادم SMTP.</li></ul></div>
