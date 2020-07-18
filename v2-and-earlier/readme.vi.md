@@ -1,4 +1,4 @@
-## Tài liệu của phpMussel (Tiếng Việt).
+## Tài liệu của phpMussel v2 (Tiếng Việt).
 
 ### Nội dung
 - 1. [LỜI GIỚI THIỆU](#SECTION1)

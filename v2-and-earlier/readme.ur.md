@@ -1,4 +1,4 @@
-## <div dir="rtl">phpMussel لئے دستاویزی (اردو).</div>
+## <div dir="rtl">phpMussel v2 لئے دستاویزی (اردو).</div>
 
 ### <div dir="rtl">فہرست:</div>
 <div dir="rtl"><ul>

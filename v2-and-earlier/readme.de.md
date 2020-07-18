@@ -1,4 +1,4 @@
-## Dokumentation für phpMussel (Deutsch).
+## Dokumentation für phpMussel v2 (Deutsch).
 
 ### Inhalt
 - 1. [VORWORT](#SECTION1)

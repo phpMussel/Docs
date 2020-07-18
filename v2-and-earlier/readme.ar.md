@@ -1,4 +1,4 @@
-## <div dir="rtl">phpMussel بالعربية</div>
+## <div dir="rtl">phpMussel v2 بالعربية</div>
 
 ### <div dir="rtl">المحتويات:</div>
 <div dir="rtl"><ul>

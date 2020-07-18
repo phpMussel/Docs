@@ -4,9 +4,6 @@
 - 1. [PREÂMBULO](#SECTION1)
 - 2. [COMO INSTALAR](#SECTION2)
 - 3. [COMO USAR](#SECTION3)
-- 4. [GESTÃO DE FRONT-END](#SECTION4)
-- 5. [CLI (COMANDO LINHA INTERFACE)](#SECTION5)
-- 6. [ARQUIVOS INCLUÍDOS NESTE PACOTE](#SECTION6)
 - 7. [OPÇÕES DE CONFIGURAÇÃO](#SECTION7)
 - 8. [FORMATOS DE ASSINATURAS](#SECTION8)
 - 9. [PROBLEMAS DE COMPATIBILIDADE CONHECIDOS](#SECTION9)
@@ -99,6 +96,36 @@ Alternativamente, faça o download do ZIP mais recente de [phpMussel/Examples](h
 
 ### 3. <a name="SECTION3"></a>COMO USAR
 
+#### 3.0 CONFIGURANDO O PHPMUSSEL
+
+Após instalar o phpMussel, você precisará de um arquivo de configuração para poder configurá-lo. Os arquivos de configuração do phpMussel podem ser formatados como arquivos INI ou YML. Se você estiver trabalhando em um dos ZIPs de exemplo, já terá dois arquivos de configuração exemplo disponíveis, `phpmussel.ini` e `phpmussel.yml`; você pode escolher um deles para trabalhar, se desejar. Se você não estiver trabalhando em um dos ZIPs de exemplo, precisará criar um novo arquivo.
+
+Se você está satisfeito com a configuração padrão do phpMussel e não deseja alterar nada, pode usar um arquivo vazio como seu arquivo de configuração. Qualquer coisa que não seja configurada pelo seu arquivo de configuração utilizará seu padrão, portanto, você só precisará configurar algo explicitamente se desejar que ele seja diferente do seu padrão (ou seja, um arquivo de configuração vazio fará com que o phpMussel utilize toda a sua configuração padrão).
+
+Se você quiser usar o front-end do phpMussel, poderá configurar tudo na página de configuração do front-end. Mas, desde a v3 em diante, as informações de login do front-end são armazenadas no seu arquivo de configuração, portanto, para fazer login no front-end, você precisará pelo menos configurar uma conta para fazer login e, a partir daí, você poderá fazer login e usar a página de configuração do front-end para configurar todo o resto.
+
+Os trechos abaixo adicionarão uma nova conta ao front-end com o nome de usuário "admin" e a senha "password".
+
+Para arquivos INI:
+```
+[user.admin]
+password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
+permissions='1'
+```
+
+Para arquivos YML:
+```
+user.admin:
+ password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
+ permissions: 1
+```
+
+Você pode nomear sua configuração como quiser (contanto que você mantenha sua extensão, para que o phpMussel saiba qual formato ele usa), e você pode armazená-lo onde quiser. Você pode dizer ao phpMussel onde encontrar seu arquivo de configuração, fornecendo seu caminho ao instanciar o carregador. Se nenhum caminho for fornecido, o phpMussel tentará localizá-lo no pai do diretório do vendor.
+
+Em alguns ambientes, como o Apache, é possível colocar um ponto na frente da sua configuração para ocultá-lo e impedir o acesso do público.
+
+Consulte a seção de configuração deste documento para obter mais informações sobre as várias diretivas de configuração disponíveis para o phpMussel.
+
 #### 3.4 API DO SCANNER
 
 Resultados | Descrição
@@ -114,64 +141,13 @@ Resultados | Descrição
 
 *Veja também: [Como acessar detalhes específicos sobre os arquivos quando eles são analisados?](#SCAN_DEBUGGING)*
 
----
-
-
-### 4. <a name="SECTION4"></a>GESTÃO DE FRONT-END
-
-#### 4.0 O QUE É O FRONT-END.
-
-O front-end fornece uma maneira conveniente e fácil de manter, gerenciar e atualizar sua instalação phpMussel. Você pode visualizar, compartilhar e baixar arquivos de log através da página de logs, você pode modificar a configuração através da página de configuração, você pode instalar e desinstalar componentes através da página de atualizações, e você pode carregar, baixar e modificar arquivos no seu vault através do gerenciador de arquivos.
-
-O front-end é desativado por padrão para evitar acesso não autorizado (acesso não autorizado pode ter consequências significativas para o seu site e para a sua segurança). Instruções para habilitá-lo estão incluídas abaixo deste parágrafo.
-
-#### 4.1 COMO HABILITAR O FRONT-END.
-
-1) Localize a directiva `disable_frontend` dentro `config.ini`, e defini-lo como `false` (ele será `true` por padrão).
-
-2) Acesse o `loader.php` do seu navegador (p.e., `http://localhost/phpmussel/loader.php`).
-
-3) Faça login com o nome de usuário e a senha padrão (admin/password).
-
-Nota: Depois de efetuar login pela primeira vez, a fim de impedir o acesso não autorizado ao front-end, você deve imediatamente alterar seu nome de usuário e senha! Isto é muito importante, porque é possível fazer upload de código PHP arbitrário para o seu site através do front-end.
-
-Além disso, para uma segurança ideal, é recomendável ativar a "autenticação de dois fatores" para todas as contas front-end (instruções fornecidas abaixo).
-
-#### 4.2 COMO USAR O FRONT-END.
-
-As instruções são fornecidas em cada página do front-end, para explicar a maneira correta de usá-lo e sua finalidade pretendida. Se precisar de mais explicações ou qualquer assistência especial, entre em contato com o suporte. Alternativamente, existem alguns vídeos disponíveis no YouTube que podem ajudar por meio de demonstração.
-
-#### 4.3 AUTENTICAÇÃO DE DOIS FATORES
+#### 3.5 AUTENTICAÇÃO DE DOIS FATORES
 
 É possível tornar o front-end mais seguro ativando a autenticação de dois fatores ("2FA"). Ao fazer login numa conta ativada para 2FA, um e-mail é enviado para o endereço de e-mail associado a essa conta. Este e-mail contém um "código 2FA", que o usuário deve inserir, além do nome de usuário e da senha, para poder fazer login usando essa conta. Isso significa que a obtenção de uma senha de conta não seria suficiente para que qualquer hacker ou atacante em potencial pudesse fazer login nessa conta, já que eles também precisam ter acesso ao endereço de e-mail associado a essa conta para poder receber e utilizar o código 2FA associado à sessão, assim tornando assim o front-end mais seguro.
-
-Em primeiro lugar, para ativar a autenticação de dois fatores, usando a página de atualizações do front-end, instale o componente PHPMailer. O phpMussel utiliza o PHPMailer para enviar e-mails. Deve-se notar que embora o phpMussel, por si só, seja compatível com PHP >= 5.4.0, o PHPMailer requer PHP >= 5.5.0, significando, portanto, que ativando a autenticação de dois fatores para o front-end do phpMussel não será possível para usuários do PHP 5.4.
 
 Depois de instalar o PHPMailer, você precisará preencher as diretivas de configuração do PHPMailer por meio da página de configuração para phpMussel ou do arquivo de configuração. Mais informações sobre essas diretivas de configuração estão incluídas na seção de configuração deste documento. Depois de preencher as diretivas de configuração do PHPMailer, defina `enable_two_factor` para `true`. A autenticação de dois fatores agora deve estar ativada.
 
 Em seguida, você precisará associar um endereço de e-mail a uma conta para que o phpMussel saiba para onde enviar códigos 2FA ao fazer login com essa conta. Para fazer isso, use o endereço de e-mail como o nome de usuário da conta (como `foo@bar.tld`), ou incluir o endereço de e-mail como parte do nome de usuário da mesma forma que você faria ao enviar um e-mail normalmente (como `Foo Bar <foo@bar.tld>`).
-
-Nota: Proteger seu vault contra acesso não autorizado (p.e., por meio de endurecendo as permissões de segurança e de acesso público do seu servidor), é particularmente importante aqui, devido a esse acesso não autorizado ao seu arquivo de configuração (que é armazenado no seu vault), pode arriscar expor suas configurações de SMTP (incluindo nome de usuário e senha SMTP). Você deve garantir que seu vault esteja adequadamente protegido antes de ativar a autenticação de dois fatores. Se você não conseguir fazer isso, então, pelo menos, você deve criar uma nova conta de e-mail, dedicada para essa finalidade, a fim de reduzir os riscos associados às configurações SMTP expostas.
-
----
-
-
-### 5. <a name="SECTION5"></a>CLI (COMANDO LINHA INTERFACE)
-
-phpMussel pode ser executado como um interativo analisador de arquivo no modo CLI em sistemas baseados em Windows. Por favor, consulte a seção "COMO INSTALAR (PARA CLI)" deste arquivo README para mais detalhes.
-
-Para uma lista de comandos disponíveis Em CLI, no CLI prompt, digite 'c', e pressione Enter.
-
-Além disso, para os interessados, um tutorial em vídeo para saber como usar phpMussel no modo CLI está disponível aqui:
-- <https://youtu.be/H-Pa740-utc>
-
----
-
-
-### 6. <a name="SECTION6"></a>ARQUIVOS INCLUÍDOS NESTE PACOTE
-
-```
-```
 
 ---
 

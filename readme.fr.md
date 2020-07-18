@@ -4,9 +4,6 @@
 - 1. [PRÉAMBULE](#SECTION1)
 - 2. [COMMENT INSTALLER](#SECTION2)
 - 3. [COMMENT UTILISER](#SECTION3)
-- 4. [GESTION L'ACCÈS FRONTAL](#SECTION4)
-- 5. [CLI (COMMANDE LIGNE INTERFACE)](#SECTION5)
-- 6. [FICHIERS INCLUS DANS CETTE PAQUET](#SECTION6)
 - 7. [OPTIONS DE CONFIGURATION](#SECTION7)
 - 8. [FORMATS DE SIGNATURES](#SECTION8)
 - 9. [PROBLÈMES DE COMPATIBILITÉ CONNUS](#SECTION9)
@@ -99,6 +96,36 @@ Alternativement, télécharger le ZIP le plus récent de [phpMussel/Examples](ht
 
 ### 3. <a name="SECTION3"></a>COMMENT UTILISER
 
+#### 3.0 CONFIGURER PHPMUSSEL
+
+Après avoir installé phpMussel, vous aurez besoin d'un fichier de configuration pour pouvoir le configurer. Les fichiers de configuration phpMussel peuvent être formatés sous forme de fichiers INI ou YML. Si vous travaillez à partir de l'un des exemples de ZIP, vous aurez déjà deux exemples de fichiers de configuration disponibles, `phpmussel.ini` et `phpmussel.yml`. Vous pouvez en choisir un, si vous le souhaitez. Si vous ne travaillez pas à partir de l'un des exemples de ZIP, vous devrez créer un nouveau fichier.
+
+Si vous êtes satisfait de la configuration par défaut de phpMussel et que vous ne voulez rien changer, vous pouvez utiliser un fichier vide comme fichier de configuration. Tout ce qui n'est pas configuré par votre fichier de configuration utilisera sa valeur par défaut. Vous n'avez donc besoin de configurer explicitement quelque chose que si vous voulez qu'il soit différent de sa valeur par défaut (ce qui signifie qu'un fichier de configuration vide amènera phpMussel à utiliser toute sa configuration défaut).
+
+Si vous souhaitez utiliser le front-end de phpMussel, vous pouvez tout configurer depuis la page de configuration du front-end. Mais, depuis la v3, les informations de connexion à l'accès frontal sont stockées dans votre fichier de configuration, donc pour l'accès frontal, vous devrez au moins configurer un compte pour la connexion, et puis, à partir de là, vous pourrez vous connecter et utiliser la page de configuration pour configurer tout le reste.
+
+Les extraits ci-dessous ajouteront un nouveau compte d'accès frontal avec le nom d'utilisateur « admin » et le mot de passe « password ».
+
+Pour les fichiers INI :
+```
+[user.admin]
+password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
+permissions='1'
+```
+
+Pour les fichiers YML :
+```
+user.admin:
+ password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
+ permissions: 1
+```
+
+Vous pouvez nommer votre configuration comme vous le souhaitez (tant que vous conservez son extension, afin que phpMussel sache quel format il utilise), et vous pouvez le stocker où vous le souhaitez. Vous pouvez indiquer à phpMussel où trouver votre fichier de configuration en fournissant son chemin lors de l'instanciation du loader. Si aucun chemin n'est fourni, phpMussel essaiera de le localiser dans le parent du répertoire vendor.
+
+Dans certains environnements, comme Apache, il est même possible de placer un point à l'avant de votre configuration pour la masquer et empêcher l'accès public.
+
+Reportez-vous à la section configuration de ce document pour plus d'informations sur les différentes directives de configuration disponibles pour phpMussel.
+
 #### 3.4 API DU SCANNER
 
 Résultats | Description
@@ -114,64 +141,13 @@ Résultats | Description
 
 *Voir également : [Comment accéder à des détails spécifiques sur les fichiers lorsqu'ils sont analysés ?](#SCAN_DEBUGGING)*
 
----
-
-
-### 4. <a name="SECTION4"></a>GESTION L'ACCÈS FRONTAL
-
-#### 4.0 CE QUI EST L'ACCÈS FRONTAL.
-
-L'accès frontal fournit un moyen pratique et facile de gérer, de maintenir et de mettre à jour votre installation de phpMussel. Vous pouvez afficher, partager et télécharger des fichiers journaux via la page des journaux, vous pouvez modifier la configuration via la page de configuration, vous pouvez installer et désinstaller des composants via la page des mises à jour, et vous pouvez télécharger et modifier des fichiers dans votre vault via le gestionnaire de fichiers.
-
-L'accès frontal est désactivée par défaut afin d'empêcher tout accès non autorisé (l'accès non autorisé pourrait avoir des conséquences importantes pour votre site web et sa sécurité). Les instructions pour l'activer sont incluses ci-dessous.
-
-#### 4.1 COMMENT ACTIVER L'ACCÈS FRONTAL.
-
-1) Localiser la directive `disable_frontend` à l'intérieur de `config.ini`, et réglez-le sur `false` (il sera `true` par défaut).
-
-2) Accéder `loader.php` à partir de votre navigateur (par exemple, `http://localhost/phpmussel/loader.php`).
-
-3) Connectez-vous avec le nom d'utilisateur et le mot de passe défaut (admin/password).
-
-Remarque : Après vous être connecté pour la première fois, afin d'empêcher l'accès frontal non autorisé, vous devez immédiatement changer votre nom d'utilisateur et votre mot de passe ! C'est très important, car il est possible de télécharger du code PHP arbitraire à votre site Web via l'accès frontal.
-
-Aussi, pour une sécurité optimale, il est fortement recommandé d'activer « l'authentification à deux facteurs » pour tous les comptes frontaux (instructions fournies ci-dessous).
-
-#### 4.2 COMMENT UTILISER L'ACCÈS FRONTAL.
-
-Des instructions sont fournies sur chaque page de l'accès frontal, pour expliquer la manière correcte de l'utiliser et son but. Si vous avez besoin d'autres explications ou d'une assistance spéciale, veuillez contacter le support technique. Alternativement, il ya quelques vidéos disponibles sur YouTube qui pourraient aider par voie de démonstration.
-
-#### 4.3 AUTHENTIFICATION À DEUX FACTEURS
+#### 3.5 AUTHENTIFICATION À DEUX FACTEURS
 
 Il est possible de sécuriser l'accès frontal en activant l'authentification à deux facteurs (« 2FA »). Lors de la connexion à l'aide d'un compte sur lequel 2FA est activé, un e-mail est envoyé à l'adresse électronique associée à ce compte. Cet e-mail contient un « code 2FA », que l'utilisateur doit alors entrer, en plus du nom d'utilisateur et du mot de passe, afin de pouvoir authentifier ce compte. Cela signifie que l'obtention d'un mot de passe d'un compte ne serait pas suffisant pour qu'un attaquant potentiel puisse authentifier ce compte, comme ils auraient également besoin d'avoir déjà accès à l'adresse électronique associée à ce compte afin de pouvoir recevoir et utiliser le code 2FA associé à la session, rendant ainsi l'accès frontal plus sécurisé.
-
-Avant toute chose, pour activer l'authentification à deux facteurs, à l'aide de la page des mises à jour frontales, installez le composant PHPMailer. phpMussel utilise PHPMailer pour envoyer des emails. Il convient de noter que bien que phpMussel, en soi, est compatible avec PHP >= 5.4.0, PHPMailer a besoin de PHP >= 5.5.0, ce qui signifie que l'activation de l'authentification à deux facteurs pour l'accès frontal sur phpMussel ne sera pas possible pour les utilisateurs de PHP 5.4.
 
 Après avoir installé PHPMailer, vous devez renseigner les directives de configuration de PHPMailer via la page de configuration ou le fichier de configuration de phpMussel. Plus d'informations sur ces directives de configuration sont incluses dans la section de configuration de ce document. Après avoir rempli les directives de configuration de PHPMailer, mettre `enable_two_factor` à `true`. L'authentification à deux facteurs devrait maintenant être activée.
 
 Ensuite, vous devrez associer une adresse e-mail à un compte afin que phpMussel sache où envoyer les codes 2FA lors de la connexion via ce compte. Pour ce faire, utilisez l'adresse e-mail comme nom d'utilisateur pour le compte (comme `foo@bar.tld`), ou inclure l'adresse e-mail dans le nom d'utilisateur de la même manière que lorsqu'un e-mail est envoyé normalement (comme `Foo Bar <foo@bar.tld>`).
-
-Remarque : Protéger votre vault contre les accès non autorisés (par exemple, en renforçant la sécurité de votre serveur et les autorisations d'accès public), est particulièrement important ici, en raison de cet accès non autorisé à votre fichier de configuration (qui est stocké dans votre vault), risque d'exposer vos paramètres SMTP sortants (qui comprend le nom d'utilisateur et le mot de passe pour votre SMTP). Vous devez vous assurer que votre vault est correctement sécurisé avant de activer l'authentification à deux facteurs. Si vous ne pouvez pas le faire, vous devez au moins créer un nouveau compte e-mail, dédié à cet effet, afin de réduire les risques associés aux paramètres SMTP exposés.
-
----
-
-
-### 5. <a name="SECTION5"></a>CLI (COMMANDE LIGNE INTERFACE)
-
-phpMussel peut être exécuté comme un analyseur de fichiers interactif en mode CLI dans windows. Référer à la section « COMMENT INSTALLER (POUR CLI) » de ce fichier README pour plus détails.
-
-Pour une liste des disponibles CLI commandes, à l'invite CLI, tapez « c », et appuyez sur Entrée.
-
-En outre, pour les personnes intéressées, un didacticiel vidéo pour savoir comment utiliser phpMussel en le mode CLI est disponible ici :
-- <https://youtu.be/H-Pa740-utc>
-
----
-
-
-### 6. <a name="SECTION6"></a>FICHIERS INCLUS DANS CETTE PAQUET
-
-```
-```
 
 ---
 

@@ -1,4 +1,4 @@
-## Dokumentasi untuk phpMussel (Bahasa Indonesia).
+## Dokumentasi untuk phpMussel v2 (Bahasa Indonesia).
 
 ### Isi
 - 1. [SEPATAH KATA](#SECTION1)

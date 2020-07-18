@@ -4,9 +4,6 @@
 - 1. [SEPATAH KATA](#SECTION1)
 - 2. [BAGAIMANA CARA MENGINSTAL](#SECTION2)
 - 3. [BAGAIMANA CARA MENGGUNAKAN](#SECTION3)
-- 4. [MANAJEMEN BAGIAN DEPAN](#SECTION4)
-- 5. [CLI (COMMAND LINE INTERFACE)](#SECTION5)
-- 6. [FILE YANG DIIKUTKAN DALAM PAKET INI](#SECTION6)
 - 7. [OPSI KONFIGURASI](#SECTION7)
 - 8. [FORMAT TANDA TANGAN](#SECTION8)
 - 9. [MASALAH KOMPATIBILITAS DIKETAHUI](#SECTION9)
@@ -99,6 +96,36 @@ Sebagai alternatif, download ZIP terbaru dari [phpMussel/Examples](https://githu
 
 ### 3. <a name="SECTION3"></a>BAGAIMANA CARA MENGGUNAKAN
 
+#### 3.0 MENGKONFIGURASI PHPMUSSEL
+
+Setelah menginstal phpMussel, Anda akan memerlukan file konfigurasi sehingga Anda dapat mengkonfigurasinya. File konfigurasi phpMussel dapat diformat sebagai file INI atau YML. Jika Anda bekerja dari salah satu contoh ZIP, Anda sudah memiliki dua contoh file konfigurasi yang tersedia, `phpmussel.ini` atau `phpmussel.yml`; Anda dapat memilih salah satu dari ini-ini untuk bekerja, jika Anda mau. Jika Anda tidak bekerja dari salah satu ZIP contoh, Anda harus membuat file baru.
+
+Jika Anda puas dengan konfigurasi default untuk phpMussel dan tidak ingin mengubah apapun, Anda dapat menggunakan file kosong sebagai file konfigurasi Anda. Apapun yang tidak dikonfigurasikan oleh file konfigurasi Anda akan menggunakan defaultnya, jadi Anda hanya perlu mengkonfigurasi sesuatu secara eksplisit jika Anda ingin itu berbeda dari defaultnya (artinya, file konfigurasi kosong akan menyebabkan phpMussel memanfaatkan semua konfigurasi defaultnya).
+
+Jika Anda ingin menggunakan front-end phpMussel, Anda dapat mengonfigurasi semuanya dari halaman konfigurasi front-end. Tetapi, sejak v3 dan seterusnya, informasi login untuk front-end disimpan dalam file konfigurasi Anda, jadi untuk masuk ke front-end, Anda harus setidaknya mengkonfigurasi akun yang akan digunakan untuk login, dan kemudian, dari sana, Anda akan dapat masuk dan menggunakan halaman konfigurasi front-end untuk mengkonfigurasi yang lainnya.
+
+Kutipan dibawah ini akan menambahkan akun baru ke front-end dengan nama pengguna "admin", dan kata sandi "password".
+
+Untuk file INI:
+```
+[user.admin]
+password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
+permissions='1'
+```
+
+Untuk file YML:
+```
+user.admin:
+ password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
+ permissions: 1
+```
+
+Anda dapat memberi nama konfigurasi apapun yang Anda inginkan (selama Anda mempertahankan ekstensi, sehingga phpMussel tahu format mana yang digunakannya), dan Anda dapat menyimpannya dimana pun Anda inginkan. Anda dapat memberi tahu phpMussel dimana menemukan file konfigurasi Anda dengan menyediakan jalurnya saat menginstansiasi loader. Jika tidak ada jalur yang disediakan, phpMussel akan mencoba untuk menemukannya di dalam direktori induk untuk vendor.
+
+Di beberapa lingkungan, seperti Apache, bahkan mungkin untuk menempatkan titik di depan konfigurasi Anda untuk menyembunyikannya dan mencegah akses publik.
+
+Lihat bagian konfigurasi dokumen ini untuk informasi lebih lanjut tentang berbagai direktif konfigurasi yang tersedia untuk phpMussel.
+
 #### 3.4 API PEMINDAI
 
 Hasil | Deskripsi
@@ -114,64 +141,13 @@ Hasil | Deskripsi
 
 *Lihat juga: [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#SCAN_DEBUGGING)*
 
----
-
-
-### 4. <a name="SECTION4"></a>MANAJEMEN BAGIAN DEPAN
-
-#### 4.0 APA YANG MANAJEMEN BAGIAN DEPAN.
-
-Manajemen bagian depan menyediakan cara yang nyaman dan mudah untuk mempertahankan, mengelola, dan memperbarui instalasi phpMussel Anda. Anda dapat melihat, berbagi, dan download file log melalui halaman log, Anda dapat mengubah konfigurasi melalui halaman konfigurasi, Anda dapat instal dan uninstal/hapus komponen melalui halaman pembaruan, dan Anda dapat upload, download, dan memodifikasi file dalam vault Anda melalui file manager.
-
-Bagian depan adalah dinonaktifkan secara default untuk mencegah akses yang tidak sah (akses yang tidak sah bisa memiliki konsekuensi yang signifikan untuk website Anda dan keamanannya). Instruksi untuk mengaktifkannya termasuk dibawah paragraf ini.
-
-#### 4.1 BAGAIMANA CARA MENGAKTIFKAN MANAJEMEN BAGIAN DEPAN.
-
-1) Menemukan direktif `disable_frontend` dalam `config.ini`, dan mengaturnya untuk `false` (akan menjadi `true` secara default).
-
-2) Mengakses `loader.php` dari browser Anda (misalnya, `http://localhost/phpmussel/loader.php`).
-
-3) Masuk dengan nama pengguna dan kata sandi default (admin/password).
-
-Catat: Setelah Anda dimasukkan untuk pertama kalinya, untuk mencegah akses tidak sah ke manajemen bagian depan, Anda harus segera mengubah nama pengguna dan kata sandi Anda! Ini sangat penting, karena itu mungkin untuk meng-upload kode PHP sewenang-wenang untuk situs web Anda melalui bagian depan.
-
-Juga, untuk keamanan yang optimal, memungkinkan "otentikasi dua faktor" untuk semua akun front-end sangat disarankan (petunjuk disediakan dibawah).
-
-#### 4.2 BAGAIMANA CARA MENGGUNAKAN MANAJEMEN BAGIAN DEPAN.
-
-Instruksi disediakan pada setiap halaman dari manajemen bagian depan, untuk menjelaskan cara yang benar untuk menggunakannya dan tujuan yang telah ditetapkan. Jika Anda membutuhkan penjelasan lebih lanjut atau bantuan khusus, silahkan hubungi dukungan, atau sebagai pilihan lain, ada beberapa video yang tersedia di YouTube yang dapat membantu dengan cara demonstrasi.
-
-#### 4.3 OTENTIKASI DUA FAKTOR
+#### 3.5 OTENTIKASI DUA FAKTOR
 
 Mungkin untuk membuat bagian depan lebih aman dengan mengaktifkan otentikasi dua faktor ("2FA"). Saat masuk ke akun berkemampuan 2FA, email dikirim ke alamat email yang terkait dengan akun tersebut. Email ini berisi "kode 2FA", yang kemudian harus dimasukkan oleh pengguna, selain nama pengguna dan kata sandi, agar dapat masuk menggunakan akun tersebut. Ini berarti bahwa mendapatkan kata sandi akun tidak akan cukup bagi peretas atau penyerang potensial untuk dapat masuk ke akun tersebut, karena mereka juga harus sudah memiliki akses ke alamat email yang terkait dengan akun tersebut agar dapat menerima dan memanfaatkan kode 2FA yang terkait dengan sesi, sehingga membuat bagian depan lebih aman.
-
-Pertama, untuk mengaktifkan otentikasi dua faktor, menggunakan halaman pembaruan bagian depan, instal komponen PHPMailer. phpMussel menggunakan PHPMailer untuk mengirim email. Perlu dicatat bahwa meskipun phpMussel, dengan sendirinya, kompatibel dengan PHP >= 5.4.0, PHPMailer membutuhkan PHP >= 5.5.0, dengan demikian berarti bahwa mengaktifkan otentikasi dua faktor untuk bagian depan phpMussel tidak akan mungkin bagi pengguna PHP 5.4.
 
 Setelah Anda menginstal PHPMailer, Anda harus mengisi direktif konfigurasi untuk PHPMailer melalui halaman konfigurasi phpMussel atau file konfigurasi. Informasi lebih lanjut tentang direktif konfigurasi ini termasuk dalam bagian konfigurasi dokumen ini. Setelah Anda mengisi direktif konfigurasi PHPMailer, atur `enable_two_factor` ke `true`. Otentikasi dua faktor sekarang harus diaktifkan.
 
 Selanjutnya, Anda harus mengaitkan alamat email dengan akun, sehingga phpMussel tahu ke mana harus mengirim 2FA kode ketika masuk dengan akun tersebut. Untuk melakukan ini, gunakan alamat email sebagai nama pengguna untuk akun tersebut (seperti `foo@bar.tld`), atau sertakan alamat email sebagai bagian dari nama pengguna dengan cara yang sama seperti ketika mengirim email secara normal (seperti `Foo Bar <foo@bar.tld>`).
-
-Catat: Melindungi vault Anda terhadap akses yang tidak sah (misalnya, dengan memperketat keamanan server Anda dan izin akses publik), sangat penting disini, karena akses tidak sah ke file konfigurasi Anda (yang disimpan dalam vault Anda), dapat berisiko mengekspos konfigurasi SMTP Anda (termasuk nama pengguna dan kata sandi SMTP). Anda harus memastikan bahwa vault Anda diamankan dengan benar sebelum mengaktifkan otentikasi dua faktor. Jika Anda tidak dapat melakukan ini, setidaknya Anda harus membuat akun email baru, yang didedikasikan untuk tujuan ini, untuk mengurangi risiko yang terkait dengan konfigurasi SMTP yang diekspos.
-
----
-
-
-### 5. <a name="SECTION5"></a>CLI (COMMAND LINE INTERFACE)
-
-phpMussel dapat dijalankan sebagai sebuah file interaktif pemindai dalam mode CLI dalam Windows. Lihat "BAGAIMANA CARA MENGINSTAL (UNTUK CLI)" dari file README untuk lebih detail.
-
-Untuk daftar yang tersedia CLI perintah, pada prompt CLI, ketik 'c', dan tekan Enter.
-
-Sebagai tambahan, bagi yang berminat, sebuah video tutorial untuk bagaimana menggunakan phpMussel di modus CLI tersedia disini:
-- <https://youtu.be/H-Pa740-utc>
-
----
-
-
-### 6. <a name="SECTION6"></a>FILE YANG DIIKUTKAN DALAM PAKET INI
-
-```
-```
 
 ---
 

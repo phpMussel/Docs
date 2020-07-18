@@ -4,9 +4,6 @@
 - 1. [LỜI GIỚI THIỆU](#SECTION1)
 - 2. [CÁCH CÀI ĐẶT](#SECTION2)
 - 3. [CÁCH SỬ DỤNG](#SECTION3)
-- 4. [QUẢN LÝ FRONT-END](#SECTION4)
-- 5. [CLI (LỆNH CHO DÒNG GIAO DIỆN)](#SECTION5)
-- 6. [TẬP TIN BAO GỒM TRONG GÓI NÀY](#SECTION6)
 - 7. [TÙY CHỌN CHO CẤU HÌNH](#SECTION7)
 - 8. [ĐỊNH DẠNG CỦA CHỬ KÝ](#SECTION8)
 - 9. [NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH](#SECTION9)
@@ -99,6 +96,36 @@ Như một sự thay thế, tải xuống ZIP gần đây nhất từ [phpMussel
 
 ### 3. <a name="SECTION3"></a>CÁCH SỬ DỤNG
 
+#### 3.0 ĐỂ CẤU HÌNH PHPMUSSEL
+
+Sau khi cài đặt phpMussel, bạn sẽ cần một tập tin cấu hình để bạn có thể định cấu hình nó. Các tập tin cấu hình phpMussel có thể được định dạng là các tập tin INI hoặc YML. Nếu bạn đang làm việc từ một trong các ZIP mẫu, bạn sẽ có sẵn hai tập tin cấu hình ví dụ, `phpmussel.ini` và `phpmussel.yml`; bạn có thể chọn một trong số đó để làm việc, nếu bạn muốn. Nếu bạn không làm việc từ một trong các ZIP mẫu, bạn sẽ cần tạo một tập tin mới.
+
+Nếu bạn hài lòng với cấu hình mặc định cho phpMussel và không muốn thay đổi bất cứ điều gì, bạn có thể sử dụng một tập tin trống làm tập tin cấu hình của mình. Bất cứ điều gì không được cấu hình bởi tập tin cấu hình của bạn sẽ sử dụng mặc định của nó, vì vậy bạn chỉ cần cấu hình rõ ràng một cái gì đó nếu bạn muốn nó khác với mặc định của nó (có nghĩa là, một tập tin cấu hình trống sẽ khiến phpMussel sử dụng tất cả cấu hình mặc định của nó).
+
+Nếu bạn muốn sử dụng giao diện người dùng phpMussel, bạn có thể định cấu hình mọi thứ từ trang cấu hình giao diện người dùng. Nhưng, kể từ phiên bản v3 trở đi, thông tin đăng nhập giao diện người dùng được lưu trữ trong tập tin cấu hình của bạn, vì vậy, để đăng nhập vào giao diện người dùng, ít nhất bạn sẽ cần định cấu hình tài khoản để sử dụng để đăng nhập, và sau đó, từ đó, bạn sẽ có thể đăng nhập và sử dụng trang cấu hình giao diện người dùng để định cấu hình mọi thứ khác.
+
+Các trích đoạn dưới đây sẽ thêm một tài khoản mới vào giao diện người dùng với tên người dùng "admin" và mật khẩu "password".
+
+Đối với các tập tin INI:
+```
+[user.admin]
+password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
+permissions='1'
+```
+
+Đối với các tập tin YML:
+```
+user.admin:
+ password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
+ permissions: 1
+```
+
+Bạn có thể đặt tên cho cấu hình của bạn bất cứ điều gì bạn muốn (miễn là bạn giữ lại phần mở rộng của nó, để phpMussel biết nó sử dụng định dạng nào), và bạn có thể lưu trữ nó bất cứ nơi nào bạn muốn. Bạn có thể cho phpMussel biết nơi tìm tập tin cấu hình của bạn bằng cách cung cấp đường dẫn của nó khi khởi tạo loader. Nếu không có đường dẫn nào được cung cấp, phpMussel sẽ cố gắng định vị nó trong thư mục mẹ của thư mục vendor.
+
+Trong một số môi trường, chẳng hạn như Apache, thậm chí có thể đặt một dấu chấm ở phía trước cấu hình của bạn để ẩn nó và ngăn truy cập công khai.
+
+Tham khảo phần cấu hình của tài liệu này để biết thêm thông tin về các chỉ thị cấu hình khác nhau có sẵn cho phpMussel.
+
 #### 3.4 API MÁY QUÉT
 
 Các kết quả | Sự miêu tả
@@ -114,64 +141,13 @@ Các kết quả | Sự miêu tả
 
 *Xem thêm: [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#SCAN_DEBUGGING)*
 
----
-
-
-### 4. <a name="SECTION4"></a>QUẢN LÝ FRONT-END
-
-#### 4.0 FRONT-END LÀ GÌ.
-
-Các front-end cung cấp một cách thuận tiện và dễ dàng để duy trì, quản lý và cập nhật cài đặt phpMussel của bạn. Bạn có thể xem, chia sẻ và tải về các tập tin bản ghi thông qua các trang bản ghi, bạn có thể sửa đổi cấu hình thông qua các trang cấu hình, bạn có thể cài đặt và gỡ bỏ cài đặt các thành phần thông qua các trang cập nhật, và bạn có thể tải lên, tải về, và sửa đổi các tập tin trong vault của bạn thông qua các quản lý tập tin.
-
-Các front-end được tắt theo mặc định để ngăn chặn truy cập trái phép (truy cập trái phép có thể có hậu quả đáng kể cho trang web của bạn và an ninh của mình). Hướng dẫn cho phép nó được bao gồm bên dưới đoạn này.
-
-#### 4.1 LÀM THẾ NÀO ĐỂ KÍCH HOẠT FRONT-END.
-
-1) Xác định vị trí các chỉ thị `disable_frontend` bên trong `config.ini`, và đặt nó vào `false` (nó sẽ là `true` bởi mặc định).
-
-2) Truy cập `loader.php` từ trình duyệt của bạn (ví dụ, `http://localhost/phpmussel/loader.php`).
-
-3) Đăng nhập với tên người dùng và mật khẩu mặc định (admin/password).
-
-Chú thích: Sau khi bạn đã đăng nhập lần đầu tiên, để ngăn chặn truy cập trái phép vào các front-end, bạn phải ngay lập tức thay đổi tên người dùng và mật khẩu của bạn! Điều này là rất quan trọng, bởi vì nó có thể tải lên các mã PHP tùy ý để trang web của bạn thông qua các front-end.
-
-Ngoài ra, để bảo mật tối ưu, hãy bật "xác thực hai yếu tố" cho tất cả tài khoản front-end (hướng dẫn được cung cấp bên dưới).
-
-#### 4.2 LÀM THẾ NÀO ĐỂ SỬ DỤNG FRONT-END.
-
-Các hướng dẫn được cung cấp trên mỗi trang của front-end, để giải thích một cách chính xác để sử dụng nó và mục đích của nó. Nếu bạn cần giải thích thêm hay bất kỳ sự hỗ trợ đặc biệt, vui lòng liên hệ hỗ trợ. Cũng thế, có một số video trên YouTube có thể giúp bằng cách viện trợ trực quan.
-
-#### 4.3 2FA (XÁC THỰC HAI YẾU TỐ)
+#### 3.5 2FA (XÁC THỰC HAI YẾU TỐ)
 
 Việc bật xác thực hai yếu tố ("2FA") có thể làm cho front-end an toàn hơn. Khi đăng nhập vào tài khoản có hỗ trợ 2FA, một email sẽ được gửi đến địa chỉ email được liên kết với tài khoản đó. Email này chứa "mã 2FA", mà sau đó người dùng phải nhập, ngoài tên người dùng và mật khẩu, để có thể đăng nhập bằng tài khoản đó. Điều này có nghĩa là việc lấy mật khẩu tài khoản sẽ không đủ cho bất kỳ tin tặc hoặc kẻ tấn công tiềm năng nào có thể đăng nhập vào tài khoản đó, bởi vì họ cũng cần phải có quyền truy cập vào địa chỉ email được liên kết với tài khoản đó để có thể nhận và sử dụng mã 2FA được kết hợp với phiên, do đó làm cho front-end an toàn hơn.
-
-Thứ nhất, để bật xác thực hai yếu tố, sử dụng trang cập nhật front-end để cài đặt thành phần PHPMailer. phpMussel sử dụng PHPMailer để gửi email. Lưu ý rằng mặc dù phpMussel tương thích với PHP >= 5.4.0, PHPMailer cần PHP >= 5.5.0, do đó, xác thực hai yếu tố trong phpMussel sẽ không thể cho người dùng PHP 5.4.
 
 Sau khi bạn đã cài đặt PHPMailer, bạn sẽ cần điền các chỉ thị cấu hình cho PHPMailer thông qua trang cấu hình phpMussel hoặc tập tin cấu hình. Thông tin thêm về các chỉ thị cấu hình này được bao gồm trong phần cấu hình của tài liệu này. Sau khi bạn đã điền các chỉ thị cấu hình PHPMailer, hãy đặt `enable_two_factor` thành `true`. Xác thực hai yếu tố bây giờ sẽ được bật.
 
 Tiếp theo, bạn cần liên kết địa chỉ email với tài khoản, để phpMussel có thể biết nơi gửi mã 2FA khi đăng nhập bằng tài khoản đó. Để thực hiện việc này, hãy sử dụng địa chỉ email làm tên người dùng cho tài khoản (như `foo@bar.tld`), hoặc bao gồm địa chỉ email như một phần của tên người dùng giống như khi gửi email thông thường (như `Foo Bar <foo@bar.tld>`).
-
-Chú thích: Bảo vệ vault của bạn khỏi bị truy cập trái phép (ví dụ, bằng cách tăng cường bảo mật cho máy chủ của bạn và hạn chế quyền truy cập công cộng), là đặc biệt quan trọng ở đây, vì truy cập trái phép vào tập tin cấu hình của bạn (được lưu trữ trong vault của bạn), có thể có nguy cơ phơi bày cài đặt SMTP gửi đi của bạn (bao gồm tên người dùng và mật khẩu SMTP). Bạn nên đảm bảo rằng vault của bạn được bảo mật đúng cách trước khi bật xác thực hai yếu tố. Nếu bạn không thể làm điều này, thì ít nhất, bạn nên tạo một tài khoản email mới, dành riêng cho mục đích này, để giảm thiểu rủi ro liên quan đến các bị phơi bày cài đặt SMTP.
-
----
-
-
-### 5. <a name="SECTION5"></a>CLI (LỆNH CHO DÒNG GIAO DIỆN)
-
-phpMussel có thể được chạy như một máy quét tập tin tương tác trong chế độ CLI theo các hệ thống dựa trên Windows. Tham khảo phần "CÁCH CÀI ĐẶT (CHO CLI)" của tập tin README này để biết thêm chi tiết.
-
-Để xem một danh sách các lệnh CLI có sẵn, tại dấu nhắc CLI, đánh 'c', và bấm Enter.
-
-Ngoài ra, cho những người quan tâm, một hướng dẫn video về cách sử dụng phpMussel trong chế độ CLI là có sẵn ở đây:
-- <https://youtu.be/H-Pa740-utc>
-
----
-
-
-### 6. <a name="SECTION6"></a>TẬP TIN BAO GỒM TRONG GÓI NÀY
-
-```
-```
 
 ---
 

@@ -1,4 +1,4 @@
-## phpMussel 中文（简体）文档。
+## phpMussel v2 中文（简体）文档。
 
 ### 内容
 - 1. [前言](#SECTION1)

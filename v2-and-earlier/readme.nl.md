@@ -1,4 +1,4 @@
-## Documentatie voor phpMussel (Nederlandse).
+## Documentatie voor phpMussel v2 (Nederlandse).
 
 ### Inhoud
 - 1. [PREAMBULE](#SECTION1)

@@ -4,9 +4,6 @@
 - 1. [PREAMBULE](#SECTION1)
 - 2. [HOE TE INSTALLEREN](#SECTION2)
 - 3. [HOE TE GEBRUIKEN](#SECTION3)
-- 4. [FRONTEND MANAGEMENT](#SECTION4)
-- 5. [CLI (COMMANDLIJN INTERFACE)](#SECTION5)
-- 6. [BESTANDEN IN DIT PAKKET](#SECTION6)
 - 7. [CONFIGURATIE-OPTIES](#SECTION7)
 - 8. [SIGNATURE FORMAAT](#SECTION8)
 - 9. [BEKENDE COMPATIBILITEITSPROBLEMEN](#SECTION9)
@@ -99,6 +96,36 @@ Alternatief, download de meest recente ZIP van [phpMussel/Examples](https://gith
 
 ### 3. <a name="SECTION3"></a>HOE TE GEBRUIKEN
 
+#### 3.0 PHPMUSSEL CONFIGUREREN
+
+Na het installeren van phpMussel heb u een configuratiebestand nodig zodat u het kunt configureren. phpMussel-configuratiebestanden kunnen worden opgemaakt als INI- of YML-bestanden. Als u werkt met een van de voorbeeld-ZIP's, heeft u al twee voorbeeldconfiguratiebestanden beschikbaar, `phpmussel.ini` en `phpmussel.yml`; u kunt een van die kiezen om uit te werken, als u dat wilt. Als u niet werkt vanuit een van de voorbeeld-ZIP's, moet u een nieuw bestand maken.
+
+Als u tevreden bent met de standaard configuratie voor phpMussel en u wilt niets veranderen, dan kun u een leeg bestand gebruiken als uw configuratiebestand. Alles wat niet door uw configuratiebestand is geconfigureerd gebruikt de standaard, dus u hoeft alleen iets expliciet te configureren als u wilt dat het anders is dan de standaard (dit betekent dat een leeg configuratiebestand ervoor zorgt dat phpMussel de standaardconfiguratie gebruikt).
+
+Als u de phpMussel frontend wilt gebruiken, u kunt alles configureren vanaf de frontend configuratiepagina. Maar sinds v3 wordt frontend login-informatie opgeslagen in uw configuratiebestand, dus om in te loggen op de frontend, moet u op zijn minst een account configureren om in te loggen, en vanaf daar u kunt inloggen en de frontend configuratiepagina gebruiken om al het andere te configureren.
+
+De onderstaande fragmenten voegen een nieuw account toe aan de frontend met de gebruikersnaam "admin" en het wachtwoord "password".
+
+Voor INI-bestanden:
+```
+[user.admin]
+password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
+permissions='1'
+```
+
+Voor YML-bestanden:
+```
+user.admin:
+ password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
+ permissions: 1
+```
+
+U kunt uw configuratie een naam geven die u maar wilt (zolang u de extensie ervan behoudt, zodat phpMussel weet welk formaat het gebruikt), en u kunt hem opbergen waar u maar wilt. U kunt phpMussel vertellen waar het uw configuratiebestand kunt vinden door het pad op te geven bij het instantiëren van de lader. Als er geen pad wordt opgegeven, probeert phpMussel het te lokaliseren binnen de bovenliggende map van de vendorsmap.
+
+In sommige omgevingen, zoals Apache, is het zelfs mogelijk om een ​​punt aan de voorkant van uw configuratie te plaatsen om deze te verbergen en openbare toegang te voorkomen.
+
+Raadpleeg het configuratiegedeelte van dit document voor meer informatie over de verschillende configuratierichtlijnen die beschikbaar zijn voor phpMussel.
+
 #### 3.4 SCANNER-API
 
 Resultaten | Beschrijving
@@ -114,64 +141,13 @@ Resultaten | Beschrijving
 
 *Zie ook: [Hoe krijgt u toegang tot specifieke gegevens over bestanden als ze worden gescand?](#SCAN_DEBUGGING)*
 
----
-
-
-### 4. <a name="SECTION4"></a>FRONTEND MANAGEMENT
-
-#### 4.0 WAT IS DE FRONTEND.
-
-De frontend biedt een gemakkelijke en eenvoudige manier te onderhouden, beheren en updaten van uw phpMussel installatie. U kunt bekijken, delen en downloaden log bestanden via de pagina logs, u kunt de configuratie wijzigen via de configuratiepagina, u kunt installeren en verwijderen/desinstalleren van componenten via de pagina updates, en u kunt uploaden, downloaden en wijzigen bestanden in uw vault via de bestandsbeheer.
-
-De frontend is standaard uitgeschakeld om ongeautoriseerde toegang te voorkomen (ongeautoriseerde toegang kan belangrijke gevolgen hebben voor uw website en de beveiliging hebben). Instructies voor het inschakelen van deze zijn hieronder deze paragraaf opgenomen.
-
-#### 4.1 HOE DE FRONTEND TE INSCHAKELEN.
-
-1) Vind de `disable_frontend` richtlijn in `config.ini`, en stel dat het `false` (deze is `true` door standaard).
-
-2) Toegang tot `loader.php` vanuit uw browser (b.v., `http://localhost/phpmussel/loader.php`).
-
-3) Inloggen u aan met de standaard gebruikersnaam en wachtwoord (admin/password).
-
-Notitie: Nadat u hebt ingelogd voor de eerste keer, om ongeautoriseerde toegang tot de frontend te voorkomen, moet u onmiddellijk veranderen uw gebruikersnaam en wachtwoord! Dit is zeer belangrijk, want het is mogelijk om willekeurige PHP-code te uploaden naar uw website via de frontend.
-
-Voor optimale beveiliging wordt het ten zeerste aanbevolen om "twee-factor authenticatie" voor alle frontend accounts in te schakelen (onderstaande instructies).
-
-#### 4.2 HOE DE FRONTEND GEBRUIKEN.
-
-Instructies worden op elke pagina van de frontend, om uit te leggen hoe het te gebruiken en het beoogde doel. Als u meer uitleg of een speciale hulp nodig hebben, neem dan contact op met ondersteuning. Als alternatief, zijn er een aantal video's op YouTube die zouden kunnen helpen door middel van een demonstratie.
-
-#### 4.3 TWEE-FACTOR AUTHENTICATIE
+#### 3.5 TWEE-FACTOR AUTHENTICATIE
 
 Het is mogelijk om de frontend veiliger te maken door twee-factor authenticatie ("2FA") in te schakelen. Bij inloggen met een account waarvoor 2FA is ingeschakeld, een e-mail wordt verzonden naar het e-mailadres dat aan dat account is gekoppeld. Deze e-mail bevat een "2FA-code", die de gebruiker vervolgens moet invoeren, in aanvulling op de gebruikersnaam en het wachtwoord, om te kunnen inloggen met dat account. Dit betekent dat het verkrijgen van een accountwachtwoord niet genoeg is voor een hacker of potentiële aanvaller om zich bij dat account te kunnen aanmelden, omdat ze ook al toegang moeten hebben tot het e-mailadres dat aan dat account is gekoppeld om de 2FA-code die aan de sessie is gekoppeld te kunnen ontvangen en gebruiken, daarmee het frontend veiliger maken.
-
-Ten eerste, om twee-factor authenticatie in te schakelen, gebruikt u de frontend-updates-pagina om de PHPMailer-component te installeren. phpMussel gebruikt PHPMailer voor het verzenden van e-mails. Notitie: Hoewel phpMussel op zichzelf compatibel met >= 5.4.0 is, PHPMailer heeft nodig PHP >= 5.5.0, daarom is twee-factor authenticatie voor de frontend van phpMussel niet mogelijk voor PHP 5.4-gebruikers.
 
 Nadat u PHPMailer heeft geïnstalleerd, moet u de configuratie-richtlijnen voor PHPMailer invullen via de configuratiepagina of het configuratiebestand van phpMussel. Meer informatie over deze configuratie-richtlijnen is opgenomen in de configuratiesectie van dit document. Nadat u de PHPMailer-configuratie-richtlijnen hebt ingevuld, stelt u `enable_two_factor` in op `true`. Twee-factor authenticatie moet nu worden ingeschakeld.
 
 Volgende, u moet een e-mailadres koppelen aan een account, zodat phpMussel weet waar 2FA-codes moeten worden verzonden wanneer hij zich aanmeldt met dat account. Om dit te doen, gebruik het e-mailadres als de gebruikersnaam voor het account (b.v., `foo@bar.tld`), of neem het e-mailadres op als onderdeel van de gebruikersnaam op dezelfde manier als bij het normaal verzenden van een e-mail (b.v., `Foo Bar <foo@bar.tld>`).
-
-Notitie: Het beschermen van uw vault tegen ongeautoriseerde toegang (b.v., door de beveiliging van uw server en openbare toegangsrechten te verbeteren), is hier bijzonder belangrijk, vanwege deze ongeautoriseerde toegang tot uw configuratiebestand (dat is opgeslagen in uw vault), kan het risico lopen dat uw uitgaande SMTP-instellingen (inclusief SMTP gebruikersnaam en wachtwoord) worden weergegeven. U moet ervoor zorgen dat uw vault correct is beveiligd voordat u twee-factor authenticatie inschakelt. Als u dit niet kunt doen, moet u op z'n minst een nieuw e-mailaccount maken, speciaal voor dit doel, om de risico's van blootgestelde SMTP-instellingen te verminderen.
-
----
-
-
-### 5. <a name="SECTION5"></a>CLI (COMMANDLIJN INTERFACE)
-
-phpMussel kan worden uitgevoerd als een interactief bestand scanner in de CLI-modus onder Windows-gebaseerde systemen. Raadpleeg de sectie "HOE TE INSTALLEREN (VOOR CLI)" van deze README bestand voor meer informatie.
-
-Voor een lijst van beschikbare CLI commando's, bij de CLI-prompt, typ 'c', en druk op Enter.
-
-Daarnaast, voor diegenen die geïnteresseerd, een video-tutorial voor hoe te gebruiken phpMussel in de CLI-modus is hier beschikbaar:
-- <https://youtu.be/H-Pa740-utc>
-
----
-
-
-### 6. <a name="SECTION6"></a>BESTANDEN IN DIT PAKKET
-
-```
-```
 
 ---
 

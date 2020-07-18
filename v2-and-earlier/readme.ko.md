@@ -1,4 +1,4 @@
-## phpMussel 설명서 (한국어).
+## phpMussel v2 설명서 (한국어).
 
 ### 목차
 - 1. [서문](#SECTION1)

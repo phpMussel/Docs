@@ -4,9 +4,6 @@
 - 1. [PREAMBLE](#SECTION1)
 - 2. [HOW TO INSTALL](#SECTION2)
 - 3. [HOW TO USE](#SECTION3)
-- 4. [FRONT-END MANAGEMENT](#SECTION4)
-- 5. [CLI (COMMAND LINE INTERFACE)](#SECTION5)
-- 6. [FILES INCLUDED IN THIS PACKAGE](#SECTION6)
 - 7. [CONFIGURATION OPTIONS](#SECTION7)
 - 8. [SIGNATURE FORMAT](#SECTION8)
 - 9. [KNOWN COMPATIBILITY PROBLEMS](#SECTION9)
@@ -105,9 +102,9 @@ After installing phpMussel, you'll need a configuration file so that you can con
 
 If you're satisfied with the default configuration for phpMussel and don't want to change anything, you can use an empty file as your configuration file. Anything not configured by your configuration file will utilise its default, so you only need to explicitly configure something if you want it to be different from its default (meaning, an empty configuration file will cause phpMussel to utilise all its default configuration).
 
-If you want to use the phpMussel front-end, you can configure everything from the front-end configuration page. But, since v3 onward, front-end login information is stored in your configuration file, so to log into the front-end, you'll need to at least configure an account and username to use to log in, and then, from there, you'll be able to log in and use the front-end configuration page to configure everything else.
+If you want to use the phpMussel front-end, you can configure everything from the front-end configuration page. But, since v3 onward, front-end login information is stored in your configuration file, so to log into the front-end, you'll need to at least configure an account to use to log in, and then, from there, you'll be able to log in and use the front-end configuration page to configure everything else.
 
-The below excerpts will add a new account the front-end with the username "admin", and the password "password".
+The below excerpts will add a new account to the front-end with the username "admin", and the password "password".
 
 For INI files:
 ```
@@ -124,6 +121,8 @@ user.admin:
 ```
 
 You can name your configuration whatever you want (as long as you retain its extension, so that phpMussel knows which format it uses), and you can store it wherever you want. You can tell phpMussel where to find your configuration file by supplying its path when instantiating the loader. If no path is supplied, phpMussel will try to locate it within the parent of the vendor directory.
+
+In some environments, such as Apache, it's even possible to place a dot at the front of your configuration to hide it and prevent public access.
 
 Refer to the configuration section of this document for more information about the various configuration directives available to phpMussel.
 
@@ -151,7 +150,7 @@ public function __construct(
 )
 ```
 
-The first parameter is the complete path to your configuration file. When omitted, phpMussel will look for a configuration file in the parent of the vendor directory.
+The first parameter is the complete path to your configuration file. When omitted, phpMussel will look for a configuration file named as either `phpmussel.ini` or `phpmussel.yml`, in the parent of the vendor directory.
 
 The second parameter is the path to a directory which you permit phpMussel to use for caching and temporary file storage. When omitted, phpMussel will attempt to create a new directory to use, named as `phpmussel-cache`, in the parent of the vendor directory. If you want to specify this path yourself, it would be best to choose an empty directory, as to avoid the unwanted loss of other data in the specified directory.
 
@@ -178,13 +177,13 @@ $Web = new \phpMussel\Web\Web($Loader, $Scanner);
 To scan file uploads:
 
 ```PHP
-$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Web->scan();
 ```
 
 Optionally, phpMussel can attempt to repair the names of uploads in case there's something wrong, if you'd like:
 
 ```PHP
-$Web->scan();
+$Web->demojibakefier();
 ```
 
 As a complete example:
@@ -447,64 +446,13 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 
 *See also: [How to access specific details about files when they are scanned?](#SCAN_DEBUGGING)*
 
----
-
-
-### 4. <a name="SECTION4"></a>FRONT-END MANAGEMENT
-
-#### 4.0 WHAT IS THE FRONT-END.
-
-The front-end provides a convenient and easy way to maintain, manage, and update your phpMussel installation. You can view, share, and download logfiles via the logs page, you can modify configuration via the configuration page, you can install and uninstall components via the updates page, and you can upload, download, and modify files in your vault via the file manager.
-
-The front-end is disabled by default in order to prevent unauthorised access (unauthorised access could have significant consequences for your website and its security). Instructions for enabling it are included below this paragraph.
-
-#### 4.1 HOW TO ENABLE THE FRONT-END.
-
-1) Locate the `disable_frontend` directive inside `config.ini`, and set it to `false` (it will be `true` by default).
-
-2) Access `loader.php` from your browser (e.g., `http://localhost/phpmussel/loader.php`).
-
-3) Log in with the default username and password (admin/password).
-
-Note: After you've logged in for the first time, in order to prevent unauthorised access to the front-end, you should immediately change your username and password! This is very important, because it's possible to upload arbitrary PHP code to your website via the front-end.
-
-Also, for optimal security, enabling "two-factor authentication" for all front-end accounts is strongly recommended (instructions provided below).
-
-#### 4.2 HOW TO USE THE FRONT-END.
-
-Instructions are provided on each page of the front-end, to explain the correct way to use it and its intended purpose. If you need further explanation or any special assistance, please contact support. Alternatively, there are some videos available on YouTube which could help by way of demonstration.
-
-#### 4.3 TWO-FACTOR AUTHENTICATION
+#### 3.5 TWO-FACTOR AUTHENTICATION
 
 It's possible to make the front-end more secure by enabling two-factor authentication ("2FA"). When logging into a 2FA-enabled account, an email is sent to the email address associated with that account. This email contains a "2FA code", which the user must then enter, in addition to the username and password, in order to be able to log in using that account. This means that obtaining an account password would not be enough for any hacker or potential attacker to be able to log into that account, as they would also need to already have access to the email address associated with that account in order to be able to receive and utilise the 2FA code associated with the session, thus making the front-end more secure.
-
-Firstly, to enable two-factor authentication, using the front-end updates page, install the PHPMailer component. phpMussel utilises PHPMailer for sending emails. It should be noted that although phpMussel, by itself, is compatible with PHP >= 5.4.0, PHPMailer requires PHP >= 5.5.0, therefore meaning that enabling two-factor authentication for the phpMussel front-end won't be possible for PHP 5.4 users.
 
 After you've installed PHPMailer, you'll need to populate the configuration directives for PHPMailer via the phpMussel configuration page or configuration file. More information about these configuration directives is included in the configuration section of this document. After you've populated the PHPMailer configuration directives, set `enable_two_factor` to `true`. Two-factor authentication should now be enabled.
 
 Next, you'll need to associate an email address with an account, so that phpMussel knows where to send 2FA codes when logging in with that account. To do this, use the email address as the username for the account (like `foo@bar.tld`), or include the email address as part of the username in the same way that you would when sending an email normally (like `Foo Bar <foo@bar.tld>`).
-
-Note: Protecting your vault against unauthorised access (e.g., by hardening your server's security and public access permissions), is particularly important here, due to that unauthorised access to your configuration file (which is stored in your vault), could risk exposing your outbound SMTP settings (including SMTP username and password). You should ensure that your vault is properly secured before enabling two-factor authentication. If you're unable to do this, then at least, you should create a new email account, dedicated for this purpose, as such to reduce the risks associated with exposed SMTP settings.
-
----
-
-
-### 5. <a name="SECTION5"></a>CLI (COMMAND LINE INTERFACE)
-
-phpMussel can be run as an interactive file scanner in CLI mode under Windows-based systems. Refer to the "HOW TO INSTALL (FOR CLI)" section of this README file for more details.
-
-For a list of available CLI commands, at the CLI prompt, type 'c', and press Enter.
-
-Additionally, for those interested, a video tutorial for how to use phpMussel in CLI mode is available here:
-- <https://youtu.be/H-Pa740-utc>
-
----
-
-
-### 6. <a name="SECTION6"></a>FILES INCLUDED IN THIS PACKAGE
-
-```
-```
 
 ---
 

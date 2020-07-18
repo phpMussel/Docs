@@ -1,4 +1,4 @@
-## Documentação para phpMussel (Português).
+## Documentação para phpMussel v2 (Português).
 
 ### Conteúdo
 - 1. [PREÂMBULO](#SECTION1)
