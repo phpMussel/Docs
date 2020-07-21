@@ -4,6 +4,7 @@
 - 1. [PREÂMBULO](#SECTION1)
 - 2. [COMO INSTALAR](#SECTION2)
 - 3. [COMO USAR](#SECTION3)
+- 4. [ESTENDENDO O PHPMUSSEL](#SECTION4)
 - 7. [OPÇÕES DE CONFIGURAÇÃO](#SECTION7)
 - 8. [FORMATOS DE ASSINATURAS](#SECTION8)
 - 9. [PROBLEMAS DE COMPATIBILIDADE CONHECIDOS](#SECTION9)
@@ -126,6 +127,46 @@ Em alguns ambientes, como o Apache, é possível colocar um ponto na frente da s
 
 Consulte a seção de configuração deste documento para obter mais informações sobre as várias diretivas de configuração disponíveis para o phpMussel.
 
+#### 3.1 PHPMUSSEL CORE
+
+Independentemente de como você deseja usar o phpMussel, quase todas as implementações conterão algo assim, no mínimo:
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+Como os nomes dessas classes implicam, o carregador (loader) é responsável pela preparação das necessidades básicas do uso do phpMussel, e o scanner é responsável por toda a funcionalidade principal da análise.
+
+O construtor para o carregador aceita cinco parâmetros, todos opcionais.
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+O primeiro parâmetro é o caminho completo para o seu arquivo de configuração. Quando omitido, o phpMussel procurará um arquivo de configuração chamado `phpmussel.ini` ou `phpmussel.yml`, no pai do diretório vendor.
+
+O segundo parâmetro é o caminho para um diretório que você permite que o phpMussel use para cache e armazenamento temporário de arquivos. Quando omitido, o phpMussel tentará criar um novo diretório para usar, nomeado como `phpmussel-cache`, no pai do diretório vendor. Se você desejar especificar esse caminho, seria melhor escolher um diretório vazio, para evitar a perda indesejada de outros dados no diretório especificado.
+
+O terceiro parâmetro é o caminho para um diretório que você permite que o phpMussel use para sua quarentena. Quando omitido, o phpMussel tentará criar um novo diretório para usar, nomeado como `phpmussel-quarentine`, no pai do diretório vendor. Se você desejar especificar esse caminho, seria melhor escolher um diretório vazio, para evitar a perda indesejada de outros dados no diretório especificado. É altamente recomendável que você impeça o acesso público ao diretório usado para quarentena.
+
+O quarto parâmetro é o caminho para o diretório que contém os arquivos de assinatura do phpMussel. Quando omitido, o phpMussel tentará procurar os arquivos de assinatura em um diretório nomeado como `phpmussel-signatures`, no pai do diretório vendor.
+
+O quinto parâmetro é o caminho para o diretório vendor. Nunca deve apontar para mais nada. Quando omitido, o phpMussel tentará localizar esse diretório por si mesmo. Este parâmetro é fornecido para facilitar a integração mais fácil com implementações que podem não necessariamente ter a mesma estrutura de um projeto típico do Composer.
+
+O construtor do scanner aceita apenas um parâmetro e é obrigatório: O objeto do carregador instanciado. Como é passado por referência, o carregador deve ser instanciado para uma variável (instanciar o carregador diretamente no scanner para passar por valor não é a maneira correta de usar o phpMussel).
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 API DO SCANNER
 
 Resultados | Descrição
@@ -148,6 +189,11 @@ Resultados | Descrição
 Depois de instalar o PHPMailer, você precisará preencher as diretivas de configuração do PHPMailer por meio da página de configuração para phpMussel ou do arquivo de configuração. Mais informações sobre essas diretivas de configuração estão incluídas na seção de configuração deste documento. Depois de preencher as diretivas de configuração do PHPMailer, defina `enable_two_factor` para `true`. A autenticação de dois fatores agora deve estar ativada.
 
 Em seguida, você precisará associar um endereço de e-mail a uma conta para que o phpMussel saiba para onde enviar códigos 2FA ao fazer login com essa conta. Para fazer isso, use o endereço de e-mail como o nome de usuário da conta (como `foo@bar.tld`), ou incluir o endereço de e-mail como parte do nome de usuário da mesma forma que você faria ao enviar um e-mail normalmente (como `Foo Bar <foo@bar.tld>`).
+
+---
+
+
+### 4. <a name="SECTION4"></a>ESTENDENDO O PHPMUSSEL
 
 ---
 
@@ -947,8 +993,7 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 - [O que é um "falso positivo"?](#WHAT_IS_A_FALSE_POSITIVE)
 - [Com que frequência as assinaturas são atualizadas?](#SIGNATURE_UPDATE_FREQUENCY)
 - [Eu encontrei um problema ao usar phpMussel e eu não sei o que fazer sobre isso! Ajude-me!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Eu quero usar phpMussel (antes de v2) com uma versão PHP mais velha do que 5.4.0; Você pode ajudar?](#MINIMUM_PHP_VERSION)
-- [Eu quero usar phpMussel (v2) com uma versão PHP mais velha do que 7.2.0; Você pode ajudar?](#MINIMUM_PHP_VERSION_V2)
+- [Eu quero usar phpMussel v3 com uma versão PHP mais velha do que 7.2.0; Você pode ajudar?](#MINIMUM_PHP_VERSION_V3)
 - [Posso usar uma única instalação do phpMussel para proteger vários domínios?](#PROTECT_MULTIPLE_DOMAINS)
 - [Eu não quero mexer com a instalação deste e fazê-lo funcionar com o meu site; Posso pagar-te para fazer tudo por mim?](#PAY_YOU_TO_DO_IT)
 - [Posso contratar você ou qualquer um dos desenvolvedores deste projeto para o trabalho privado?](#HIRE_FOR_PRIVATE_WORK)
@@ -990,19 +1035,15 @@ A frequência das atualizações varia de acordo com os arquivos de assinatura e
 - Você já examinou a **[página de issues](https://github.com/phpMussel/phpMussel/issues)**, para ver se o problema foi mencionado antes? Se já foi mencionado antes, verificar se foram fornecidas sugestões, ideias e/ou soluções, e siga conforme necessário para tentar resolver o problema.
 - Se o problema ainda persistir, por favor procure ajuda sobre isso através de criando um novo issue na página de issues.
 
-#### <a name="MINIMUM_PHP_VERSION"></a>Eu quero usar phpMussel (antes de v2) com uma versão PHP mais velha do que 5.4.0; Você pode ajudar?
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>Eu quero usar phpMussel v3 com uma versão PHP mais velha do que 7.2.0; Você pode ajudar?
 
-Não. PHP >= 5.4.0 é um requisito mínimo para phpMussel < v2.
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>Eu quero usar phpMussel (v2) com uma versão PHP mais velha do que 7.2.0; Você pode ajudar?
-
-Não. PHP >= 7.2.0 é um requisito mínimo para phpMussel v2.
+Não. PHP >= 7.2.0 é um requisito mínimo para phpMussel v3.
 
 *Veja também: [Gráficos de Compatibilidade](https://maikuolan.github.io/Compatibility-Charts/).*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>Posso usar uma única instalação do phpMussel para proteger vários domínios?
 
-Sim. As instalações do phpMussel não estão naturalmente atado com domínios específicos, e pode, portanto, ser usado para proteger vários domínios. Geralmente, referimo-nos a instalações do phpMussel que protegem apenas um domínio como "instalações de singular-domínio", e referimo-nos a instalações do phpMussel que protegem vários domínios e/ou subdomínios como "instalações multi-domínio". Se você operar uma instalação multi-domínio e precisa usar conjuntos diferentes de arquivos de assinaturas para domínios diferentes, ou precisam phpMussel para ser configurado de forma diferente para domínios diferentes, é possível fazer isso. Depois de carregar o arquivo de configuração (`config.ini`), o phpMussel verificará a existência de um "arquivo de sobreposição para a configuração" específico para o domínio (ou subdomínio) que está sendo solicitado (`o-domínio-que-está-sendo-solicitado.tld.config.ini`), e se encontrado, quaisquer valores de configuração definidos pelo arquivo de sobreposição para a configuração serão usados para a instância de execução em vez dos valores de configuração definidos pelo arquivo de configuração. Os arquivos de sobreposição para a configuração são idênticos ao arquivo de configuração, e a seu critério, pode conter a totalidade de todas as diretivas de configuração disponíveis para o phpMussel, ou qualquer subseção menor necessária que difere dos valores normalmente definidos pelo arquivo de configuração. Os arquivos de sobreposição para a configuração são nomeados de acordo com o domínio que eles são destinados para (por exemplo, se você precisar de um arquivo de sobreposição para a configuração para o domínio, `https://www.some-domain.tld/`, o seu arquivo de sobreposição para a configuração deve ser nomeado como `some-domain.tld.config.ini`, e deve ser colocado dentro da vault ao lado do arquivo de configuração, `config.ini`). O nome de domínio para a instância de execução é derivado do cabeçalho `HTTP_HOST` do pedido; "www" é ignorado.
+Sim.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>Eu não quero mexer com a instalação deste e fazê-lo funcionar com o meu site; Posso pagar-te para fazer tudo por mim?
 
@@ -1329,16 +1370,15 @@ Quando habilitado na configuração do pacote, o phpMussel mantém logs dos arqu
 As entradas para um arquivo de log legível para humanos geralmente se parece com isso (como um exemplo):
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 Começado.
-> Verificando 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> Detectado phpMussel-Testfile.ASCII.Standard!
-Mon, 21 May 2018 00:48:04 +0800 Terminado.
+Sun, 19 Jul 2020 13:33:31 +0800 Começado.
+→ Verificando "ascii_standard_testfile.txt".
+─→ Detectado phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 Terminado.
 ```
 
 Uma entrada do log de análise geralmente inclui as seguintes informações:
 - A data e hora em que o arquivo foi analisado.
 - O nome do arquivo analisado.
-- CRC32b hashes do nome e conteúdo do arquivo.
 - O que foi detectado no arquivo (se algo foi detectado).
 
 *Diretivas de configuração relevantes:*
@@ -1347,20 +1387,20 @@ Uma entrada do log de análise geralmente inclui as seguintes informações:
 
 Quando essas diretivas são deixadas vazias, esse tipo de log permanecerá desabilitado.
 
-##### 11.3.1 MATA DO ANÁLISE
+##### 11.3.1 LOG DO CARREGAMENTOS
 
 Quando habilitado na configuração do pacote, o phpMussel mantém logs dos uploads que foram bloqueados.
 
-As entradas para um arquivo de log de "mata do análise" normalmente se parece com isso (como um exemplo):
+*Como um exemplo:*
 
 ```
-Data: Mon, 21 May 2018 00:47:56 +0800
-Endereço IP: 127.0.0.1
+Data: Sun, 19 Jul 2020 13:33:31 +0800
+Endereço IP: 127.0.0.x
 == Resultados da verificação (por que indicado) ==
 Detectado phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
 == Reconstrução de assinaturas hash ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-Em quarentena como "/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu".
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+Em quarentena como "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
 Uma entrada de "mata do análise" normalmente inclui as seguintes informações:
@@ -1368,7 +1408,7 @@ Uma entrada de "mata do análise" normalmente inclui as seguintes informações:
 - O endereço IP de onde o upload foi originado.
 - A razão pela qual o arquivo foi bloqueado (o que foi detectado).
 - O nome do arquivo bloqueado.
-- Um MD5 e o tamanho do arquivo bloqueado.
+- A soma de verificação e o tamanho do arquivo estão bloqueados.
 - Se o arquivo foi colocado em quarentena, e sob qual nome interno.
 
 *Diretivas de configuração relevantes:*
@@ -1426,7 +1466,7 @@ O phpMussel é opcionalmente capaz de rastrear estatísticas como o número tota
 
 ##### 11.3.7 ENCRIPTAÇÃO
 
-phpMussel não criptografa seu cache ou qualquer informação de registro. A [encriptação](https://pt.wikipedia.org/wiki/Encripta%C3%A7%C3%A3o) de cache e registro pode ser introduzida no futuro, mas não há planos específicos para ela atualmente. Se você estiver preocupado com o acesso de terceiros não autorizados a partes do phpMussel que possam conter PII ou informações confidenciais, como cache ou logs, recomendo que o phpMussel não seja instalado em um local de acesso público (por exemplo, instale o phpMussel fora do diretório `public_html` padrão ou seu equivalente disponível para a maioria dos servidores web padrão) e que as permissões apropriadamente restritivas sejam impostas para o diretório em que ele reside (em particular, para o diretório do vault). Se isso não for suficiente para resolver suas preocupações, configure o phpMussel para que os tipos de informações que causam suas preocupações não sejam coletados ou registrados em primeiro lugar (tal como desabilitar o registro em log).
+phpMussel não criptografa seu cache ou qualquer informação de registro. A [encriptação](https://pt.wikipedia.org/wiki/Encripta%C3%A7%C3%A3o) de cache e registro pode ser introduzida no futuro, mas não há planos específicos para ela atualmente. Se você estiver preocupado com o acesso de terceiros não autorizados a partes do phpMussel que possam conter PII ou informações confidenciais, como cache ou logs, recomendo que o phpMussel não seja instalado em um local de acesso público (por exemplo, instale o phpMussel fora do diretório `public_html` padrão ou seu equivalente disponível para a maioria dos servidores web padrão) e que as permissões apropriadamente restritivas sejam impostas para o diretório em que ele reside. Se isso não for suficiente para resolver suas preocupações, configure o phpMussel para que os tipos de informações que causam suas preocupações não sejam coletados ou registrados em primeiro lugar (tal como desabilitar o registro em log).
 
 #### 11.4 COOKIES
 
@@ -1465,4 +1505,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 16 de Julho de 2020 (2020.07.16).
+Última Atualização: 21 de Julho de 2020 (2020.07.21).

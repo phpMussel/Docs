@@ -4,6 +4,7 @@
 - 1. [PREAMBLE](#SECTION1)
 - 2. [HOW TO INSTALL](#SECTION2)
 - 3. [HOW TO USE](#SECTION3)
+- 4. [EXTENDING PHPMUSSEL](#SECTION4)
 - 7. [CONFIGURATION OPTIONS](#SECTION7)
 - 8. [SIGNATURE FORMAT](#SECTION8)
 - 9. [KNOWN COMPATIBILITY PROBLEMS](#SECTION9)
@@ -158,9 +159,9 @@ The third parameter is the path to a directory which you permit phpMussel to use
 
 The fourth parameter is the path to the directory containing the signature files for phpMussel. When omitted, phpMussel will try looking for the signature files in a directory named as `phpmussel-signatures`, in the parent of the vendor directory.
 
-The fifth parameter is the path to your vendor directory. It should never point to anything else. When omitted, phpMussel will try to locate this directory for itself. This parameter is provided in order to faciliate easier integration with implementations that mightn't necessarily have the same structure as a typical Composer project.
+The fifth parameter is the path to your vendor directory. It should never point to anything else. When omitted, phpMussel will try to locate this directory for itself. This parameter is provided in order to facilitate easier integration with implementations that mightn't necessarily have the same structure as a typical Composer project.
 
-The constructor for the scanner accepts only one parameter, and it is mandatory: The instantiated loader object. As it is passed by reference, the loader must be instantiated to a variable (instantiation the loader directly into the scanner in order to pass by value is not the correct way to use phpMussel).
+The constructor for the scanner accepts only one parameter, and it is mandatory: The instantiated loader object. As it is passed by reference, the loader must be instantiated to a variable (instantiating the loader directly into the scanner in order to pass by value is not the correct way to use phpMussel).
 
 ```PHP
 public function __construct(\phpMussel\Core\Loader &$Loader)
@@ -453,6 +454,21 @@ It's possible to make the front-end more secure by enabling two-factor authentic
 After you've installed PHPMailer, you'll need to populate the configuration directives for PHPMailer via the phpMussel configuration page or configuration file. More information about these configuration directives is included in the configuration section of this document. After you've populated the PHPMailer configuration directives, set `enable_two_factor` to `true`. Two-factor authentication should now be enabled.
 
 Next, you'll need to associate an email address with an account, so that phpMussel knows where to send 2FA codes when logging in with that account. To do this, use the email address as the username for the account (like `foo@bar.tld`), or include the email address as part of the username in the same way that you would when sending an email normally (like `Foo Bar <foo@bar.tld>`).
+
+---
+
+
+### 4. <a name="SECTION4"></a>EXTENDING PHPMUSSEL
+
+phpMussel is designed with extensibility in mind. Pull requests to any of the repositories at the phpMussel organisation, and [contributing](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) in general, are always welcome. However, if you need to modify or extend phpMussel in ways which aren't suitable for contributing back those particular repositories, that is definitely possible to do (e.g., for modifications or extensions which are specific to your particular implementation, which can't be publicised due to confidentiality or privacy needs at your organisational, or which might be prefereably publicised at their own repository, such as for plugins and new Composer packages which require phpMussel).
+
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all currently supported events and more detailed instructions regarding how to use the boilerplate code.
+
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
 
 ---
 
@@ -1252,8 +1268,7 @@ I don't check the signature files, documentation, or other peripheral content. T
 - [What is a "false positive"?](#WHAT_IS_A_FALSE_POSITIVE)
 - [How frequently are signatures updated?](#SIGNATURE_UPDATE_FREQUENCY)
 - [I've encountered a problem while using phpMussel and I don't know what to do about it! Please help!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [I want to use phpMussel (prior to v2) with a PHP version older than 5.4.0; Can you help?](#MINIMUM_PHP_VERSION)
-- [I want to use phpMussel (v2) with a PHP version older than 7.2.0; Can you help?](#MINIMUM_PHP_VERSION_V2)
+- [I want to use phpMussel v3 with a PHP version older than 7.2.0; Can you help?](#MINIMUM_PHP_VERSION_V3)
 - [Can I use a single phpMussel installation to protect multiple domains?](#PROTECT_MULTIPLE_DOMAINS)
 - [I don't want to mess around with installing this and getting it to work with my website; Can I just pay you to do it all for me?](#PAY_YOU_TO_DO_IT)
 - [Can I hire you or any of the developers of this project for private work?](#HIRE_FOR_PRIVATE_WORK)
@@ -1295,19 +1310,15 @@ Update frequency varies depending on the signature files in question. All mainta
 - Have you checked the **[issues page](https://github.com/phpMussel/phpMussel/issues)**, to see whether the problem has been mentioned before? If it's been mentioned before, check whether any suggestions, ideas, and/or solutions were provided, and follow as per necessary to try to resolve the problem.
 - If the problem still persists, please seek help about it by creating a new issue on the issues page.
 
-#### <a name="MINIMUM_PHP_VERSION"></a>I want to use phpMussel (prior to v2) with a PHP version older than 5.4.0; Can you help?
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>I want to use phpMussel v3 with a PHP version older than 7.2.0; Can you help?
 
-No. PHP >= 5.4.0 is a minimum requirement for phpMussel < v2.
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>I want to use phpMussel (v2) with a PHP version older than 7.2.0; Can you help?
-
-No. PHP >= 7.2.0 is a minimum requirement for phpMussel v2.
+No. PHP >= 7.2.0 is a minimum requirement for phpMussel v3.
 
 *See also: [Compatibility Charts](https://maikuolan.github.io/Compatibility-Charts/).*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>Can I use a single phpMussel installation to protect multiple domains?
 
-Yes. phpMussel installations are not naturally locked to specific domains, and can therefore be used to protect multiple domains. Generally, we refer to phpMussel installations protecting only one domain as "single-domain installations", and we refer to phpMussel installations protecting multiple domains and/or sub-domains as "multi-domain installations". If you operate a multi-domain installation and need to use different sets of signature files for different domains, or need phpMussel to be configured differently for different domains, it's possible to do this. After loading the configuration file (`config.ini`), phpMussel will check for the existence of a "configuration overrides file" specific to the domain (or sub-domain) being requested (`the-domain-being-requested.tld.config.ini`), and if found, any configuration values defined by the configuration overrides file will be used for the execution instance instead of the configuration values defined by the configuration file. Configuration overrides files are identical to the configuration file, and at your discretion, may contain either the entirety of all configuration directives available to phpMussel, or whichever small subsection required which differs from the values normally defined by the configuration file. Configuration overrides files are named according to the domain that they are intended for (so, for example, if you need a configuration overrides file for the domain, `https://www.some-domain.tld/`, its configuration overrides file should be named as `some-domain.tld.config.ini`, and should be placed within the vault alongside the configuration file, `config.ini`). The domain name for the execution instance is derived from the `HTTP_HOST` header of the request; "www" is ignored.
+Yes.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>I don't want to mess around with installing this and getting it to work with my website; Can I just pay you to do it all for me?
 
@@ -1631,16 +1642,15 @@ When enabled in the package configuration, phpMussel keeps logs of the files it 
 Entries to a human readable logfile typically look something like this (as an example):
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 Started.
-> Checking 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> Detected phpMussel-Testfile.ASCII.Standard!
-Mon, 21 May 2018 00:48:04 +0800 Finished.
+Sun, 19 Jul 2020 13:33:31 +0800 Started.
+→ Checking "ascii_standard_testfile.txt".
+─→ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 Finished.
 ```
 
 A scan log entry typically includes the following information:
 - The date and time that the file was scanned.
 - The name of the file scanned.
-- CRC32b hashes of the name and contents of the file.
 - What was detected in the file (if anything was detected).
 
 *Relevant configuration directives:*
@@ -1649,20 +1659,20 @@ A scan log entry typically includes the following information:
 
 When these directives are left empty, this type of logging will remain disabled.
 
-##### 11.3.1 SCAN KILLS
+##### 11.3.1 UPLOADS LOG
 
 When enabled in the package configuration, phpMussel keeps logs of the uploads that have been blocked.
 
-Entries to a "scan kills" logfile typically look something like this (as an example):
+*An example log entry:*
 
 ```
-Date: Mon, 21 May 2018 00:47:56 +0800
-IP address: 127.0.0.1
+Date: Sun, 19 Jul 2020 13:33:31 +0800
+IP address: 127.0.0.x
 == Scan results (why flagged) ==
 Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
 == Hash signatures reconstruction ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-Quarantined as "/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu".
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+Quarantined as "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
 A "scan kills" entry typically includes the following information:
@@ -1670,7 +1680,7 @@ A "scan kills" entry typically includes the following information:
 - The IP address where the upload originated from.
 - The reason why the file was blocked (what was detected).
 - The name of the file blocked.
-- An MD5 and the size of the file blocked.
+- The checksum and the size of the file blocked.
 - Whether the file was quarantined, and under what internal name.
 
 *Relevant configuration directives:*
@@ -1733,7 +1743,7 @@ phpMussel is optionally able to track statistics such as the total number of fil
 
 ##### 11.3.7 ENCRYPTION
 
-phpMussel doesn't encrypt its cache or any log information. Cache and log [encryption](https://en.wikipedia.org/wiki/Encryption) may be introduced in the future, but there aren't any specific plans for it currently. If you're concerned about unauthorised third parties gaining access to parts of phpMussel that may contain PII or sensitive information such as its cache or logs, I would recommend that phpMussel not be installed at a publicly accessible location (e.g., install phpMussel outside the standard `public_html` directory or equivalent thereof available to most standard webservers) and that appropriately restrictive permissions be enforced for the directory where it resides (in particular, for the vault directory). If that isn't sufficient to address your concerns, then configure phpMussel as such that the types of information causing your concerns won't be collected or logged in the first place (such as, by disabling logging).
+phpMussel doesn't encrypt its cache or any log information. Cache and log [encryption](https://en.wikipedia.org/wiki/Encryption) may be introduced in the future, but there aren't any specific plans for it currently. If you're concerned about unauthorised third parties gaining access to parts of phpMussel that may contain PII or sensitive information such as its cache or logs, I would recommend that phpMussel not be installed at a publicly accessible location (e.g., install phpMussel outside the standard `public_html` directory or equivalent thereof available to most standard webservers) and that appropriately restrictive permissions be enforced for the directory where it resides. If that isn't sufficient to address your concerns, then configure phpMussel as such that the types of information causing your concerns won't be collected or logged in the first place (such as, by disabling logging).
 
 #### 11.4 COOKIES
 
@@ -1775,4 +1785,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 16 July 2020 (2020.07.16).
+Last Updated: 21 July 2020 (2020.07.21).

@@ -4,6 +4,7 @@
 - 1. [서문](#SECTION1)
 - 2. [설치 방법](#SECTION2)
 - 3. [사용 방법](#SECTION3)
+- 4. [PHPMUSSEL 확장](#SECTION4)
 - 7. [설정 옵션](#SECTION7)
 - 8. [서명 형식](#SECTION8)
 - 9. [알려진 호환성 문제](#SECTION9)
@@ -126,6 +127,46 @@ Apache와 같은 환경에서는 구성 앞에 점을 두어 구성 요소를 �
 
 phpMussel에서 사용할 수있는 다양한 구성 지시문에 대한 자세한 내용은이 문서의 구성 섹션을 참조하십시오.
 
+#### 3.1 PHPMUSSEL CORE
+
+phpMussel 사용 방법과 관계없이, 거의 모든 구현에는 최소한 다음과 같은 내용이 포함됩니다 :
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+로더 (loader)는 phpMussel 사용의 기본 필요성을 준비합니다. 스캐너 (scanner)는 모든 핵심 스캔 기능을 담당합니다.
+
+로더의 생성자는 5개의 매개 변수를 허용합니다 (모두 선택 사항입니다).
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+매개 변수 1은 구성 파일의 전체 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel.ini` 또는 `phpmussel.yml` 이라는 이름의 구성 파일을 찾습니다.
+
+매개 변수 2는 phpMussel이 캐싱 및 임시 파일 저장에 사용할 수 있는 디렉터리의 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel-cache` 라는 이름으로 사용할 새로운 디렉토리를 만들려고합니다. 이 경로를 직접 지정하려면 지정된 디렉터리에서 다른 데이터의 원치 않는 손실을 피하고자 빈 디렉터리를 선택하는 것이 가장 좋습니다.
+
+매개 변수 3은 phpMussel이 격리에 사용할 수 있는 디렉터리의 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel-quarantine` 이라는 이름의 새로운 디렉토리를 만들려고합니다. 이 경로를 직접 지정하려면 지정된 디렉터리에서 다른 데이터의 원치 않는 손실을 피하고자 빈 디렉터리를 선택하는 것이 가장 좋습니다. 격리에 사용된 디렉터리에 공개적으로 액세스하지 못하게 하는 것이 좋습니다.
+
+매개 변수 4는 phpMussel의 서명 파일이 들어 있는 디렉터리의 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel-signatures` 라는 이름의 디렉토리에서 서명 파일을 찾습니다.
+
+매개 변수 5는 vendor 디렉터리의 경로입니다. 절대 다른 것을 가리켜서는 안 됩니다. 생략하면, phpMussel 은 이 디렉터리를 찾으려고 시도합니다. 이 매개 변수는 일반적인 Composer 프로젝트와 구조가 동일하지 않아도 되는 구현과 쉽게 통합 할 수 있도록 하기 위해 제공됩니다.
+
+스캐너의 생성자는 하나의 매개 변수만 허용합니다 (필수입니다) : 인스턴스 화 된 로더 객체. 참조로 전달되므로 로더는 변수로 인스턴스화해야합니다 (로더를 스캐너의 매개 변수로 직접 인스턴스화하는 것은 phpMussel을 사용하는 올바른 방법이 아닙니다).
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 스캐너 API
 
 결과 | 기술
@@ -148,6 +189,11 @@ phpMussel에서 사용할 수있는 다양한 구성 지시문에 대한 자세�
 PHPMailer를 설치 한 후 phpMussel 구성 페이지 또는 구성 파일을 통해 PHPMailer의 구성 지시문을 채워야합니다. 이러한 구성 지시문에 대한 자세한 내용은이 설명서의 구성 섹션에 포함되어 있습니다. PHPMailer 설정 지시어를 채운 후에는 `enable_two_factor`를 `true`로 설정하십시오. 이제 2FA가 활성화되어야합니다.
 
 해당 계정으로 로그인 할 때 2FA 코드를 보낼 위치를 phpMussel이 알 수 있도록 이메일 주소를 계정과 연결해야합니다. 전자 메일 주소를 계정의 사용자 이름 (예 : `foo@bar.tld`)으로 사용하거나 정상적으로 전자 메일을 보낼 때와 동일한 방법 (예 : `Foo Bar <foo@bar.tld>`)으로 사용자 이름의 일부로 전자 메일 주소를 포함하십시오.
+
+---
+
+
+### 4. <a name="SECTION4"></a>PHPMUSSEL 확장
 
 ---
 
@@ -947,8 +993,7 @@ phpMussel과 일부 안티바이러스 공급 업체 간의 호환성 문제는 
 - ["거짓 양성"는 무엇입니까?](#WHAT_IS_A_FALSE_POSITIVE)
 - [서명은 얼마나 자주 업데이트됩니까?](#SIGNATURE_UPDATE_FREQUENCY)
 - [phpMussel을 사용하는 데 문제가 발생했지만 무엇을 해야할지 모르겠어요! 도와주세요!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [5.4.0보다 오래된 PHP 버전에서 phpMussel (v2 이전)을 사용하고 싶습니다; 도울 수 있니?](#MINIMUM_PHP_VERSION)
-- [7.2.0보다 오래된 PHP 버전에서 phpMussel (v2)을 사용하고 싶습니다; 도울 수 있니?](#MINIMUM_PHP_VERSION_V2)
+- [7.2.0보다 오래된 PHP 버전에서 phpMussel v3을 사용하고 싶습니다; 도울 수 있니?](#MINIMUM_PHP_VERSION_V3)
 - [단일 phpMussel 설치를 사용하여 여러 도메인을 보호 할 수 있습니까?](#PROTECT_MULTIPLE_DOMAINS)
 - [나는 이것을 설치하거나 그것이 내 웹 사이트상에서 동작하는 것을 보장하는 시간을 보내고, 하고 싶지 않아; 그것을 할 수 있습니까? 나는 당신을 고용 할 수 있습니까?](#PAY_YOU_TO_DO_IT)
 - [당신 또는 이 프로젝트의 모든 개발자는 고용 가능합니까?](#HIRE_FOR_PRIVATE_WORK)
@@ -990,19 +1035,15 @@ phpMussel은 파일을 차단합니다 | __위양성__ | 진정한 양성 (올�
 - **[이슈 페이지를](https://github.com/phpMussel/phpMussel/issues)** 확인 했습니까? 문제가 이전에 언급되어 있는지 확인하십시오. 제안, 아이디어, 솔루션이 제공되었는지 여부를 확인하십시오.
 - 문제가 해결되지 않으면 알려 주시기 바랍니다. 이슈 페이지에서 토론을 창조한다.
 
-#### <a name="MINIMUM_PHP_VERSION"></a>5.4.0보다 오래된 PHP 버전에서 phpMussel (v2 이전)을 사용하고 싶습니다; 도울 수 있니?
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>7.2.0보다 오래된 PHP 버전에서 phpMussel v3을 사용하고 싶습니다; 도울 수 있니?
 
-아니오. PHP >= 5.4.0은 phpMussel < v2의 최소 요구 사항입니다.
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>7.2.0보다 오래된 PHP 버전에서 phpMussel (v2)을 사용하고 싶습니다; 도울 수 있니?
-
-아니오. PHP >= 7.2.0은 phpMussel v2의 최소 요구 사항입니다.
+아니오. PHP >= 7.2.0은 phpMussel v3의 최소 요구 사항입니다.
 
 *참조 : [호환성 차트](https://maikuolan.github.io/Compatibility-Charts/).*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>단일 phpMussel 설치를 사용하여 여러 도메인을 보호 할 수 있습니까?
 
-예. phpMussel 설치는 특정 도메인에 국한되지 않습니다, 따라서 여러 도메인을 보호하기 위해 사용할 수 있습니다. 일반적으로, 하나의 도메인 만 보호 설치 우리는 "단일 도메인 설치"이 라고 부릅니다에서 여러 도메인을 보호하는 설치 우리는 "멀티 도메인 설치"이 라고 있습니다. 다중 도메인 설치를 사용하는 경우 다른 도메인에 다른 서명 파일 세트를 사용할 필요가 있거나 다른 도메인에 phpMussel을 다른 설정해야합니다 이것을 할 수 있습니다. 설정 파일을로드 한 후 (`config.ini`), phpMussel 요청 된 도메인의 "구성 재정 파일"의 존재를 확인합니다 (`xn--hq1bngz0pl7nd2aqft27a.tld.config.ini`), 그리고 발견 된 경우, 구성 재정 파일에 의해 정의 된 구성 값은 설정 파일에 의해 정의 된 구성 값이 아니라 실행 인스턴스에 사용됩니다. 구성 재정 파일은 설정 파일과 동일합니다. 귀하의 재량에 따라 phpMussel에서 사용할 수있는 모든 구성 지시문 전체 또는 필요한 하위 섹션을 포함 할 수 있습니다. 구성 재정 파일은 그들이 의도하는 도메인에 따라 지정됩니다 (그래서 예를 들면, 도메인 `https://www.some-domain.tld/` 컨피규레이션 재정 파일이 필요한 경우, 구성 재정 파일의 이름은 `some-domain.tld.config.ini` 할 필요가 있습니다. 일반 구성 파일과 동일한 위치에 보관해야합니다). 도메인 이름은 `HTTP_HOST` 에서옵니다. "www"는 무시됩니다.
+예.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>나는 이것을 설치하거나 그것이 내 웹 사이트상에서 동작하는 것을 보장하는 시간을 보내고, 하고 싶지 않아; 그것을 할 수 있습니까? 나는 당신을 고용 할 수 있습니까?
 
@@ -1321,16 +1362,15 @@ phpMussel이 수행 할 수있는 로깅에는 여러 유형이 있습니다. �
 사람이 읽을 수있는 로그 파일 항목은 일반적으로 다음과 같습니다 (예로서) :
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 시작합니다.
-> 현재 분석 중 : 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> phpMussel-Testfile.ASCII.Standard 발견했습니다!
-Mon, 21 May 2018 00:48:04 +0800 완료.
+Sun, 19 Jul 2020 13:33:31 +0800 시작합니다.
+→ "ascii_standard_testfile.txt"를 확인 중입니다.
+─→ phpMussel-Testfile.ASCII.Standard을 발견했습니다 (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 완료.
 ```
 
 검사 로그 항목에는 일반적으로 다음 정보가 포함됩니다 :
 - 파일이 분석 된 날짜와 시간.
 - 분석 된 파일의 이름.
-- 파일의 이름과 내용을 CRC32b 해시합니다.
 - 파일에서 발견 된 내용 (무엇인가가 발견되면).
 
 *관련 설정 지시어 :*
@@ -1339,20 +1379,20 @@ Mon, 21 May 2018 00:48:04 +0800 완료.
 
 이러한 지시문을 비워두면이, 유형의 로깅은 비활성화 된 상태로 유지됩니다.
 
-##### 11.3.1 차단 된 업로드
+##### 11.3.1 업로드 로그
 
 패키지 구성에서 활성화하면, phpMussel은 차단 된 업로드 로그를 보존합니다.
 
-이러한 로그는 일반적으로 다음과 같습니다 (예로서) :
+*예로서 :*
 
 ```
-날짜 : Mon, 21 May 2018 00:47:56 +0800
-IP 주소 : 127.0.0.1
+날짜 : Sun, 19 Jul 2020 13:33:31 +0800
+IP 주소 : 127.0.0.x
 == 스캔 결과 (신고 된 이유) ==
-phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)을 발견했습니다!
+phpMussel-Testfile.ASCII.Standard을 발견했습니다 (ascii_standard_testfile.txt)!
 == 해시 서명 재구성 ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-"/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu"로 격리.
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+"1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu"로 격리.
 ```
 
 일반적으로 다음 정보가 포함됩니다 :
@@ -1360,7 +1400,7 @@ phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)을 발견했습�
 - 업로드가 시작된 IP 주소입니다.
 - 파일이 차단 된 이유 (발견 된 것).
 - 차단 된 파일의 이름입니다.
-- MD5 및 파일 크기가 차단되었습니다.
+- 체크섬 및 파일 크기가 차단되었습니다.
 - 파일이 격리되었는지 여부 및 내부 이름 사용 여부.
 
 *관련 설정 지시어 :*
@@ -1422,7 +1462,7 @@ phpMussel은 선택적으로 특정 시간 이후로 검색 및 차단 된 총 �
 
 ##### 11.3.7 암호화
 
-phpMussel은 캐시 또는 로그 정보를 [암호화](https://ko.wikipedia.org/wiki/%EC%95%94%ED%98%B8%ED%99%94)하지 않습니다. 캐시 및 로그 암호화는 향후 도입 될 수 있지만 현재 구체적인 계획은 없습니다. 승인되지 않은 제 3 자의 개인 식별 정보 (PII)에 대한 액세스 (예, 캐시 또는 로그) : 공개적으로 접근 가능한 위치에 phpMussel을 설치하지 않을 것을 권장합니다 (예, 대부분의 표준 웹 서버에서 사용할 수있는 표준 `public_html` 디렉토리 외부에 phpMussel 설치) 과 적절하게 제한적인 권한이 시행되는지 확인하십시오 (특히 vault 디렉토리의 경우). 문제가 지속되면 phpMussel을 구성하여이 정보가 수집되거나 기록되지 않도록 할 수 있습니다 (예, 로깅 비활성화).
+phpMussel은 캐시 또는 로그 정보를 [암호화](https://ko.wikipedia.org/wiki/%EC%95%94%ED%98%B8%ED%99%94)하지 않습니다. 캐시 및 로그 암호화는 향후 도입 될 수 있지만 현재 구체적인 계획은 없습니다. 승인되지 않은 제 3 자의 개인 식별 정보 (PII)에 대한 액세스 (예, 캐시 또는 로그) : 공개적으로 접근 가능한 위치에 phpMussel을 설치하지 않을 것을 권장합니다 (예, 대부분의 표준 웹 서버에서 사용할 수있는 표준 `public_html` 디렉토리 외부에 phpMussel 설치) 과 적절하게 제한적인 권한이 시행되는지 확인하십시오. 문제가 지속되면 phpMussel을 구성하여이 정보가 수집되거나 기록되지 않도록 할 수 있습니다 (예, 로깅 비활성화).
 
 #### 11.4 COOKIE (쿠키)
 
@@ -1460,4 +1500,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2020년 7월 16일.
+최종 업데이트 : 2020년 7월 21일.

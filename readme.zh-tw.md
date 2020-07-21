@@ -4,6 +4,7 @@
 - 1. [前言](#SECTION1)
 - 2. [如何安裝](#SECTION2)
 - 3. [如何使用](#SECTION3)
+- 4. [擴展PHPMUSSEL](#SECTION4)
 - 7. [配置選項](#SECTION7)
 - 8. [簽名格式](#SECTION8)
 - 9. [已知的兼容問題](#SECTION9)
@@ -126,6 +127,46 @@ user.admin:
 
 有關可用於phpMussel的各種配置指令的更多信息，請參閱本文檔的配置部分。
 
+#### 3.1 PHPMUSSEL CORE
+
+無論您如何使用phpMussel，幾乎每個實施都至少包含以下內容：
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+正如這些類的名稱所暗示的，加載程序【Loader】負責準備使用phpMussel的基本必需品，掃描程序【Scanner】負責所有核心掃描功能。
+
+加載程序的構造函數接受五個參數，均為可選參數。
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+第一個參數是配置文件的完整路徑。​當省略時，phpMussel將在vendor目錄的父目錄中查找名為`phpmussel.ini`或`phpmussel.yml`的配置文件。
+
+第二個參數是您允許phpMussel用於緩存和臨時文件存儲的目錄的路徑。​當省略時，phpMussel將在vendor目錄的父目錄中嘗試創建一個要使用的新目錄，名為`phpmussel-cache`。​如果要自己指定此路徑，則最好選擇一個空目錄，以避免不必要地丟失指定目錄中的其他數據。
+
+第三個參數是phpMussel可以用來隔離的目錄的路徑。​當省略時，phpMussel將在vendor目錄的父目錄中嘗試創建一個要使用的新目錄，名為`phpmussel-quarantine`。​如果要自己指定此路徑，則最好選擇一個空目錄，以避免不必要地丟失指定目錄中的其他數據。​強烈建議您禁止公共訪問用於隔離的目錄。
+
+第四個參數是包含phpMussel簽名文件的目錄的路徑。​當省略時，phpMussel將在vendor目錄的父目錄中嘗試在名為`phpmussel-signatures`的目錄中查找簽名文件。
+
+第五個參數是vendor目錄的路徑。​它永遠不要指向其他任何東西。​當省略時，phpMussel將嘗試自行找到此目錄。​提供此參數是為了便於與不一定具有與典型Composer項目相同結構的實施進行集成。
+
+掃描程序的構造函數僅接受一個參數，這是必需的：實例化的加載程序對象。​由於它是通過引用傳遞的，因此加載程序必須實例化為變量（加載程序實例化實例化到掃描程序的參數中不是使用phpMussel的正確方法）。
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 掃描程序API
 
 結果 | 說明
@@ -148,6 +189,11 @@ user.admin:
 在安裝PHPMailer後，您需要通過phpMussel配置頁面或配置文件填充PHPMailer的配置指令。​有關這些配置指令的更多信息包含在本文檔的配置部分中。​在填充PHPMailer配置指令後，將`enable_two_factor`設置為`true`。​現在應啟用雙因素身份驗證。
 
 接下來，您需要讓phpMussel知道在使用該帳戶登錄時將2FA代碼發送到何處。​為此，請使用電子郵件地址作為帳戶的用戶名（例如，`foo@bar.tld`），或者將電子郵件地址作為用戶名的一部分包括在內，就像通常發送電子郵件一樣（例如，`Foo Bar <foo@bar.tld>`）。
+
+---
+
+
+### 4. <a name="SECTION4"></a>擴展PHPMUSSEL
 
 ---
 
@@ -592,19 +638,19 @@ disabled_channels
 - 設置為true時，掃描程序遇到的任何非圖像文件將被立即標記，而不會被掃描。​在某些情況下，這可能有助於減少完成掃描所需的時間。​默認情況下設置為false。
 
 #### 『quarantine』 （類別）
-隔離配置。
+検疫配置。
 
 ##### 『quarantine_key』 `[string]`
-- phpMussel能夠隔離被阻止的文件上傳，​如果這個是某物您想。​普通用戶的phpMussel簡單地想保護他們的網站或宿主環境無任何興趣在深深分析任何嘗試文件上傳應該離開這個功能關閉，​但任何用戶有興趣在更深分析的嘗試文件上傳為目的惡意軟件研究或為類似這樣事情應該激活這個功能。​檢疫的嘗試文件上傳可以有時還助攻在調試假陽性，​如果這個是某物經常發生為您。​以關閉檢疫功能，​簡單地離開`quarantine_key`指令空白，​或抹去內容的這個指令如果它不已空白。​以激活隔離功能，​輸入一些值在這個指令。​`quarantine_key`是一個重要安全功能的隔離功能需要以預防檢疫功能從成為利用通過潛在攻擊者和以預防任何潛在執行的數據存儲在檢疫。​`quarantine_key`應該被處理在同樣方法作為您的密碼：更長是更好，​和緊緊保護它。​為獲得最佳效果，​在結合使用`delete_on_sight`。
+- phpMussel能夠検疫被阻止的文件上傳，​如果這個是某物您想。​普通用戶的phpMussel簡單地想保護他們的網站或宿主環境無任何興趣在深深分析任何嘗試文件上傳應該離開這個功能關閉，​但任何用戶有興趣在更深分析的嘗試文件上傳為目的惡意軟件研究或為類似這樣事情應該激活這個功能。​檢疫的嘗試文件上傳可以有時還助攻在調試假陽性，​如果這個是某物經常發生為您。​以關閉檢疫功能，​簡單地離開`quarantine_key`指令空白，​或抹去內容的這個指令如果它不已空白。​以激活検疫功能，​輸入一些值在這個指令。​`quarantine_key`是一個重要安全功能的検疫功能需要以預防檢疫功能從成為利用通過潛在攻擊者和以預防任何潛在執行的數據存儲在檢疫。​`quarantine_key`應該被處理在同樣方法作為您的密碼：更長是更好，​和緊緊保護它。​為獲得最佳效果，​在結合使用`delete_on_sight`。
 
 ##### 『quarantine_max_filesize』 `[string]`
 - 最大允許文件大小為文件在檢疫。​文件大於這個指定數值將不成為檢疫。​這個指令是重要為使它更難為任何潛在攻擊者洪水您的檢疫用非通緝數據潛在的造成過度數據用法在您的虛擬主機服務。​標準 = 2MB。
 
 ##### 『quarantine_max_usage』 `[string]`
-- 最大內存使用允許為檢疫。​如果總內存已用通過隔離到達這個數值，​最老檢疫文件將會刪除直到總內存已用不再到達這個數值。​這個指令是重要為使它更難為任何潛在攻擊者洪水您的檢疫用非通緝數據潛在的造成過度數據用法在您的虛擬主機服務。​數值是在KB。​標準 = 64MB。
+- 最大內存使用允許為檢疫。​如果總內存已用通過検疫到達這個數值，​最老檢疫文件將會刪除直到總內存已用不再到達這個數值。​這個指令是重要為使它更難為任何潛在攻擊者洪水您的檢疫用非通緝數據潛在的造成過度數據用法在您的虛擬主機服務。​數值是在KB。​標準 = 64MB。
 
 ##### 『quarantine_max_files』 `[int]`
-- 隔離中可以存在的最大文件數量。​新文件添加到隔離時，如果超過此數量，則舊文件將被刪除，直到剩餘的文件不再超過此數量。​標準=100。
+- 検疫中可以存在的最大文件數量。​新文件添加到検疫時，如果超過此數量，則舊文件將被刪除，直到剩餘的文件不再超過此數量。​標準=100。
 
 #### 『virustotal』 （類別）
 Virus Total整合的配置。
@@ -947,8 +993,7 @@ phpMussel簽名文件前9個字節（`[x0-x8]`）是`phpMussel`。​它作為�
 - [什麼是『假陽性』？](#WHAT_IS_A_FALSE_POSITIVE)
 - [什麼是簽名更新頻率？](#SIGNATURE_UPDATE_FREQUENCY)
 - [我在使用phpMussel時遇到問題和我不知道該怎麼辦！​請幫忙！](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [我想使用phpMussel（在v2之前）與早於5.4.0的PHP版本；​您能幫我嗎？](#MINIMUM_PHP_VERSION)
-- [我想使用phpMussel（在v2期间）與早於7.2.0的PHP版本；​您能幫我嗎？](#MINIMUM_PHP_VERSION_V2)
+- [我想使用phpMussel v3與早於7.2.0的PHP版本；​您能幫我嗎？](#MINIMUM_PHP_VERSION_V3)
 - [我可以使用單個phpMussel安裝來保護多個域嗎？](#PROTECT_MULTIPLE_DOMAINS)
 - [我不想浪費時間安裝這個和確保它在我的網站上功能正常；我可以僱用您這樣做嗎？](#PAY_YOU_TO_DO_IT)
 - [我可以聘請您或這個項目的任何開發者私人工作嗎？](#HIRE_FOR_PRIVATE_WORK)
@@ -990,19 +1035,15 @@ phpMussel會阻止文件 | __假陽性__ | 真陽性（正確的推理）
 - 您檢查過[issues頁面](https://github.com/phpMussel/phpMussel/issues)嗎？​檢查是否已經提到了問題。​如果已經提到了，​請檢查是否提供了任何建議，​想法或解決方案。​按照需要嘗試解決問題。
 - 如果問題仍然存在，請通過在issues頁面上創建新issue尋求幫助。
 
-#### <a name="MINIMUM_PHP_VERSION"></a>我想使用phpMussel（在v2之前）與早於5.4.0的PHP版本；​您能幫我嗎？
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>我想使用phpMussel v3與早於7.2.0的PHP版本；​您能幫我嗎？
 
-不能。PHP >= 5.4.0是phpMussel < v2的最低要求。
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>我想使用phpMussel（在v2期间）與早於7.2.0的PHP版本；​您能幫我嗎？
-
-不能。PHP >= 7.2.0是phpMussel v2的最低要求。
+不能。PHP >= 7.2.0是phpMussel v3的最低要求。
 
 *也可以看看：​[兼容性圖表](https://maikuolan.github.io/Compatibility-Charts/)。*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>我可以使用單個phpMussel安裝來保護多個域嗎？
 
-可以。​phpMussel安裝未綁定到特定域，​因此可以用來保護多個域。​通常，​當phpMussel安裝保護只一個域，​我們稱之為『單域安裝』，​和當phpMussel安裝保護多個域和/或子域，​我們稱之為『多域安裝』。​如果您進行多域安裝並需要使用不同的簽名文件為不同的域，​或需要不同配置phpMussel為不同的域，​這可以做到。​加載配置文件後（`config.ini`），​phpMussel將尋找『配置覆蓋文件』特定於所請求的域（`xn--cjs74vvlieukn40a.tld.config.ini`），​並如果發現，​由配置覆蓋文件定義的任何配置值將用於執行實例而不是由配置文件定義的配置值。​配置覆蓋文件與配置文件相同，​並通過您的決定，​可能包含phpMussel可用的所有配置指令，​或任何必需的部分當需要。​配置覆蓋文件根據它們旨在的域來命名（所以，​例如，​如果您需要一個配置覆蓋文件為域，​`https://www.some-domain.tld/`，​它的配置覆蓋文件應該被命名`some-domain.tld.config.ini`，​和它應該放置在`vault`與配置文件，​`config.ini`）。​域名是從標題`HTTP_HOST`派生的；『www』被忽略。
+可以。
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>我不想浪費時間安裝這個和確保它在我的網站上功能正常；我可以僱用您這樣做嗎？
 
@@ -1321,16 +1362,15 @@ phpMussel可以執行多種類型的日誌記錄。​不同類型的日誌記�
 人類可讀日誌文件的條目通常看起來像這樣（作為示例）：
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 開始。
-> 檢查'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> 檢測phpMussel-Testfile.ASCII.Standard！
-Mon, 21 May 2018 00:48:04 +0800 完了。
+Sun, 19 Jul 2020 13:33:31 +0800 開始。
+→ 正在檢查『ascii_standard_testfile.txt』。
+─→ 檢測phpMussel-Testfile.ASCII.Standard（ascii_standard_testfile.txt）！
+Sun, 19 Jul 2020 13:33:31 +0800 完了。
 ```
 
 掃描日誌條目通常包括以下信息：
 - 掃描文件的日期和時間。
 - 掃描的文件的名稱。
-- CRC32b哈希的文件名和內容。
 - 文件中檢測到的內容（如果檢測到任何內容）。
 
 *相關配置指令：*
@@ -1339,20 +1379,20 @@ Mon, 21 May 2018 00:48:04 +0800 完了。
 
 當這些指令保留為空時，此類日誌記錄將保持禁用狀態。
 
-##### 11.3.1 掃描殺死
+##### 11.3.1 上傳日誌
 
 在程序包配置中啟用時，phpMussel會保留已阻止的上傳日誌。
 
-『掃描殺死』日誌文件的條目通常看起來像這樣（作為示例）：
+*日誌條目示例：*
 
 ```
-日期: Mon, 21 May 2018 00:47:56 +0800
-IP地址: 127.0.0.1
+日期: Sun, 19 Jul 2020 13:33:31 +0800
+IP地址: 127.0.0.x
 == 掃描結果（為什麼標記） ==
-檢測phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)！
+檢測phpMussel-Testfile.ASCII.Standard（ascii_standard_testfile.txt）！
 == 哈希簽名重建 ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-隔離為『/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu』。
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+検疫為『1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu』。
 ```
 
 『掃描殺戮』條目通常包括以下信息：
@@ -1360,8 +1400,8 @@ IP地址: 127.0.0.1
 - 上傳源自的IP地址。
 - 文件被阻止的原因（檢測到的內容）。
 - 被阻止文件的名稱。
-- 被阻止文件的MD5和大小。
-- 是否文件被隔離，以及內部名稱是什麼。
+- 被阻止文件的大小和校驗和。
+- 是否文件被検疫，以及內部名稱是什麼。
 
 *相關配置指令：*
 - `web` -> `uploads_log`
@@ -1422,7 +1462,7 @@ phpMussel可選擇跟踪統計信息，例如自特定時間以來掃描和阻�
 
 ##### 11.3.7 加密
 
-phpMussel不[加密](https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%AF%86)其緩存或任何日誌信息。​可能會在將來引入緩存和日誌加密，但目前沒有任何具體的計劃。​如果您擔心未經授權的第三方獲取可能包含PII或敏感信息（如緩存或日誌）的phpMussel部分的訪問權限，我建議不要將phpMussel安裝在可公開訪問的位置（例如，在標準`public_html`或等效目錄之外【可用於大多數標準網絡服務器】安裝phpMussel），​也我建議對安裝目錄強制執行適當的限制權限（特別是對於vault目錄）。​如果這還不足以解決您的疑慮，應該配置phpMussel為不會首先收集或記錄引起您關注的信息類型（例如，通過禁用日誌記錄）。
+phpMussel不[加密](https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%AF%86)其緩存或任何日誌信息。​可能會在將來引入緩存和日誌加密，但目前沒有任何具體的計劃。​如果您擔心未經授權的第三方獲取可能包含PII或敏感信息（如緩存或日誌）的phpMussel部分的訪問權限，我建議不要將phpMussel安裝在可公開訪問的位置（例如，在標準`public_html`或等效目錄之外【可用於大多數標準網絡服務器】安裝phpMussel），​也我建議對安裝目錄強制執行適當的限制權限。​如果這還不足以解決您的疑慮，應該配置phpMussel為不會首先收集或記錄引起您關注的信息類型（例如，通過禁用日誌記錄）。
 
 #### 11.4 COOKIE
 
@@ -1463,4 +1503,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2020年7月16日。
+最後更新：2020年7月21日。

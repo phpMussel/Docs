@@ -4,6 +4,7 @@
 - 1. [前言](#SECTION1)
 - 2. [如何安装](#SECTION2)
 - 3. [如何使用](#SECTION3)
+- 4. [扩展PHPMUSSEL](#SECTION4)
 - 7. [配置选项](#SECTION7)
 - 8. [签名格式](#SECTION8)
 - 9. [已知的兼容问题](#SECTION9)
@@ -126,6 +127,46 @@ user.admin:
 
 有关可用于phpMussel的各种配置指令的更多信息，请参阅本文档的配置部分。
 
+#### 3.1 PHPMUSSEL CORE
+
+无论您如何使用phpMussel，几乎每个实施都至少包含以下内容：
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+正如这些类的名称所暗示的，加载程序【Loader】负责准备使用phpMussel的基本必需品，扫描程序【Scanner】负责所有核心扫描功能。
+
+加载程序的构造函数接受五个参数，均为可选参数。
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+第一个参数是配置文件的完整路径。​当省略时，phpMussel将在vendor目录的父目录中查找名为`phpmussel.ini`或`phpmussel.yml`的配置文件。
+
+第二个参数是您允许phpMussel用于缓存和临时文件存储的目录的路径。​当省略时，phpMussel将在vendor目录的父目录中尝试创建一个要使用的新目录，名为`phpmussel-cache`。​如果要自己指定此路径，则最好选择一个空目录，以避免不必要地丢失指定目录中的其他数据。
+
+第三个参数是phpMussel可以用来隔离的目录的路径。​当省略时，phpMussel将在vendor目录的父目录中尝试创建一个要使用的新目录，名为`phpmussel-quarantine`。​如果要自己指定此路径，则最好选择一个空目录，以避免不必要地丢失指定目录中的其他数据。​强烈建议您禁止公共访问用于隔离的目录。
+
+第四个参数是包含phpMussel签名文件的目录的路径。​当省略时，phpMussel将在vendor目录的父目录中尝试在名为`phpmussel-signatures`的目录中查找签名文件。
+
+第五个参数是vendor目录的路径。​它永远不要指向其他任何东西。​当省略时，phpMussel将尝试自行找到此目录。​提供此参数是为了便于与不一定具有与典型Composer项目相同结构的实施进行集成。
+
+扫描程序的构造函数仅接受一个参数，这是必需的：实例化的加载程序对象。​由于它是通过引用传递的，因此加载程序必须实例化为变量（加载程序实例化实例化到扫描程序的参数中不是使用phpMussel的正确方法）。
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 扫描程序API
 
 结果 | 说明
@@ -148,6 +189,11 @@ user.admin:
 在安装PHPMailer后，您需要通过phpMussel配置页面或配置文件填充PHPMailer的配置指令。​有关这些配置指令的更多信息包含在本文档的配置部分中。​在填充PHPMailer配置指令后，将`enable_two_factor`设置为`true`。​现在应启用双因素身份验证。
 
 接下来，您需要让phpMussel知道在使用该帐户登录时将2FA代码发送到何处。​为此，请使用电子邮件地址作为帐户的用户名（例如，`foo@bar.tld`），或者将电子邮件地址作为用户名的一部分包括在内，就像通常发送电子邮件一样（例如，`Foo Bar <foo@bar.tld>`）。
+
+---
+
+
+### 4. <a name="SECTION4"></a>扩展PHPMUSSEL
 
 ---
 
@@ -947,8 +993,7 @@ phpMussel签名文件前9个字节（`[x0-x8]`）是`phpMussel`。​它作为�
 - [什么是“假阳性”？](#WHAT_IS_A_FALSE_POSITIVE)
 - [什么是签名更新频率？](#SIGNATURE_UPDATE_FREQUENCY)
 - [我在使用phpMussel时遇到问题和我不知道该怎么办！​请帮忙！](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [我想使用phpMussel（在v2之前）与早于5.4.0的PHP版本；​您能帮我吗？](#MINIMUM_PHP_VERSION)
-- [我想使用phpMussel（在v2期间）与早于7.2.0的PHP版本；​您能帮我吗？](#MINIMUM_PHP_VERSION_V2)
+- [我想使用phpMussel v3与早于7.2.0的PHP版本；​您能帮我吗？](#MINIMUM_PHP_VERSION_V3)
 - [我可以使用单个phpMussel安装来保护多个域吗？](#PROTECT_MULTIPLE_DOMAINS)
 - [我不想浪费时间安装这个和确保它在我的网站上功能正常；我可以雇用您这样做吗？](#PAY_YOU_TO_DO_IT)
 - [我可以聘请您或这个项目的任何开发者私人工作吗？](#HIRE_FOR_PRIVATE_WORK)
@@ -990,19 +1035,15 @@ phpMussel会阻止文件 | __假阳性__ | 真阳性（正确的推理）
 - 您检查过[issues页面](https://github.com/phpMussel/phpMussel/issues)吗？​检查是否已经提到了问题。​如果已经提到了，​请检查是否提供了任何建议，​想法或解决方案。​按照需要尝试解决问题。
 - 如果问题仍然存在，请通过在issues页面上创建新issue寻求帮助。
 
-#### <a name="MINIMUM_PHP_VERSION"></a>我想使用phpMussel（在v2之前）与早于5.4.0的PHP版本；​您能帮我吗？
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>我想使用phpMussel v3与早于7.2.0的PHP版本；​您能帮我吗？
 
-不能。PHP >= 5.4.0是phpMussel < v2的最低要求。
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>我想使用phpMussel（在v2期间）与早于7.2.0的PHP版本；​您能帮我吗？
-
-不能。PHP >= 7.2.0是phpMussel v2的最低要求。
+不能。PHP >= 7.2.0是phpMussel v3的最低要求。
 
 *也可以看看：​[兼容性图表](https://maikuolan.github.io/Compatibility-Charts/)。*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>我可以使用单个phpMussel安装来保护多个域吗？
 
-可以。​phpMussel安装未绑定到特定域，​因此可以用来保护多个域。​通常，​当phpMussel安装保护只一个域，​我们称之为“单域安装”，​和当phpMussel安装保护多个域和/或子域，​我们称之为“多域安装”。​如果您进行多域安装并需要使用不同的签名文件为不同的域，​或需要不同配置phpMussel为不同的域，​这可以做到。​加载配置文件后（`config.ini`），​phpMussel将寻找“配置覆盖文件”特定于所请求的域（`xn--cjs74vvlieukn40a.tld.config.ini`），​并如果发现，​由配置覆盖文件定义的任何配置值将用于执行实例而不是由配置文件定义的配置值。​配置覆盖文件与配置文件相同，​并通过您的决定，​可能包含phpMussel可用的所有配置指令，​或任何必需的部分当需要。​配置覆盖文件根据它们旨在的域来命名（所以，​例如，​如果您需要一个配置覆盖文件为域，​`https://www.some-domain.tld/`，​它的配置覆盖文件应该被命名`some-domain.tld.config.ini`，​和它应该放置在`vault`与配置文件，​`config.ini`）。​域名是从标题`HTTP_HOST`派生的；“www”被忽略。
+可以。
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>我不想浪费时间安装这个和确保它在我的网站上功能正常；我可以雇用您这样做吗？
 
@@ -1321,16 +1362,15 @@ phpMussel可以执行多种类型的日志记录。​不同类型的日志记�
 人类可读日志文件的条目通常看起来像这样（作为示例）：
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 开始。
-> 检查'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> 检测phpMussel-Testfile.ASCII.Standard！
-Mon, 21 May 2018 00:48:04 +0800 完了。
+Sun, 19 Jul 2020 13:33:31 +0800 开始。
+→ 正在检查“ascii_standard_testfile.txt”。
+─→ 检测phpMussel-Testfile.ASCII.Standard（ascii_standard_testfile.txt）！
+Sun, 19 Jul 2020 13:33:31 +0800 完了。
 ```
 
 扫描日志条目通常包括以下信息：
 - 扫描文件的日期和时间。
 - 扫描的文件的名称。
-- CRC32b哈希的文件名和内容。
 - 文件中检测到的内容（如果检测到任何内容）。
 
 *相关配置指令：*
@@ -1339,20 +1379,20 @@ Mon, 21 May 2018 00:48:04 +0800 完了。
 
 当这些指令保留为空时，此类日志记录将保持禁用状态。
 
-##### 11.3.1 扫描杀死
+##### 11.3.1 上传日志
 
 在程序包配置中启用时，phpMussel会保留已阻止的上传日志。
 
-“扫描杀死”日志文件的条目通常看起来像这样（作为示例）：
+*日志条目示例：*
 
 ```
-日期: Mon, 21 May 2018 00:47:56 +0800
-IP地址: 127.0.0.1
+日期: Sun, 19 Jul 2020 13:33:31 +0800
+IP地址: 127.0.0.x
 == 扫描结果（为什么标记） ==
-检测phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)！
+检测phpMussel-Testfile.ASCII.Standard（ascii_standard_testfile.txt）！
 == 哈希签名重建 ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-隔离为“/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu”。
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+隔离为“1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu”。
 ```
 
 “扫描杀戮”条目通常包括以下信息：
@@ -1360,7 +1400,7 @@ IP地址: 127.0.0.1
 - 上传源自的IP地址。
 - 文件被阻止的原因（检测到的内容）。
 - 被阻止文件的名称。
-- 被阻止文件的MD5和大小。
+- 被阻止文件的大小和校验和。
 - 是否文件被隔离，以及内部名称是什么。
 
 *相关配置指令：*
@@ -1422,7 +1462,7 @@ phpMussel可选择跟踪统计信息，例如自特定时间以来扫描和阻�
 
 ##### 11.3.7 加密
 
-phpMussel不[加密](https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%AF%86)其缓存或任何日志信息。​可能会在将来引入缓存和日志加密，但目前没有任何具体的计划。​如果您担心未经授权的第三方获取可能包含PII或敏感信息（如缓存或日志）的phpMussel部分的访问权限，我建议不要将phpMussel安装在可公开访问的位置（例如，在标准`public_html`或等效目录之外【可用于大多数标准网络服务器】安装phpMussel），​也我建议对安装目录强制执行适当的限制权限（特别是对于vault目录）。​如果这还不足以解决您的疑虑，应该配置phpMussel为不会首先收集或记录引起您关注的信息类型（例如，通过禁用日志记录）。
+phpMussel不[加密](https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%AF%86)其缓存或任何日志信息。​可能会在将来引入缓存和日志加密，但目前没有任何具体的计划。​如果您担心未经授权的第三方获取可能包含PII或敏感信息（如缓存或日志）的phpMussel部分的访问权限，我建议不要将phpMussel安装在可公开访问的位置（例如，在标准`public_html`或等效目录之外【可用于大多数标准网络服务器】安装phpMussel），​也我建议对安装目录强制执行适当的限制权限。​如果这还不足以解决您的疑虑，应该配置phpMussel为不会首先收集或记录引起您关注的信息类型（例如，通过禁用日志记录）。
 
 #### 11.4 COOKIE
 
@@ -1463,4 +1503,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2020年7月16日。
+最后更新：2020年7月21日。

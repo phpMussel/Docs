@@ -4,10 +4,11 @@
 <div dir="rtl"><ul>
  <li>١. <a href="#SECTION1">تمہید</a></li>
  <li>٢. <a href="#SECTION2">انسٹال کرنے کا طریقہ</a></li>
- <li>٣. <a href="#SECTION3">کس طرح استعمال</a></li>
- <li>٧. <a href="#SECTION7">ترتیب کے اختیارات</a></li>
- <li>٨. <a href="#SECTION8">دستخط فارمیٹ</a></li>
- <li>٩. <a href="#SECTION9">جانا جاتا مطابقت کے مسائل</a></li>
+ <li>۳. <a href="#SECTION3">کس طرح استعمال</a></li>
+ <li>۴. <a href="#SECTION4">PHPMUSSEL میں توسیع</a></li>
+ <li>۷. <a href="#SECTION7">ترتیب کے اختیارات</a></li>
+ <li>۸. <a href="#SECTION8">دستخط فارمیٹ</a></li>
+ <li>۹. <a href="#SECTION9">جانا جاتا مطابقت کے مسائل</a></li>
  <li>١٠. <a href="#SECTION10">اکثر پوچھے گئے سوالات (FAQ)</a></li>
  <li>١١. <a href="#SECTION11">قانونی معلومات</a></li>
 </ul></div>
@@ -130,7 +131,47 @@ user.admin:
 
 <div dir="rtl">phpMussel کو دستیاب مختلف ترتیب ہدایتوں کے بارے میں مزید معلومات کے ل التشکیل کے سیکشن کا حوالہ لیں.<br /><br /></div>
 
-#### <div dir="rtl">٣.٤ اسکینر API</div>
+#### <div dir="rtl">٣.١ PHPMUSSEL CORE</div>
+
+<div dir="rtl">اس سے قطع نظر کہ آپ phpMussel کو کس طرح استعمال کرنا چاہتے ہیں، کم و بیش ہر عمل درآمد میں کچھ ایسا ہی ہوگا:<br /><br /></div>
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+<div dir="rtl">لوڈر phpMussel استعمال کرنے کی بنیادی ضروریات کی تیاری کا ذمہ دار ہے. اسکیننگ بنیادی اسکیننگ کی بنیادی فعالیت کے لئے ذمہ دار ہے.<br /><br /></div>
+
+<div dir="rtl">لوڈر کے لئے تعمیر کنندہ پانچ پیرامیٹرز کو قبول کرتا ہے (سب اختیاری ہیں).<br /><br /></div>
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+<div dir="rtl">پیرامیٹر ١ آپ کی کنفیگریشن فائل کا مکمل راستہ ہے. جب اس کی وضاحت نہیں کی جاتی ہے، <code dir="ltr">phpmussel.ini</code> یا <code dir="ltr">phpmussel.yml</code> استعمال ہوگا (یہ اسی ڈائرکٹری میں چیک کرتا ہے جس میں vendor ہوتا ہے).<br /><br /></div>
+
+<div dir="rtl">پیرامیٹر ٢ ایک ڈائریکٹری کا راستہ ہے جسے آپ phpMussel ل کو کیچنگ اور عارضی فائل اسٹوریج کے لاستعمال کرنے کی اجازت دیتے ہیں. جب اس کی وضاحت نہیں کی جاتی ہے، ایک نئی ڈائریکٹری <code dir="ltr">phpmussel-cache</code> بنانے کی کوشش کی جائے گی (یہ اسی ڈائرکٹری میں چیک کرتا ہے جس میں vendor ہوتا ہے). اس راستے کی وضاحت کرتے وقت، ڈیٹا کو ناپسندیدہ ہونے سے بچنے کے لئے، خالی ڈائریکٹری کا انتخاب بہترین ہے.<br /><br /></div>
+
+<div dir="rtl">پیرامیٹر ۳ قرنطین کے لئے استعمال ہونے والی ڈائریکٹری کا راستہ ہے. جب اس کی وضاحت نہیں کی جاتی ہے، ایک نئی ڈائریکٹری <code dir="ltr">phpmussel-quarantine</code> بنانے کی کوشش کی جائے گی (یہ اسی ڈائرکٹری میں چیک کرتا ہے جس میں vendor ہوتا ہے). اس راستے کی وضاحت کرتے وقت، ڈیٹا کو ناپسندیدہ ہونے سے بچنے کے لئے، خالی ڈائریکٹری کا انتخاب بہترین ہے. قرنطین کے لئے استعمال ہونے والی ڈائریکٹری تک عوامی رسائی کو روکنے کی سفارش کی جاتی ہے.<br /><br /></div>
+
+<div dir="rtl">پیرامیٹر ۴ ڈائریکٹری کا راستہ ہے جس میں phpMussel دستخط فائلیں ہیں. جب اس کی وضاحت نہیں کی جاتی ہے، دستخط فائلوں کو <code dir="ltr">phpmussel-signatures</code> ڈائرکٹری میں تلاش کیا جائے گا (یہ اسی ڈائرکٹری میں چیک کرتا ہے جس میں vendor ہوتا ہے).<br /><br /></div>
+
+<div dir="rtl">پیرامیٹر ۵ آپ کی vendor ڈائریکٹری کا راستہ ہے. اسے کبھی بھی کسی اور چیز کی طرف اشارہ نہیں کرنا چاہئے. جب اس کی وضاحت نہیں کی جاتی ہے، phpMussel خود بخود اس ڈائرکٹری کو تلاش کرنے کی کوشش کرے گا. یہ پیرامیٹر عمل درآمد کے ساتھ آسانی سے انضمام کی سہولت کے لئے فراہم کیا گیا ہے جس میں یہ ضروری نہیں ہے کہ عام Composer پروجیکٹ کی طرح کا ڈھانچہ ہو.<br /><br /></div>
+
+<div dir="rtl">اسکینر کے لئے تعمیر کنندہ صرف ایک ہی پیرامیٹر قبول کرتا ہے (یہ لازمی ہے). لوڈر اعتراض. چونکہ اسے حوالہ سے منظور کیا جاتا ہے، لہذا لوڈر کو متغیر کے ذریعہ فوری طور پر بنایا جانا چاہئے (قدر سے گزرنا درست استعمال نہیں ہے).<br /><br /></div>
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
+#### <div dir="rtl">٣.۴ اسکینر API</div>
 
 نتائج | تفصیل
 --:|--:
@@ -152,6 +193,11 @@ user.admin:
 <div dir="rtl">PHPMailer نصب کرنے کے بعد، آپ کو phpMussel ترتیب کے صفحے یا ترتیب کی فائل کے ذریعے PHPMailer کے لئے ترتیب ہدایات کو آباد کرنے کی ضرورت ہوگی. ان ترتیبات کے ہدایات کے بارے میں مزید معلومات اس دستاویز کے ترتیب کے حصے میں شامل ہیں. PHPMailer ترتیب ہدایات آبادی کے بعد، <code dir="ltr">enable_two_factor</code> <code dir="ltr">true</code> سیٹ کریں. 2FA اب فعال ہونا چاہئے.<br /><br /></div>
 
 <div dir="rtl">اگلا، آپ کو ایک ای میل ایڈریس کو اکاؤنٹ کے ساتھ منسلک کرنے کی ضرورت ہوگی، تاکہ phpMussel کو معلوم ہے کہ اس اکاؤنٹ کے ساتھ لاگ ان کرتے وقت 2FA کوڈ بھیجنے کے لئے. ایسا کرنے کے لئے، اکاؤنٹ کے صارف نام کے طور پر ای میل پتہ استعمال کریں (کچھ <code dir="ltr">foo@bar.tld</code> کی طرح)، یا اس صارف کے صارف کے حصے کے طور پر ای میل ایڈریس بھی شامل ہے جس طرح آپ عام طور پر ای میل بھیجیں گے (کچھ <code dir="ltr">Foo Bar &lt;foo@bar.tld&gt;</code> کی طرح).<br /><br /></div>
+
+---
+
+
+### <div dir="rtl">۴. <a name="SECTION4"></a>PHPMUSSEL میں توسیع</div>
 
 ---
 
@@ -958,8 +1004,7 @@ smtp_secure
  <li><a href="#WHAT_IS_A_FALSE_POSITIVE">ایک "جھوٹی مثبت" سے کیا مراد ہے؟</a></li>
  <li><a href="#SIGNATURE_UPDATE_FREQUENCY">دستخط کیسے بیشتر اپ ڈیٹ کر رہے ہیں؟</a></li>
  <li><a href="#ENCOUNTERED_PROBLEM_WHAT_TO_DO">phpMussel استعمال کرتے ہوئے میں ایک مسئلہ کا سامنا کرنا پڑا ہے اور میں اس کے بارے میں کیا پتہ نہیں ہے! مدد کریں!</a></li>
- <li><a href="#MINIMUM_PHP_VERSION">میں 5.4.0 سے زیادہ پرانے ایک PHP ورژن کے ساتھ phpMussel (v2 سے پہلے) استعمال کرنا چاہتے ہیں؛ کیا آپ مدد کر سکتے ہیں؟</a></li>
- <li><a href="#MINIMUM_PHP_VERSION_V2">میں 7.2.0 سے زیادہ پرانے ایک PHP ورژن کے ساتھ phpMussel (v2) استعمال کرنا چاہتے ہیں؛ کیا آپ مدد کر سکتے ہیں؟</a></li>
+ <li><a href="#MINIMUM_PHP_VERSION_V3">میں 7.2.0 سے زیادہ پرانے ایک PHP ورژن کے ساتھ phpMussel v3 استعمال کرنا چاہتے ہیں؛ کیا آپ مدد کر سکتے ہیں؟</a></li>
  <li><a href="#PROTECT_MULTIPLE_DOMAINS">میں نے ایک سے زیادہ ڈومینز کی حفاظت کے لئے ایک واحد phpMussel تنصیب کا استعمال کر سکتا ہوں؟</a></li>
  <li><a href="#PAY_YOU_TO_DO_IT">میں نے اس پر وقت خرچ نہیں کرنا چاہتا (اسے انسٹال، اس کے قیام، وغیرہ)؛ میں نے آپ کو ایسا کرنے کے لئے ادا کر سکتے ہیں؟</a></li>
  <li><a href="#HIRE_FOR_PRIVATE_WORK">میں ذاتی کام کے لئے آپ کی خدمات حاصل کر سکتے ہیں؟</a></li>
@@ -1003,19 +1048,15 @@ smtp_secure
  <li>اگر مسئلہ اب بھی جاری رہتا ہے، تو issues کے صفحے پر ایک نیا issue تشکیل دے کر اس کے بارے میں مدد طلب کریں.</li>
 </ul></div>
 
-#### <div dir="rtl"><a name="MINIMUM_PHP_VERSION"></a>میں 5.4.0 سے زیادہ پرانے ایک PHP ورژن کے ساتھ phpMussel (v2 سے پہلے) استعمال کرنا چاہتے ہیں؛ کیا آپ مدد کر سکتے ہیں؟<br /><br /></div>
+#### <div dir="rtl"><a name="MINIMUM_PHP_VERSION_V3"></a>میں 7.2.0 سے زیادہ پرانے ایک PHP ورژن کے ساتھ phpMussel v3 استعمال کرنا چاہتے ہیں؛ کیا آپ مدد کر سکتے ہیں؟<br /><br /></div>
 
-<div dir="rtl">نہیں. phpMussel < v2 کم از کم PHP >= 5.4.0 کی ضرورت ہے.<br /><br /></div>
-
-#### <div dir="rtl"><a name="MINIMUM_PHP_VERSION_V2"></a>میں 7.2.0 سے زیادہ پرانے ایک PHP ورژن کے ساتھ phpMussel (v2) استعمال کرنا چاہتے ہیں؛ کیا آپ مدد کر سکتے ہیں؟<br /><br /></div>
-
-<div dir="rtl">نہیں. phpMussel v2 کم از کم PHP >= 7.2.0 کی ضرورت ہے.<br /><br /></div>
+<div dir="rtl">نہیں. phpMussel v3 کم از کم PHP >= 7.2.0 کی ضرورت ہے.<br /><br /></div>
 
 <div dir="rtl"><em>بھی دیکھو: <a href="https://maikuolan.github.io/Compatibility-Charts/">مطابقت چارٹ</a>.</em><br /><br /></div>
 
 #### <div dir="rtl"><a name="PROTECT_MULTIPLE_DOMAINS"></a>میں نے ایک سے زیادہ ڈومینز کی حفاظت کے لئے ایک واحد phpMussel تنصیب کا استعمال کر سکتا ہوں؟<br /><br /></div>
 
-<div dir="rtl">جی ہاں. phpMussel ایک سے زیادہ ڈومینز کی حفاظت کے لئے استعمال کیا جا سکتا ہے. ضرورت کی ترتیب مختلف ہے تو، ایسا کرنے کے لئے تحفظ کی ضرورت ہوتی ڈومینز کے مطابق نامی نئی ترتیب فائل، تخلیق کرتے ہیں. phpMussel یہ ڈومین کیلئے کام کرنا چاہئے کہ کس طرح اس بات کا تعین کرنے کے لئے ان فائلوں کو استعمال کریں گے. سوف تستخدم phpMussel هذه الملفات لتحديد كيفية تشغيلها للنطاق. ایک مثال کے طور، کے لئے <code dir="ltr">"https://www.some-domain.tld/"</code>، اس کا نام ہے <code dir="ltr">"some-domain.tld.config.ini"</code>. ڈومین نام <code dir="ltr">"HTTP_HOST"</code> سے آتا ہے. <code dir="ltr">"www"</code> نظر انداز کر دیا جاتا ہے.<br /><br /></div>
+<div dir="rtl">جی ہاں.<br /><br /></div>
 
 #### <div dir="rtl"><a name="PAY_YOU_TO_DO_IT"></a>میں نے اس پر وقت خرچ نہیں کرنا چاہتا (اسے انسٹال، اس کے قیام، وغیرہ)؛ میں نے آپ کو ایسا کرنے کے لئے ادا کر سکتے ہیں؟<br /><br /></div>
 
@@ -1342,17 +1383,16 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 <div dir="rtl">فائلوں میں ڈیٹا جو انسان کی طرف سے پڑھ سکتے ہیں، عام طور پر اس طرح لگ رہا ہے (ایک مثال کے طور):<br /><br /></div>
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 Started.
-> Checking 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> Detected phpMussel-Testfile.ASCII.Standard!
-Mon, 21 May 2018 00:48:04 +0800 Finished.
+Sun, 19 Jul 2020 13:33:31 +0800 شروع.
+→ "ascii_standard_testfile.txt" چیک کر رہا ہے.
+─→ کے پتہ phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 ختم.
 ```
 
 <div dir="rtl">اسکین لاگ ان عام طور پر مندرجہ ذیل معلومات شامل ہیں:<br /></div>
 <div dir="rtl"><ul>
  <li>فائل اور تاریخ جس کا فائل اسکین کیا گیا تھا.</li>
  <li>اس فائل کا نام اسکین کیا گیا تھا.</li>
- <li>اس کے نام اور فائل کے مواد کے CRC32b ہش.</li>
  <li>فائل میں کیا پتہ چلا تھا (اگر کچھ پتہ چلا).</li>
 </ul></div>
 
@@ -1364,20 +1404,20 @@ Mon, 21 May 2018 00:48:04 +0800 Finished.
 
 <div dir="rtl">جب یہ ہدایات خالی رہیں تو، اس قسم کی ریکارڈنگ غیر فعال رہیں گے.<br /><br /></div>
 
-##### <div dir="rtl">١١.٣.١ بلاک اپ لوڈز لاگ<br /><br /></div>
+##### <div dir="rtl">١١.٣.١ اپ لوڈ لاگ<br /><br /></div>
 
 <div dir="rtl">کی ترتیب فعال ہونے پر، phpMussel اپ لوڈ کی ریکارڈز کو برقرار رکھتا ہے جو بلاک کردی گئی ہیں.<br /><br /></div>
 
-<div dir="rtl">یہ ریکارڈ عام طور پر اس طرح نظر آتے ہیں:<br /><br /></div>
+<div dir="rtl">ایک مثال کے طور:<br /><br /></div>
 
 <pre dir="rtl">
-تاریخ: <code dir="ltr">Mon, 21 May 2018 00:47:56 +0800</code>
-IP پتہ: <code dir="ltr">127.0.0.1</code>
+تاریخ: <code dir="ltr">Sun, 19 Jul 2020 13:33:31 +0800</code>
+IP پتہ: <code dir="ltr">127.0.0.x</code>
 == اسکین کے نتائج (پرچم کیوں) ==
-کے پتہ <code dir="ltr">phpMussel-Testfile.ASCII.Standard</code> (<code dir="ltr">ascii_standard_testfile.txt</code>)!
+کے پتہ <code dir="ltr">phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)</code>!
 == ہش کا دستخط دوبارہ تعمیر ==
-<code dir="ltr">3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt</code>
-طور قرنطینہ "<code dir="ltr">/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu</code>".
+<code dir="ltr">dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt</code>
+یہ طور قرنطینہ میں "<code dir="ltr">1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu</code>" کے.
 </pre>
 
 <div dir="rtl">بلاک شدہ اپ لوڈس کے بارے میں معلومات عام طور پر شامل ہیں:<br /></div>
@@ -1386,7 +1426,7 @@ IP پتہ: <code dir="ltr">127.0.0.1</code>
  <li>IP ایڈریس جہاں اپ لوڈ سے پیدا ہوا ہے.</li>
  <li>فائل کیوں بلاک ہوگئی تھی (پتہ لگانا ہوئی).</li>
  <li>اس فائل کا نام جو بلاک کیا گیا تھا.</li>
- <li>MD5 اور اس فائل کا سائز جو بلاک ہے.</li>
+ <li>فائل مسدود ہوگئی کے لئے چیک اور سائز.</li>
  <li>الگ تھلگ؟ کیا نام استعمال کیا؟</li>
 </ul></div>
 
@@ -1424,7 +1464,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
  <li><code dir="ltr">log_rotation_action</code> &lt;- <code dir="ltr">general</code></li>
 </ul></div>
 
-##### <div dir="rtl">١١.٣.٤ ٹرنک لاگ<br /><br /></div>
+##### <div dir="rtl">١١.٣.۴ ٹرنک لاگ<br /><br /></div>
 
 <div dir="rtl">اگر آپ چاہتے ہیں تو، آپ انفرادی ریکارڈز کو چھوٹ سکتے ہیں جب وہ مخصوص سائز سے کہیں زیادہ ہیں.<br /><br /></div>
 
@@ -1465,7 +1505,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 
 <div dir="rtl">phpMussel اس کے لاگ ان یا کیش کو خفیہ نہیں کرتا. یہ مستقبل میں متعارف کرایا جا سکتا ہے، لیکن فی الحال اس کی کوئی مخصوص منصوبہ نہیں ہے. اگر آپ غیر قانونی شدہ تیسری جماعتوں کے بارے میں فکر مند ہیں تو phpMussel میں حساس معلومات تک رسائی حاصل ہے، میں سفارش کرتا ہوں کہ عام طور پر قابل رسائی مقام پر phpMussel انسٹال نہیں کیا جائے گا (مثال کے طور پر، <code dir="ltr">public_html</code> میں انسٹال نہ کریں) اور اس بات کو یقینی بنائیں کہ مناسب حد تک محدود پابندیوں کو نافذ کیا جائے. اگر یہ آپ کے خدشات کو حل کرنے کے لئے کافی نہیں ہے تو پھر phpMussel کو ترتیب دیں تاکہ حساس معلومات جمع نہیں کی جائے گی (جیسے جیسے، لاگ ان کو غیر فعال کرکے).<br /><br /></div>
 
-#### <div dir="rtl">١١.٤ کوکی<br /><br /></div>
+#### <div dir="rtl">١١.۴ کوکی<br /><br /></div>
 
 <div dir="rtl">صارف کو سامنے کے آخر میں لاگ ان ہونے پر phpMussel ایک کوکی سیٹ کرتا ہے (تصدیق کے مقاصد کے لئے). لاگ ان کے صفحے پر، صارف کو خبردار کیا جاتا ہے کہ اگر وہ صفحہ مشغول ہوجائے تو ایک کوکی پیدا کی جائے گی. کوکیز کہیں اور نہیں بنائے جاتے ہیں.<br /><br /></div>
 
@@ -1506,4 +1546,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 16 جولائی 2020 (2020.07.16).</div>
+<div dir="rtl">آخری تازہ کاری: 21 جولائی 2020 (2020.07.21).</div>

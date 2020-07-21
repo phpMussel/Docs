@@ -5,6 +5,7 @@
  <li>١. <a href="#SECTION1">مقدمة</a></li>
  <li>٢. <a href="#SECTION2">كيفية التحميل</a></li>
  <li>٣. <a href="#SECTION3">كيفية الإستخدام</a></li>
+ <li>٤. <a href="#SECTION4">تمديد PHPMUSSEL</a></li>
  <li>٧. <a href="#SECTION7">خيارات التكوين/التهيئة</a></li>
  <li>٨. <a href="#SECTION8">شكل/تنسيق التوقيع</a></li>
  <li>٩. <a href="#SECTION9">مشاكل التوافق المعروفة</a></li>
@@ -130,6 +131,46 @@ user.admin:
 
 <div dir="rtl">راجع قسم التكوين في هذا المستند لمزيد من المعلومات حول توجيهات التكوين المتنوعة المتاحة لـ phpMussel.<br /><br /></div>
 
+#### <div dir="rtl">٣.١ PHPMUSSEL CORE</div>
+
+<div dir="rtl">بغض النظر عن الطريقة التي تريد بها استخدام phpMussel، سيحتوي كل تنفيذ تقريبًا على شيء مثل هذا، كحد أدنى:<br /><br /></div>
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+<div dir="rtl">كما تشير الأسماء، فإن اللودر مسؤول عن إعداد الضروريات الأساسية لاستخدام phpMussel، والماسح الضوئي مسؤول عن جميع وظائف المسح الأساسية.<br /><br /></div>
+
+<div dir="rtl">يقبل منشئ اللودر خمس معلمات، كلها اختيارية.<br /><br /></div>
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+<div dir="rtl">المعلمة الأولى هي المسار الكامل إلى ملف التكوين الخاص بك. عند عدم التحديد، سيبحث phpMussel عن ملف تكوين باسم <code dir="ltr">phpmussel.ini</code> أو <code dir="ltr">phpmussel.yml</code>، في أصل دليل vendor.<br /><br /></div>
+
+<div dir="rtl">المعلمة الثانية هي المسار إلى الدليل الذي تسمح لـ phpMussel باستخدامه في التخزين المؤقت وتخزين الملفات المؤقت. عند عدم التحديد، سيحاول phpMussel إنشاء دليل جديد لاستخدامه، يحمل الاسم <code dir="ltr">phpmussel-cache</code>، في أصل دليل vendor. إذا كنت ترغب في تحديد هذا المسار بنفسك، فمن الأفضل اختيار دليل فارغ لتجنب الفقدان غير المرغوب فيه للبيانات الأخرى في الدليل المحدد.<br /><br /></div>
+
+<div dir="rtl">المعلمة الثالثة هي المسار إلى دليل تسمح لـ phpMussel باستخدامه في وحدة العزل الخاصة به. عند عدم التحديد، سيحاول phpMussel إنشاء دليل جديد لاستخدامه، يحمل الاسم <code dir="ltr">phpmussel-quarantine</code>، في أصل دليل vendor. إذا كنت ترغب في تحديد هذا المسار بنفسك، فمن الأفضل اختيار دليل فارغ لتجنب الفقدان غير المرغوب فيه للبيانات الأخرى في الدليل المحدد. يوصى بشدة بمنع الوصول العام إلى المسار المستخدم في وحدة العزل.<br /><br /></div>
+
+<div dir="rtl">المعلمة الرابعة هي المسار إلى الدليل الذي يحتوي على ملفات التوقيع لـ phpMussel. عند عدم التحديد، سيحاول phpMussel البحث عن ملفات التوقيع في دليل باسم <code dir="ltr">phpmussel-signatures</code>، في أصل دليل vendor.<br /><br /></div>
+
+<div dir="rtl">المعلمة الخامسة هي المسار إلى دليل vendor الخاص بك. لا يجب أن تشير إلى أي شيء آخر. عند عدم التحديد، سيحاول phpMussel تحديد موقع هذا الدليل لنفسه. يتم توفير هذه المعلمة من أجل تسهيل التكامل الأسهل مع عمليات التنفيذ التي قد لا تحتوي بالضرورة على نفس بنية مشروع Composer النموذجي.<br /><br /></div>
+
+<div dir="rtl">يقبل مُنشئ الماسح الضوئي معلمة واحدة فقط، وهو إلزامي: مثيل كائن محمل. أثناء تمريره بالإشارة، يجب أن يتم إنشاء اللودر إلى متغير (إن إنشاء اللودر مباشرة في الماسح الضوئي للتمرير بالقيمة ليس الطريقة الصحيحة لاستخدام phpMussel).<br /><br /></div>
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### <div dir="rtl">٣.٤ API الماسح</div>
 
 النتائج | وصف
@@ -152,6 +193,11 @@ user.admin:
 <div dir="rtl">بعد تثبيت PHPMailer، ستحتاج إلى تعبئة توجيهات التهيئة لـ PHPMailer عبر صفحة تهيئة phpMussel أو ملف التكوين. يتم تضمين مزيد من المعلومات حول توجيهات التكوين هذه في قسم التكوين في هذا المستند. بعد ملء توجيهات تهيئة PHPMailer، اضبط <code dir="ltr">enable_two_factor</code> على <code dir="ltr">true</code>. 2FA ممكّن الآن.<br /><br /></div>
 
 <div dir="rtl">بعد ذلك، ستحتاج إلى ربط عنوان بريد إلكتروني بحساب، حتى يعرف phpMussel مكان إرسال رموز 2FA عند تسجيل الدخول باستخدام هذا الحساب. للقيام بذلك، استخدم عنوان البريد الإلكتروني كاسم مستخدم للحساب (مثل <code dir="ltr">foo@bar.tld</code>)، أو تضمين عنوان البريد الإلكتروني كجزء من اسم المستخدم بالطريقة نفسها التي تريدها عند إرسال بريد إلكتروني بشكل طبيعي (مثل <code dir="ltr">Foo Bar &lt;foo@bar.tld&gt;</code>).<br /><br /></div>
+
+---
+
+
+### <div dir="rtl">٤. <a name="SECTION4"></a>تمديد PHPMUSSEL</div>
 
 ---
 
@@ -958,8 +1004,7 @@ smtp_secure
  <li><a href="#WHAT_IS_A_FALSE_POSITIVE">ما هو "إيجابية خاطئة"؟</a></li>
  <li><a href="#SIGNATURE_UPDATE_FREQUENCY">عدد المرات التي يتم تحديثها التوقيعات؟</a></li>
  <li><a href="#ENCOUNTERED_PROBLEM_WHAT_TO_DO">لقد واجهت مشكلة! أنا لا أعرف ما يجب القيام به! الرجاء المساعدة!</a></li>
- <li><a href="#MINIMUM_PHP_VERSION">أريد استخدام phpMussel (قبل v2) مع نسخة PHP كبار السن من 5.4.0؛ يمكنك أن تساعد؟</a></li>
- <li><a href="#MINIMUM_PHP_VERSION_V2">أريد استخدام phpMussel (v2) مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟</a></li>
+ <li><a href="#MINIMUM_PHP_VERSION_V3">أريد استخدام phpMussel v3 مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟</a></li>
  <li><a href="#PROTECT_MULTIPLE_DOMAINS">هل يمكنني استخدام تثبيت phpMussel واحد لحماية نطاقات متعددة؟</a></li>
  <li><a href="#PAY_YOU_TO_DO_IT">أنا لا أريد أن تضيع الوقت مع تثبيت هذا أو ضمان أنه يعمل لموقع الويب الخاص بي؛ يمكنني دفع لك أن تفعل ذلك بالنسبة لي؟</a></li>
  <li><a href="#HIRE_FOR_PRIVATE_WORK">هل يمكنني توظيفك أو أي من مطوري هذا المشروع للعمل الخاص؟</a></li>
@@ -1003,19 +1048,15 @@ smtp_secure
  <li>لا يوجد حتى الآن إجابات؟ يرجى طلب المساعدة عبر صفحة القضايا.</li>
 </ul></div>
 
-#### <div dir="rtl"><a name="MINIMUM_PHP_VERSION"></a>أريد استخدام phpMussel (قبل v2) مع نسخة PHP كبار السن من 5.4.0؛ يمكنك أن تساعد؟<br /><br /></div>
+#### <div dir="rtl"><a name="MINIMUM_PHP_VERSION_V3"></a>أريد استخدام phpMussel v3 مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟<br /><br /></div>
 
-<div dir="rtl">لا. PHP >= 5.4.0 هو الحد الأدنى لمتطلبات phpMussel < v2.<br /><br /></div>
-
-#### <div dir="rtl"><a name="MINIMUM_PHP_VERSION_V2"></a>أريد استخدام phpMussel (v2) مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟<br /><br /></div>
-
-<div dir="rtl">لا. PHP >= 7.2.0 هو الحد الأدنى لمتطلبات phpMussel v2.<br /><br /></div>
+<div dir="rtl">لا. PHP >= 7.2.0 هو الحد الأدنى لمتطلبات phpMussel v3.<br /><br /></div>
 
 <div dir="rtl"><em>انظر أيضا: <a href="https://maikuolan.github.io/Compatibility-Charts/">مخططات التوافق</a>.</em><br /><br /></div>
 
 #### <div dir="rtl"><a name="PROTECT_MULTIPLE_DOMAINS"></a>هل يمكنني استخدام تثبيت phpMussel واحد لحماية نطاقات متعددة؟<br /><br /></div>
 
-<div dir="rtl">نعم. يمكن استخدام phpMussel لحماية نطاقات متعددة. إذا كان التكوين المطلوب مختلفا، للقيام بذلك، إنشاء ملفات تكوين جديدة، واسمه وفقا للنطاقات التي تتطلب الحماية. كمثال، ل <code dir="ltr">"https://www.some-domain.tld/"</code>، أطلق عليه اسما <code dir="ltr">"some-domain.tld.config.ini"</code>. اسم النطاق يأتي من <code dir="ltr">"HTTP_HOST"</code>. يتم تجاهل <code dir="ltr">"www"</code>.<br /><br /></div>
+<div dir="rtl">نعم.<br /><br /></div>
 
 #### <div dir="rtl"><a name="PAY_YOU_TO_DO_IT"></a>أنا لا أريد أن تضيع الوقت مع تثبيت هذا أو ضمان أنه يعمل لموقع الويب الخاص بي؛ يمكنني دفع لك أن تفعل ذلك بالنسبة لي؟<br /><br /></div>
 
@@ -1342,17 +1383,16 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 <div dir="rtl">عادةً ما تبدو الإدخالات إلى ملف السجل البشري المقروء شيئًا مثل هذا (كمثال):<br /><br /></div>
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 بدأت.
-> فحص 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> الكشف phpMussel-Testfile.ASCII.Standard!
-Mon, 21 May 2018 00:48:04 +0800 انتهى.
+Sun, 19 Jul 2020 13:33:31 +0800 بدأت.
+→ فحص "ascii_standard_testfile.txt".
+─→ الكشف phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 انتهى.
 ```
 
 <div dir="rtl">عادةً ما يتضمن إدخال سجل الفحص المعلومات التالية:<br /></div>
 <div dir="rtl"><ul>
  <li>تاريخ ووقت فحص الملف.</li>
  <li>اسم الملف الممسوح ضوئيًا.</li>
- <li>CRC32b تجزئة اسم ومحتويات الملف.</li>
  <li>ما تم اكتشافه في الملف (إذا تم اكتشاف أي شيء).</li>
 </ul></div>
 
@@ -1364,20 +1404,20 @@ Mon, 21 May 2018 00:48:04 +0800 انتهى.
 
 <div dir="rtl">عندما يتم ترك هذه التوجيهات فارغة، سيظل هذا النوع من التسجيل معطلاً.<br /><br /></div>
 
-##### <div dir="rtl">١١.٣.١ التحميلات المحظورة<br /><br /></div>
+##### <div dir="rtl">١١.٣.١ سجل التحميلات<br /><br /></div>
 
 <div dir="rtl">عند تمكينه في تكوين الحزمة، phpMussel يحتفظ بسجلات التحميلات التي تم حظرها.<br /><br /></div>
 
-<div dir="rtl">عادةً ما تبدو إدخالات السجل هذه شيئًا مثل هذا (كمثال):<br /><br /></div>
+<div dir="rtl">إدخال سجل مثال:<br /><br /></div>
 
 <pre dir="rtl">
-التاريخ: <code dir="ltr">Mon, 21 May 2018 00:47:56 +0800</code>
-عنوان IP: <code dir="ltr">127.0.0.1</code>
+التاريخ: <code dir="ltr">Sun, 19 Jul 2020 13:33:31 +0800</code>
+عنوان IP: <code dir="ltr">127.0.0.x</code>
 == نتائج المسح (لماذا تم الإبلاغ عنها) ==
-الكشف <code dir="ltr">phpMussel-Testfile.ASCII.Standard</code> (<code dir="ltr">ascii_standard_testfile.txt</code>)!
+الكشف <code dir="ltr">phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)</code>!
 == إعادة بناء التواقيع التجزئة ==
-<code dir="ltr">3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt</code>
-الحجر الصحي بأنه "<code dir="ltr">/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu</code>".
+<code dir="ltr">dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt</code>
+الحجر الصحي بأنه "<code dir="ltr">1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu</code>".
 </pre>
 
 <div dir="rtl">تتضمن معلومات حول التحميلات المحظورة عادةً ما يلي:<br /></div>
@@ -1386,7 +1426,7 @@ Mon, 21 May 2018 00:48:04 +0800 انتهى.
  <li>عنوان IP الذي نشأ فيه التحميل.</li>
  <li>سبب حظر الملف (ما تم اكتشافه).</li>
  <li>اسم الملف المحظور.</li>
- <li>MD5 وحجم الملف المحظور.</li>
+ <li>تم حظر المجموع الاختباري وحجم الملف.</li>
  <li>ما إذا كان الملف قد تم عزله، وتحت أي اسم داخلي.</li>
 </ul></div>
 
@@ -1463,7 +1503,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 
 ##### <div dir="rtl">١١.٣.٧ التشفير<br /><br /></div>
 
-<div dir="rtl">لا يقوم phpMussel بتشفير ذاكرة التخزين المؤقت أو أي معلومات سجل. قد يتم إدخال <a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%B4%D9%81%D9%8A%D8%B1">تشفير</a> ذاكرة التخزين المؤقت والسجلات في المستقبل، ولكن لا توجد خطط محددة لها حاليًا. إذا كنت قلقًا بشأن حصول أطراف ثالثة غير مصرح لها على إمكانية الوصول إلى أجزاء من phpMussel قد تحتوي على معلومات تحديد الهوية الشخصية أو معلومات حساسة مثل ذاكرة التخزين المؤقت أو السجلات، أوصي بعدم تثبيت phpMussel في مكان يمكن الوصول إليه بشكل عام (على سبيل المثال، مجلد تثبيت phpMussel خارج الدليل <code dir="ltr">public_html</code> القياسي أو ما يعادله، متاح لمعظم خوادم الويب القياسية) والتأكد من فرض الأذونات المقيدة بشكل مناسب لدليل التثبيت (على وجه الخصوص، لدليل <code dir="ltr">vault</code>). إذا لم يكن ذلك كافيًا لمعالجة مخاوفك، فقم بتكوين phpMussel بحيث لا يتم جمع أنواع المعلومات التي تسبب مخاوفك أو تسجيلها في المقام الأول (مثل، عن طريق تعطيل التسجيل).<br /><br /></div>
+<div dir="rtl">لا يقوم phpMussel بتشفير ذاكرة التخزين المؤقت أو أي معلومات سجل. قد يتم إدخال <a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%B4%D9%81%D9%8A%D8%B1">تشفير</a> ذاكرة التخزين المؤقت والسجلات في المستقبل، ولكن لا توجد خطط محددة لها حاليًا. إذا كنت قلقًا بشأن حصول أطراف ثالثة غير مصرح لها على إمكانية الوصول إلى أجزاء من phpMussel قد تحتوي على معلومات تحديد الهوية الشخصية أو معلومات حساسة مثل ذاكرة التخزين المؤقت أو السجلات، أوصي بعدم تثبيت phpMussel في مكان يمكن الوصول إليه بشكل عام (على سبيل المثال، مجلد تثبيت phpMussel خارج الدليل <code dir="ltr">public_html</code> القياسي أو ما يعادله، متاح لمعظم خوادم الويب القياسية) والتأكد من فرض الأذونات المقيدة بشكل مناسب لدليل التثبيت. إذا لم يكن ذلك كافيًا لمعالجة مخاوفك، فقم بتكوين phpMussel بحيث لا يتم جمع أنواع المعلومات التي تسبب مخاوفك أو تسجيلها في المقام الأول (مثل، عن طريق تعطيل التسجيل).<br /><br /></div>
 
 #### <div dir="rtl">١١.٤ ملف تعريف ارتباط<br /><br /></div>
 
@@ -1507,4 +1547,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 16 يوليو 2020 (2020.07.16).</div>
+<div dir="rtl">آخر تحديث: 21 يوليو 2020 (2020.07.21).</div>

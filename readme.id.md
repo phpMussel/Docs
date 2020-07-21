@@ -4,6 +4,7 @@
 - 1. [SEPATAH KATA](#SECTION1)
 - 2. [BAGAIMANA CARA MENGINSTAL](#SECTION2)
 - 3. [BAGAIMANA CARA MENGGUNAKAN](#SECTION3)
+- 4. [MEMPERLUAS PHPMUSSEL](#SECTION4)
 - 7. [OPSI KONFIGURASI](#SECTION7)
 - 8. [FORMAT TANDA TANGAN](#SECTION8)
 - 9. [MASALAH KOMPATIBILITAS DIKETAHUI](#SECTION9)
@@ -36,7 +37,7 @@ Khusus terima kasih kepada SourceForge, Bitbucket dan GitHub untuk menghost file
 
 #### 2.0 MENGINSTAL DENGAN COMPOSER
 
-Cara yang disarankan untuk menginstal phpMussel v3 adalah melalui Composer.
+Cara yang direkomendasikan untuk menginstal phpMussel v3 adalah melalui Composer.
 
 Untuk kenyamanan, Anda dapat menginstal dependensi phpMussel yang paling umum dibutuhkan melalui repositori phpMussel utama lama:
 
@@ -126,6 +127,46 @@ Di beberapa lingkungan, seperti Apache, bahkan mungkin untuk menempatkan titik d
 
 Lihat bagian konfigurasi dokumen ini untuk informasi lebih lanjut tentang berbagai direktif konfigurasi yang tersedia untuk phpMussel.
 
+#### 3.1 PHPMUSSEL CORE
+
+Terlepas dari bagaimana Anda ingin menggunakan phpMussel, hampir setiap implementasi akan mengandung sesuatu seperti ini, minimal:
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+Seperti namanya, loader bertanggung jawab untuk mempersiapkan kebutuhan dasar menggunakan phpMussel, dan pemindai (scanner) bertanggung jawab atas semua fungsionalitas pemindaian inti.
+
+Konstruktor untuk loader menerima lima parameter, semuanya opsional.
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+Parameter pertama adalah jalur lengkap ke file konfigurasi Anda. Ketika tidak dispesifikan, phpMussel akan mencari untuk file konfigurasi bernama `phpmussel.ini` atau `phpmussel.yml`, di direktori induk dari vendor.
+
+Parameter kedua adalah jalur ke direktori yang Anda izinkan phpMussel digunakan untuk penyimpanan file sementara dan caching. Ketika tidak dispesifikan, phpMussel akan berusaha membuat direktori baru untuk digunakan, dinamakan sebagai `phpmussel-cache`, di direktori induk dari vendor. Jika Anda ingin menspesifikan jalur ini sendiri, memilih direktori kosong adalah terbaik, untuk menghindari hilangnya data lain dalam direktori yang dispesifikan.
+
+Parameter ketiga adalah jalur ke direktori yang Anda izinkan phpMussel digunakan untuk karantina. Ketika tidak dispesifikan, phpMussel akan berusaha membuat direktori baru untuk digunakan, dinamakan sebagai `phpmussel-quarantine`, di direktori induk dari vendor. Jika Anda ingin menspesifikan jalur ini sendiri, memilih direktori kosong adalah terbaik, untuk menghindari hilangnya data lain dalam direktori yang dispesifikan. Sangat direkomendasikan agar Anda mencegah akses publik ke direktori yang digunakan untuk karantina.
+
+Parameter keempat adalah jalur ke direktori yang berisi file tanda tangan untuk phpMussel. Ketika tidak dispesifikan, phpMussel akan mencoba mencari untuk file tanda tangan di direktori bernama `phpmussel-signatures`, di direktori induk dari vendor.
+
+Parameter kelima adalah jalur ke direktori vendor Anda. Seharusnya tidak pernah menunjuk ke tempat lain. Ketika tidak dispesifikan, phpMussel akan mencoba mencari untuk direktori ini untuk dirinya sendiri. Parameter ini disediakan untuk memudahkan integrasi yang lebih mudah dengan implementasi yang mungkin tidak harus memiliki struktur yang sama dengan proyek Composer pada umumnya.
+
+Konstruktor untuk pemindai (scanner) hanya menerima satu parameter, dan ini wajib: Objek loader yang diinstansiasi. Ketika dilewatkan oleh referensi, loader harus diinstansiasi ke variabel (menginstansiasi loader langsung ke pemindai untuk melewati sebagai nilai bukan cara yang benar untuk menggunakan phpMussel).
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 API PEMINDAI
 
 Hasil | Deskripsi
@@ -148,6 +189,11 @@ Mungkin untuk membuat bagian depan lebih aman dengan mengaktifkan otentikasi dua
 Setelah Anda menginstal PHPMailer, Anda harus mengisi direktif konfigurasi untuk PHPMailer melalui halaman konfigurasi phpMussel atau file konfigurasi. Informasi lebih lanjut tentang direktif konfigurasi ini termasuk dalam bagian konfigurasi dokumen ini. Setelah Anda mengisi direktif konfigurasi PHPMailer, atur `enable_two_factor` ke `true`. Otentikasi dua faktor sekarang harus diaktifkan.
 
 Selanjutnya, Anda harus mengaitkan alamat email dengan akun, sehingga phpMussel tahu ke mana harus mengirim 2FA kode ketika masuk dengan akun tersebut. Untuk melakukan ini, gunakan alamat email sebagai nama pengguna untuk akun tersebut (seperti `foo@bar.tld`), atau sertakan alamat email sebagai bagian dari nama pengguna dengan cara yang sama seperti ketika mengirim email secara normal (seperti `Foo Bar <foo@bar.tld>`).
+
+---
+
+
+### 4. <a name="SECTION4"></a>MEMPERLUAS PHPMUSSEL
 
 ---
 
@@ -947,8 +993,7 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 - [Apa yang dimaksud dengan "positif palsu"?](#WHAT_IS_A_FALSE_POSITIVE)
 - [Seberapa sering tanda tangan diperbarui?](#SIGNATURE_UPDATE_FREQUENCY)
 - [Saya mengalami masalah ketika menggunakan phpMussel dan saya tidak tahu apa saya harus lakukan! Tolong bantu!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Saya ingin menggunakan phpMussel (sebelum v2) dengan versi PHP yang lebih tua dari 5.4.0; Anda dapat membantu?](#MINIMUM_PHP_VERSION)
-- [Saya ingin menggunakan phpMussel (v2) dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?](#MINIMUM_PHP_VERSION_V2)
+- [Saya ingin menggunakan phpMussel v3 dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?](#MINIMUM_PHP_VERSION_V3)
 - [Dapatkah saya menggunakan satu instalasi phpMussel untuk melindungi beberapa domain?](#PROTECT_MULTIPLE_DOMAINS)
 - [Saya tidak ingin membuang waktu dengan menginstal ini dan membuatnya bekerja dengan situs web saya; Bisakah saya membayar Anda untuk melakukan semuanya untuk saya?](#PAY_YOU_TO_DO_IT)
 - [Dapatkah saya mempekerjakan Anda atau pengembang proyek ini untuk pekerjaan pribadi?](#HIRE_FOR_PRIVATE_WORK)
@@ -990,19 +1035,15 @@ Frekuensi pembaruan bervariasi tergantung pada file tanda tangan. Semua penulis 
 - Apakah Anda memeriksa **[halaman issues](https://github.com/phpMussel/phpMussel/issues)**, untuk melihat apakah masalah telah disebutkan sebelumnya? Jika sudah disebutkan sebelumnya, memeriksa apakah ada saran, ide, dan/atau solusi yang tersedia, dan ikuti sesuai yang diperlukan untuk mencoba untuk menyelesaikan masalah.
 - Jika masalah masih berlanjut, silahkan mencari bantuan dengan membuat issue baru di halaman issues.
 
-#### <a name="MINIMUM_PHP_VERSION"></a>Saya ingin menggunakan phpMussel (sebelum v2) dengan versi PHP yang lebih tua dari 5.4.0; Anda dapat membantu?
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>Saya ingin menggunakan phpMussel v3 dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?
 
-Tidak. PHP >= 5.4.0 adalah persyaratan minimum untuk phpMussel < v2.
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>Saya ingin menggunakan phpMussel (v2) dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?
-
-Tidak. PHP >= 7.2.0 adalah persyaratan minimum untuk phpMussel v2.
+Tidak. PHP >= 7.2.0 adalah persyaratan minimum untuk phpMussel v3.
 
 *Lihat juga: [Bagan Kompatibilitas](https://maikuolan.github.io/Compatibility-Charts/).*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>Dapatkah saya menggunakan satu instalasi phpMussel untuk melindungi beberapa domain?
 
-Ya. Instalasi phpMussel tidak secara alami terkunci pada domain tertentu, dan dengan demikian dapat digunakan untuk melindungi beberapa domain. Umumnya, kami mengacu pada instalasi phpMussel yang hanya melindungi satu domain as "instalasi domain tunggal" ("single-domain installations"), dan kami mengacu pada instalasi phpMussel yang melindungi beberapa domain dan/atau sub-domain sebagai "instalasi domain beberapa" ("multi-domain installations"). Jika Anda mengoperasikan instalasi domain beberapa dan perlu menggunakan berbagai kumpulan file tanda tangan untuk berbagai domain, atau perlu phpMussel untuk dikonfigurasi secara berbeda untuk domain berbeda, kamu bisa melakukan ini. Setelah memuat file konfigurasi (`config.ini`), phpMussel akan memeriksa adanya "file untuk pengganti konfigurasi" spesifik untuk domain (atau sub-domain) yang diminta (`domain-yang-diminta.tld.config.ini`), dan jika ditemukan, setiap nilai konfigurasi yang ditentukan oleh file untuk pengganti konfigurasi akan digunakan untuk instance eksekusi daripada nilai konfigurasi yang ditentukan oleh file konfigurasi. File untuk pengganti konfigurasi identik dengan file konfigurasi, dan atas kebijaksanaan Anda, dapat berisi keseluruhan semua konfigurasi yang tersedia untuk phpMussel, atau apapun bagian kecil yang dibutuhkan yang berbeda dari nilai yang biasanya ditentukan oleh file konfigurasi. File untuk pengganti konfigurasi diberi nama sesuai dengan domain yang mereka inginkan (jadi, misalnya, jika Anda memerlukan file untuk pengganti konfigurasi untuk domain, `https://www.some-domain.tld/`, file untuk pengganti konfigurasi harus diberi nama sebagai `some-domain.tld.config.ini`, dan harus ditempatkan di dalam vault bersama file konfigurasi, `config.ini`). Nama domain untuk instance eksekusi berasal dari header permintaan `HTTP_HOST`; "www" diabaikan.
+Ya.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>Saya tidak ingin membuang waktu dengan menginstal ini dan membuatnya bekerja dengan situs web saya; Bisakah saya membayar Anda untuk melakukan semuanya untuk saya?
 
@@ -1328,16 +1369,15 @@ Ketika diaktifkan dalam konfigurasi paket, phpMussel menyimpan log dari file yan
 Entri ke log yang dapat dibaca oleh manusia biasanya terlihat seperti ini (sebagai contoh):
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 Dimulai.
-> Memeriksa 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> Terdeteksi phpMussel-Testfile.ASCII.Standard!
-Mon, 21 May 2018 00:48:04 +0800 Selesai.
+Sun, 19 Jul 2020 13:33:31 +0800 Dimulai.
+→ Memeriksa "ascii_standard_testfile.txt".
+─→ Terdeteksi phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 Selesai.
 ```
 
 Entri log pemindaian biasanya mencakup informasi berikut:
 - Tanggal dan waktu file dipindai.
 - Nama file yang dipindai.
-- CRC32b hash dari nama dan isi file.
 - Apa yang terdeteksi dalam file (jika ada apapun yang terdeteksi).
 
 *Direktif konfigurasi yang relevan:*
@@ -1350,16 +1390,16 @@ Ketika direktif ini dibiarkan kosong, jenis pencatatan ini akan tetap dinonaktif
 
 Ketika diaktifkan dalam konfigurasi paket, phpMussel menyimpan log dari upload yang telah diblokir.
 
-Entri ke log untuk file yang diblokir oleh pemindai biasanya terlihat seperti ini (sebagai contoh):
+*Contoh untuk log ini:*
 
 ```
-Tanggal: Mon, 21 May 2018 00:47:56 +0800
-Alamat IP: 127.0.0.1
+Tanggal: Sun, 19 Jul 2020 13:33:31 +0800
+Alamat IP: 127.0.0.x
 == Hasil pindai (mengapa ditandai) ==
 Terdeteksi phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
 == Rekonstruksi tanda tangan hash ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-Dikarantina sebagai "/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu".
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+Dikarantina sebagai "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
 Entri ke log untuk file yang diblokir oleh pemindai biasanya mencakup informasi berikut:
@@ -1367,7 +1407,7 @@ Entri ke log untuk file yang diblokir oleh pemindai biasanya mencakup informasi 
 - Alamat IP tempat upload berasal.
 - Alasan mengapa file diblokir (apa yang terdeteksi).
 - Nama file diblokir.
-- MD5 dan ukuran file diblokir.
+- Checksum dan ukuran untuk file yang diblokir.
 - Apakah file adalah dikarantina, dan dibawah nama internal apa.
 
 *Direktif konfigurasi yang relevan:*
@@ -1425,7 +1465,7 @@ phpMussel secara opsional dapat melacak statistik seperti jumlah total file yang
 
 ##### 11.3.7 ENKRIPSI
 
-phpMussel tidak mengenkripsi cache atau informasi log apapun. [Enkripsi](https://id.wikipedia.org/wiki/Enkripsi) cache dan log dapat diperkenalkan di masa depan, tetapi tidak ada rencana khusus untuk itu saat ini. Jika Anda khawatir tentang pihak ketiga yang tidak sah mendapatkan akses ke bagian depan dari phpMussel yang mungkin berisi PII atau informasi sensitif seperti cache atau log-nya, saya akan merekomendasikan bahwa phpMussel tidak diinstal di lokasi yang dapat diakses publik (misalnya, instal phpMussel di luar direktori `public_html` standar atau yang setara dengan yang tersedia untuk sebagian besar web server standar) dan bahwa perizinan restriktif yang tepat diberlakukan untuk direktori tempat ia tinggal (khususnya, untuk direktori vault). Jika itu tidak cukup untuk mengatasi masalah Anda, konfigurasikan phpMussel sedemikian rupa sehingga jenis informasi yang menyebabkan kekhawatiran Anda tidak akan dikumpulkan atau dicatat di tempat pertama (seperti, dengan menonaktifkan pencatatan).
+phpMussel tidak mengenkripsi cache atau informasi log apapun. [Enkripsi](https://id.wikipedia.org/wiki/Enkripsi) cache dan log dapat diperkenalkan di masa depan, tetapi tidak ada rencana khusus untuk itu saat ini. Jika Anda khawatir tentang pihak ketiga yang tidak sah mendapatkan akses ke bagian depan dari phpMussel yang mungkin berisi PII atau informasi sensitif seperti cache atau log-nya, saya akan merekomendasikan bahwa phpMussel tidak diinstal di lokasi yang dapat diakses publik (misalnya, instal phpMussel di luar direktori `public_html` standar atau yang setara dengan yang tersedia untuk sebagian besar web server standar) dan bahwa perizinan restriktif yang tepat diberlakukan untuk direktori tempat ia tinggal. Jika itu tidak cukup untuk mengatasi masalah Anda, konfigurasikan phpMussel sedemikian rupa sehingga jenis informasi yang menyebabkan kekhawatiran Anda tidak akan dikumpulkan atau dicatat di tempat pertama (seperti, dengan menonaktifkan pencatatan).
 
 #### 11.4 COOKIE
 
@@ -1462,4 +1502,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 16 Juli 2020 (2020.07.16).
+Terakhir Diperbarui: 21 Juli 2020 (2020.07.21).

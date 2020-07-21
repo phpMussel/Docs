@@ -4,6 +4,7 @@
 - 1. [LỜI GIỚI THIỆU](#SECTION1)
 - 2. [CÁCH CÀI ĐẶT](#SECTION2)
 - 3. [CÁCH SỬ DỤNG](#SECTION3)
+- 4. [MỞ RỘNG PHPMUSSEL](#SECTION4)
 - 7. [TÙY CHỌN CHO CẤU HÌNH](#SECTION7)
 - 8. [ĐỊNH DẠNG CỦA CHỬ KÝ](#SECTION8)
 - 9. [NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH](#SECTION9)
@@ -126,6 +127,46 @@ Trong một số môi trường, chẳng hạn như Apache, thậm chí có th�
 
 Tham khảo phần cấu hình của tài liệu này để biết thêm thông tin về các chỉ thị cấu hình khác nhau có sẵn cho phpMussel.
 
+#### 3.1 PHPMUSSEL CORE
+
+Bất kể bạn muốn sử dụng phpMussel như thế nào, hầu như mọi triển khai sẽ chứa một cái gì đó như thế này, ở mức tối thiểu:
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+Như tên của các lớp này ngụ ý, loader chịu trách nhiệm chuẩn bị các nhu cầu cơ bản của việc sử dụng phpMussel, và máy quét (scanner) chịu trách nhiệm cho tất cả các chức năng quét lõi.
+
+Hàm tạo cho loader chấp nhận năm tham số, tất cả đều tùy chọn.
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+Tham số đầu tiên là đường dẫn đầy đủ đến tập tin cấu hình của bạn. Khi bị bỏ qua, phpMussel sẽ tìm cho tập tin cấu hình có tên là `phpmussel.ini` hoặc `phpmussel.yml` trong cha mẹ của thư mục vendor.
+
+Tham số thứ hai là đường dẫn đến một thư mục mà bạn cho phép phpMussel sử dụng để lưu trữ tạm thời. Khi bị bỏ qua, phpMussel sẽ cố gắng tạo một thư mục mới để sử dụng, được đặt tên là `phpmussel-cache`, trong cha mẹ của thư mục vendor. Nếu bạn muốn tự chỉ định đường dẫn này, tốt nhất nên chọn một thư mục trống, để tránh mất dữ liệu khác trong thư mục được chỉ định.
+
+Tham số thứ ba là đường dẫn đến một thư mục mà bạn cho phép phpMussel sử dụng để kiểm dịch. Khi bị bỏ qua, phpMussel sẽ cố gắng tạo một thư mục mới để sử dụng, được đặt tên là `phpmussel-quarantine`, trong cha mẹ của thư mục vendor. Nếu bạn muốn tự chỉ định đường dẫn này, tốt nhất nên chọn một thư mục trống, để tránh mất dữ liệu khác trong thư mục được chỉ định. Tôi thực sự khuyên bạn nên ngăn chặn truy cập công khai vào thư mục được sử dụng để kiểm dịch.
+
+Tham số thứ tư là đường dẫn đến thư mục chứa các tập tin chữ ký cho phpMussel. Khi bị bỏ qua, phpMussel sẽ thử tìm kiếm các tập tin chữ ký trong một thư mục có tên là `phpmussel-signatures` trong cha mẹ của thư mục vendor.
+
+Tham số thứ năm là đường dẫn đến thư mục vendor của bạn. Nó không bao giờ nên chỉ vào bất cứ điều gì khác. Khi bị bỏ qua, phpMussel sẽ cố gắng xác định vị trí thư mục này cho chính nó. Tham số này được cung cấp để tạo điều kiện tích hợp dễ dàng hơn với các triển khai có thể không nhất thiết phải có cấu trúc giống như một dự án Composer thông thường.
+
+Hàm tạo cho trình quét chỉ chấp nhận một tham số và nó là bắt buộc: Các đối tượng loader. Vì nó được truyền bằng tham chiếu, trình nạp phải được khởi tạo thành một biến (khởi tạo trình tải trực tiếp vào các tham số của máy quét không phải là cách chính xác để sử dụng phpMussel).
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 API MÁY QUÉT
 
 Các kết quả | Sự miêu tả
@@ -148,6 +189,11 @@ Việc bật xác thực hai yếu tố ("2FA") có thể làm cho front-end an 
 Sau khi bạn đã cài đặt PHPMailer, bạn sẽ cần điền các chỉ thị cấu hình cho PHPMailer thông qua trang cấu hình phpMussel hoặc tập tin cấu hình. Thông tin thêm về các chỉ thị cấu hình này được bao gồm trong phần cấu hình của tài liệu này. Sau khi bạn đã điền các chỉ thị cấu hình PHPMailer, hãy đặt `enable_two_factor` thành `true`. Xác thực hai yếu tố bây giờ sẽ được bật.
 
 Tiếp theo, bạn cần liên kết địa chỉ email với tài khoản, để phpMussel có thể biết nơi gửi mã 2FA khi đăng nhập bằng tài khoản đó. Để thực hiện việc này, hãy sử dụng địa chỉ email làm tên người dùng cho tài khoản (như `foo@bar.tld`), hoặc bao gồm địa chỉ email như một phần của tên người dùng giống như khi gửi email thông thường (như `Foo Bar <foo@bar.tld>`).
+
+---
+
+
+### 4. <a name="SECTION4"></a>MỞ RỘNG PHPMUSSEL
 
 ---
 
@@ -947,8 +993,7 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 - ["Sai tích cực" là gì?](#WHAT_IS_A_FALSE_POSITIVE)
 - [Tần suất cập nhật chữ ký là bao nhiêu?](#SIGNATURE_UPDATE_FREQUENCY)
 - [Tôi đã gặp một vấn đề trong khi sử dụng phpMussel và tôi không biết phải làm gì về nó! Hãy giúp tôi!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Tôi muốn sử dụng phpMussel (trước v2) với phiên bản PHP cũ hơn 5.4.0; Bạn có thể giúp?](#MINIMUM_PHP_VERSION)
-- [Tôi muốn sử dụng phpMussel (v2) với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?](#MINIMUM_PHP_VERSION_V2)
+- [Tôi muốn sử dụng phpMussel v3 với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?](#MINIMUM_PHP_VERSION_V3)
 - [Tôi có thể sử dụng một cài đặt phpMussel để bảo vệ nhiều tên miền?](#PROTECT_MULTIPLE_DOMAINS)
 - [Tôi không muốn lãng phí thời gian bằng cách cài đặt này và đảm bảo rằng nó hoạt động với trang web của tôi; Tôi có thể trả tiền cho bạn để làm điều đó cho tôi?](#PAY_YOU_TO_DO_IT)
 - [Tôi có thể thuê bạn hay bất kỳ nhà phát triển nào của dự án này cho công việc riêng tư?](#HIRE_FOR_PRIVATE_WORK)
@@ -990,19 +1035,15 @@ Tần suất cập nhật thay đổi tùy thuộc vào các tập tin chữ ký
 - Bạn đã kiểm tra các **[trang issues](https://github.com/phpMussel/phpMussel/issues)** chưa, để xem nếu vấn đề đã được đề cập trước đó? Nếu nó đã được đề cập trước đó, kiểm tra nếu có bất kỳ đề xuất, ý tưởng, hay giải pháp đã được cung cấp, và làm theo như là cần thiết để cố gắng giải quyết vấn đề.
 - Nếu vấn đề vẫn còn, vui lòng hãy tìm sự giúp đỡ về nó bằng cách tạo ra một issue mới trên trang issues.
 
-#### <a name="MINIMUM_PHP_VERSION"></a>Tôi muốn sử dụng phpMussel (trước v2) với phiên bản PHP cũ hơn 5.4.0; Bạn có thể giúp?
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>Tôi muốn sử dụng phpMussel v3 với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?
 
-Không. PHP >= 5.4.0 là yêu cầu tối thiểu đối với phpMussel < v2.
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>Tôi muốn sử dụng phpMussel (v2) với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?
-
-Không. PHP >= 7.2.0 là yêu cầu tối thiểu đối với phpMussel v2.
+Không. PHP >= 7.2.0 là yêu cầu tối thiểu đối với phpMussel v3.
 
 *Xem thêm: [Biểu đồ tương thích](https://maikuolan.github.io/Compatibility-Charts/).*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>Tôi có thể sử dụng một cài đặt phpMussel để bảo vệ nhiều tên miền?
 
-Vâng. Cài đặt phpMussel không bị khóa vào các tên miền cụ thể, và do đó có thể được sử dụng để bảo vệ nhiều tên miền. Nói chung là, chúng tôi đề cập đến cài đặt phpMussel chỉ bảo vệ một miền như "cài đặt miền đơn" ("single-domain installations"), và chúng tôi đề cập đến cài đặt phpMussel bảo vệ nhiều miền hay miền phụ như "cài đặt nhiều miền" ("multi-domain installations"). Nếu bạn sử dụng một cài đặt nhiều miền và cần phải sử dụng các bộ tập tin chữ ký khác nhau cho các miền khác nhau, hoặc cần phpMussel được cấu hình khác nhau cho các miền khác nhau, điều này có thể làm được. Sau khi tải tập tin cấu hình (`config.ini`), phpMussel sẽ kiểm tra sự tồn tại của một "tập tin ghi đè cấu hình" cụ thể cho miền được yêu cầu (`miền-được-yêu-cầu.tld.config.ini`), và nếu được tìm thấy, bất kỳ giá trị cấu hình nào được xác định bởi tập tin ghi đè cấu hình sẽ được sử dụng cho trường hợp thực hiện thay vì các giá trị cấu hình được định nghĩa bởi tập tin cấu hình. Các tập tin ghi đè cấu hình giống với tập tin cấu hình, và tùy theo quyết định của bạn, có thể chứa toàn bộ các chỉ thị cấu hình sẵn có cho phpMussel, hoặc bất kỳ phần bắt buộc nào mà khác với các giá trị được xác định bởi tập tin cấu hình. Các tập tin ghi đè cấu hình được đặt tên theo miền mà chúng được dự định (vì vậy, ví dụ, nếu bạn cần một tập tin ghi đè cấu hình cho miền, `https://www.some-domain.tld/`, các tập tin ghi đè cấu hình của nó nên được đặt tên là `some-domain.tld.config.ini`, và nên được đặt trong vault với tập tin cấu hình, `config.ini`). Tên miền cho trường hợp thực hiện được bắt nguồn từ header (tiêu đề) `HTTP_HOST` của các yêu cầu; "www" bị bỏ qua.
+Vâng.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>Tôi không muốn lãng phí thời gian bằng cách cài đặt này và đảm bảo rằng nó hoạt động với trang web của tôi; Tôi có thể trả tiền cho bạn để làm điều đó cho tôi?
 
@@ -1325,16 +1366,15 @@ Khi được kích hoạt trong cấu hình gói, phpMussel lưu nhật ký củ
 Các mục nhập vào một tập tin nhật ký mà có thể được đọc bởi con người thường trông giống như sau (ví dụ):
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 Đã bắt đầu.
-> Đang kiểm tra 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> Đã được phát hiện phpMussel-Testfile.ASCII.Standard!
-Mon, 21 May 2018 00:48:04 +0800 Hoàn thành.
+Sun, 19 Jul 2020 13:33:31 +0800 Đã bắt đầu.
+→ Đang kiểm tra "ascii_standard_testfile.txt".
+─→ Đã được phát hiện phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 Hoàn thành.
 ```
 
 Mục nhập nhật ký quét thường bao gồm các thông tin sau:
 - Ngày và giờ tập tin được quét.
 - Tên của tập tin được quét.
-- CRC32b băm của tên và nội dung của tập tin.
 - Những gì đã được phát hiện trong tập tin (nếu bất cứ điều gì đã được phát hiện).
 
 *Chỉ thị cấu hình có liên quan:*
@@ -1347,16 +1387,16 @@ Khi các chỉ thị này được để trống, loại ghi nhật ký này s�
 
 Khi được kích hoạt trong cấu hình gói, phpMussel lưu nhật ký của các tải lên đã bị chặn.
 
-Các mục nhập vào tập tin nhật ký tải lên bị chặn thường trông giống như sau (ví dụ):
+*Một mục nhật ký ví dụ:*
 
 ```
-Ngày: Mon, 21 May 2018 00:47:56 +0800
-Địa chỉ IP: 127.0.0.1
+Ngày: Sun, 19 Jul 2020 13:33:31 +0800
+Địa chỉ IP: 127.0.0.x
 == Kết quả quét (tại sao được gắn cờ) ==
 Đã được phát hiện phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
 == Tái thiết chữ ký băm ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-Đã được kiểm dịch là "/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu".
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+Đã được kiểm dịch là "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
 Mục nhập vào tập tin nhật ký tải lên bị chặn thường bao gồm các thông tin sau:
@@ -1364,7 +1404,7 @@ Mục nhập vào tập tin nhật ký tải lên bị chặn thường bao gồ
 - Địa chỉ IP nơi tải lên bắt nguồn từ đó.
 - Lý do tại sao tập tin bị chặn (những gì đã được phát hiện).
 - Tên của tập tin bị chặn.
-- MD5 băm và kích thước của tập tin bị chặn.
+- Tổng kiểm tra và kích thước của tập tin bị chặn.
 - Liệu tập tin có bị đưa vào kiểm dịch hay không và dưới tên nội bộ nào.
 
 *Chỉ thị cấu hình có liên quan:*
@@ -1422,7 +1462,7 @@ phpMussel có thể tùy chọn theo dõi số liệu thống kê như tổng s�
 
 ##### 11.3.7 MÃ HÓA
 
-phpMussel không mã hóa bộ nhớ cache của nó hoặc bất kỳ thông tin log nào. [Mã hóa](https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a) bộ nhớ cache và log có thể được giới thiệu trong tương lai, nhưng hiện tại không có bất kỳ kế hoạch cụ thể nào. Nếu bạn lo lắng về các bên thứ ba không được phép truy cập vào các phần của phpMussel có thể chứa thông tin nhận dạng cá nhân hay thông tin nhạy cảm như bộ nhớ cache hoặc nhật ký của nó, tôi khuyên bạn không nên cài đặt phpMussel tại vị trí có thể truy cập công khai (ví dụ, cài đặt phpMussel bên ngoài thư mục `public_html` tiêu chuẩn hoặc tương đương chúng có sẵn cho hầu hết các máy chủ web tiêu chuẩn) và các quyền hạn chế thích hợp sẽ được thực thi cho thư mục nơi nó cư trú (đặc biệt, cho thư mục vault). Nếu điều đó không đủ để giải quyết mối quan ngại của bạn, hãy định cấu hình phpMussel để các loại thông tin gây ra mối lo ngại của bạn sẽ không được thu thập hoặc nhật ký ở địa điểm đầu tiên (ví dụ, bằng cách tắt ghi nhật ký).
+phpMussel không mã hóa bộ nhớ cache của nó hoặc bất kỳ thông tin log nào. [Mã hóa](https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a) bộ nhớ cache và log có thể được giới thiệu trong tương lai, nhưng hiện tại không có bất kỳ kế hoạch cụ thể nào. Nếu bạn lo lắng về các bên thứ ba không được phép truy cập vào các phần của phpMussel có thể chứa thông tin nhận dạng cá nhân hay thông tin nhạy cảm như bộ nhớ cache hoặc nhật ký của nó, tôi khuyên bạn không nên cài đặt phpMussel tại vị trí có thể truy cập công khai (ví dụ, cài đặt phpMussel bên ngoài thư mục `public_html` tiêu chuẩn hoặc tương đương chúng có sẵn cho hầu hết các máy chủ web tiêu chuẩn) và các quyền hạn chế thích hợp sẽ được thực thi cho thư mục nơi nó cư trú. Nếu điều đó không đủ để giải quyết mối quan ngại của bạn, hãy định cấu hình phpMussel để các loại thông tin gây ra mối lo ngại của bạn sẽ không được thu thập hoặc nhật ký ở địa điểm đầu tiên (ví dụ, bằng cách tắt ghi nhật ký).
 
 #### 11.4 COOKIE
 
@@ -1459,4 +1499,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2020.07.16.
+Lần cuối cập nhật: 2020.07.21.

@@ -4,6 +4,7 @@
 - 1. [PRÉAMBULE](#SECTION1)
 - 2. [COMMENT INSTALLER](#SECTION2)
 - 3. [COMMENT UTILISER](#SECTION3)
+- 4. [EXTENSION DE PHPMUSSEL](#SECTION4)
 - 7. [OPTIONS DE CONFIGURATION](#SECTION7)
 - 8. [FORMATS DE SIGNATURES](#SECTION8)
 - 9. [PROBLÈMES DE COMPATIBILITÉ CONNUS](#SECTION9)
@@ -126,6 +127,46 @@ Dans certains environnements, comme Apache, il est même possible de placer un p
 
 Reportez-vous à la section configuration de ce document pour plus d'informations sur les différentes directives de configuration disponibles pour phpMussel.
 
+#### 3.1 PHPMUSSEL CORE
+
+Quelle que soit la façon dont vous souhaitez utiliser phpMussel, presque toutes les implémentations contiendront quelque chose comme ceci, au minimum :
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+Comme les noms de ces classes l'impliquent, le loader est responsable de la préparation des nécessités de base de l'utilisation de phpMussel, et le scanner est responsable de toutes les fonctionnalités d'analyse de base.
+
+Le constructeur du loader accepte cinq paramètres, tous facultatifs.
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+Le premier paramètre est le chemin complet de votre fichier de configuration. Lorsqu'il est omis, phpMussel recherchera un fichier de configuration nommé `phpmussel.ini` ou `phpmussel.yml`, dans le répertoire parent du répertoire vendor.
+
+Le deuxième paramètre est le chemin vers un répertoire que vous autorisez phpMussel à utiliser pour la mise en cache et le stockage de fichiers temporaires. Lorsqu'il est omis, phpMussel essaiera de créer un nouveau répertoire à utiliser, nommé `phpmussel-cache`, dans le parent du répertoire vendor. Si vous souhaitez spécifier ce chemin vous-même, il serait préférable de choisir un répertoire vide, afin d'éviter la perte indésirable d'autres données dans le répertoire spécifié.
+
+Le troisième paramètre est le chemin vers un répertoire que vous autorisez phpMussel à utiliser pour sa quarantaine. Lorsqu'il est omis, phpMussel essaiera de créer un nouveau répertoire à utiliser, nommé `phpmussel-quarantine`, dans le parent du répertoire vendor. Si vous souhaitez spécifier ce chemin vous-même, il serait préférable de choisir un répertoire vide, afin d'éviter la perte indésirable d'autres données dans le répertoire spécifié. Il est fortement recommandé d'empêcher l'accès public au répertoire utilisé pour la quarantaine.
+
+Le quatrième paramètre est le chemin vers le répertoire contenant les fichiers de signature pour phpMussel. Lorsqu'il est omis, phpMussel essaiera de rechercher les fichiers de signature dans un répertoire nommé `phpmussel-signatures`, dans le répertoire parent du répertoire vendor.
+
+Le cinquième paramètre est le chemin d'accès à votre répertoire vendor. Cela ne devrait jamais pointer vers autre chose. Lorsqu'il est omis, phpMussel essaiera de localiser ce répertoire pour lui-même. Ce paramètre est fourni afin de faciliter l'intégration avec des implémentations qui pourraient ne pas nécessairement avoir la même structure qu'un projet Composer typique.
+
+Le constructeur du scanner n'accepte qu'un seul paramètre, et il est obligatoire : l'objet loader instancié. Comme il est passé par référence, le loader doit être instancié sur une variable (instancier le loader directement dans le scanner afin de passer par valeur n'est pas la correcte façon d'utiliser phpMussel).
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 API DU SCANNER
 
 Résultats | Description
@@ -148,6 +189,11 @@ Il est possible de sécuriser l'accès frontal en activant l'authentification à
 Après avoir installé PHPMailer, vous devez renseigner les directives de configuration de PHPMailer via la page de configuration ou le fichier de configuration de phpMussel. Plus d'informations sur ces directives de configuration sont incluses dans la section de configuration de ce document. Après avoir rempli les directives de configuration de PHPMailer, mettre `enable_two_factor` à `true`. L'authentification à deux facteurs devrait maintenant être activée.
 
 Ensuite, vous devrez associer une adresse e-mail à un compte afin que phpMussel sache où envoyer les codes 2FA lors de la connexion via ce compte. Pour ce faire, utilisez l'adresse e-mail comme nom d'utilisateur pour le compte (comme `foo@bar.tld`), ou inclure l'adresse e-mail dans le nom d'utilisateur de la même manière que lorsqu'un e-mail est envoyé normalement (comme `Foo Bar <foo@bar.tld>`).
+
+---
+
+
+### 4. <a name="SECTION4"></a>EXTENSION DE PHPMUSSEL
 
 ---
 
@@ -947,8 +993,7 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 - [Qu'est-ce qu'un « faux positif » ?](#WHAT_IS_A_FALSE_POSITIVE)
 - [À quelle fréquence les signatures sont-elles mises à jour ?](#SIGNATURE_UPDATE_FREQUENCY)
 - [J'ai rencontré un problème lors de l'utilisation de phpMussel et je ne sais pas quoi faire à ce sujet ! Aidez-moi !](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Je veux utiliser phpMussel (avant la v2) avec une version PHP plus ancienne que 5.4.0 ; Pouvez-vous m'aider ?](#MINIMUM_PHP_VERSION)
-- [Je veux utiliser phpMussel (v2) avec une version PHP plus ancienne que 7.2.0 ; Pouvez-vous m'aider ?](#MINIMUM_PHP_VERSION_V2)
+- [Je veux utiliser phpMussel v3 avec une version PHP plus ancienne que 7.2.0 ; Pouvez-vous m'aider ?](#MINIMUM_PHP_VERSION_V3)
 - [Puis-je utiliser une seule installation de phpMussel pour protéger plusieurs domaines ?](#PROTECT_MULTIPLE_DOMAINS)
 - [Je ne veux pas déranger avec l'installation de cela et le faire fonctionner avec mon site ; Puis-je vous payer pour tout faire pour moi ?](#PAY_YOU_TO_DO_IT)
 - [Puis-je vous embaucher ou à l'un des développeurs de ce projet pour un travail privé ?](#HIRE_FOR_PRIVATE_WORK)
@@ -990,19 +1035,15 @@ La fréquence de mise à jour varie selon les fichiers de signature en question.
 - Avez-vous vérifié la **[page des issues](https://github.com/phpMussel/phpMussel/issues)**, pour voir si le problème a été mentionné avant ? Si on l'a mentionné avant, vérifier si des suggestions, des idées et/ou des solutions ont été fournies, et suivez comme nécessaire pour essayer de résoudre le problème.
 - Si le problème persiste, s'il vous plaît demander de l'aide à ce sujet en créant un nouveau issue sur la page des issues.
 
-#### <a name="MINIMUM_PHP_VERSION"></a>Je veux utiliser phpMussel (avant la v2) avec une version PHP plus ancienne que 5.4.0 ; Pouvez-vous m'aider ?
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>Je veux utiliser phpMussel v3 avec une version PHP plus ancienne que 7.2.0 ; Pouvez-vous m'aider ?
 
-Non. PHP >= 5.4.0 est une exigence minimale pour phpMussel < v2.
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>Je veux utiliser phpMussel (v2) avec une version PHP plus ancienne que 7.2.0 ; Pouvez-vous m'aider ?
-
-Non. PHP >= 7.2.0 est une exigence minimale pour phpMussel v2.
+Non. PHP >= 7.2.0 est une exigence minimale pour phpMussel v3.
 
 *Voir également : [Tableaux de Compatibilité](https://maikuolan.github.io/Compatibility-Charts/).*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>Puis-je utiliser une seule installation de phpMussel pour protéger plusieurs domaines ?
 
-Oui. Les installations phpMussel ne sont pas naturellement verrouillées dans des domaines spécifiques, et peut donc être utilisé pour protéger plusieurs domaines. Généralement, nous référons aux installations phpMussel protégeant un seul domaine comme « installations à un seul domaine » (« single-domain installations »), et nous référons aux installations phpMussel protégeant plusieurs domaines et/ou sous-domaines comme « installations multi-domaines » (« multi-domain installations »). Si vous utilisez une installation multi-domaine et besoin d'utiliser différents ensembles de fichiers de signature pour différents domaines, ou besoin de phpMussel pour être configuré différemment pour différents domaines, il est possible de le faire. Après avoir chargé le fichier de configuration (`config.ini`), phpMussel vérifiera l'existence d'un « fichier de substitution de configuration » spécifique au domaine (ou sous-domaine) demandé (`le-domaine-demandé.tld.config.ini`), et si trouvé, les valeurs de configuration définies par le fichier de substitution de configuration sera utilisé pour l'instance d'exécution au lieu des valeurs de configuration définies par le fichier de configuration. Les fichiers de substitution de configuration sont identiques au fichier de configuration, et à votre discrétion, peut contenir l'intégralité de toutes les directives de configuration disponibles pour phpMussel, ou quelle que soit la petite sous-section requise qui diffère des valeurs normalement définies par le fichier de configuration. Les fichiers de substitution de configuration sont nommée selon le domaine auquel elle est destinée (donc, par exemple, si vous avez besoin d'une fichier de substitution de configuration pour le domaine, `https://www.some-domain.tld/`, sa fichier de substitution de configuration doit être nommé comme `some-domain.tld.config.ini`, et devrait être placé dans la vault à côté du fichier de configuration, `config.ini`). Le nom de domaine pour l'instance d'exécution dérive de l'en-tête `HTTP_HOST` de la requête ; « www » est ignoré.
+Oui.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>Je ne veux pas déranger avec l'installation de cela et le faire fonctionner avec mon site ; Puis-je vous payer pour tout faire pour moi ?
 
@@ -1335,16 +1376,15 @@ Lorsqu'il est activé dans la configuration du paquet, phpMussel conserve les jo
 Les entrées d'un fichier journal lisible par un humain, ressemblent généralement à ceci (à titre d'exemple) :
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 Commencé.
-> Vérification 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5) :
--> Détecté phpMussel-Testfile.ASCII.Standard !
-Mon, 21 May 2018 00:48:04 +0800 Terminé.
+Sun, 19 Jul 2020 13:33:31 +0800 Commencé.
+→ Vérifie « ascii_standard_testfile.txt ».
+─→ Détecté phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt) !
+Sun, 19 Jul 2020 13:33:31 +0800 Terminé.
 ```
 
 Une entrée de journal d'analyse inclut généralement les informations suivantes :
 - La date et l'heure auxquelles le fichier a été analysé.
 - Le nom du fichier analysé.
-- CRC32b hashes du nom et du contenu du fichier.
 - Ce qui a été détecté dans le fichier (si quelque chose a été détecté).
 
 *Directives de configuration pertinentes :*
@@ -1353,20 +1393,20 @@ Une entrée de journal d'analyse inclut généralement les informations suivante
 
 Lorsque ces directives sont laissées vides, ce type de journalisation reste désactivé.
 
-##### 11.3.1 SCAN KILLS
+##### 11.3.1 JOURNAUX DES TÉLÉCHARGEMENTS
 
 Lorsqu'il est activé dans la configuration du paquet, phpMussel conserve les journaux des téléchargements qui ont été bloqués.
 
-Les entrées d'un fichier journal pour les « scan kills » ressemblent généralement à ceci (à titre d'exemple) :
+*Par exemple :*
 
 ```
-Date : Mon, 21 May 2018 00:47:56 +0800
-Adresse IP : 127.0.0.1
+Date : Sun, 19 Jul 2020 13:33:31 +0800
+Adresse IP : 127.0.0.x
 == Résultats d'analyse (pourquoi marqué) ==
 Détecté phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt) !
 == Reconstruction de signatures hachage ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-Mis en quarantaine comme « /vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu ».
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+Mis en quarantaine comme « 1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu ».
 ```
 
 Une entrée pour les « scan kills » inclut généralement les informations suivantes :
@@ -1374,7 +1414,7 @@ Une entrée pour les « scan kills » inclut généralement les informations s
 - L'adresse IP d'origine du téléchargement.
 - La raison pour laquelle le fichier a été bloqué (ce qui a été détecté).
 - Le nom du fichier bloqué.
-- Un MD5 et la taille du fichier bloqué.
+- La somme de contrôle et la taille du fichier sont bloquées.
 - Si le fichier a été mis en quarantaine, et sous quel nom interne.
 
 *Directives de configuration pertinentes :*
@@ -1436,7 +1476,7 @@ phpMussel est facultativement capable de suivre des statistiques telles que le n
 
 ##### 11.3.7 CRYPTAGE
 
-phpMussel ne crypte pas son cache ou aucune information de journal. Le [cryptage](https://fr.wikipedia.org/wiki/Chiffrement) des cache et des journaux peuvent être introduits à l'avenir, mais il n'existe actuellement aucun plan spécifique. Si vous craignez que des tiers non autorisés puissent accéder à des parties de phpMussel pouvant contenir des informations personnelles/sensibles telles que son cache ou ses journaux, je recommanderais que phpMussel ne soit pas installé dans un endroit accessible au public (par exemple, installer phpMussel en dehors du répertoire `public_html` standard ou équivalent disponible pour la plupart des serveurs web standard) et et que des autorisations appropriées restrictives soient appliquées pour le répertoire où il réside (en particulier, pour le répertoire vault). Si ce n'est pas suffisant pour répondre à vos préoccupations, configurez phpMussel de telle sorte que les types d'informations à l'origine de vos préoccupations ne soient pas collectées ou journalisées en premier lieu (tel que en désactivant la journalisation).
+phpMussel ne crypte pas son cache ou aucune information de journal. Le [cryptage](https://fr.wikipedia.org/wiki/Chiffrement) des cache et des journaux peuvent être introduits à l'avenir, mais il n'existe actuellement aucun plan spécifique. Si vous craignez que des tiers non autorisés puissent accéder à des parties de phpMussel pouvant contenir des informations personnelles/sensibles telles que son cache ou ses journaux, je recommanderais que phpMussel ne soit pas installé dans un endroit accessible au public (par exemple, installer phpMussel en dehors du répertoire `public_html` standard ou équivalent disponible pour la plupart des serveurs web standard) et et que des autorisations appropriées restrictives soient appliquées pour le répertoire où il réside. Si ce n'est pas suffisant pour répondre à vos préoccupations, configurez phpMussel de telle sorte que les types d'informations à l'origine de vos préoccupations ne soient pas collectées ou journalisées en premier lieu (tel que en désactivant la journalisation).
 
 #### 11.4 COOKIES
 
@@ -1475,4 +1515,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 16 Juillet 2020 (2020.07.16).
+Dernière mise à jour : 21 Juillet 2020 (2020.07.21).

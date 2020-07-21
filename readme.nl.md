@@ -4,6 +4,7 @@
 - 1. [PREAMBULE](#SECTION1)
 - 2. [HOE TE INSTALLEREN](#SECTION2)
 - 3. [HOE TE GEBRUIKEN](#SECTION3)
+- 4. [PHPMUSSEL UITBREIDEN](#SECTION4)
 - 7. [CONFIGURATIE-OPTIES](#SECTION7)
 - 8. [SIGNATURE FORMAAT](#SECTION8)
 - 9. [BEKENDE COMPATIBILITEITSPROBLEMEN](#SECTION9)
@@ -126,6 +127,46 @@ In sommige omgevingen, zoals Apache, is het zelfs mogelijk om een ​​punt aan
 
 Raadpleeg het configuratiegedeelte van dit document voor meer informatie over de verschillende configuratierichtlijnen die beschikbaar zijn voor phpMussel.
 
+#### 3.1 PHPMUSSEL CORE
+
+Ongeacht hoe u phpMussel wilt gebruiken, bijna elke implementatie zal minimaal zoiets bevatten:
+
+```PHP
+<?php
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+```
+
+Zoals de namen van deze klassen aangeven, de loader is verantwoordelijk voor het voorbereiden van de basisbehoeften van het gebruik van phpMussel, en de scanner is verantwoordelijk voor alle kernscanfunctionaliteit.
+
+De constructor voor de loader accepteert vijf parameters, allemaal optioneel.
+
+```PHP
+public function __construct(
+    string $ConfigurationPath = '',
+    string $CachePath = '',
+    string $QuarantinePath = '',
+    string $SignaturesPath = '',
+    string $VendorPath = ''
+)
+```
+
+De eerste parameter is het volledige pad naar uw configuratiebestand. Indien weggelaten, zoekt phpMussel naar een configuratiebestand met de naam `phpmussel.ini` of `phpmussel.yml` in de bovenliggende map van de vendor-map.
+
+De tweede parameter is het pad naar een map die u toestaat phpMussel te gebruiken voor caching en tijdelijke bestandsopslag. Indien weggelaten, phpMussel zal proberen een nieuwe map te maken, genaamd `phpmussel-cache`, in de bovenliggende map van de vendor-map. Als u dit pad zelf wilt specificeren, het beste een lege map te kiezen om ongewenst verlies van andere gegevens in de opgegeven map te voorkomen.
+
+De derde parameter is het pad naar een map die u phpMussel toestaat te gebruiken voor zijn quarantaine. Indien weggelaten, phpMussel zal proberen een nieuwe map te maken, genaamd `phpmussel-quarantine`, in de bovenliggende map van de vendor-map. Als u dit pad zelf wilt specificeren, het beste een lege map te kiezen om ongewenst verlies van andere gegevens in de opgegeven map te voorkomen. Het wordt ten zeerste aanbevolen om openbare toegang tot de map die voor quarantaine wordt gebruikt te voorkomen.
+
+De vierde parameter is het pad naar de map met de signatuurbestanden voor phpMussel. Indien weggelaten, phpMussel zal proberen te zoeken naar de signatuurbestanden in een map met de naam `phpmussel-signatures` in de bovenliggende map van de vendor-map.
+
+De vijfde parameter is het pad naar uw vendor-map. Het mag nooit naar iets anders verwijzen. Indien weggelaten, phpMussel zal proberen deze map zelf te lokaliseren. Deze parameter is bedoeld om de integratie met implementaties die mogelijk niet noodzakelijk dezelfde structuur hebben als een typisch Composer-project te vergemakkelijken.
+
+De constructor voor de scanner accepteert slechts één parameter en deze is verplicht: Het geïnstantieerde loader-object. Aangezien het door verwijzing wordt doorgegeven, moet de loader worden geïnstantieerd naar een variabele (instantiëren van de loader direct in de parameters van de scanner is niet de juiste manier om phpMussel te gebruiken).
+
+```PHP
+public function __construct(\phpMussel\Core\Loader &$Loader)
+```
+
 #### 3.4 SCANNER-API
 
 Resultaten | Beschrijving
@@ -148,6 +189,11 @@ Het is mogelijk om de frontend veiliger te maken door twee-factor authenticatie 
 Nadat u PHPMailer heeft geïnstalleerd, moet u de configuratie-richtlijnen voor PHPMailer invullen via de configuratiepagina of het configuratiebestand van phpMussel. Meer informatie over deze configuratie-richtlijnen is opgenomen in de configuratiesectie van dit document. Nadat u de PHPMailer-configuratie-richtlijnen hebt ingevuld, stelt u `enable_two_factor` in op `true`. Twee-factor authenticatie moet nu worden ingeschakeld.
 
 Volgende, u moet een e-mailadres koppelen aan een account, zodat phpMussel weet waar 2FA-codes moeten worden verzonden wanneer hij zich aanmeldt met dat account. Om dit te doen, gebruik het e-mailadres als de gebruikersnaam voor het account (b.v., `foo@bar.tld`), of neem het e-mailadres op als onderdeel van de gebruikersnaam op dezelfde manier als bij het normaal verzenden van een e-mail (b.v., `Foo Bar <foo@bar.tld>`).
+
+---
+
+
+### 4. <a name="SECTION4"></a>PHPMUSSEL UITBREIDEN
 
 ---
 
@@ -947,8 +993,7 @@ Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De sig
 - [Wat is een "vals positieve"?](#WHAT_IS_A_FALSE_POSITIVE)
 - [Hoe vaak worden signatures bijgewerkt?](#SIGNATURE_UPDATE_FREQUENCY)
 - [Ik heb een fout tegengekomen tijdens het gebruik van phpMussel en ik weet niet wat te doen! Help alstublieft!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Ik wil phpMussel (voorafgaand aan v2) gebruiken met een PHP-versie ouder dan 5.4.0; Kan u helpen?](#MINIMUM_PHP_VERSION)
-- [Ik wil phpMussel (v2) gebruiken met een PHP-versie ouder dan 7.2.0; Kan u helpen?](#MINIMUM_PHP_VERSION_V2)
+- [Ik wil phpMussel v3 gebruiken met een PHP-versie ouder dan 7.2.0; Kan u helpen?](#MINIMUM_PHP_VERSION_V3)
 - [Kan ik een enkele phpMussel-installatie gebruiken om meerdere domeinen te beschermen?](#PROTECT_MULTIPLE_DOMAINS)
 - [Ik wil niet tijd verspillen met het installeren van dit en om het te laten werken met mijn website; Kan ik u betalen om het te doen?](#PAY_YOU_TO_DO_IT)
 - [Kan ik u of een van de ontwikkelaars van dit project voor privéwerk huren?](#HIRE_FOR_PRIVATE_WORK)
@@ -956,10 +1001,7 @@ Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De sig
 - [Ik ben een ontwikkelaar, website ontwerper, of programmeur. Kan ik werken aan dit project accepteren of aanbieden?](#ACCEPT_OR_OFFER_WORK)
 - [Ik wil bijdragen aan het project; Kan ik dit doen?](#WANT_TO_CONTRIBUTE)
 - [Hoe krijgt u toegang tot specifieke gegevens over bestanden als ze worden gescand?](#SCAN_DEBUGGING)
-- [Kan ik cron gebruiken om automatisch bij te werken?](#CRON_TO_UPDATE_AUTOMATICALLY)
-- [Kan phpMussel bestanden met niet-ANSI-namen scannen?](#SCAN_NON_ANSI)
 - [Blacklists (zwarte lijsten) – Whitelists (witte lijsten) – Greylists (grijze lijst) – Wat zijn ze en hoe gebruik ik ze?](#BLACK_WHITE_GREY)
-- [Wanneer ik signatuurbestanden activeer of deactiveer via de updates-pagina, sorteert deze ze alfanumeriek in de configuratie. Kan ik de manier wijzigen waarop ze worden gesorteerd?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Wat is een "PDO DSN"? Hoe kan ik PDO gebruiken met phpMussel?](#HOW_TO_USE_PDO)
 - [Mijn uploadfaciliteit is asynchroon (b.v., gebruikt ajax, ajaj, json, enz). Ik zie geen speciaal bericht of waarschuwing wanneer een upload is geblokkeerd. Wat is er aan de hand?](#AJAX_AJAJ_JSON)
 
@@ -993,19 +1035,15 @@ Bijwerkfrequentie varieert afhankelijk van de signatuurbestanden betrokken. Alle
 - Hebt u de **[issues pagina](https://github.com/phpMussel/phpMussel/issues)** gecontroleerd, om te zien of het probleem al eerder is vermeld? Als het eerder vermeld, controleer of eventuele suggesties, ideeën en/of oplossingen werden verstrekt, en volg als per nodig om te proberen het probleem op te lossen.
 - Als het probleem blijft bestaan, zoek hulp door een nieuw issue op de issues pagina te maken.
 
-#### <a name="MINIMUM_PHP_VERSION"></a>Ik wil phpMussel (voorafgaand aan v2) gebruiken met een PHP-versie ouder dan 5.4.0; Kan u helpen?
+#### <a name="MINIMUM_PHP_VERSION_V3"></a>Ik wil phpMussel v3 gebruiken met een PHP-versie ouder dan 7.2.0; Kan u helpen?
 
-Nee. PHP >= 5.4.0 is een minimale vereiste voor phpMussel < v2.
-
-#### <a name="MINIMUM_PHP_VERSION_V2"></a>Ik wil phpMussel (v2) gebruiken met een PHP-versie ouder dan 7.2.0; Kan u helpen?
-
-Nee. PHP >= 7.2.0 is een minimale vereiste voor phpMussel v2.
+Nee. PHP >= 7.2.0 is een minimale vereiste voor phpMussel v3.
 
 *Zie ook: [Compatibiliteitskaarten](https://maikuolan.github.io/Compatibility-Charts/).*
 
 #### <a name="PROTECT_MULTIPLE_DOMAINS"></a>Kan ik een enkele phpMussel-installatie gebruiken om meerdere domeinen te beschermen?
 
-Ja. phpMussel-installaties zijn niet van nature gebonden naar specifieke domeinen, en kan daarom worden gebruikt om meerdere domeinen te beschermen. Algemeen, wij verwijzen naar phpMussel installaties die slechts één domein beschermen als "single-domain installaties", en wij verwijzen naar phpMussel installaties die meerdere domeinen en/of subdomeinen beschermen als "multi-domain installaties". Als u een multi-domain installaties werken en nodig om verschillende signatuurbestanden voor verschillende domeinen te gebruiken, of nodig om phpMussel anders geconfigureerd voor verschillende domeinen te zijn, het is mogelijk om dit te doen. Nadat het configuratiebestand hebt geladen (`config.ini`), phpMussel controleert het bestaan van een "configuratie overschrijdend bestand" specifiek voor het domein (of sub-domein) dat wordt aangevraagd (`het-domein-dat-wordt-aangevraagd.tld.config.ini`), en als gevonden, elke configuratie waarden gedefinieerd door het configuratie overschrijdend bestand zal worden gebruikt in plaats van de configuratie waarden die zijn gedefinieerd door het configuratiebestand. Het configuratie overschrijdende bestanden zijn identiek aan het configuratiebestand, en naar eigen goeddunken, kan de volledige van alle configuratie richtlijnen beschikbaar voor phpMussel bevatten, of wat dan ook kleine subsectie dat nodig is die afwijkt van de waarden die normaal door het configuratiebestand worden gedefinieerd. Het configuratie overschrijdende bestanden worden genoemd volgens het domein waaraan ze bestemd zijn (dus, bijvoorbeeld, als u een configuratie overschrijdend bestand voor het domein `https://www.some-domain.tld/` nodig hebt, het configuratie overschrijdende bestanden moeten worden genoemd als `some-domain.tld.config.ini`, en moeten naast het configuratiebestand, `config.ini`, in de vault geplaatst worden). De domeinnaam is afgeleid van de koptekst `HTTP_HOST` van het verzoek; "www" wordt genegeerd.
+Ja.
 
 #### <a name="PAY_YOU_TO_DO_IT"></a>Ik wil niet tijd verspillen met het installeren van dit en om het te laten werken met mijn website; Kan ik u betalen om het te doen?
 
@@ -1090,67 +1128,6 @@ Optioneel, deze array kan worden vernietigd door het volgende te gebruiken:
 $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 ```
 
-#### <a name="CRON_TO_UPDATE_AUTOMATICALLY"></a>Kan ik cron gebruiken om automatisch bij te werken?
-
-Ja. Een API is ingebouwd in het frontend voor interactie met de updates pagina via externe scripts. Een apart script, "[Cronable](https://github.com/Maikuolan/Cronable)", is beschikbaar, en kan door uw cron manager of cron scheduler gebruikt worden om deze en andere ondersteunde pakketten automatisch te updaten (dit script biedt zijn eigen documentatie).
-
-#### <a name="SCAN_NON_ANSI"></a>Kan phpMussel bestanden met niet-ANSI-namen scannen?
-
-Laten we zeggen dat er een map is die u wilt scannen. In deze map hebt u enkele bestanden met niet-ANSI-namen.
-- `Пример.txt`
-- `一个例子.txt`
-- `例です.txt`
-
-Laten we aannemen dat je de CLI-modus of de phpMussel API gebruikt om te scannen.
-
-Bij gebruik van PHP < 7.1.0, op sommige systemen, zal phpMussel deze bestanden niet zien wanneer ze proberen de map te scannen, en dus zullen ze deze bestanden niet kunnen scannen. U ziet waarschijnlijk dezelfde resultaten als wanneer u een lege map scant:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Gestart.
- Sun, 01 Apr 2018 22:27:41 +0800 Afgewerkt.
-```
-
-Ook, bij het gebruik van PHP < 7.1.0, het afzonderlijk scannen van de bestanden levert de volgende resultaten op:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Gestart.
- > Verifiëren 'X:/directory/Пример.txt' (FN: b831eb8f):
- -> Ongeldige bestand!
- Sun, 01 Apr 2018 22:27:41 +0800 Afgewerkt.
-```
-
-Of:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Gestart.
- > X:/directory/??????.txt is geen bestand of map.
- Sun, 01 Apr 2018 22:27:41 +0800 Afgewerkt.
-```
-
-Dit komt door de manier waarop PHP niet-ANSI-bestandsnamen heeft afgehandeld voorafgaand aan PHP 7.1.0. Als u dit probleem ondervindt, de oplossing is om uw PHP-installatie bij te werken naar 7.1.0 of nieuwer. In PHP >= 7.1.0 worden niet-ANSI-bestandsnamen beter afgehandeld, en phpMussel zou in staat moeten zijn om de bestanden correct te scannen.
-
-Ter vergelijking, de resultaten bij een poging om de map te scannen met behulp van PHP >= 7.1.0:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Gestart.
- -> Verifiëren '\Пример.txt' (FN: b2ce2d31; FD: 27cbe813):
- --> Geen problemen gevonden.
- -> Verifiëren '\一个例子.txt' (FN: 50debed5; FD: 27cbe813):
- --> Geen problemen gevonden.
- -> Verifiëren '\例です.txt' (FN: ee20a2ae; FD: 27cbe813):
- --> Geen problemen gevonden.
- Sun, 01 Apr 2018 22:27:41 +0800 Afgewerkt.
-```
-
-En probeer de bestanden afzonderlijk te scannen:
-
-```
- Sun, 01 Apr 2018 22:27:41 +0800 Gestart.
- > Verifiëren 'X:/directory/Пример.txt' (FN: b831eb8f; FD: 27cbe813):
- -> Geen problemen gevonden.
- Sun, 01 Apr 2018 22:27:41 +0800 Afgewerkt.
-```
-
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists (zwarte lijsten) – Whitelists (witte lijsten) – Greylists (grijze lijst) – Wat zijn ze en hoe gebruik ik ze?
 
 De termen brengen verschillende betekenissen over in verschillende contexten. In phpMussel zijn er drie contexten waarin deze termen worden gebruikt: Bestandsgrootte respons, bestandstype respons, en de signature greylist.
@@ -1166,24 +1143,6 @@ In deze twee contexten, op de witte lijst staan betekent dat deze niet mag worde
 De signature greylist is een lijst met signatures die in essentie moet worden genegeerd (dit wordt eerder in de documentatie kort genoemd). Wanneer een signature op de signature greylist wordt geactiveerd, blijft phpMussel werken door zijn signatures en onderneemt geen specifieke actie met betrekking tot de signature dat op de greylist staat. Er is geen zwarte lijst, omdat het impliciete gedrag is hetzelfde als het normaal gedrag voor getriggerde signatures, en er is geen signature witte lijst, omdat het impliciete gedrag niet echt zinvol is in overweging van hoe phpMussel normaal werkt en de mogelijkheden die het al heeft.
 
 De signature grijze lijst is handig als u problemen wilt oplossen die door een bepaalde signature worden veroorzaakt zonder het volledige signatuurbestand uit te schakelen of te deinstalleren.
-
-#### <a name="CHANGE_COMPONENT_SORT_ORDER"></a>Wanneer ik signatuurbestanden activeer of deactiveer via de updates-pagina, sorteert deze ze alfanumeriek in de configuratie. Kan ik de manier wijzigen waarop ze worden gesorteerd?
-
-Ja. Als u bepaalde bestanden wilt dwingen om in een specifieke volgorde uit te voeren, kunt u enkele willekeurige gegevens vóór hun naam toevoegen in de configuratie richtlijn waar ze worden vermeld, gescheiden door een dubbele punt. Wanneer de updates-pagina vervolgens de bestanden opnieuw sorteert, heeft deze toegevoegde willekeurige gegevens invloed op de sorteervolgorde, waardoor ze vervolgens in de gewenste volgorde worden uitgevoerd, zonder dat ze hoeven te hernoemen.
-
-Stel dat u bijvoorbeeld een configuratie richtlijn aanneemt met de volgende bestanden:
-
-`file1.php,file2.php,file3.php,file4.php,file5.php`
-
-Als u wilt dat `file3.php` het eerst uitvoert, u zou iets als `aaa:` kunnen toevoegen voor de naam van het bestand:
-
-`file1.php,file2.php,aaa:file3.php,file4.php,file5.php`
-
-Als dan een nieuw bestand, `file6.php`, is geactiveerd, als de updates-pagina ze allemaal opnieuw sorteert, het zou zo moeten eindigen:
-
-`aaa:file3.php,file1.php,file2.php,file4.php,file5.php,file6.php`
-
-Dezelfde situatie wanneer een bestand is gedeactiveerd. Omgekeerd, als u wilde dat het bestand als laatste werd uitgevoerd, u zou iets als `zzz:` kunnen toevoegen voor de naam van het bestand. In elk geval hoeft u het betreffende bestand niet te hernoemen.
 
 #### <a name="HOW_TO_USE_PDO"></a>Wat is een "PDO DSN"? Hoe kan ik PDO gebruiken met phpMussel?
 
@@ -1426,16 +1385,15 @@ Indien ingeschakeld in de pakketconfiguratie houdt phpMussel logs bij van de bes
 Invoer naar een mensen leesbaar logbestand ziet er meestal als volgt uit (bijvoorbeeld):
 
 ```
-Mon, 21 May 2018 00:47:58 +0800 Gestart.
-> Verifiëren 'ascii_standard_testfile.txt' (FN: ce76ae7a; FD: 7b9bfed5):
--> Gedetecteerd phpMussel-Testfile.ASCII.Standard!
-Mon, 21 May 2018 00:48:04 +0800 Afgewerkt.
+Sun, 19 Jul 2020 13:33:31 +0800 Gestart.
+→ "ascii_standard_testfile.txt" aan het verifiëren.
+─→ Gedetecteerd phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+Sun, 19 Jul 2020 13:33:31 +0800 Afgewerkt.
 ```
 
 Een scan log bevat meestal de volgende informatie:
 - De datum en tijd waarop het bestand is gescand.
 - De naam van het gescande bestand.
-- CRC32b hashes van de naam en inhoud van het bestand.
 - Wat werd er in het bestand gedetecteerd (als er iets werd gedetecteerd).
 
 *Relevante configuratie-opties:*
@@ -1444,20 +1402,20 @@ Een scan log bevat meestal de volgende informatie:
 
 Wanneer deze richtlijnen leeg worden gelaten, blijft dit type logboek uitgeschakeld.
 
-##### 11.3.1 SCAN KILLS
+##### 11.3.1 UPLOADS LOG
 
 Indien ingeschakeld in de pakketconfiguratie houdt phpMussel logs bij van de uploads die zijn geblokkeerd.
 
-Invoer van een "scan kills" logbestand ziet er ongeveer als volgt uit (bijvoorbeeld):
+*Als voorbeeld:*
 
 ```
-Datum: Mon, 21 May 2018 00:47:56 +0800
-IP adres: 127.0.0.1
+Datum: Sun, 19 Jul 2020 13:33:31 +0800
+IP adres: 127.0.0.x
 == Scanresultaten (waarom gemarkeerd) ==
 Gedetecteerd phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
 == Hash signatures reconstructie ==
-3ed8a00c6c498a96a44d56533806153c:666:ascii_standard_testfile.txt
-In quarantaine geplaatst als "/vault/quarantine/0000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.qfu".
+dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt
+In quarantaine geplaatst als "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
 Een "scan kills" logsinvoer bevat meestal de volgende informatie:
@@ -1465,7 +1423,7 @@ Een "scan kills" logsinvoer bevat meestal de volgende informatie:
 - Het IP-adres waar de upload vandaan komt.
 - De reden waarom het bestand werd geblokkeerd (wat werd gedetecteerd).
 - De naam van het bestand geblokkeerd.
-- Een MD5 en de grootte van het bestand zijn geblokkeerd.
+- De checksum en de grootte van het bestand geblokkeerd.
 - Of het bestand in quarantaine is geplaatst en onder welke interne naam.
 
 *Relevante configuratie-opties:*
@@ -1529,7 +1487,7 @@ phpMussel is optioneel in staat om statistieken bij te houden, zoals het totale 
 
 ##### 11.3.7 ENCRYPTIE
 
-phpMussel codeert de cache of logboekinformatie niet. [Encryptie](https://nl.wikipedia.org/wiki/Encryptie) voor de cache en logs kunnen in de toekomst worden geïntroduceerd, maar er zijn momenteel geen specifieke plannen voor. Als u zich zorgen maakt over ongeautoriseerde derden die toegang krijgen tot delen van phpMussel die mogelijk PII of gevoelige informatie bevatten, zoals de cache of logbestanden, raad ik phpMussel aan niet te installeren op een openbare locatie (b.v., installeer phpMussel buiten de standaard `public_html` directory of gelijkwaardig daarvan beschikbaar voor de meeste standaard webservers) en dat de juiste beperkende machtigingen worden afgedwongen voor de directory waar deze zich bevindt (in het bijzonder, voor de vault directory). Als dat niet voldoende is om uw zorgen weg te nemen, configureer dan phpMussel als zodanig dat de soorten informatie die uw zorgen veroorzaken, niet zullen worden verzameld of ingelogd (zoals door loggen uit te schakelen).
+phpMussel codeert de cache of logboekinformatie niet. [Encryptie](https://nl.wikipedia.org/wiki/Encryptie) voor de cache en logs kunnen in de toekomst worden geïntroduceerd, maar er zijn momenteel geen specifieke plannen voor. Als u zich zorgen maakt over ongeautoriseerde derden die toegang krijgen tot delen van phpMussel die mogelijk PII of gevoelige informatie bevatten, zoals de cache of logbestanden, raad ik phpMussel aan niet te installeren op een openbare locatie (b.v., installeer phpMussel buiten de standaard `public_html` folder of gelijkwaardig daarvan beschikbaar voor de meeste standaard webservers) en dat de juiste beperkende machtigingen worden afgedwongen voor de folder waar deze zich bevindt. Als dat niet voldoende is om uw zorgen weg te nemen, configureer dan phpMussel als zodanig dat de soorten informatie die uw zorgen veroorzaken, niet zullen worden verzameld of ingelogd (zoals door loggen uit te schakelen).
 
 #### 11.4 COOKIES
 
@@ -1568,4 +1526,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 16 Juli 2020 (2020.07.16).
+Laatste Bijgewerkt: 21 Juli 2020 (2020.07.21).
