@@ -108,14 +108,16 @@ Nếu bạn muốn sử dụng giao diện người dùng phpMussel, bạn có t
 Các trích đoạn dưới đây sẽ thêm một tài khoản mới vào giao diện người dùng với tên người dùng "admin" và mật khẩu "password".
 
 Đối với các tập tin INI:
-```
+
+```INI
 [user.admin]
 password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
 Đối với các tập tin YML:
-```
+
+```YAML
 user.admin:
  password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
  permissions: 1
@@ -167,7 +169,135 @@ Hàm tạo cho trình quét chỉ chấp nhận một tham số và nó là bắ
 public function __construct(\phpMussel\Core\Loader &$Loader)
 ```
 
-#### 3.4 API MÁY QUÉT
+#### 3.2 QUÉT TẢI LÊN TẬP TIN TỰ ĐỘNG
+
+Để khởi tạo trình xử lý tải lên:
+
+```PHP
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+```
+
+Để quét tập tin tải lên:
+
+```PHP
+$Web->scan();
+```
+
+Tùy chọn, phpMussel có thể cố gắng sửa tên của các tải lên trong trường hợp có gì đó không đúng, nếu bạn muốn:
+
+```PHP
+$Web->demojibakefier();
+```
+
+Như một ví dụ đầy đủ:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Cleanup.
+unset($Web, $Scanner, $Loader);
+
+?><html>
+    <form enctype="multipart/form-data" name="upload" action="" method="post">
+      <div class="spanner">
+        <input type="file" name="upload_test[]" value="" />
+        <input type="submit" value="OK" />
+      </div>
+    </form>
+</html>
+```
+
+*Đang cố tải lên tập tin `ascii_standard_testfile.txt`, một mẫu lành tính được cung cấp cho mục đích duy nhất là thử nghiệm phpMussel:*
+
+![Ảnh chụp màn hình](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
+
+#### 3.3 CHẾ ĐỘ CLI
+
+Để khởi tạo trình xử lý CLI:
+
+```PHP
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+```
+
+Như một ví dụ đầy đủ:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+
+unset($CLI, $Scanner, $Loader);
+```
+
+*Ảnh chụp màn hình:*
+
+![Ảnh chụp màn hình](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+
+#### 3.4 GIAO DIỆN NGƯỜI DÙNG (FRONT-END)
+
+Để khởi tạo giao diện người dùng:
+
+```PHP
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+```
+
+Như một ví dụ đầy đủ:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Load the front-end.
+$FrontEnd->view();
+
+// Cleanup.
+unset($Web, $FrontEnd, $Scanner, $Loader);
+```
+
+*Ảnh chụp màn hình:*
+
+![Ảnh chụp màn hình](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+
+#### 3.5 API MÁY QUÉT
 
 Các kết quả | Sự miêu tả
 --:|:--
@@ -182,7 +312,7 @@ Các kết quả | Sự miêu tả
 
 *Xem thêm: [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#SCAN_DEBUGGING)*
 
-#### 3.5 2FA (XÁC THỰC HAI YẾU TỐ)
+#### 3.6 2FA (XÁC THỰC HAI YẾU TỐ)
 
 Việc bật xác thực hai yếu tố ("2FA") có thể làm cho front-end an toàn hơn. Khi đăng nhập vào tài khoản có hỗ trợ 2FA, một email sẽ được gửi đến địa chỉ email được liên kết với tài khoản đó. Email này chứa "mã 2FA", mà sau đó người dùng phải nhập, ngoài tên người dùng và mật khẩu, để có thể đăng nhập bằng tài khoản đó. Điều này có nghĩa là việc lấy mật khẩu tài khoản sẽ không đủ cho bất kỳ tin tặc hoặc kẻ tấn công tiềm năng nào có thể đăng nhập vào tài khoản đó, bởi vì họ cũng cần phải có quyền truy cập vào địa chỉ email được liên kết với tài khoản đó để có thể nhận và sử dụng mã 2FA được kết hợp với phiên, do đó làm cho front-end an toàn hơn.
 

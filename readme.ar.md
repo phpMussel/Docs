@@ -112,14 +112,16 @@ https://github.com/phpMussel/Examples
 <div dir="rtl">ستضيف المقتطفات أدناه حسابًا جديدًا للواجهة الأمامية باسم المستخدم "admin" وكلمة المرور "password".<br /><br /></div>
 
 <div dir="rtl">لملفات INI:<br /><br /></div>
-```
+
+```INI
 [user.admin]
 password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
 <div dir="rtl">لملفات YML:<br /><br /></div>
-```
+
+```YAML
 user.admin:
  password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
  permissions: 1
@@ -171,7 +173,135 @@ public function __construct(
 public function __construct(\phpMussel\Core\Loader &$Loader)
 ```
 
-#### <div dir="rtl">٣.٤ API الماسح</div>
+#### <div dir="rtl">٣.٢ المسح التلقائي لتحميل الملف</div>
+
+<div dir="rtl">لإنشاء معالج التحميل:<br /><br /></div>
+
+```PHP
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+```
+
+<div dir="rtl">لفحص تحميلات الملفات:<br /><br /></div>
+
+```PHP
+$Web->scan();
+```
+
+<div dir="rtl">بشكل اختياري ، يمكن أن يحاول phpMussel إصلاح أسماء التحميلات في حالة وجود خطأ ما ، إذا كنت ترغب في:<br /><br /></div>
+
+```PHP
+$Web->demojibakefier();
+```
+
+<div dir="rtl">كمثال كامل:<br /><br /></div>
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Cleanup.
+unset($Web, $Scanner, $Loader);
+
+?><html>
+    <form enctype="multipart/form-data" name="upload" action="" method="post">
+      <div class="spanner">
+        <input type="file" name="upload_test[]" value="" />
+        <input type="submit" value="OK" />
+      </div>
+    </form>
+</html>
+```
+
+<div dir="rtl">عند محاولة تحميل الملف <code dir="ltr">ascii_standard_testfile.txt</code> (يتم توفير عينة حميدة لغرض وحيد هو اختبار phpMussel):<br /><br /></div>
+
+![لقطة شاشة](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
+
+#### <div dir="rtl">٣.٣ وضع CLI</div>
+
+<div dir="rtl">لإنشاء معالج CLI:<br /><br /></div>
+
+```PHP
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+```
+
+<div dir="rtl">كمثال كامل:<br /><br /></div>
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+
+unset($CLI, $Scanner, $Loader);
+```
+
+<div dir="rtl">لقطة شاشة:<br /><br /></div>
+
+![لقطة شاشة:](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+
+#### <div dir="rtl">٣.٤ الواجهة الأمامية</div>
+
+<div dir="rtl">لإنشاء الواجهة الأمامية:<br /><br /></div>
+
+```PHP
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+```
+
+<div dir="rtl">كمثال كامل:<br /><br /></div>
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Load the front-end.
+$FrontEnd->view();
+
+// Cleanup.
+unset($Web, $FrontEnd, $Scanner, $Loader);
+```
+
+<div dir="rtl">لقطة شاشة:<br /><br /></div>
+
+![لقطة شاشة](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+
+#### <div dir="rtl">٣.٧ API الماسح</div>
 
 النتائج | وصف
 --:|--:

@@ -108,14 +108,16 @@ Wenn Sie das phpMussel-Frontend verwenden möchten, können Sie alles auf das Fr
 In den folgenden Auszügen wird ein neues Konto im Front-End mit dem Benutzernamen "admin" und dem Kennwort "password" hinzugefügt.
 
 Für INI-Dateien:
-```
+
+```INI
 [user.admin]
 password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
 Für YML-Dateien:
-```
+
+```YAML
 user.admin:
  password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
  permissions: 1
@@ -167,7 +169,135 @@ Der Konstruktor für den Scanner akzeptiert nur einen Parameter und ist obligato
 public function __construct(\phpMussel\Core\Loader &$Loader)
 ```
 
-#### 3.4 SCANNER-API
+#### 3.2 AUTOMATISCHES SCANNEN DES DATEI-UPLOADS
+
+Instanziieren des Upload-Handlers:
+
+```PHP
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+```
+
+Scannen von Datei-Uploads:
+
+```PHP
+$Web->scan();
+```
+
+Optional kann phpMussel versuchen, die Namen von Uploads zu reparieren, falls etwas nicht stimmt, wenn Sie möchten:
+
+```PHP
+$Web->demojibakefier();
+```
+
+Als vollständiges Beispiel:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Cleanup.
+unset($Web, $Scanner, $Loader);
+
+?><html>
+    <form enctype="multipart/form-data" name="upload" action="" method="post">
+      <div class="spanner">
+        <input type="file" name="upload_test[]" value="" />
+        <input type="submit" value="OK" />
+      </div>
+    </form>
+</html>
+```
+
+*Beim Uploaden von `ascii_standard_testfile.txt`, einem harmlosen Beispiel das ausschließlich zum Testen von phpMussel bereitgestellt wird:
+
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
+
+#### 3.3 CLI-MODUS
+
+Instanziieren des CLI-Handlers:
+
+```PHP
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+```
+
+Als vollständiges Beispiel:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+
+unset($CLI, $Scanner, $Loader);
+```
+
+*Screenshot:*
+
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+
+#### 3.4 FRONTEND
+
+Instanziieren des Frontends:
+
+```PHP
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+```
+
+Als vollständiges Beispiel:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Load the front-end.
+$FrontEnd->view();
+
+// Cleanup.
+unset($Web, $FrontEnd, $Scanner, $Loader);
+```
+
+*Screenshot:*
+
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+
+#### 3.5 SCANNER-API
 
 Ergebnisse | Beschreibung
 --:|:--
@@ -182,7 +312,7 @@ Ergebnisse | Beschreibung
 
 *Siehe auch: [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#SCAN_DEBUGGING)*
 
-#### 3.5 ZWEI-FAKTOR-AUTHENTIFIZIERUNG
+#### 3.6 ZWEI-FAKTOR-AUTHENTIFIZIERUNG
 
 Es ist möglich, das Frontend sicherer zu machen, indem Sie die Zwei-Faktor-Authentifizierung ("2FA") aktivieren. Wenn Sie sich bei einem 2FA-aktivierten Konto eingeloggt, wird eine E-Mail an die mit diesem Konto verknüpfte E-Mail-Adresse gesendet. Diese E-Mail enthält einen "2FA-Code", den der Nutzer zusätzlich zum Benutzernamen und Passwort eingeben muss, um sich mit diesem Konto einloggen zu können. Das bedeutet, dass das Erlangen eines Kontopassworts nicht ausreicht, damit sich ein Hacker oder potentieller Angreifer in diesem Konto einloggen kann, da sie auch bereits Zugriff auf die mit diesem Konto verknüpfte E-Mail-Adresse haben müssen, um den mit der Sitzung verbundenen 2FA-Code empfangen und verwenden zu können, dadurch wird das Frontend sicherer.
 

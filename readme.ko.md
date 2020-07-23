@@ -108,14 +108,16 @@ phpMussel의 기본 구성에 만족하고 아무것도 변경하지 않으려�
 아래 발췌 부분은 사용자 이름이 "admin"이고 암호가 "password"인 새 계정을 프런트 엔도임에 추가합니다.
 
 INI 파일의 경우 :
-```
+
+```INI
 [user.admin]
 password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
 YML 파일의 경우 :
-```
+
+```YAML
 user.admin:
  password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
  permissions: 1
@@ -167,7 +169,135 @@ public function __construct(
 public function __construct(\phpMussel\Core\Loader &$Loader)
 ```
 
-#### 3.4 스캐너 API
+#### 3.2 자동 파일 업로드 스캔
+
+업로드 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
+
+```PHP
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+```
+
+파일 업로드를 스캔하려면 :
+
+```PHP
+$Web->scan();
+```
+
+선택적으로 phpMussel은 원하는 경우 업로드 이름을 복구하려고 시도 할 수 있습니다 :
+
+```PHP
+$Web->demojibakefier();
+```
+
+완전한 예를 들면 :
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Cleanup.
+unset($Web, $Scanner, $Loader);
+
+?><html>
+    <form enctype="multipart/form-data" name="upload" action="" method="post">
+      <div class="spanner">
+        <input type="file" name="upload_test[]" value="" />
+        <input type="submit" value="OK" />
+      </div>
+    </form>
+</html>
+```
+
+*파일 `ascii_standard_testfile.txt` 업로드 시도 (이것은 phpMussel 테스트를위한 무해한 샘플입니다) :*
+
+![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
+
+#### 3.3 CLI 모드
+
+CLI 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
+
+```PHP
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+```
+
+완전한 예를 들면 :
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+
+unset($CLI, $Scanner, $Loader);
+```
+
+*스크린 샷 :*
+
+![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+
+#### 3.4 프론트 엔드
+
+프런트 엔드를 인스턴스화하려면 :
+
+```PHP
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+```
+
+완전한 예를 들면 :
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Load the front-end.
+$FrontEnd->view();
+
+// Cleanup.
+unset($Web, $FrontEnd, $Scanner, $Loader);
+```
+
+*스크린 샷 :*
+
+![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+
+#### 3.5 스캐너 API
 
 결과 | 기술
 --:|:--
@@ -182,7 +312,7 @@ public function __construct(\phpMussel\Core\Loader &$Loader)
 
 *꼭 참조하십시오 : [파일 검색시 특정 정보에 액세스하려면 어떻게해야합니까?](#SCAN_DEBUGGING)*
 
-#### 3.5 2FA (이중 인증)
+#### 3.6 2FA (이중 인증)
 
 2FA를 사용하면 프런트 엔드를 더욱 안전하게 만들 수 있습니다. 2FA를 사용하는 계정에 로그인하면 해당 계정과 연결된 이메일 주소로 이메일이 전송됩니다. 이 이메일에는 "2FA 코드"가 포함되어 있습니다. 사용자는이 계정을 사용하여 로그인 할 수 있도록 사용자 이름과 비밀번호 외에도 사용자가 입력해야합니다. 즉, 해커 또는 잠재적 공격자가 해당 계정에 로그인 할 수 있도록 계정 암호로는 충분하지 않습니다. 세션과 관련된 2FA 코드를 수신하고 활용하려면 해당 계정과 연결된 이메일 주소에 대한 액세스 권한이 있어야합니다.
 

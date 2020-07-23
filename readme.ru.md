@@ -108,14 +108,16 @@ https://github.com/phpMussel/Examples
 Приведенные ниже выдержки добавят аккаунт в фронтенд с именем пользователя «admin» и паролем «password».
 
 Для файлов INI:
-```
+
+```INI
 [user.admin]
 password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
 Для файлов YML:
-```
+
+```YAML
 user.admin:
  password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
  permissions: 1
@@ -167,7 +169,135 @@ public function __construct(
 public function __construct(\phpMussel\Core\Loader &$Loader)
 ```
 
-#### 3.4 API СКАНЕРА
+#### 3.2 АВТОМАТИЧЕСКОЕ СКАНИРОВАНИЕ ЗАГРУЗКИ ФАЙЛОВ
+
+Чтобы создать инстанция обработчика загрузки:
+
+```PHP
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+```
+
+Для сканирования загрузки файлов:
+
+```PHP
+$Web->scan();
+```
+
+Необязательно, phpMussel может попытаться восстановить имена загрузок, если что-то не так, если вы хотите:
+
+```PHP
+$Web->demojibakefier();
+```
+
+В качестве полного примера:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Cleanup.
+unset($Web, $Scanner, $Loader);
+
+?><html>
+    <form enctype="multipart/form-data" name="upload" action="" method="post">
+      <div class="spanner">
+        <input type="file" name="upload_test[]" value="" />
+        <input type="submit" value="OK" />
+      </div>
+    </form>
+</html>
+```
+
+*Попытка загрузить файл `ascii_standard_testfile.txt`, доброкачественный образец, предоставленный с единственной целью тестирования phpMussel:*
+
+![Скриншот](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
+
+#### 3.3 РЕЖИМ CLI
+
+Чтобы создать инстанция обработчика CLI:
+
+```PHP
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+```
+
+В качестве полного примера:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
+
+unset($CLI, $Scanner, $Loader);
+```
+
+*Скриншот:*
+
+![Скриншот](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+
+#### 3.4 ФРОНТЕНД
+
+Чтобы создать инстанция фронтенда:
+
+```PHP
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+```
+
+В качестве полного примера:
+
+```PHP
+<?php
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+$Web = new \phpMussel\Web\Web($Loader, $Scanner);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Scans file uploads (execution terminates here if the scan finds anything).
+$Web->scan();
+
+// Fixes possible corrupted file upload names (Warning: modifies the content of $_FILES).
+$Web->demojibakefier();
+
+// Load the front-end.
+$FrontEnd->view();
+
+// Cleanup.
+unset($Web, $FrontEnd, $Scanner, $Loader);
+```
+
+*Screenshot:*
+
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+
+#### 3.5 API СКАНЕРА
 
 Результаты | Описание
 --:|:--
@@ -182,7 +312,7 @@ public function __construct(\phpMussel\Core\Loader &$Loader)
 
 *Смотрите также: [Как получить доступ к конкретным сведениям о файлах при их сканировании?](#SCAN_DEBUGGING)*
 
-#### 3.5 ДВУХФАКТОРНАЯ АУТЕНТИФИКАЦИЯ
+#### 3.6 ДВУХФАКТОРНАЯ АУТЕНТИФИКАЦИЯ
 
 Возможно сделать фронтенд более безопасным, включив двухфакторную аутентификацию («2FA»). При входе в аккаунт с поддержкой 2FA, электронное письмо отправляется на адрес электронной почты, связанный с этой аккаунтой. Это электронное письмо содержит «код 2FA», который затем должен ввести пользователь в дополнение к имени пользователя и паролю, чтобы иметь возможность войти в систему, используя эту аккаунт. Это означает, что получить пароль аккаунтой будет недостаточно для того, чтобы любой хакер или потенциальный злоумышленник могли войти в эту аккаунт, потому что им также необходимо будет иметь доступ к адресу электронной почты, связанному с этой аккаунтой, чтобы иметь возможность получать и использовать код 2FA, связанный с сеансом, что делает фронтенд более безопасным.
 

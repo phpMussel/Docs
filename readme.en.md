@@ -108,14 +108,16 @@ If you want to use the phpMussel front-end, you can configure everything from th
 The below excerpts will add a new account to the front-end with the username "admin", and the password "password".
 
 For INI files:
-```
+
+```INI
 [user.admin]
 password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
 For YML files:
-```
+
+```YAML
 user.admin:
  password: "$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK"
  permissions: 1
@@ -254,7 +256,7 @@ unset($CLI, $Scanner, $Loader);
 
 ![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
 
-#### 3.3 FRONT-END
+#### 3.4 FRONT-END
 
 To instantiate the front-end:
 
@@ -295,7 +297,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 ![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
 
-#### 3.4 SCANNER API
+#### 3.5 SCANNER API
 
 You can also implement the phpMussel scanner API within other programs and scripts, if you'd like.
 
@@ -447,7 +449,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 
 *See also: [How to access specific details about files when they are scanned?](#SCAN_DEBUGGING)*
 
-#### 3.5 TWO-FACTOR AUTHENTICATION
+#### 3.6 TWO-FACTOR AUTHENTICATION
 
 It's possible to make the front-end more secure by enabling two-factor authentication ("2FA"). When logging into a 2FA-enabled account, an email is sent to the email address associated with that account. This email contains a "2FA code", which the user must then enter, in addition to the username and password, in order to be able to log in using that account. This means that obtaining an account password would not be enough for any hacker or potential attacker to be able to log into that account, as they would also need to already have access to the email address associated with that account in order to be able to receive and utilise the 2FA code associated with the session, thus making the front-end more secure.
 
@@ -460,7 +462,7 @@ Next, you'll need to associate an email address with an account, so that phpMuss
 
 ### 4. <a name="SECTION4"></a>EXTENDING PHPMUSSEL
 
-phpMussel is designed with extensibility in mind. Pull requests to any of the repositories at the phpMussel organisation, and [contributing](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) in general, are always welcome. However, if you need to modify or extend phpMussel in ways which aren't suitable for contributing back those particular repositories, that is definitely possible to do (e.g., for modifications or extensions which are specific to your particular implementation, which can't be publicised due to confidentiality or privacy needs at your organisational, or which might be prefereably publicised at their own repository, such as for plugins and new Composer packages which require phpMussel).
+phpMussel is designed with extensibility in mind. Pull requests to any of the repositories at the phpMussel organisation, and [contributions](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) in general, are always welcome. However, if you need to modify or extend phpMussel in ways which aren't suitable for contributing back those particular repositories, that is definitely possible to do (e.g., for modifications or extensions which are specific to your particular implementation, which can't be publicised due to confidentiality or privacy needs at your organisation, or which might be preferably publicised at their own repository, such as for plugins and new Composer packages which require phpMussel).
 
 Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
 
