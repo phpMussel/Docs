@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 API MÁY QUÉT
 
+Bạn cũng có thể triển khai API trình quét phpMussel trong các chương trình và tập lệnh khác, nếu bạn muốn.
+
+Như một ví dụ đầy đủ:
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+Phần quan trọng cần lưu ý từ ví dụ đó là phương thức `scan()`. Phương thức `scan()` chấp nhận hai tham số:
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+Tham số đầu tiên có thể là một chuỗi hoặc một mảng và cho máy quét biết những gì nó cần quét. Nó có thể là chuỗi chỉ ra một tập tin hoặc thư mục cụ thể, hoặc một mảng các chuỗi như vậy để chỉ định nhiều tập tin và thư mục.
+
+Khi là một chuỗi, nó sẽ trỏ đến nơi có thể tìm thấy dữ liệu. Khi là một mảng, các khóa mảng sẽ chỉ ra tên gốc của các mục sẽ được quét và các giá trị sẽ trỏ đến nơi có thể tìm thấy dữ liệu.
+
+Tham số thứ hai là một số nguyên và cho máy quét biết cách trả về kết quả quét của nó.
+
+Chỉ định 1 để trả về kết quả quét dưới dạng một mảng cho mỗi mục được quét dưới dạng số nguyên.
+
+Các số nguyên này có ý nghĩa như sau:
+
 Các kết quả | Sự miêu tả
 --:|:--
 -5 | Chỉ ra rằng việc quét không hoàn thành vì lý do khác.
@@ -309,6 +352,40 @@ Các kết quả | Sự miêu tả
 0 | Chỉ ra rằng mục tiêu quét không tồn tại và như vậy không có gì để quét.
 1 | Chỉ ra rằng các mục tiêu đã được quét thành công và không có vấn đề đã được phát hiện.
 2 | Chỉ ra rằng các mục tiêu đã được quét thành công và vấn đề đã được phát hiện.
+
+Chỉ định 2 để trả về kết quả quét dưới dạng boolean.
+
+Các kết quả | Sự miêu tả
+:-:|:--
+`true` | Vấn đề đã được phát hiện (mục tiêu quét là nguy hiểm).
+`false` | Vấn đề không được phát hiện (mục tiêu quét có thể an toàn).
+
+Chỉ định 3 để trả về kết quả quét dưới dạng một mảng cho mỗi mục được quét dưới dạng văn bản có thể đọc được.
+
+*Ví dụ đầu ra:*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+Chỉ định 4 để trả về kết quả quét dưới dạng một chuỗi văn bản có thể đọc được (thích 3, nhưng kết hợp).
+
+*Ví dụ đầu ra:*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+Chỉ định *bất kỳ giá trị nào khác* để trả về văn bản có định dạng (giống như kết quả quét được thấy khi sử dụng CLI).
+
+*Ví dụ đầu ra:*
 
 *Xem thêm: [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#SCAN_DEBUGGING)*
 

@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 SCANNER-API
 
+Sie können die phpMussel-Scanner-API auch in anderen Programmen und Skripten implementieren, wenn Sie möchten.
+
+Als vollständiges Beispiel:
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+Der wichtige Teil dieses Beispiels ist die `scan()`-Methode. Die `scan()`-Methode akzeptiert zwei Parameter:
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+Der erste Parameter kann eine String oder ein Array sein und teilt dem Scanner mit, was gescannt werden soll. Es kann sich um eine String handeln, die eine bestimmte Datei oder ein bestimmtes Verzeichnis angibt, oder um ein Array solcher Zeichenfolgen, um mehrere Dateien/Verzeichnisse anzugeben.
+
+Als String sollte es zeigen, wo sich die Daten befinden. Als Array sollten die Array-Schlüssel die ursprünglichen Namen der zu scannenden Elemente angeben, und die Werte sollten darauf verweisen, wo sich die Daten befinden.
+
+Der zweite Parameter ist eine Integer/Ganzzahl und teilt dem Scanner mit, wie er seine Scanergebnisse zurückgeben soll.
+
+Geben Sie 1 an, um die Scanergebnisse als Array für jedes als Integer/Ganzzahl gescannte Element zurückzugeben.
+
+Diese Integers/Ganzzahlen haben folgende Bedeutung:
+
 Ergebnisse | Beschreibung
 --:|:--
 -5 | Zeigt an, dass der Scan aus anderen Gründen nicht abgeschlossen werden konnte.
@@ -309,6 +352,40 @@ Ergebnisse | Beschreibung
 0 | Zeigt an, dass das Ziel nicht existiert und somit nichts überprüft werden konnte.
 1 | Zeigt an, dass das Ziel erfolgreich geprüft wurde und keine Probleme erkannt wurden.
 2 | Zeigt an, dass das Ziel erfolgreich geprüft wurde, jedoch Probleme gefunden wurden.
+
+Geben Sie 2 um die Scanergebnisse als Booleschen Wert zurückzugeben an.
+
+Ergebnisse | Beschreibung
+:-:|:--
+`true` | Probleme wurden erkannt (Scan-Ziel ist schlecht/gefährlich).
+`false` | Probleme wurden nicht erkannt (Scan-Ziel ist wahrscheinlich in Ordnung).
+
+Geben Sie 3 um die Scanergebnisse als Array für jedes Element als menschlich lesbarer Text gescannte zurückzugeben an.
+
+*Beispielausgabe:*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+Geben Sie 4 um die Scanergebnisse als Zeichenfolge mit lesbarem Text zurückzugeben an (wie 3, aber implodiert).
+
+*Beispielausgabe:*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+Geben Sie *jede anderen Wert* um formatierten Text zurückzugeben an (d.h., die Scanergebnisse dass wenn Verwendung von CLI gesehen werden).
+
+*Beispielausgabe:*
 
 *Siehe auch: [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#SCAN_DEBUGGING)*
 

@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 API СКАНЕРА
 
+Вы также можете использовать API сканера phpMussel в других программах и скриптах, если хотите.
+
+В качестве полного примера:
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+Метод `scan()` является наиболее важной частью этого примера. Метод `scan()` принимает два параметра:
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+Первый параметр может быть строкой или массивом и сообщает сканеру, что он должен сканировать. Это может быть строка, указывающая конкретный файл или каталог, или массив таких строк для указания нескольких файлов/каталогов.
+
+Когда в виде строки, он должен указывать, где данные могут быть найдены. Когда в виде массива, ключи массива должны указывать исходные имена проверяемых элементов, а значения должны указывать, где можно найти данные.
+
+Второй параметр является целым числом и сообщает сканеру, как он должен возвращать результаты сканирования.
+
+Укажите 1, чтобы вернуть результаты сканирования в виде массива для каждого элемента отсканированного, как целые числа.
+
+Эти целые числа имеют следующие значения:
+
 Результаты | Описание
 --:|:--
 -5 | Указывает, что сканирование не удалось завершить по другим причинам.
@@ -309,6 +352,40 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 0 | Говорит о том, что цель не существует, а следовательно не может быть и проверена.
 1 | Означает, что цель успешно проверена и проблем не найдено.
 2 | Цель успешно проверена, но имеются проблемы.
+
+Укажите 2, чтобы вернуть результаты сканирования как логическое значение.
+
+Результаты | Описание
+:-:|:--
+`true` | Проблемы обнаружены (цель сканирования плохая/опасная).
+`false` | Проблемы не обнаружены (цель сканирования, вероятно, доброкачественная).
+
+Укажите 3, чтобы возвращать результаты сканирования в виде массива для каждого элемента отсканированного, как читабельный текст.
+
+*Пример вывода:*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+Укажите 4, чтобы вернуть результаты сканирования в виде строки читабельного человеком текста (вроде 3, но в сочетании).
+
+*Пример вывода:*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+Укажите *любое другое значение* для возврата форматированного текста (что похоже на результаты сканирования при использовании CLI).
+
+*Пример вывода:*
 
 *Смотрите также: [Как получить доступ к конкретным сведениям о файлах при их сканировании?](#SCAN_DEBUGGING)*
 

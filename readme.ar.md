@@ -187,7 +187,7 @@ $Web = new \phpMussel\Web\Web($Loader, $Scanner);
 $Web->scan();
 ```
 
-<div dir="rtl">بشكل اختياري ، يمكن أن يحاول phpMussel إصلاح أسماء التحميلات في حالة وجود خطأ ما ، إذا كنت ترغب في:<br /><br /></div>
+<div dir="rtl">بشكل اختياري، يمكن أن يحاول phpMussel إصلاح أسماء التحميلات في حالة وجود خطأ ما، إذا كنت ترغب في:<br /><br /></div>
 
 ```PHP
 $Web->demojibakefier();
@@ -303,16 +303,93 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### <div dir="rtl">٣.٧ API الماسح</div>
 
+<div dir="rtl">يمكنك أيضًا استخدام واجهة برمجة تطبيقات الماسح الضوئي phpMussel في البرامج النصية والبرامج النصية الأخرى، إذا كنت ترغب في ذلك.<br /><br /></div>
+
+<div dir="rtl">كمثال كامل:<br /><br /></div>
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+<div dir="rtl">الجزء المهم الذي يجب ملاحظته من هذا المثال هو طريقة <code dir="ltr">scan()</code>. تقبل الطريقة <code dir="ltr">scan()</code> معلمتين:<br /><br /></div>
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+<div dir="rtl">يمكن أن تكون المعلمة الأولى عبارة عن سلسلة أو صفيف، وتخبر الماسح الضوئي بما يجب فحصه. يمكن أن تكون سلسلة تشير إلى ملف أو دليل معين، أو صفيف من هذه السلاسل لتحديد ملفات/أدلة متعددة.<br /><br /></div>
+
+<div dir="rtl">عندما تكون كسلسلة، يجب أن تشير إلى مكان العثور على البيانات. عندما تكون صفيفًا، يجب أن تشير مفاتيح الصفيف إلى الأسماء الأصلية للعناصر المراد مسحها ضوئيًا، ويجب أن تشير القيم إلى مكان العثور على البيانات.<br /><br /></div>
+
+<div dir="rtl">المعلمة الثانية هي عدد صحيح، وتخبر الماسح الضوئي بكيفية إرجاع نتائج المسح.<br /><br /></div>
+
+<div dir="rtl">حدد 1 لإرجاع نتائج المسح كمصفوفة لكل عنصر تم مسحه ضوئيًا كأعداد صحيحة.<br /><br /></div>
+
+<div dir="rtl">هذه الأعداد الصحيحة لها المعاني التالية:<br /><br /></div>
+
 النتائج | وصف
 --:|--:
--5 | Indicates that the scan failed to complete for other reasons.
--4 | Indicates that data couldn't be scanned due to encryption.
--3 | Indicates that problems were encountered with the phpMussel signatures files.
--2 | Indicates that corrupt data was detected during the scan and thus the scan failed to complete.
--1 | Indicates that extensions or addons required by PHP to execute the scan were missing and thus the scan failed to complete.
-0 | Indicates that the scan target doesn't exist and thus there was nothing to scan.
-1 | Indicates that the target was successfully scanned and no problems were detected.
-2 | Indicates that the target was successfully scanned and problems were detected.
+-5 | <div dir="rtl">يشير إلى أن الفحص فشل في إكمال لأسباب أخرى.</div>
+-4 | <div dir="rtl">يشير إلى أنه لا يمكن فحص البيانات بسبب التشفير.</div>
+-3 | <div dir="rtl">يشير إلى وجود مشاكل في ملفات توقيعات phpMussel.</div>
+-2 | <div dir="rtl">يشير إلى أنه تم الكشف عن بيانات فاسدة أثناء الفحص وبالتالي فشل اكتمال الفحص.</div>
+-1 | <div dir="rtl">يشير إلى أن الامتدادات المطلوبة من قبل PHP لتنفيذ الفحص كانت مفقودة وبالتالي فشل إكمال الفحص.</div>
+0 | <div dir="rtl">يشير إلى أن هدف الفحص غير موجود، وبالتالي لم يكن هناك شيء للمسح الضوئي.</div>
+1 | <div dir="rtl">يشير إلى أن الهدف تم فحصه بنجاح ولم يتم اكتشاف أي مشاكل.</div>
+2 | <div dir="rtl">يشير إلى أن الهدف تم فحصه بنجاح وتم اكتشاف المشكلات.</div>
+
+<div dir="rtl">حدد 2 لإرجاع نتائج الفحص على أنها صحيحة أو خاطئة.<br /><br /></div>
+
+النتائج | وصف
+:-:|:--
+`true` | <div dir="rtl">تم الكشف عن مشاكل (هدف الفحص سيء/خطير).</div>
+`false` | <div dir="rtl">لم يتم الكشف عن المشكلات (ربما يكون هدف الفحص على ما يرام).</div>
+
+<div dir="rtl">حدد 3 لإرجاع نتائج المسح كمصفوفة لكل عنصر تم مسحه ضوئيًا كنص قابل للقراءة البشرية.<br /><br /></div>
+
+<div dir="rtl">إخراج المثال:<br /><br /></div>
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+<div dir="rtl">حدد 4 لإرجاع نتائج المسح كسلسلة نص قابل للقراءة (مثل 3، ولكن كسلسلة بدلاً من صفيف).<br /><br /></div>
+
+<div dir="rtl">إخراج المثال:<br /><br /></div>
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+<div dir="rtl">حدد أي قيمة أخرى لإرجاع النص المنسق (مثل نتائج الفحص التي تمت رؤيتها عند استخدام CLI).<br /><br /></div>
+
+<div dir="rtl">إخراج المثال:<br /><br /></div>
 
 <div dir="rtl">أنظر أيضا: <a href="#SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a><br /></div>
 
@@ -1044,21 +1121,21 @@ smtp_secure
 
 <div dir="rtl">أول 9 بايت <code dir="ltr">[x0-x8]</code> من ملف التوقيع phpMussel هو <code dir="ltr">phpMussel</code>، والعمل بمثابة "عدد سحري" (magic number)، لتحديدها كملفات توقيع (وهذا يساعد على منع عن طريق الخطأ باستخدام الملفات التي ليست ملفات التوقيع). البايت المقبل <code dir="ltr">[x9]</code> يحدد نوع ملف التوقيع، والتي يجب أن تعرف من أجل أن تكون قادرة على تفسير ملف التوقيع بشكل صحيح. يتم التعرف على الأنواع التالية من ملفات التوقيع:<br /><br /></div>
 
-&nbsp; <div dir="rtl" style="display:inline">نوع</div> | <div dir="rtl" style="display:inline">بايت</div> | <div dir="rtl" style="display:inline">وصف</div>
+&nbsp; <div dir="rtl" style="display:inline">نوع</div> | <div dir="rtl">بايت</div> | <div dir="rtl">وصف</div>
 ---|---|---
-`General_Command_Detections` | `0?` | <div dir="rtl" style="display:inline">بالنسبة إلى ملفات التوقيع "القيم المفصولة بفواصل". التوقيعات هي سلاسل مشفرة عشرية للبحث عن الملفات. التوقيعات هنا ليس لديها أي أسماء أو تفاصيل أخرى (فقط السلسلة للكشف).</div>
-`Filename` | `1?` | <div dir="rtl" style="display:inline">لتوقيعات اسم الملف.</div>
-`Hash` | `2?` | <div dir="rtl" style="display:inline">لتوقيعات تجزئة الملف.</div>
-`Standard` | `3?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مباشرة مع محتوى الملف.</div>
-`Standard_RegEx` | `4?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مباشرة مع محتوى الملف. يمكن أن تحتوي التوقيعات على تعبيرات عادية.</div>
-`Normalised` | `5?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع محتوى ملف أنسي-تطبيع.</div>
-`Normalised_RegEx` | `6?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع محتوى ملف أنسي-تطبيع. يمكن أن تحتوي التوقيعات على تعبيرات عادية.</div>
-`HTML` | `7?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع محتوى ملف بتنسيق هتمل.</div>
-`HTML_RegEx` | `8?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع محتوى ملف بتنسيق هتمل. يمكن أن تحتوي التوقيعات على تعبيرات عادية.</div>
-`PE_Extended` | `9?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع البيانات الوصفية PE (باستثناء البيانات الوصفية المقطعية PE).</div>
-`PE_Sectional` | `A?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع البيانات الوصفية المقطع PE.</div>
-`Complex_Extended` | `B?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع قواعد مختلفة استنادا إلى بيانات التعريف الموسعة التي تم إنشاؤها بواسطة phpMussel.</div>
-`URL_Scanner` | `C?` | <div dir="rtl" style="display:inline">لملفات التوقيع التي تعمل مع عناوين URL.</div>
+`General_Command_Detections` | `0?` | <div dir="rtl">بالنسبة إلى ملفات التوقيع "القيم المفصولة بفواصل". التوقيعات هي سلاسل مشفرة عشرية للبحث عن الملفات. التوقيعات هنا ليس لديها أي أسماء أو تفاصيل أخرى (فقط السلسلة للكشف).</div>
+`Filename` | `1?` | <div dir="rtl">لتوقيعات اسم الملف.</div>
+`Hash` | `2?` | <div dir="rtl">لتوقيعات تجزئة الملف.</div>
+`Standard` | `3?` | <div dir="rtl">لملفات التوقيع التي تعمل مباشرة مع محتوى الملف.</div>
+`Standard_RegEx` | `4?` | <div dir="rtl">لملفات التوقيع التي تعمل مباشرة مع محتوى الملف. يمكن أن تحتوي التوقيعات على تعبيرات عادية.</div>
+`Normalised` | `5?` | <div dir="rtl">لملفات التوقيع التي تعمل مع محتوى ملف أنسي-تطبيع.</div>
+`Normalised_RegEx` | `6?` | <div dir="rtl">لملفات التوقيع التي تعمل مع محتوى ملف أنسي-تطبيع. يمكن أن تحتوي التوقيعات على تعبيرات عادية.</div>
+`HTML` | `7?` | <div dir="rtl">لملفات التوقيع التي تعمل مع محتوى ملف بتنسيق هتمل.</div>
+`HTML_RegEx` | `8?` | <div dir="rtl">لملفات التوقيع التي تعمل مع محتوى ملف بتنسيق هتمل. يمكن أن تحتوي التوقيعات على تعبيرات عادية.</div>
+`PE_Extended` | `9?` | <div dir="rtl">لملفات التوقيع التي تعمل مع البيانات الوصفية PE (باستثناء البيانات الوصفية المقطعية PE).</div>
+`PE_Sectional` | `A?` | <div dir="rtl">لملفات التوقيع التي تعمل مع البيانات الوصفية المقطع PE.</div>
+`Complex_Extended` | `B?` | <div dir="rtl">لملفات التوقيع التي تعمل مع قواعد مختلفة استنادا إلى بيانات التعريف الموسعة التي تم إنشاؤها بواسطة phpMussel.</div>
+`URL_Scanner` | `C?` | <div dir="rtl">لملفات التوقيع التي تعمل مع عناوين URL.</div>
 
 <div dir="rtl">البايت المقبل <code dir="ltr">[x10]</code> هو خط جديد <code dir="ltr">[0A]</code>، ويختتم رأس ملف التوقيع phpMussel.<br /><br /></div>
 
@@ -1163,8 +1240,8 @@ smtp_secure
 
 &nbsp; <div dir="rtl" style="display:inline">phpMussel لا ينبغي منع ملف</div> | &nbsp; <div dir="rtl" style="display:inline">phpMussel يجب منع ملف</div> | &nbsp;
 ---|---|---
-&nbsp; <div dir="rtl" style="display:inline">سلبي صحيح (الاستدلال الصحيح)</div> | <div dir="rtl" style="display:inline">افتقد (التناظرية من سلبي خاطئة)</div> | <div dir="rtl" style="display:inline"><strong>phpMussel لا يمنع ملف</strong></div>
-&nbsp; <div dir="rtl" style="display:inline"><strong>إيجابية خاطئة</strong></div> | <div dir="rtl" style="display:inline">إيجابية صحيح (الاستدلال الصحيح)</div> | <div dir="rtl" style="display:inline"><strong>phpMussel منع ملف</strong></div>
+&nbsp; <div dir="rtl" style="display:inline">سلبي صحيح (الاستدلال الصحيح)</div> | <div dir="rtl">افتقد (التناظرية من سلبي خاطئة)</div> | <div dir="rtl"><strong>phpMussel لا يمنع ملف</strong></div>
+&nbsp; <div dir="rtl" style="display:inline"><strong>إيجابية خاطئة</strong></div> | <div dir="rtl">إيجابية صحيح (الاستدلال الصحيح)</div> | <div dir="rtl"><strong>phpMussel منع ملف</strong></div>
 
 #### <div dir="rtl"><a name="SIGNATURE_UPDATE_FREQUENCY"></a>عدد المرات التي يتم تحديثها التوقيعات؟<br /><br /></div>
 

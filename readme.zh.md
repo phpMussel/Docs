@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 扫描程序API
 
+如果您想，还可以在其他程序和脚本中利用phpMussel扫描程序API。
+
+一个更完整的示例：
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+该示例要注意的重要部分是`scan()`方法。​`scan()`方法接受两个参数：
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+第一个参数可以是字符串或数组，并告诉扫描程序应扫描的内容。​它可以是指示特定文件或目录的字符串，也可以是此类字符串的数组以指定多个文件/目录。
+
+当为字符串时，它应指向可以在何处找到数据。​当作为阵列时，阵列键应指示要扫描的项目的原始名称，并且值应指向可以找到数据的位置。
+
+第二个参数是整数，它告诉扫描程序应如何返回其扫描结果。
+
+指定“1”以将扫描结果作为数组返回，每个元素将扫描项表示为整数。
+
+这些整数具有以下含义：
+
 结果 | 说明
 --:|:--
 -5 | 表明由于其他原因，扫描无法完成。
@@ -309,6 +352,40 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 0 | 表明扫描目标不存在和因此没有任何事为扫描。
 1 | 表明扫描目标是成功扫描和没有任何问题检测。
 2 | 表明扫描目标是成功扫描和至少一些问题是检测。
+
+指定2以将扫描结果作为布尔值返回。
+
+结果 | 说明
+:-:|:--
+`true` | 检测到问题（扫描目标很危险）。
+`false` | 未检测到问题（扫描目标可能是安全的）。
+
+指定3以数组形式返回扫描结果，每个扫描项目的每个元素均包含人类可读的文本。
+
+*示例输出：*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+指定4以将扫描结果作为人类可读文本字符串返回（像3，但内爆了）。
+
+*示例输出：*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+指定其他任何值以返回格式化的文本（即，使用CLI时看到的扫描结果）。
+
+*示例输出：*
 
 *也可以看看： [扫描时如何访问文件的具体细节？](#SCAN_DEBUGGING)*
 

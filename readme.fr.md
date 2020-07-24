@@ -107,7 +107,7 @@ Si vous souhaitez utiliser le front-end de phpMussel, vous pouvez tout configure
 
 Les extraits ci-dessous ajouteront un nouveau compte d'accès frontal avec le nom d'utilisateur « admin » et le mot de passe « password ».
 
-Pour les fichiers INI :
+Pour les fichiers INI :
 
 ```INI
 [user.admin]
@@ -115,7 +115,7 @@ password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
-Pour les fichiers YML :
+Pour les fichiers YML :
 
 ```YAML
 user.admin:
@@ -131,7 +131,7 @@ Reportez-vous à la section configuration de ce document pour plus d'information
 
 #### 3.1 PHPMUSSEL CORE
 
-Quelle que soit la façon dont vous souhaitez utiliser phpMussel, presque toutes les implémentations contiendront quelque chose comme ceci, au minimum :
+Quelle que soit la façon dont vous souhaitez utiliser phpMussel, presque toutes les implémentations contiendront quelque chose comme ceci, au minimum :
 
 ```PHP
 <?php
@@ -163,7 +163,7 @@ Le quatrième paramètre est le chemin vers le répertoire contenant les fichier
 
 Le cinquième paramètre est le chemin d'accès à votre répertoire vendor. Cela ne devrait jamais pointer vers autre chose. Lorsqu'il est omis, phpMussel essaiera de localiser ce répertoire pour lui-même. Ce paramètre est fourni afin de faciliter l'intégration avec des implémentations qui pourraient ne pas nécessairement avoir la même structure qu'un projet Composer typique.
 
-Le constructeur du scanner n'accepte qu'un seul paramètre, et il est obligatoire : l'objet loader instancié. Comme il est passé par référence, le loader doit être instancié sur une variable (instancier le loader directement dans le scanner afin de passer par valeur n'est pas la correcte façon d'utiliser phpMussel).
+Le constructeur du scanner n'accepte qu'un seul paramètre, et il est obligatoire : l'objet loader instancié. Comme il est passé par référence, le loader doit être instancié sur une variable (instancier le loader directement dans le scanner afin de passer par valeur n'est pas la correcte façon d'utiliser phpMussel).
 
 ```PHP
 public function __construct(\phpMussel\Core\Loader &$Loader)
@@ -171,25 +171,25 @@ public function __construct(\phpMussel\Core\Loader &$Loader)
 
 #### 3.2 ANALYSE AUTOMATIQUE DU TÉLÉCHARGEMENT DE FICHIERS
 
-Pour instancier le gestionnaire de téléchargements :
+Pour instancier le gestionnaire de téléchargements :
 
 ```PHP
 $Web = new \phpMussel\Web\Web($Loader, $Scanner);
 ```
 
-Pour analyser les téléchargements de fichiers :
+Pour analyser les téléchargements de fichiers :
 
 ```PHP
 $Web->scan();
 ```
 
-En option, phpMussel peut tenter de réparer les noms des téléchargements en cas de problème, si vous le souhaitez :
+En option, phpMussel peut tenter de réparer les noms des téléchargements en cas de problème, si vous le souhaitez :
 
 ```PHP
 $Web->demojibakefier();
 ```
 
-Un exemple plus complet :
+Un exemple plus complet :
 
 ```PHP
 <?php
@@ -223,19 +223,19 @@ unset($Web, $Scanner, $Loader);
 </html>
 ```
 
-*Tentative de téléchargement du fichier `ascii_standard_testfile.txt`, un échantillon bénin fourni dans le seul but de tester phpMussel :*
+*Tentative de téléchargement du fichier `ascii_standard_testfile.txt`, un échantillon bénin fourni dans le seul but de tester phpMussel :*
 
 ![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
 
 #### 3.3 MODE CLI
 
-Pour instancier le gestionnaire CLI :
+Pour instancier le gestionnaire CLI :
 
 ```PHP
 $CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
 ```
 
-Un exemple plus complet :
+Un exemple plus complet :
 
 ```PHP
 <?php
@@ -252,19 +252,19 @@ $CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
 unset($CLI, $Scanner, $Loader);
 ```
 
-*Capture d'écran :*
+*Capture d'écran :*
 
 ![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
 
 #### 3.4 L'ACCÈS FRONTAL
 
-Pour instancier l'accès frontal :
+Pour instancier l'accès frontal :
 
 ```PHP
 $FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
 ```
 
-Un exemple plus complet :
+Un exemple plus complet :
 
 ```PHP
 <?php
@@ -293,11 +293,54 @@ $FrontEnd->view();
 unset($Web, $FrontEnd, $Scanner, $Loader);
 ```
 
-*Capture d'écran :*
+*Capture d'écran :*
 
 ![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
 
 #### 3.5 API DU SCANNER
+
+Vous pouvez également implémenter l'API du scanner phpMussel dans d'autres programmes et scripts, si vous le souhaitez.
+
+Un exemple plus complet :
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+La partie importante à noter dans cet exemple est la méthode `scan()`. La méthode `scan()` accepte deux paramètres :
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+Le premier paramètre peut être une chaîne ou un tableau et indique au scanner ce qu'il doit analyser. Il peut s'agir d'une chaîne indiquant un fichier ou un répertoire spécifique, ou d'un tableau de telles chaînes pour spécifier plusieurs fichiers/répertoires.
+
+Quand c'est une chaîne, il doit pointer vers l'emplacement des données. Quand c'est un tableau, les clés du tableau doivent indiquer les noms d'origine des éléments à analyser et les valeurs doivent indiquer où les données peuvent être trouvées.
+
+Le deuxième paramètre est un entier et indique au scanner comment il doit renvoyer ses résultats d'analyse.
+
+Spécifiez 1 pour renvoyer les résultats de l'analyse sous forme de tableau pour chaque élément analysé sous forme d'entiers.
+
+Ces entiers ont les significations suivantes :
 
 Résultats | Description
 --:|:--
@@ -309,6 +352,40 @@ Résultats | Description
 0 | Indique qu'il n'existe pas cible à analyser et donc il n'y avait rien à analyser.
 1 | Indique que la cible était analysé avec succès et aucun problème n'été détectée.
 2 | Indique que la cible était analysé avec succès et problèmes ont été détectés.
+
+Spécifiez 2 pour renvoyer les résultats de l'analyse sous forme de valeur booléenne.
+
+Résultats | Description
+:-:|:--
+`true` | Problèmes ont été détectés (la cible de l'analyse est mauvaise/dangereuse).
+`false` | Problèmes n'ont pas été détectés (la cible de l'analyse est probablement bénigne).
+
+Spécifiez 3 pour renvoyer les résultats de l'analyse sous forme de tableau pour chaque élément analysé sous forme de texte lisible par l'homme.
+
+*Exemple de sortie :*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+Spécifiez 4 pour renvoyer les résultats de l'analyse sous forme de chaîne de texte lisible par l'homme (comme 3, mais implosé).
+
+*Exemple de sortie :*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+Spécifiez *toute autre valeur* pour renvoyer le texte formaté (comme celui des résultats d'analyse vus lors de l'utilisation de la CLI).
+
+*Exemple de sortie :*
 
 *Voir également : [Comment accéder à des détails spécifiques sur les fichiers lorsqu'ils sont analysés ?](#SCAN_DEBUGGING)*
 
@@ -468,7 +545,7 @@ Configuration générale (toute configuration de base n'appartenant pas à d'aut
 - Un fichier pour l'enregistrement des erreurs non fatales détectées. Spécifier un fichier, ou laisser vide à désactiver.
 
 ##### « truncate » `[string]`
-- Tronquer les fichiers journaux lorsqu'ils atteignent une certaine taille ? La valeur est la taille maximale en o/Ko/Mo/Go/To qu'un fichier journal peut croître avant d'être tronqué. La valeur par défaut de 0Ko désactive la troncature (les fichiers journaux peuvent croître indéfiniment). Remarque : S'applique aux fichiers journaux individuels ! La taille des fichiers journaux n'est pas considérée collectivement.
+- Tronquer les fichiers journaux lorsqu'ils atteignent une certaine taille ? La valeur est la taille maximale en o/Ko/Mo/Go/To qu'un fichier journal peut croître avant d'être tronqué. La valeur par défaut de 0Ko désactive la troncature (les fichiers journaux peuvent croître indéfiniment). Remarque : S'applique aux fichiers journaux individuels ! La taille des fichiers journaux n'est pas considérée collectivement.
 
 ##### « log_rotation_limit » `[int]`
 - La rotation du journal limite le nombre de fichiers journaux qui doivent exister à un moment donné. Lorsque de nouveaux fichiers journaux sont créés, si le nombre total de fichiers journaux dépasse la limite spécifiée, l'action spécifiée sera effectuée. Vous pouvez spécifier la limite souhaitée ici. Une valeur de 0 désactivera la rotation du journal.
@@ -575,7 +652,7 @@ time_format
 ```
 
 ##### « ipaddr » `[string]`
-- Où trouver l'adresse IP de requêtes ? (Utile pour services tels que Cloudflare et similaires) Par Défaut = REMOTE_ADDR. AVERTISSEMENT : Ne pas changer si vous ne sais pas ce que vous faites !
+- Où trouver l'adresse IP de requêtes ? (Utile pour services tels que Cloudflare et similaires) Par Défaut = REMOTE_ADDR. AVERTISSEMENT : Ne pas changer si vous ne sais pas ce que vous faites !
 
 ```
 ipaddr
@@ -588,7 +665,7 @@ ipaddr
 └─…Autres
 ```
 
-Voir également :
+Voir également :
 - [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
 
@@ -654,7 +731,7 @@ disabled_channels
 Configuration pour les signatures, fichiers de signatures, etc.
 
 ##### « active » `[string]`
-- Une liste des fichiers de signatures active, délimitée par des virgules. Remarque : Les fichiers de signatures doivent d'abord être installés, avant de pouvoir les activer. Pour que les fichiers de test fonctionnent correctement, les fichiers de signature doivent être installés et activés.
+- Une liste des fichiers de signatures active, délimitée par des virgules. Remarque : Les fichiers de signatures doivent d'abord être installés, avant de pouvoir les activer. Pour que les fichiers de test fonctionnent correctement, les fichiers de signature doivent être installés et activés.
 
 ##### « fail_silently » `[bool]`
 - Devrait phpMussel signaler quand les extensions sont manquantes ? Si `fail_extensions_silently` est désactivé, extensions manquantes seront signalé sur analyse, et si `fail_extensions_silently` est activé, extensions manquantes seront ignorés, avec l'analyse signalés pour ceux fichiers qu'il n'y a pas de problèmes. La désactivation de cette directive peut potentiellement augmenter votre sécurité, mais peut aussi conduire à une augmentation de faux positifs. False = Désactivé ; True = Activé [Défaut].
@@ -696,16 +773,16 @@ Les spécificités de la gestion des fichiers lors de l'analyse.
 - Que faire avec des fichiers qui dépassent la limite de taille des fichiers (si existant). False = Énumérer Blanche ; True = Énumérer Noire [Défaut].
 
 ##### « filetype_whitelist » `[string]`
-- Si votre système permettre seulement particuliers types des fichiers à être téléchargé, ou si votre système nie explicitement particuliers types des fichiers, spécifiant les types des fichiers dans listes blanches, listes noires et listes grises peut augmenter la vitesse à laquelle l'analyse est effectuée en permettant le script à sauter particuliers types des fichiers. Format est CSV (virgule séparées valeurs). Si vous souhaitez analyse tout, plutôt que de liste blanche, liste noire ou liste gris, laisser les variable(/s) blanc ; Il va désactiver liste blanche/noire/gris. L'ordre logique de l'application est : Si le type de fichier est listé blanche, n'analyser pas ni bloquer pas le fichier, et ne vérifie pas le fichier contre la liste noire ou la liste grise. Si le type de fichier est listé noire, n'analyser pas le fichier mais bloquer de toute façon, et ne vérifie pas le fichier contre la liste grise. Si la liste grise est vide ou si la liste grise n'est vide pas et le type de fichier est listé grise, analyser le fichier comme d'habitude et déterminer si de bloquer basés des résultats de l'analyse, mais si la liste grise n'est vide pas et le type de fichier n'est listé grise pas, traiter le fichier comme listé noire, donc n'analyse pas mais bloque de toute façon. Liste Blanche :
+- Si votre système permettre seulement particuliers types des fichiers à être téléchargé, ou si votre système nie explicitement particuliers types des fichiers, spécifiant les types des fichiers dans listes blanches, listes noires et listes grises peut augmenter la vitesse à laquelle l'analyse est effectuée en permettant le script à sauter particuliers types des fichiers. Format est CSV (virgule séparées valeurs). Si vous souhaitez analyse tout, plutôt que de liste blanche, liste noire ou liste gris, laisser les variable(/s) blanc ; Il va désactiver liste blanche/noire/gris. L'ordre logique de l'application est : Si le type de fichier est listé blanche, n'analyser pas ni bloquer pas le fichier, et ne vérifie pas le fichier contre la liste noire ou la liste grise. Si le type de fichier est listé noire, n'analyser pas le fichier mais bloquer de toute façon, et ne vérifie pas le fichier contre la liste grise. Si la liste grise est vide ou si la liste grise n'est vide pas et le type de fichier est listé grise, analyser le fichier comme d'habitude et déterminer si de bloquer basés des résultats de l'analyse, mais si la liste grise n'est vide pas et le type de fichier n'est listé grise pas, traiter le fichier comme listé noire, donc n'analyse pas mais bloque de toute façon. Liste Blanche :
 
 ##### « filetype_blacklist » `[string]`
-- Liste Noire :
+- Liste Noire :
 
 ##### « filetype_greylist » `[string]`
-- Liste Gris :
+- Liste Gris :
 
 ##### « check_archives » `[bool]`
-- Essayer vérifier les contenus des archives ? False = Non (ne pas vérifier) ; True = Oui (vérifier) [Défaut]. Supporté : Zip (nécessite libzip), Tar, Rar (nécessite l'extension rar).
+- Essayer vérifier les contenus des archives ? False = Non (ne pas vérifier) ; True = Oui (vérifier) [Défaut]. Supporté : Zip (nécessite libzip), Tar, Rar (nécessite l'extension rar).
 
 ##### « filesize_archives » `[bool]`
 - Étendre taille du fichier liste noire/blanche paramètres à le contenu des archives ? False = Non (énumérer grise tout) ; True = Oui [Défaut].
@@ -732,13 +809,13 @@ Les spécificités de la gestion des fichiers lors de l'analyse.
 - Vérifier pour les en-têtes d'exécutables dans les fichiers qui ne sont pas fichiers exécutable ni reconnue comme archives et pour exécutables dont les en-têtes sont incorrects. False = Désactivé ; True = Activé.
 
 ##### « chameleon_to_archive » `[bool]`
-- Détecter les en-têtes incorrects dans les archives et les fichiers compressés. Supporté : BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Désactivé ; True = Activé.
+- Détecter les en-têtes incorrects dans les archives et les fichiers compressés. Supporté : BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Désactivé ; True = Activé.
 
 ##### « chameleon_to_doc » `[bool]`
-- Vérifier pour les documents office dont les en-têtes sont incorrects (Supporté : DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Désactivé ; True = Activé.
+- Vérifier pour les documents office dont les en-têtes sont incorrects (Supporté : DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Désactivé ; True = Activé.
 
 ##### « chameleon_to_img » `[bool]`
-- Vérifier pour les images dont les en-têtes sont incorrects (Supporté : BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Désactivé ; True = Activé.
+- Vérifier pour les images dont les en-têtes sont incorrects (Supporté : BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Désactivé ; True = Activé.
 
 ##### « chameleon_to_pdf » `[bool]`
 - Vérifier pour les fichiers PDF dont les en-têtes sont incorrects. False = Désactivé ; True = Activé.
@@ -771,7 +848,7 @@ Les spécificités de la gestion des fichiers lors de l'analyse.
 Configuration pour la quarantaine.
 
 ##### « quarantine_key » `[string]`
-- phpMussel est capable de mettre en quarantaine les téléchargements de fichiers bloqués, si cela est quelque chose que vous voulez qu'il fasse. L'utilisateurs de phpMussel qui souhaitent simplement de protéger leurs sites ou environnement d'hébergement sans avoir un profondément intérêt dans d'analyse de quelconque marqué fichier téléchargement tentatives devrait laisser cette fonctionnalité désactivée, mais tous les utilisateurs intéressés dans d'analyse plus approfondie de tenté fichier téléchargements pour la recherche des logiciels malveillants ou pour des choses semblables devraient permettre cette fonctionnalité. La quarantaine de marqué fichier téléchargement tentatives peut parfois aider également dans le débogage des faux positifs, si cela est quelque chose qui se produit fréquemment pour vous. Pour désactiver la fonctionnalité de quarantaine, il suffit de laisser la directive `quarantine_key` vide, ou effacer le contenu de cette directive si elle est pas déjà vide. Pour activer la fonctionnalité de quarantaine, entrer une valeur dans la directive. Le `quarantine_key` est une élément important de la sécurité de la fonctionnalité de quarantaine requis en tant que moyen de prévention de la fonctionnalité de quarantaine d'être exploités par des attaquants potentiels en tant que moyen de prévention toute potentielle exécution de données stockées dans la quarantaine. Le `quarantine_key` devrait être traité de la même manière que vos mots de passe : Le plus sera le mieux, et conservez-le bien. Pour un meilleur effet, utiliser en conjonction avec `delete_on_sight`.
+- phpMussel est capable de mettre en quarantaine les téléchargements de fichiers bloqués, si cela est quelque chose que vous voulez qu'il fasse. L'utilisateurs de phpMussel qui souhaitent simplement de protéger leurs sites ou environnement d'hébergement sans avoir un profondément intérêt dans d'analyse de quelconque marqué fichier téléchargement tentatives devrait laisser cette fonctionnalité désactivée, mais tous les utilisateurs intéressés dans d'analyse plus approfondie de tenté fichier téléchargements pour la recherche des logiciels malveillants ou pour des choses semblables devraient permettre cette fonctionnalité. La quarantaine de marqué fichier téléchargement tentatives peut parfois aider également dans le débogage des faux positifs, si cela est quelque chose qui se produit fréquemment pour vous. Pour désactiver la fonctionnalité de quarantaine, il suffit de laisser la directive `quarantine_key` vide, ou effacer le contenu de cette directive si elle est pas déjà vide. Pour activer la fonctionnalité de quarantaine, entrer une valeur dans la directive. Le `quarantine_key` est une élément important de la sécurité de la fonctionnalité de quarantaine requis en tant que moyen de prévention de la fonctionnalité de quarantaine d'être exploités par des attaquants potentiels en tant que moyen de prévention toute potentielle exécution de données stockées dans la quarantaine. Le `quarantine_key` devrait être traité de la même manière que vos mots de passe : Le plus sera le mieux, et conservez-le bien. Pour un meilleur effet, utiliser en conjonction avec `delete_on_sight`.
 
 ##### « quarantine_max_filesize » `[string]`
 - La maximum taille autorisée de fichiers mis en quarantaine. Fichiers au-dessus de cette valeur ne sera pas placé en quarantaine. Cette directive est un important moyen de rendre plus difficile pour des agresseurs potentiels d'inonder votre quarantaine avec des données non désirées ce qui pourrait causer l'emballement d'utilisation des données sur votre service d'hébergement. Défaut = 2Mo.
@@ -786,9 +863,9 @@ Configuration pour la quarantaine.
 Configuration pour l'intégration de Virus Total.
 
 ##### « vt_public_api_key » `[string]`
-- Facultativement, phpMussel est capable d'analyser les fichiers en utilisant le Virus Total API comme un moyen de fournir un renforcée niveau de protection contre les virus, trojans, logiciels malveillants et autres menaces. Par défaut, l'analyse des fichiers en utilisant le Virus Total API est désactivé. Pour activer, une Total Virus API clé est nécessaire. En raison de le significative avantage que cela pourrait fournir pour vous, il est quelque chose que je recommande fortement pour l'activer. S'il vous plaît être conscient, cependant, que pour utiliser le Virus Total API, vous *__DEVEZ__* accepter leurs conditions d'utilisation (Terms of Service) et vous *__DEVEZ__* respecter toutes les directives selon décrit par la documentation Virus Total ! Vous N'ÊTES PAS autorisé à utiliser cette fonctionnalité SAUF SI : Vous avez lu et accepté les Conditions d'Utilisation (Terms of Service) de Total Virus et son API. Vous avez lu et vous comprendre, au minimum, le préambule du Virus Total Publique API documentation (tout ce qui suit « VirusTotal Public API v2.0 » mais avant « Contents »).
+- Facultativement, phpMussel est capable d'analyser les fichiers en utilisant le Virus Total API comme un moyen de fournir un renforcée niveau de protection contre les virus, trojans, logiciels malveillants et autres menaces. Par défaut, l'analyse des fichiers en utilisant le Virus Total API est désactivé. Pour activer, une Total Virus API clé est nécessaire. En raison de le significative avantage que cela pourrait fournir pour vous, il est quelque chose que je recommande fortement pour l'activer. S'il vous plaît être conscient, cependant, que pour utiliser le Virus Total API, vous *__DEVEZ__* accepter leurs conditions d'utilisation (Terms of Service) et vous *__DEVEZ__* respecter toutes les directives selon décrit par la documentation Virus Total ! Vous N'ÊTES PAS autorisé à utiliser cette fonctionnalité SAUF SI : Vous avez lu et accepté les Conditions d'Utilisation (Terms of Service) de Total Virus et son API. Vous avez lu et vous comprendre, au minimum, le préambule du Virus Total Publique API documentation (tout ce qui suit « VirusTotal Public API v2.0 » mais avant « Contents »).
 
-Voir également :
+Voir également :
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
 - [Getting started](https://developers.virustotal.com/reference)
 
@@ -810,7 +887,7 @@ Configuration pour le scanner d'URL.
 ##### « google_api_key » `[string]`
 - Permet cherches de l'API Google Safe Browsing quand l'API clé nécessaire est définie.
 
-Voir également :
+Voir également :
 - [Google API Console](https://console.developers.google.com/)
 
 ##### « maximum_api_lookups » `[int]`
@@ -914,7 +991,7 @@ numbers
 ```
 
 ##### « default_algo » `[string]`
-- Définit quel algorithme utiliser pour tous les mots de passe et les sessions à l'avenir. Options : PASSWORD_DEFAULT (défaut), PASSWORD_BCRYPT, PASSWORD_ARGON2I (nécessite PHP >= 7.2.0), PASSWORD_ARGON2ID (nécessite PHP >= 7.3.0).
+- Définit quel algorithme utiliser pour tous les mots de passe et les sessions à l'avenir. Options : PASSWORD_DEFAULT (défaut), PASSWORD_BCRYPT, PASSWORD_ARGON2I (nécessite PHP >= 7.2.0), PASSWORD_ARGON2ID (nécessite PHP >= 7.3.0).
 
 ```
 default_algo
@@ -951,7 +1028,7 @@ Configuration du gestionnaire de téléchargements.
 - Devrait phpMussel envoyer les en-têtes 403 avec le fichier téléchargement bloqué message, ou rester avec l'habitude 200 bien (200 OK) ? False = Non (200) ; True = Oui (403) [Défaut].
 
 ##### « max_uploads » `[int]`
-- Maximum admissible nombre de fichiers pour analyse lorsque l'analyse de fichier téléchargements avant d'abandonner l'analyse et informer l'utilisateur qu'ils sont téléchargement trop à la fois ! Fournit protection contre une théorique attaque par lequel un attaquant tente à DDoS votre système ou CMS par surchargeant phpMussel à ralentir le processus de PHP à une halte. Recommandé : 10. Vous pouvez désirer d'augmenter ou diminuer ce nombre dépendamment de la vitesse de votre hardware. Notez que ce nombre ne tient pas compte pour ou inclure le contenus des archives.
+- Maximum admissible nombre de fichiers pour analyse lorsque l'analyse de fichier téléchargements avant d'abandonner l'analyse et informer l'utilisateur qu'ils sont téléchargement trop à la fois ! Fournit protection contre une théorique attaque par lequel un attaquant tente à DDoS votre système ou CMS par surchargeant phpMussel à ralentir le processus de PHP à une halte. Recommandé : 10. Vous pouvez désirer d'augmenter ou diminuer ce nombre dépendamment de la vitesse de votre hardware. Notez que ce nombre ne tient pas compte pour ou inclure le contenus des archives.
 
 ##### « ignore_upload_errors » `[bool]`
 - Cette directive doit généralement être DÉSACTIVÉ sauf si cela est nécessaire pour la correcte fonctionnalité de phpMussel sur votre spécifique système. Normalement, lorsque DÉSACTIVÉ, lorsque phpMussel détecte la présence d'éléments dans le `$_FILES`() tableau, il va tenter de lancer une analyse du fichiers que ces éléments représentent, et, si ces éléments sont vide, phpMussel retourne un message d'erreur. Ce comportement est normal pour phpMussel. Mais, pour certains CMS, vides éléments dans `$_FILES` peuvent survenir à la suite du naturel comportement de ces CMS, ou erreurs peuvent être signalés quand il ne sont pas tout, dans ce cas, le normal comportement pour phpMussel seront interférer avec le normal comportement de ces CMS. Si telle une situation se produit pour vous, ACTIVATION de cette option sera instruire phpMussel ne pas à tenter de lancer d'analyses pour ces vides éléments, ignorer quand il est reconnu et ne pas à retourner tout de connexes messages d'erreur, permettant ainsi la continuation de la requête de page. False = Désactivé ; True = Activé.

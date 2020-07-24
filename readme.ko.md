@@ -131,7 +131,7 @@ phpMussel에서 사용할 수있는 다양한 구성 지시문에 대한 자세�
 
 #### 3.1 PHPMUSSEL CORE
 
-phpMussel 사용 방법과 관계없이, 거의 모든 구현에는 최소한 다음과 같은 내용이 포함됩니다 :
+phpMussel 사용 방법과 관계없이, 거의 모든 구현에는 최소한 다음과 같은 내용이 포함됩니다 :
 
 ```PHP
 <?php
@@ -163,7 +163,7 @@ public function __construct(
 
 매개 변수 5는 vendor 디렉터리의 경로입니다. 절대 다른 것을 가리켜서는 안 됩니다. 생략하면, phpMussel 은 이 디렉터리를 찾으려고 시도합니다. 이 매개 변수는 일반적인 Composer 프로젝트와 구조가 동일하지 않아도 되는 구현과 쉽게 통합 할 수 있도록 하기 위해 제공됩니다.
 
-스캐너의 생성자는 하나의 매개 변수만 허용합니다 (필수입니다) : 인스턴스 화 된 로더 객체. 참조로 전달되므로 로더는 변수로 인스턴스화해야합니다 (로더를 스캐너의 매개 변수로 직접 인스턴스화하는 것은 phpMussel을 사용하는 올바른 방법이 아닙니다).
+스캐너의 생성자는 하나의 매개 변수만 허용합니다 (필수입니다) : 인스턴스 화 된 로더 객체. 참조로 전달되므로 로더는 변수로 인스턴스화해야합니다 (로더를 스캐너의 매개 변수로 직접 인스턴스화하는 것은 phpMussel을 사용하는 올바른 방법이 아닙니다).
 
 ```PHP
 public function __construct(\phpMussel\Core\Loader &$Loader)
@@ -171,25 +171,25 @@ public function __construct(\phpMussel\Core\Loader &$Loader)
 
 #### 3.2 자동 파일 업로드 스캔
 
-업로드 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
+업로드 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
 
 ```PHP
 $Web = new \phpMussel\Web\Web($Loader, $Scanner);
 ```
 
-파일 업로드를 스캔하려면 :
+파일 업로드를 스캔하려면 :
 
 ```PHP
 $Web->scan();
 ```
 
-선택적으로 phpMussel은 원하는 경우 업로드 이름을 복구하려고 시도 할 수 있습니다 :
+선택적으로 phpMussel은 원하는 경우 업로드 이름을 복구하려고 시도 할 수 있습니다 :
 
 ```PHP
 $Web->demojibakefier();
 ```
 
-완전한 예를 들면 :
+완전한 예를 들면 :
 
 ```PHP
 <?php
@@ -223,19 +223,19 @@ unset($Web, $Scanner, $Loader);
 </html>
 ```
 
-*파일 `ascii_standard_testfile.txt` 업로드 시도 (이것은 phpMussel 테스트를위한 무해한 샘플입니다) :*
+*파일 `ascii_standard_testfile.txt` 업로드 시도 (이것은 phpMussel 테스트를위한 무해한 샘플입니다) :*
 
 ![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
 
 #### 3.3 CLI 모드
 
-CLI 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
+CLI 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
 
 ```PHP
 $CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
 ```
 
-완전한 예를 들면 :
+완전한 예를 들면 :
 
 ```PHP
 <?php
@@ -252,19 +252,19 @@ $CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
 unset($CLI, $Scanner, $Loader);
 ```
 
-*스크린 샷 :*
+*스크린 샷 :*
 
 ![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
 
 #### 3.4 프론트 엔드
 
-프런트 엔드를 인스턴스화하려면 :
+프런트 엔드를 인스턴스화하려면 :
 
 ```PHP
 $FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
 ```
 
-완전한 예를 들면 :
+완전한 예를 들면 :
 
 ```PHP
 <?php
@@ -293,11 +293,54 @@ $FrontEnd->view();
 unset($Web, $FrontEnd, $Scanner, $Loader);
 ```
 
-*스크린 샷 :*
+*스크린 샷 :*
 
 ![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
 
 #### 3.5 스캐너 API
+
+원하는 경우 다른 프로그램 및 스크립트 내에서 phpMussel 스캐너 API를 구현할 수도 있습니다.
+
+완전한 예를 들면 :
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+이 예에서 주목할 중요한 부분은 `scan()`방법입니다. `scan()`메소드는 두 가지 매개 변수를 승인합니다.
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+첫 번째 매개 변수는 문자열 또는 배열 일수 있으며 스캐너에 스캔 대상을 알려줍니다. 특정 파일이나 디렉터리를 나타내는 문자열이거나 여러 파일/디렉터리를 지정하기 위한 이러한 문자열의 배열 일수 있습니다.
+
+문자열인 경우, 데이터를 찾을 수 있는 위치를 가리켜야 합니다. 배열인 경우, 배열 키는 스캔 할 항목의 원래 이름을 나타내야 하며 값은 데이터를 찾을 수 있는 위치를 가리켜야 합니다.
+
+두 번째 매개 변수는 정수이며 검색 결과를 반환하는 방법을 스캐너에 알려줍니다.
+
+스캔 결과를 정수로 스캔 된 각 항목에 대한 배열로 돌려보내려면 1을 지정하십시오.
+
+이들 정수는 다음과 같은 의미가 있습니다 :
 
 결과 | 기술
 --:|:--
@@ -309,6 +352,40 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 0 | 검사 대상이 존재하지 않음.
 1 | 대상의 스캔을 완료하고 문제가 없는지.
 2 | 대상의 스캔을 완료하고 문제를 발견 한 것을 의미합니다.
+
+스캔 결과를 부울로 돌려보내려면 2를 지정하십시오.
+
+결과 | 기술
+:-:|:--
+`true` | 문제가 감지되었습니다 (스캔 대상이 위험합니다).
+`false` | 문제가 감지되지 않았습니다 (스캔 대상은 아마 위험하지 않습니다).
+
+사람이 읽을 수 있는 텍스트로 스캔 된 각 항목에 대한 스캔 결과를 배열로 돌려보내려면 3을 지정하십시오.
+
+*출력 예 :*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+스캔 결과를 사람이 읽을 수 있는 문자열로 돌려보내려면 4를 지정하십시오 (3과 같지만 파열했다).
+
+*출력 예 :*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+형식이 지정된 텍스트로 리턴하려면 다른 값을 지정하십시오 (i.e., the scan results seen when using CLI).
+
+*출력 예 :*
 
 *꼭 참조하십시오 : [파일 검색시 특정 정보에 액세스하려면 어떻게해야합니까?](#SCAN_DEBUGGING)*
 
@@ -468,7 +545,7 @@ PHPMailer를 설치 한 후 phpMussel 구성 페이지 또는 구성 파일을 �
 - 치명적이지 않은 오류를 탐지하기위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
 ##### "truncate" `[string]`
-- 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
+- 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
 
 ##### "log_rotation_limit" `[int]`
 - 로그 회전은 한 번에 존재해야하는 로그 파일 수를 제한합니다. 새 로그 파일을 만들 때 총 로그, 파일 수가 지정된 제한을 초과하면, 지정된 작업이 수행됩니다. 여기서 원하는 한계를 지정할 수 있습니다. 값 0은 로그 회전을 비활성화합니다.
@@ -483,7 +560,7 @@ log_rotation_action
 ```
 
 ##### "timezone" `[string]`
-- 사용할 시간대를 지정합니다 (예 : Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, 등등). PHP가 자동으로 처리하도록하려면, "SYSTEM"을 지정하십시오.
+- 사용할 시간대를 지정합니다 (예 : Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, 등등). PHP가 자동으로 처리하도록하려면, "SYSTEM"을 지정하십시오.
 
 ```
 timezone
@@ -575,7 +652,7 @@ time_format
 ```
 
 ##### "ipaddr" `[string]`
-- 연결 요청의 IP 주소를 어디에서 찾을 것인가에 대해 (Cloudflare 같은 서비스에 대해 유효). Default (기본 설정) = REMOTE_ADDR. 주의 : 당신이 무엇을하고 있는지 모르는 한이를 변경하지 마십시오.
+- 연결 요청의 IP 주소를 어디에서 찾을 것인가에 대해 (Cloudflare 같은 서비스에 대해 유효). Default (기본 설정) = REMOTE_ADDR. 주의 : 당신이 무엇을하고 있는지 모르는 한이를 변경하지 마십시오.
 
 ```
 ipaddr
@@ -588,7 +665,7 @@ ipaddr
 └─…다른
 ```
 
-또한보십시오 :
+또한보십시오 :
 - [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
 
@@ -654,7 +731,7 @@ disabled_channels
 서명, 서명 파일, 등의 설정.
 
 ##### "active" `[string]`
-- 쉼표로 구분 된 활성 시그니처 파일의 목록입니다. 노트 : 활성화하기 전에, 첫째로, 서명 파일을 설치해야 합니다. 테스트 파일이 올바르게 작동하려면, 서명 파일을 설치하고 활성화해야 합니다.
+- 쉼표로 구분 된 활성 시그니처 파일의 목록입니다. 노트 : 활성화하기 전에, 첫째로, 서명 파일을 설치해야 합니다. 테스트 파일이 올바르게 작동하려면, 서명 파일을 설치하고 활성화해야 합니다.
 
 ##### "fail_silently" `[bool]`
 - 서명 파일이 없거나 손상된 경우 phpMussel 그것을 리포트 해야하는지 여부? `fail_silently`이 유효하지 않으면 문제가 리포트되어 유효하면 문제는 무시 된 스캔 보고서가 작성됩니다. 충돌하는 같은 피해가 없으면 기본 설정을 그대로 유지한다. `false` = Disabled/장애인; `true` = Enabled/유효 (Default / 기본 설정).
@@ -696,13 +773,13 @@ disabled_channels
 - 최대 크기보다 큰 파일을 처리하는 방법에 관한 것입니다. `false` = Whitelist/화이트리스트; `true` = Blacklist/블랙리스트 (Default / 기본 설정).
 
 ##### "filetype_whitelist" `[string]`
-- 시스템이 특정 유형의 파일 만 업로드를 허용하거나 거절하는 경우 파일 유형을 적절히 화이트리스트, 블랙리스트, 그레이리스트로 분류 해두면 파일 유형에 튀겨 진 파일은 스캔을 건너 뛸 수 때문에 속도로 연결됩니다. 형식은 CSV (쉼표로 구분)입니다. 목록에 의하지 않고 모두를 검사 할 경우 변수는 빈 상태로 유지하고 화이트리스트 / 블랙리스트 / 그레이리스트를 해제합니다. 프로세스의 논리적 순서 : 파일 형식이 화이트리스트에 포함되어 있으면, 스캔하지 않고 블록하지 않고 블랙리스트 및 그레이리스트에 체크를하지 않습니다. 파일 형식이 블랙리스트에 있으면 스캔하지 않고 즉시 차단하고 그레이리스트에 체크를하지 않습니다. 회색 목록이 비어 또는 그레이리스트가 하늘이 아닌 한편 그 파일 타입이 있으면 정상적으로 스캔 차단 여부를 판단합니다. 그레이리스트가 하늘이 아닌 한편 그 파일 유형이 포함되어 있지 않으면 블랙리스트와 같은 취급을 할 수 있고 스캔없이 차단합니다. 파일 유형 화이트리스트 :
+- 시스템이 특정 유형의 파일 만 업로드를 허용하거나 거절하는 경우 파일 유형을 적절히 화이트리스트, 블랙리스트, 그레이리스트로 분류 해두면 파일 유형에 튀겨 진 파일은 스캔을 건너 뛸 수 때문에 속도로 연결됩니다. 형식은 CSV (쉼표로 구분)입니다. 목록에 의하지 않고 모두를 검사 할 경우 변수는 빈 상태로 유지하고 화이트리스트 / 블랙리스트 / 그레이리스트를 해제합니다. 프로세스의 논리적 순서 : 파일 형식이 화이트리스트에 포함되어 있으면, 스캔하지 않고 블록하지 않고 블랙리스트 및 그레이리스트에 체크를하지 않습니다. 파일 형식이 블랙리스트에 있으면 스캔하지 않고 즉시 차단하고 그레이리스트에 체크를하지 않습니다. 회색 목록이 비어 또는 그레이리스트가 하늘이 아닌 한편 그 파일 타입이 있으면 정상적으로 스캔 차단 여부를 판단합니다. 그레이리스트가 하늘이 아닌 한편 그 파일 유형이 포함되어 있지 않으면 블랙리스트와 같은 취급을 할 수 있고 스캔없이 차단합니다. 파일 유형 화이트리스트 :
 
 ##### "filetype_blacklist" `[string]`
-- 파일 유형 블랙리스트 :
+- 파일 유형 블랙리스트 :
 
 ##### "filetype_greylist" `[string]`
-- 파일 유형 그레이리스트 :
+- 파일 유형 그레이리스트 :
 
 ##### "check_archives" `[bool]`
 - 아카이브의 컨텐츠에 대해 체크를 시도 여부에 대해서입니다. `false` = 체크하지 않는다; `true` = 확인 (Default / 기본 설정). Zip (libzip이 필요합니다), Tar, Rar (rar 확장이 필요합니다)이 지원됩니다.
@@ -786,9 +863,9 @@ disabled_channels
 Virus Total 통합 설정.
 
 ##### "vt_public_api_key" `[string]`
-- 옵션이지만, phpMussel은 Virus Total API를 사용하여 파일을 검색 할 수 있습니다. 바이러스, 트로이 목마, 악성 코드 및 기타 공격에 매우 효과적으로 작동합니다. 기본적으로 Virus Total API를 사용한 스캐닝은 비활성화되어 있습니다. 활성화하려면 Virus Total의 API 키가 필요합니다. 이점이 매우 크기 때문에 사용하는 것이 좋습니다. Virus Total API의 사용에 있어서는 Virus Total 문서에있는대로 이용 규정 및 지침을 준수하지 않으면 안됩니다. 이 통합 기능을 사용하기 위해서는 : Virus Total와 API의 서비스 규정을 읽고 동의해야합니다. 최소 Virus Total Public API 문서의 전문을 읽고 이해하여 (VirusTotalPublic API v2.0 이후 Contents "콘텐츠"이전까지).
+- 옵션이지만, phpMussel은 Virus Total API를 사용하여 파일을 검색 할 수 있습니다. 바이러스, 트로이 목마, 악성 코드 및 기타 공격에 매우 효과적으로 작동합니다. 기본적으로 Virus Total API를 사용한 스캐닝은 비활성화되어 있습니다. 활성화하려면 Virus Total의 API 키가 필요합니다. 이점이 매우 크기 때문에 사용하는 것이 좋습니다. Virus Total API의 사용에 있어서는 Virus Total 문서에있는대로 이용 규정 및 지침을 준수하지 않으면 안됩니다. 이 통합 기능을 사용하기 위해서는 : Virus Total와 API의 서비스 규정을 읽고 동의해야합니다. 최소 Virus Total Public API 문서의 전문을 읽고 이해하여 (VirusTotalPublic API v2.0 이후 Contents "콘텐츠"이전까지).
 
-또한보십시오 :
+또한보십시오 :
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
 - [Getting started](https://developers.virustotal.com/reference)
 
@@ -810,7 +887,7 @@ URL 스캐너 설정.
 ##### "google_api_key" `[string]`
 - 필요한 API 키가 정의되면, API는 Google Safe Browsing API 조회가 활성화됩니다.
 
-또한보십시오 :
+또한보십시오 :
 - [Google API Console](https://console.developers.google.com/)
 
 ##### "maximum_api_lookups" `[int]`
@@ -914,7 +991,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다. 옵션 : PASSWORD_DEFAULT (default / 기본 설정), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 가 필요합니다), PASSWORD_ARGON2ID (PHP >= 7.3.0 가 필요합니다).
+- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다. 옵션 : PASSWORD_DEFAULT (default / 기본 설정), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 가 필요합니다), PASSWORD_ARGON2ID (PHP >= 7.3.0 가 필요합니다).
 
 ```
 default_algo
@@ -986,7 +1063,7 @@ PHPMailer 설정 (이중 인증에 사용).
 - 업로드가 차단될 때 이메일로 알림을 받으려면, 여기에서 수신자 이메일 주소를 지정하십시오.
 
 ##### "skip_auth_process" `[bool]`
-- `true` 일 때, PHPMailer는 전자 메일 전송을위한 SMTP 인증 프로세스를 건너 뛰도록 지시합니다. 이 프로세스를 건너 뛰면 아웃 바운드 전자 메일이 MITM 공격에 노출 될 수 있으므로 피해야합니다. 특정 경우에 필요할 수 있음 (예 : PHPMailer가 SMTP 서버에 제대로 연결할 수없는 경우).
+- `true` 일 때, PHPMailer는 전자 메일 전송을위한 SMTP 인증 프로세스를 건너 뛰도록 지시합니다. 이 프로세스를 건너 뛰면 아웃 바운드 전자 메일이 MITM 공격에 노출 될 수 있으므로 피해야합니다. 특정 경우에 필요할 수 있음 (예 : PHPMailer가 SMTP 서버에 제대로 연결할 수없는 경우).
 
 ##### "host" `[string]`
 - 아웃 바운드 전자 메일에 사용할 SMTP 호스트입니다.

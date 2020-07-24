@@ -187,7 +187,7 @@ $Web = new \phpMussel\Web\Web($Loader, $Scanner);
 $Web->scan();
 ```
 
-<div dir="rtl">اگر آپ چاہیں تو ، اختیاری طور پر ، phpMussel اپ لوڈز کے ناموں کی مرمت کرنے کی کوشش کرسکتا ہے.<br /><br /></div>
+<div dir="rtl">اگر آپ چاہیں تو، اختیاری طور پر، phpMussel اپ لوڈز کے ناموں کی مرمت کرنے کی کوشش کرسکتا ہے.<br /><br /></div>
 
 ```PHP
 $Web->demojibakefier();
@@ -303,16 +303,93 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### <div dir="rtl">۳.۷ اسکینر API</div>
 
+<div dir="rtl">اگر آپ چاہیں تو، آپ دوسرے پروگراموں اور اسکرپٹ کے اندر بھی phpMussel سکینر API لاگو کرسکتے ہیں.<br /><br /></div>
+
+<div dir="rtl">ایک مکمل مثال کے طور پر:<br /><br /></div>
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+<div dir="rtl">اس مثال سے نوٹ کرنے کے لئے اہم حصہ <code dir="ltr">scan()</code> طریقہ ہے. <code dir="ltr">scan()</code> کا طریقہ دو پیرامیٹرز کو قبول کرتا ہے:<br /><br /></div>
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+<div dir="rtl">پہلا پیرامیٹر سٹرنگ یا ایک سرنی ہوسکتا ہے، اور اسکینر کو بتاتا ہے کہ اسے کیا اسکین کرنا چاہئے. یہ سٹرنگ ہوسکتی ہے جس میں ایک مخصوص فائل یا ڈائرکٹری کا اشارہ ہو، یا متعدد فائلوں/ڈائریکٹریوں کی وضاحت کرنے کے لئے تار کا ایک صف.<br /><br /></div>
+
+<div dir="rtl">جب تار کے طور پر، اس کی طرف اشارہ کرنا چاہئے جہاں سے ڈیٹا مل سکتا ہے. جب ایک صف کے طور پر، سرنی کی چابیاں کو اسکین کرنے والی اشیاء کے اصل ناموں کی نشاندہی کرنی چاہئے، اور اقدار کی طرف اشارہ کرنا چاہئے کہ ڈیٹا کہاں سے مل سکتا ہے.<br /><br /></div>
+
+<div dir="rtl">دوسرا پیرامیٹر ایک عدد ہے، اور اسکینر کو بتاتا ہے کہ اسے اس کے اسکین نتائج کیسے لوٹانا چاہئے.<br /><br /></div>
+
+<div dir="rtl">انٹریجر کے بطور اسکین کردہ ہر آئٹم کے لئے اسکین کے نتائج کو ایک صف کے طور پر واپس کرنے کے لئے 1 کی وضاحت کریں.<br /><br /></div>
+
+<div dir="rtl">ان سبھی کے مندرجہ ذیل معنی ہیں:<br /><br /></div>
+
 نتائج | تفصیل
 --:|--:
--5 | Indicates that the scan failed to complete for other reasons.
--4 | Indicates that data couldn't be scanned due to encryption.
--3 | Indicates that problems were encountered with the phpMussel signatures files.
--2 | Indicates that corrupt data was detected during the scan and thus the scan failed to complete.
--1 | Indicates that extensions or addons required by PHP to execute the scan were missing and thus the scan failed to complete.
-0 | Indicates that the scan target doesn't exist and thus there was nothing to scan.
-1 | Indicates that the target was successfully scanned and no problems were detected.
-2 | Indicates that the target was successfully scanned and problems were detected.
+-5 | <div dir="rtl">اشارہ کرتا ہے کہ اسکین دیگر وجوہات کی بناء پر مکمل نہیں ہوسکا.</div>
+-4 | <div dir="rtl">اس بات کی نشاندہی کرتا ہے کہ خفیہ کاری کی وجہ سے ڈیٹا کو اسکین نہیں کیا جاسکا.</div>
+-3 | <div dir="rtl">اشارہ کرتا ہے کہ phpMussel دستخط فائلوں کے ساتھ مسائل کا سامنا کرنا پڑا.</div>
+-2 | <div dir="rtl">اشارہ کرتا ہے کہ اسکین کے دوران خراب ڈیٹا کا پتہ چلا تھا اور اس طرح اسکین مکمل ہونے میں ناکام رہا تھا.</div>
+-1 | <div dir="rtl">اس بات کی نشاندہی کرتا ہے کہ PHP کی طرف سے اسکین پر عمل درآمد کیلئے درکار توسیعات غائب تھیں اور اس طرح یہ اسکین مکمل ہونے میں ناکام رہا.</div>
+0 | <div dir="rtl">اشارہ کرتا ہے کہ اسکین کا ہدف موجود نہیں ہے اور اس طرح اسکین کرنے کے لئے کچھ نہیں تھا.</div>
+1 | <div dir="rtl">اشارہ کرتا ہے کہ ہدف کو کامیابی کے ساتھ اسکین کیا گیا تھا اور کسی قسم کی پریشانی کا پتہ نہیں چل سکا تھا.</div>
+2 | <div dir="rtl">اشارہ کرتا ہے کہ ہدف کو کامیابی کے ساتھ اسکین کیا گیا تھا اور مسائل کا پتہ چلا تھا.</div>
+
+<div dir="rtl">اسکین کے نتائج کو بولین کے طور پر واپس کرنے کے لئے 2 کی وضاحت کریں.<br /><br /></div>
+
+نتائج | تفصیل
+:-:|:--
+`true` | <div dir="rtl">دشواریوں کا پتہ چلا (اسکین کا ہدف خراب/خطرناک ہے).</div>
+`false` | <div dir="rtl">دشواریوں کا پتہ نہیں چل سکا (اسکین کا ہدف شاید محفوظ ہے).</div>
+
+<div dir="rtl">اسکرین کے نتائج کو انسانی پڑھنے کے قابل متن کے بطور اسکین کردہ ہر آئٹم کے لئے ایک صف کے طور پر واپس کرنے کے لئے 3 کی وضاحت کریں.<br /><br /></div>
+
+<div dir="rtl">مثال پیداوار:<br /><br /></div>
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+<div dir="rtl">اسکین کے نتائج کو انسانی پڑھنے کے قابل متن کی ایک تار کے بطور واپس کرنے کے لئے 4 کی وضاحت کریں (جیسے 3، لیکن مشترکہ).<br /><br /></div>
+
+<div dir="rtl">مثال پیداوار:<br /><br /></div>
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+<div dir="rtl">فارمیٹڈ ٹیکسٹ کو واپس کرنے کے لئے کوئی دوسری قیمت بتائیں (CLI کا استعمال کرتے وقت بالکل ایسا ہی لگتا ہے).<br /><br /></div>
+
+<div dir="rtl">مثال پیداوار:<br /><br /></div>
 
 <div dir="rtl">بھی دیکھو: <a href="#SCAN_DEBUGGING">کس طرح وہ سکین کر رہے ہیں جب فائلوں کے بارے میں مزید تفصیلات تک رسائی حاصل کرنے کے لئے؟</a><br /><br /></div>
 
@@ -1044,21 +1121,21 @@ smtp_secure
 
 <div dir="rtl">پہلا 9 بائٹس <code dir="ltr">[x0-x8]</code> phpMussel دستخط فائل کی <code dir="ltr">phpMussel</code> ہے، اور "جادو نمبر"(magic number) کے طور پر کام کرتے ہیں، انہیں دستخط شدہ فائلوں کے طور پر شناخت کرنے کے لئے (اس فائلوں کا استعمال کرتے ہوئے حادثے سے بچنے میں مدد ملتی ہے جو دستخط شدہ فائلوں میں نہیں ہیں). اگلے بائٹ <code dir="ltr">[x9]</code> دستخط فائل کی قسم کی شناخت کرتا ہے، دستخط فائل کو سمجھنے کے قابل ہونے کے لئے ضروری ہے. مندرجہ ذیل قسم کے دستخط فائلوں کو تسلیم کیا جاتا ہے:<br /><br /></div>
 
-&nbsp; <div dir="rtl" style="display:inline">قسم</div> | <div dir="rtl" style="display:inline">بائٹ</div> | <div dir="rtl" style="display:inline">تفصیل</div>
+&nbsp; <div dir="rtl" style="display:inline">قسم</div> | <div dir="rtl">بائٹ</div> | <div dir="rtl">تفصیل</div>
 ---|---|---
-`General_Command_Detections` | `0?` | <div dir="rtl" style="display:inline">"کوما علیحدہ اقدار" دستخط فائلوں کے لئے. دستخط فائلوں کے اندر اندر تلاش کرنے کے لئے ہییکسڈیکیلٹ - انکوڈ کرنگ ہیں. یہاں دستخط کسی نام یا دیگر تفصیلات نہیں ہیں (پتہ لگانے کے لئے صرف تار).</div>
-`Filename` | `1?` | <div dir="rtl" style="display:inline">فائل نام کے دستخط کے لئے.</div>
-`Hash` | `2?` | <div dir="rtl" style="display:inline">ہش دستخط کے لئے.</div>
-`Standard` | `3?` | <div dir="rtl" style="display:inline">دستخط کی فائلوں کے لئے جو براہ راست فائل فائل کے ساتھ کام کرتی ہے.</div>
-`Standard_RegEx` | `4?` | <div dir="rtl" style="display:inline">دستخط کی فائلوں کے لئے جو براہ راست فائل فائل کے ساتھ کام کرتی ہے. دستخط باقاعدگی سے اظہار میں شامل ہوسکتے ہیں.</div>
-`Normalised` | `5?` | <div dir="rtl" style="display:inline">دستخط کردہ فائلوں کے لئے جو معمولی فائل کے مواد کے ساتھ کام کرتی ہے.</div>
-`Normalised_RegEx` | `6?` | <div dir="rtl" style="display:inline">دستخط کردہ فائلوں کے لئے جو معمولی فائل کے مواد کے ساتھ کام کرتی ہے. دستخط باقاعدگی سے اظہار میں شامل ہوسکتے ہیں.</div>
-`HTML` | `7?` | <div dir="rtl" style="display:inline">دستخط فائلوں کے لئے جو HTML مواد کے ساتھ کام کرتا ہے.</div>
-`HTML_RegEx` | `8?` | <div dir="rtl" style="display:inline">دستخط فائلوں کے لئے جو HTML مواد کے ساتھ کام کرتا ہے. دستخط باقاعدگی سے اظہار میں شامل ہوسکتے ہیں.</div>
-`PE_Extended` | `9?` | <div dir="rtl" style="display:inline">پی ایچ میٹ میٹاٹا کے ساتھ کام کرنے والی دستخط کی فائلوں کے لئے.</div>
-`PE_Sectional` | `A?` | <div dir="rtl" style="display:inline">پی ایچ سیکشنل میٹا ڈیٹا کے ساتھ کام کرنے والی دستخط کی فائلوں کے لئے.</div>
-`Complex_Extended` | `B?` | <div dir="rtl" style="display:inline">دستخط فائلوں کے لئے جو وسیع قوانین کے ساتھ وسیع پیمانے پر میٹا ڈیٹا ڈیٹا پر مبنی کام کرتی ہیں.</div>
-`URL_Scanner` | `C?` | <div dir="rtl" style="display:inline">سائن ان فائلوں کے لئے جو URL کے ساتھ کام کرتی ہیں.</div>
+`General_Command_Detections` | `0?` | <div dir="rtl">"کوما علیحدہ اقدار" دستخط فائلوں کے لئے. دستخط فائلوں کے اندر اندر تلاش کرنے کے لئے ہییکسڈیکیلٹ - انکوڈ کرنگ ہیں. یہاں دستخط کسی نام یا دیگر تفصیلات نہیں ہیں (پتہ لگانے کے لئے صرف تار).</div>
+`Filename` | `1?` | <div dir="rtl">فائل نام کے دستخط کے لئے.</div>
+`Hash` | `2?` | <div dir="rtl">ہش دستخط کے لئے.</div>
+`Standard` | `3?` | <div dir="rtl">دستخط کی فائلوں کے لئے جو براہ راست فائل فائل کے ساتھ کام کرتی ہے.</div>
+`Standard_RegEx` | `4?` | <div dir="rtl">دستخط کی فائلوں کے لئے جو براہ راست فائل فائل کے ساتھ کام کرتی ہے. دستخط باقاعدگی سے اظہار میں شامل ہوسکتے ہیں.</div>
+`Normalised` | `5?` | <div dir="rtl">دستخط کردہ فائلوں کے لئے جو معمولی فائل کے مواد کے ساتھ کام کرتی ہے.</div>
+`Normalised_RegEx` | `6?` | <div dir="rtl">دستخط کردہ فائلوں کے لئے جو معمولی فائل کے مواد کے ساتھ کام کرتی ہے. دستخط باقاعدگی سے اظہار میں شامل ہوسکتے ہیں.</div>
+`HTML` | `7?` | <div dir="rtl">دستخط فائلوں کے لئے جو HTML مواد کے ساتھ کام کرتا ہے.</div>
+`HTML_RegEx` | `8?` | <div dir="rtl">دستخط فائلوں کے لئے جو HTML مواد کے ساتھ کام کرتا ہے. دستخط باقاعدگی سے اظہار میں شامل ہوسکتے ہیں.</div>
+`PE_Extended` | `9?` | <div dir="rtl">پی ایچ میٹ میٹاٹا کے ساتھ کام کرنے والی دستخط کی فائلوں کے لئے.</div>
+`PE_Sectional` | `A?` | <div dir="rtl">پی ایچ سیکشنل میٹا ڈیٹا کے ساتھ کام کرنے والی دستخط کی فائلوں کے لئے.</div>
+`Complex_Extended` | `B?` | <div dir="rtl">دستخط فائلوں کے لئے جو وسیع قوانین کے ساتھ وسیع پیمانے پر میٹا ڈیٹا ڈیٹا پر مبنی کام کرتی ہیں.</div>
+`URL_Scanner` | `C?` | <div dir="rtl">سائن ان فائلوں کے لئے جو URL کے ساتھ کام کرتی ہیں.</div>
 
 <div dir="rtl">اگلے بائٹ <code dir="ltr">[x10]</code> ایک نیا لائن ہے <code dir="ltr">[0A]</code>.<br /><br /></div>
 
@@ -1163,8 +1240,8 @@ smtp_secure
 
 &nbsp; <div dir="rtl" style="display:inline">phpMussel چاہئے <strong>نہیں</strong> ایک فائل بلاک</div> | &nbsp; <div dir="rtl" style="display:inline">phpMussel ایک فائل کو بلاک کرنا چاہئے</div> | &nbsp;
 ---|---|---
-&nbsp; <div dir="rtl" style="display:inline">یہ سچ ہے کہ منفی (صحیح اندازہ)</div> | <div dir="rtl" style="display:inline">فوت شدہ کا پتہ لگانے (جھوٹے منفی کے مطابق)</div> | <div dir="rtl" style="display:inline">phpMussel <strong>نہیں</strong> ایک فائل کو بلاک</div>
-&nbsp; <div dir="rtl" style="display:inline"><strong>جھوٹی مثبت</strong></div> | <div dir="rtl" style="display:inline">یہ سچ ہے کہ مثبت (صحیح اندازہ)</div> | <div dir="rtl" style="display:inline"><strong>phpMussel کرتا فائل کو بلاک</strong></div>
+&nbsp; <div dir="rtl" style="display:inline">یہ سچ ہے کہ منفی (صحیح اندازہ)</div> | <div dir="rtl">فوت شدہ کا پتہ لگانے (جھوٹے منفی کے مطابق)</div> | <div dir="rtl">phpMussel <strong>نہیں</strong> ایک فائل کو بلاک</div>
+&nbsp; <div dir="rtl" style="display:inline"><strong>جھوٹی مثبت</strong></div> | <div dir="rtl">یہ سچ ہے کہ مثبت (صحیح اندازہ)</div> | <div dir="rtl"><strong>phpMussel کرتا فائل کو بلاک</strong></div>
 
 #### <div dir="rtl"><a name="SIGNATURE_UPDATE_FREQUENCY"></a>دستخط کیسے بیشتر اپ ڈیٹ کر رہے ہیں؟<br /><br /></div>
 

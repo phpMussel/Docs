@@ -365,37 +365,13 @@ Specify 3 to return the scan results as an array for each item scanned as human-
 *Example output:*
 
 ```
-array(15) {
+array(3) {
   ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
   string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
   ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
   string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
   ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
   string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
-  ["Data not available.:5632:exe_standard_testfile.exe"]=>
-  string(49) "Filetype blacklisted (exe_standard_testfile.exe)!"
-  ["8e39388e6e605902d1192aecc5ea77f9a62547eb164562266c0060cf52cb6ec9:653:general_standard_testfile.txt"]=>
-  string(77) "Detected phpMussel-Testfile.General.Standard (general_standard_testfile.txt)!"
-  ["d188d46c87f2174c78ed4aaf8b0d24bfafc684c789df36572110355f59443ff7:632:graphics_standard_testfile.gif"]=>
-  string(79) "Detected phpMussel-Testfile.Graphics.Standard (graphics_standard_testfile.gif)!"
-  ["4b4e349e8103d105b8dd0f5fce5ec9be0b263d203597e87abf3644089aea095f:19:hash_testfile_md5.txt"]=>
-  string(61) "Detected phpMussel-Testfile.HASH.MD5 (hash_testfile_md5.txt)!"
-  ["c8ff1888b2802f8824a59191d4ad0a7f5261840541044ca5313fd4ca0962063b:20:hash_testfile_sha1.txt"]=>
-  string(63) "Detected phpMussel-Testfile.HASH.SHA1 (hash_testfile_sha1.txt)!"
-  ["f90054161ed9c4ffcda720769cb1c563eb0fd0e770004db352c4e225522e9a93:22:hash_testfile_sha256.txt"]=>
-  string(67) "Detected phpMussel-Testfile.HASH.SHA256 (hash_testfile_sha256.txt)!"
-  ["bf059f3112049d7299f9dc39397fe721c560e790611bfdc163adadbebb4e9ca9:13:hello.txt"]=>
-  string(0) ""
-  ["fbb49f897c8f8310f6c5ecacbd541d6873b18c7119ba71688d1bcdd3d7ea98fe:1488:html_standard_testfile.html"]=>
-  string(72) "Detected phpMussel-Testfile.HTML.Standard (html_standard_testfile.html)!"
-  ["14fb5b708076142cf38131ccc3827ff0a0ff28db1ee5db4583432cadafc8a4bf:658:ole_testfile.bin"]=>
-  string(60) "Detected phpMussel-Testfile.OLE.Standard (ole_testfile.bin)!"
-  ["1043d8e6c0deb7f7264952a163cbfe9f724251064f9c9d2ccbb3996ea79ebe1c:20882:pdf_standard_testfile.pdf"]=>
-  string(69) "Detected phpMussel-Testfile.PDF.Standard (pdf_standard_testfile.pdf)!"
-  ["Data not available.:5632:pe_sectional_testfile.exe"]=>
-  string(49) "Filetype blacklisted (pe_sectional_testfile.exe)!"
-  ["d1e1ec9461e107beee203d2c7f909d0dab026046a89d5b9a84bece02b5b93ca9:31662:swf_standard_testfile.swf"]=>
-  string(69) "Detected phpMussel-Testfile.SWF.Standard (swf_standard_testfile.swf)!"
 }
 ```
 

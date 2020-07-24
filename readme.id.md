@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 API PEMINDAI
 
+Anda juga dapat mengimplementasikan pemindai phpMussel di dalam program dan skrip lain, jika Anda mau.
+
+Sebagai contoh lengkap:
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+Bagian penting yang perlu diperhatikan dari contoh ini adalah metode `scan()`. Metode `scan()` menerima dua parameter:
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+Parameter pertama dapat berupa string atau array, dan memberi tahu pemindai apa yang harus dipindai. Ini bisa berupa string yang menunjukkan file atau direktori tertentu, atau bisa berupa array yang berisi string untuk menentukan banyak file/direktori.
+
+Ketika sebagai string, itu harus menunjuk ke tempat data dapat ditemukan. Ketika sebagai array, kunci-kunci array harus menunjukkan nama-nama asli dari item yang akan dipindai, dan nilai-nilai harus menunjuk ke tempat data dapat ditemukan.
+
+Parameter kedua adalah integer, dan memberi tahu pemindai bagaimana seharusnya mengembalikan hasil pemindaiannya.
+
+Tentukan 1 untuk mengembalikan hasil pemindaian sebagai array yang berisi integer untuk setiap item yang dipindai.
+
+Integer ini memiliki arti sebagai berikut:
+
 Hasil | Deskripsi
 --:|:--
 -5 | Mengindikasikan bahwa pemindaian gagal diselesaikan karena alasan lain.
@@ -309,6 +352,40 @@ Hasil | Deskripsi
 0 | Mengindikasikan bahwa target pemindaian tidak ada dan tidak ada yang dipindai.
 1 | Mengindikasikan bahwa target sukses dipindai dan tidak ada masalah terdeteksi.
 2 | Mengindikasikan target sukses di scan namun ada masalah terdeteksi.
+
+Tentukan 2 untuk mengembalikan hasil pemindaian sebagai boolean.
+
+Hasil | Deskripsi
+:-:|:--
+`true` | Masalah terdeteksi (target pemindaian buruk/berbahaya).
+`false` | Masalah tidak terdeteksi (target pemindaian mungkin baik-baik saja).
+
+Tentukan 3 untuk mengembalikan hasil pemindaian sebagai array untuk setiap item yang dipindai sebagai teks yang dapat dibaca oleh manusia.
+
+*Contoh output:*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+Tentukan 4 untuk mengembalikan hasil pemindaian sebagai string teks yang dapat dibaca oleh manusia (seperti 3, tetapi digabungkan).
+
+*Contoh output:*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+Tentukan *nilai lain* untuk mengembalikan teks yang diformat (seperti hasil pemindaian yang terlihat saat menggunakan CLI).
+
+*Contoh output:*
 
 *Lihat juga: [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#SCAN_DEBUGGING)*
 

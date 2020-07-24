@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 API DO SCANNER
 
+Você também pode implementar a API do scanner phpMussel em outros programas e scripts, se desejar.
+
+Como um exemplo completo:
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+A parte importante a ser observada nesse exemplo é o método `scan()`. O método `scan()` aceita dois parâmetros:
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+O primeiro parâmetro pode ser uma string ou uma matriz e informa ao scanner o que deve ser verificado. Pode ser uma string indicando um arquivo ou diretório específico, ou uma matriz de tais strings para especificar vários arquivos/diretórios.
+
+Quando como uma string, deve apontar para onde os dados podem ser encontrados. Quando como uma matriz, as chaves da matriz devem indicar os nomes originais dos itens a serem verificados, e os valores devem apontar para onde os dados podem ser encontrados.
+
+O segundo parâmetro é um número inteiro e informa ao scanner como ele deve retornar os resultados da verificação.
+
+Especifique 1 para retornar os resultados da verificação como uma matriz para cada item verificado como números inteiros.
+
+Esses números inteiros têm os seguintes significados:
+
 Resultados | Descrição
 --:|:--
 -5 | Indica que a análise falhou ao concluir por outros motivos.
@@ -309,6 +352,40 @@ Resultados | Descrição
 0 | Indica que o alvo de análise não existe, e portanto, havia nada para verificar.
 1 | Indica que o alvo foi analisado e não foram detectados problemas.
 2 | Indica que o alvo foi analisado e problemas foram detectados.
+
+Especifique 2 para retornar os resultados da análise como um booleano.
+
+Resultados | Descrição
+:-:|:--
+`true` | Problemas foram detectados (o alvo da análise é ruim/perigoso).
+`false` | Problemas não foram detectados (o alvo da análise provavelmente está bom).
+
+Especifique 3 para retornar os resultados da verificação como uma matriz para cada item analisado como texto legível por humanos.
+
+*Exemplo de saída:*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+Especifique 4 para retornar os resultados da verificação como uma sequência de texto legível por humanos (como 3, mas implodiu).
+
+*Exemplo de saída:*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+Especifique *qualquer outro valor* para retornar o texto formatado (como os resultados da verificação vistos ao usar a CLI).
+
+*Exemplo de saída:*
 
 *Veja também: [Como acessar detalhes específicos sobre os arquivos quando eles são analisados?](#SCAN_DEBUGGING)*
 

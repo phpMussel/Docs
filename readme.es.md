@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 API DE ESCÁNER
 
+También puede implementar la API del escáner phpMussel en otros programas y scripts, si lo desea.
+
+Como un ejemplo completo:
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+La parte importante a tener en cuenta de ese ejemplo es el método `scan()`. El método `scan()` acepta dos parámetros:
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+El primer parámetro puede ser una cadena o una matriz, y le dice al escáner qué debe escanear. Puede ser una cadena que indique un archivo o directorio específico, o una matriz de tales cadenas para especificar múltiples archivos/directorios.
+
+Cuando como una cadena, debe apuntar a donde se pueden encontrar los datos. Cuando como una matriz, las teclas de la matriz deben indicar los nombres originales de los elementos a escanear, y los valores deben apuntar a dónde se pueden encontrar los datos.
+
+El segundo parámetro es un número entero y le dice al escáner cómo debe devolver sus resultados de escaneo.
+
+Especifique 1 para devolver los resultados del escaneo como una matriz para cada elemento escaneado como números enteros.
+
+Estos números enteros tienen los siguientes significados:
+
 Resultados | Descripción
 --:|:--
 -5 | Indica que el escanear no se pudo completar por otros motivos.
@@ -309,6 +352,40 @@ Resultados | Descripción
 0 | Indica que la escanear objetivo no existe y por lo tanto no había nada para escanear.
 1 | Indica que el objetivo fue escaneado con éxito y no se detectaron problemas.
 2 | Indica que el objetivo fue escaneado con éxito y se detectaron problemas.
+
+Especifique 2 para devolver los resultados del análisis como un valor booleano.
+
+Resultados | Descripción
+:-:|:--
+`true` | Se detectaron problemas (el objetivo del escaneo es malo/peligroso).
+`false` | No se detectaron problemas (el objetivo del escaneo probablemente esté bien).
+
+Especifique 3 para devolver los resultados del escaneo como una matriz para cada elemento escaneado como texto legible por humanos.
+
+*Ejemplo de salida:*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+Especifique 4 para devolver los resultados del escaneo como una cadena de texto legible por humanos (like 3, pero implotó).
+
+*Ejemplo de salida:*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+Especifique *cualquier otro valor* para devolver texto formateado (es decir, los resultados del escaneo vistos cuando se usa CLI).
+
+*Ejemplo de salida:*
 
 *Ver también: [¿Cómo acceder a detalles específicos sobre los archivos cuando se escanean?](#SCAN_DEBUGGING)*
 

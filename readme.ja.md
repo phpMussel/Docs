@@ -299,6 +299,49 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 #### 3.5 スキャナーＡＰＩ
 
+必要に応じて、他のプログラムやスクリプト内にphpMusselスキャナーＡＰＩを実装することもできます。
+
+完全な例として：
+
+```PHP
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+// Composer's autoloader.
+require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Location of the test files.
+$Samples = sprintf($Vendor . '%1$sphpmussel%1$score%1$stests%1$s_support%1$ssamples', DIRECTORY_SEPARATOR);
+
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
+$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+// Execute the scan.
+$Results = $Scanner->scan($Samples);
+
+// Cleanup.
+unset($Scanner, $Loader);
+
+var_dump($Results);
+```
+
+その例から注意すべき重要な部分は、`scan()`メソッドです。 `scan()`メソッドは二つのパラメーターを受け入れます。
+
+```PHP
+public function scan(mixed $Files, int $Format = 0): mixed
+```
+
+最初のパラメーターは文字列または配列で、スキャナーにスキャン対象を指示します。​特定のファイルまたはディレクトリを示す文字列、または複数のファイル/ディレクトリを指定するためのそのような文字列の配列です。
+
+文字列の場合は、データが見つかる場所を指す必要があります。​配列の場合、配列キーはスキャンするアイテムの元の名前を示し、値はデータが見つかる場所を指す必要があります。
+
+二番目のパラメーターは整数で、スキャナーにスキャン結果を返す方法を指示します。
+
+整数としてスキャンされた各アイテムのスキャン結果を配列として返すには、「1」を指定します。
+
+これらの整数には次の意味があります。
+
 結果 | 説明
 --:|:--
 -5 | 他の理由でスキャンが完了しませんでした。
@@ -309,6 +352,40 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 0 | スキャンの対象が存在しないこと。
 ​1 | 対象のスキャンを完了しかつ問題がないこと。
 ​2 | 対象のスキャンを完了しかつ問題を検出したことを意味します。
+
+スキャン結果をブール値として返すには、「2」を指定します。
+
+結果 | 説明
+:-:|:--
+`true` | 問題が検出されました（スキャン・ターゲットが不良/危険です）。
+`false` | 問題は検出されませんでした（スキャン・ターゲットはおそらく問題ありません）。
+
+人間が読めるテキストとしてスキャンされた各アイテムのスキャン結果を配列として返すには、「3」を指定します。
+
+*出力例：*
+
+```
+array(3) {
+  ["dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_standard_testfile.txt"]=>
+  string(73) "Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!"
+  ["c845b950f38399ae7fe4b3107cab5b46ac7c3e184dddfec97d4d164c00cb584a:491:coex_testfile.rtf"]=>
+  string(53) "Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!"
+  ["d45d5d9df433aefeacaece6162b835e6474d6fcb707d24971322ec429707c58f:185:encrypted.zip"]=>
+  string(77) "Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!"
+}
+```
+
+スキャン結果を人間が読めるテキストの文字列として返すには、「4」を指定します（これは「3」に似ていますが、内破されています）。
+
+*出力例：*
+
+```
+Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+```
+
+書式付きテキストとして返すには、他の値を指定します（i.e., the scan results seen when using CLI）。
+
+*出力例：*
 
 *また見てください： [ファイルのスキャン時に特定の詳細情報にアクセスするにはどうすればよいですか？](#SCAN_DEBUGGING)*
 
@@ -1457,7 +1534,7 @@ DSNの特定の部分に何を使用するかわからない場合は、何も�
 
 透明性のために、共有される情報のタイプと、誰と、以下に記載されています。
 
-##### 11.2.1 ＵＲＬスキャナ
+##### 11.2.1 ＵＲＬスキャナー
 
 ファイルのアップロード内に見つかったＵＲＬは、パッケージ・コンフィギュレーションに応じて、Googleセーフ・ブラウジングAPIと共有できます。​Googleセーフ・ブラウジングAPIは、正常に動作するためにはAPIキーが必要です。​したがって、デフォルトでは無効になっています。
 
