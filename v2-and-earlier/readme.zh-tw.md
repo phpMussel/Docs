@@ -110,7 +110,7 @@
 
 *看到：[SigTool文檔](https://github.com/phpMussel/SigTool#documentation).*
 
-*另請注意：SigTool僅處理來自ClamAV的簽名。為了獲得其他來源的簽名（例如，專門為p​​hpMussel編寫的簽名，其中包括檢測phpMussel的測試樣本所必需的簽名），此方法將需要通過此處提到的其他方法之一進行補充。*
+*另請注意：SigTool僅處理來自ClamAV的簽名。為了獲得其他來源的簽名（例如，專門為phpMussel編寫的簽名，其中包括檢測phpMussel的測試樣本所必需的簽名），此方法將需要通過此處提到的其他方法之一進行補充。*
 
 ##### 2.3.3 從『phpMussel/Signatures』下載簽名並手動安裝。
 
