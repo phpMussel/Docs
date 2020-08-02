@@ -301,7 +301,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 ![اسکرین شاٹ](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
 
-#### <div dir="rtl">۳.۷ اسکینر API</div>
+#### <div dir="rtl">۳.۵ اسکینر API</div>
 
 <div dir="rtl">اگر آپ چاہیں تو، آپ دوسرے پروگراموں اور اسکرپٹ کے اندر بھی phpMussel سکینر API لاگو کرسکتے ہیں.<br /><br /></div>
 
@@ -393,7 +393,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 <div dir="rtl">بھی دیکھو: <a href="#SCAN_DEBUGGING">کس طرح وہ سکین کر رہے ہیں جب فائلوں کے بارے میں مزید تفصیلات تک رسائی حاصل کرنے کے لئے؟</a><br /><br /></div>
 
-#### <div dir="rtl">۳.۵ 2FA<br /><br /></div>
+#### <div dir="rtl">۳.۶ 2FA<br /><br /></div>
 
 <div dir="rtl">2FA کو چالو کرنے کے ذریعہ front-end کو مزید محفوظ بنانے کے لئے ممکن ہے. جب 2FA کے ساتھ اکاؤنٹ میں لاگ ان ہو تو، اس اکاؤنٹ سے منسلک ای میل ایڈریس پر ایک ای میل بھیجا جاتا ہے. اس ای میل میں "2FA کوڈ" شامل ہے، جو اس صارف کا استعمال کرتے ہوئے لاگ ان کرنے کے لۓ صارف کا نام اور پاسورڈ کے علاوہ صارف کو داخل ہونا ضروری ہے. اس کا مطلب یہ ہے کہ اکاؤنٹ اکاؤنٹ پاس ورڈ حاصل کرنے کے لئے کسی بھی ہیکر یا ممکنہ حملہ آور کو اس اکاؤنٹ میں لاگ ان کرنے کے قابل نہیں ہو گا، کیونکہ انہیں وصول کرنے کے قابل ہونے کے لئے ان اکاؤنٹ سے منسلک ای میل ایڈریس تک رسائی حاصل ہوگی. اور سیشن کے ساتھ منسلک 2FA کوڈ استعمال کریں.<br /><br /></div>
 
@@ -406,12 +406,26 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 ### <div dir="rtl">۴. <a name="SECTION4"></a>PHPMUSSEL میں توسیع</div>
 
+<div dir="rtl">phpMussel ذہن میں وسعت کے ساتھ ڈیزائن کیا گیا ہے. phpMussel تنظیم میں کسی بھی ذخیرے کے لئے <a href="https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md">تعاون</a> کا خیرمقدم کیا جاتا ہے. اگر آپ یہ کرنا چاہتے ہیں تو، اپنی اپنی انفرادی ضروریات کے لئے phpMussel میں ترمیم یا توسیع کرنا بھی ممکن ہے (جیسے، وہ چیزیں جو آپ کے خاص نفاذ سے مخصوص ہیں، جو آپ کی تنظیم میں رازداری کی ضروریات کی وجہ سے شائع نہیں کی جاسکتی ہیں، یا جو ان کے اپنے ذخیر at پر ترجیحی طور پر شائع کیا جاسکے، جیسے پلگ انز اور نئے Composer پیکیجوں کے لئے جو phpMussel کی ضرورت ہوتی ہے).<br /><br /></div>
+
+<div dir="rtl"><br /><br /></div>
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+<div dir="rtl"><br /><br /></div>
+phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+
+<div dir="rtl"><br /><br /></div>
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+<div dir="rtl"><br /><br /></div>
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### <div dir="rtl">۷. <a name="SECTION7"></a>ترتیب کے اختیارات</div>
 
-<div dir="rtl">مندرجہ ذیل phpMussel کے <code dir="ltr">"config.ini"</code> کنفیگریشن فائل میں پایا، ان کے مقاصد اور تقریب کی ایک وضاحت کے ساتھ ساتھ متغیر کی ایک فہرست ہے.<br /><br /></div>
+<div dir="rtl">ذیل میں phpMussel کے ذریعہ قبول کردہ تشکیلاتی ہدایت کی ایک فہرست ہے، نیز ان کے مقصد اور کام کی تفصیل.<br /><br /></div>
 
 ```
 کنفگریشن (v3)
@@ -856,10 +870,10 @@ disabled_channels
 <div dir="rtl"><ul><li>phpMussel مسدود فائل اپلوڈز کو الگ تھلگ کرنے کے قابل ہے، اگر یہ وہ چیز ہے جو آپ چاہتے ہیں. صرف دل کی گہرائیوں سے کسی بھی پرچم لگایا کوشش کی فائل اپ لوڈ اس فعالیت کو غیر فعال کر چھوڑ دینا چاہئے تجزیہ کرنے میں کوئی دلچسپی کے بغیر ان کی ویب سائٹ یا ہوسٹنگ ماحول کی حفاظت کے لئے چاہتے ہیں کہ phpMussel کے آرام دہ اور پرسکون صارفین، لیکن میلویئر کی تحقیق کے لئے یا اسی طرح کے پرچم لگائے کوشش کی فائل اپ لوڈ کی مزید تجزیہ کرنے میں دلچسپی رکھتے کسی بھی صارفین ایسی چیزوں کو اس فعالیت کو چالو کرنا چاہئے. نشان زدہ کوشش کی فائل اپ لوڈ کی Quarantining کبھی کبھی بھی، جھوٹے مثبت ٹھیک کرنا میں مدد کر سکتے ہیں یہ اکثر آپ کے لئے اس وقت ہوتی ہے کہ کچھ ہے. سنگرودھ فعالیت کو غیر فعال کرنے کیلئے، بس <code dir="ltr"> quarantine_key </code> کے ہدایت خالی چھوڑ دیں، یا یہ کہ ہدایت کے مندرجات کو مٹانے یہ پہلے سے خالی نہیں ہے. سنگرودھ فعالیت کو چالو کرنے کے لئے، ہدایت میں کچھ قیمت درج کریں. <code dir="ltr"> quarantine_key </code> کے ممکنہ حملہ آوروں کی طرف سے اور سنگرودھ کے اندر اندر ذخیرہ کردہ ڈیٹا کی کسی بھی ممکنہ پھانسی کی روک تھام کا ایک ذریعہ کے طور پر استحصال کیا جا رہا ہے سے قرنطینہ فعالیت کی روک تھام کا ایک ذریعہ کے طور پر ضرورت سنگرودھ فعالیت کا ایک اہم حفاظتی خصوصیت ہے. <code dir="ltr"> quarantine_key </code> کے آپ کے پاس ورڈ کے طور پر اسی انداز میں علاج کیا جانا چاہئے: اب بہتر ہے، اور مضبوطی سے اس کی حفاظت. بہترین اثر کے لیے، کے ساتھ مل کر میں استعمال کرتے ہیں <code dir="ltr">delete_on_sight</code>.</li></ul></div>
 
 ##### <div dir="rtl">"quarantine_max_filesize" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>فائلوں کی زیادہ سے زیادہ قابل اجازت فائل قرنطینہ جائے. متعین قدر سے بڑی فائلوں قرنطینہ نہیں رکھا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن ​​دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 2MB.</li></ul></div>
+<div dir="rtl"><ul><li>فائلوں کی زیادہ سے زیادہ قابل اجازت فائل قرنطینہ جائے. متعین قدر سے بڑی فائلوں قرنطینہ نہیں رکھا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 2MB.</li></ul></div>
 
 ##### <div dir="rtl">"quarantine_max_usage" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>زیادہ سے زیادہ میموری کا استعمال سنگرودھ کے لئے کی اجازت دی. سنگرودھ طرف سے استعمال کیا کل میموری اس قیمت تک پہنچ جاتا ہے تو، استعمال کیا کل میموری اب کوئی اس قیمت تک پہنچ جاتا ہے جب تک قدیم ترین قرنطینہ فائلوں کو خارج کر دیا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن ​​دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 64MB.</li></ul></div>
+<div dir="rtl"><ul><li>زیادہ سے زیادہ میموری کا استعمال سنگرودھ کے لئے کی اجازت دی. سنگرودھ طرف سے استعمال کیا کل میموری اس قیمت تک پہنچ جاتا ہے تو، استعمال کیا کل میموری اب کوئی اس قیمت تک پہنچ جاتا ہے جب تک قدیم ترین قرنطینہ فائلوں کو خارج کر دیا جائے گا. یہ ہدایت کسی بھی ممکنہ حملہ آوروں کے ممکنہ طور پر اپنے ہوسٹنگ سروس پر رن دور ڈیٹا کے استعمال کے باعث ناپسندیدہ اعداد و شمار کے ساتھ آپ کے سنگرودھ سیلاب کے لئے یہ زیادہ مشکل بنانے کا ایک ذریعہ کے طور پر اہم ہے. پہلے سے طے شدہ = 64MB.</li></ul></div>
 
 ##### <div dir="rtl">"quarantine_max_files" <code dir="ltr">[int]</code><br /></div>
 <div dir="rtl"><ul><li>قرنطین میں موجود فائلوں کی زیادہ سے زیادہ تعداد. جب قرنطین میں نئی فائلوں کو شامل کیا جاتا ہے تو، اگر یہ نمبر تجاوز کردی جاتی ہے تو، پرانی فائلوں کو حذف کر دیا جائے گا جب باقی باقی اب اس نمبر سے زیادہ نہیں ہیں. پہلے سے طے شدہ = 100.</li></ul></div>
@@ -1189,10 +1203,6 @@ smtp_secure
 
 ### <div dir="rtl">۹. <a name="SECTION9"></a>جانا جاتا مطابقت کے مسائل</div>
 
-#### <div dir="rtl">PHP اور PCRE</div>
-
-<div dir="rtl">phpMussel صحیح PHP اور PCRE پر عمل کرنے اور تقریب کی ضرورت ہے. PHP کے بغیر، یا PHP کی PCRE توسیع کے بغیر، phpMussel پھانسی یا صحیح طریقے سے کام نہیں کرے گا. پہلے ڈاؤن لوڈ کرنے اور phpMussel نصب کرنے سے آپ کے سسٹم PHP اور PCRE دونوں نصب ہے اس بات کا یقین اور دستیاب بنانا چاہئے.<br /><br /></div>
-
 #### <div dir="rtl">اینٹی وائرس سافٹ ویئر کی مطابقت</div>
 
 <div dir="rtl">بعض اوقات phpMussel اور دیگر اینٹی وائرس حلوں کے مابین مطابقت کی دشواری ہوتی ہے. لہذا ہر چند مہینوں کے بعد، میں رپورٹ شدہ پریشانیوں کے لئے Virus Total کے خلاف phpMussel چیک کرتا ہوں. جب وہاں پر مسائل کی اطلاع دی جاتی ہے تو، میں دستاویزات میں، درج کردہ مسائل کو یہاں درج کرتا ہوں.<br /><br /></div>
@@ -1200,6 +1210,8 @@ smtp_secure
 <div dir="rtl">جب میں نے حال ہی میں جانچ کیا (2019.10.10)، تو کوئی پریشانی کی اطلاع نہیں ملی.<br /><br /></div>
 
 <div dir="rtl">میں دستخط فائلوں، دستاویزات، یا دیگر پردیی مواد کی جانچ نہیں کرتا ہوں. جب دوسرے اینٹی وائرس حل ان کا پتہ لگاتے ہیں تو دستخط فائلیں ہمیشہ کچھ غلط مثبت کا سبب بنتی ہیں. لہذا میں سختی سے سفارش کروں گا، اگر آپ کسی ایسی مشین میں phpMussel انسٹال کرنے کا ارادہ رکھتے ہیں جہاں پہلے ہی ایک اور اینٹی وائرس حل موجود ہے، آپ کی وائٹ لسٹ میں phpMussel دستخط فائلوں کو ڈالنے کے لئے.<br /><br /></div>
+
+<div dir="rtl"><em>بھی دیکھو: <a href="https://maikuolan.github.io/Compatibility-Charts/">مطابقت چارٹ</a>.</em><br /><br /></div>
 
 ---
 
@@ -1627,7 +1639,7 @@ IP پتہ: <code dir="ltr">127.0.0.x</code>
 یہ طور قرنطینہ میں "<code dir="ltr">1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu</code>" کے.
 </pre>
 
-<div dir="rtl">بلاک شدہ اپ لوڈس کے بارے میں معلومات عام طور پر شامل ہیں:<br /></div>
+<div dir="rtl">ان لاگ انٹریوں میں عام طور پر درج ذیل معلومات شامل ہوتی ہیں:<br /></div>
 <div dir="rtl"><ul>
  <li>اپ لوڈ کردہ تاریخ اور وقت.</li>
  <li>IP ایڈریس جہاں اپ لوڈ سے پیدا ہوا ہے.</li>
@@ -1716,11 +1728,6 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 
 <div dir="rtl">صارف کو سامنے کے آخر میں لاگ ان ہونے پر phpMussel ایک کوکی سیٹ کرتا ہے (تصدیق کے مقاصد کے لئے). لاگ ان کے صفحے پر، صارف کو خبردار کیا جاتا ہے کہ اگر وہ صفحہ مشغول ہوجائے تو ایک کوکی پیدا کی جائے گی. کوکیز کہیں اور نہیں بنائے جاتے ہیں.<br /><br /></div>
 
-<div dir="rtl">متعلقہ ترتیب ہدایات:<br /></div>
-<div dir="rtl"><ul>
- <li><code dir="ltr">disable_frontend</code> &lt;- <code dir="ltr">general</code></li>
-</ul></div>
-
 #### <div dir="rtl">۱۱.۵ مارکیٹنگ اور اشتہارات<br /><br /></div>
 
 <div dir="rtl">phpMussel مارکیٹنگ یا اشتہارات کے مقاصد کے لئے کسی بھی معلومات جمع یا عمل نہیں کرتا ہے. یہ کسی جمع کردہ یا لاگ ان معلومات سے کوئی فائدہ نہیں فروخت کرتا ہے. phpMussel ایک تجارتی ادارہ نہیں ہے، اور کسی بھی تجارتی مفادات سے متعلق نہیں ہے، لہذا ان کاموں کو کوئی احساس نہیں ہوگا. اس منصوبے کی شروعات کے بعد یہ معاملہ رہا ہے، اور آج ہی مقدمہ جاری ہے.<br /><br /></div>
@@ -1753,4 +1760,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: 21 جولائی 2020 (2020.07.21).</div>
+<div dir="rtl">آخری تازہ کاری: 2 جولائی 2020 (2020.08.02).</div>

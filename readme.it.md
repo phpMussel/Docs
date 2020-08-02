@@ -402,12 +402,22 @@ Successivamente, dovrai associare un indirizzo di posta elettronica a un account
 
 ### 4. <a name="SECTION4"></a>ESTENDENDO PHPMUSSEL
 
+phpMussel è progettato pensando all'estensibilità. Le richieste di pull a tutti i repository dell'organizzazione phpMussel e i [contributi](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) in generale sono sempre i benvenuti. Inoltre, se è necessario modificare o estendere phpMussel in modi che non sono idonei a contribuire con quei repository particolari, è sicuramente possibile farlo (ad es., per modifiche o estensioni specifiche della tua specifica implementazione, che non possono essere pubblicizzate a causa della riservatezza o delle esigenze di privacy della tua organizzazione, o che potrebbero essere preferibilmente pubblicizzati nel proprio repository, ad esempio per plugin e nuovi pacchetti Composer che richiedono phpMussel).
+
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### 7. <a name="SECTION7"></a>OPZIONI DI CONFIGURAZIONE
 
-Il seguente è un elenco di variabili trovate nelle `config.ini` file di configurazione di phpMussel, insieme con una descrizione del loro scopo e funzione.
+Il seguente è un elenco delle direttive di configurazione accettate da phpMussel, insieme con una descrizione del loro scopo e funzione.
 
 ```
 Configurazione (v3)
@@ -1180,9 +1190,6 @@ Ogni forma di regex correttamente capito da PHP anche dovrebbe essere correttame
 
 ### 9. <a name="SECTION9"></a>CONOSCIUTI COMPATIBILITÀ PROBLEMI
 
-#### PHP e PCRE
-- phpMussel richiede PHP e PCRE a eseguire ea funzionare correttamente. Senza PHP, o senza il PCRE estensione di PHP, phpMussel non sarà eseguirà o funzionare correttamente. Dovrebbe assicurarsi che il vostra sistema ha sia PHP e PCRE installati e disponibili prima di scaricare e installare phpMussel.
-
 #### ANTI-VIRUS SOFTWARE COMPATIBILITÀ
 
 Problemi di compatibilità tra phpMussel e alcuni fornitori di antivirus si sono verificati a volte in passato, così ogni pochi mesi o giù di lì, controllo le ultime versioni disponibili della base di codice phpMussel contro Virus Total, per vedere se vi sono segnalati problemi. Quando vengono segnalati problemi, elencherò qui i problemi riportati, nella documentazione.
@@ -1190,6 +1197,8 @@ Problemi di compatibilità tra phpMussel e alcuni fornitori di antivirus si sono
 Quando ho controllato più di recente (2019.10.10), non sono stati segnalati problemi.
 
 Non controllo i file di firma, la documentazione o altri contenuti periferici. I file di firma causano sempre alcuni falsi positivi quando vengono rilevati da altre soluzioni antivirus. Pertanto, consigliamo vivamente, se si prevede di installare phpMussel su una macchina in cui esiste già un'altra soluzione antivirus, di mettere i file delle firme phpMussel nella tua lista bianca.
+
+*Guarda anche: [Grafici di Compatibilità](https://maikuolan.github.io/Compatibility-Charts/).*
 
 ---
 
@@ -1610,7 +1619,7 @@ dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_stand
 In quarantena come "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
-Una voce di "scan uccisioni" include in genere le seguenti informazioni:
+Queste voci del registro in genere includono le seguenti informazioni:
 - La data e l'ora in cui il caricamento è stato bloccato.
 - L'indirizzo IP da cui ha avuto origine il caricamento.
 - Il motivo per cui il file è stato bloccato (ciò che è stato rilevato).
@@ -1679,9 +1688,6 @@ phpMussel non crittografa la sua cache o alcuna informazione di registro. La [cr
 
 Quando un utente accede con successo al front-end, phpMussel imposta un [cookie](https://it.wikipedia.org/wiki/Cookie) per poter ricordare all'utente le richieste successive (cioè, i cookie vengono utilizzati per autenticare l'utente in una sessione di accesso). Nella pagina di accesso, un avviso sui cookie viene visualizzato in modo prominente, avvisando l'utente che verrà impostato un cookie se si impegnano nell'azione in questione. I cookie non sono impostati in altri punti della base di codice.
 
-*Direttive di configurazione rilevanti:*
-- `general` -> `disable_frontend`
-
 #### 11.5 MARKETING E PUBBLICITÀ
 
 phpMussel non raccoglie né elabora alcuna informazione per scopi di marketing o pubblicitari, e non vende né guadagna da alcuna informazione raccolta o registrata. phpMussel non è un'impresa commerciale, né è collegata ad alcun interesse commerciale, quindi fare queste cose non avrebbe alcun senso. Questo è stato il caso dall'inizio del progetto e continua ad esserlo oggi. Inoltre, fare queste cose sarebbe controproducente per lo spirito e lo scopo del progetto nel suo insieme e, finché continuerò a mantenere il progetto, non accadrà mai.
@@ -1712,4 +1718,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 21 Luglio 2020 (2020.07.21).
+Ultimo Aggiornamento: 2 Luglio 2020 (2020.08.02).

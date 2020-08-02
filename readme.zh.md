@@ -84,7 +84,7 @@ phpMussel需要签名来检测特定的威胁。​安装签名有二种主要�
 
 *看到：[SigTool文档](https://github.com/phpMussel/SigTool#documentation).*
 
-*另请注意：SigTool仅处理来自ClamAV的签名。为了获得其他来源的签名（例如，专门为p​​hpMussel编写的签名，其中包括检测phpMussel的测试样本所必需的签名），此方法将需要通过此处提到的其他方法之一进行补充。*
+*另请注意：SigTool仅处理来自ClamAV的签名。为了获得其他来源的签名（例如，专门为phpMussel编写的签名，其中包括检测phpMussel的测试样本所必需的签名），此方法将需要通过此处提到的其他方法之一进行补充。*
 
 ##### 2.1.1 从“phpMussel/Signatures”或“phpMussel/Examples”下载签名并手动安装。
 
@@ -402,12 +402,22 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 ### 4. <a name="SECTION4"></a>扩展PHPMUSSEL
 
+phpMussel在设计时考虑了可扩展性。​向phpMussel组织中的任何存储库拉请求和[贡献](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md)总是欢迎的。​如果需要，您也可以修改或扩展phpMussel以适合自己的需求（例如，用于特定于您的特定实现的修改或扩展，用于需要phpMussel的新插件和新Composer软件包，等等）。
+
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+phpMussel also provides its own mechanisms for extensibility.​Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel.​Since v3, the preferred mechanism is the events orchestrator.
+
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates).​Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation.​That is not a coincidence.​Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself.​If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation.​(Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### 7. <a name="SECTION7"></a>配置选项
 
-下列是一个列表的变量发现在`config.ini`配置文件的phpMussel，​以及一个说明的他们的目的和功能。
+以下是phpMussel接受的配置指令的列表，​以及一个说明的他们的目的和功能。
 
 ```
 配置 (v3)
@@ -1180,9 +1190,6 @@ phpMussel签名文件前9个字节（`[x0-x8]`）是`phpMussel`。​它作为�
 
 ### 9. <a name="SECTION9"></a>已知的兼容问题
 
-#### PHP和PCRE
-- phpMussel需要PHP和PCRE以正确地执行和功能。​如果没有PHP，​或如果没有PCRE扩展的PHP，​phpMussel不会正确地执行和功能。​应该确保您的系统有PHP和PCRE安装和可用之前下载和安装phpMussel。
-
 #### 杀毒软件兼容性
 
 有时phpMussel和其他防病毒解决方案之间存在兼容性问题。​因此，大约每隔几个月，我对照Virus Total检查了最新版本的phpMussel代码库，为了看那里是否报告了任何问题。​报告了问题时，我会在文档中在此处列出报告的问题。
@@ -1190,6 +1197,8 @@ phpMussel签名文件前9个字节（`[x0-x8]`）是`phpMussel`。​它作为�
 当我最近检查（2019年10月10日）时，没有任何问题的报告。
 
 我不检查签名文件，文档或其他外围内容。​当其他防病毒解决方案检测到签名文件时，它们总是会引起一些误报（假阳性）。​因此，我强烈建议，如果您打算在已经存在另一种防病毒解决方案的计算机上安装phpMussel，将phpMussel签名文件列入白名单。
+
+*也可以看看：​[兼容性图表](https://maikuolan.github.io/Compatibility-Charts/)。*
 
 ---
 
@@ -1602,7 +1611,7 @@ dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_stand
 隔离为“1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu”。
 ```
 
-“扫描杀戮”条目通常包括以下信息：
+这些日志条目通常包括以下信息：
 - 上传被阻止的日期和时间。
 - 上传源自的IP地址。
 - 文件被阻止的原因（检测到的内容）。
@@ -1675,9 +1684,6 @@ phpMussel不[加密](https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%AF%86)其缓存�
 
 当用户成功登录前端时，phpMussel设置cookie以便能够在后续请求中的记住用户（即，cookie用于向登录会话验证用户身份）。​在登录页面上，cookie警告显着显示，警告用户如果他们参与相关操作将设置cookie。 Cookie不会在代码库中的任何其他位置设置。
 
-*相关配置指令：*
-- `general` -> `disable_frontend`
-
 #### 11.5 市场营销和广告
 
 phpMussel不收集或处理任何信息用于营销或广告目的，既不销售也不从任何收集或记录的信息中获利。​phpMussel不是商业企业，也不涉及任何商业利益，因此做这些事情没有任何意义。​自项目开始以来就一直如此，今天仍然如此。​此外，做这些事情会对整个项目的精神和预期目的产生反作用，并且只要我继续维护项目，永远不会发生。
@@ -1710,4 +1716,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2020年7月21日。
+最后更新：2020年8月2日。

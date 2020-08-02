@@ -444,7 +444,7 @@ Since v3, all phpMussel functionality exists as classes, which means that in som
 
 phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
 
-Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all currently supported events and more detailed instructions regarding how to use the boilerplate code.
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
 
 You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
 
@@ -453,7 +453,7 @@ You'll notice that the structure of the v3 boilerplate code is identical to the 
 
 ### 7. <a name="SECTION7"></a>CONFIGURATION OPTIONS
 
-The following is a list of variables found in the `config.ini` configuration file of phpMussel, along with a description of their purpose and function.
+The following is a list of the configuration directives accepted by phpMussel, along with a description of their purpose and function.
 
 ```
 Configuration (v3)
@@ -1226,9 +1226,6 @@ Any form of regex understood and correctly processed by PHP should also be corre
 
 ### 9. <a name="SECTION9"></a>KNOWN COMPATIBILITY PROBLEMS
 
-#### PHP and PCRE
-- phpMussel requires PHP and PCRE to execute and function correctly. Without PHP, or without the PCRE extension of PHP, phpMussel won't execute or function correctly. You should make sure your system has both PHP and PCRE installed and available prior to downloading and installing phpMussel.
-
 #### ANTI-VIRUS SOFTWARE COMPATIBILITY
 
 Compatibility problems between phpMussel and some anti-virus vendors have been known to occur sometimes in the past, so every few months or thereabouts, I check the latest available versions of the phpMussel codebase against Virus Total, to see whether any problems are reported there. When problems are reported there, I list the reported problems here, in the documentation.
@@ -1236,6 +1233,8 @@ Compatibility problems between phpMussel and some anti-virus vendors have been k
 When I most recently checked (2019.10.10), no problems were reported.
 
 I don't check the signature files, documentation, or other peripheral content. The signature files always cause some false positives when other anti-virus solutions detect them. I would therefore strongly recommend, that if you plan to install phpMussel at a machine where another anti-virus solution already exists, to whitelist the phpMussel signature files.
+
+*See also: [Compatibility Charts](https://maikuolan.github.io/Compatibility-Charts/).*
 
 ---
 
@@ -1653,7 +1652,7 @@ dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_stand
 Quarantined as "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
-A "scan kills" entry typically includes the following information:
+These log entries typically includes the following information:
 - The date and time that the upload was blocked.
 - The IP address where the upload originated from.
 - The reason why the file was blocked (what was detected).
@@ -1727,9 +1726,6 @@ phpMussel doesn't encrypt its cache or any log information. Cache and log [encry
 
 When a user successfully logs into the front-end, phpMussel sets a [cookie](https://en.wikipedia.org/wiki/HTTP_cookie) in order to be able to remember the user for subsequent requests (i.e., cookies are used to authenticate the user to a login session). On the login page, a cookie warning is displayed prominently, warning the user that a cookie will be set if they engage in the relevant action. Cookies aren't set at any other points in the codebase.
 
-*Relevant configuration directives:*
-- `general` -> `disable_frontend`
-
 #### 11.5 MARKETING AND ADVERTISING
 
 phpMussel doesn't collect or process any information for marketing or advertising purposes, and neither sells nor profits from any collected or logged information. phpMussel is not a commercial enterprise, nor is related to any commercial interests, so doing these things wouldn't make any sense. This has been the case since the beginning of the project, and continues to be the case today. Additionally, doing these things would be counter-productive to the spirit and intended purpose of the project as a whole, and for as long as I continue to maintain the project, will never happen.
@@ -1763,4 +1759,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 21 July 2020 (2020.07.21).
+Last Updated: 2 July 2020 (2020.08.02).

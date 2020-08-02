@@ -301,7 +301,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 ![لقطة شاشة](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
 
-#### <div dir="rtl">٣.٧ API الماسح</div>
+#### <div dir="rtl">٣.٥ API الماسح</div>
 
 <div dir="rtl">يمكنك أيضًا استخدام واجهة برمجة تطبيقات الماسح الضوئي phpMussel في البرامج النصية والبرامج النصية الأخرى، إذا كنت ترغب في ذلك.<br /><br /></div>
 
@@ -393,7 +393,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 <div dir="rtl">أنظر أيضا: <a href="#SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a><br /></div>
 
-#### <div dir="rtl">٣.٥ 2FA<br /><br /></div>
+#### <div dir="rtl">٣.٦ 2FA<br /><br /></div>
 
 <div dir="rtl">من الممكن جعل front-end أكثر أمانًا عن طريق تمكين 2FA. عند تسجيل الدخول إلى حساب باستخدام 2FA، يتم إرسال بريد إلكتروني إلى عنوان البريد الإلكتروني المقترن بهذا الحساب. تحتوي هذه الرسالة الإلكترونية على "رمز 2FA"، والذي يجب على المستخدم إدخاله، بالإضافة إلى اسم المستخدم وكلمة المرور، حتى تتمكن من تسجيل الدخول باستخدام هذا الحساب. وهذا يعني أن الحصول على كلمة مرور الحساب لن يكون كافيًا لأي متسلل أو مهاجم محتمل ليتمكن من تسجيل الدخول إلى هذا الحساب، لأنهم سيحتاجون أيضًا إلى الوصول بالفعل إلى عنوان البريد الإلكتروني المرتبط بهذا الحساب حتى يتمكنوا من تلقي رمز 2FA واستخدامه في الجلسة.<br /><br /></div>
 
@@ -406,12 +406,26 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 ### <div dir="rtl">٤. <a name="SECTION4"></a>تمديد PHPMUSSEL</div>
 
+<div dir="rtl">تم تصميم phpMussel مع وضع القابلية للتوسعة في الاعتبار. نرحب دائمًا <a href="https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md">بالمساهمات</a> في أي من مستودعات منظمة phpMussel. من الممكن أيضًا تعديل أو توسيع phpMussel وفقًا لاحتياجاتك الفريدة، إذا كنت ترغب في ذلك (على سبيل المثال، بالنسبة للتعديلات أو الإضافات الخاصة بتنفيذك الخاص، والتي لا يمكن نشرها بسبب متطلبات السرية أو الخصوصية في مؤسستك، أو التي قد يُنصح بنشرها في مستودعها الخاص، مثل الإضافات وحزم Composer الجديدة التي تتطلب phpMussel).<br /><br /></div>
+
+<div dir="rtl"><br /><br /></div>
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+<div dir="rtl"><br /><br /></div>
+phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+
+<div dir="rtl"><br /><br /></div>
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+<div dir="rtl"><br /><br /></div>
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### <div dir="rtl">٧. <a name="SECTION7"></a>خيارات التكوين/التهيئة</div>
 
-<div dir="rtl">وفيما يلي قائمة من المتغيرات الموجودة في ملف تكوين "config.ini"، بالإضافة إلى وصف الغرض منه و وظيفته.<br /><br /></div>
+<div dir="rtl">فيما يلي قائمة بتوجيهات التكوين المقبولة من قبل phpMussel، بالإضافة إلى وصف الغرض منه و وظيفته.<br /><br /></div>
 
 ```
 التكوين (v3)
@@ -1189,10 +1203,6 @@ smtp_secure
 
 ### <div dir="rtl">٩. <a name="SECTION9"></a>مشاكل التوافق المعروفة</div>
 
-#### <div dir="rtl">PHP و PCRE</div>
-
-<div dir="rtl">phpMussel يتطلب PHP و PCRE لتنفيذ وظيفته بشكل صحيح و بدون أحدهما أو كلاهما فإن البرنامج لن يعمل بشكل صحيح. تأكد من أن نظامك يمتلك كلا من PHP و PCRE مثبتين و متاحين قبل أن تقوم بتنزيل و تثبيت phpMussel.<br /><br /></div>
-
 #### <div dir="rtl">التوافق البرمجي لبرنامج مكافحة الفيروسات</div>
 
 <div dir="rtl">من المعروف أن مشاكل التوافق بين phpMussel وبعض بائعي برامج مكافحة الفيروسات تحدث في بعض الأحيان في الماضي، لذلك كل بضعة أشهر، أتحقق من أحدث الإصدارات المتاحة من قاعدة بيانات phpMussel ضد Virus Total، لمعرفة ما إذا كانت هناك أية مشكلات تم الإبلاغ عنها هناك. عندما يتم الإبلاغ عن المشكلات هناك، سأذكر المشاكل هنا في الوثائق.<br /><br /></div>
@@ -1200,6 +1210,8 @@ smtp_secure
 <div dir="rtl">عندما راجعت مؤخرًا (2019.10.10)، لم يتم الإبلاغ عن أي مشاكل.<br /><br /></div>
 
 <div dir="rtl">لا أتحقق من ملفات التوقيع أو الوثائق أو أي محتوى محيطي آخر. تسبب ملفات التوقيع دائمًا بعض الإيجابيات الخاطئة عندما تكتشفها حلول مكافحة الفيروسات الأخرى. لذلك أوصي بشدة، إذا كنت تخطط لتثبيت phpMussel على جهاز يوجد به بالفعل حل آخر لمكافحة الفيروسات، لإدراج ملفات توقيع phpMussel في القائمة البيضاء.<br /><br /></div>
+
+<div dir="rtl"><em>انظر أيضا: <a href="https://maikuolan.github.io/Compatibility-Charts/">مخططات التوافق</a>.</em><br /><br /></div>
 
 ---
 
@@ -1627,7 +1639,7 @@ Sun, 19 Jul 2020 13:33:31 +0800 انتهى.
 الحجر الصحي بأنه "<code dir="ltr">1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu</code>".
 </pre>
 
-<div dir="rtl">تتضمن معلومات حول التحميلات المحظورة عادةً ما يلي:<br /></div>
+<div dir="rtl">عادةً ما تتضمن إدخالات السجل هذه المعلومات التالية:<br /></div>
 <div dir="rtl"><ul>
  <li>التاريخ والوقت الذي تم حظر التحميل فيه.</li>
  <li>عنوان IP الذي نشأ فيه التحميل.</li>
@@ -1716,11 +1728,6 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 
 <div dir="rtl">عندما يسجل المستخدم بنجاح في الواجهة الأمامية، يعين phpMussel <a href="https://ar.wikipedia.org/wiki/%D9%85%D9%84%D9%81_%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7">ملف تعريف ارتباط</a> حتى يتمكن من تذكر المستخدم للطلبات اللاحقة (أي، يتم استخدام ملفات تعريف الارتباط لمصادقة المستخدم على جلسة تسجيل الدخول). في صفحة تسجيل الدخول، يتم عرض تحذير ملف تعريف ارتباط بشكل بارز، ويحذر المستخدم من أنه سيتم تعيين ملف تعريف ارتباط إذا شارك في الإجراء ذي الصلة. لا يتم تعيين ملفات تعريف الارتباط في أي نقاط أخرى في مصدر التعليمات البرمجية.<br /><br /></div>
 
-<div dir="rtl">خيارات التكوين ذات الصلة:<br /></div>
-<div dir="rtl"><ul>
- <li><code dir="ltr">disable_frontend</code> &lt;- <code dir="ltr">general</code></li>
-</ul></div>
-
 #### <div dir="rtl">١١.٥ التسويق والإعلان<br /><br /></div>
 
 <div dir="rtl">لا تجمع phpMussel أو تعالج أي معلومات لأغراض التسويق أو الإعلانات، ولا تبيع أو تحقق أرباحًا من أي معلومات تم جمعها أو تسجيلها. phpMussel ليست مؤسسة تجارية، ولا ترتبط بأي مصالح تجارية، لذا فإن القيام بهذه الأشياء لن يكون له أي معنى. كان هذا هو الحال منذ بداية المشروع، وما زالت الحالة اليوم. بالإضافة إلى ذلك، فإن القيام بهذه الأشياء سيؤدي إلى نتائج عكسية للمشروع والغرض المقصود من المشروع ككل، وطالما استمر في الحفاظ على المشروع، لن يحدث أبداً.<br /><br /></div>
@@ -1754,4 +1761,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 21 يوليو 2020 (2020.07.21).</div>
+<div dir="rtl">آخر تحديث: 2 يوليو 2020 (2020.08.02).</div>

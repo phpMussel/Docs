@@ -402,12 +402,22 @@ PHPMailerをインストールしたら、phpMusselコンフィギュレーシ�
 
 ### ４.<a name="SECTION4"></a>PHPMUSSELの拡張
 
+phpMusselは拡張性を考慮して設計されています。​phpMussel組織の任意のリポジトリへのプル・リクエスト、および一般的な[貢献](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md)はいつでも歓迎します。​必要に応じて、独自のニーズに合わせてphpMusselを変更または拡張することもできます​（例えば、特定の実装に固有のもの、公開できないもの、または独自のリポジトリに適したものがある場合、プラグイン、またはphpMusselを必要とする新しいComposerパッケージ、など）。
+
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+phpMussel also provides its own mechanisms for extensibility.​Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel.​Since v3, the preferred mechanism is the events orchestrator.
+
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates).​Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation.​That is not a coincidence.​Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself.​If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation.​(Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### ７.<a name="SECTION7"></a>コンフィギュレーション（設定オプション）
 
-以下は`config.ini`設定ファイルにある変数ならびにその目的と機能のリストです。
+以下は、phpMusselが受け入れるコンフィグレーション・ディレクティブのリストです、ならびにその目的と機能のリストです。
 
 ```
 コンフィギュレーション (v3)
@@ -991,7 +1001,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- 将来のすべてのパスワードとセッションに使用するアルゴリズムを定義します。​オプション：​PASSWORD_DEFAULT（Default/デフォルルト）、​PASSWORD_BCRYPT、​PASSWORD_ARGON2I ​（ＰＨＰ >= 7.2.0 が必要）、​PASSWORD_ARGON2ID ​（ＰＨＰ >= 7.3.0 が必要）。
+- 将来のすべてのパスワードとセッションに使用するアルゴリズムを定義します。​オプション：​PASSWORD_DEFAULT（Default/デフォルルト）、​PASSWORD_BCRYPT、​PASSWORD_ARGON2I （ＰＨＰ >= 7.2.0 が必要）、​PASSWORD_ARGON2ID （ＰＨＰ >= 7.3.0 が必要）。
 
 ```
 default_algo
@@ -1180,9 +1190,6 @@ NAMEはそのシグネチャを指す名前、​HEXは与えられたシグネ�
 
 ### ９.<a name="SECTION9"></a>適合性問題
 
-#### ＰＨＰとＰＣＲＥ
-- phpMusselが正しく動作するためにはＰＨＰとＰＣＲＥが必要です。​どちらか一方でも欠けると正常に機能しません。​システムにＰＨＰとＰＣＲＥの両方がインストールされていることをphpMusselダウンロード前に確認して下さい。
-
 #### アンチウィルスソフトウェアとの互換性
 
 phpMusselと一部のアンチウイルス・ベンダー間の互換性の問題は、過去に時々発生することが知られています。​そこで、およそ数ヶ月ごとに、phpMusselコードベースの最新バージョンをVirus Totalでチェックし、問題が報告されているかどうかを確認します。​問題が報告された場合、私は、報告された問題をドキュメントにリストします。
@@ -1190,6 +1197,8 @@ phpMusselと一部のアンチウイルス・ベンダー間の互換性の問�
 最近チェックしたとき（２０１９年１０月１０日）、問題は報告されませんでした。
 
 私は、シグネチャ・ファイル、ドキュメンテーション、またはその他の周辺コンテンツをチェックしません。​シグネチャ・ファイルは、他のアンチウイルス・ソリューションが検出すると、常にいくつかの誤検知を引き起こします。​したがって、別のアンチウイルス・ソリューションが既に存在するマシンにphpMusselをインストールする場合は、phpMusselシグネチャ・ファイルをホワイトリストに登録することを強くお勧めします。
+
+*参照：​[互換性チャート](https://maikuolan.github.io/Compatibility-Charts/)。*
 
 ---
 
@@ -1602,7 +1611,7 @@ dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_stand
 「1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu」として検疫。
 ```
 
-「スキャン・キル」エントリには、通常、以下の情報が含まれます。
+これらログ・エントリには通常、次の情報が含まれます。
 - アップロードがブロックされた日時。
 - アップロード元のＩＰアドレス。
 - ファイルがブロックされた理由（検出されたもの）。
@@ -1675,9 +1684,6 @@ phpMusselは、キャッシュまたはログ情報を[暗号化](https://ja.wik
 
 ユーザーがフロントエンドに正常にログインすると、phpMusselは後続のリクエストのためにユーザーを覚えておくために[Cookie](https://ja.wikipedia.org/wiki/HTTP_cookie)を設定します（すなわち、Cookieはユーザーをログインセッションに認証するために使用されます）。​ログイン・ページでは、Cookieの警告が目立つように表示され、関連する操作を行った場合にCookieが設定されることをユーザーに警告します。​Cookieは、コードベースの他のどの場所にも設定されていません。
 
-*関連するコンフィギュレーション・ディレクティブ：*
-- `general` -> `disable_frontend`
-
 #### 11.5 マーケティングやアドバタイジング
 
 phpMusselは、マーケティングやアドバタイジング目的で情報を収集または処理しません。​収集または記録された情報を販売したり、利益を得たりすることはありません。​phpMusselは商業的企業ではなく、商業的利益には関係しないので、これらのことは意味をなさないでしょう。​これは、プロジェクトの開始以来のケースであり、今日も引き続き行われています。​さらに、これらのことを行うことは、プロジェクトの精神と目的に沿ったものではなく、私がプロジェクトを維持し続ける限り、決して起こらないでしょう。
@@ -1709,4 +1715,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２０年７月２１日。
+最終アップデート：２０２０年８月２日。

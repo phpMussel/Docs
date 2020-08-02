@@ -402,12 +402,22 @@ Selanjutnya, Anda harus mengaitkan alamat email dengan akun, sehingga phpMussel 
 
 ### 4. <a name="SECTION4"></a>MEMPERLUAS PHPMUSSEL
 
+phpMussel dirancang dengan ekstensibilitas dalam pikiran. Pull request ke salah satu repositori di organisasi phpMussel, dan [kontribusi](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) secara umum, selalu diterima. Juga, jika Anda perlu memodifikasi atau memperluas phpMussel dengan cara-cara yang tidak cocok untuk berkontribusi kembali repositori-repositori tertentu, ini pasti mungkin untuk dilakukan (misalnya, untuk modifikasi atau ekstensi yang spesifik untuk implementasi khusus Anda, yang tidak dapat dipublikasikan karena kerahasiaan atau kebutuhan privasi di organisasi Anda, atau yang mungkin lebih disukai dipublikasikan di repositori mereka sendiri, seperti untuk plugins dan paket Composer baru yang membutuhkan phpMussel).
+
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### 7. <a name="SECTION7"></a>OPSI KONFIGURASI
 
-Berikut list variabel yang ditemukan pada file konfigurasi phpMussel `config.ini`, dengan deskripsi dari tujuan dan fungsi.
+Berikut ini adalah daftar direktif konfigurasi yang diterima oleh phpMussel, dengan deskripsi dari tujuan dan fungsi.
 
 ```
 Konfigurasi (v3)
@@ -1180,9 +1190,6 @@ Setiap bentuk dari regex mengerti dan dengan benar diproses oleh PHP seharusnya 
 
 ### 9. <a name="SECTION9"></a>MASALAH KOMPATIBILITAS DIKETAHUI
 
-#### PHP dan PCRE
-- phpMussel memerlukan PHP dan PCRE untuk mengeksekusi dan berfungsi dengan baik. Tanpa PHP, atau tanpa ekstensi PCRE, phpMussel tidak akan mengeksekusi atau berfungsi dengan baik. Seharusnya memastikan sistem Anda terinstal PHP dan PCRE dan tersedia secara prioritas untuk mengunduh dan menginstal phpMussel.
-
 #### KOMPATIBILITAS SOFTWARE ANTI-VIRUS
 
 Masalah kompatibilitas antara phpMussel dan beberapa vendor anti-virus telah diketahui terjadi di masa lalu, jadi setiap beberapa bulan atau sekitar itu, saya memeriksa versi terbaru dari basis kode phpMussel terhadap Total Virus, untuk melihat apakah ada masalah dilaporkan disana. Ketika masalah dilaporkan disana, saya daftar masalah yang dilaporkan disini, dalam dokumentasi.
@@ -1190,6 +1197,8 @@ Masalah kompatibilitas antara phpMussel dan beberapa vendor anti-virus telah dik
 Ketika saya baru-baru ini memeriksa (2019.10.10), tidak ada masalah dilaporkan.
 
 Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainnya. File tanda tangan selalu menyebabkan beberapa kesalahan positif ketika solusi anti-virus lain mendeteksi mereka, jadi saya akan sangat menyarankan, bahwa jika Anda berencana untuk menginstal phpMussel di mesin dimana solusi anti-virus lain sudah ada, untuk daftar file tanda tangan phpMussel di daftar putih Anda.
+
+*Lihat juga: [Bagan Kompatibilitas](https://maikuolan.github.io/Compatibility-Charts/).*
 
 ---
 
@@ -1609,7 +1618,7 @@ dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_stand
 Dikarantina sebagai "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
-Entri ke log untuk file yang diblokir oleh pemindai biasanya mencakup informasi berikut:
+Entri log ini biasanya mencakup informasi berikut:
 - Tanggal dan waktu saat upload diblokir.
 - Alamat IP tempat upload berasal.
 - Alasan mengapa file diblokir (apa yang terdeteksi).
@@ -1678,9 +1687,6 @@ phpMussel tidak mengenkripsi cache atau informasi log apapun. [Enkripsi](https:/
 
 Ketika pengguna berhasil masuk ke akses bagian depan, phpMussel menetapkan [cookie](https://id.wikipedia.org/wiki/Kuki_HTTP) agar dapat mengingat pengguna untuk permintaan berikutnya (yaitu, cookie digunakan untuk mengotentikasi pengguna ke sesi masuk). Pada halaman masuk, peringatan cookie ditampilkan dengan jelas, memperingatkan pengguna bahwa cookie akan diatur jika mereka terlibat dalam tindakan yang relevan. Cookie tidak diatur dalam titik lain di basis kode.
 
-*Direktif konfigurasi yang relevan:*
-- `general` -> `disable_frontend`
-
 #### 11.5 PEMASARAN DAN PERIKLANAN
 
 phpMussel tidak mengumpulkan atau memproses informasi apapun untuk tujuan pemasaran atau periklanan, dan tidak menjual atau memperoleh keuntungan dari informasi yang dikumpulkan atau dicatat. phpMussel bukan perusahaan komersial, juga tidak terkait dengan kepentingan komersial, sehingga melakukan hal-hal ini tidak akan masuk akal. Ini telah terjadi sejak awal proyek, dan terus menjadi kasus hari ini. Juga, melakukan hal-hal ini akan menjadi kontra-produktif terhadap semangat dan tujuan yang dimaksudkan dari proyek secara keseluruhan, dan selama saya terus mempertahankan proyek, tidak akan pernah terjadi.
@@ -1709,4 +1715,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 21 Juli 2020 (2020.07.21).
+Terakhir Diperbarui: 2 Juli 2020 (2020.08.02).

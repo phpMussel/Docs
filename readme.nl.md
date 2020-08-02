@@ -125,7 +125,7 @@ user.admin:
 
 U kunt uw configuratie een naam geven die u maar wilt (zolang u de extensie ervan behoudt, zodat phpMussel weet welk formaat het gebruikt), en u kunt hem opbergen waar u maar wilt. U kunt phpMussel vertellen waar het uw configuratiebestand kunt vinden door het pad op te geven bij het instantiëren van de lader. Als er geen pad wordt opgegeven, probeert phpMussel het te lokaliseren binnen de bovenliggende map van de vendorsmap.
 
-In sommige omgevingen, zoals Apache, is het zelfs mogelijk om een ​​punt aan de voorkant van uw configuratie te plaatsen om deze te verbergen en openbare toegang te voorkomen.
+In sommige omgevingen, zoals Apache, is het zelfs mogelijk om een punt aan de voorkant van uw configuratie te plaatsen om deze te verbergen en openbare toegang te voorkomen.
 
 Raadpleeg het configuratiegedeelte van dit document voor meer informatie over de verschillende configuratierichtlijnen die beschikbaar zijn voor phpMussel.
 
@@ -402,12 +402,22 @@ Volgende, u moet een e-mailadres koppelen aan een account, zodat phpMussel weet 
 
 ### 4. <a name="SECTION4"></a>PHPMUSSEL UITBREIDEN
 
+phpMussel is ontworpen met het oog op uitbreidbaarheid. Pull-aanvragen naar de repositories van de phpMussel-organisatie en [bijdragen](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) in het algemeen zijn altijd welkom. Ook, als u phpMussel moet aanpassen of uitbreiden op manieren die niet geschikt zijn om die specifieke repositories bij te dragen, dat is zeker mogelijk (b.v., voor aanpassingen of uitbreidingen die specifiek zijn voor uw specifieke implementatie, die kan niet worden gepubliceerd vanwege vertrouwelijkheid of privacybehoeften binnen uw organisatie, of die bij voorkeur in hun eigen repository worden gepubliceerd, zoals voor plug-ins en nieuwe Composer-pakketten die phpMussel vereisen).
+
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### 7. <a name="SECTION7"></a>CONFIGURATIE-OPTIES
 
-Het volgende is een lijst van variabelen die in de `config.ini` configuratiebestand van phpMussel, samen met een beschrijving van hun doel en functie.
+Hieronder volgt een lijst met de configuratierichtlijnen die door phpMussel zijn geaccepteerd, samen met een beschrijving van hun doel en functie.
 
 ```
 Configuratie (v3)
@@ -842,7 +852,7 @@ De details over het omgaan met bestanden tijdens het scannen.
 - Probeer u alle bestanden met macro's te blokkeren? Sommige soorten documenten en spreadsheets kunnen uitvoerbare macro's bevatten, waardoor een gevaarlijke potentiële malwarevector wordt geboden. False = Niet blokkeren [Standaard]; True = Doen blokkeren.
 
 ##### "only_allow_images" `[bool]`
-- Indien ingesteld op true, worden alle niet-afbeeldingsbestanden die door de scanner worden aangetroffen, zullen werden onmiddellijk gemarkeerd, zonder te worden gescand. Dit kan in sommige gevallen de tijd verkorten die nodig is om een ​​scan te voltooien. Standaard ingesteld op false.
+- Indien ingesteld op true, worden alle niet-afbeeldingsbestanden die door de scanner worden aangetroffen, zullen werden onmiddellijk gemarkeerd, zonder te worden gescand. Dit kan in sommige gevallen de tijd verkorten die nodig is om een scan te voltooien. Standaard ingesteld op false.
 
 #### "quarantine" (Categorie)
 Configuratie voor de quarantaine.
@@ -1180,9 +1190,6 @@ Elke vorm van reguliere expressie begrepen en correct verwerkt door moet ook cor
 
 ### 9. <a name="SECTION9"></a>BEKENDE COMPATIBILITEITSPROBLEMEN
 
-#### PHP en PCRE
-- PHP en PCRE is vereist voor phpMussel te kunnen functioneren juist. Zonder PHP, of zonder de PCRE extensie van PHP, phpMussel zullen niet worden uitgevoerd of functioneren juist. U moet er zeker van uw systeem heeft zowel PHP en PCRE geïnstalleerd en beschikbaar voordat downloaden en installeren phpMussel.
-
 #### ANTI-VIRUS SOFTWARECOMPATIBILITEIT
 
 Compatibiliteitsproblemen tussen phpMussel en sommige antivirusleveranciers zijn in het verleden soms bekend, dus om de paar maanden of daaromtrent, controleer ik de nieuwste beschikbare versies van de phpMussel-codebase tegen Virus Total, om te zien of daar problemen worden gemeld. Wanneer daar problemen worden gemeld, vermeld ik de gerapporteerde problemen hier in de documentatie.
@@ -1190,6 +1197,8 @@ Compatibiliteitsproblemen tussen phpMussel en sommige antivirusleveranciers zijn
 Toen ik het laatst controleerde (2019.10.10), werden er geen problemen gemeld.
 
 Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De signatuurbestanden veroorzaken altijd een aantal valse positieven wanneer andere antivirusoplossingen deze detecteren. Ik zou daarom ten zeerste aanbevelen dat als u phpMussel wilt installeren op een machine waar al een andere antivirusoplossing bestaat, de phpMussel-signatuurbestanden op de witte lijst worden gezet.
+
+*Zie ook: [Compatibiliteitskaarten](https://maikuolan.github.io/Compatibility-Charts/).*
 
 ---
 
@@ -1625,7 +1634,7 @@ dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_stand
 In quarantaine geplaatst als "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
-Een "scan kills" logsinvoer bevat meestal de volgende informatie:
+Deze logs bevatten doorgaans de volgende informatie:
 - De datum en tijd waarop de upload is geblokkeerd.
 - Het IP-adres waar de upload vandaan komt.
 - De reden waarom het bestand werd geblokkeerd (wat werd gedetecteerd).
@@ -1700,9 +1709,6 @@ phpMussel codeert de cache of logboekinformatie niet. [Encryptie](https://nl.wik
 
 Wanneer een gebruiker zich met succes ingelogd bij de frontend, stelt phpMussel een [cookie](https://nl.wikipedia.org/wiki/Cookie_(internet)) in om de gebruiker te kunnen onthouden voor volgende aanvragen (d.w.z., cookies worden gebruikt om de gebruiker te authenticeren voor een login-sessie). Op de inlogpagina wordt een cookiewaarschuwing prominent weergegeven, waardoor de gebruiker wordt gewaarschuwd dat een cookie zal worden ingesteld als deze zich bezighoudt met de relevante actie. Cookies zijn niet ingesteld op andere punten in de codebase.
 
-*Relevante configuratie-opties:*
-- `general` -> `disable_frontend`
-
 #### 11.5 MARKETING EN ADVERTEREN
 
 phpMussel verzamelt of verwerkt geen informatie voor marketing of advertentie doeleinden, en verkoopt of profiteert niet van verzamelde of geregistreerde informatie. phpMussel is geen commerciële onderneming, en houdt geen verband met commerciële belangen, dus het zou geen zin hebben om deze dingen te doen. Dit is sinds het begin van het project het geval geweest, en is nog steeds het geval. Bovendien zou het doen van deze dingen contraproductief zijn ten opzichte van de geest en het beoogde doel van het project als geheel, en zolang ik het project blijf onderhouden, zal het nooit gebeuren.
@@ -1733,4 +1739,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 21 Juli 2020 (2020.07.21).
+Laatste Bijgewerkt: 2 Juli 2020 (2020.08.02).

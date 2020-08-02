@@ -402,12 +402,22 @@ Tiếp theo, bạn cần liên kết địa chỉ email với tài khoản, đ�
 
 ### 4. <a name="SECTION4"></a>MỞ RỘNG PHPMUSSEL
 
+phpMussel được thiết kế với khả năng mở rộng trong tâm trí. Kéo yêu cầu cho bất kỳ kho lưu trữ nào tại tổ chức phpMussel và các [đóng góp](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) nói chung là luôn được chào đón. Ngoài ra, nếu bạn cần sửa đổi hay mở rộng phpMussel theo những cách không phù hợp để đóng góp lại các kho lưu trữ cụ thể đó, điều đó chắc chắn là có thể làm được (ví dụ, cho các sửa đổi hay mở rộng dành riêng cho việc triển khai cụ thể của bạn, mà không thể được phát hành bởi vì mối quan tâm riêng tư tại tổ chức của bạn, or which might be preferably published at their own repository, hoặc tốt nhất có thể được phát hành tại kho lưu trữ của riêng họ, chẳng hạn như cho plugins và cho gói Composer mới mà yêu cầu phpMussel).
+
+Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+
+phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+
+Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+
+You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+
 ---
 
 
 ### 7. <a name="SECTION7"></a>TÙY CHỌN CHO CẤU HÌNH
 
-Sau đây là danh sách các biến tìm thấy trong tập tin cấu hình cho phpMussel `config.ini`, cùng với một mô tả về mục đích và chức năng của chúng.
+Sau đây là danh sách các chỉ thị cấu hình mà phpMussel chấp nhận, cùng với một mô tả về mục đích và chức năng của chúng.
 
 ```
 Cấu Hình (v3)
@@ -1180,9 +1190,6 @@ Bất kỳ cách thức biểu thức chính quy hiểu và xử lý một cách
 
 ### 9. <a name="SECTION9"></a>NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH
 
-#### PHP và PCRE
-- phpMussel cần PHP và PCRE để thực hiện và hoạt động. Nếu không có PHP, hoạc không có PCRE thêm của PHP, phpMussel sẽ không thực hiện và hoạt động bình thường. Bạn nên chắc chắc rằng hệ thống của bạn có PHP và PCRE cài vào và có sẵn trước khi tải và cài đặt phpMussel.
-
 #### KHẢ NĂNG TƯƠNG THÍCH PHẦN MỀM CHỐNG VI RÚT
 
 Các vấn đề tương thích giữa phpMussel và một số nhà cung cấp chống vi-rút đã được biết là đôi khi xảy ra trong quá khứ, vì vậy xấp xỉ cứ sau vài tháng, tôi kiểm tra các phiên bản mới nhất của cơ sở mã phpMussel chống lại Virus Total, để xem liệu có bất kỳ vấn đề nào được báo cáo ở đó không. Khi các vấn đề được báo cáo ở đó, tôi liệt kê các vấn đề được báo cáo ở đây, trong tài liệu.
@@ -1190,6 +1197,8 @@ Các vấn đề tương thích giữa phpMussel và một số nhà cung cấp 
 Khi tôi kiểm tra gần đây nhất (2019.10.10), không có vấn đề nào được báo cáo.
 
 Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung ngoại vi khác. Các tập tin chữ ký luôn gây ra một số sai tích cực khi các giải pháp chống vi-rút khác phát hiện ra chúng. Do đó tôi rất muốn giới thiệu, nếu bạn có kế hoạch cài đặt phpMussel tại một máy đã có giải pháp chống vi-rút khác, đặt tập tin chữ ký của phpMussel trong danh sách trắng của bạn.
+
+*Xem thêm: [Biểu đồ tương thích](https://maikuolan.github.io/Compatibility-Charts/).*
 
 ---
 
@@ -1606,7 +1615,7 @@ dcacac499064454218823fbabff7e09b5b011c0c877ee6f215f35bffb195b6e9:654:ascii_stand
 Đã được kiểm dịch là "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
-Mục nhập vào tập tin nhật ký tải lên bị chặn thường bao gồm các thông tin sau:
+Các mục nhật ký này thường bao gồm các thông tin sau:
 - Ngày và giờ tải lên bị chặn.
 - Địa chỉ IP nơi tải lên bắt nguồn từ đó.
 - Lý do tại sao tập tin bị chặn (những gì đã được phát hiện).
@@ -1675,9 +1684,6 @@ phpMussel không mã hóa bộ nhớ cache của nó hoặc bất kỳ thông ti
 
 Khi người dùng đăng nhập thành công vào front-end, phpMussel đặt [cookie](https://vi.wikipedia.org/wiki/Cookie_(tin_h%E1%BB%8Dc)) để có thể nhớ người dùng cho các yêu cầu tiếp theo (cookie được sử dụng để xác thực người dùng đến phiên đăng nhập). Trên trang đăng nhập, cảnh báo cookie được hiển thị nổi bật, cảnh báo người dùng rằng cookie sẽ được đặt nếu họ tham gia vào các hành động có liên quan. Cookie không được đặt ở bất kỳ điểm nào khác trong cơ sở mã.
 
-*Chỉ thị cấu hình có liên quan:*
-- `general` -> `disable_frontend`
-
 #### 11.5 TIẾP THỊ VÀ QUẢNG CÁO
 
 phpMussel không thu thập hoặc xử lý bất kỳ thông tin nào cho mục đích tiếp thị hoặc quảng cáo, và không bán hoặc lợi nhuận từ bất kỳ thông tin được thu thập hoặc ghi lại nào. phpMussel không phải là một doanh nghiệp thương mại, cũng không liên quan đến bất kỳ lợi ích thương mại nào, do đó, làm những việc này sẽ không có ý nghĩa gì cả. Đây là trường hợp kể từ khi bắt đầu dự án, và tiếp tục là trường hợp ngày hôm nay. Ngoài ra, làm những việc này sẽ phản tác dụng với tinh thần và mục đích dự định của toàn bộ dự án, và miễn là tôi tiếp tục duy trì dự án, sẽ không bao giờ xảy ra.
@@ -1706,4 +1712,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2020.07.21.
+Lần cuối cập nhật: 2020.08.02.
