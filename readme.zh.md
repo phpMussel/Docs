@@ -404,13 +404,13 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 phpMussel在设计时考虑了可扩展性。​向phpMussel组织中的任何存储库拉请求和[贡献](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md)总是欢迎的。​如果需要，您也可以修改或扩展phpMussel以适合自己的需求（例如，用于特定于您的特定实现的修改或扩展，用于需要phpMussel的新插件和新Composer软件包，等等）。
 
-Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+从v3开始，所有phpMussel功能都作为类存在。​这意味着在某些情况下，PHP提供的[对象继承](https://www.php.net/manual/zh/language.oop5.inheritance.php)机制可能是扩展phpMussel的简便且适当的方法。
 
-phpMussel also provides its own mechanisms for extensibility.​Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel.​Since v3, the preferred mechanism is the events orchestrator.
+phpMussel还提供了自己的扩展机制。​在v3之前，首选的机制是phpMussel的集成插件系统。​从v3开始，首选的机制是事件编排程序。
 
-Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates).​Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+用于扩展phpMussel和编写新插件的样板代码可在[样板库](https://github.com/phpMussel/plugin-boilerplates)中公开获得。​还包括[所有当前支持的事件](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events)的列表，以及有关如何使用样板代码的更详细的说明。
 
-You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation.​That is not a coincidence.​Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself.​If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation.​(Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构相同。​这不是巧合。​只要有可能，我建议您将v3样板代码用于可扩展性，并使用与phpMussel v3本身相似的设计原理。​如果您选择公开您的新扩展程序或插件，您可以集成Composer支持，理论上其他人应该有可能以与phpMussel v3完全相同的方式来利用您的扩展程序或插件，只需将其与其他Composer依赖项一起使用，并在实现时应用任何必要的事件处理程序即可​（当然，不要忘了在出版物中包含说明，以便其他人知道可能存在的任何必要事件处理程序，以及正确安装和使用出版物所必需的任何其他信息）。
 
 ---
 

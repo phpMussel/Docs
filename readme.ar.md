@@ -408,17 +408,13 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 <div dir="rtl">تم تصميم phpMussel مع وضع القابلية للتوسعة في الاعتبار. نرحب دائمًا <a href="https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md">بالمساهمات</a> في أي من مستودعات منظمة phpMussel. من الممكن أيضًا تعديل أو توسيع phpMussel وفقًا لاحتياجاتك الفريدة، إذا كنت ترغب في ذلك (على سبيل المثال، بالنسبة للتعديلات أو الإضافات الخاصة بتنفيذك الخاص، والتي لا يمكن نشرها بسبب متطلبات السرية أو الخصوصية في مؤسستك، أو التي قد يُنصح بنشرها في مستودعها الخاص، مثل الإضافات وحزم Composer الجديدة التي تتطلب phpMussel).<br /><br /></div>
 
-<div dir="rtl"><br /><br /></div>
-Since v3, all phpMussel functionality exists as classes, which means that in some cases, the [object inheritance](https://www.php.net/manual/en/language.oop5.inheritance.php) mechanisms provided by PHP could be an easy and appropriate way to extend phpMussel.
+<div dir="rtl">منذ الإصدار 3، توجد جميع وظائف phpMussel كصنف، مما يعني أنه في بعض الحالات، آليات <a href="https://www.php.net/manual/en/language.oop5.inheritance.php" hreflang="en-US">وراثة الكائن</a> التي توفرها PHP طريقة سهلة ومناسبة لتوسيع phpMussel.<br /><br /></div>
 
-<div dir="rtl"><br /><br /></div>
-phpMussel also provides its own mechanisms for extensibility. Prior to v3, the preferred mechanism was the integrated plugin system for phpMussel. Since v3, the preferred mechanism is the events orchestrator.
+<div dir="rtl">يوفر phpMussel أيضًا آلياته الخاصة للتوسع. قبل الإصدار 3، كانت الآلية المفضلة هي نظام البرنامج المساعد المدمج لـ phpMussel. منذ الإصدار 3، الآلية المفضلة هي منظم الأحداث.<br /><br /></div>
 
-<div dir="rtl"><br /><br /></div>
-Boilerplate code for extending phpMussel and for writing new plugins is publicly available at the [boilerplates repository](https://github.com/phpMussel/plugin-boilerplates). Included also is a list of all [currently supported events](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) and more detailed instructions regarding how to use the boilerplate code.
+<div dir="rtl">كود معياري لتوسيع phpMussel وكتابة ملحقات جديدة متاح للجمهور في <a href="https://github.com/phpMussel/plugin-boilerplates" hreflang="en-AU">مستودع القياسية</a>. يتم تضمين أيضًا قائمة بجميع <a href="https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events" hreflang="en-AU">الأحداث المدعومة حاليًا</a> وإرشادات أكثر تفصيلاً بشأن كيفية استخدام الكود معياري.<br /><br /></div>
 
-<div dir="rtl"><br /><br /></div>
-You'll notice that the structure of the v3 boilerplate code is identical to the structure of the various phpMussel v3 repositories at the phpMussel organisation. That is not a coincidence. Whenever possible, I would recommend utilising the v3 boilerplate code for extensibility purposes, and utilising similar design principles to that of phpMussel v3 itself. If you choose to publicise your new extension or plugin, you can integrate Composer support for it, and it should then be theoretically possible for others to utilise your extension or plugin in the exact same way as phpMussel v3 itself, simply requiring it in along with their other Composer dependencies, and applying any necessary event handlers at their implementation. (Of course, don't forget to include instructions with your publications, so that others will know about any necessary event handlers that may exist, and any other information which may be necessary for correct installation and utilisation of your publication).
+<div dir="rtl">ستلاحظ أن هيكل الكود القياسي v3 مطابق لهيكل مستودعات phpMussel v3 الأخرى. انها ليست صدفه. متى أمكن، أوصي باستخدام الكود القياسي v3 لتوسيع phpMussel، واستخدام مبادئ تصميم مماثلة لتلك الخاصة بـ phpMussel v3 نفسه. إذا اخترت نشر الإضافة أو المكون الإضافي الجديد، فيمكنك دمج دعم Composer له، ومن المفترض أن يكون من الممكن نظريًا للآخرين استخدام الامتداد أو المكون الإضافي بنفس الطريقة تمامًا مثل phpMussel v3 نفسه، ببساطة طلبها جنبًا إلى جنب مع تبعيات الملحن الأخرى، وتطبيق أي معالجات للأحداث ضرورية عند تنفيذها. (بالطبع، لا تنس تضمين الإرشادات مع منشوراتك، حتى يعرف الآخرون أي معالجات ضرورية للأحداث وأي معلومات أخرى قد تكون ضرورية لتثبيت المنشور الخاص بك واستخدامه بشكل صحيح).<br /><br /></div>
 
 ---
 
