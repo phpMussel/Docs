@@ -1220,6 +1220,7 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 - [Listes noires – Listes blanches – Listes grises – Quels sont-ils, et comment puis-je les utiliser ?](#BLACK_WHITE_GREY)
 - [Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?](#HOW_TO_USE_PDO)
 - [Ma fonctionnalité de téléchargement est asynchrone (par exemple, utilise ajax, ajaj, json, etc). Je ne vois aucun message ni avertissement spécial lorsqu'un téléchargement est bloqué. Que se passe-t-il ?](#AJAX_AJAJ_JSON)
+- [phpMussel peut-il détecter EICAR ?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Qu'est-ce qu'une « signature » ?
 
@@ -1534,6 +1535,10 @@ C'est normal. La page « Téléchargement Refusé » standard de phpMussel est
 2. Création d'un plugin personnalisé pour contourner entièrement la page standard « Téléchargement Refusé » et demander au gestionnaire de téléchargement de faire autre chose lorsqu'un téléchargement est bloqué (il y a des points de code fournis par le gestionnaire de téléchargement qui pourraient être utiles pour cela).
 3. Désactiver entièrement le gestionnaire de téléchargement et simplement appeler l'API phpMussel de votre fonctionnalité de téléchargement.
 
+#### <a name="DETECT_EICAR"></a>phpMussel peut-il détecter EICAR ?
+
+Oui. Une signature pour détecter EICAR est incluse dans le « fichier de signature d'expressions régulières standard de phpMussel » (`phpmussel_regex.db`). Tant que ce fichier de signature est installé et activé, phpMussel devrait être capable de détecter EICAR. Étant donné que la base de données ClamAV comprend également de nombreuses signatures spécifiquement pour la détection d'EICAR, ClamAV peut facilement détecter EICAR, mais puisque phpMussel n'utilise qu'un sous-ensemble réduit du total des signatures fournies par ClamAV, elles pourraient ne pas être suffisantes à elles seules pour que phpMussel détecte EICAR. La capacité de le détecter peut également dépendre de votre configuration exacte.
+
 ---
 
 
@@ -1728,4 +1733,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 2 Juillet 2020 (2020.08.02).
+Dernière mise à jour : 7 Septembre 2020 (2020.09.07).

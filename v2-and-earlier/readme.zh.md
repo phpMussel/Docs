@@ -1155,6 +1155,7 @@ phpMussel签名文件前9个字节（`[x0-x8]`）是`phpMussel`。​它作为�
 - [当我通过更新页面启用或禁用签名文件时，它会在配置中它们将按字母数字排序。​我可以改变他们排序的方式吗？](#CHANGE_COMPONENT_SORT_ORDER)
 - [“PDO DSN”是什么？如何能PDO与phpMussel一起使用？](#HOW_TO_USE_PDO)
 - [我的上传工具是异步的（例如，使用ajax，ajaj，json，等等）。当上传阻止时，我看不到任何特殊消息或警告。发生了什么？](#AJAX_AJAJ_JSON)
+- [phpMussel可以检测EICAR吗？](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>什么是“签名”？
 
@@ -1538,6 +1539,10 @@ phpMussel的`pdo_dsn`应配置如下。
 2. 创建自定义插件以完全绕过标准的“上传是否认”页面并在上传被阻止时让上传处理程序执行其他操作（上传处理程序提供了一些插件挂钩，可能有用）。
 3. 完全禁用上传处理程序，而是只从您的上传工具中调用phpMussel API。
 
+#### <a name="DETECT_EICAR"></a>phpMussel可以检测EICAR吗？
+
+可以。​用于检测EICAR的签名包含在“phpMussel标准正则表达式签名文件”中（`phpmussel_regex.db`）。​只要安装并激活了该签名文件，phpMussel就应该能够检测到EICAR。​由于ClamAV数据库还包含许多专门用于检测EICAR的签名，因此ClamAV可以轻松检测EICAR，但是由于phpMussel仅利用了ClamAV提供的全部签名中的一部分，因此它们本身可能不足以使phpMussel检测EICAR。​检测它的能力还可能取决于您的确切配置。
+
 ---
 
 
@@ -1745,4 +1750,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2020年7月16日。
+最后更新：2020年9月7日。

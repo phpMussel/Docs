@@ -1220,6 +1220,7 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 - [Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?](#BLACK_WHITE_GREY)
 - [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#HOW_TO_USE_PDO)
 - [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#AJAX_AJAJ_JSON)
+- [Bisakah phpMussel mendeteksi EICAR?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Apa yang "tanda tangan"?
 
@@ -1527,6 +1528,10 @@ Ini normal. Halaman "Upload Ditolak" standar phpMussel disajikan sebagai HTML, y
 2. Membuat plugin dipersonalisasi untuk memotong halaman "Upload Ditolak" standar seluruhnya dan suruh penangan upload melakukan hal lain saat upload diblokir (ada beberapa poin dalam kode yang disediakan oleh penangan upload yang dapat membantu untuk ini).
 3. Menonaktifkan penangan upload seluruhnya dan alih-alih hanya memanggil phpMussel API dari dalam fasilitas upload Anda.
 
+#### <a name="DETECT_EICAR"></a>Bisakah phpMussel mendeteksi EICAR?
+
+Ya. Tanda tangan untuk mendeteksi EICAR disertakan dalam "file tanda tangan ekspresi reguler standar phpMussel" (`phpmussel_regex.db`). Selama file tanda tangan tersebut diinstal dan diaktifkan, phpMussel seharusnya dapat mendeteksi EICAR. Karena database ClamAV juga menyertakan banyak tanda tangan khusus untuk mendeteksi EICAR, ClamAV dapat dengan mudah mendeteksi EICAR, tetapi karena phpMussel hanya menggunakan sebagian kecil dari total tanda tangan yang disediakan oleh ClamAV, mereka mungkin saja tidak cukup untuk phpMussel mendeteksi EICAR. Kemampuan untuk mendeteksinya mungkin juga bergantung pada konfigurasi Anda.
+
 ---
 
 
@@ -1715,4 +1720,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 2 Juli 2020 (2020.08.02).
+Terakhir Diperbarui: 7 September 2020 (2020.09.07).

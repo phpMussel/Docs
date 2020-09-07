@@ -1155,6 +1155,7 @@ Non controllo i file di firma, la documentazione o altri contenuti periferici. I
 - [Quando si attivano o disattivano file di firma tramite la pagina degli aggiornamenti, li ordina in ordine alfanumerico nella configurazione. Posso cambiare il modo in cui vengono ordinati?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?](#HOW_TO_USE_PDO)
 - [Mia funzionalità di caricamento è asincrona (ad esempio, utilizza ajax, ajaj, json, ecc). Non vedo alcun messaggio o avviso speciale quando un caricamento è bloccato. Cosa sta succedendo?](#AJAX_AJAJ_JSON)
+- [phpMussel può rilevare EICAR?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Che cosa è una "firma"?
 
@@ -1546,6 +1547,10 @@ Questa è normale. La pagina standard "Caricamento Negato" di phpMussel è servi
 2. Creazione di un plug-in personalizzato per ignorare completamente la pagina standard "Caricamento Negato" e chiedi al gestore del caricamento di fare qualcos'altro quando un caricamento è bloccato (ci sono alcuni hook di plugin forniti dal gestore di caricamento che potrebbero essere utili per questo).
 3. Disabilitare completamente il gestore di caricamento e invece chiamare semplicemente l'API phpMussel dalla funzionalità di caricamento.
 
+#### <a name="DETECT_EICAR"></a>phpMussel può rilevare EICAR?
+
+Sì. Una firma per rilevare EICAR è inclusa nel "file di firma delle espressioni regolari standard phpMussel" (`phpmussel_regex.db`). Finché il file di firma è installato e attivato, phpMussel dovrebbe essere in grado di rilevare EICAR. Poiché il database ClamAV include anche numerose firme specifiche per il rilevamento di EICAR, ClamAV può facilmente rilevare EICAR, ma poiché phpMussel utilizza solo un sottoinsieme ridotto delle firme totali fornite da ClamAV, potrebbero non essere da sole sufficienti a phpMussel per rilevare EICAR. La capacità di rilevarlo può anche dipendere dalla tua configurazione esatta.
+
 ---
 
 
@@ -1747,4 +1752,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 16 Luglio 2020 (2020.07.16).
+Ultimo Aggiornamento: 7 Settembre 2020 (2020.09.07).

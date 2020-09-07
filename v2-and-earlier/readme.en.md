@@ -1155,6 +1155,7 @@ I don't check the signature files, documentation, or other peripheral content. T
 - [When I activate or deactivate signature files via the updates page, it sorts them alphanumerically in the configuration. Can I change the way that they get sorted?](#CHANGE_COMPONENT_SORT_ORDER)
 - [What is a "PDO DSN"? How can I use PDO with phpMussel?](#HOW_TO_USE_PDO)
 - [My upload facility is asynchronous (e.g., uses ajax, ajaj, json, etc). I don't see any special message or warning when an upload is blocked. What's going on?](#AJAX_AJAJ_JSON)
+- [Can phpMussel detect EICAR?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>What is a "signature"?
 
@@ -1543,6 +1544,10 @@ This is normal. phpMussel's standard "Upload Denied" page is served as HTML, whi
 2. Creating a custom plugin to bypass the standard "Upload Denied" page entirely and have the upload handler do something else when an upload is blocked (there are some plugin hooks provided by the uploader handler which could be helpful for this).
 3. Disabling the upload handler entirely and instead just calling the phpMussel API from within your upload facility.
 
+#### <a name="DETECT_EICAR"></a>Can phpMussel detect EICAR?
+
+Yes. A signature for detecting EICAR is included in the "phpMussel standard regular expressions signature file" (`phpmussel_regex.db`). As long as that signature file is installed and activated, phpMussel should be able to detect EICAR. Since the ClamAV database also includes numerous signatures specifically for detecting EICAR, ClamAV can easily detect EICAR, but since phpMussel utilises only a reduced subset of the total signatures provided by ClamAV, they mightn't by themselves be sufficient for phpMussel to detect EICAR. The ability to detect it may also depend on your exact configuration.
+
 ---
 
 
@@ -1752,4 +1757,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 16 July 2020 (2020.07.16).
+Last Updated: 7 September 2020 (2020.09.07).

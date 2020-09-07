@@ -1220,6 +1220,7 @@ No verifico los archivos de firma, la documentación u otro contenido periféric
 - [Listas negras – Listas blancas – Listas grises – ¿Qué son y cómo los uso?](#BLACK_WHITE_GREY)
 - [¿Qué es un "PDO DSN"? Cómo puedo usar PDO con phpMussel?](#HOW_TO_USE_PDO)
 - [Mi recurso de subido es asíncrono (por ejemplo, usa ajax, ajaj, json, etc). No veo ningún mensaje especial o advertencia cuando se bloquea una subida. ¿Que esta pasando?](#AJAX_AJAJ_JSON)
+- [¿Puede phpMussel detectar EICAR?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>¿Qué es una "firma"?
 
@@ -1527,6 +1528,10 @@ Esto es normal. La página estándar "Subida Denegada" de phpMussel se sirve com
 2. Crear un complemento personalizado para omitir por completo la página estándar "Subida Denegada" y para que el controlador de subida haga algo más cuando se bloquea una subida (hay algunos puntos en el código proporcionado por el controlador de subida que podrían ser útiles para esto).
 3. Deshabilita el controlador de subida por completo y en su lugar solo llama a la API phpMussel desde tu recurso de subido.
 
+#### <a name="DETECT_EICAR"></a>¿Puede phpMussel detectar EICAR?
+
+Sí. Se incluye una firma para detectar EICAR en el "archivo de firma de expresiones regulares estándar de phpMussel" (`phpmussel_regex.db`). Siempre que ese archivo de firma esté instalado y activado, phpMussel debería poder detectar EICAR. Dado que la base de datos de ClamAV también incluye numerosas firmas específicamente para detectar EICAR, ClamAV puede detectar fácilmente EICAR, pero dado que phpMussel utiliza solo un subconjunto reducido de las firmas totales proporcionadas por ClamAV, es posible que por sí mismas no sean suficientes para que phpMussel detecte EICAR. La capacidad de detectarlo también puede depender de su configuración exacta.
+
 ---
 
 
@@ -1722,4 +1727,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 2 de Julio de 2020 (2020.08.02).
+Última Actualización: 7 de Septiembre de 2020 (2020.09.07).

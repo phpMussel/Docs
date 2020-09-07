@@ -1155,6 +1155,7 @@ Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De sig
 - [Wanneer ik signatuurbestanden activeer of deactiveer via de updates-pagina, sorteert deze ze alfanumeriek in de configuratie. Kan ik de manier wijzigen waarop ze worden gesorteerd?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Wat is een "PDO DSN"? Hoe kan ik PDO gebruiken met phpMussel?](#HOW_TO_USE_PDO)
 - [Mijn uploadfaciliteit is asynchroon (b.v., gebruikt ajax, ajaj, json, enz). Ik zie geen speciaal bericht of waarschuwing wanneer een upload is geblokkeerd. Wat is er aan de hand?](#AJAX_AJAJ_JSON)
+- [Kan phpMussel EICAR detecteren?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Wat is een "signature"?
 
@@ -1554,6 +1555,10 @@ Dit is normaal. De standaardpagina "Upload Geweigerd" van phpMussel wordt als HT
 2. Maak een aangepaste plug-in om de standaardpagina "Upload Geweigerd" volledig te omzeilen en laat de uploadhandler iets anders doen wanneer een upload wordt geblokkeerd (er zijn enkele plug-inhaken die door de uploadhandler worden geleverd die hiervoor kunnen helpen).
 3. Schakel de uploadhandler volledig uit en roep in plaats daarvan de phpMussel API aan alleen vanuit uw uploadfaciliteit.
 
+#### <a name="DETECT_EICAR"></a>Kan phpMussel EICAR detecteren?
+
+Ja. Een signature voor het detecteren van EICAR is opgenomen in het "phpMussel standard regular expressions signature file" (`phpmussel_regex.db`). Zolang dat signatuurbestand is geïnstalleerd en geactiveerd, zou phpMussel moeten kunnen EICAR detecteren. Omdat de ClamAV-database ook tal van signatures bevat die specifiek zijn bedoeld voor het detecteren van EICAR, ClamAV kan gemakkelijk EICAR detecteren, maar aangezien phpMussel slechts een beperkte subset van de totale signatures die door ClamAV worden geleverd gebruikt, zijn ze op zichzelf misschien niet voldoende voor phpMussel om EICAR te detecteren. De mogelijkheid om het te detecteren kan ook afhangen van uw exacte configuratie.
+
 ---
 
 
@@ -1761,4 +1766,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 16 Juli 2020 (2020.07.16).
+Laatste Bijgewerkt: 7 September 2020 (2020.09.07).

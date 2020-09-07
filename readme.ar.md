@@ -1230,6 +1230,7 @@ smtp_secure
  <li><a href="#BLACK_WHITE_GREY">القوائم السوداء – القوائم البيضاء – القائمة الرمادية – ما هي، وكيف أستخدمها؟</a></li>
  <li><a href="#HOW_TO_USE_PDO">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a></li>
  <li><a href="#AJAX_AJAJ_JSON">تحميلاتي غير متزامنة (على سبيل المثال، يستخدم ajax، ajaj، json، إلخ). لا أرى أي رسالة أو تحذير خاص عند حظر التحميل. ماذا يحدث هنا؟</a></li>
+ <li><a href="#DETECT_EICAR">هل يستطيع phpMussel اكتشاف EICAR؟</a></li>
 </ul></div>
 
 #### <div dir="rtl"><a name="WHAT_IS_A_SIGNATURE"></a>ما هو "التوقيع"؟<br /><br /></div>
@@ -1534,6 +1535,10 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
  <li>٣. تعطيل معالج التحميل بالكامل وبدلاً من ذلك فقط اتصل بـ phpMussel API من داخل وظيفة التحميل الخاصة بك.</li>
 </ul></div>
 
+#### <div dir="rtl"><a name="DETECT_EICAR"></a>هل يستطيع phpMussel اكتشاف EICAR؟<br /><br /></div>
+
+<div dir="rtl">نعم. يتم تضمين توقيع للكشف عن EICAR في "ملف توقيع التعبيرات العادية القياسية phpMussel" (<code dir="ltr">phpmussel_regex.db</code>). طالما تم تثبيت ملف التوقيع هذا وتنشيطه، يجب أن يكون phpMussel قادرًا على اكتشاف EICAR. نظرًا لأن قاعدة بيانات ClamAV تتضمن أيضًا العديد من التوقيعات خصيصًا لاكتشاف EICAR، يمكن لـ ClamAV اكتشاف EICAR بسهولة، ولكن نظرًا لأن phpMussel لا يستخدم سوى مجموعة فرعية صغيرة من إجمالي التوقيعات التي يوفرها ClamAV، فقد لا تكون كافية في حد ذاتها لـ phpMussel لاكتشاف EICAR. قد تعتمد القدرة على اكتشافه أيضًا على التكوين الدقيق الخاص بك.<br /><br /></div>
+
 ---
 
 
@@ -1757,4 +1762,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 2 يوليو 2020 (2020.08.02).</div>
+<div dir="rtl">آخر تحديث: 7 سبتمبر 2020 (2020.09.07).</div>

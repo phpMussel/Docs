@@ -1220,6 +1220,7 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 - [Blacklists (listas negras) – Whitelists (listas brancas) – Greylists (listas cinzentas) – Quais são eles e como eu os uso?](#BLACK_WHITE_GREY)
 - [O que é um "PDO DSN"? Como posso usar o PDO com o phpMussel?](#HOW_TO_USE_PDO)
 - [Meu recurso de upload é assíncrono (p.e., usa ajax, ajaj, json, etc). Não vejo nenhuma mensagem ou aviso especial quando um upload é bloqueado. O que está acontecendo?](#AJAX_AJAJ_JSON)
+- [O phpMussel pode detectar o EICAR?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>O que é uma "assinatura"?
 
@@ -1528,6 +1529,10 @@ Isto é normal. A página "Carregar Negado" padrão do phpMussel é servida como
 2. Criando um plug-in personalizado para ignorar completamente a página "Carregar Negado" padrão e faça com que o manipulador de upload faça outra coisa quando um upload estiver bloqueado (existem alguns ganchos de plug-in fornecidos pelo manipulador do upload que podem ser úteis para isso).
 3. Desabilitando completamente o manipulador de uploads e apenas chamando a API phpMussel de dentro do seu recurso de upload.
 
+#### <a name="DETECT_EICAR"></a>O phpMussel pode detectar o EICAR?
+
+Sim. Uma assinatura para detectar EICAR está incluída no "arquivo de assinaturas de expressões regulares padrão do phpMussel" (`phpmussel_regex.db`). Enquanto esse arquivo de assinaturas estiver instalado e ativado, o phpMussel deve ser capaz de detectar o EICAR. Visto que o banco de dados do ClamAV também inclui várias assinaturas especificamente para detectar EICAR, o ClamAV pode detectar facilmente EICAR, mas como o phpMussel utiliza apenas um subconjunto reduzido das assinaturas totais fornecidas pelo ClamAV, elas podem não ser suficientes para o phpMussel detectar o EICAR. A capacidade de detectá-lo também pode depender de sua configuração exata.
+
 ---
 
 
@@ -1718,4 +1723,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 2 de Julho de 2020 (2020.08.02).
+Última Atualização: 7 de Setembro de 2020 (2020.09.07).

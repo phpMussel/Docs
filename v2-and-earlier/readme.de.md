@@ -1156,6 +1156,7 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 - [Wenn ich Signaturdateien über die Aktualisierungsseite aktiviere oder deaktiviere, sortiert sie diese alphanumerisch in der Konfiguration. Kann ich die Art der Sortierung ändern?](#CHANGE_COMPONENT_SORT_ORDER)
 - [Was ist ein "PDO DSN"? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)
 - [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#AJAX_AJAJ_JSON)
+- [Kann phpMussel EICAR erkennen?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Was ist eine "Signatur"?
 
@@ -1551,6 +1552,10 @@ Das ist normal. Die Standardseite "Upload verweigert" von phpMussel wird als HTM
 2. Erstellen einer benutzerdefinierten Plugin, um die Standardseite "Upload verweigert" vollständig zu umgehen, und lassen Sie den Upload-Handler etwas anderes tun wenn ein Upload blockiert ist (es gibt einige Plugin-Hooks, die vom Upload-Handler bereitgestellt werden und für diese Aufgabe hilfreich sein könnten).
 3. Deaktivieren Sie den Upload-Handler vollständig und rufen Sie stattdessen einfach die phpMussel-API in Ihrer Upload-Funktionalität auf.
 
+#### <a name="DETECT_EICAR"></a>Kann phpMussel EICAR erkennen?
+
+Ja. Eine Signatur zum Erkennen von EICAR ist in der "phpMussel Standard Signaturdatei für reguläre Ausdrücke" enthalten (`phpmussel_regex.db`). Solange diese Signaturdatei installiert und aktiviert ist, sollte phpMussel EICAR erkennen können. Da die ClamAV-Datenbank auch zahlreiche Signaturen speziell zur Erkennung von EICAR enthält, kann ClamAV EICAR problemlos erkennen, aber da phpMussel nur eine reduzierte Teilmenge der von ClamAV bereitgestellten Signaturen verwendet, reichen sie möglicherweise nicht aus damit phpMussel EICAR erkennt. Die Fähigkeit zu erkennen hängt auch von Ihrer genauen Konfiguration ab.
+
 ---
 
 
@@ -1760,4 +1765,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 16 Juli 2020 (2020.07.16).
+Zuletzt aktualisiert: 7 September 2020 (2020.09.07).

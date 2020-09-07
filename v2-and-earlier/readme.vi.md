@@ -1155,6 +1155,7 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 - [Khi tôi kích hoạt hoặc hủy kích hoạt các tập tin chữ ký thông qua trang cập nhật, nó sắp xếp chúng theo thứ tự chữ và số trong cấu hình. Tôi có thể thay đổi cách họ được sắp xếp không?](#CHANGE_COMPONENT_SORT_ORDER)
 - ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#HOW_TO_USE_PDO)
 - [Chức năng tải lên của tôi không đồng bộ (ví dụ, sử dụng ajax, ajaj, json, vv). Tôi không thấy bất kỳ thông báo hoặc cảnh báo đặc biệt nào khi tải lên bị chặn. Chuyện gì đang xảy ra vậy?](#AJAX_AJAJ_JSON)
+- [phpMussel có thể phát hiện EICAR không?](#DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>"Chữ ký" là gì?
 
@@ -1542,6 +1543,10 @@ Lưu ý rằng `pdo_username` và `pdo_password` phải giống với tên ngư�
 2. Tạo một plugin tùy chỉnh để hoàn toàn bỏ qua trang "sự tải lên đã bị từ chối" tiêu chuẩn và yêu cầu trình xử lý tải lên làm một cái gì đó khác khi tải lên bị chặn (có một số hook plugin được cung cấp bởi trình xử lý tải lên có thể hữu ích cho việc này).
 3. Vô hiệu hóa hoàn toàn trình xử lý tải lên và thay vào đó chỉ gọi API phpMussel từ bên trong chức năng tải lên của bạn.
 
+#### <a name="DETECT_EICAR"></a>phpMussel có thể phát hiện EICAR không?
+
+Vâng. Chữ ký để phát hiện EICAR được bao gồm trong "tập tin chữ ký biểu thức chính quy chuẩn phpMussel" (`phpmussel_regex.db`). Miễn là tập tin chữ ký đó được cài đặt và kích hoạt, phpMussel sẽ có thể phát hiện EICAR. Vì cơ sở dữ liệu ClamAV cũng bao gồm nhiều chữ ký đặc biệt để phát hiện EICAR, ClamAV có thể dễ dàng phát hiện EICAR, nhưng vì phpMussel chỉ sử dụng một tập hợp con nhỏ hơn trong tổng số chữ ký do ClamAV cung cấp, có thể bản thân chúng sẽ không đủ để phpMussel phát hiện ra EICAR. Khả năng phát hiện nó cũng có thể phụ thuộc vào cấu hình chính xác của bạn.
+
 ---
 
 
@@ -1741,4 +1746,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2020.07.16.
+Lần cuối cập nhật: 2020.09.07.
