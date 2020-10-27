@@ -18,17 +18,17 @@
 
 ### 1. <a name="SECTION1"></a>SEPATAH KATA
 
-Terima kasih untuk menggunakan phpMussel, sebuah skrip PHP di-design untuk mendeteksi trojan-trojan, virus-virus dan serangan-serangan lainnya dalam file-file diupload ke sistem Anda dimana saja skrip di kaitkan, berdasarkan tanda tangan dari ClamAV dan lain-lain.
+Terima kasih untuk menggunakan phpMussel, sebuah skrip PHP yang di-design untuk mendeteksi berbagai trojan, virus dan serangan-serangan lainnya dalam semua file yang diupload ke sistem Anda dimanapun berads , berdasarkan data dari ClamAV dan sebagainya.
 
 [PHPMUSSEL](https://phpmussel.github.io/) HAK CIPTA 2013 dan di atas GNU/GPLv2 oleh [Caleb M (Maikuolan)](https://github.com/Maikuolan).
 
-Skrip ini adalah perangkat lunak gratis; Anda dapat mendistribusikan kembali dan/atau memodifikasinya dalam batasan dari GNU General Public License, seperti di publikasikan dari Free Software Foundation; baik versi 2 dari License, atau (dalam opsi Anda) versi selanjutnya apapun. Skrip ini didistribusikan untuk harapan dapat digunakan tapi TANPA JAMINAN; tanpa walaupun garansi dari DIPERJUALBELIKAN atau KECOCOKAN UNTUK TUJUAN TERTENTU. Mohon Lihat GNU General Public Licence untuk lebih detail, terletak di file `LICENSE.txt` dan tersedia juga dari:
+Skrip ini berbasis Sumber Terbuka  ; Anda dapat mendistribusikan kembali dan/atau memodifikasinya dalam batasan dari lisensu GNU General Public License, seperti di publikasikan dari Free Software Foundation; baik versi 2 dari License, atau (dalam opsi Anda) versi selanjutnya apapun. Skrip ini didistribusikan untuk harapan dapat digunakan tapi TANPA JAMINAN; tanpa walaupun garansi dari DIPERJUALBELIKAN atau KECOCOKAN UNTUK TUJUAN TERTENTU. Mohon Lihat GNU General Public Licence untuk lebih detail, terletak di file `LICENSE.txt` dan tersedia juga dari:
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
-Terima kasih khususnya untuk ClamAV buat inspirasi project dan tanda tangan dimana skrip ini menggunakan ClamAV, tanpa nya skrip ini tidak akan ada, atau akan mengalami nilai yang kurang baik.
+Terima kasih khususnya untuk ClamAV untuk inspirasi project dan tanda tangan dimana skrip ini menggunakan ClamAV, tanpa nya skrip ini tidak akan ada, atau akan mengalami nilai yang kurang baik.
 
-Khusus terima kasih kepada SourceForge, Bitbucket dan GitHub untuk menghost file proyek, dan kepada sumber-sumber tambahan tanda tangan dimanfaatkan oleh phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) dan lain-lain, dan khusus terima kasih kepada semua orang yang mendukung proyek, kepada orang lain bahwa saya mungkin telah dinyatakan lupa untuk menyebutkan, dan kepada Anda, untuk menggunakan skrip.
+Khusus terima kasih kepada SourceForge, Bitbucket dan GitHub untuk menghost file proyek ini, dan kepada sumber-sumber tambahan yang dimanfaatkan oleh phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) dan lain-lain, dan khusus terima kasih kepada semua orang yang mendukung proyek, kepada orang lain bahwa saya mungkin telah dinyatakan lupa untuk menyebutkan, dan khususnya kepada anda yang menggunakan skrip ini.
 
 ---
 
@@ -39,17 +39,17 @@ Khusus terima kasih kepada SourceForge, Bitbucket dan GitHub untuk menghost file
 
 Cara yang direkomendasikan untuk menginstal phpMussel v3 adalah melalui Composer.
 
-Untuk kenyamanan, Anda dapat menginstal dependensi phpMussel yang paling umum dibutuhkan melalui repositori phpMussel utama lama:
+Untuk kenyamanan, Anda dapat menginstal dependensi phpMussel yang paling umum dibutuhkan melalui repositori phpMussel utama:
 
 `composer require phpmussel/phpmussel`
 
-Atau, Anda dapat memilih secara individual dependensi mana yang Anda perlukan pada implementasi Anda. Sangat mungkin Anda hanya menginginkan dependensi tertentu dan tidak membutuhkan segalanya.
+Atau, Anda dapat memilih secara manual dependensi mana yang Anda butuhkan untuk implementasinya . Sangat mungkin Anda hanya menginginkan dependensi tertentu dan tidak membutuhkan segalanya.
 
-Untuk melakukan apapun dengan phpMussel, Anda membutuhkan basis kode core phpMussel:
+Untuk melakukan apapun dengan phpMussel, Anda hanya butuh basis kode utama dari phpMussel:
 
 `composer require phpmussel/core`
 
-Menyediakan fasilitas administrasi untuk phpMussel:
+Menyediakan fasilitas admin untuk phpMussel:
 
 `composer require phpmussel/frontend`
 
@@ -57,11 +57,11 @@ Menyediakan pemindaian upload file otomatis untuk situs web Anda:
 
 `composer require phpmussel/web`
 
-Menyediakan kemampuan untuk memanfaatkan phpMussel sebagai aplikasi mode CLI interaktif:
+Menyediakan kemampuan untuk memanfaatkan phpMussel sebagai aplikasi mode CLI yang interaktif:
 
 `composer require phpmussel/cli`
 
-Menyediakan jembatan antara phpMussel dan PHPMailer, memungkinkan phpMussel untuk menggunakan PHPMailer untuk otentikasi dua faktor, pemberitahuan email tentang upload file yang diblokir, dll:
+Menyediakan jembatan antara phpMussel dan PHPMailer, memungkinkan phpMussel untuk menggunakan PHPMailer untuk otentikasi dua faktor, memberi pemberitahuan email tentang upload file yang diblokir, dll:
 
 `composer require phpmussel/phpmailer`
 
@@ -139,7 +139,7 @@ $Loader = new \phpMussel\Core\Loader();
 $Scanner = new \phpMussel\Core\Scanner($Loader);
 ```
 
-Seperti namanya, loader bertanggung jawab untuk mempersiapkan kebutuhan dasar menggunakan phpMussel, dan pemindai (scanner) bertanggung jawab atas semua fungsionalitas pemindaian inti.
+Seperti namanya, loader bertugas untuk mempersiapkan kebutuhan dasar menggunakan phpMussel, dan pemindai (scanner) bertugas atas semua fungsionalitas pemindaian inti.
 
 Konstruktor untuk loader menerima lima parameter, semuanya opsional.
 
@@ -229,13 +229,13 @@ unset($Web, $Scanner, $Loader);
 
 #### 3.3 MODE CLI
 
-Untuk menginstansiasi penangan CLI:
+Untuk menginstansiasi dalam mode CLI:
 
 ```PHP
 $CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
 ```
 
-Sebagai contoh lengkap:
+Sebagai contoh lengkapnya:
 
 ```PHP
 <?php
@@ -258,13 +258,13 @@ unset($CLI, $Scanner, $Loader);
 
 #### 3.4 FRONT-END
 
-Untuk menginstansiasi bagian depan (front-end):
+Untuk menginstansiasi halaman depan (front-end):
 
 ```PHP
 $FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
 ```
 
-Sebagai contoh lengkap:
+Sebagai contoh lengkapnya:
 
 ```PHP
 <?php
@@ -301,7 +301,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 Anda juga dapat mengimplementasikan pemindai phpMussel di dalam program dan skrip lain, jika Anda mau.
 
-Sebagai contoh lengkap:
+Sebagai contoh lengkapnya:
 
 ```PHP
 // Path to vendor directory.
@@ -326,7 +326,7 @@ unset($Scanner, $Loader);
 var_dump($Results);
 ```
 
-Bagian penting yang perlu diperhatikan dari contoh ini adalah metode `scan()`. Metode `scan()` menerima dua parameter:
+Bagian terpentinf yang perlu diperhatikan dari contoh ini adalah metode `scan()`. Metode `scan()` menerima dua parameter:
 
 ```PHP
 public function scan(mixed $Files, int $Format = 0): mixed
@@ -552,7 +552,7 @@ Konfigurasi umum (konfigurasi inti apapun yang bukan milik kategori lain).
 - Nama dari file untuk mencatat semua hasil pemindaian (menggunakan format serial). Spesifikasikan nama atau biarkan kosong untuk menonaktifkan.
 
 ##### "error_log" `[string]`
-- File untuk mencatat kesalahan tidak fatal yang terdeteksi. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
+- File untuk mencatat kesalahan kurang fatal yang tak terdeteksi. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
 
 ##### "truncate" `[string]`
 - Memotong file log ketika mereka mencapai ukuran tertentu? Nilai adalah ukuran maksimum dalam B/KB/MB/GB/TB yang bisa ditambahkan untuk file log sebelum dipotong. Nilai default 0KB menonaktifkan pemotongan (file log dapat tumbuh tanpa batas waktu). Catat: Berlaku untuk file log individu! Ukuran file log tidak dianggap secara kolektif.
@@ -570,7 +570,7 @@ log_rotation_action
 ```
 
 ##### "timezone" `[string]`
-- Ini digunakan untuk menentukan zona waktu yang akan digunakan (misalnya, Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, dll). Menentukan "SYSTEM" untuk membiarkan PHP menangani ini untuk Anda secara otomatis.
+- Ini digunakan untuk menentukan zona waktu yang akan digunakan (misalnya, Africa/Cairo, America/New_York, Asia/Jakarta, Australia/Perth, Europe/Berlin, Pacific/Guam, dll). Gunakan "SYSTEM" untuk membiarkan PHP menangani ini secara otomatis.
 
 ```
 timezone
@@ -583,7 +583,7 @@ timezone
 - Offset zona waktu dalam hitungan menit.
 
 ##### "time_format" `[string]`
-- Format notasi tanggal/waktu yang digunakan oleh phpMussel. Opsi tambahan dapat ditambahkan atas permintaan.
+- Format notasi tanggal/waktu yang digunakan oleh phpMussel. Opsi tambahan dapat ditambahkan terkait permintaan.
 
 ```
 time_format
@@ -662,7 +662,7 @@ time_format
 ```
 
 ##### "ipaddr" `[string]`
-- Dimana menemukan alamat IP dari permintaan alamat? (Bergunak untuk pelayanan-pelayanan seperti Cloudflare dan sejenisnya). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
+- Dimana anda dapat menemukan alamat IP dari permintaan alamat? (Berguna untuk pelayanan-pelayanan seperti Cloudflare dan sejenisnya). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
 
 ```
 ipaddr
@@ -1551,7 +1551,7 @@ Seperti yang telah dinyatakan oleh lisensi paket, paket ini disediakan tanpa jam
 
 Tergantung pada konfigurasi dan implementasinya yang tepat, paket dapat berkomunikasi dan berbagi informasi dengan pihak ketiga dalam beberapa kasus. Informasi ini dapat didefinisikan sebagai "informasi identitas pribadi" (PII) dalam beberapa konteks, oleh beberapa yurisdiksi.
 
-Bagaimana informasi ini dapat digunakan oleh pihak ketiga ini, tunduk pada berbagai kebijakan yang ditetapkan oleh pihak ketiga ini, dan berada di luar ruang lingkup dokumentasi ini. Namun, dalam semua kasus tersebut, berbagi informasi dengan pihak ketiga ini dapat dinonaktifkan. Dalam semua kasus semacam itu, jika Anda memilih untuk mengaktifkannya, Anda bertanggung jawab untuk meneliti setiap kekhawatiran yang mungkin Anda miliki tentang privasi, keamanan, dan penggunaan PII oleh pihak ketiga ini. Jika ada keraguan, atau jika Anda tidak puas dengan perilaku pihak ketiga ini sehubungan dengan PII, mungkin terbaik adalah menonaktifkan semua pembagian informasi dengan pihak ketiga ini.
+Bagaimana informasi ini dapat digunakan oleh pihak ketiga, tunduk pada berbagai kebijakan yang ditetapkan oleh pihak ketiga, dan berada di luar ruang lingkup dokumentasi. Namun, dalam semua kasus tersebut, berbagi informasi dengan pihak ketiga ini dapat matikab. Dalam semua kasus semacam itu, jika Anda memilih untuk mengaktifkannya, Anda bertanggung jawab untuk meneliti setiap kekhawatiran yang mungkin Anda miliki tentang privasi, keamanan, dan penggunaan PII oleh pihak ketiga ini. Jika ada keraguan, atau jika Anda tidak puas dengan perilaku pihak ketiga ini sehubungan dengan PII, mungkin terbaik adalah menonaktifkan semua pembagian informasi dengan pihak ketiga ini.
 
 Untuk tujuan transparansi, jenis informasi yang dibagikan, dan dengan siapa, dijelaskan dibawah ini.
 
@@ -1575,7 +1575,7 @@ Informasi (termasuk file dan metadata file terkait) yang dibagikan dengan Virus 
 
 #### 11.3 PENCATATAN
 
-Pencatatan adalah bagian penting dari phpMussel karena sejumlah alasan. Tanpa mencatat kejadian blokir, mungkin sulit untuk mendiagnosis kesalahan positif, untuk memastikan secara akurat seberapa baik kinerja phpMussel dalam konteks tertentu, dan untuk menentukan dimana kekurangannya, dan perubahan apa yang mungkin diperlukan untuk konfigurasi atau tanda tangan yang sesuai, agar terus berfungsi sebagaimana dimaksud. Apapun, pencatatan mungkin tidak diinginkan untuk semua pengguna, dan tetap sepenuhnya opsional. Di phpMussel, pencatatan dinonaktifkan secara default. Untuk mengaktifkannya, phpMussel harus dikonfigurasi dengan benar.
+Pencatatan adalah bagian penting dari phpMussel karena berbagai alasan. Tanpa mencatat waktu terblokir, mungkin sulit untuk mendiagnosis kesalahan positif, untuk memastikan secara akurat seberapa baik kinerja phpMussel dalam konteks tertentu, dan untuk menentukan dimana kekurangannya, dan perubahan apa yang mungkin diperlukan untuk konfigurasi atau tanda tangan yang sesuai, agar terus berfungsi sebagaimana dimaksud. Apapun, pencatatan mungkin tidak diinginkan untuk semua pengguna, dan tetap sepenuhnya opsional. Di phpMussel, pencatatan dinonaktifkan secara default. Untuk mengaktifkannya, phpMussel harus dikonfigurasi dengan benar.
 
 Juga, apakah pencatatan diizinkan secara hukum, dan sejauh diizinkan secara hukum (misalnya, jenis informasi yang dapat dicatat, untuk berapa lama, dan dalam keadaan apa), dapat bervariasi, tergantung pada yurisdiksi dan pada konteks dimana phpMussel diimplementasikan (misalnya, apakah Anda beroperasi sebagai individu, sebagai entitas perusahaan, dan apakah secara komersial atau non-komersial). Jadi, mungkin berguna bagi Anda untuk membaca bagian ini dengan seksama.
 
@@ -1626,8 +1626,8 @@ Dikarantina sebagai "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 Entri log ini biasanya mencakup informasi berikut:
 - Tanggal dan waktu saat upload diblokir.
 - Alamat IP tempat upload berasal.
-- Alasan mengapa file diblokir (apa yang terdeteksi).
-- Nama file diblokir.
+- Alasan mengapa file diblokir (hal yang terdeteksi).
+- Nama file yang terblokir.
 - Checksum dan ukuran untuk file yang diblokir.
 - Apakah file adalah dikarantina, dan dibawah nama internal apa.
 
@@ -1649,7 +1649,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Dimasuk.
 
 ##### 11.3.3 ROTASI LOG
 
-Anda mungkin ingin membersihkan log setelah jangka waktu tertentu, atau mungkin diminta untuk melakukannya oleh hukum (yaitu, jumlah waktu yang diizinkan secara hukum bagi Anda untuk mempertahankan log mungkin dibatasi oleh hukum). Anda dapat mencapai ini dengan menyertakan penanda tanggal/waktu dalam nama-nama file log Anda sesuai yang ditentukan oleh konfigurasi paket Anda (misalnya, `{yyyy}-{mm}-{dd}.log`), dan kemudian mengaktifkan rotasi log (rotasi log memungkinkan Anda untuk melakukan beberapa tindakan pada file log ketika batas yang ditentukan terlampaui).
+Anda mungkin ingin menanpilkan log setelah jangka waktu tertentu, atau mungkin diminta untuk melakukannya oleh hukum (yaitu, jumlah waktu yang diizinkan secara hukum bagi Anda untuk mempertahankan log mungkin dibatasi oleh hukum). Anda dapat mencapai ini dengan menyertakan penanda tanggal/waktu dalam nama-nama file log Anda sesuai yang ditentukan oleh konfigurasi paket Anda (misalnya, `{yyyy}-{mm}-{dd}.log`), dan kemudian mengaktifkan rotasi log (rotasi log memungkinkan Anda untuk melakukan beberapa tindakan pada file log ketika batas yang ditentukan terlampaui).
 
 Sebagai contoh: Jika saya secara hukum diminta untuk menghapus log setelah 30 hari, saya bisa menentukan `{dd}.log` dalam nama file log saya (`{dd}` represents days), atur nilai `log_rotation_limit` ke 30, dan atur nilai `log_rotation_action` ke `Delete`.
 
@@ -1720,4 +1720,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 7 September 2020 (2020.09.07).
+Terakhir Diperbarui: 27 Oktober 2020 (2020.10.27).
