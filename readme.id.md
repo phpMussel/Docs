@@ -1516,11 +1516,11 @@ Tergantung pada driver basis data yang digunakan...
                    └Host untuk terhubung dengan untuk menemukan database.
 ```
 
-Jika Anda tidak yakin tentang apa yang harus digunakan untuk beberapa bagian tertentu dari DSN Anda, coba lihat terlebih dahulu apakah itu berfungsi sebagaimana mestinya, tanpa mengubah apapun.
+Jika Anda tidak yakin tentang apa yang harus digunakan untuk beberapa bagian tertentu dari DSN Anda, coba lihat terlebih dahulu apakah itu berfungsi baik dan tanpa mengubah apapun.
 
 Perhatikan bahwa `pdo_username` dan` pdo_password` harus sama dengan nama pengguna dan kata sandi yang Anda pilih untuk basis data Anda.
 
-#### <a name="AJAX_AJAJ_JSON"></a>Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?
+#### <a name="AJAX_AJAJ_JSON"></a>Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak bisa melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?
 
 Ini normal. Halaman "Upload Ditolak" standar phpMussel disajikan sebagai HTML, yang seharusnya cukup untuk permintaan sinkron biasa, tetapi yang mungkin tidak akan cukup jika fasilitas upload Anda mengharapkan sesuatu yang lain. Jika fasilitas upload Anda tidak sinkron, atau mengharapkan status upload akan dilayani secara tidak sinkron, ada beberapa hal yang Anda dapat coba lakukan agar phpMussel dapat melayani kebutuhan fasilitas upload Anda.
 
@@ -1551,7 +1551,7 @@ Seperti yang telah dinyatakan oleh lisensi paket, paket ini disediakan tanpa jam
 
 Tergantung pada konfigurasi dan implementasinya yang tepat, paket dapat berkomunikasi dan berbagi informasi dengan pihak ketiga dalam beberapa kasus. Informasi ini dapat didefinisikan sebagai "informasi identitas pribadi" (PII) dalam beberapa konteks, oleh beberapa yurisdiksi.
 
-Bagaimana informasi ini dapat digunakan oleh pihak ketiga, tunduk pada berbagai kebijakan yang ditetapkan oleh pihak ketiga, dan berada di luar ruang lingkup dokumentasi. Namun, dalam semua kasus tersebut, berbagi informasi dengan pihak ketiga ini dapat matikab. Dalam semua kasus semacam itu, jika Anda memilih untuk mengaktifkannya, Anda bertanggung jawab untuk meneliti setiap kekhawatiran yang mungkin Anda miliki tentang privasi, keamanan, dan penggunaan PII oleh pihak ketiga ini. Jika ada keraguan, atau jika Anda tidak puas dengan perilaku pihak ketiga ini sehubungan dengan PII, mungkin terbaik adalah menonaktifkan semua pembagian informasi dengan pihak ketiga ini.
+Bagaimana informasi ini dapat digunakan oleh pihak ketiga, tunduk pada berbagai kebijakan yang ditetapkan oleh pihak ketiga, dan berada di luar ruang lingkup dokumentasi. Namun, dalam semua kasus tersebut, berbagi informasi dengan pihak ketiga ini dapat matikan. Dalam semua kasus semacam itu, jika Anda memilih untuk mengaktifkannya, Anda bertanggung jawab untuk meneliti setiap kekhawatiran yang mungkin Anda miliki tentang privasi, keamanan, dan penggunaan PII oleh pihak ketiga ini. Jika ada keraguan, atau jika Anda tidak puas dengan perilaku pihak ketiga ini sehubungan dengan PII, mungkin terbaik adalah menonaktifkan semua pembagian informasi dengan pihak ketiga ini.
 
 Untuk tujuan transparansi, jenis informasi yang dibagikan, dan dengan siapa, dijelaskan dibawah ini.
 
