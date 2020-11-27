@@ -367,10 +367,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │       lang.th.yaml
 │   │       lang.tr.fe.yaml
 │   │       lang.tr.yaml
-│   │       lang.ur.fe.yam       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
 │   │       lang.ur.fe.yaml
 │   │       lang.ur.yaml
 │   │       lang.vi.fe.yaml
