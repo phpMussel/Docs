@@ -261,7 +261,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   greylist.csv
 │   │   lang.php
 │   │   plugins.dat
-│   │   scan_log_serialized.txt
 │   │   shorthand.yaml
 │   │   signatures.dat
 │   │   template_custom.html
