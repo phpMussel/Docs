@@ -236,56 +236,23 @@ Adicionalmente, para los interesados, un video tutorial de cómo utilizar phpMus
 https://github.com/phpMussel/phpMussel>v2
 │   .gitattributes
 │   .gitignore
-│   .travis.yml
 │   Changelog-v2.txt
-│   codeception.yml
 │   composer.json
 │   LICENSE.txt
 │   loader.php
 │   README.md
-│   web.config
+│   tests.php
+│
+├───.github
+│   │   FUNDING.yml
+│   │
+│   └───workflows
+│           v2.yml
 │
 ├───tests
-│   │   .gitignore
-│   │   acceptance.suite.yml
-│   │   functional.suite.yml
-│   │   unit.suite.yml
-│   │
-│   ├───acceptance
-│   │       .gitkeep
-│   │
-│   ├───functional
-│   │       .gitkeep
-│   │
-│   ├───unit
-│   │       .gitkeep
-│   │       LoaderAndScanCest.php
-│   │
-│   ├───_data
-│   │       .gitkeep
-│   │
-│   ├───_output
-│   │       .gitkeep
-│   │
-│   └───_support
-│       │   AcceptanceTester.php
-│       │   FunctionalTester.php
-│       │   UnitTester.php
-│       │
-│       ├───config
-│       │       config.ini
-│       │
-│       ├───Helper
-│       │       Acceptance.php
-│       │       Functional.php
-│       │       Unit.php
-│       │
-│       └───samples
-│               encrypted.zip
-│               hello.txt
+│       signatures.zip
 │
 ├───vault
-│   │   .htaccess
 │   │   channels.yaml
 │   │   cli.php
 │   │   components.dat
@@ -299,6 +266,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   greylist.csv
 │   │   lang.php
 │   │   plugins.dat
+│   │   scan_log_serialized.txt
 │   │   shorthand.yaml
 │   │   signatures.dat
 │   │   template_custom.html
@@ -326,6 +294,12 @@ https://github.com/phpMussel/phpMussel>v2
 │   │       frontend.css
 │   │       frontend.html
 │   │       icons.php
+│   │       lock_bl_c.png
+│   │       lock_bl_o.png
+│   │       lock_rd_c.png
+│   │       lock_rd_o.png
+│   │       lock_wt_c.png
+│   │       lock_wt_o.png
 │   │       pips.php
 │   │       scripts.js
 │   │       _2fa.html
@@ -390,6 +364,10 @@ https://github.com/phpMussel/phpMussel>v2
 │   │       lang.sv.fe.yaml
 │   │       lang.sv.yaml
 │   │       lang.th.fe.yaml
+│   │       lang.th.yaml
+│   │       lang.tr.fe.yaml
+│   │       lang.tr.yaml
+│   │       lang.ur.fe.yam       lang.th.fe.yaml
 │   │       lang.th.yaml
 │   │       lang.tr.fe.yaml
 │   │       lang.tr.yaml
@@ -1756,4 +1734,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 7 de Septiembre de 2020 (2020.09.07).
+Última Actualización: 27 de Noviembre de 2020 (2020.11.27).
