@@ -1290,11 +1290,12 @@ phpMussel会阻止文件 | __假阳性__ | 真阳性（正确的推理）
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/文件/路径/...');
+$Results = $Scanner->scan('/文件/路径/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ var_dump($Foo);
 如果您想，​可以通过使用以下命令来破坏此数组：
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>黑名单 – 白名单 – 灰名单 – 他们是什么，我如何使用它们？
@@ -1721,4 +1722,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2020年9月7日。
+最后更新：2021年1月25日。

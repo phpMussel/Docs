@@ -1290,11 +1290,12 @@ Trong ví dụ dưới đây, `$Foo` được gán cho mục đích này. Sau kh
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/đường/dẫn/tập/tin/...');
+$Results = $Scanner->scan('/đường/dẫn/tập/tin/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ Mảng này là đa chiều. Các phần tử đại diện cho các tập tin �
 Nếu bạn muốn, mảng này có thể bị phá hủy bằng cách sử dụng sau:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Danh sách đen – Danh sách trắng – Danh sách xám – Họ là gì, và làm cách nào để sử dụng chúng?
@@ -1717,4 +1718,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2020.09.07.
+Lần cuối cập nhật: 2021.01.25.

@@ -1290,11 +1290,12 @@ Im folgenden Beispiel, `$Foo` ist zu diesem Zweck zugeordnet. Nach dem Scannen `
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/Dateipfad/...');
+$Results = $Scanner->scan('/Dateipfad/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ Das Array ist ein multidimensionales Array, das aus Elementen besteht, die jede 
 Optional, kann dieses Array zerstört werden, indem man folgendes verwendet:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists – Whitelists – Greylists – Was sind sie und wie benutze ich sie?
@@ -1735,4 +1736,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 7 September 2020 (2020.09.07).
+Zuletzt aktualisiert: 25 Januar 2021 (2021.01.25).

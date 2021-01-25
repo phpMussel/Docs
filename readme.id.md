@@ -22,7 +22,7 @@ Terima kasih untuk menggunakan phpMussel, sebuah skrip PHP yang di-design untuk 
 
 [PHPMUSSEL](https://phpmussel.github.io/) HAK CIPTA 2013 dan di atas GNU/GPLv2 oleh [Caleb M (Maikuolan)](https://github.com/Maikuolan).
 
-Skrip ini berbasis Sumber Terbuka  ; Anda dapat mendistribusikan kembali dan/atau memodifikasinya dalam batasan dari lisensu GNU General Public License, seperti di publikasikan dari Free Software Foundation; baik versi 2 dari License, atau (dalam opsi Anda) versi selanjutnya apapun. Skrip ini didistribusikan untuk harapan dapat digunakan tapi TANPA JAMINAN; tanpa walaupun garansi dari DIPERJUALBELIKAN atau KECOCOKAN UNTUK TUJUAN TERTENTU. Mohon Lihat GNU General Public Licence untuk lebih detail, terletak di file `LICENSE.txt` dan tersedia juga dari:
+Skrip ini berbasis Sumber Terbuka; Anda dapat mendistribusikan kembali dan/atau memodifikasinya dalam batasan dari lisensu GNU General Public License, seperti di publikasikan dari Free Software Foundation; baik versi 2 dari License, atau (dalam opsi Anda) versi selanjutnya apapun. Skrip ini didistribusikan untuk harapan dapat digunakan tapi TANPA JAMINAN; tanpa walaupun garansi dari DIPERJUALBELIKAN atau KECOCOKAN UNTUK TUJUAN TERTENTU. Mohon Lihat GNU General Public Licence untuk lebih detail, terletak di file `LICENSE.txt` dan tersedia juga dari:
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
@@ -1290,11 +1290,12 @@ Pada contoh dibawah ini, `$Foo` ditugaskan untuk tujuan ini. Setelah memindai `/
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/jalur/file/...');
+$Results = $Scanner->scan('/jalur/file/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ Array yang multidimensi dan terdiri dari elemen yang mewakili setiap file yang d
 Opsional, array ini bisa dihancurkan dengan menggunakan berikut ini:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?
@@ -1720,4 +1721,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 27 Oktober 2020 (2020.10.27).
+Terakhir Diperbarui: 25 Januari 2021 (2021.01.25).

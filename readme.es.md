@@ -1290,11 +1290,12 @@ En el ejemplo siguiente, `$Foo` está asignado para este propósito. Después de
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/ruta/de/archivo/...');
+$Results = $Scanner->scan('/ruta/de/archivo/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ La matriz es una matriz multidimensional que consta de elementos que representan
 Opcionalmente, esta matriz se puede destruir utilizando lo siguiente:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Listas negras – Listas blancas – Listas grises – ¿Qué son y cómo los uso?
@@ -1727,4 +1728,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 7 de Septiembre de 2020 (2020.09.07).
+Última Actualización: 25 de Enero de 2021 (2021.01.25).

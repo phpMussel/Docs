@@ -1286,15 +1286,16 @@ phpMussel은 파일을 차단합니다 | __위양성__ | 진정한 양성 (올�
 
 이것은 phpMussel 그들을 검사하도록 지시하기 전 에이 목적을 위해 사용하는 배열을 할당하여 수행할 수 있습니다.
 
-다음 예제에서는이 목적을 위해 `$Foo` 가 할당되어 있습니다. `/file/path/...` 를 스캔 한 후 `/file/path/...` 파일에 대한 정보는 `$Foo` 에 있습니다.
+다음 예제에서는이 목적을 위해 `$Foo` 가 할당되어 있습니다. `/파일/경로/...` 를 스캔 한 후 `/파일/경로/...` 파일에 대한 정보는 `$Foo` 에 있습니다.
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/file/path/...');
+$Results = $Scanner->scan('/파일/경로/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ var_dump($Foo);
 필요한 경우, 이 배열은 다음을 사용하여 삭제합니다.
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>블랙리스트 – 화이트리스트 – 그레이리스트 – 그들은 무엇이며 어떻게 사용합니까?
@@ -1718,4 +1719,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2020년 9월 7일.
+최종 업데이트 : 2021년 1월 25일.

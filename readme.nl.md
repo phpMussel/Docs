@@ -1290,11 +1290,12 @@ In het onderstaande voorbeeld, `$Foo` is hiervoor toegewezen. Na het scannen `/b
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/bestandspad/...');
+$Results = $Scanner->scan('/bestandspad/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ De array is multidimensionaal. Elementen vertegenwoordigen de bestanden die moet
 Optioneel, deze array kan worden vernietigd door het volgende te gebruiken:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists (zwarte lijsten) – Whitelists (witte lijsten) – Greylists (grijze lijst) – Wat zijn ze en hoe gebruik ik ze?
@@ -1744,4 +1745,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 7 September 2020 (2020.09.07).
+Laatste Bijgewerkt: 25 Januari 2021 (2021.01.25).

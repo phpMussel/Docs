@@ -1290,11 +1290,12 @@ Dans l'exemple ci-dessous, `$Foo` est utilisé à cette fin. Après avoir analys
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/chemin/du/fichier/...');
+$Results = $Scanner->scan('/chemin/du/fichier/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ Le tableau est un tableau multidimensionnel composé d'éléments représentant 
 En option, ce tableau peut être détruit en utilisant ce qui suit :
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Listes noires – Listes blanches – Listes grises – Quels sont-ils, et comment puis-je les utiliser ?
@@ -1733,4 +1734,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 7 Septembre 2020 (2020.09.07).
+Dernière mise à jour : 25 Janvier 2021 (2021.01.25).

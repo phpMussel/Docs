@@ -1302,11 +1302,12 @@ smtp_secure
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/file/path/...');
+$Results = $Scanner->scan('/file/path/...');
 
 var_dump($Foo);
 ```
@@ -1354,7 +1355,7 @@ var_dump($Foo);
 <div dir="rtl">اختياريا، يمكن تدمير هذه المصفوفة باستخدام ما يلي:<br /><br /></div>
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <div dir="rtl"><a name="BLACK_WHITE_GREY"></a>القوائم السوداء – القوائم البيضاء – القائمة الرمادية – ما هي، وكيف أستخدمها؟<br /><br /></div>
@@ -1762,4 +1763,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 7 سبتمبر 2020 (2020.09.07).</div>
+<div dir="rtl">آخر تحديث: 25 يناير 2021 (2021.01.25).</div>

@@ -1326,11 +1326,12 @@ In the example below, `$Foo` is assigned for this purpose. After scanning `/file
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/file/path/...');
+$Results = $Scanner->scan('/file/path/...');
 
 var_dump($Foo);
 ```
@@ -1378,7 +1379,7 @@ The array is a multidimensional array consisting of elements representing each f
 Optionally, this array can be destroyed by using the following:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists – Whitelists – Greylists – What are they, and how do I use them?
@@ -1764,4 +1765,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 7 September 2020 (2020.09.07).
+Last Updated: 25 January 2021 (2021.01.25).

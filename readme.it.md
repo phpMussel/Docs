@@ -1290,11 +1290,12 @@ Nell'esempio qui sotto, a questo scopo viene utilizzato `$Foo`. Dopo la scansion
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/percorso/del/file/...');
+$Results = $Scanner->scan('/percorso/del/file/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ L'array è una matrice multidimensionale che consiste di elementi che rappresent
 Facoltativamente, questa matrice può essere distrutta utilizzando quanto segue:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Blacklists (liste nere) – Whitelists (liste bianche) – Greylists (liste grigie) – Cosa sono e come li uso?
@@ -1723,4 +1724,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 7 Settembre 2020 (2020.09.07).
+Ultimo Aggiornamento: 25 Gennaio 2021 (2021.01.25).

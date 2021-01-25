@@ -1286,15 +1286,16 @@ phpMusselは、​ファイルをブロックします | __偽陽性__ | 真陽�
 
 これは、​phpMusselにそれらをスキャンするように指示する前に、​この目的のために使用する配列を割り当てることによって行うことができます。
 
-以下の例では、​この目的のために`$Foo`が割り当てられています。​`/file/path/...`をスキャンした後、​`/file/path/...`のファイルに関する情報は`$Foo`にあります。
+以下の例では、​この目的のために`$Foo`が割り当てられています。​`/ファイル/パス/...`をスキャンした後、​`/ファイル/パス/...`のファイルに関する情報は`$Foo`にあります。
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/file/path/...');
+$Results = $Scanner->scan('/ファイル/パス/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ var_dump($Foo);
 必要に応じて、​この配列は以下を使用して破棄できます。
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>ブラックリスト – ホワイトリスト – グレーリスト – 彼らは何ですか？私はどのように使用しますか？
@@ -1720,4 +1721,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２０年９月７日。
+最終アップデート：２０２１年１月２５日。

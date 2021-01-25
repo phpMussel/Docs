@@ -293,9 +293,9 @@ $FrontEnd->view();
 unset($Web, $FrontEnd, $Scanner, $Loader);
 ```
 
-*Screenshot:*
+*Скриншот:*
 
-![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![Скриншот](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
 
 #### 3.5 API СКАНЕРА
 
@@ -1290,11 +1290,12 @@ phpMussel *ДЕЛАЕТ* блокирует файл | __Ложноположи�
 
 ```PHP
 <?php
-require 'phpmussel/loader.php';
+$Loader = new \phpMussel\Core\Loader();
+$Scanner = new \phpMussel\Core\Scanner($Loader);
 
-$phpMussel['Set-Scan-Debug-Array']($Foo);
+$Scanner->setScanDebugArray($Foo);
 
-$Results = $phpMussel['Scan']('/путь/к/файлу/...');
+$Results = $Scanner->scan('/путь/к/файлу/...');
 
 var_dump($Foo);
 ```
@@ -1342,7 +1343,7 @@ var_dump($Foo);
 Необязательно, этот массив можно уничтожить, используя следующее:
 
 ```PHP
-$phpMussel['Destroy-Scan-Debug-Array']($Foo);
+$Scanner->destroyScanDebugArray($Foo);
 ```
 
 #### <a name="BLACK_WHITE_GREY"></a>Черные списки – Белые списки – Серые списки – Каковы они и как их использовать?
@@ -1721,4 +1722,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 7 Сентябрь 2020 (2020.09.07).
+Последнее обновление: 25 Январь 2021 (2021.01.25).
