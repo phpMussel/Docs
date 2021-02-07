@@ -437,6 +437,7 @@ Configuration (v2)
 │       maintenance_mode
 │       default_algo
 │       statistics
+│       hide_version
 │       disabled_channels
 │       default_timeout
 │
@@ -697,6 +698,9 @@ Valor | Produce | Descripción
 
 ##### "statistics"
 - ¿Seguir las estadísticas de uso de phpMussel? True = Sí; False = No [Predefinido].
+
+##### "hide_version"
+- ¿Ocultar información de la versión de los archivos de registro y la salida de la página? True = Sí; False = No [Predefinido].
 
 ##### "disabled_channels"
 - Esto se puede usar para evitar que phpMussel use canales particulares al enviar solicitudes (por ejemplo, al actualizar, al obtener metadatos de componentes, etc).

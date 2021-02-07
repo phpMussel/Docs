@@ -437,6 +437,7 @@ Configuration (v2)
 │       maintenance_mode
 │       default_algo
 │       statistics
+│       hide_version
 │       disabled_channels
 │       default_timeout
 │
@@ -697,6 +698,9 @@ Configuration (v2)
 
 ##### «statistics»
 - Отслеживать статистику использования phpMussel? True = Да; False = Нет [Стандарт].
+
+##### «hide_version»
+- Скрыть информацию о версии из журналов и вывода на страницу? True = Да; False = Нет [Стандарт].
 
 ##### «disabled_channels»
 - Это можно использовать для предотвращения использования phpMussel определенных каналов при отправке запросов (например, при обновлении, при извлечении метаданных компонента, и т.д.).

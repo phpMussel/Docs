@@ -439,6 +439,7 @@ Configurazione (v3)
 │       scan_cache_expiry [int]
 │       maintenance_mode [bool]
 │       statistics [bool]
+│       hide_version [bool]
 │       disabled_channels [string]
 │       default_timeout [int]
 ├───signatures
@@ -726,6 +727,9 @@ lang
 
 ##### "statistics" `[bool]`
 - Monitorare le statistiche di utilizzo di phpMussel? True = Sì; False = No [Predefinito].
+
+##### "hide_version" `[bool]`
+- Nascondi informazioni sulla versione dai registri e l'output della pagina? True = Sì; False = No [Predefinito].
 
 ##### "disabled_channels" `[string]`
 - Questo può essere usato per impedire a phpMussel di usare canali particolari quando si inviano richieste (ad esempio, quando si aggiorna, quando si recuperano i metadati del componente, ecc).

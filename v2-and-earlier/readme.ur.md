@@ -432,6 +432,7 @@ Configuration (v2)
 │       maintenance_mode
 │       default_algo
 │       statistics
+│       hide_version
 │       disabled_channels
 │       default_timeout
 │
@@ -760,6 +761,11 @@ Configuration (v2)
 ##### <div dir="rtl">"statistics"<br /></div>
 <div dir="rtl"><ul>
  <li>phpMussel استعمال کے اعداد و شمار کو ٹریک کریں؟ True (سچے) = جی ہاں؛ False (جھوٹی) = نہیں [پہلے سے طے شدہ].</li>
+</ul></div>
+
+##### <div dir="rtl">"hide_version"<br /></div>
+<div dir="rtl"><ul>
+ <li>لاگ ان اور صفحے کی پیداوار سے ورژن کی معلومات چھپائیں؟ True (سچے) = جی ہاں؛ False (جھوٹی) = نہیں [پہلے سے طے شدہ].</li>
 </ul></div>
 
 ##### <div dir="rtl">"disabled_channels"<br /></div>

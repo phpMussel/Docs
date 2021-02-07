@@ -443,6 +443,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       scan_cache_expiry [int]
 │       maintenance_mode [bool]
 │       statistics [bool]
+│       hide_version [bool]
 │       disabled_channels [string]
 │       default_timeout [int]
 ├───signatures
@@ -731,6 +732,9 @@ lang
 
 ##### <div dir="rtl">"statistics" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>هل تريد تتبع إحصاءات استخدام phpMussel؟ صحيح/True = نعم؛ زائفة/False = لا [افتراضي].</li></ul></div>
+
+##### <div dir="rtl">"hide_version" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>إخفاء معلومات الإصدار من السجلات وإخراج الصفحة؟ صحيح/True = نعم؛ زائفة/False = لا [افتراضي].</li></ul></div>
 
 ##### <div dir="rtl">"disabled_channels" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>يمكن استخدام هذا لمنع phpMussel من استخدام قنوات معينة عند إرسال الطلبات (على سبيل المثال، عند التحديث، عند جلب بيانات تعريف المكون، إلخ).</li></ul></div>

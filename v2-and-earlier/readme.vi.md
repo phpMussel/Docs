@@ -437,6 +437,7 @@ Configuration (v2)
 │       maintenance_mode
 │       default_algo
 │       statistics
+│       hide_version
 │       disabled_channels
 │       default_timeout
 │
@@ -697,6 +698,9 @@ Giá trị | Nó tạo ra | Chi tiết
 
 ##### "statistics"
 - Giám sát thống kê sử dụng phpMussel? True = Vâng; False = Không [Mặc định].
+
+##### "hide_version"
+- Ẩn thông tin phiên bản từ nhật ký và đầu ra của trang? True = Vâng; False = Không [Mặc định].
 
 ##### "disabled_channels"
 - Điều này có thể được sử dụng để ngăn phpMussel sử dụng các kênh cụ thể khi gửi yêu cầu (ví dụ, khi cập nhật, khi lấy siêu dữ liệu thành phần, vv).

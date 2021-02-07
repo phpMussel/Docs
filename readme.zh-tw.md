@@ -439,6 +439,7 @@ v3樣板代碼的結構與phpMussel組織中各種phpMussel v3存儲庫的結構
 │       scan_cache_expiry [int]
 │       maintenance_mode [bool]
 │       statistics [bool]
+│       hide_version [bool]
 │       disabled_channels [string]
 │       default_timeout [int]
 ├───signatures
@@ -726,6 +727,9 @@ lang
 
 ##### 『statistics』 `[bool]`
 - 跟踪phpMussel使用情況統計？​True（真）=跟踪；False（假）=不跟踪【標準】。
+
+##### 『hide_version』 `[bool]`
+- 從日誌和頁面輸出中隱藏版本信息嗎？​True（真）=關閉；False（假）=不關閉【標準】。
 
 ##### 『disabled_channels』 `[string]`
 - 這可用於防止phpMussel在發送請求時使用特定通道（例如，在更新時，在獲取組件元數據時，等等）。
