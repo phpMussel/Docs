@@ -440,6 +440,7 @@ Cấu Hình (v3)
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -736,6 +737,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "default_timeout" `[int]`
+- Thời gian chờ mặc định để sử dụng cho các yêu cầu bên ngoài? Mặc định = 12 giây.
 
 #### "signatures" (Thể loại)
 Cấu hình cho chữ ký, tập tin chữ ký, vv.
@@ -1718,4 +1722,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.01.25.
+Lần cuối cập nhật: 2021.02.07.

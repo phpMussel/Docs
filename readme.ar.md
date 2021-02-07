@@ -444,6 +444,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -741,6 +742,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### <div dir="rtl">"default_timeout" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>المهلة الافتراضية لاستخدامها للطلبات الخارجية؟ الافتراضي = 12 ثانية.</li></ul></div>
 
 #### <div dir="rtl">"signatures" (التصنيف)<br /></div>
 <div dir="rtl">التكوين للتوقيعات، ملفات التوقيع، إلخ.<br /><br /></div>
@@ -1763,4 +1767,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 25 يناير 2021 (2021.01.25).</div>
+<div dir="rtl">آخر تحديث: ٧ فبراير ٢٠٢١ (٢٠٢١.٠٢.٠٧).</div>

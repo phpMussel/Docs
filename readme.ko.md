@@ -440,6 +440,7 @@ v3 상용구 코드의 구조는 다양한 다른 phpMussel v3 리포지토리�
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -736,6 +737,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "default_timeout" `[int]`
+- 외부 요청에 사용할 기본 제한 시간? Default (기본 설정) = 12 초.
 
 #### "signatures" (카테고리)
 서명, 서명 파일, 등의 설정.
@@ -1719,4 +1723,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2021년 1월 25일.
+최종 업데이트 : 2021년 2월 7일.

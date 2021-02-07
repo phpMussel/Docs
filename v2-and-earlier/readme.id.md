@@ -438,6 +438,7 @@ Configuration (v2)
 │       default_algo
 │       statistics
 │       disabled_channels
+│       default_timeout
 │
 ├───signatures
 │       active (v1: Active)
@@ -699,6 +700,9 @@ Nilai | Menghasilkan | Deskripsi
 
 ##### "disabled_channels"
 - Ini dapat digunakan untuk mencegah phpMussel dari menggunakan saluran tertentu saat mengirim permintaan (misalnya, saat memperbarui, saat mengambil metadata komponen, dll).
+
+##### "default_timeout"
+- Batas waktu default untuk digunakan untuk permintaan eksternal? Default = 12 detik.
 
 #### "signatures" (Kategori)
 Konfigurasi untuk tanda tangan.
@@ -1722,4 +1726,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 27 November 2020 (2020.11.27).
+Terakhir Diperbarui: 7 Februari 2021 (2021.02.07).

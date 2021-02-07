@@ -440,6 +440,7 @@ Konfiguration (v3)
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -736,6 +737,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "default_timeout" `[int]`
+- Standardzeitlimit für externe Anforderungen? Standardeinstellung = 12 Sekunden.
 
 #### "signatures" (Kategorie)
 Konfiguration für Signaturen, Signaturdateien, u.s.w.
@@ -1736,4 +1740,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 25 Januar 2021 (2021.01.25).
+Zuletzt aktualisiert: 7. Februar 2021 (2021.02.07).

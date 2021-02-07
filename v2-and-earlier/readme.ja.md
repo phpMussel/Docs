@@ -438,6 +438,7 @@ Configuration (v2)
 │       default_algo
 │       statistics
 │       disabled_channels
+│       default_timeout
 │
 ├───signatures
 │       active (v1: Active)
@@ -699,6 +700,9 @@ Configuration (v2)
 
 ##### "disabled_channels" （ディセーブルド・チャネルズ）
 - これは、要求を送信するときにphpMusselが特定のチャネルを使用しないようにするために使用できます​（例えば、更新時、コンポーネント・メタデータの取得時、など）。
+
+##### "default_timeout" （デフォルト・タイムアウト）
+- 外部リクエストに使用するデフォルトのタイムアウト？ Default/デフォルルト = １２秒。
 
 #### "signatures" （シグネチャーズ、カテゴリ）
 シグネチャの設定。
@@ -1722,4 +1726,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２１年１月２５日。
+最終アップデート：２０２１年２月７日。

@@ -440,6 +440,7 @@ Configuratie (v3)
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -736,6 +737,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "default_timeout" `[int]`
+- Standaard time-out om te gebruiken voor externe verzoeken? Standaard = 12 seconden.
 
 #### "signatures" (Categorie)
 Configuratie voor signatures, signatuurbestanden, enz.
@@ -1745,4 +1749,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 25 Januari 2021 (2021.01.25).
+Laatste Bijgewerkt: 7 Februari 2021 (2021.02.07).

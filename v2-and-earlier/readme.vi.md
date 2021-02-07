@@ -438,6 +438,7 @@ Configuration (v2)
 │       default_algo
 │       statistics
 │       disabled_channels
+│       default_timeout
 │
 ├───signatures
 │       active (v1: Active)
@@ -699,6 +700,9 @@ Giá trị | Nó tạo ra | Chi tiết
 
 ##### "disabled_channels"
 - Điều này có thể được sử dụng để ngăn phpMussel sử dụng các kênh cụ thể khi gửi yêu cầu (ví dụ, khi cập nhật, khi lấy siêu dữ liệu thành phần, vv).
+
+##### "default_timeout"
+- Thời gian chờ mặc định để sử dụng cho các yêu cầu bên ngoài? Mặc định = 12 giây.
 
 #### "signatures" (Thể loại)
 Cấu hình cho chữ ký.
@@ -1719,4 +1723,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2020.11.27.
+Lần cuối cập nhật: 2021.02.07.

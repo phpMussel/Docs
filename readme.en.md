@@ -476,6 +476,7 @@ Configuration (v3)
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -772,6 +773,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "default_timeout" `[int]`
+- Default timeout to use for external requests? Default = 12 seconds.
 
 #### "signatures" (Category)
 Configuration for signatures, signature files, etc.
@@ -1765,4 +1769,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 25 January 2021 (2021.01.25).
+Last Updated: 7 February 2021 (2021.02.07).

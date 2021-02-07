@@ -440,6 +440,7 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -736,6 +737,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### “default_timeout” `[int]`
+- 用于外部请求的默认超时？ 标准 = 12秒。
 
 #### “signatures” （类别）
 签名，签名文件，等的配置。
@@ -1722,4 +1726,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2021年1月25日。
+最后更新：2021年2月7日。

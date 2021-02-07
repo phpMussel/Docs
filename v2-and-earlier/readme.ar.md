@@ -433,6 +433,7 @@ Configuration (v2)
 │       default_algo
 │       statistics
 │       disabled_channels
+│       default_timeout
 │
 ├───signatures
 │       active (v1: Active)
@@ -764,6 +765,11 @@ Configuration (v2)
 ##### <div dir="rtl">"disabled_channels"<br /></div>
 <div dir="rtl"><ul>
  <li>يمكن استخدام هذا لمنع phpMussel من استخدام قنوات معينة عند إرسال الطلبات (على سبيل المثال، عند التحديث، عند جلب بيانات تعريف المكون، إلخ).</li>
+</ul></div>
+
+##### <div dir="rtl">"default_timeout"<br /></div>
+<div dir="rtl"><ul>
+ <li>المهلة الافتراضية لاستخدامها للطلبات الخارجية؟ الافتراضي = 12 ثانية.</li>
 </ul></div>
 
 #### <div dir="rtl">"signatures" (التصنيف)<br /></div>
@@ -1984,4 +1990,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: 27 نوفمبر 2020 (2020.11.27).</div>
+<div dir="rtl">آخر تحديث: ٧ فبراير ٢٠٢١ (٢٠٢١.٠٢.٠٧).</div>

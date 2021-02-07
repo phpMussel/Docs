@@ -438,6 +438,7 @@ Configuration (v2)
 │       default_algo
 │       statistics
 │       disabled_channels
+│       default_timeout
 │
 ├───signatures
 │       active (v1: Active)
@@ -699,6 +700,9 @@ Valore | Produce | Descrizione
 
 ##### "disabled_channels"
 - Questo può essere usato per impedire a phpMussel di usare canali particolari quando si inviano richieste (ad esempio, quando si aggiorna, quando si recuperano i metadati del componente, ecc).
+
+##### "default_timeout"
+- Il tempo scaduto predefinito da utilizzare per le richieste esterne? Predefinito = 12 secondi.
 
 #### "signatures" (Categoria)
 Configurazione per firme.
@@ -1725,4 +1729,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 27 Novembre 2020 (2020.11.27).
+Ultimo Aggiornamento: 7 Febbraio 2021 (2021.02.07).

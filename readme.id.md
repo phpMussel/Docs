@@ -440,6 +440,7 @@ Konfigurasi (v3)
 │       maintenance_mode [bool]
 │       statistics [bool]
 │       disabled_channels [string]
+│       default_timeout [int]
 ├───signatures
 │       active [string]
 │       fail_silently [bool]
@@ -736,6 +737,9 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "default_timeout" `[int]`
+- Batas waktu default untuk digunakan untuk permintaan eksternal? Default = 12 detik.
 
 #### "signatures" (Kategori)
 Konfigurasi untuk tanda tangan, file tanda tangan, dll.
@@ -1721,4 +1725,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 25 Januari 2021 (2021.01.25).
+Terakhir Diperbarui: 7 Februari 2021 (2021.02.07).
