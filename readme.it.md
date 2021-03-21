@@ -223,7 +223,7 @@ unset($Web, $Scanner, $Loader);
 </html>
 ```
 
-*Tentativo di caricare il file `ascii_standard_testfile.txt`, a benign sample provided for the sole purpose of testing phpMussel:*
+*Tentativo di caricare il file `ascii_standard_testfile.txt`, un campione benigno fornito al solo scopo di testare phpMussel:*
 
 ![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
 
@@ -969,7 +969,7 @@ Opzioni di cache supplementari.
 Configurazione per il front-end.
 
 ##### "frontend_log" `[string]`
-- File per la registrazione di l'accesso front-end tentativi di accesso. Specificare un nome di file, o lasciare vuoto per disabilitare.
+- File per la registrazione di tentativi di accesso al front-end. Specificare un nome di file, o lasciare vuoto per disabilitare.
 
 ##### "max_login_attempts" `[int]`
 - Numero massimo di tentativi di accesso al front-end. Predefinito = 5.

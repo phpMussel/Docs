@@ -685,7 +685,7 @@ Valore | Produce | Descrizione
 
 ##### "frontend_log"
 - *v1: "FrontEndLog"*
-- File per la registrazione di l'accesso front-end tentativi di accesso. Specificare un nome di file, o lasciare vuoto per disabilitare.
+- File per la registrazione di tentativi di accesso al front-end. Specificare un nome di file, o lasciare vuoto per disabilitare.
 
 ##### "disable_webfonts"
 - Disabilita webfonts? True = Sì [Predefinito]; False = No.
