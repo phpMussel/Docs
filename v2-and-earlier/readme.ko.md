@@ -247,6 +247,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   FUNDING.yml
 │   │
 │   └───workflows
+│           php-cs-fixer.yml
 │           v2.yml
 │
 ├───tests
@@ -287,6 +288,8 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           L10N.php
 │   │           Matrix.php
 │   │           NumberFormatter.php
+│   │           Operation.php
+│   │           Request.php
 │   │           YAML.php
 │   │
 │   ├───fe_assets
@@ -1728,4 +1731,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2021년 2월 7일.
+최종 업데이트 : 2021년 4월 9일.

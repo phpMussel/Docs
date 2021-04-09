@@ -247,6 +247,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   FUNDING.yml
 │   │
 │   └───workflows
+│           php-cs-fixer.yml
 │           v2.yml
 │
 ├───tests
@@ -287,6 +288,8 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           L10N.php
 │   │           Matrix.php
 │   │           NumberFormatter.php
+│   │           Operation.php
+│   │           Request.php
 │   │           YAML.php
 │   │
 │   ├───fe_assets
@@ -1731,4 +1734,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 7 Февраля 2021 г (2021.02.07).
+Последнее обновление: 9 Апреля 2021 г (2021.04.09).

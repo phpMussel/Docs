@@ -247,6 +247,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   FUNDING.yml
 │   │
 │   └───workflows
+│           php-cs-fixer.yml
 │           v2.yml
 │
 ├───tests
@@ -287,6 +288,8 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           L10N.php
 │   │           Matrix.php
 │   │           NumberFormatter.php
+│   │           Operation.php
+│   │           Request.php
 │   │           YAML.php
 │   │
 │   ├───fe_assets
@@ -1733,4 +1736,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 7 de Fevereiro de 2021 (2021.02.07).
+Última Atualização: 9 de Abril de 2021 (2021.04.09).

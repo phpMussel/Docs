@@ -247,6 +247,7 @@ https://github.com/phpMussel/phpMussel>v2
 │   │   FUNDING.yml
 │   │
 │   └───workflows
+│           php-cs-fixer.yml
 │           v2.yml
 │
 ├───tests
@@ -287,6 +288,8 @@ https://github.com/phpMussel/phpMussel>v2
 │   │           L10N.php
 │   │           Matrix.php
 │   │           NumberFormatter.php
+│   │           Operation.php
+│   │           Request.php
 │   │           YAML.php
 │   │
 │   ├───fe_assets
@@ -1727,4 +1730,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.02.07.
+Lần cuối cập nhật: 2021.04.09.
