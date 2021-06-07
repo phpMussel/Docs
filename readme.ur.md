@@ -30,7 +30,7 @@
 
 <div dir="rtl">کرنے کے لئے خصوصی شکریہ ادا کیا. <a dir="ltr" href="https://www.clamav.net/">ClamAV</a> دونوں منصوبے پریرتا کے لئے اور اس سکرپٹ کا استعمال ہے کہ دستخط، اسکرپٹ کا امکان موجود نہیں کریں گے، جس کے بغیر، یا سب کے لئے، بہت محدود قدر ہو گی.<br /><br /></div>
 
-SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، اور اضافی ذرائع کے phpMussel طرف سے استعمال کیا دستخطوں کی ایک بڑی تعداد کی: <a dir="ltr" href="https://www.phishtank.com/">PhishTank</a>، <a dir="ltr" href="https://nlnetlabs.nl/">NLNetLabs</a>، <a dir="ltr" href="https://malware.expert/">Malware.Expert</a> اور دوسروں کو، اور یہ کہ میں نے ذکر کرنا وگرنہ بھول گئے ہیں، اور اسکرپٹ استعمال کرنے کے لئے، کسی اور کو اس منصوبے کی حمایت تمام والوں کے لئے خصوصی شکریہ.<br /><br /></div>
+GitHub اور Bitbucket کے لئے خصوصی شکریہ، اور اضافی ذرائع کے phpMussel طرف سے استعمال کیا دستخطوں کی ایک بڑی تعداد کی: <a dir="ltr" href="https://www.phishtank.com/">PhishTank</a>، <a dir="ltr" href="https://nlnetlabs.nl/">NLNetLabs</a>، <a dir="ltr" href="https://malware.expert/">Malware.Expert</a> اور دوسروں کو، اور یہ کہ میں نے ذکر کرنا وگرنہ بھول گئے ہیں، اور اسکرپٹ استعمال کرنے کے لئے، کسی اور کو اس منصوبے کی حمایت تمام والوں کے لئے خصوصی شکریہ.<br /><br /></div>
 
 ---
 
@@ -1770,4 +1770,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۷ فروری ۲۰۲۱ (۲۰۲۱.۰۲.۰۷).</div>
+<div dir="rtl">آخری تازہ کاری: ۷ جون ۲۰۲۱ (۲۰۲۱.۰۶.۰۷).</div>

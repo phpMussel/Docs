@@ -28,7 +28,7 @@ Dit script is gratis software; u kunt, onder de voorwaarden van de GNU General P
 
 Speciale dank aan [ClamAV](https://www.clamav.net/) zowel voor project inspiratie en voor de signatures dat dit script maakt gebruik daarvan, zonder welke, het script zou waarschijnlijk niet bestaan, of op zijn best, zou heeft zeer beperkte waarde.
 
-Speciale dank aan SourceForge, Bitbucket, en GitHub voor het hosten van de project-bestanden, en de extra bronnen van een aantal signatures gebruikt door phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) en anderen, en speciale dank aan allen die het project steunen, aan iemand anders die ik anders misschien vergeten te vermelden, en voor u, voor het gebruik van het script.
+Speciale dank aan GitHub en Bitbucket voor het hosten van de project-bestanden, en de extra bronnen van een aantal signatures gebruikt door phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) en anderen, en speciale dank aan allen die het project steunen, aan iemand anders die ik anders misschien vergeten te vermelden, en voor u, voor het gebruik van het script.
 
 ---
 
@@ -1753,4 +1753,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 7 Februari 2021 (2021.02.07).
+Laatste Bijgewerkt: 7 Juni 2021 (2021.06.07).

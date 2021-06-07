@@ -28,7 +28,7 @@ phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 h
 
 프로젝트에 영감을 주고 이 스크립트가 활용하는 서명을 제공하는 [ClamAV](https://www.clamav.net/)에게 감사의 말씀을 드립니다. 그 서명 없이는 이 스크립트가 존재하지 못했거나 극히 제한적인 가치만을 가졌을 것입니다.
 
-프로젝트 파일을 호스팅하는 SourceForge, Bitbucket과 GitHub, phpMussel이 활용하는 서명의 추가적인 소스: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 등, 이 프로젝트를 지원해 주신 분들, 제가 잊어버리고 언급하지 못했을 다른 분들과 이 스크립트를 사용하는 당신에게 감사의 말씀을 드립니다.
+프로젝트 파일을 호스팅하는 GitHub과 Bitbucket, phpMussel이 활용하는 서명의 추가적인 소스: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 등, 이 프로젝트를 지원해 주신 분들, 제가 잊어버리고 언급하지 못했을 다른 분들과 이 스크립트를 사용하는 당신에게 감사의 말씀을 드립니다.
 
 ---
 
@@ -1727,4 +1727,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2021년 2월 7일.
+최종 업데이트 : 2021년 6월 7일.

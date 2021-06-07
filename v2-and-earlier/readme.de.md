@@ -30,7 +30,7 @@ Dieses Skript ist freie Software; Sie können Sie weitergeben und/oder modifizie
 
 Besonderer Dank geht an [ClamAV](https://www.clamav.net/) für die Inspiration und die Signaturen, die dieses Script benutzt, ohne die dieses Script wahrscheinlich nicht existieren würde oder bestenfalls einen sehr begrenzten Wert hätte.
 
-Besonderer Dank geht auch an SourceForge und GitHub für das Hosten der Projektdateien, und an die weiteren Quellen einiger von phpMussel verwendeten Signaturen: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/) und andere, und Besonderer Dank geht an alle diejenigen die das Projekt unterstützen werden, an andere nicht erwähnte Personen, und an Sie, für die Verwendung des Scripts.
+Besonderer Dank geht auch an SourceForge, Bitbucket und GitHub für das Hosten der Projektdateien, und an die weiteren Quellen einiger von phpMussel verwendeten Signaturen: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/) und andere, und Besonderer Dank geht an alle diejenigen die das Projekt unterstützen werden, an andere nicht erwähnte Personen, und an Sie, für die Verwendung des Scripts.
 
 Dieses Dokument und das zugehörige Paket kann von folgenden Links kostenlos heruntergeladen werden:
 - [GitHub](https://github.com/phpMussel/phpMussel).
@@ -1749,4 +1749,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 9. April 2021 (2021.04.09).
+Zuletzt aktualisiert: 7. Juni 2021 (2021.06.07).

@@ -28,7 +28,7 @@ This script is free software; you can redistribute it and/or modify it under the
 
 Special thanks to [ClamAV](https://www.clamav.net/) both for project inspiration and for the signatures that this script utilises, without which, the script would likely not exist, or at best, would have very limited value.
 
-Special thanks to SourceForge, Bitbucket, and GitHub for hosting the project files, and to the additional sources of a number of the signatures utilised by phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) and others, and special thanks to all those supporting the project, to anyone else that I may have otherwise forgotten to mention, and to you, for using the script.
+Special thanks to GitHub and Bitbucket for hosting the project files, and to the additional sources of a number of the signatures utilised by phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) and others, and special thanks to all those supporting the project, to anyone else that I may have otherwise forgotten to mention, and to you, for using the script.
 
 ---
 
@@ -1773,4 +1773,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 7 February 2021 (2021.02.07).
+Last Updated: 7 June 2021 (2021.06.07).

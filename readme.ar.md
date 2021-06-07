@@ -30,7 +30,7 @@
 
 <div dir="rtl">شكر خاص ل<a dir="ltr" href="https://www.clamav.net/">ClamAV</a> لكل من الإلهام للمشروع والتواقيع التي يعمد عليها السكربت، والتي من دونها كان من الممكن أن لا يتم إنجاز هذا البرنامج أو بأفضل الأحوال ستكون قيمته محدودة جداً.<br /><br /></div>
 
-<div dir="rtl">شكر خاص أيضاً ل SourceForge و Bitbucket و GitHub لإستضافتهم ملفات المشروع، وأيضاً لمصادر التوقيعات التي يستخدمها phpMussel مثل: <a dir="ltr" href="https://www.phishtank.com/">PhishTank</a> و <a dir="ltr" href="https://nlnetlabs.nl/">NLNetLabs</a> و <a dir="ltr" href="https://malware.expert/">Malware.Expert</a> وغيرهم، والشكر مقدم لكل من يدعم المشروع وشكراً لك لاستخدامك للسكربت.<br /><br /></div>
+<div dir="rtl">شكر خاص أيضاً ل GitHub و Bitbucket لإستضافتهم ملفات المشروع، وأيضاً لمصادر التوقيعات التي يستخدمها phpMussel مثل: <a dir="ltr" href="https://www.phishtank.com/">PhishTank</a> و <a dir="ltr" href="https://nlnetlabs.nl/">NLNetLabs</a> و <a dir="ltr" href="https://malware.expert/">Malware.Expert</a> وغيرهم، والشكر مقدم لكل من يدعم المشروع وشكراً لك لاستخدامك للسكربت.<br /><br /></div>
 
 ---
 
@@ -1771,4 +1771,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٧ فبراير ٢٠٢١ (٢٠٢١.٠٢.٠٧).</div>
+<div dir="rtl">آخر تحديث: ٧ يونيو ٢٠٢١ (٢٠٢١.٠٦.٠٧).</div>

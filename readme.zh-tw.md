@@ -28,7 +28,7 @@
 
 謝謝[ClamAV](https://www.clamav.net/)為本腳本提供文件簽名庫訪問許可。​沒有它，​這個腳本很可能不會存在，​或者其價值有限。
 
-謝謝SourceForge和Bitbucket和GitHub為項目託管，​還有謝謝這些組織為提供一些簽名：​[PhishTank](https://www.phishtank.com/)，​[NLNetLabs](https://nlnetlabs.nl/)，[Malware.Expert](https://malware.expert/)，​等人。
+謝謝GitHub和Bitbucket為項目託管，​還有謝謝這些組織為提供一些簽名：​[PhishTank](https://www.phishtank.com/)，​[NLNetLabs](https://nlnetlabs.nl/)，[Malware.Expert](https://malware.expert/)，​等人。
 
 ---
 
@@ -1730,4 +1730,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2021年2月7日。
+最後更新：2021年6月7日。

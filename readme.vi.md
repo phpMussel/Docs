@@ -28,7 +28,7 @@ Bản này là chương trình miễn phí; bạn có thể phân phối lại h
 
 Chân thành cám ơn [ClamAV](https://www.clamav.net/) cho nguồn cảm hứng cho chương trình này, và cho những chữ ký mà kịch bản này sử dụng, mà nếu không, kịch bản này sẽ không có cơ hội tồn tại, hoặc ít nhất, sẽ có giá trị rất nhỏ.
 
-Chân thành cám ơn SourceForge, Bitbucket, và GitHub cho cung cấp một nơi cho các tập tin dự án, và những người cung cấp một số các chữ ký thêm mà được sử dụng bởi phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) vân vân, và chân thành cảm ơn những người đã ủng hộ chương trình này, và bất cứ ai khác mà tôi quên cảm ơn, và bạn, đã sử dụng bản này.
+Chân thành cám ơn GitHub và Bitbucket cho cung cấp một nơi cho các tập tin dự án, và những người cung cấp một số các chữ ký thêm mà được sử dụng bởi phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) vân vân, và chân thành cảm ơn những người đã ủng hộ chương trình này, và bất cứ ai khác mà tôi quên cảm ơn, và bạn, đã sử dụng bản này.
 
 ---
 
@@ -1726,4 +1726,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.02.07.
+Lần cuối cập nhật: 2021.06.07.

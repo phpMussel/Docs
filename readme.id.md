@@ -28,7 +28,7 @@ Skrip ini berbasis Sumber Terbuka; Anda dapat mendistribusikan kembali dan/atau 
 
 Terima kasih khususnya untuk ClamAV untuk inspirasi project dan tanda tangan dimana skrip ini menggunakan ClamAV, tanpa nya skrip ini tidak akan ada, atau akan mengalami nilai yang kurang baik.
 
-Khusus terima kasih kepada SourceForge, Bitbucket dan GitHub untuk menghost file proyek ini, dan kepada sumber-sumber tambahan yang dimanfaatkan oleh phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) dan lain-lain, dan khusus terima kasih kepada semua orang yang mendukung proyek, kepada orang lain bahwa saya mungkin telah dinyatakan lupa untuk menyebutkan, dan khususnya kepada anda yang menggunakan skrip ini.
+Khusus terima kasih kepada GitHub dan Bitbucket untuk menghost file proyek ini, dan kepada sumber-sumber tambahan yang dimanfaatkan oleh phpMussel: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) dan lain-lain, dan khusus terima kasih kepada semua orang yang mendukung proyek, kepada orang lain bahwa saya mungkin telah dinyatakan lupa untuk menyebutkan, dan khususnya kepada anda yang menggunakan skrip ini.
 
 ---
 
@@ -1729,4 +1729,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 7 Februari 2021 (2021.02.07).
+Terakhir Diperbarui: 7 Juni 2021 (2021.06.07).

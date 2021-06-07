@@ -28,7 +28,7 @@ phpMussel（ピー・エイチ・ピー・マッスル）をご利用頂き、�
 
 作成のインスピレーションと本スクリプトが利用するシグネチャについて[ClamAV](https://www.clamav.net/)に感謝の意を表したいと思います。​この２つがなければ、​本スクリプトは存在しえないか、​あるいは極めて限られた利用価値しかもたないと言ってよいでしょう。
 
-本プロジェクトファイルのホスト先であるSourceForgeとBitbucketとGitHub、​phpMusselが利用するシグネチャの提供先である：​[PhishTank](https://www.phishtank.com/)、​[NLNetLabs](https://nlnetlabs.nl/)、​[Malware.Expert](https://malware.expert/) 他、​本プロジェクトを支援して下さった全ての方々に感謝の意を表したいと思います。
+本プロジェクトファイルのホスト先であるGitHubとBitbucket、​phpMusselが利用するシグネチャの提供先である：​[PhishTank](https://www.phishtank.com/)、​[NLNetLabs](https://nlnetlabs.nl/)、​[Malware.Expert](https://malware.expert/) 他、​本プロジェクトを支援して下さった全ての方々に感謝の意を表したいと思います。
 
 ---
 
@@ -1729,4 +1729,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２１年２月７日。
+最終アップデート：２０２１年６月７日。
