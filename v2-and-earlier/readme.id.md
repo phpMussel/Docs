@@ -242,17 +242,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -380,7 +377,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -406,7 +402,6 @@ Berikut list variabel yang ditemukan pada file konfigurasi phpMussel `config.ini
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -422,6 +417,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -443,7 +439,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -455,7 +450,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -469,7 +463,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -485,37 +478,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -530,7 +516,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -615,6 +600,9 @@ Nilai | Menggunakan
 
 ##### "forbid_on_block"
 - Seharusnya phpMussel mengirimkan 403 headers dengan pesan upload file yang terblok, atau cocok dengan 200 OK? False = Tidak (200); True = Ya (403) [Default].
+
+##### "unsupported_media_type_header"
+- Seharusnya phpMussel mengirimkan 415 headers saat upload diblokir karena jenis filenya ada di daftar hitam? Jika true, pengaturan ini menggantikan `forbid_on_block`. False = Tidak [Default]; True = Ya.
 
 ##### "delete_on_sight"
 - Mengaktifkan opsi ini akan menginstruksikan skrip untuk berusaha secepatnya menghapus file apapun yang ditemukannya selama scan yang mencocokkan pada kriteria deteksi apapun, baik melalui tanda tangan atau yang lain. file-file ditentukan "clean" tidak akan disentuh. Pada kasus file terkompress seluruh file terkompress akan didelate (kecuali file yang menyerang adalah satu-satunya dari beberapa file yang menjadi isi file terkompress). Untuk kasus pemindaian upload file biasanya, tidak cocok untuk mengaktifkan opsi ini, karena biasanya PHP akan secara otomatis menyatukan isi dari cache ketika eksekusi selesai, berarti bahwa dia akan selalu menghapus file terupload apapun melalui server jika tidak dipindahkan, dikopi atau dihapus sebelumnya. Opsi tersebut ditambahkan disini sebagai ukuran keamanan ekstra untuk semua salinan PHP yang tidak selalu bersikap pada perilaku yang diharapkan. False = Setelah pemindahaian, biarkan file [Default]; True = Setelah pemindaian, jika tidak bersih, hapus langsung.
@@ -1393,14 +1381,12 @@ Direktif konfigurasi `pdo_dsn` harus dikonfigurasi seperti dijelaskan dibawah.
 
 ```
 Tergantung pada driver basis data yang digunakan...
-│
 ├─4d (Peringatan: Eksperimental, belum diuji, tidak direkomendasikan!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └Host untuk terhubung dengan untuk menemukan database.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1412,7 +1398,6 @@ Tergantung pada driver basis data yang digunakan...
 │                │              └Nomor port yang akan dihubungkan dengan host.
 │                │
 │                └Host untuk terhubung dengan untuk menemukan database.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1423,7 +1408,6 @@ Tergantung pada driver basis data yang digunakan...
 │    │          └Host untuk terhubung dengan untuk menemukan database.
 │    │
 │    └Nilai yang mungkin: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1435,21 +1419,18 @@ Tergantung pada driver basis data yang digunakan...
 │                    │
 │                    └Anda harus merujuk pada dokumentasi Firebird jika Anda
 │                     ingin menggunakan ini.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Database yang di katalog untuk dihubungkan.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Database yang di katalog untuk dihubungkan.
-│
 ├─mysql (Paling direkomendasikan!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1462,7 +1443,6 @@ Tergantung pada driver basis data yang digunakan...
 │                 │             database.
 │                 │
 │                 └Nama basis data yang akan digunakan.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1474,7 +1454,6 @@ Tergantung pada driver basis data yang digunakan...
 │               │
 │               └Anda harus merujuk pada dokumentasi Oracle jika Anda ingin
 │                menggunakan ini.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1486,7 +1465,6 @@ Tergantung pada driver basis data yang digunakan...
 │         │
 │         └Anda harus merujuk pada dokumentasi ODBC/DB2 jika Anda ingin
 │          menggunakan ini.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1498,14 +1476,12 @@ Tergantung pada driver basis data yang digunakan...
 │               │              └Nomor port yang akan dihubungkan dengan host.
 │               │
 │               └Host untuk terhubung dengan untuk menemukan database.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Jalur ke file database lokal untuk digunakan.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1733,4 +1709,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 9 April 2021 (2021.04.09).
+Terakhir Diperbarui: 10 Juni 2021 (2021.06.10).

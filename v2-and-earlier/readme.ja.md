@@ -242,17 +242,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -380,7 +377,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -406,7 +402,6 @@ https://github.com/phpMussel/phpMussel>v2
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -422,6 +417,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -443,7 +439,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -455,7 +450,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -469,7 +463,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -485,37 +478,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -530,7 +516,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -614,10 +599,13 @@ Configuration (v2)
 - プラグインのサポートを有効にしますか？​`false` = いいえ；​`true` = はい 「Default/デフォルト設定」。
 
 ##### "forbid_on_block" （フォービッド・オン・ブロック）
-- アップロードファイルがブロックされたメッセージと共に、​phpMusselから４０３ヘッダーを送るべきか、​通常の２００でよいかどうかについて。​`false`（偽） = いいえ（２００） 「Default/デフォルト設定」；​`true`（真） = はい（４０３）。
+- アップロードファイルがブロックされたメッセージと共に、​phpMusselから４０３ヘッダーを送るべきか、​通常の２００でよいかどうかについて。​False（偽）=いいえ（２００）；​True（真）=はい（４０３）「Default/デフォルト設定」。
+
+##### "unsupported_media_type_header" （アンサポーテッド・ミーディア・タイプ）
+- ブラックリストに登録されているファイル・タイプが原因でアップロードがブロックされた場合、phpMusselは、４１５ヘッダーを送信する必要がありますか？​Trueの場合、この設定は`forbid_on_block`よりも優先されます。​False（偽）=いいえ「Default/デフォルト設定」；​True（真）=はい。
 
 ##### "delete_on_sight" （デリート・オン・サイト）
-- このディレクティブを有効にすると、​検知基準（シグネチャでも何でも）にあったアップロードファイルは直ちに削除されます。​クリーンと判断されたファイルはそのままです。​アーカイブの場合、​問題のファイルが一部であってもアーカイブ全てが削除の対象となります。​アップロードファイルのスキャンにおいては、​本ディレクティブを有効にすることは必須ではありません。​なぜならＰＨＰはスクリプト実行後に自動的にキャッシュの内容を破棄するからです。​言い換えれば、​ファイルが移動されたか、​コピーされたか、​削除されない限り、​ＰＨＰはサーバーにアップロードしたファイルを残しておくことは通常ありません。​このディレクティブはセキュリティーに念を入れる目的で設置されています。​ＰＨＰは稀に予測外の振る舞いをすることがあるからです。​`false`（偽） = スキャニング後、​ファイルはそのまま（デフォルト設定）。​`true`（真） = スキャニング後、​クリーンでなければ直ちに削除。
+- このディレクティブを有効にすると、​検知基準（シグネチャでも何でも）にあったアップロードファイルは直ちに削除されます。​クリーンと判断されたファイルはそのままです。​アーカイブの場合、​問題のファイルが一部であってもアーカイブ全てが削除の対象となります。​アップロードファイルのスキャンにおいては、​本ディレクティブを有効にすることは必須ではありません。​なぜならＰＨＰはスクリプト実行後に自動的にキャッシュの内容を破棄するからです。​言い換えれば、​ファイルが移動されたか、​コピーされたか、​削除されない限り、​ＰＨＰはサーバーにアップロードしたファイルを残しておくことは通常ありません。​このディレクティブはセキュリティーに念を入れる目的で設置されています。​ＰＨＰは稀に予測外の振る舞いをすることがあるからです。​False（偽） = スキャニング後、​ファイルはそのまま（デフォルト設定）。​True（真） = スキャニング後、​クリーンでなければ直ちに削除。
 
 ##### "lang" （ラング）
 - phpMusselのデフォルト言語を設定します。
@@ -754,7 +742,7 @@ Configuration (v2)
 ファイル取扱い設定。
 
 ##### "max_uploads" （マックス・アップローズ）
-- 一度にスキャンできるアップロードファイル数の上限で、​これを超えるとスキャンを中断し、​ユーザーにその旨を知らせ、​論理攻撃からの保護として機能します。​システムやＣＭＳがDDoS攻撃にあい、​phpMusselがオーバーロードしてＰＨＰプロセスに支障をきたすことがないようにするためです。​推奨数は１０ですが、​ハードウェアのスピードによっては、​これ以上/以下がよいということもあるでしょう。​この数は、​アーカイブのコンテンツは含まないことを覚えておいて下さい。
+- 一度にスキャンできるアップロードファイル数の上限で、​これを超えるとスキャンを中断し、​ユーザーにその旨を知らせ、​論理攻撃からの保護として機能します。​システムやＣＭＳがＤＤｏＳ攻撃にあい、​phpMusselがオーバーロードしてＰＨＰプロセスに支障をきたすことがないようにするためです。​推奨数は１０ですが、​ハードウェアのスピードによっては、​これ以上/以下がよいということもあるでしょう。​この数は、​アーカイブのコンテンツは含まないことを覚えておいて下さい。
 
 ##### "filesize_limit" （ファイルサイズ・リミット）
 - ファイルサイズ上限の単位はＫＢです。​６５５３６＝６４ＭＢ（Default/デフォルト）；​0 = リミットしません（上限なし、​常にグレイリスト化）、​正の数値であれば何でも構いません。​ＰＨＰの設定でメモリーに制限があったり、​アップロードファイルサイズの上限が設定されている場合に有効的です。
@@ -1393,14 +1381,12 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 
 ```
 使用するデータベース・ドライバーに応じて...
-│
 ├─4d （警告：実験的、未テスト、非推奨！）
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └データベースを見つけるために接続するホスト。
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1411,7 +1397,6 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 │                │              └ホストに接続するポート番号。
 │                │
 │                └データベースを見つけるために接続するホスト。
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1422,7 +1407,6 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 │    │          └データベースを見つけるために接続するホスト。
 │    │
 │    └可能な値：「mssql」、「sybase」、「dblib」。
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1433,21 +1417,18 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 │                    ├ホストとポート番号で接続できます。
 │                    │
 │                    └これを使用する場合は、Firebirdのドキュメントを参照してください。
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └接続するカタログ化されたデータベース。
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └接続するカタログ化されたデータベース。
-│
 ├─mysql （最も推奨されます！）
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1458,7 +1439,6 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 │                 │            └データベースを見つけるために接続するホスト。
 │                 │
 │                 └データベース使用する名前。
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1469,7 +1449,6 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 │               ├ホストとポート番号で接続できます。
 │               │
 │               └これを使用する場合は、Oracleのドキュメントを参照してください。
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1480,7 +1459,6 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 │         ├ホストとポート番号で接続できます。
 │         │
 │         └これを使用する場合は、ODBC/DB2のドキュメントを参照してください。
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1491,14 +1469,12 @@ phpMusselの「`pdo_dsn`」コンフィギュレーション・ディレクテ�
 │               │              └ホストに接続するポート番号。
 │               │
 │               └データベースを見つけるために接続するホスト。
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └使用するローカル・データベース・ファイルへのパス。
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1733,4 +1709,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２１年４月９日。
+最終アップデート：２０２１年６月１０日。

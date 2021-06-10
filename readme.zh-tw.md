@@ -421,7 +421,6 @@ v3樣板代碼的結構與phpMussel組織中各種phpMussel v3存儲庫的結構
 
 ```
 配置 (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ v3樣板代碼的結構與phpMussel組織中各種phpMussel v3存儲庫的結構
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ theme
 ##### 『forbid_on_block』 `[bool]`
 - phpMussel應該發送`403`頭隨著文件上傳受阻信息，​或堅持標準`200 OK`？​False（假）=發送`200`；True（真）=發送`403`【標準】。
 
+##### 『unsupported_media_type_header』 `[bool]`
+- 當上傳因列入黑名單的文件類型而被阻止時，phpMussel是否應該發送415標頭？​如果為true（真），此設置將取代`forbid_on_block`。​False（假）=不發送【標準】；True（真）=發送。
+
 ##### 『max_uploads』 `[int]`
 - 最大允許數值的文件為掃描當文件上傳掃描之前中止掃描和告訴用戶他們是上傳太多在同一時間！​提供保護針對一個理論攻擊哪裡一個攻擊者嘗試DDoS您的系統或CMS通過超載phpMussel以減速PHP進程到一個停止。​推薦：10。​您可能想增加或減少這個數值，​根據速度的您的硬件。​注意這個數值不交待為或包括存檔內容。
 
@@ -1400,14 +1403,12 @@ phpMussel的`pdo_dsn`應配置如下。
 
 ```
 取決於所使用的數據庫驅動程序......
-│
 ├─4d （警告：實驗性，未經測試，不建議！）
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └要查找數據庫的主機。
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1418,7 +1419,6 @@ phpMussel的`pdo_dsn`應配置如下。
 │                │              └連接的主機端口號。
 │                │
 │                └要查找數據庫的主機。
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1429,7 +1429,6 @@ phpMussel的`pdo_dsn`應配置如下。
 │    │          └要查找數據庫的主機。
 │    │
 │    └可能的值： 『mssql』， 『sybase』， 『dblib』。
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1440,21 +1439,18 @@ phpMussel的`pdo_dsn`應配置如下。
 │                    ├可以連接主機和端口號。
 │                    │
 │                    └如果要使用此功能，請參閱Firebird文檔。
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └要連接的在目錄中數據庫。
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └要連接的在目錄中數據庫。
-│
 ├─mysql （最推薦！）
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1465,7 +1461,6 @@ phpMussel的`pdo_dsn`應配置如下。
 │                 │            └要查找數據庫的主機。
 │                 │
 │                 └要使用的數據庫的名稱。
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1476,7 +1471,6 @@ phpMussel的`pdo_dsn`應配置如下。
 │               ├可以連接主機和端口號。
 │               │
 │               └如果要使用此功能，請參閱Oracle文檔。
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1487,7 +1481,6 @@ phpMussel的`pdo_dsn`應配置如下。
 │         ├可以連接主機和端口號。
 │         │
 │         └如果要使用此功能，請參閱ODBC/DB2文檔。
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1498,14 +1491,12 @@ phpMussel的`pdo_dsn`應配置如下。
 │               │              └連接的主機端口號。
 │               │
 │               └要查找數據庫的主機。
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └要使用的本地數據庫文件的路徑。
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1730,4 +1721,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2021年6月7日。
+最後更新：2021年6月10日。

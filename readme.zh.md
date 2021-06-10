@@ -421,7 +421,6 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 
 ```
 配置 (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ theme
 ##### “forbid_on_block” `[bool]`
 - phpMussel应该发送`403`头随着文件上传受阻信息，​或坚持标准`200 OK`？​False（假）=发送`200`；True（真）=发送`403`【标准】。
 
+##### “unsupported_media_type_header” `[bool]`
+- 当上传因列入黑名单的文件类型而被阻止时，phpMussel是否应该发送415标头？​如果为true（真），此设置将取代`forbid_on_block`。​False（假）=不发送【标准】；True（真）=发送。
+
 ##### “max_uploads” `[int]`
 - 最大允许数值的文件为扫描当文件上传扫描之前中止扫描和告诉用户他们是上传太多在同一时间！​提供保护针对一个理论攻击哪里一个攻击者尝试DDoS您的系统或CMS通过超载phpMussel以减速PHP进程到一个停止。​推荐：10。​您可能想增加或减少这个数值，​根据速度的您的硬件。​注意这个数值不交待为或包括存档内容。
 
@@ -1400,14 +1403,12 @@ phpMussel的`pdo_dsn`应配置如下。
 
 ```
 取决于所使用的数据库驱动程序......
-│
 ├─4d （警告：实验性，未经测试，不建议！）
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └要查找数据库的主机。
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1418,7 +1419,6 @@ phpMussel的`pdo_dsn`应配置如下。
 │                │              └连接的主机端口号。
 │                │
 │                └要查找数据库的主机。
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1429,7 +1429,6 @@ phpMussel的`pdo_dsn`应配置如下。
 │    │          └要查找数据库的主机。
 │    │
 │    └可能的值： “mssql”， “sybase”， “dblib”。
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1440,21 +1439,18 @@ phpMussel的`pdo_dsn`应配置如下。
 │                    ├可以连接主机和端口号。
 │                    │
 │                    └如果要使用此功能，请参阅Firebird文档。
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └要连接的在目录中数据库。
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └要连接的在目录中数据库。
-│
 ├─mysql （最推荐！）
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1465,7 +1461,6 @@ phpMussel的`pdo_dsn`应配置如下。
 │                 │            └要查找数据库的主机。
 │                 │
 │                 └要使用的数据库的名称。
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1476,7 +1471,6 @@ phpMussel的`pdo_dsn`应配置如下。
 │               ├可以连接主机和端口号。
 │               │
 │               └如果要使用此功能，请参阅Oracle文档。
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1487,7 +1481,6 @@ phpMussel的`pdo_dsn`应配置如下。
 │         ├可以连接主机和端口号。
 │         │
 │         └如果要使用此功能，请参阅ODBC/DB2文档。
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1498,14 +1491,12 @@ phpMussel的`pdo_dsn`应配置如下。
 │               │              └连接的主机端口号。
 │               │
 │               └要查找数据库的主机。
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └要使用的本地数据库文件的路径。
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1730,4 +1721,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2021年6月7日。
+最后更新：2021年6月10日。

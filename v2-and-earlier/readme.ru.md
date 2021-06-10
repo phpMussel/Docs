@@ -242,17 +242,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -380,7 +377,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -406,7 +402,6 @@ https://github.com/phpMussel/phpMussel>v2
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -422,6 +417,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -443,7 +439,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -455,7 +450,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -469,7 +463,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -485,37 +478,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -530,7 +516,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -615,6 +600,9 @@ Configuration (v2)
 
 ##### «forbid_on_block»
 - Возвращённый 403-HTTP-заголовок при заблокированной загрузке данных. False = Нет (200); True = Да (403) [Стандарт].
+
+##### «unsupported_media_type_header»
+- Должен ли phpMussel отправлять 415 заголовков, когда загрузка заблокирована из-за типов файлов, занесенных в черный список? Когда true, этот параметр заменяет `forbid_on_block`. False = Нет [Стандарт]; True = Да.
 
 ##### «delete_on_sight»
 - Эта опция позволяет в течение сканирования немедленно удалять файлы при наличии в них опознавательных признаков, содержащихся в сигнатуры или других методах. При этом не будут затрагиваться файлы, идентифицированные как неинфицированные. Если в архиве будет инфицирован хотя бы один файл, то будет удалён весь архив. Во время загрузки файлов эту функцию активировать не обязательно, так как PHP после исполнения удаляет содержимое кэш-памяти. Это означает, что PHP удалит каждый скаченный через сервер файл, если он не перемещён, не скопирован или не удалён. Эта опция, как дополнительная мера, была введена для большей безопасности, но в основном для систем, в которых PHP ведёт себя по-другому. False = После проверки файл останется нетронутым [Стандарт]; True = После проверки инфицированный файл будет немедленно удалён.
@@ -1393,14 +1381,12 @@ phpMussel предоставляет возможность использова
 
 ```
 Согласно базе данных драйвер используется...
-│
 ├─4d (Предупреждение: экспериментально, не проверено, не рекомендуется!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └Хост, с которым нужно связаться, чтобы найти базу данных.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1412,7 +1398,6 @@ phpMussel предоставляет возможность использова
 │                │              └Номер порта для подключения к хосту.
 │                │
 │                └Хост, с которым нужно связаться, чтобы найти базу данных.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1423,7 +1408,6 @@ phpMussel предоставляет возможность использова
 │    │          └Хост, с которым нужно связаться, чтобы найти базу данных.
 │    │
 │    └Возможные значения: «mssql», «sybase», «dblib».
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1435,21 +1419,18 @@ phpMussel предоставляет возможность использова
 │                    │
 │                    └Вам следует обратиться к документации Firebird, если вы
 │                     хотите использовать это.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Каталогизированная база данных для связи.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Каталогизированная база данных для связи.
-│
 ├─mysql (Наиболее рекомендуется!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1462,7 +1443,6 @@ phpMussel предоставляет возможность использова
 │                 │             базу данных.
 │                 │
 │                 └Имя базы данных для использования.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1474,7 +1454,6 @@ phpMussel предоставляет возможность использова
 │               │
 │               └Вам следует обратиться к документации Oracle, если вы хотите
 │                использовать это.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1486,7 +1465,6 @@ phpMussel предоставляет возможность использова
 │         │
 │         └Вам следует обратиться к документации ODBC/DB2, если вы хотите
 │          использовать это.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1497,14 +1475,12 @@ phpMussel предоставляет возможность использова
 │               │              └Номер порта для подключения к хосту.
 │               │
 │               └Хост, с которым нужно связаться, чтобы найти базу данных.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Путь к файлу локальной базы данных для использования.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1734,4 +1710,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 9 Апреля 2021 г (2021.04.09).
+Последнее обновление: 10 Июня 2021 г (2021.06.10).

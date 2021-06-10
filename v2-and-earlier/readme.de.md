@@ -243,17 +243,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -381,7 +378,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -407,7 +403,6 @@ Nachfolgend finden Sie eine Liste der Variablen in der Konfigurationsdatei `conf
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -423,6 +418,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -444,7 +440,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -456,7 +451,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -470,7 +464,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -486,37 +479,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -531,7 +517,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -616,6 +601,9 @@ Wert | Verwenden
 
 ##### "forbid_on_block"
 - Zurückgegebener 403-HTTP-Header bei einem blockierten Dateiupload. False = Nein (200); True = Ja (403) [Standardeinstellung].
+
+##### "unsupported_media_type_header"
+- Sollte phpMussel 415 Header senden, wenn Uploads aufgrund von Dateitypen auf der schwarzen Liste blockiert werden? Wenn true, ersetzt diese Einstellung `forbid_on_block`. False = Nein [Standardeinstellung]; True = Ja.
 
 ##### "delete_on_sight"
 - Diese Option weist das Script an, Dateien während eines Scans sofort zu löschen, wenn ein Erkennungsmerkmal, ob durch Signaturen oder andere Methoden, zutrifft. Dateien, die als nicht infiziert eingestuft werden, werden nicht berührt. Im Falle von Archiven wird das gesamte Archiv gelöscht, auch wenn nur eine einzige Datei im Archiv infiziert sein sollte. Normalerweise ist es bei einem Dateiupload nicht notwendig, diese Option zu aktivieren, da PHP nach der Ausführung von Scripten den Inhalt vom Cache löscht, d.h. PHP löscht jede Datei, die über den Server hochgeladen wird, sofern Sie nicht verschoben, kopiert oder bereits gelöscht wurde. Diese Option wurde als zusätzliches Maß an Sicherheit hinzugefügt, außerdem für Systeme, deren PHP-Installation nicht dem üblichen Verhalten entspricht. False = Nach der Überprüfung wird die Datei so belassen [Standardeinstellung]; True = Nach der Überprüfung wird die Datei sofort gelöscht, sofern Sie infiziert ist.
@@ -1394,14 +1382,12 @@ Die Konfigurationsanweisung `pdo_dsn` von phpMussel sollte wie folgt konfigurier
 
 ```
 Abhängig davon, welcher Datenbanktreiber verwendet wird...
-│
 ├─4d (Warnung: Experimentell, ungetestet, nicht empfohlen!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └Der Host, auf dem sich die Datenbank befindet.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1413,7 +1399,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                │               Verbindung verwendet werden soll.
 │                │
 │                └Der Host, auf dem sich die Datenbank befindet.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1424,7 +1409,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │    │          └Der Host, auf dem sich die Datenbank befindet.
 │    │
 │    └Mögliche Werte: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1437,7 +1421,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                    │
 │                    └Sie sollten auf die Firebird-Dokumentation lesen wenn Sie
 │                     diese verwenden möchten.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
@@ -1445,7 +1428,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │           ╚╤════╝
 │            └Die katalogisierte Datenbank, mit der eine Verbindung hergestellt
 │             werden soll.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
@@ -1453,7 +1435,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                ╚╤════╝
 │                 └Die katalogisierte Datenbank, mit der eine Verbindung
 │                  hergestellt werden soll.
-│
 ├─mysql (Am meisten empfohlen!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1466,7 +1447,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                 │            └Der Host, auf dem sich die Datenbank befindet.
 │                 │
 │                 └Der Name der Datenbank.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1479,7 +1459,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │               │
 │               └Sie sollten auf die Oracle-Dokumentation lesen wenn Sie diese
 │                verwenden möchten.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1491,7 +1470,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │         │
 │         └Sie sollten auf die ODBC/DB2-Dokumentation lesen wenn Sie diese
 │          verwenden möchten.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1503,14 +1481,12 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │               │               Verbindung verwendet werden soll.
 │               │
 │               └Der Host, auf dem sich die Datenbank befindet.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Der Pfad zur lokalen Datenbankdatei, die verwendet werden soll.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1749,4 +1725,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 7. Juni 2021 (2021.06.07).
+Zuletzt aktualisiert: 10. Juni 2021 (2021.06.10).

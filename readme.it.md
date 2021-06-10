@@ -421,7 +421,6 @@ Il seguente è un elenco delle direttive di configurazione accettate da phpMusse
 
 ```
 Configurazione (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Configurazione (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ Configurazione per il gestore di caricamenti.
 ##### "forbid_on_block" `[bool]`
 - phpMussel dovrebbe rispondere con 403 header con il file caricamente bloccato messaggio, o rimanere con il solito 200 OK? False = No (200); True = Sì (403) [Predefinito].
 
+##### "unsupported_media_type_header" `[bool]`
+- phpMussel dovrebbe inviare 415 header quando i caricamenti sono bloccati a causa del tipo di file nella lista nera? Se true, questa impostazione sostituisce `forbid_on_block`. False = No [Predefinito]; True = Sì.
+
 ##### "max_uploads" `[int]`
 - Massimo numero di file per analizzare durante il file caricamenti scansione prima le terminazione del scansione e d'informare dell'utente che essi stai caricando troppo in una volta! Fornisce protezione contro un teorico attacco per cui un malintenzionato utente tenta per DDoS vostra sistema o CMS da sovraccaricamento phpMussel rallentare il PHP processo ad un brusco stop. Raccomandato: 10. Si potrebbe desiderare di aumentare o diminuire che numero basato sulla velocità del vostra sistema e hardware. Si noti che questo numero non tiene conto o includere il contenuti degli archivi.
 
@@ -1400,14 +1403,12 @@ La direttiva di configurazione `pdo_dsn` di phpMussel dovrebbe essere configurat
 
 ```
 A seconda del driver del database utilizzato...
-│
 ├─4d (Avvertimento: Sperimentale, non testato, non raccomandato!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └L'host con cui connettersi per trovare il database.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1420,7 +1421,6 @@ A seconda del driver del database utilizzato...
 │                │               all'host.
 │                │
 │                └L'host con cui connettersi per trovare il database.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1431,7 +1431,6 @@ A seconda del driver del database utilizzato...
 │    │          └L'host con cui connettersi per trovare il database.
 │    │
 │    └Valori possibili: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1443,21 +1442,18 @@ A seconda del driver del database utilizzato...
 │                    │
 │                    └Dovresti leggi la documentazione di Firebird se si
 │                     desidera utilizzare questo.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Il database catalogato con cui connettersi.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Il database catalogato con cui connettersi.
-│
 ├─mysql (Più raccomandato!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1470,7 +1466,6 @@ A seconda del driver del database utilizzato...
 │                 │             database.
 │                 │
 │                 └Il nome del database da utilizzare.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1482,7 +1477,6 @@ A seconda del driver del database utilizzato...
 │               │
 │               └Dovresti leggi la documentazione di Oracle se si desidera
 │                utilizzare questo.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1494,7 +1488,6 @@ A seconda del driver del database utilizzato...
 │         │
 │         └Dovresti leggi la documentazione di ODBC/DB2 se si desidera
 │          utilizzare questo.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1506,14 +1499,12 @@ A seconda del driver del database utilizzato...
 │               │               all'host.
 │               │
 │               └L'host con cui connettersi per trovare il database.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Il percorso del file di database locale da utilizzare.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1732,4 +1723,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 7 Giugno 2021 (2021.06.07).
+Ultimo Aggiornamento: 10 Giugno 2021 (2021.06.10).

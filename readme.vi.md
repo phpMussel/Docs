@@ -421,7 +421,6 @@ Sau đây là danh sách các chỉ thị cấu hình mà phpMussel chấp nhậ
 
 ```
 Cấu Hình (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Cấu Hình (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ Cấu hình cho trình xử lý tải lên.
 ##### "forbid_on_block" `[bool]`
 - phpMussel nên gửi 403 Forbidden chúng với các thông điệp tải lên tập tin bị chặn, hoặc chỉ sử dụng 200 OK? False = Không (200); True = Vâng (403) [Mặc định].
 
+##### "unsupported_media_type_header" `[bool]`
+- phpMussel có nên gửi tiêu đề 415 khi tải lên bị chặn do các loại tập tin nằm trong danh sách đen không? Khi true, cài đặt này thay thế `forbid_on_block`. False = Không [Mặc định]; True = Vâng.
+
 ##### "max_uploads" `[int]`
 - Số lượng tối đa của tập tin cho phép để quét trong khi quét tập tin tải lên trước khi hủy bỏ quá trình quét và thông báo cho người dùng rằng họ đang tải lên quá nhiều cùng một lúc! Trong lý thuyết, cung cấp bảo vệ chống lại một cuộc tấn công nhờ đó mà một kẻ tấn công cố gắng DDoS hệ thống hay CMS của bạn bằng cách quá tải phpMussel để làm chậm quá trình PHP đến khi nó dừng lại. Đề xuất: 10. Bạn có thể muốn tăng hoặc giảm số này tùy thuộc vào tốc độ của phần cứng của bạn. Chú ý rằng con số này không tính đến hoặc bao gồm các nội dung của kho lưu trữ.
 
@@ -1400,14 +1403,12 @@ Chỉ thị cấu hình `pdo_dsn` của phpMussel nên được cấu hình như
 
 ```
 Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử dụng...
-│
 ├─4d (Cảnh báo: Thử nghiệm, chưa được kiểm tra, không được khuyến khích!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1418,7 +1419,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                │              └Số cổng để kết nối với máy chủ.
 │                │
 │                └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1429,7 +1429,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │    │          └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 │    │
 │    └Những giá trị khả thi: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1442,21 +1441,18 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                    │
 │                    └Bạn nên tham khảo tài liệu Firebird nếu bạn muốn sử dụng
 │                     trình điều khiển này.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Các cơ sở dữ liệu được phân loại để kết nối với.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Các cơ sở dữ liệu được phân loại để kết nối với.
-│
 ├─mysql (Được khuyến nghị nhất!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1467,7 +1463,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 │                 │
 │                 └Tên của cơ sở dữ liệu để sử dụng.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1479,7 +1474,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │               │
 │               └Bạn nên tham khảo tài liệu Oracle nếu bạn muốn sử dụng
 │                trình điều khiển này.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1491,7 +1485,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │         │
 │         └Bạn nên tham khảo tài liệu ODBC/DB2 nếu bạn muốn sử dụng
 │          trình điều khiển này.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1502,14 +1495,12 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │               │              └Số cổng để kết nối với máy chủ.
 │               │
 │               └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Đường dẫn đến tập tin cơ sở dữ liệu cục bộ để sử dụng.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1726,4 +1717,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.06.07.
+Lần cuối cập nhật: 2021.06.10.

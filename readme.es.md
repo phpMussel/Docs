@@ -421,7 +421,6 @@ La siguiente es una lista de las directivas de configuración aceptadas por phpM
 
 ```
 Configuración (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Configuración (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ Configuración para el controlador de subidas.
 ##### "forbid_on_block" `[bool]`
 - ¿Debería phpMussel enviar 403 header con la bloqueados archivos subidos mensaje, o quedarse con los usual 200 OK? False = No (200); True = Sí (403) [Predefinido].
 
+##### "unsupported_media_type_header" `[bool]`
+- ¿Debería phpMussel enviar 415 header cuando las cargas están bloqueadas debido a tipos de archivos en la lista negra? Cuando es true, esta configuración reemplaza a `forbid_on_block`. False = No [Predefinido]; True = Sí.
+
 ##### "max_uploads" `[int]`
 - Máximo permitido número de archivos para escanear durante archivo subido escaneo antes de abortando la escaneo e informando al usuario están subir demasiado simultáneamente! Proporciona protección contra un teórico ataque por lo cual un atacante intenta DDoS su sistema o CMS por sobrecargando phpMussel para ralentizar el proceso de PHP a niveles inoperables. Recomendado: 10. Es posible que desee aumentar o reducir este número dependiendo de la velocidad de su hardware. Notar que este número no tiene en cuenta o incluir el contenidos de compactados archivos.
 
@@ -1400,14 +1403,12 @@ La directiva de configuración `pdo_dsn` de phpMussel debe configurarse como se 
 
 ```
 Dependiendo de qué controlador de base de datos se use...
-│
 ├─4d (¡Advertencia: Experimental, no probado, no recomendado!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └El host con el que conectarse para encontrar la base de datos.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1420,7 +1421,6 @@ Dependiendo de qué controlador de base de datos se use...
 │                │
 │                └El host con el que conectarse para encontrar la base de
 │                 datos.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1431,7 +1431,6 @@ Dependiendo de qué controlador de base de datos se use...
 │    │          └El host con el que conectarse para encontrar la base de datos.
 │    │
 │    └Valores posibles: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1443,21 +1442,18 @@ Dependiendo de qué controlador de base de datos se use...
 │                    │
 │                    └Debe consultar la documentación de Firebird si desea usar
 │                     esto.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Con qué base de datos catalogada para conectarse.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Con qué base de datos catalogada para conectarse.
-│
 ├─mysql (¡Lo más recomendado!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1470,7 +1466,6 @@ Dependiendo de qué controlador de base de datos se use...
 │                 │             base de datos.
 │                 │
 │                 └El nombre de la base de datos a usar.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1482,7 +1477,6 @@ Dependiendo de qué controlador de base de datos se use...
 │               ├Se puede conectar con un host y número de puerto.
 │               │
 │               └Debe consultar la documentación de Oracle si desea usar esto.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1493,7 +1487,6 @@ Dependiendo de qué controlador de base de datos se use...
 │         ├Se puede conectar con un host y número de puerto.
 │         │
 │         └Debe consultar la documentación de ODBC/DB2 si desea usar esto.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1505,14 +1498,12 @@ Dependiendo de qué controlador de base de datos se use...
 │               │              └El número de puerto para conectarse al host.
 │               │
 │               └El host con el que conectarse para encontrar la base de datos.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └La ruta al archivo de base de datos local a utilizar.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1736,4 +1727,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 7 de Junio de 2021 (2021.06.07).
+Última Actualización: 10 de Junio de 2021 (2021.06.10).

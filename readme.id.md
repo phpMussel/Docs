@@ -421,7 +421,6 @@ Berikut ini adalah daftar direktif konfigurasi yang diterima oleh phpMussel, den
 
 ```
 Konfigurasi (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Konfigurasi (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ Konfigurasi untuk penangan upload.
 ##### "forbid_on_block" `[bool]`
 - Seharusnya phpMussel mengirimkan 403 headers dengan pesan upload file yang terblok, atau cocok dengan 200 OK? False = Tidak (200); True = Ya (403) [Default].
 
+##### "unsupported_media_type_header" `[bool]`
+- Seharusnya phpMussel mengirimkan 415 headers saat upload diblokir karena jenis filenya ada di daftar hitam? Jika true, pengaturan ini menggantikan `forbid_on_block`. False = Tidak [Default]; True = Ya.
+
 ##### "max_uploads" `[int]`
 - Maksimum jumla file-file yang diizinkan untuk dipindai selama pemindaian upload file sebelum menghentikan pemindaian dan menginformasikan pengguna bahwa pengguna mengupload terlalu banyak! Menyediakan perlindungan pada serangan teoritis dimana penyerang mencoba DDoS pada sistem Anda atau CMS ada dengan overloading phpMussel supaya berjalan lambat. Proses PHP ke penghentian keras. Recommendasi: 10. Anda dapat menaikkan atau menurunkan angka ini bergantung dari kecepatan hardware Anda. Catat itu nomor ini tidak mengakuntabilitas atau mengikutkan konten dari file terkompres.
 
@@ -1400,14 +1403,12 @@ Direktif konfigurasi `pdo_dsn` harus dikonfigurasi seperti dijelaskan dibawah.
 
 ```
 Tergantung pada driver basis data yang digunakan...
-│
 ├─4d (Peringatan: Eksperimental, belum diuji, tidak direkomendasikan!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └Host untuk terhubung dengan untuk menemukan database.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1419,7 +1420,6 @@ Tergantung pada driver basis data yang digunakan...
 │                │              └Nomor port yang akan dihubungkan dengan host.
 │                │
 │                └Host untuk terhubung dengan untuk menemukan database.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1430,7 +1430,6 @@ Tergantung pada driver basis data yang digunakan...
 │    │          └Host untuk terhubung dengan untuk menemukan database.
 │    │
 │    └Nilai yang mungkin: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1442,21 +1441,18 @@ Tergantung pada driver basis data yang digunakan...
 │                    │
 │                    └Anda harus merujuk pada dokumentasi Firebird jika Anda
 │                     ingin menggunakan ini.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Database yang di katalog untuk dihubungkan.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Database yang di katalog untuk dihubungkan.
-│
 ├─mysql (Paling direkomendasikan!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1469,7 +1465,6 @@ Tergantung pada driver basis data yang digunakan...
 │                 │             database.
 │                 │
 │                 └Nama basis data yang akan digunakan.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1481,7 +1476,6 @@ Tergantung pada driver basis data yang digunakan...
 │               │
 │               └Anda harus merujuk pada dokumentasi Oracle jika Anda ingin
 │                menggunakan ini.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1493,7 +1487,6 @@ Tergantung pada driver basis data yang digunakan...
 │         │
 │         └Anda harus merujuk pada dokumentasi ODBC/DB2 jika Anda ingin
 │          menggunakan ini.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1505,14 +1498,12 @@ Tergantung pada driver basis data yang digunakan...
 │               │              └Nomor port yang akan dihubungkan dengan host.
 │               │
 │               └Host untuk terhubung dengan untuk menemukan database.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Jalur ke file database lokal untuk digunakan.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1729,4 +1720,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 7 Juni 2021 (2021.06.07).
+Terakhir Diperbarui: 10 Juni 2021 (2021.06.10).

@@ -242,17 +242,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -380,7 +377,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -406,7 +402,6 @@ Sau đây là danh sách các biến tìm thấy trong tập tin cấu hình cho
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -422,6 +417,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -443,7 +439,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -455,7 +450,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -469,7 +463,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -485,37 +478,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -530,7 +516,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -615,6 +600,9 @@ Giá trị | Sử dụng
 
 ##### "forbid_on_block"
 - phpMussel nên gửi 403 Forbidden chúng với các thông điệp tải lên tập tin bị chặn, hoặc chỉ sử dụng 200 OK? False = Không (200); True = Vâng (403) [Mặc định].
+
+##### "unsupported_media_type_header"
+- phpMussel có nên gửi tiêu đề 415 khi tải lên bị chặn do các loại tập tin nằm trong danh sách đen không? Khi true, cài đặt này thay thế `forbid_on_block`. False = Không [Mặc định]; True = Vâng.
 
 ##### "delete_on_sight"
 - Bật tùy chọn này sẽ hướng dẫn các kịch bản để cố gắng xóa ngay lập tức bất kỳ đã quét tải lên tập tin mà phù hợp bất kỳ tiêu chí phát hiện, dù qua chữ ký hay thứ khác. Tập tin xác định là "sạch" sẽ không được bị chạm vào. Trong trường hợp kho lưu trữ, các toàn bộ kho lưu trữ sẽ bị xóa, bất kể nếu các tập tin vi phạm chỉ là một trong nhiều tập tin chứa trong các kho lưu trữ. Trong trường hợp quét tập tin tải lên, thông thường, nó không phải là cần thiết để kích hoạt tùy chọn này, bởi vì thông thường, PHP sẽ tự động tẩy các nội dung của bộ nhớ cache của nó khi thực hiện xong, điều đó có nghĩa là nó thường sẽ xóa bất kỳ tập tin tải lên thông qua nó đến máy chủ trừ khi họ đã được chuyển, sao chép hay xóa rồi. Tùy chọn này được thêm vào ở đây như một biện pháp bảo mật thêm cho những người có bản sao của PHP mà có thể không luôn luôn cư xử theo cách mong đợi. False = Sau khi quét, làm không có gì để các tập tin [Mặc định]; True = Sau khi quét, nếu không sạch, xóa ngay lập tức.
@@ -1393,14 +1381,12 @@ Chỉ thị cấu hình `pdo_dsn` của phpMussel nên được cấu hình như
 
 ```
 Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử dụng...
-│
 ├─4d (Cảnh báo: Thử nghiệm, chưa được kiểm tra, không được khuyến khích!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1411,7 +1397,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                │              └Số cổng để kết nối với máy chủ.
 │                │
 │                └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1422,7 +1407,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │    │          └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 │    │
 │    └Những giá trị khả thi: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1435,21 +1419,18 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                    │
 │                    └Bạn nên tham khảo tài liệu Firebird nếu bạn muốn sử dụng
 │                     trình điều khiển này.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Các cơ sở dữ liệu được phân loại để kết nối với.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Các cơ sở dữ liệu được phân loại để kết nối với.
-│
 ├─mysql (Được khuyến nghị nhất!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1460,7 +1441,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 │                 │
 │                 └Tên của cơ sở dữ liệu để sử dụng.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1472,7 +1452,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │               │
 │               └Bạn nên tham khảo tài liệu Oracle nếu bạn muốn sử dụng
 │                trình điều khiển này.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1484,7 +1463,6 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │         │
 │         └Bạn nên tham khảo tài liệu ODBC/DB2 nếu bạn muốn sử dụng
 │          trình điều khiển này.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1495,14 +1473,12 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │               │              └Số cổng để kết nối với máy chủ.
 │               │
 │               └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Đường dẫn đến tập tin cơ sở dữ liệu cục bộ để sử dụng.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1730,4 +1706,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.04.09.
+Lần cuối cập nhật: 2021.06.10.

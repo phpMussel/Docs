@@ -237,17 +237,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -375,7 +372,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -401,7 +397,6 @@ https://github.com/phpMussel/phpMussel>v2
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -417,6 +412,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -438,7 +434,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -450,7 +445,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -464,7 +458,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -480,37 +473,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -525,7 +511,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -642,6 +627,11 @@ Configuration (v2)
 ##### <div dir="rtl">"forbid_on_block"<br /></div>
 <div dir="rtl"><ul>
  <li>phpMussel فائل اپ بلاک کر کے پیغام کے ساتھ 403 ہیڈرز بھیجیں، یا کے ساتھ معمول کے 200 OK رہنا چاہیے؟ False (جھوٹی) = نہیں (200)؛ True (سچے) = جی ہاں (403) [پہلے سے طے شدہ].</li>
+</ul></div>
+
+##### <div dir="rtl">"unsupported_media_type_header"<br /></div>
+<div dir="rtl"><ul>
+ <li>کیا بلیک لسٹ فائل ٹائپ کی وجہ سے اپ لوڈز بلاک ہونے پر phpMussel کو 415 ہیڈر بھیجنا چاہئے؟ جب سچ ہے تو، یہ ترتیب <code dir="ltr">forbid_on_block</code> کو خارج کردیتا ہے. False (جھوٹی) = نہیں [پہلے سے طے شدہ]؛ True (سچے) = جی ہاں.</li>
 </ul></div>
 
 ##### <div dir="rtl">"delete_on_sight"<br /></div>
@@ -1625,14 +1615,12 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 
 ```
 ڈیٹا بیس ڈرائیور کس پر استعمال ہوتا ہے اس پر منحصر ہے...
-│
 ├─4d (انتباہ: تجرباتی، غیر جانچ شدہ، تجویز کردہ نہیں)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └رابطہ کرنے کیلئے میزبان
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1643,7 +1631,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │                │              └استعمال کرنے کیلئے پورٹ نمبر
 │                │
 │                └رابطہ کرنے کیلئے میزبان
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1654,7 +1641,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │    │          └رابطہ کرنے کیلئے میزبان
 │    │
 │    └Possible values: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1665,21 +1651,18 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │                    ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
 │                    │
 │                    └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Firebird دستاویزات کا حوالہ دینا چاہئے
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └رابطہ کرنے کے لئے کیٹلوجڈ ڈیٹا بیس
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └رابطہ کرنے کے لئے کیٹلوجڈ ڈیٹا بیس
-│
 ├─mysql (سب سے زیادہ تجویز کردہ)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1690,7 +1673,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │                 │            └رابطہ کرنے کیلئے میزبان
 │                 │
 │                 └استعمال کرنے کے لئے ڈیٹا بیس کا نام
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1701,7 +1683,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │               ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
 │               │
 │               └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Oracle دستاویزات کا حوالہ دینا چاہئے
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1712,7 +1693,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │         ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
 │         │
 │         └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو ODBC/DB2 دستاویزات کا حوالہ دینا چاہئے
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1723,14 +1703,12 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │               │              └استعمال کرنے کیلئے پورٹ نمبر
 │               │
 │               └رابطہ کرنے کیلئے میزبان
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └استعمال کرنے کے لئے مقامی ڈیٹا بیس فائل کا راستہ
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1998,4 +1976,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۹ اپریل ۲۰۲۱ (۲۰۲۱.۰۴.۰۹).</div>
+<div dir="rtl">آخری تازہ کاری: ۱۰ جون ۲۰۲۱ (۲۰۲۱.۰۶.۱۰).</div>

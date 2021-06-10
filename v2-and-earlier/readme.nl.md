@@ -242,17 +242,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -380,7 +377,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -406,7 +402,6 @@ Het volgende is een lijst van variabelen die in de `config.ini` configuratiebest
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -422,6 +417,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -443,7 +439,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -455,7 +450,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -469,7 +463,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -485,37 +478,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -530,7 +516,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -615,6 +600,9 @@ Waarde | Gebruik makend van
 
 ##### "forbid_on_block"
 - Moet phpMussel reageren met 403 headers met het bestanden upload geblokkeerd bericht, of blijven met de gebruikelijke 200 OK? False = Nee (200); True = Ja (403) [Standaard].
+
+##### "unsupported_media_type_header"
+- Moet phpMussel 415 headers verzenden wanneer uploads worden geblokkeerd vanwege bestandstypes op de zwarte lijst? Indien true, deze vervangt instelling `forbid_on_block`. False = Nee [Standaard]; True = Ja.
 
 ##### "delete_on_sight"
 - Het inschakelen van dit richtlijn zal instrueren het script om elke gescande geprobeerd bestand upload dat gecontroleerd tegen elke detectie criteria te proberen onmiddellijk verwijderen, via signatures of anderszins. Bestanden vastbesloten te zijn schoon zal niet worden aangeraakt. In het geval van archieven, het hele archief wordt verwijderd, ongeacht of niet het overtredende bestand is slechts één van meerdere bestanden vervat in het archief. Voor het geval van bestand upload scannen, doorgaans, het is niet nodig om dit richtlijn te inschakelen, omdat doorgaans, PHP zal automatisch zuiveren de inhoud van zijn cache wanneer de uitvoering is voltooid, wat betekent dat het doorgans zal verwijdert ieder bestanden geüpload doorheen aan de server tenzij ze zijn verhuisd, gekopieerd of verwijderd alreeds. Dit richtlijn is toegevoegd hier als een extra maatregel van veiligheid voor degenen wier kopies van PHP misschien niet altijd gedragen op de manier verwacht. False = Na het scannen, met rust laten het bestand [Standaard]; True = Na het scannen, als niet schoon, onmiddellijk verwijderen.
@@ -1393,7 +1381,6 @@ phpMussel's `pdo_dsn` configuratie-richtlijn moet worden geconfigureerd zoals hi
 
 ```
 Afhankelijk van welk databasestuurprogramma wordt gebruikt...
-│
 ├─4d (Waarschuwing: Experimenteel, niet getest, niet aanbevolen!)
 │ │
 │ │         ╔═══════╗
@@ -1401,7 +1388,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │           ╚╤══════╝
 │            └De host waarmee verbinding wordt gemaakt om de database te
 │             vinden.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1415,7 +1401,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                │
 │                └De host waarmee verbinding wordt gemaakt om de database te
 │                 vinden.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1427,7 +1412,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │    │           vinden.
 │    │
 │    └Mogelijke waarden: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1439,14 +1423,12 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                    │
 │                    └Raadpleeg de Firebird-documentatie als u hiervan gebruik
 │                     wilt maken.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Met welke gecatalogiseerde database om verbinding mee te maken.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
@@ -1454,7 +1436,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                ╚╤════╝
 │                 └Met welke gecatalogiseerde database om verbinding mee te
 │                  maken.
-│
 ├─mysql (Meest aanbevolen!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1468,7 +1449,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                 │             database te vinden.
 │                 │
 │                 └De naam van de database te gebruiken.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1480,7 +1460,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │               │
 │               └Raadpleeg de Oracle-documentatie als u hiervan gebruik wilt
 │                maken.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1491,7 +1470,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │         ├Kan verbinding maken met een host en poortnummer.
 │         │
 │         └Raadpleeg de ODBC/DB2-documentatie als u hiervan gebruik wilt maken.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1505,14 +1483,12 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │               │
 │               └De host waarmee verbinding wordt gemaakt om de database te
 │                vinden.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Het pad naar het te gebruiken lokale databasebestand.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1750,4 +1726,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 9 April 2021 (2021.04.09).
+Laatste Bijgewerkt: 10 Juni 2021 (2021.06.10).

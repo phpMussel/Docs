@@ -237,17 +237,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -375,7 +372,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -401,7 +397,6 @@ https://github.com/phpMussel/phpMussel>v2
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -417,6 +412,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -438,7 +434,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -450,7 +445,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -464,7 +458,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -480,37 +473,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -525,7 +511,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -642,6 +627,11 @@ Configuration (v2)
 ##### <div dir="rtl">"forbid_on_block"<br /></div>
 <div dir="rtl"><ul>
  <li>هل phpMussel يرسل 403 من العناوين مع الرسالة منعت إيداع الملف، أو يبقى مع المعتادة 200 موافق؟ خطأ = رقم (200). صحيح/True = نعم (403) [الافتراضي].</li>
+</ul></div>
+
+##### <div dir="rtl">"unsupported_media_type_header"<br /></div>
+<div dir="rtl"><ul>
+ <li>هل يجب على phpMussel إرسال 415 رأسًا عندما يتم حظر التحميلات بسبب أنواع الملفات المدرجة في القائمة السوداء؟ عندما يكون هذا الإعداد صحيحًا، يحل هذا الإعداد محل <code dir="ltr">forbid_on_block</code>. زائفة/False = لا [الافتراضي]؛ صحيح/True = نعم.</li>
 </ul></div>
 
 ##### <div dir="rtl">"delete_on_sight"<br /></div>
@@ -1625,14 +1615,12 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 
 ```
 اعتمادًا على برنامج تشغيل قاعدة البيانات المستخدم...
-│
 ├─4d (تحذير: تجريبي، لم يتم اختباره، غير مستحسن)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └المضيف للاتصال مع للعثور على قاعدة البيانات
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1643,7 +1631,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │                │              └رقم المنفذ للاتصال بالمضيف مع
 │                │
 │                └المضيف للاتصال مع للعثور على قاعدة البيانات
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1654,7 +1641,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │    │          └المضيف للاتصال مع للعثور على قاعدة البيانات
 │    │
 │    └"mssql", "sybase", "dblib": القيم الممكنة
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1665,21 +1651,18 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │                    ├يمكن الاتصال مع المضيف ورقم المنفذ
 │                    │
 │                    └يجب عليك الرجوع إلى وثائق Firebird إذا كنت تريد استخدام هذا
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └التي فهرستها قاعدة البيانات للتواصل مع
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └التي فهرستها قاعدة البيانات للتواصل مع
-│
 ├─mysql (الأكثر الموصى بها)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1690,7 +1673,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │                 │            └المضيف للاتصال مع للعثور على قاعدة البيانات
 │                 │
 │                 └اسم قاعدة البيانات المراد استخدامها
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1701,7 +1683,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │               ├يمكن الاتصال مع المضيف ورقم المنفذ
 │               │
 │               └يجب عليك الرجوع إلى وثائق Oracle إذا كنت تريد استخدام هذا
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1712,7 +1693,6 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │         ├يمكن الاتصال مع المضيف ورقم المنفذ
 │         │
 │         └└يجب عليك الرجوع إلى وثائق ODBC/DB2 إذا كنت تريد استخدام هذا
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1723,14 +1703,12 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │               │              └رقم المنفذ للاتصال بالمضيف مع
 │               │
 │               └المضيف للاتصال مع للعثور على قاعدة البيانات
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └المسار إلى ملف قاعدة البيانات المحلية للاستخدام
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1999,4 +1977,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٩ أبريل ٢٠٢١ (٢٠٢١.٠٤.٠٩).</div>
+<div dir="rtl">آخر تحديث: ١٠ يونيو ٢٠٢١ (٢٠٢١.٠٦.١٠).</div>

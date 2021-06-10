@@ -457,7 +457,6 @@ The following is a list of the configuration directives accepted by phpMussel, a
 
 ```
 Configuration (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -559,6 +558,7 @@ Configuration (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1081,6 +1081,9 @@ Configuration for the upload handler.
 ##### "forbid_on_block" `[bool]`
 - Should phpMussel send 403 headers with the file upload blocked message, or stick with the usual 200 OK? False = No (200); True = Yes (403) [Default].
 
+##### "unsupported_media_type_header" `[bool]`
+- Should phpMussel send 415 headers when uploads are blocked due to blacklisted filetypes? When true, this setting supersedes `forbid_on_block`. False = No [Default]; True = Yes.
+
 ##### "max_uploads" `[int]`
 - Maximum number of files that phpMussel is allowed to scan when scanning uploads before aborting the scan and informing the user they are uploading too much at once! Provides protection against a theoretical attack whereby an attacker attempts to DDoS your system or CMS by overloading phpMussel to slow down the PHP process to a grinding halt. Recommended: 10. You may wish to raise or lower this number depending on the speed of your hardware. Note that this number doesn't account for or include the contents of archives.
 
@@ -1436,14 +1439,12 @@ phpMussel's `pdo_dsn` configuration directive should be configured as described 
 
 ```
 Depending on which database driver is used...
-│
 ├─4d (Warning: Experimental, untested, not recommended!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └The host to connect with to find the database.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1454,7 +1455,6 @@ Depending on which database driver is used...
 │                │              └The port number to connect to the host.
 │                │
 │                └The host to connect with to find the database.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1465,7 +1465,6 @@ Depending on which database driver is used...
 │    │          └The host to connect with to find the database.
 │    │
 │    └Possible values: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1477,21 +1476,18 @@ Depending on which database driver is used...
 │                    │
 │                    └You should refer to the Firebird documentation if you
 │                     want to use this.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Which catalogued database to connect with.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Which catalogued database to connect with.
-│
 ├─mysql (Most recommended!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1504,7 +1500,6 @@ Depending on which database driver is used...
 │                 │             database.
 │                 │
 │                 └The name of the database to use.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1516,7 +1511,6 @@ Depending on which database driver is used...
 │               │
 │               └You should refer to the Oracle documentation if you want to
 │                use this.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1528,7 +1522,6 @@ Depending on which database driver is used...
 │         │
 │         └You should refer to the ODBC/DB2 documentation if you want to use
 │          this.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1539,14 +1532,12 @@ Depending on which database driver is used...
 │               │              └The port number to connect to the host.
 │               │
 │               └The host to connect with to find the database.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └The path to the local database file to use.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1773,4 +1764,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 7 June 2021 (2021.06.07).
+Last Updated: 10 June 2021 (2021.06.10).

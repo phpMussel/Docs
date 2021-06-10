@@ -421,7 +421,6 @@ Hieronder volgt een lijst met de configuratierichtlijnen die door phpMussel zijn
 
 ```
 Configuratie (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Configuratie (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ Configuratie voor de uploadhandler.
 ##### "forbid_on_block" `[bool]`
 - Moet phpMussel reageren met 403 headers met het bestanden upload geblokkeerd bericht, of blijven met de gebruikelijke 200 OK? False = Nee (200); True = Ja (403) [Standaard].
 
+##### "unsupported_media_type_header" `[bool]`
+- Moet phpMussel 415 headers verzenden wanneer uploads worden geblokkeerd vanwege bestandstypes op de zwarte lijst? Indien true, deze vervangt instelling `forbid_on_block`. False = Nee [Standaard]; True = Ja.
+
 ##### "max_uploads" `[int]`
 - Maximaal toegestane aantal bestanden te scannen tijdens bestandsupload scan voordat aborteren de scan en informeren de gebruiker ze zijn uploaden van te veel in een keer! Biedt bescherming tegen een theoretische aanval waardoor een aanvaller probeert te DDoS uw systeem of CMS door overbelasting phpMussel te vertragen het PHP proces tot stilstand. Aanbevolen: 10. U zou kunnen wil te verhogen of verlagen dit nummer afhankelijk van de snelheid van uw hardware. Noteren dat dit aantal niet verklaren voor of opnemen de inhoud van de archieven.
 
@@ -1400,7 +1403,6 @@ phpMussel's `pdo_dsn` configuratie-richtlijn moet worden geconfigureerd zoals hi
 
 ```
 Afhankelijk van welk databasestuurprogramma wordt gebruikt...
-│
 ├─4d (Waarschuwing: Experimenteel, niet getest, niet aanbevolen!)
 │ │
 │ │         ╔═══════╗
@@ -1408,7 +1410,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │           ╚╤══════╝
 │            └De host waarmee verbinding wordt gemaakt om de database te
 │             vinden.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1422,7 +1423,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                │
 │                └De host waarmee verbinding wordt gemaakt om de database te
 │                 vinden.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1434,7 +1434,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │    │           vinden.
 │    │
 │    └Mogelijke waarden: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1446,14 +1445,12 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                    │
 │                    └Raadpleeg de Firebird-documentatie als u hiervan gebruik
 │                     wilt maken.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Met welke gecatalogiseerde database om verbinding mee te maken.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
@@ -1461,7 +1458,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                ╚╤════╝
 │                 └Met welke gecatalogiseerde database om verbinding mee te
 │                  maken.
-│
 ├─mysql (Meest aanbevolen!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1475,7 +1471,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                 │             database te vinden.
 │                 │
 │                 └De naam van de database te gebruiken.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1487,7 +1482,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │               │
 │               └Raadpleeg de Oracle-documentatie als u hiervan gebruik wilt
 │                maken.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1498,7 +1492,6 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │         ├Kan verbinding maken met een host en poortnummer.
 │         │
 │         └Raadpleeg de ODBC/DB2-documentatie als u hiervan gebruik wilt maken.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1512,14 +1505,12 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │               │
 │               └De host waarmee verbinding wordt gemaakt om de database te
 │                vinden.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Het pad naar het te gebruiken lokale databasebestand.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1753,4 +1744,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 7 Juni 2021 (2021.06.07).
+Laatste Bijgewerkt: 10 Juni 2021 (2021.06.10).

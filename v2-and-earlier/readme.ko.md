@@ -242,17 +242,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -380,7 +377,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -406,7 +402,6 @@ https://github.com/phpMussel/phpMussel>v2
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -422,6 +417,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -443,7 +439,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -455,7 +450,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -469,7 +463,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -485,37 +478,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -530,7 +516,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -614,7 +599,10 @@ Configuration (v2)
 - 플러그인 지원을 활성화 하시겠습니까? `false` = 아니오; `true` = 예 (Default / 기본 설정).
 
 ##### "forbid_on_block"
-- 업로드 파일이 차단 된 메시지와 함께 phpMussel에서 403 헤더를 보내야하거나 일반 200 좋은지에 대해. `false` = 아니오 (200) Default / 기본 설정; `true` = 예 (403).
+- 업로드 파일이 차단 된 메시지와 함께 phpMussel에서 403 헤더를 보내야하거나 일반 200 좋은지에 대해. False = 아니오 (200); True = 예 (403) [Default / 기본 설정].
+
+##### "unsupported_media_type_header"
+- 블랙리스트 파일 형식으로 인해 업로드가 차단되면 phpMussel이 415 헤더를 보내야 합니까? True이면이 설정이 `forbid_on_block`를 대체합니다. False = 아니오 [Default / 기본 설정]; True = 예.
 
 ##### "delete_on_sight"
 - 이 지시문을 사용하면 감지 기준 (서명이든 뭐든)에 있던 업로드 파일은 즉시 삭제됩니다. 클린 판단 된 파일은 그대로입니다. 아카이브의 경우, 문제의 파일이 일부라도 아카이브 모든이 삭제 대상이됩니다. 업로드 파일 검사에서는 본 지시어를 활성화 할 필요는 없습니다. 왜냐하면 PHP는 스크립트 실행 후 자동으로 캐시의 내용을 파기하기 때문입니다. 즉, 파일이 이동되거나 복사되거나 삭제되지 않는 한, PHP는 서버에 업로드 한 파일을 남겨 두는 것은 보통 없습니다. 이 지시어는 보안에 공을들이는 목적으로 설치되어 있습니다. PHP는 드물게 예상치 못한 행동을 할 수 있기 때문입니다. `false` = 스캔 후 파일은 그대로 (기본 설정). `true` = 스캔 후 깨끗해야 즉시 삭제합니다.
@@ -1393,14 +1381,12 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 
 ```
 사용되는 데이터베이스 드라이버에 따라...
-│
 ├─4d (경고 : 실험적, 테스트 되지 않은, 권장하지 않음!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └데이터베이스를 찾기 위해 연결할 호스트입니다.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1411,7 +1397,6 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │                │              └호스트에 연결할 포트 번호입니다.
 │                │
 │                └데이터베이스를 찾기 위해 연결할 호스트입니다.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1422,7 +1407,6 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │    │          └데이터베이스를 찾기 위해 연결할 호스트입니다.
 │    │
 │    └가능한 값 : "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1433,21 +1417,18 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │                    ├호스트 및 포트 번호와 연결할 수 있습니다.
 │                    │
 │                    └이것을 사용하려면 Firebird 설명서를 참조하십시오.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └연결할 카탈로그 된 데이터베이스입니다.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └연결할 카탈로그 된 데이터베이스입니다.
-│
 ├─mysql (가장 추천!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1458,7 +1439,6 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │                 │            └데이터베이스를 찾기 위해 연결할 호스트입니다.
 │                 │
 │                 └사용할 데이터베이스의 이름입니다.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1469,7 +1449,6 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │               ├호스트 및 포트 번호와 연결할 수 있습니다.
 │               │
 │               └이것을 사용하려면 Oracle 설명서를 참조하십시오.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1480,7 +1459,6 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │         ├호스트 및 포트 번호와 연결할 수 있습니다.
 │         │
 │         └이것을 사용하려면 ODBC/DB2 설명서를 참조하십시오.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1491,14 +1469,12 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │               │              └호스트에 연결할 포트 번호입니다.
 │               │
 │               └데이터베이스를 찾기 위해 연결할 호스트입니다.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └사용할 로컬 데이터베이스 파일의 경로입니다.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1731,4 +1707,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2021년 4월 9일.
+최종 업데이트 : 2021년 6월 10일.

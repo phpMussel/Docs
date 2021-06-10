@@ -421,7 +421,6 @@ O seguinte é uma lista das diretivas de configuração aceitas pelo phpMussel, 
 
 ```
 Configuração (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Configuração (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1043,7 +1043,10 @@ Configuração para o manipulador de carregamentos.
 - Onde todos os carregamentos bloqueados devem ser registrados. Especifique um arquivo nome, ou deixe branco para desativar.
 
 ##### "forbid_on_block" `[bool]`
-- Deve phpMussel enviar 403 header com a bloqueado arquivo carregamento mensagem, ou ficar com os habituais 200 OK? False = Não (200); True = Sim (403) [Padrão].
+- Deve phpMussel enviar 403 cabeçalho com a bloqueado arquivo carregamento mensagem, ou ficar com os habituais 200 OK? False = Não (200); True = Sim (403) [Padrão].
+
+##### "unsupported_media_type_header" `[bool]`
+- Deve phpMussel enviar 415 cabeçalhos quando os uploads são bloqueados devido a tipos de arquivos na lista negra? Quando true, esta configuração substitui `forbid_on_block`. False = Não [Padrão]; True = Sim.
 
 ##### "max_uploads" `[int]`
 - O máximo permitido número de arquivos para analisar durante os arquivos carregamentos análise antes de abortar a análise e informando ao usuário eles estão carregando demais muito de uma vez! Oferece proteção contra um teórico ataque pelo qual um atacante tenta DDoS o seu sistema ou CMS por meio de sobrecarregando phpMussel a fim de retardar o PHP processo para uma parada. Recomendado: 10. Você pode querer aumentar ou diminuir esse número, dependendo das atributos do seu hardware. Note-se que este número não lev. Em conta ou incluir o conteúdos dos compactados arquivos.
@@ -1400,14 +1403,12 @@ A diretiva de configuração `pdo_dsn` do phpMussel deve ser configurada conform
 
 ```
 Dependendo do driver de banco de dados usado...
-│
 ├─4d (Aviso: Experimental, não testado, não recomendado!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └O host para conectar-se para encontrar o banco de dados.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1420,7 +1421,6 @@ Dependendo do driver de banco de dados usado...
 │                │               host.
 │                │
 │                └O host para conectar-se para encontrar o banco de dados.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1431,7 +1431,6 @@ Dependendo do driver de banco de dados usado...
 │    │          └O host para conectar-se para encontrar o banco de dados.
 │    │
 │    └Valores possíveis: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1444,21 +1443,18 @@ Dependendo do driver de banco de dados usado...
 │                    │
 │                    └Você deve consultar a documentação do Firebird se quiser
 │                     usá-lo.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └O banco de dados catalogado para se conectar.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └O banco de dados catalogado para se conectar.
-│
 ├─mysql (Mais recomendado!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1471,7 +1467,6 @@ Dependendo do driver de banco de dados usado...
 │                 │             de dados.
 │                 │
 │                 └O nome do banco de dados a ser usado.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1482,7 +1477,6 @@ Dependendo do driver de banco de dados usado...
 │               ├Pode se conectar com um host e um número de porta.
 │               │
 │               └Você deve consultar a documentação do Oracle se quiser usá-lo.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1493,7 +1487,6 @@ Dependendo do driver de banco de dados usado...
 │         ├Pode se conectar com um host e um número de porta.
 │         │
 │         └Você deve consultar a documentação do ODBC/DB2 se quiser usá-lo.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1506,14 +1499,12 @@ Dependendo do driver de banco de dados usado...
 │               │               host.
 │               │
 │               └O host para conectar-se para encontrar o banco de dados.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └O caminho para o arquivo de banco de dados local a ser usado.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1732,4 +1723,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 7 de Junho de 2021 (2021.06.07).
+Última Atualização: 10 de Junho de 2021 (2021.06.10).

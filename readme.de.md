@@ -421,7 +421,6 @@ Das Folgende ist eine Liste der Konfigurationsanweisungen die von phpMussel akze
 
 ```
 Konfiguration (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Konfiguration (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ Konfiguration für den Upload-Handler.
 ##### "forbid_on_block" `[bool]`
 - Zurückgegebener 403-HTTP-Header bei einem blockierten Dateiupload. False = Nein (200); True = Ja (403) [Standardeinstellung].
 
+##### "unsupported_media_type_header" `[bool]`
+- Sollte phpMussel 415 Header senden, wenn Uploads aufgrund von Dateitypen auf der schwarzen Liste blockiert werden? Wenn true, ersetzt diese Einstellung `forbid_on_block`. False = Nein [Standardeinstellung]; True = Ja.
+
 ##### "max_uploads" `[int]`
 - Maximale erlaubte Anzahl zu überprüfender Dateien während eines Dateiuploads bevor der Scan abgebrochen und der Nutzer darüber informiert wird, dass er zu viele Dateien auf einmal hochgeladen hat. Bietet einen Schutz gegen den theoretischen Angriff eines DDoS auf Ihr System oder CMS, indem der Angreifer phpMussel überlastet und den PHP-Prozess zum Stillstand bringt. Empfohlen: 10. Sie können den Wert abhängig von Ihrer Hardware erhöhen oder senken. Beachten Sie, dass dieser Wert nicht den Inhalt von Archiven berücksichtigt.
 
@@ -1400,14 +1403,12 @@ Die Konfigurationsanweisung `pdo_dsn` von phpMussel sollte wie folgt konfigurier
 
 ```
 Abhängig davon, welcher Datenbanktreiber verwendet wird...
-│
 ├─4d (Warnung: Experimentell, ungetestet, nicht empfohlen!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └Der Host, auf dem sich die Datenbank befindet.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1419,7 +1420,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                │               Verbindung verwendet werden soll.
 │                │
 │                └Der Host, auf dem sich die Datenbank befindet.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1430,7 +1430,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │    │          └Der Host, auf dem sich die Datenbank befindet.
 │    │
 │    └Mögliche Werte: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1443,7 +1442,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                    │
 │                    └Sie sollten auf die Firebird-Dokumentation lesen wenn Sie
 │                     diese verwenden möchten.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
@@ -1451,7 +1449,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │           ╚╤════╝
 │            └Die katalogisierte Datenbank, mit der eine Verbindung hergestellt
 │             werden soll.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
@@ -1459,7 +1456,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                ╚╤════╝
 │                 └Die katalogisierte Datenbank, mit der eine Verbindung
 │                  hergestellt werden soll.
-│
 ├─mysql (Am meisten empfohlen!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1472,7 +1468,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                 │            └Der Host, auf dem sich die Datenbank befindet.
 │                 │
 │                 └Der Name der Datenbank.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1485,7 +1480,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │               │
 │               └Sie sollten auf die Oracle-Dokumentation lesen wenn Sie diese
 │                verwenden möchten.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1497,7 +1491,6 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │         │
 │         └Sie sollten auf die ODBC/DB2-Dokumentation lesen wenn Sie diese
 │          verwenden möchten.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1509,14 +1502,12 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │               │               Verbindung verwendet werden soll.
 │               │
 │               └Der Host, auf dem sich die Datenbank befindet.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Der Pfad zur lokalen Datenbankdatei, die verwendet werden soll.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1744,4 +1735,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 7. Juni 2021 (2021.06.07).
+Zuletzt aktualisiert: 10. Juni 2021 (2021.06.10).

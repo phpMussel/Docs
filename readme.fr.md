@@ -421,7 +421,6 @@ Voici une liste des directives de configuration acceptées par phpMussel, avec u
 
 ```
 Configuration (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -523,6 +522,7 @@ Configuration (v3)
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1045,6 +1045,9 @@ Configuration du gestionnaire de téléchargements.
 ##### « forbid_on_block » `[bool]`
 - Devrait phpMussel envoyer les en-têtes 403 avec le fichier téléchargement bloqué message, ou rester avec l'habitude 200 bien (200 OK) ? False = Non (200) ; True = Oui (403) [Défaut].
 
+##### « unsupported_media_type_header » `[bool]`
+- Devrait phpMussel envoyer les en-têtes 415 lorsque les téléchargements sont bloqués en raison du types de fichiers sur la liste noire ? Lorsqu'il est true, ce paramètre remplace `forbid_on_block`. False = Non [Défaut] ; True = Oui.
+
 ##### « max_uploads » `[int]`
 - Maximum admissible nombre de fichiers pour analyse lorsque l'analyse de fichier téléchargements avant d'abandonner l'analyse et informer l'utilisateur qu'ils sont téléchargement trop à la fois ! Fournit protection contre une théorique attaque par lequel un attaquant tente à DDoS votre système ou CMS par surchargeant phpMussel à ralentir le processus de PHP à une halte. Recommandé : 10. Vous pouvez désirer d'augmenter ou diminuer ce nombre dépendamment de la vitesse de votre hardware. Notez que ce nombre ne tient pas compte pour ou inclure le contenus des archives.
 
@@ -1400,14 +1403,12 @@ La directive de configuration `pdo_dsn` de phpMussel doit être configurée comm
 
 ```
 En fonction du pilote de base de données utilisé ...
-│
 ├─4d (Avertissement : Expérimental, non testé, non recommandé !)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └L'hôte avec lequel se connecter pour trouver la base de données.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1420,7 +1421,6 @@ En fonction du pilote de base de données utilisé ...
 │                │
 │                └L'hôte avec lequel se connecter pour trouver la base de
 │                 données.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1432,7 +1432,6 @@ En fonction du pilote de base de données utilisé ...
 │    │           données.
 │    │
 │    └Valeurs possibles : « mssql », « sybase », « dblib ».
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1445,21 +1444,18 @@ En fonction du pilote de base de données utilisé ...
 │                    │
 │                    └Vous devriez vous référer à la documentation Firebird si
 │                     vous voulez l'utiliser.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └Avec quelle base de données cataloguée vous connecter.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └Avec quelle base de données cataloguée vous connecter.
-│
 ├─mysql (Le plus recommandé !)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1472,7 +1468,6 @@ En fonction du pilote de base de données utilisé ...
 │                 │             base de données.
 │                 │
 │                 └Le nom de la base de données à utiliser.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1485,7 +1480,6 @@ En fonction du pilote de base de données utilisé ...
 │               │
 │               └Vous devriez vous référer à la documentation Oracle si vous
 │                voulez l'utiliser.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1497,7 +1491,6 @@ En fonction du pilote de base de données utilisé ...
 │         │
 │         └Vous devriez vous référer à la documentation ODBC/DB2 si vous voulez
 │          l'utiliser.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1510,14 +1503,12 @@ En fonction du pilote de base de données utilisé ...
 │               │
 │               └L'hôte avec lequel se connecter pour trouver la base de
 │                données.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └Le chemin d'accès au fichier de base de données local à utiliser.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1742,4 +1733,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 7 Juin 2021 (2021.06.07).
+Dernière mise à jour : 10 Juin 2021 (2021.06.10).

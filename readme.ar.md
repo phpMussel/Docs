@@ -425,7 +425,6 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 ```
 التكوين (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -527,6 +526,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1052,6 +1052,9 @@ theme
 ##### <div dir="rtl">"forbid_on_block" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>هل phpMussel يرسل 403 من العناوين مع الرسالة منعت إيداع الملف، أو يبقى مع المعتادة 200 موافق؟ خطأ = رقم (200). صحيح/True = نعم (403) [الافتراضي].</li></ul></div>
 
+##### <div dir="rtl">"unsupported_media_type_header" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>هل يجب على phpMussel إرسال 415 رأسًا عندما يتم حظر التحميلات بسبب أنواع الملفات المدرجة في القائمة السوداء؟ عندما يكون هذا الإعداد صحيحًا، يحل هذا الإعداد محل <code dir="ltr">forbid_on_block</code>. زائفة/False = لا [الافتراضي]؛ صحيح/True = نعم.</li></ul></div>
+
 ##### <div dir="rtl">"max_uploads" <code dir="ltr">[int]</code><br /></div>
 <div dir="rtl"><ul><li>العدد الأقصى المسموح به من ملفات لمسح أثناء تحميل الملفات مسح قبل إحباط عملية الفحص وإعلام المستخدم أنهم تحميل أكثر من اللازم في وقت واحد! يوفر الحماية ضد هجوم النظري حيث يحاول أحد المهاجمين دوس النظام الخاص بك أو CMS من الحمولة الزائدة phpMussel إلى إبطاء عملية PHP لوقف طحن. الموصى بها: 10. أنت قد ترغب في رفع أو خفض هذا الرقم اعتمادا على سرعة الجهاز. لاحظ أن هذا الرقم لا يأخذ في الحسبان أو تتضمن محتويات المحفوظات.</li></ul></div>
 
@@ -1412,14 +1415,12 @@ $Scanner->destroyScanDebugArray($Foo);
 
 ```
 اعتمادًا على برنامج تشغيل قاعدة البيانات المستخدم...
-│
 ├─4d (تحذير: تجريبي، لم يتم اختباره، غير مستحسن)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └المضيف للاتصال مع للعثور على قاعدة البيانات
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1430,7 +1431,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │                │              └رقم المنفذ للاتصال بالمضيف مع
 │                │
 │                └المضيف للاتصال مع للعثور على قاعدة البيانات
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1441,7 +1441,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │    │          └المضيف للاتصال مع للعثور على قاعدة البيانات
 │    │
 │    └"mssql", "sybase", "dblib": القيم الممكنة
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1452,21 +1451,18 @@ $Scanner->destroyScanDebugArray($Foo);
 │                    ├يمكن الاتصال مع المضيف ورقم المنفذ
 │                    │
 │                    └يجب عليك الرجوع إلى وثائق Firebird إذا كنت تريد استخدام هذا
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └التي فهرستها قاعدة البيانات للتواصل مع
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └التي فهرستها قاعدة البيانات للتواصل مع
-│
 ├─mysql (الأكثر الموصى بها)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1477,7 +1473,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │                 │            └المضيف للاتصال مع للعثور على قاعدة البيانات
 │                 │
 │                 └اسم قاعدة البيانات المراد استخدامها
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1488,7 +1483,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │               ├يمكن الاتصال مع المضيف ورقم المنفذ
 │               │
 │               └يجب عليك الرجوع إلى وثائق Oracle إذا كنت تريد استخدام هذا
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1499,7 +1493,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │         ├يمكن الاتصال مع المضيف ورقم المنفذ
 │         │
 │         └└يجب عليك الرجوع إلى وثائق ODBC/DB2 إذا كنت تريد استخدام هذا
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1510,14 +1503,12 @@ $Scanner->destroyScanDebugArray($Foo);
 │               │              └رقم المنفذ للاتصال بالمضيف مع
 │               │
 │               └المضيف للاتصال مع للعثور على قاعدة البيانات
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └المسار إلى ملف قاعدة البيانات المحلية للاستخدام
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1771,4 +1762,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٧ يونيو ٢٠٢١ (٢٠٢١.٠٦.٠٧).</div>
+<div dir="rtl">آخر تحديث: ١٠ يونيو ٢٠٢١ (٢٠٢١.٠٦.١٠).</div>

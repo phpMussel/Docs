@@ -242,17 +242,14 @@ https://github.com/phpMussel/phpMussel>v2
 │   loader.php
 │   README.md
 │   tests.php
-│
 ├───.github
 │   │   FUNDING.yml
 │   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-│
 ├───tests
 │       signatures.zip
-│
 ├───vault
 │   │   channels.yaml
 │   │   cli.php
@@ -380,7 +377,6 @@ https://github.com/phpMussel/phpMussel>v2
 │   │
 │   └───signatures
 │           switch.dat
-│
 └───_testfiles
         ascii_standard_testfile.txt
         coex_testfile.rtf
@@ -406,7 +402,6 @@ O seguinte é uma lista de variáveis encontradas no `config.ini` arquivo de con
 
 ```
 Configuration (v2)
-│
 ├───general
 │       cleanup
 │       scan_log
@@ -422,6 +417,7 @@ Configuration (v2)
 │       ipaddr
 │       enable_plugins
 │       forbid_on_block
+│       unsupported_media_type_header
 │       delete_on_sight
 │       lang
 │       lang_override
@@ -443,7 +439,6 @@ Configuration (v2)
 │       hide_version
 │       disabled_channels
 │       default_timeout
-│
 ├───signatures
 │       active (v1: Active)
 │       fail_silently
@@ -455,7 +450,6 @@ Configuration (v2)
 │       detect_shell
 │       detect_deface
 │       detect_encryption
-│
 ├───files
 │       max_uploads
 │       filesize_limit
@@ -469,7 +463,6 @@ Configuration (v2)
 │       max_recursion
 │       block_encrypted_archives
 │       max_files_in_archives
-│
 ├───attack_specific
 │       chameleon_from_php
 │       can_contain_php_file_extensions
@@ -485,37 +478,30 @@ Configuration (v2)
 │       scannable_threshold
 │       allow_leading_trailing_dots
 │       block_macros
-│
 ├───compatibility
 │       ignore_upload_errors
 │       only_allow_images
-│
 ├───heuristic
 │       threshold
-│
 ├───virustotal
 │       vt_public_api_key
 │       vt_suspicion_level
 │       vt_weighting
 │       vt_quota_rate
 │       vt_quota_time
-│
 ├───urlscanner
 │       † lookup_hphosts
 │       google_api_key
 │       maximum_api_lookups
 │       maximum_api_lookups_response
 │       cache_time
-│
 ├───legal
 │       pseudonymise_ip_addresses
 │       privacy_policy
-│
 ├───template_data
 │       theme
 │       magnification (v1: Magnification)
 │       css_url
-│
 ├───PHPMailer
 │       event_log (v1: EventLog)
 │       skip_auth_process (v1: SkipAuthProcess)
@@ -530,7 +516,6 @@ Configuration (v2)
 │       set_from_name (v1: setFromName)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
-│
 └───supplementary_cache_options
         enable_apcu
         enable_memcached
@@ -614,7 +599,10 @@ Valor | Usando
 - Ativar o suporte para os plugins do phpMussel? False = Não; True = Sim [Padrão].
 
 ##### "forbid_on_block"
-- Deve phpMussel enviar 403 header com a bloqueado arquivo carregamento mensagem, ou ficar com os habituais 200 OK? False = Não (200); True = Sim (403) [Padrão].
+- Deve phpMussel enviar 403 cabeçalho com a bloqueado arquivo carregamento mensagem, ou ficar com os habituais 200 OK? False = Não (200); True = Sim (403) [Padrão].
+
+##### "unsupported_media_type_header"
+- Deve phpMussel enviar 415 cabeçalhos quando os uploads são bloqueados devido a tipos de arquivos na lista negra? Quando true, esta configuração substitui `forbid_on_block`. False = Não [Padrão]; True = Sim.
 
 ##### "delete_on_sight"
 - Ativando esta opção irá instruir o script para tentar imediatamente deletando qualquer arquivo que ele encontra durante a análise que corresponde a qualquer critério de detecção, quer seja através de assinaturas ou de outra forma. Arquivos determinados para ser "limpo" não serão tocados. Em caso de compactados arquivos, o inteiro arquivo será deletado (independentemente de se o problemático arquivo é apenas um dos vários arquivos contidos dentro do compactado arquivo). Para o caso de arquivo carregamento análise, em geral, não é necessário ativar essa opção, porque normalmente, PHP irá automaticamente expurgar os conteúdos de o seu cache quando a execução foi concluída, significando que ele vai normalmente deletar todos os arquivos enviados através dele para o servidor a menos que tenha movido, copiado ou deletado já. A opção é adicionado aqui como uma medida de segurança para aqueles cujas cópias de PHP nem sempre se comportam da forma esperada. False = Após a análise, deixe o arquivo sozinho [Padrão]; True = Após a análise, se não limpo, deletar imediatamente.
@@ -1393,14 +1381,12 @@ A diretiva de configuração `pdo_dsn` do phpMussel deve ser configurada conform
 
 ```
 Dependendo do driver de banco de dados usado...
-│
 ├─4d (Aviso: Experimental, não testado, não recomendado!)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └O host para conectar-se para encontrar o banco de dados.
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1413,7 +1399,6 @@ Dependendo do driver de banco de dados usado...
 │                │               host.
 │                │
 │                └O host para conectar-se para encontrar o banco de dados.
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1424,7 +1409,6 @@ Dependendo do driver de banco de dados usado...
 │    │          └O host para conectar-se para encontrar o banco de dados.
 │    │
 │    └Valores possíveis: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1437,21 +1421,18 @@ Dependendo do driver de banco de dados usado...
 │                    │
 │                    └Você deve consultar a documentação do Firebird se quiser
 │                     usá-lo.
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └O banco de dados catalogado para se conectar.
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └O banco de dados catalogado para se conectar.
-│
 ├─mysql (Mais recomendado!)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1464,7 +1445,6 @@ Dependendo do driver de banco de dados usado...
 │                 │             de dados.
 │                 │
 │                 └O nome do banco de dados a ser usado.
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1475,7 +1455,6 @@ Dependendo do driver de banco de dados usado...
 │               ├Pode se conectar com um host e um número de porta.
 │               │
 │               └Você deve consultar a documentação do Oracle se quiser usá-lo.
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1486,7 +1465,6 @@ Dependendo do driver de banco de dados usado...
 │         ├Pode se conectar com um host e um número de porta.
 │         │
 │         └Você deve consultar a documentação do ODBC/DB2 se quiser usá-lo.
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1499,14 +1477,12 @@ Dependendo do driver de banco de dados usado...
 │               │               host.
 │               │
 │               └O host para conectar-se para encontrar o banco de dados.
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └O caminho para o arquivo de banco de dados local a ser usado.
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1736,4 +1712,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 9 de Abril de 2021 (2021.04.09).
+Última Atualização: 10 de Junho de 2021 (2021.06.10).

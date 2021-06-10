@@ -425,7 +425,6 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 ```
 کنفگریشن (v3)
-│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -527,6 +526,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
+│       unsupported_media_type_header [bool]
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
@@ -1052,6 +1052,9 @@ theme
 ##### <div dir="rtl">"forbid_on_block" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>phpMussel فائل اپ بلاک کر کے پیغام کے ساتھ 403 ہیڈرز بھیجیں، یا کے ساتھ معمول کے 200 OK رہنا چاہیے؟ False (جھوٹی) = نہیں (200)؛ True (سچے) = جی ہاں (403) [پہلے سے طے شدہ].</li></ul></div>
 
+##### <div dir="rtl">"unsupported_media_type_header" <code dir="ltr">[bool]</code><br /></div>
+<div dir="rtl"><ul><li>کیا بلیک لسٹ فائل ٹائپ کی وجہ سے اپ لوڈز بلاک ہونے پر phpMussel کو 415 ہیڈر بھیجنا چاہئے؟ جب سچ ہے تو، یہ ترتیب <code dir="ltr">forbid_on_block</code> کو خارج کردیتا ہے. False (جھوٹی) = نہیں [پہلے سے طے شدہ]؛ True (سچے) = جی ہاں.</li></ul></div>
+
 ##### <div dir="rtl">"max_uploads" <code dir="ltr">[int]</code><br /></div>
 <div dir="rtl"><ul><li>فائلوں کی زیادہ سے زیادہ قابل اجازت تعداد میں فائلوں کو اپ لوڈ اسکین اسکین اسقاط اور صارف کو وہ ایک ہی بار میں بہت زیادہ اپ لوڈ کررہے ہیں مطلع کرنے سے پہلے دوران اسکین کرنے کے! ایک نظریاتی حملے ہیں جس کے تحت ایک حملہ آور ایک پیسنے رک PHP عمل کو سست کرنے phpMussel اوور لوڈنگ کی طرف سے آپ کے سسٹم یا CMS DDOS کرنے کی کوشش کے خلاف تحفظ فراہم کرتا ہے. تجویز کردہ: 10. آپ کو بڑھانے یا اس نمبر سے آپ ہارڈ ویئر کی رفتار پر منحصر ہے کو کم کر سکتے ہیں. کہ اس نمبر کے لئے اکاؤنٹ یا ابلیھاگاروں کے مندرجات شامل نہیں ہے یاد رکھیں کہ..</li></ul></div>
 
@@ -1412,14 +1415,12 @@ $Scanner->destroyScanDebugArray($Foo);
 
 ```
 ڈیٹا بیس ڈرائیور کس پر استعمال ہوتا ہے اس پر منحصر ہے...
-│
 ├─4d (انتباہ: تجرباتی، غیر جانچ شدہ، تجویز کردہ نہیں)
 │ │
 │ │         ╔═══════╗
 │ └─4D:host=localhost;charset=UTF-8
 │           ╚╤══════╝
 │            └رابطہ کرنے کیلئے میزبان
-│
 ├─cubrid
 │ │
 │ │             ╔═══════╗      ╔═══╗        ╔═════╗
@@ -1430,7 +1431,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │                │              └استعمال کرنے کیلئے پورٹ نمبر
 │                │
 │                └رابطہ کرنے کیلئے میزبان
-│
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
@@ -1441,7 +1441,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │    │          └رابطہ کرنے کیلئے میزبان
 │    │
 │    └Possible values: "mssql", "sybase", "dblib".
-│
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1452,21 +1451,18 @@ $Scanner->destroyScanDebugArray($Foo);
 │                    ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
 │                    │
 │                    └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Firebird دستاویزات کا حوالہ دینا چاہئے
-│
 ├─ibm
 │ │
 │ │         ╔═════╗
 │ └─ibm:DSN=example
 │           ╚╤════╝
 │            └رابطہ کرنے کے لئے کیٹلوجڈ ڈیٹا بیس
-│
 ├─informix
 │ │
 │ │              ╔═════╗
 │ └─informix:DSN=example
 │                ╚╤════╝
 │                 └رابطہ کرنے کے لئے کیٹلوجڈ ڈیٹا بیس
-│
 ├─mysql (سب سے زیادہ تجویز کردہ)
 │ │
 │ │              ╔═════╗      ╔═══════╗      ╔══╗
@@ -1477,7 +1473,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │                 │            └رابطہ کرنے کیلئے میزبان
 │                 │
 │                 └استعمال کرنے کے لئے ڈیٹا بیس کا نام
-│
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1488,7 +1483,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │               ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
 │               │
 │               └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Oracle دستاویزات کا حوالہ دینا چاہئے
-│
 ├─odbc
 │ │
 │ │      ╔═════╗
@@ -1499,7 +1493,6 @@ $Scanner->destroyScanDebugArray($Foo);
 │         ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
 │         │
 │         └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو ODBC/DB2 دستاویزات کا حوالہ دینا چاہئے
-│
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1510,14 +1503,12 @@ $Scanner->destroyScanDebugArray($Foo);
 │               │              └استعمال کرنے کیلئے پورٹ نمبر
 │               │
 │               └رابطہ کرنے کیلئے میزبان
-│
 ├─sqlite
 │ │
 │ │        ╔════════╗
 │ └─sqlite:example.db
 │          ╚╤═══════╝
 │           └استعمال کرنے کے لئے مقامی ڈیٹا بیس فائل کا راستہ
-│
 └─sqlsrv
   │
   │               ╔═══════╗ ╔══╗          ╔═════╗
@@ -1770,4 +1761,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۷ جون ۲۰۲۱ (۲۰۲۱.۰۶.۰۷).</div>
+<div dir="rtl">آخری تازہ کاری: ۱۰ جون ۲۰۲۱ (۲۰۲۱.۰۶.۱۰).</div>
