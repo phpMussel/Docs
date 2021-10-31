@@ -517,6 +517,7 @@ Configuration (v2)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
 └───supplementary_cache_options
+        prefix
         enable_apcu
         enable_memcached
         enable_redis
@@ -975,6 +976,9 @@ PHPMailerコンフィギュレーション。
 
 #### "supplementary_cache_options" （サプレメンタリー・キャッシュ・オプションズ、カテゴリ）
 補足キャッシュ・オプション。
+
+##### "prefix" （プリフィクス）
+- ここで指定された値は、すべてのキャッシュ・エントリ・キーの前に追加されます。​デフォルトでは空です。​同じサーバーに複数のインストールが存在する場合、これはキャッシュを互いに分離しておくのに役立ちます。
 
 ##### "enable_apcu" （イネーブル・ＡＰＣｕ）
 - キャッシュに「APCu」を使用するかどうかを指定します。 Default/デフォルルト = False。
@@ -1709,4 +1713,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２１年６月１０日。
+最終アップデート：２０２１年１０月３１日。

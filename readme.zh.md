@@ -500,6 +500,7 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -927,7 +928,10 @@ URL扫描程序的配置。
 - 要显示在任何生成的页面的页脚中的相关隐私政策的地址。​指定一个URL，或留空以禁用。
 
 #### “supplementary_cache_options” （类别）
-补充缓存选项。
+补充缓存选项。​注意：更改这些值可能会使您注销。
+
+##### “prefix” `[string]`
+- 该值将附加到所有缓存条目的键的开头。​默认值为空。​当同一服务器上存在多个安装时，这对于将它们的缓存彼此分开非常有用。
 
 ##### “enable_apcu” `[bool]`
 - 指定是否尝试使用APCu进行缓存。​标准 = False。
@@ -1721,4 +1725,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2021年6月10日。
+最后更新：2021年10月31日。

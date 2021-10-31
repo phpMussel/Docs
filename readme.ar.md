@@ -504,6 +504,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -934,7 +935,10 @@ disabled_channels
 <div dir="rtl"><ul><li>عنوان سياسة الخصوصية ذات الصلة ليتم عرضها في تذييل الصفحات التي تم إنشاؤها. حدد عنوان URL، أو اتركه فارغًا لتعطيله.</li></ul></div>
 
 #### <div dir="rtl">"supplementary_cache_options" (التصنيف)<br /></div>
-<div dir="rtl">خيارات ذاكرة التخزين المؤقت التكميلية.<br /><br /></div>
+<div dir="rtl">خيارات ذاكرة التخزين المؤقت التكميلية. ملاحظة: قد يؤدي تغيير هذه القيم إلى تسجيل خروجك.<br /><br /></div>
+
+##### <div dir="rtl">"prefix" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>سيتم إضافة القيمة المحددة هنا إلى جميع مفاتيح إدخال ذاكرة التخزين المؤقت. فارغ بشكل افتراضي. عند وجود عدة عمليات تثبيت على نفس الخادم، يمكن أن يكون ذلك مفيدًا للحفاظ على ذاكرة التخزين المؤقت منفصلة عن بعضها البعض.</li></ul></div>
 
 ##### <div dir="rtl">"enable_apcu" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>يحدد هذا ما إذا كنت تريد استخدام APCu للتخزين المؤقت. افتراضي = False (زائفة).</li></ul></div>
@@ -1762,4 +1766,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ١٠ يونيو ٢٠٢١ (٢٠٢١.٠٦.١٠).</div>
+<div dir="rtl">آخر تحديث: ٣١ أكتوبر ٢٠٢١ (٢٠٢١.١٠.٣١).</div>

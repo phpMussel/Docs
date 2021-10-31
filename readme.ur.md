@@ -504,6 +504,7 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -934,7 +935,10 @@ disabled_channels
 <div dir="rtl"><ul><li>کسی بھی پیدا کردہ صفحات کے فوٹر میں ظاہر ہونے والی متعلقہ رازداری کی پالیسی کا پتہ. ایک URL کی وضاحت کریں، یا غیر فعال کرنے کیلئے خالی چھوڑ دیں.</li></ul></div>
 
 #### <div dir="rtl">"supplementary_cache_options" (قسم)<br /></div>
-<div dir="rtl">ضمنی کیشے کے اختیارات.<br /><br /></div>
+<div dir="rtl">ضمنی کیشے کے اختیارات. نوٹ: ان اقدار کو تبدیل کرنے سے آپ ممکنہ طور پر لاگ آؤٹ ہو سکتے ہیں.<br /><br /></div>
+
+##### <div dir="rtl">"prefix" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>یہاں بیان کردہ قدر کو تمام کیش انٹری کیز کے ساتھ پہلے سے جوڑا جائے گا. بطور ڈیفالٹ خالی. جب ایک ہی سرور پر متعدد تنصیبات موجود ہوں، تو یہ ان کے کیچز کو ایک دوسرے سے الگ رکھنے کے لیے مفید ہو سکتا ہے.</li></ul></div>
 
 ##### <div dir="rtl">"enable_apcu" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>اس کی وضاحت کرتا ہے کہ کیش کے لئے APCu استعمال کرنا چاہے. پہلے سے طے شدہ = False (جھوٹی).</li></ul></div>
@@ -1761,4 +1765,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۱۰ جون ۲۰۲۱ (۲۰۲۱.۰۶.۱۰).</div>
+<div dir="rtl">آخری تازہ کاری: ۳۱ اکتوبر ۲۰۲۱ (۲۰۲۱.۱۰.۳۱).</div>

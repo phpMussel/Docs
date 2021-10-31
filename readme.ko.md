@@ -500,6 +500,7 @@ v3 상용구 코드의 구조는 다양한 다른 phpMussel v3 리포지토리�
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -927,7 +928,10 @@ URL 스캐너 설정.
 - 생성 된 페이지의 꼬리말에 표시 할 관련 개인 정보 정책 방침의 주소입니다. URL 지정, 또는 사용하지 않으려면 비워 두십시오.
 
 #### "supplementary_cache_options" (카테고리)
-보충 캐시 옵션.
+보충 캐시 옵션. 참고 : 이 값을 변경하면 잠재적으로 로그아웃될 수 있습니다.
+
+##### "prefix" `[string]`
+- 여기에 지정된 값은 모든 캐시 항목 키 앞에 추가됩니다. 기본적으로 비어 있습니다. 동일한 서버에 여러 설치가 있는 경우, 캐시를 서로 분리하여 유지하는 데 유용할 수 있습니다.
 
 ##### "enable_apcu" `[bool]`
 - 캐싱에 APCu를 사용할지 여부를 지정합니다. Default (기본값) = False.
@@ -1718,4 +1722,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2021년 6월 10일.
+최종 업데이트 : 2021년 10월 31일.

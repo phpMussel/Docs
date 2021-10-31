@@ -517,6 +517,7 @@ Configuration (v2)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
 └───supplementary_cache_options
+        prefix
         enable_apcu
         enable_memcached
         enable_redis
@@ -975,6 +976,9 @@ Op dit moment gebruikt phpMussel alleen PHPMailer voor front-end two-factor auth
 
 #### "supplementary_cache_options" (Categorie)
 Aanvullende cache-opties.
+
+##### "prefix"
+- De hier opgegeven waarde wordt toegevoegd aan alle cache-invoersleutels. Standaard leeg. Als er meerdere installaties op dezelfde server staan, dit kan handig zijn om hun caches gescheiden van elkaar te houden.
 
 ##### "enable_apcu"
 - Dit geeft aan of APCu moet worden gebruikt voor caching. Standaard = False.
@@ -1726,4 +1730,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 10 Juni 2021 (2021.06.10).
+Laatste Bijgewerkt: 31 Oktober 2021 (2021.10.31).

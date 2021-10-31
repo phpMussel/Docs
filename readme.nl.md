@@ -500,6 +500,7 @@ Configuratie (v3)
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -927,7 +928,10 @@ Configuratie voor wettelijke vereisten.
 - Het adres van een relevant privacybeleid dat moet worden weergegeven in de voettekst van eventuele gegenereerde pagina's. Geef een URL, of laat leeg om uit te schakelen.
 
 #### "supplementary_cache_options" (Categorie)
-Aanvullende cache-opties.
+Aanvullende cache-opties. Opmerking: Als u deze waarden wijzigt, mogelijk bent u uitgelogd.
+
+##### "prefix" `[string]`
+- De hier opgegeven waarde wordt toegevoegd aan alle cache-invoersleutels. Standaard leeg. Als er meerdere installaties op dezelfde server staan, dit kan handig zijn om hun caches gescheiden van elkaar te houden.
 
 ##### "enable_apcu" `[bool]`
 - Dit geeft aan of APCu moet worden gebruikt voor caching. Standaard = False.
@@ -1744,4 +1748,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 10 Juni 2021 (2021.06.10).
+Laatste Bijgewerkt: 31 Oktober 2021 (2021.10.31).

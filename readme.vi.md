@@ -500,6 +500,7 @@ Cấu Hình (v3)
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -927,7 +928,10 @@ Cấu hình cho các yêu cầu pháp lý.
 - Địa chỉ của chính sách bảo mật liên quan được hiển thị ở chân trang của bất kỳ trang nào được tạo. Chỉ định URL, hoặc để trống để vô hiệu hóa.
 
 #### "supplementary_cache_options" (Thể loại)
-Tùy chọn bộ nhớ cache bổ sung.
+Tùy chọn bộ nhớ cache bổ sung. Lưu ý: Việc thay đổi các giá trị này có thể khiến bạn bị đăng xuất.
+
+##### "prefix" `[string]`
+- Giá trị được chỉ định ở đây sẽ được thêm vào trước tất cả các khóa mục nhập bộ nhớ cache. Trống theo mặc định. Khi nhiều bản cài đặt tồn tại trên cùng một máy chủ, điều này có thể hữu ích để giữ các bộ nhớ cache của chúng tách biệt với nhau.
 
 ##### "enable_apcu" `[bool]`
 - Điều này xác định có nên thử sử dụng APCu để lưu trữ không. Mặc định = False.
@@ -1717,4 +1721,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.06.10.
+Lần cuối cập nhật: 2021.10.31.

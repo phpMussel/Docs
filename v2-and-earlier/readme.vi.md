@@ -517,6 +517,7 @@ Configuration (v2)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
 └───supplementary_cache_options
+        prefix
         enable_apcu
         enable_memcached
         enable_redis
@@ -975,6 +976,9 @@ Hiện tại, phpMussel chỉ sử dụng PHPMailer để xác thực hai yếu 
 
 #### "supplementary_cache_options" (Thể loại)
 Tùy chọn bộ nhớ cache bổ sung.
+
+##### "prefix"
+- Giá trị được chỉ định ở đây sẽ được thêm vào trước tất cả các khóa mục nhập bộ nhớ cache. Trống theo mặc định. Khi nhiều bản cài đặt tồn tại trên cùng một máy chủ, điều này có thể hữu ích để giữ các bộ nhớ cache của chúng tách biệt với nhau.
 
 ##### "enable_apcu"
 - Điều này xác định có nên thử sử dụng APCu để lưu trữ không. Mặc định = False.
@@ -1706,4 +1710,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.06.10.
+Lần cuối cập nhật: 2021.10.31.

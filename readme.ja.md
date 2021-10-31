@@ -500,6 +500,7 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -927,7 +928,10 @@ URLスキャナーの設定。
 - 生成されたページのフッターに表示される関連プライバシー・ポリシーのアドレス。​ＵＲＬを指定するか、無効にしたい場合は空白のままにして下さい。
 
 #### "supplementary_cache_options" （カテゴリ）
-補足キャッシュ・オプション。
+補足キャッシュ・オプション。 注：これらの値を変更すると、ログアウトする可能性があります。
+
+##### "prefix" `[string]`
+- ここで指定された値は、すべてのキャッシュ・エントリ・キーの前に追加されます。​デフォルトでは空です。​同じサーバーに複数のインストールが存在する場合、これはキャッシュを互いに分離しておくのに役立ちます。
 
 ##### "enable_apcu" `[bool]`
 - キャッシュに「APCu」を使用するかどうかを指定します。 Default/デフォルルト = False。
@@ -1720,4 +1724,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２１年６月１０日。
+最終アップデート：２０２１年１０月３１日。

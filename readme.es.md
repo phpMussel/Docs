@@ -500,6 +500,7 @@ Configuración (v3)
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -927,7 +928,10 @@ Configuración para requisitos legales.
 - La dirección de una política de privacidad relevante que se mostrará en el pie de página de cualquier página generada. Especificar una URL, o dejar en blanco para desactivar.
 
 #### "supplementary_cache_options" (Categoría)
-Opciones de caché suplementarias.
+Opciones de caché suplementarias. Nota: Cambiar estos valores puede potencialmente cerrar la sesión.
+
+##### "prefix" `[string]`
+- El valor especificado aquí se antepondrá a las claves de todas las entradas de la caché. Vacía por predefinida. Cuando existen varias instalaciones en el mismo servidor, esto puede ser útil para mantener sus cachés separados entre sí.
 
 ##### "enable_apcu" `[bool]`
 - Especifica si se intenta utilizar APCu para el almacenamiento en caché. Predefinido = False.
@@ -1727,4 +1731,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 10 de Junio de 2021 (2021.06.10).
+Última Actualización: 31 de Octubre de 2021 (2021.10.31).

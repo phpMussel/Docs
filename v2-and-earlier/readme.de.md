@@ -518,6 +518,7 @@ Configuration (v2)
 │       add_reply_to_address (v1: addReplyToAddress)
 │       add_reply_to_name (v1: addReplyToName)
 └───supplementary_cache_options
+        prefix
         enable_apcu
         enable_memcached
         enable_redis
@@ -979,6 +980,9 @@ Zusätzliche Cache-Optionen.
 
 ##### "enable_apcu"
 - Dies gibt an, ob APCu für das Caching verwendet werden soll. Standardeinstellung = False.
+
+##### "prefix"
+- Dieser Wert hier wird zu allen Cache-Eintragsschlüsseln vorangestellt. Standardmäßig leer. Wenn mehrere Installationen auf demselben Server vorhanden sind, kann dies nützlich sein, um ihre Caches getrennt zu halten.
 
 ##### "enable_memcached"
 - Dies gibt an, ob Memcached für das Caching verwendet werden soll. Standardeinstellung = False.
@@ -1725,4 +1729,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 10. Juni 2021 (2021.06.10).
+Zuletzt aktualisiert: 31. Oktober 2021 (2021.10.31).

@@ -500,6 +500,7 @@ Konfigurasi (v3)
 │       pseudonymise_ip_addresses [bool]
 │       privacy_policy [string]
 ├───supplementary_cache_options
+│       prefix [string]
 │       enable_apcu [bool]
 │       enable_memcached [bool]
 │       enable_redis [bool]
@@ -927,7 +928,10 @@ Konfigurasi untuk persyaratan hukum.
 - Alamat dari kebijakan privasi yang relevan untuk ditampilkan di footer dari setiap halaman yang dihasilkan. Spesifikasikan URL, atau biarkan kosong untuk menonaktifkan.
 
 #### "supplementary_cache_options" (Kategori)
-Opsi cache tambahan.
+Opsi cache tambahan. Catatan: Mengubah nilai ini berpotensi membuat Anda keluar.
+
+##### "prefix" `[string]`
+- Nilai yang ditentukan disini akan ditambahkan ke awal kunci untuk semua entri di cache. Kosong secara default. Ketika beberapa instalasi ada di server, ini dapat berguna untuk menjaga cache mereka terpisah.
 
 ##### "enable_apcu" `[bool]`
 - Menentukan apakah akan mencoba menggunakan APCu untuk cache. Default = False.
@@ -1720,4 +1724,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 10 Juni 2021 (2021.06.10).
+Terakhir Diperbarui: 31 Oktober 2021 (2021.10.31).
