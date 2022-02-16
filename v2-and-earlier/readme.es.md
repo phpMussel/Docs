@@ -70,7 +70,7 @@ O esto en el archivo `.htaccess`:
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
-7) Con eso, ya está! Pero, probablemente deberías preubalo para asegurarse de que está funcionando correctamente. Para probar archivos subidos protecciones, probar subir los archivos de prueba incluidos en el paquete dentro `_testfiles` a su website a través de sus habituales navegador basado subir métodos. (Asegúrese de haber incluido los archivos de firmas `phpmussel*.*db` en la directiva de configuración `active` para que se activen los archivos de prueba). Si todo funciona correctamente, un mensaje debe aparecer de phpMussel confirmando que la subido ha sido bloqueada con éxito. Si nada aparece, algo no está funcionando correctamente. Si está utilizando cualquiera de las avanzadas funciones o si está utilizandolos otros tipos de escaneo posible, Sugiero probarlo con aquellos a asegurarse de que funciona como se espera, también.
+7) Con eso, ya está! Pero, probablemente deberías preubalo para asegurarse de que está funcionando correctamente. Para probar archivos subidos protecciones, probar subir los archivos de prueba incluidos en el paquete dentro `.tests/samples` a su website a través de sus habituales navegador basado subir métodos. (Asegúrese de haber incluido los archivos de firmas `phpmussel*.*db` en la directiva de configuración `active` para que se activen los archivos de prueba). Si todo funciona correctamente, un mensaje debe aparecer de phpMussel confirmando que la subido ha sido bloqueada con éxito. Si nada aparece, algo no está funcionando correctamente. Si está utilizando cualquiera de las avanzadas funciones o si está utilizandolos otros tipos de escaneo posible, Sugiero probarlo con aquellos a asegurarse de que funciona como se espera, también.
 
 #### 2.1 INSTALACIÓN MANUAL (PARA CLI)
 
@@ -84,7 +84,7 @@ O esto en el archivo `.htaccess`:
 
 5) Instale cualquier de las firmas que necesite. *Ver: [INSTALACIÓN DE FIRMAS](#INSTALLING_SIGNATURES).*
 
-6) Con eso, ya está! Pero, probablemente deberías preubalo para asegurarse de que está funcionando correctamente. Para probar phpMussel, ejecute phpMussel e probar escanear el directorio `_testfiles` suministrada con el paquete.
+6) Con eso, ya está! Pero, probablemente deberías preubalo para asegurarse de que está funcionando correctamente. Para probar phpMussel, ejecute phpMussel e probar escanear el directorio `.tests/samples` suministrada con el paquete.
 
 #### 2.2 INSTALACIÓN CON COMPOSER
 
@@ -244,153 +244,147 @@ https://github.com/phpMussel/phpMussel>v2
 │   tests.php
 ├───.github
 │   │   FUNDING.yml
-│   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-├───tests
-│       signatures.zip
-├───vault
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           Operation.php
-│   │           Request.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       lock_bl_c.png
-│   │       lock_bl_o.png
-│   │       lock_rd_c.png
-│   │       lock_rd_o.png
-│   │       lock_wt_c.png
-│   │       lock_wt_o.png
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
+├───.tests
+│   │   signatures.zip
+│   └───samples
+│           ascii_standard_testfile.txt
+│           coex_testfile.rtf
+│           exe_standard_testfile.exe
+│           general_standard_testfile.txt
+│           graphics_standard_testfile.gif
+│           hash_testfile_md5.txt
+│           hash_testfile_sha1.txt
+│           hash_testfile_sha256.txt
+│           html_standard_testfile.html
+│           ole_testfile.ole
+│           pdf_standard_testfile.pdf
+│           pe_sectional_testfile.exe
+│           swf_standard_testfile.swf
+└───vault
+    │   channels.yaml
+    │   cli.php
+    │   components.dat
+    │   config.ini.RenameMe
+    │   config.php
+    │   config.yaml
+    │   event_handlers.php
+    │   frontend.php
+    │   frontend_functions.php
+    │   functions.php
+    │   greylist.csv
+    │   lang.php
+    │   plugins.dat
+    │   shorthand.yaml
+    │   signatures.dat
+    │   template_custom.html
+    │   template_default.html
+    │   themes.dat
+    │   upload.php
+    ├───classes
+    │   │   ArchiveHandler.php
+    │   │   CompressionHandler.php
+    │   │   TemporaryFileHandler.php
+    │   └───Maikuolan
+    │           Cache.php
+    │           ComplexStringHandler.php
+    │           DelayedIO.php
+    │           Demojibakefier.php
+    │           Events.php
+    │           L10N.php
+    │           Matrix.php
+    │           NumberFormatter.php
+    │           Operation.php
+    │           Request.php
+    │           YAML.php
+    ├───fe_assets
+    │       frontend.css
+    │       frontend.html
+    │       icons.php
+    │       lock_bl_c.png
+    │       lock_bl_o.png
+    │       lock_rd_c.png
+    │       lock_rd_o.png
+    │       lock_wt_c.png
+    │       lock_wt_o.png
+    │       pips.php
+    │       scripts.js
+    │       _2fa.html
+    │       _accounts.html
+    │       _accounts_row.html
+    │       _cache.html
+    │       _config.html
+    │       _config_row.html
+    │       _files.html
+    │       _files_edit.html
+    │       _files_rename.html
+    │       _files_row.html
+    │       _home.html
+    │       _login.html
+    │       _logs.html
+    │       _nav_complete_access.html
+    │       _nav_logs_access_only.html
+    │       _quarantine.html
+    │       _quarantine_row.html
+    │       _siginfo.html
+    │       _siginfo_row.html
+    │       _statistics.html
+    │       _updates.html
+    │       _updates_row.html
+    │       _upload_test.html
+    ├───lang
+    │       lang.ar.fe.yaml
+    │       lang.ar.yaml
+    │       lang.bn.fe.yaml
+    │       lang.bn.yaml
+    │       lang.de.fe.yaml
+    │       lang.de.yaml
+    │       lang.en.fe.yaml
+    │       lang.en.yaml
+    │       lang.es.fe.yaml
+    │       lang.es.yaml
+    │       lang.fr.fe.yaml
+    │       lang.fr.yaml
+    │       lang.hi.fe.yaml
+    │       lang.hi.yaml
+    │       lang.id.fe.yaml
+    │       lang.id.yaml
+    │       lang.it.fe.yaml
+    │       lang.it.yaml
+    │       lang.ja.fe.yaml
+    │       lang.ja.yaml
+    │       lang.ko.fe.yaml
+    │       lang.ko.yaml
+    │       lang.lv.fe.yaml
+    │       lang.lv.yaml
+    │       lang.nl.fe.yaml
+    │       lang.nl.yaml
+    │       lang.no.fe.yaml
+    │       lang.no.yaml
+    │       lang.pl.fe.yaml
+    │       lang.pl.yaml
+    │       lang.pt.fe.yaml
+    │       lang.pt.yaml
+    │       lang.ru.fe.yaml
+    │       lang.ru.yaml
+    │       lang.sv.fe.yaml
+    │       lang.sv.yaml
+    │       lang.th.fe.yaml
+    │       lang.th.yaml
+    │       lang.tr.fe.yaml
+    │       lang.tr.yaml
+    │       lang.ur.fe.yaml
+    │       lang.ur.yaml
+    │       lang.vi.fe.yaml
+    │       lang.vi.yaml
+    │       lang.zh-tw.fe.yaml
+    │       lang.zh-tw.yaml
+    │       lang.zh.fe.yaml
+    │       lang.zh.yaml
+    └───signatures
+            switch.dat
 ```
 
 ---
@@ -1398,10 +1392,8 @@ Dependiendo de qué controlador de base de datos se use...
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └El nombre de la base de datos a
 │                │              │             usar.
-│                │              │
-│                │              └El número de puerto para conectarse al host.
-│                │
-│                └El host con el que conectarse para encontrar la base de
+│                │          │                │              └El número de puerto para conectarse al host.
+│            │                └El host con el que conectarse para encontrar la base de
 │                 datos.
 ├─dblib
 │ │
@@ -1409,20 +1401,16 @@ Dependiendo de qué controlador de base de datos se use...
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └El nombre de la base de datos a usar.
-│    │          │
-│    │          └El host con el que conectarse para encontrar la base de datos.
-│    │
-│    └Valores posibles: "mssql", "sybase", "dblib".
+│    │      │    │          └El host con el que conectarse para encontrar la base de datos.
+││    └Valores posibles: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├Puede ser una ruta a un archivo de base de datos local.
-│                    │
-│                    ├Se puede conectar con un host y número de puerto.
-│                    │
-│                    └Debe consultar la documentación de Firebird si desea usar
+│                │                    ├Se puede conectar con un host y número de puerto.
+│                │                    └Debe consultar la documentación de Firebird si desea usar
 │                     esto.
 ├─ibm
 │ │
@@ -1443,11 +1431,9 @@ Dependiendo de qué controlador de base de datos se use...
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └El número de puerto para
 │                 │            │               conectarse al host.
-│                 │            │
-│                 │            └El host con el que conectarse para encontrar la
+│                 │        │                 │            └El host con el que conectarse para encontrar la
 │                 │             base de datos.
-│                 │
-│                 └El nombre de la base de datos a usar.
+│             │                 └El nombre de la base de datos a usar.
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1455,20 +1441,16 @@ Dependiendo de qué controlador de base de datos se use...
 │              ╚╤════╝
 │               ├Puede hacer referencia a la base de datos catalogada
 │               │específica.
-│               │
-│               ├Se puede conectar con un host y número de puerto.
-│               │
-│               └Debe consultar la documentación de Oracle si desea usar esto.
+│           │               ├Se puede conectar con un host y número de puerto.
+│           │               └Debe consultar la documentación de Oracle si desea usar esto.
 ├─odbc
 │ │
 │ │      ╔═════╗
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Puede hacer referencia a la base de datos catalogada específica.
-│         │
-│         ├Se puede conectar con un host y número de puerto.
-│         │
-│         └Debe consultar la documentación de ODBC/DB2 si desea usar esto.
+│     │         ├Se puede conectar con un host y número de puerto.
+│     │         └Debe consultar la documentación de ODBC/DB2 si desea usar esto.
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1476,10 +1458,8 @@ Dependiendo de qué controlador de base de datos se use...
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └El nombre de la base de datos a
 │               │              │            usar.
-│               │              │
-│               │              └El número de puerto para conectarse al host.
-│               │
-│               └El host con el que conectarse para encontrar la base de datos.
+│               │          │               │              └El número de puerto para conectarse al host.
+│           │               └El host con el que conectarse para encontrar la base de datos.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1492,10 +1472,8 @@ Dependiendo de qué controlador de base de datos se use...
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └El nombre de la base de datos a usar.
-                   │         │
-                   │         └El número de puerto para conectarse al host.
-                   │
-                   └El host con el que conectarse para encontrar la base de datos.
+                   │                        │         └El número de puerto para conectarse al host.
+                                  └El host con el que conectarse para encontrar la base de datos.
 ```
 
 Si no está seguro de qué usar para una parte particular de su DSN, intenta ver primero si funciona como está, sin cambiar nada.
@@ -1720,4 +1698,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 31 de Octubre de 2021 (2021.10.31).
+Última Actualización: 17 de Febrero de 2022 (2022.02.17).

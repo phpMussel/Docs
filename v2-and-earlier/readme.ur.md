@@ -72,7 +72,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
-<div dir="rtl">۷. اب، یہ ختم ہو گیا ہے! تاہم، آپ کو شاید اسے باہر یہ مناسب طریقے سے کام کر رہا ہے بات کو یقینی بنانے کے لئے جانچ کرنا چاہئے. فائل اپ لوڈ کی حفاظت کے باہر کی جانچ کرنے کے لئے، ٹیسٹنگ کی فائلوں کو اپ لوڈ کرنا شامل پیکیج میں آپ کی ویب سائٹ کو <code dir="ltr">_testfiles</code> کے تحت اپنے معمول کے براؤزر کی بنیاد پر اپ لوڈ طریقوں کے ذریعے کوشش. (Make sure you've included the `phpmussel*.*db` signature files in the `active` configuration directive for the test files to trigger). سب کچھ کام کر رہی ہے تو، ایک پیغام کی تصدیق ہے کہ اپ لوڈ کریں کامیابی سے بلاک کیا گیا تھا phpMussel سے ظاہر ہونا چاہیے. کچھ بھی ظاہر ہوتا ہے، کسی چیز کے صحیح طریقے سے کام نہیں کر رہا ہے. آپ کو کسی بھی جدید ترین خصوصیات کا استعمال کر رہے ہیں یا آپ کے آلے کے ساتھ ممکن سکیننگ کے دیگر اقسام کا استعمال کرتے ہوئے کر رہے ہیں تو، تو میں نے اسے باہر والوں کے ساتھ جو بھی کام کرتا ہے کے طور پر توقع اس بات کو یقینی بنانے کی کوشش کر مشورہ تھا.<br /><br /></div>
+<div dir="rtl">۷. اب، یہ ختم ہو گیا ہے! تاہم، آپ کو شاید اسے باہر یہ مناسب طریقے سے کام کر رہا ہے بات کو یقینی بنانے کے لئے جانچ کرنا چاہئے. فائل اپ لوڈ کی حفاظت کے باہر کی جانچ کرنے کے لئے، ٹیسٹنگ کی فائلوں کو اپ لوڈ کرنا شامل پیکیج میں آپ کی ویب سائٹ کو <code dir="ltr">.tests/samples</code> کے تحت اپنے معمول کے براؤزر کی بنیاد پر اپ لوڈ طریقوں کے ذریعے کوشش. (Make sure you've included the `phpmussel*.*db` signature files in the `active` configuration directive for the test files to trigger). سب کچھ کام کر رہی ہے تو، ایک پیغام کی تصدیق ہے کہ اپ لوڈ کریں کامیابی سے بلاک کیا گیا تھا phpMussel سے ظاہر ہونا چاہیے. کچھ بھی ظاہر ہوتا ہے، کسی چیز کے صحیح طریقے سے کام نہیں کر رہا ہے. آپ کو کسی بھی جدید ترین خصوصیات کا استعمال کر رہے ہیں یا آپ کے آلے کے ساتھ ممکن سکیننگ کے دیگر اقسام کا استعمال کرتے ہوئے کر رہے ہیں تو، تو میں نے اسے باہر والوں کے ساتھ جو بھی کام کرتا ہے کے طور پر توقع اس بات کو یقینی بنانے کی کوشش کر مشورہ تھا.<br /><br /></div>
 
 #### <div dir="rtl">۲.۱ دستی طور پر نصب (CLI کے لئے)</div>
 
@@ -86,7 +86,7 @@ SourceForge اور Bitbucket اور GitHub کے لئے خصوصی شکریہ، �
 
 <div dir="rtl">۵. کسی بھی دستخط کو انسٹال کریں جو آپ کی ضرورت ہو گی. <em>دیکھیں: <a href="#INSTALLING_SIGNATURES">تنصیب کا دستخط</a>).</em><br /><br /></div>
 
-<div dir="rtl">۶. اب، یہ ختم ہو گیا ہے! تاہم، آپ کو شاید اسے باہر یہ مناسب طریقے سے کام کر رہا ہے بات کو یقینی بنانے کے لئے جانچ کرنا چاہئے. phpMussel کو ٹیسٹ کرنے کے لئے، phpMussel چلانے اور سکیننگ پیکج کے ساتھ فراہم کی <code dir="ltr">_testfiles</code> ڈائریکٹری کوشش کریں.<br /><br /></div>
+<div dir="rtl">۶. اب، یہ ختم ہو گیا ہے! تاہم، آپ کو شاید اسے باہر یہ مناسب طریقے سے کام کر رہا ہے بات کو یقینی بنانے کے لئے جانچ کرنا چاہئے. phpMussel کو ٹیسٹ کرنے کے لئے، phpMussel چلانے اور سکیننگ پیکج کے ساتھ فراہم کی <code dir="ltr">.tests/samples</code> ڈائریکٹری کوشش کریں.<br /><br /></div>
 
 #### <div dir="rtl">۲.۲ COMPOSER کے ساتھ نصب</div>
 
@@ -239,153 +239,147 @@ https://github.com/phpMussel/phpMussel>v2
 │   tests.php
 ├───.github
 │   │   FUNDING.yml
-│   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-├───tests
-│       signatures.zip
-├───vault
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           Operation.php
-│   │           Request.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       lock_bl_c.png
-│   │       lock_bl_o.png
-│   │       lock_rd_c.png
-│   │       lock_rd_o.png
-│   │       lock_wt_c.png
-│   │       lock_wt_o.png
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
+├───.tests
+│   │   signatures.zip
+│   └───samples
+│           ascii_standard_testfile.txt
+│           coex_testfile.rtf
+│           exe_standard_testfile.exe
+│           general_standard_testfile.txt
+│           graphics_standard_testfile.gif
+│           hash_testfile_md5.txt
+│           hash_testfile_sha1.txt
+│           hash_testfile_sha256.txt
+│           html_standard_testfile.html
+│           ole_testfile.ole
+│           pdf_standard_testfile.pdf
+│           pe_sectional_testfile.exe
+│           swf_standard_testfile.swf
+└───vault
+    │   channels.yaml
+    │   cli.php
+    │   components.dat
+    │   config.ini.RenameMe
+    │   config.php
+    │   config.yaml
+    │   event_handlers.php
+    │   frontend.php
+    │   frontend_functions.php
+    │   functions.php
+    │   greylist.csv
+    │   lang.php
+    │   plugins.dat
+    │   shorthand.yaml
+    │   signatures.dat
+    │   template_custom.html
+    │   template_default.html
+    │   themes.dat
+    │   upload.php
+    ├───classes
+    │   │   ArchiveHandler.php
+    │   │   CompressionHandler.php
+    │   │   TemporaryFileHandler.php
+    │   └───Maikuolan
+    │           Cache.php
+    │           ComplexStringHandler.php
+    │           DelayedIO.php
+    │           Demojibakefier.php
+    │           Events.php
+    │           L10N.php
+    │           Matrix.php
+    │           NumberFormatter.php
+    │           Operation.php
+    │           Request.php
+    │           YAML.php
+    ├───fe_assets
+    │       frontend.css
+    │       frontend.html
+    │       icons.php
+    │       lock_bl_c.png
+    │       lock_bl_o.png
+    │       lock_rd_c.png
+    │       lock_rd_o.png
+    │       lock_wt_c.png
+    │       lock_wt_o.png
+    │       pips.php
+    │       scripts.js
+    │       _2fa.html
+    │       _accounts.html
+    │       _accounts_row.html
+    │       _cache.html
+    │       _config.html
+    │       _config_row.html
+    │       _files.html
+    │       _files_edit.html
+    │       _files_rename.html
+    │       _files_row.html
+    │       _home.html
+    │       _login.html
+    │       _logs.html
+    │       _nav_complete_access.html
+    │       _nav_logs_access_only.html
+    │       _quarantine.html
+    │       _quarantine_row.html
+    │       _siginfo.html
+    │       _siginfo_row.html
+    │       _statistics.html
+    │       _updates.html
+    │       _updates_row.html
+    │       _upload_test.html
+    ├───lang
+    │       lang.ar.fe.yaml
+    │       lang.ar.yaml
+    │       lang.bn.fe.yaml
+    │       lang.bn.yaml
+    │       lang.de.fe.yaml
+    │       lang.de.yaml
+    │       lang.en.fe.yaml
+    │       lang.en.yaml
+    │       lang.es.fe.yaml
+    │       lang.es.yaml
+    │       lang.fr.fe.yaml
+    │       lang.fr.yaml
+    │       lang.hi.fe.yaml
+    │       lang.hi.yaml
+    │       lang.id.fe.yaml
+    │       lang.id.yaml
+    │       lang.it.fe.yaml
+    │       lang.it.yaml
+    │       lang.ja.fe.yaml
+    │       lang.ja.yaml
+    │       lang.ko.fe.yaml
+    │       lang.ko.yaml
+    │       lang.lv.fe.yaml
+    │       lang.lv.yaml
+    │       lang.nl.fe.yaml
+    │       lang.nl.yaml
+    │       lang.no.fe.yaml
+    │       lang.no.yaml
+    │       lang.pl.fe.yaml
+    │       lang.pl.yaml
+    │       lang.pt.fe.yaml
+    │       lang.pt.yaml
+    │       lang.ru.fe.yaml
+    │       lang.ru.yaml
+    │       lang.sv.fe.yaml
+    │       lang.sv.yaml
+    │       lang.th.fe.yaml
+    │       lang.th.yaml
+    │       lang.tr.fe.yaml
+    │       lang.tr.yaml
+    │       lang.ur.fe.yaml
+    │       lang.ur.yaml
+    │       lang.vi.fe.yaml
+    │       lang.vi.yaml
+    │       lang.zh-tw.fe.yaml
+    │       lang.zh-tw.yaml
+    │       lang.zh.fe.yaml
+    │       lang.zh.yaml
+    └───signatures
+            switch.dat
 ```
 
 ---
@@ -1633,30 +1627,24 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │ └─cubrid:host=localhost;port=33000;dbname=example
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └استعمال کرنے کے لئے ڈیٹا بیس کا نام
-│                │              │
-│                │              └استعمال کرنے کیلئے پورٹ نمبر
-│                │
-│                └رابطہ کرنے کیلئے میزبان
+│                │          │                │              └استعمال کرنے کیلئے پورٹ نمبر
+│            │                └رابطہ کرنے کیلئے میزبان
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └استعمال کرنے کے لئے ڈیٹا بیس کا نام
-│    │          │
-│    │          └رابطہ کرنے کیلئے میزبان
-│    │
-│    └Possible values: "mssql", "sybase", "dblib".
+│    │      │    │          └رابطہ کرنے کیلئے میزبان
+││    └Possible values: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├مقامی ڈیٹا بیس فائل کا راستہ ثابت ہوسکتا ہے
-│                    │
-│                    ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
-│                    │
-│                    └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Firebird دستاویزات کا حوالہ دینا چاہئے
+│                │                    ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
+│                │                    └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Firebird دستاویزات کا حوالہ دینا چاہئے
 ├─ibm
 │ │
 │ │         ╔═════╗
@@ -1675,40 +1663,32 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │ └─mysql:dbname=example;host=localhost;port=3306
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └استعمال کرنے کیلئے پورٹ نمبر
-│                 │            │
-│                 │            └رابطہ کرنے کیلئے میزبان
-│                 │
-│                 └استعمال کرنے کے لئے ڈیٹا بیس کا نام
+│                 │        │                 │            └رابطہ کرنے کیلئے میزبان
+│             │                 └استعمال کرنے کے لئے ڈیٹا بیس کا نام
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├مخصوص کیٹلوجڈ ڈیٹا بیس کا حوالہ دے سکتا ہے
-│               │
-│               ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
-│               │
-│               └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Oracle دستاویزات کا حوالہ دینا چاہئے
+│           │               ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
+│           │               └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو Oracle دستاویزات کا حوالہ دینا چاہئے
 ├─odbc
 │ │
 │ │      ╔═════╗
 │ └─odbc:example
 │        ╚╤════╝
 │         ├مخصوص کیٹلوجڈ ڈیٹا بیس کا حوالہ دے سکتا ہے
-│         │
-│         ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
-│         │
-│         └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو ODBC/DB2 دستاویزات کا حوالہ دینا چاہئے
+│     │         ├ایک میزبان اور پورٹ نمبر سے رابطہ کرسکتے ہیں
+│     │         └اگر آپ اسے استعمال کرنا چاہتے ہیں تو آپ کو ODBC/DB2 دستاویزات کا حوالہ دینا چاہئے
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
 │ └─pgsql:host=localhost;port=5432;dbname=example
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └استعمال کرنے کے لئے ڈیٹا بیس کا نام
-│               │              │
-│               │              └استعمال کرنے کیلئے پورٹ نمبر
-│               │
-│               └رابطہ کرنے کیلئے میزبان
+│               │          │               │              └استعمال کرنے کیلئے پورٹ نمبر
+│           │               └رابطہ کرنے کیلئے میزبان
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1721,10 +1701,8 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └استعمال کرنے کے لئے ڈیٹا بیس کا نام
-                   │         │
-                   │         └استعمال کرنے کیلئے پورٹ نمبر
-                   │
-                   └رابطہ کرنے کیلئے میزبان
+                   │                        │         └استعمال کرنے کیلئے پورٹ نمبر
+                                  └رابطہ کرنے کیلئے میزبان
 ```
 
 <div dir="rtl">اگر آپ اپنے DSN کو تبدیل کرنے کے بارے میں یقین نہیں رکھتے ہیں تو، کچھ بھی تبدیل کیے بغیر اسے استعمال کرنے کی کوشش کریں.<br /><br /></div>
@@ -1982,4 +1960,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۳۱ اکتوبر ۲۰۲۱ (۲۰۲۱.۱۰.۳۱).</div>
+<div dir="rtl">آخری تازہ کاری: ۱۷ فروری ۲۰۲۲ (۲۰۲۲.۰۲.۱۷).</div>

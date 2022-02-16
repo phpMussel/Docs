@@ -70,7 +70,7 @@ Apache 웹 서버를 사용하고 있으며 `php.ini`에 접근할 수 있는 �
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
-7) 이제 설치가 완료되었습니다만, 만약을 위해 테스트를 합시다. 파일 업로드 보호를 테스트하려면, 패키지에 `_testfiles`에 포함된 테스트 파일을 브라우저를 사용하는 일반적인 방법으로 올립니다. (테스트 파일을 트리거하려면, `phpmussel*.*db` 서명 파일을 `active` 설정 지시어에 포함 시켰는지 확인하십시오). 문제가 없으면 phpMussel에서 업로드를 차단했다는 메시지가 표시되고 그렇지 않은 경우는 무언가가 제대로 작동하지 않습니다. 또한 만약 뭔가 특별한 기능을 사용하고, 혹은 다른 유형의 스캐닝도 사용하고 있는 것 같으면 서로 영향을 걷지 않을지도 점검해 두는 것이 좋습니다.
+7) 이제 설치가 완료되었습니다만, 만약을 위해 테스트를 합시다. 파일 업로드 보호를 테스트하려면, 패키지에 `.tests/samples`에 포함된 테스트 파일을 브라우저를 사용하는 일반적인 방법으로 올립니다. (테스트 파일을 트리거하려면, `phpmussel*.*db` 서명 파일을 `active` 설정 지시어에 포함 시켰는지 확인하십시오). 문제가 없으면 phpMussel에서 업로드를 차단했다는 메시지가 표시되고 그렇지 않은 경우는 무언가가 제대로 작동하지 않습니다. 또한 만약 뭔가 특별한 기능을 사용하고, 혹은 다른 유형의 스캐닝도 사용하고 있는 것 같으면 서로 영향을 걷지 않을지도 점검해 두는 것이 좋습니다.
 
 #### 2.1 수동 설치 (CLI 편)
 
@@ -84,7 +84,7 @@ Apache 웹 서버를 사용하고 있으며 `php.ini`에 접근할 수 있는 �
 
 5) 당신이 필요로하는 서명을 설치하십시오. *참조 : [서명 설치](#INSTALLING_SIGNATURES).*
 
-6) 테스트를합시다. 패키지의`_testfiles`을 phpMussel로 스캔 해보세요.
+6) 테스트를합시다. 패키지의`.tests/samples`을 phpMussel로 스캔 해보세요.
 
 #### 2.2 COMPOSER를 사용하여 설치한다
 
@@ -244,153 +244,147 @@ https://github.com/phpMussel/phpMussel>v2
 │   tests.php
 ├───.github
 │   │   FUNDING.yml
-│   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-├───tests
-│       signatures.zip
-├───vault
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           Operation.php
-│   │           Request.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       lock_bl_c.png
-│   │       lock_bl_o.png
-│   │       lock_rd_c.png
-│   │       lock_rd_o.png
-│   │       lock_wt_c.png
-│   │       lock_wt_o.png
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
+├───.tests
+│   │   signatures.zip
+│   └───samples
+│           ascii_standard_testfile.txt
+│           coex_testfile.rtf
+│           exe_standard_testfile.exe
+│           general_standard_testfile.txt
+│           graphics_standard_testfile.gif
+│           hash_testfile_md5.txt
+│           hash_testfile_sha1.txt
+│           hash_testfile_sha256.txt
+│           html_standard_testfile.html
+│           ole_testfile.ole
+│           pdf_standard_testfile.pdf
+│           pe_sectional_testfile.exe
+│           swf_standard_testfile.swf
+└───vault
+    │   channels.yaml
+    │   cli.php
+    │   components.dat
+    │   config.ini.RenameMe
+    │   config.php
+    │   config.yaml
+    │   event_handlers.php
+    │   frontend.php
+    │   frontend_functions.php
+    │   functions.php
+    │   greylist.csv
+    │   lang.php
+    │   plugins.dat
+    │   shorthand.yaml
+    │   signatures.dat
+    │   template_custom.html
+    │   template_default.html
+    │   themes.dat
+    │   upload.php
+    ├───classes
+    │   │   ArchiveHandler.php
+    │   │   CompressionHandler.php
+    │   │   TemporaryFileHandler.php
+    │   └───Maikuolan
+    │           Cache.php
+    │           ComplexStringHandler.php
+    │           DelayedIO.php
+    │           Demojibakefier.php
+    │           Events.php
+    │           L10N.php
+    │           Matrix.php
+    │           NumberFormatter.php
+    │           Operation.php
+    │           Request.php
+    │           YAML.php
+    ├───fe_assets
+    │       frontend.css
+    │       frontend.html
+    │       icons.php
+    │       lock_bl_c.png
+    │       lock_bl_o.png
+    │       lock_rd_c.png
+    │       lock_rd_o.png
+    │       lock_wt_c.png
+    │       lock_wt_o.png
+    │       pips.php
+    │       scripts.js
+    │       _2fa.html
+    │       _accounts.html
+    │       _accounts_row.html
+    │       _cache.html
+    │       _config.html
+    │       _config_row.html
+    │       _files.html
+    │       _files_edit.html
+    │       _files_rename.html
+    │       _files_row.html
+    │       _home.html
+    │       _login.html
+    │       _logs.html
+    │       _nav_complete_access.html
+    │       _nav_logs_access_only.html
+    │       _quarantine.html
+    │       _quarantine_row.html
+    │       _siginfo.html
+    │       _siginfo_row.html
+    │       _statistics.html
+    │       _updates.html
+    │       _updates_row.html
+    │       _upload_test.html
+    ├───lang
+    │       lang.ar.fe.yaml
+    │       lang.ar.yaml
+    │       lang.bn.fe.yaml
+    │       lang.bn.yaml
+    │       lang.de.fe.yaml
+    │       lang.de.yaml
+    │       lang.en.fe.yaml
+    │       lang.en.yaml
+    │       lang.es.fe.yaml
+    │       lang.es.yaml
+    │       lang.fr.fe.yaml
+    │       lang.fr.yaml
+    │       lang.hi.fe.yaml
+    │       lang.hi.yaml
+    │       lang.id.fe.yaml
+    │       lang.id.yaml
+    │       lang.it.fe.yaml
+    │       lang.it.yaml
+    │       lang.ja.fe.yaml
+    │       lang.ja.yaml
+    │       lang.ko.fe.yaml
+    │       lang.ko.yaml
+    │       lang.lv.fe.yaml
+    │       lang.lv.yaml
+    │       lang.nl.fe.yaml
+    │       lang.nl.yaml
+    │       lang.no.fe.yaml
+    │       lang.no.yaml
+    │       lang.pl.fe.yaml
+    │       lang.pl.yaml
+    │       lang.pt.fe.yaml
+    │       lang.pt.yaml
+    │       lang.ru.fe.yaml
+    │       lang.ru.yaml
+    │       lang.sv.fe.yaml
+    │       lang.sv.yaml
+    │       lang.th.fe.yaml
+    │       lang.th.yaml
+    │       lang.tr.fe.yaml
+    │       lang.tr.yaml
+    │       lang.ur.fe.yaml
+    │       lang.ur.yaml
+    │       lang.vi.fe.yaml
+    │       lang.vi.yaml
+    │       lang.zh-tw.fe.yaml
+    │       lang.zh-tw.yaml
+    │       lang.zh.fe.yaml
+    │       lang.zh.yaml
+    └───signatures
+            switch.dat
 ```
 
 ---
@@ -1397,30 +1391,24 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │ └─cubrid:host=localhost;port=33000;dbname=example
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └사용할 데이터베이스의 이름입니다.
-│                │              │
-│                │              └호스트에 연결할 포트 번호입니다.
-│                │
-│                └데이터베이스를 찾기 위해 연결할 호스트입니다.
+│                │          │                │              └호스트에 연결할 포트 번호입니다.
+│            │                └데이터베이스를 찾기 위해 연결할 호스트입니다.
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └사용할 데이터베이스의 이름입니다.
-│    │          │
-│    │          └데이터베이스를 찾기 위해 연결할 호스트입니다.
-│    │
-│    └가능한 값 : "mssql", "sybase", "dblib".
+│    │      │    │          └데이터베이스를 찾기 위해 연결할 호스트입니다.
+││    └가능한 값 : "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├로컬 데이터베이스 파일의 경로일 수 있습니다.
-│                    │
-│                    ├호스트 및 포트 번호와 연결할 수 있습니다.
-│                    │
-│                    └이것을 사용하려면 Firebird 설명서를 참조하십시오.
+│                │                    ├호스트 및 포트 번호와 연결할 수 있습니다.
+│                │                    └이것을 사용하려면 Firebird 설명서를 참조하십시오.
 ├─ibm
 │ │
 │ │         ╔═════╗
@@ -1439,40 +1427,32 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
 │ └─mysql:dbname=example;host=localhost;port=3306
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └호스트에 연결할 포트 번호입니다.
-│                 │            │
-│                 │            └데이터베이스를 찾기 위해 연결할 호스트입니다.
-│                 │
-│                 └사용할 데이터베이스의 이름입니다.
+│                 │        │                 │            └데이터베이스를 찾기 위해 연결할 호스트입니다.
+│             │                 └사용할 데이터베이스의 이름입니다.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├카탈로그 된 특정 데이터베이스를 참조 할 수 있습니다.
-│               │
-│               ├호스트 및 포트 번호와 연결할 수 있습니다.
-│               │
-│               └이것을 사용하려면 Oracle 설명서를 참조하십시오.
+│           │               ├호스트 및 포트 번호와 연결할 수 있습니다.
+│           │               └이것을 사용하려면 Oracle 설명서를 참조하십시오.
 ├─odbc
 │ │
 │ │      ╔═════╗
 │ └─odbc:example
 │        ╚╤════╝
 │         ├카탈로그 된 특정 데이터베이스를 참조 할 수 있습니다.
-│         │
-│         ├호스트 및 포트 번호와 연결할 수 있습니다.
-│         │
-│         └이것을 사용하려면 ODBC/DB2 설명서를 참조하십시오.
+│     │         ├호스트 및 포트 번호와 연결할 수 있습니다.
+│     │         └이것을 사용하려면 ODBC/DB2 설명서를 참조하십시오.
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
 │ └─pgsql:host=localhost;port=5432;dbname=example
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └사용할 데이터베이스의 이름입니다.
-│               │              │
-│               │              └호스트에 연결할 포트 번호입니다.
-│               │
-│               └데이터베이스를 찾기 위해 연결할 호스트입니다.
+│               │          │               │              └호스트에 연결할 포트 번호입니다.
+│           │               └데이터베이스를 찾기 위해 연결할 호스트입니다.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1485,10 +1465,8 @@ phpMussel의 `pdo_dsn` 설정 지시어는 아래와 같이 설정해야합니�
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └사용할 데이터베이스의 이름입니다.
-                   │         │
-                   │         └호스트에 연결할 포트 번호입니다.
-                   │
-                   └데이터베이스를 찾기 위해 연결할 호스트입니다.
+                   │                        │         └호스트에 연결할 포트 번호입니다.
+                                  └데이터베이스를 찾기 위해 연결할 호스트입니다.
 ```
 
 DSN의 특정 부분에 무엇을 사용해야할지 확실하지 않은 경우, 아무것도 변경하지 않고 그대로 작동하는지 먼저 확인하십시오.
@@ -1711,4 +1689,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2021년 10월 31일.
+최종 업데이트 : 2022년 2월 17일.

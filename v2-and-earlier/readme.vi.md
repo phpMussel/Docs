@@ -70,7 +70,7 @@ Hoạc cái này trong tập tin `.htaccess`:
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
-7) Tại điểm này, bạn đã xong! Nhưng mà, bạn nên kiểm tra nó ra để đảm bảo nó hoạt động đúng. Để kiểm tra các tập tin tải lên bảo vệ, thử tải lên các tập tin thử nghiệm bao gồm trong gói dưới `_testfiles` vào trang mạng của bạn thông qua các phương pháp tải lên dựa trên trình duyệt thông thường của bạn. (Đảm bảo bạn đã bao gồm các tập tin chữ ký `phpmussel*.*db` trong chỉ thị cấu hình `active` cho các tập tin thử nghiệm để kích hoạt). Nếu tất cả mọi thứ đang hoạt động, một tin nhắn sẽ xuất hiện từ phpMussel xác nhận là việc tải lên đã bị chặn thành công. Nếu không có gì xuất hiện, đây là điều biểu hiện cho một vấn đề với sự hoạt động. Nếu bạn đang sử dụng chức năng cao cấp, hay sử dụng các loại chức năng quét khác có thể với công cụ này, bạn nên thử nó ra với những điều đó để đảm bảo nó hoạt động như yêu cầu.
+7) Tại điểm này, bạn đã xong! Nhưng mà, bạn nên kiểm tra nó ra để đảm bảo nó hoạt động đúng. Để kiểm tra các tập tin tải lên bảo vệ, thử tải lên các tập tin thử nghiệm bao gồm trong gói dưới `.tests/samples` vào trang mạng của bạn thông qua các phương pháp tải lên dựa trên trình duyệt thông thường của bạn. (Đảm bảo bạn đã bao gồm các tập tin chữ ký `phpmussel*.*db` trong chỉ thị cấu hình `active` cho các tập tin thử nghiệm để kích hoạt). Nếu tất cả mọi thứ đang hoạt động, một tin nhắn sẽ xuất hiện từ phpMussel xác nhận là việc tải lên đã bị chặn thành công. Nếu không có gì xuất hiện, đây là điều biểu hiện cho một vấn đề với sự hoạt động. Nếu bạn đang sử dụng chức năng cao cấp, hay sử dụng các loại chức năng quét khác có thể với công cụ này, bạn nên thử nó ra với những điều đó để đảm bảo nó hoạt động như yêu cầu.
 
 #### 2.1 CÀI ĐẶT THỦ CÔNG (CHO CLI)
 
@@ -84,7 +84,7 @@ Hoạc cái này trong tập tin `.htaccess`:
 
 5) Cài đặt bất kỳ chữ ký mà bạn sẽ cần. *Xem: [CÀI ĐẶT CHỮ KÝ](#INSTALLING_SIGNATURES).*
 
-6) Tại thời điểm này, bạ đã xong! Nhưng mà, bạn nên kiểm tra nó để đảm bảo sự hoạt động. Để kiểm tra phpMussel, chạy phpMussel và thử quét `_testfiles` thư mục cung cấp trong gói.
+6) Tại thời điểm này, bạ đã xong! Nhưng mà, bạn nên kiểm tra nó để đảm bảo sự hoạt động. Để kiểm tra phpMussel, chạy phpMussel và thử quét `.tests/samples` thư mục cung cấp trong gói.
 
 #### 2.2 CÀI ĐẶT VỚI COMPOSER
 
@@ -244,153 +244,147 @@ https://github.com/phpMussel/phpMussel>v2
 │   tests.php
 ├───.github
 │   │   FUNDING.yml
-│   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-├───tests
-│       signatures.zip
-├───vault
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           Operation.php
-│   │           Request.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       lock_bl_c.png
-│   │       lock_bl_o.png
-│   │       lock_rd_c.png
-│   │       lock_rd_o.png
-│   │       lock_wt_c.png
-│   │       lock_wt_o.png
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
+├───.tests
+│   │   signatures.zip
+│   └───samples
+│           ascii_standard_testfile.txt
+│           coex_testfile.rtf
+│           exe_standard_testfile.exe
+│           general_standard_testfile.txt
+│           graphics_standard_testfile.gif
+│           hash_testfile_md5.txt
+│           hash_testfile_sha1.txt
+│           hash_testfile_sha256.txt
+│           html_standard_testfile.html
+│           ole_testfile.ole
+│           pdf_standard_testfile.pdf
+│           pe_sectional_testfile.exe
+│           swf_standard_testfile.swf
+└───vault
+    │   channels.yaml
+    │   cli.php
+    │   components.dat
+    │   config.ini.RenameMe
+    │   config.php
+    │   config.yaml
+    │   event_handlers.php
+    │   frontend.php
+    │   frontend_functions.php
+    │   functions.php
+    │   greylist.csv
+    │   lang.php
+    │   plugins.dat
+    │   shorthand.yaml
+    │   signatures.dat
+    │   template_custom.html
+    │   template_default.html
+    │   themes.dat
+    │   upload.php
+    ├───classes
+    │   │   ArchiveHandler.php
+    │   │   CompressionHandler.php
+    │   │   TemporaryFileHandler.php
+    │   └───Maikuolan
+    │           Cache.php
+    │           ComplexStringHandler.php
+    │           DelayedIO.php
+    │           Demojibakefier.php
+    │           Events.php
+    │           L10N.php
+    │           Matrix.php
+    │           NumberFormatter.php
+    │           Operation.php
+    │           Request.php
+    │           YAML.php
+    ├───fe_assets
+    │       frontend.css
+    │       frontend.html
+    │       icons.php
+    │       lock_bl_c.png
+    │       lock_bl_o.png
+    │       lock_rd_c.png
+    │       lock_rd_o.png
+    │       lock_wt_c.png
+    │       lock_wt_o.png
+    │       pips.php
+    │       scripts.js
+    │       _2fa.html
+    │       _accounts.html
+    │       _accounts_row.html
+    │       _cache.html
+    │       _config.html
+    │       _config_row.html
+    │       _files.html
+    │       _files_edit.html
+    │       _files_rename.html
+    │       _files_row.html
+    │       _home.html
+    │       _login.html
+    │       _logs.html
+    │       _nav_complete_access.html
+    │       _nav_logs_access_only.html
+    │       _quarantine.html
+    │       _quarantine_row.html
+    │       _siginfo.html
+    │       _siginfo_row.html
+    │       _statistics.html
+    │       _updates.html
+    │       _updates_row.html
+    │       _upload_test.html
+    ├───lang
+    │       lang.ar.fe.yaml
+    │       lang.ar.yaml
+    │       lang.bn.fe.yaml
+    │       lang.bn.yaml
+    │       lang.de.fe.yaml
+    │       lang.de.yaml
+    │       lang.en.fe.yaml
+    │       lang.en.yaml
+    │       lang.es.fe.yaml
+    │       lang.es.yaml
+    │       lang.fr.fe.yaml
+    │       lang.fr.yaml
+    │       lang.hi.fe.yaml
+    │       lang.hi.yaml
+    │       lang.id.fe.yaml
+    │       lang.id.yaml
+    │       lang.it.fe.yaml
+    │       lang.it.yaml
+    │       lang.ja.fe.yaml
+    │       lang.ja.yaml
+    │       lang.ko.fe.yaml
+    │       lang.ko.yaml
+    │       lang.lv.fe.yaml
+    │       lang.lv.yaml
+    │       lang.nl.fe.yaml
+    │       lang.nl.yaml
+    │       lang.no.fe.yaml
+    │       lang.no.yaml
+    │       lang.pl.fe.yaml
+    │       lang.pl.yaml
+    │       lang.pt.fe.yaml
+    │       lang.pt.yaml
+    │       lang.ru.fe.yaml
+    │       lang.ru.yaml
+    │       lang.sv.fe.yaml
+    │       lang.sv.yaml
+    │       lang.th.fe.yaml
+    │       lang.th.yaml
+    │       lang.tr.fe.yaml
+    │       lang.tr.yaml
+    │       lang.ur.fe.yaml
+    │       lang.ur.yaml
+    │       lang.vi.fe.yaml
+    │       lang.vi.yaml
+    │       lang.zh-tw.fe.yaml
+    │       lang.zh-tw.yaml
+    │       lang.zh.fe.yaml
+    │       lang.zh.yaml
+    └───signatures
+            switch.dat
 ```
 
 ---
@@ -1397,20 +1391,16 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─cubrid:host=localhost;port=33000;dbname=example
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └Tên của cơ sở dữ liệu để sử dụng.
-│                │              │
-│                │              └Số cổng để kết nối với máy chủ.
-│                │
-│                └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│                │          │                │              └Số cổng để kết nối với máy chủ.
+│            │                └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └Tên của cơ sở dữ liệu để sử dụng.
-│    │          │
-│    │          └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│    │
-│    └Những giá trị khả thi: "mssql", "sybase", "dblib".
+│    │      │    │          └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+││    └Những giá trị khả thi: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1418,10 +1408,8 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                   ╚╤══════════════════╝
 │                    ├Có thể là một đường dẫn đến một tập tin cơ sở dữ liệu
 │                    │cục bộ.
-│                    │
-│                    ├Có thể kết nối với một máy chủ và số cổng.
-│                    │
-│                    └Bạn nên tham khảo tài liệu Firebird nếu bạn muốn sử dụng
+│                │                    ├Có thể kết nối với một máy chủ và số cổng.
+│                │                    └Bạn nên tham khảo tài liệu Firebird nếu bạn muốn sử dụng
 │                     trình điều khiển này.
 ├─ibm
 │ │
@@ -1441,20 +1429,16 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─mysql:dbname=example;host=localhost;port=3306
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └Số cổng để kết nối với máy chủ.
-│                 │            │
-│                 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│                 │
-│                 └Tên của cơ sở dữ liệu để sử dụng.
+│                 │        │                 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│             │                 └Tên của cơ sở dữ liệu để sử dụng.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├Can refer to the specific catalogued database.
-│               │
-│               ├Có thể kết nối với một máy chủ và số cổng.
-│               │
-│               └Bạn nên tham khảo tài liệu Oracle nếu bạn muốn sử dụng
+│           │               ├Có thể kết nối với một máy chủ và số cổng.
+│           │               └Bạn nên tham khảo tài liệu Oracle nếu bạn muốn sử dụng
 │                trình điều khiển này.
 ├─odbc
 │ │
@@ -1462,10 +1446,8 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Có thể tham khảo cơ sở dữ liệu danh mục cụ thể.
-│         │
-│         ├Có thể kết nối với một máy chủ và số cổng.
-│         │
-│         └Bạn nên tham khảo tài liệu ODBC/DB2 nếu bạn muốn sử dụng
+│     │         ├Có thể kết nối với một máy chủ và số cổng.
+│     │         └Bạn nên tham khảo tài liệu ODBC/DB2 nếu bạn muốn sử dụng
 │          trình điều khiển này.
 ├─pgsql
 │ │
@@ -1473,10 +1455,8 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─pgsql:host=localhost;port=5432;dbname=example
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └Tên của cơ sở dữ liệu để sử dụng.
-│               │              │
-│               │              └Số cổng để kết nối với máy chủ.
-│               │
-│               └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│               │          │               │              └Số cổng để kết nối với máy chủ.
+│           │               └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1489,10 +1469,8 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └Tên của cơ sở dữ liệu để sử dụng.
-                   │         │
-                   │         └Số cổng để kết nối với máy chủ.
-                   │
-                   └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+                   │                        │         └Số cổng để kết nối với máy chủ.
+                                  └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 ```
 
 Nếu bạn không chắc chắn về việc sử dụng cái gì cho một phần cụ thể trong DSN của mình, hãy thử xem trước tiên xem nó có hoạt động như cũ không mà không thay đổi gì.
@@ -1710,4 +1688,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2021.10.31.
+Lần cuối cập nhật: 2022.02.17.

@@ -72,7 +72,7 @@
 
 `php_value auto_prepend_file "/user_name/public_html/phpmussel/loader.php"`
 
-<div dir="rtl">٧. لقد إنتهيت لكن يجب عليك التأكد من أن كل شيئ على ما يرام، للتأكد حاول رفع ملفات الفحص الموجودة في الحزمة <code dir="ltr">_testfiles</code> لموقعك. (تأكد من أنك قمت بتضمين ملفات التوقيع `phpmussel*.*db` في إعداد `active` الخاص بك لبدء تشغيل ملفات الاختبار). إذا كل شيئ يعمل على ما يرام يجب أن تظهر رسالة من phpMussel لتأكيد على أنه تم حجب الملفات المرفوعة بنجاح، إذا لم يظهر شيئ إذاً هناك شيئ لا يعمل على ما يرام، إذا كنت تستخدم إضافات متقدمة أو أدوات فحص أخرى أقترح أن تجرب من خلالهم أيضاً للتأكد إذا ما كان كل شيئ على ما يرام.<br /><br /></div>
+<div dir="rtl">٧. لقد إنتهيت لكن يجب عليك التأكد من أن كل شيئ على ما يرام، للتأكد حاول رفع ملفات الفحص الموجودة في الحزمة <code dir="ltr">.tests/samples</code> لموقعك. (تأكد من أنك قمت بتضمين ملفات التوقيع `phpmussel*.*db` في إعداد `active` الخاص بك لبدء تشغيل ملفات الاختبار). إذا كل شيئ يعمل على ما يرام يجب أن تظهر رسالة من phpMussel لتأكيد على أنه تم حجب الملفات المرفوعة بنجاح، إذا لم يظهر شيئ إذاً هناك شيئ لا يعمل على ما يرام، إذا كنت تستخدم إضافات متقدمة أو أدوات فحص أخرى أقترح أن تجرب من خلالهم أيضاً للتأكد إذا ما كان كل شيئ على ما يرام.<br /><br /></div>
 
 #### <div dir="rtl">٢.١ تثبيت يدويا (لخدمات واجهة سطر الأوامر)</div>
 
@@ -86,7 +86,7 @@
 
 <div dir="rtl">٥. تثبيت أي التوقيعات التي ستحتاج إليها. <em>نرى: <a href="#INSTALLING_SIGNATURES">تثبيت التوقيعات</a>).</em><br /><br /></div>
 
-<div dir="rtl">٦. في هذه المرحلة، لقد انتهيت! ومع ذلك فربما يجب عليك اختباره للتأكد من أنه يعمل بشكل صحيح. لاختبار phpMussel، قم بتشغيله و حاول فحص الدليل <code dir="ltr">_testfiles</code> المتوفر مع الحزمة.<br /><br /></div>
+<div dir="rtl">٦. في هذه المرحلة، لقد انتهيت! ومع ذلك فربما يجب عليك اختباره للتأكد من أنه يعمل بشكل صحيح. لاختبار phpMussel، قم بتشغيله و حاول فحص الدليل <code dir="ltr">.tests/samples</code> المتوفر مع الحزمة.<br /><br /></div>
 
 #### <div dir="rtl">٢.٢ تثبيت مع COMPOSER</div>
 
@@ -239,153 +239,147 @@ https://github.com/phpMussel/phpMussel>v2
 │   tests.php
 ├───.github
 │   │   FUNDING.yml
-│   │
 │   └───workflows
 │           php-cs-fixer.yml
 │           v2.yml
-├───tests
-│       signatures.zip
-├───vault
-│   │   channels.yaml
-│   │   cli.php
-│   │   components.dat
-│   │   config.ini.RenameMe
-│   │   config.php
-│   │   config.yaml
-│   │   event_handlers.php
-│   │   frontend.php
-│   │   frontend_functions.php
-│   │   functions.php
-│   │   greylist.csv
-│   │   lang.php
-│   │   plugins.dat
-│   │   shorthand.yaml
-│   │   signatures.dat
-│   │   template_custom.html
-│   │   template_default.html
-│   │   themes.dat
-│   │   upload.php
-│   │
-│   ├───classes
-│   │   │   ArchiveHandler.php
-│   │   │   CompressionHandler.php
-│   │   │   TemporaryFileHandler.php
-│   │   │
-│   │   └───Maikuolan
-│   │           Cache.php
-│   │           ComplexStringHandler.php
-│   │           DelayedIO.php
-│   │           Demojibakefier.php
-│   │           Events.php
-│   │           L10N.php
-│   │           Matrix.php
-│   │           NumberFormatter.php
-│   │           Operation.php
-│   │           Request.php
-│   │           YAML.php
-│   │
-│   ├───fe_assets
-│   │       frontend.css
-│   │       frontend.html
-│   │       icons.php
-│   │       lock_bl_c.png
-│   │       lock_bl_o.png
-│   │       lock_rd_c.png
-│   │       lock_rd_o.png
-│   │       lock_wt_c.png
-│   │       lock_wt_o.png
-│   │       pips.php
-│   │       scripts.js
-│   │       _2fa.html
-│   │       _accounts.html
-│   │       _accounts_row.html
-│   │       _cache.html
-│   │       _config.html
-│   │       _config_row.html
-│   │       _files.html
-│   │       _files_edit.html
-│   │       _files_rename.html
-│   │       _files_row.html
-│   │       _home.html
-│   │       _login.html
-│   │       _logs.html
-│   │       _nav_complete_access.html
-│   │       _nav_logs_access_only.html
-│   │       _quarantine.html
-│   │       _quarantine_row.html
-│   │       _siginfo.html
-│   │       _siginfo_row.html
-│   │       _statistics.html
-│   │       _updates.html
-│   │       _updates_row.html
-│   │       _upload_test.html
-│   │
-│   ├───lang
-│   │       lang.ar.fe.yaml
-│   │       lang.ar.yaml
-│   │       lang.bn.fe.yaml
-│   │       lang.bn.yaml
-│   │       lang.de.fe.yaml
-│   │       lang.de.yaml
-│   │       lang.en.fe.yaml
-│   │       lang.en.yaml
-│   │       lang.es.fe.yaml
-│   │       lang.es.yaml
-│   │       lang.fr.fe.yaml
-│   │       lang.fr.yaml
-│   │       lang.hi.fe.yaml
-│   │       lang.hi.yaml
-│   │       lang.id.fe.yaml
-│   │       lang.id.yaml
-│   │       lang.it.fe.yaml
-│   │       lang.it.yaml
-│   │       lang.ja.fe.yaml
-│   │       lang.ja.yaml
-│   │       lang.ko.fe.yaml
-│   │       lang.ko.yaml
-│   │       lang.lv.fe.yaml
-│   │       lang.lv.yaml
-│   │       lang.nl.fe.yaml
-│   │       lang.nl.yaml
-│   │       lang.no.fe.yaml
-│   │       lang.no.yaml
-│   │       lang.pl.fe.yaml
-│   │       lang.pl.yaml
-│   │       lang.pt.fe.yaml
-│   │       lang.pt.yaml
-│   │       lang.ru.fe.yaml
-│   │       lang.ru.yaml
-│   │       lang.sv.fe.yaml
-│   │       lang.sv.yaml
-│   │       lang.th.fe.yaml
-│   │       lang.th.yaml
-│   │       lang.tr.fe.yaml
-│   │       lang.tr.yaml
-│   │       lang.ur.fe.yaml
-│   │       lang.ur.yaml
-│   │       lang.vi.fe.yaml
-│   │       lang.vi.yaml
-│   │       lang.zh-tw.fe.yaml
-│   │       lang.zh-tw.yaml
-│   │       lang.zh.fe.yaml
-│   │       lang.zh.yaml
-│   │
-│   └───signatures
-│           switch.dat
-└───_testfiles
-        ascii_standard_testfile.txt
-        coex_testfile.rtf
-        exe_standard_testfile.exe
-        general_standard_testfile.txt
-        graphics_standard_testfile.gif
-        hash_testfile_md5.txt
-        hash_testfile_sha1.txt
-        hash_testfile_sha256.txt
-        html_standard_testfile.html
-        ole_testfile.ole
-        pdf_standard_testfile.pdf
-        pe_sectional_testfile.exe
-        swf_standard_testfile.swf
+├───.tests
+│   │   signatures.zip
+│   └───samples
+│           ascii_standard_testfile.txt
+│           coex_testfile.rtf
+│           exe_standard_testfile.exe
+│           general_standard_testfile.txt
+│           graphics_standard_testfile.gif
+│           hash_testfile_md5.txt
+│           hash_testfile_sha1.txt
+│           hash_testfile_sha256.txt
+│           html_standard_testfile.html
+│           ole_testfile.ole
+│           pdf_standard_testfile.pdf
+│           pe_sectional_testfile.exe
+│           swf_standard_testfile.swf
+└───vault
+    │   channels.yaml
+    │   cli.php
+    │   components.dat
+    │   config.ini.RenameMe
+    │   config.php
+    │   config.yaml
+    │   event_handlers.php
+    │   frontend.php
+    │   frontend_functions.php
+    │   functions.php
+    │   greylist.csv
+    │   lang.php
+    │   plugins.dat
+    │   shorthand.yaml
+    │   signatures.dat
+    │   template_custom.html
+    │   template_default.html
+    │   themes.dat
+    │   upload.php
+    ├───classes
+    │   │   ArchiveHandler.php
+    │   │   CompressionHandler.php
+    │   │   TemporaryFileHandler.php
+    │   └───Maikuolan
+    │           Cache.php
+    │           ComplexStringHandler.php
+    │           DelayedIO.php
+    │           Demojibakefier.php
+    │           Events.php
+    │           L10N.php
+    │           Matrix.php
+    │           NumberFormatter.php
+    │           Operation.php
+    │           Request.php
+    │           YAML.php
+    ├───fe_assets
+    │       frontend.css
+    │       frontend.html
+    │       icons.php
+    │       lock_bl_c.png
+    │       lock_bl_o.png
+    │       lock_rd_c.png
+    │       lock_rd_o.png
+    │       lock_wt_c.png
+    │       lock_wt_o.png
+    │       pips.php
+    │       scripts.js
+    │       _2fa.html
+    │       _accounts.html
+    │       _accounts_row.html
+    │       _cache.html
+    │       _config.html
+    │       _config_row.html
+    │       _files.html
+    │       _files_edit.html
+    │       _files_rename.html
+    │       _files_row.html
+    │       _home.html
+    │       _login.html
+    │       _logs.html
+    │       _nav_complete_access.html
+    │       _nav_logs_access_only.html
+    │       _quarantine.html
+    │       _quarantine_row.html
+    │       _siginfo.html
+    │       _siginfo_row.html
+    │       _statistics.html
+    │       _updates.html
+    │       _updates_row.html
+    │       _upload_test.html
+    ├───lang
+    │       lang.ar.fe.yaml
+    │       lang.ar.yaml
+    │       lang.bn.fe.yaml
+    │       lang.bn.yaml
+    │       lang.de.fe.yaml
+    │       lang.de.yaml
+    │       lang.en.fe.yaml
+    │       lang.en.yaml
+    │       lang.es.fe.yaml
+    │       lang.es.yaml
+    │       lang.fr.fe.yaml
+    │       lang.fr.yaml
+    │       lang.hi.fe.yaml
+    │       lang.hi.yaml
+    │       lang.id.fe.yaml
+    │       lang.id.yaml
+    │       lang.it.fe.yaml
+    │       lang.it.yaml
+    │       lang.ja.fe.yaml
+    │       lang.ja.yaml
+    │       lang.ko.fe.yaml
+    │       lang.ko.yaml
+    │       lang.lv.fe.yaml
+    │       lang.lv.yaml
+    │       lang.nl.fe.yaml
+    │       lang.nl.yaml
+    │       lang.no.fe.yaml
+    │       lang.no.yaml
+    │       lang.pl.fe.yaml
+    │       lang.pl.yaml
+    │       lang.pt.fe.yaml
+    │       lang.pt.yaml
+    │       lang.ru.fe.yaml
+    │       lang.ru.yaml
+    │       lang.sv.fe.yaml
+    │       lang.sv.yaml
+    │       lang.th.fe.yaml
+    │       lang.th.yaml
+    │       lang.tr.fe.yaml
+    │       lang.tr.yaml
+    │       lang.ur.fe.yaml
+    │       lang.ur.yaml
+    │       lang.vi.fe.yaml
+    │       lang.vi.yaml
+    │       lang.zh-tw.fe.yaml
+    │       lang.zh-tw.yaml
+    │       lang.zh.fe.yaml
+    │       lang.zh.yaml
+    └───signatures
+            switch.dat
 ```
 
 ---
@@ -1633,30 +1627,24 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │ └─cubrid:host=localhost;port=33000;dbname=example
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └اسم قاعدة البيانات المراد استخدامها
-│                │              │
-│                │              └رقم المنفذ للاتصال بالمضيف مع
-│                │
-│                └المضيف للاتصال مع للعثور على قاعدة البيانات
+│                │          │                │              └رقم المنفذ للاتصال بالمضيف مع
+│            │                └المضيف للاتصال مع للعثور على قاعدة البيانات
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └اسم قاعدة البيانات المراد استخدامها
-│    │          │
-│    │          └المضيف للاتصال مع للعثور على قاعدة البيانات
-│    │
-│    └"mssql", "sybase", "dblib": القيم الممكنة
+│    │      │    │          └المضيف للاتصال مع للعثور على قاعدة البيانات
+││    └"mssql", "sybase", "dblib": القيم الممكنة
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├يمكن أن يكون الطريق إلى ملف قاعدة البيانات المحلية
-│                    │
-│                    ├يمكن الاتصال مع المضيف ورقم المنفذ
-│                    │
-│                    └يجب عليك الرجوع إلى وثائق Firebird إذا كنت تريد استخدام هذا
+│                │                    ├يمكن الاتصال مع المضيف ورقم المنفذ
+│                │                    └يجب عليك الرجوع إلى وثائق Firebird إذا كنت تريد استخدام هذا
 ├─ibm
 │ │
 │ │         ╔═════╗
@@ -1675,40 +1663,32 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
 │ └─mysql:dbname=example;host=localhost;port=3306
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └رقم المنفذ للاتصال بالمضيف مع
-│                 │            │
-│                 │            └المضيف للاتصال مع للعثور على قاعدة البيانات
-│                 │
-│                 └اسم قاعدة البيانات المراد استخدامها
+│                 │        │                 │            └المضيف للاتصال مع للعثور على قاعدة البيانات
+│             │                 └اسم قاعدة البيانات المراد استخدامها
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├يمكن الرجوع إلى قاعدة البيانات المفهرسة المحددة
-│               │
-│               ├يمكن الاتصال مع المضيف ورقم المنفذ
-│               │
-│               └يجب عليك الرجوع إلى وثائق Oracle إذا كنت تريد استخدام هذا
+│           │               ├يمكن الاتصال مع المضيف ورقم المنفذ
+│           │               └يجب عليك الرجوع إلى وثائق Oracle إذا كنت تريد استخدام هذا
 ├─odbc
 │ │
 │ │      ╔═════╗
 │ └─odbc:example
 │        ╚╤════╝
 │         ├يمكن الرجوع إلى قاعدة البيانات المفهرسة المحددة
-│         │
-│         ├يمكن الاتصال مع المضيف ورقم المنفذ
-│         │
-│         └└يجب عليك الرجوع إلى وثائق ODBC/DB2 إذا كنت تريد استخدام هذا
+│     │         ├يمكن الاتصال مع المضيف ورقم المنفذ
+│     │         └└يجب عليك الرجوع إلى وثائق ODBC/DB2 إذا كنت تريد استخدام هذا
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
 │ └─pgsql:host=localhost;port=5432;dbname=example
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └اسم قاعدة البيانات المراد استخدامها
-│               │              │
-│               │              └رقم المنفذ للاتصال بالمضيف مع
-│               │
-│               └المضيف للاتصال مع للعثور على قاعدة البيانات
+│               │          │               │              └رقم المنفذ للاتصال بالمضيف مع
+│           │               └المضيف للاتصال مع للعثور على قاعدة البيانات
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1721,10 +1701,8 @@ $phpMussel['Destroy-Scan-Debug-Array']($Foo);
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └اسم قاعدة البيانات المراد استخدامها
-                   │         │
-                   │         └رقم المنفذ للاتصال بالمضيف مع
-                   │
-                   └المضيف للاتصال مع للعثور على قاعدة البيانات
+                   │                        │         └رقم المنفذ للاتصال بالمضيف مع
+                                  └المضيف للاتصال مع للعثور على قاعدة البيانات
 ```
 
 <div dir="rtl">إذا لم تكن متأكدًا مما يمكنك استخدامه في جزء معين من DSN، فحاول أولاً معرفة ما إذا كان يعمل كما هو، دون تغيير أي شيء.<br /><br /></div>
@@ -1983,4 +1961,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٣١ أكتوبر ٢٠٢١ (٢٠٢١.١٠.٣١).</div>
+<div dir="rtl">آخر تحديث: ١٧ فبراير ٢٠٢٢ (٢٠٢٢.٠٢.١٧).</div>
