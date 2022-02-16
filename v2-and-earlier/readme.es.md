@@ -1392,8 +1392,10 @@ Dependiendo de qué controlador de base de datos se use...
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └El nombre de la base de datos a
 │                │              │             usar.
-│                │          │                │              └El número de puerto para conectarse al host.
-│            │                └El host con el que conectarse para encontrar la base de
+│                │              │
+│                │              └El número de puerto para conectarse al host.
+│                │
+│                └El host con el que conectarse para encontrar la base de
 │                 datos.
 ├─dblib
 │ │
@@ -1401,16 +1403,20 @@ Dependiendo de qué controlador de base de datos se use...
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └El nombre de la base de datos a usar.
-│    │      │    │          └El host con el que conectarse para encontrar la base de datos.
-││    └Valores posibles: "mssql", "sybase", "dblib".
+│    │          │
+│    │          └El host con el que conectarse para encontrar la base de datos.
+│    │
+│    └Valores posibles: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├Puede ser una ruta a un archivo de base de datos local.
-│                │                    ├Se puede conectar con un host y número de puerto.
-│                │                    └Debe consultar la documentación de Firebird si desea usar
+│                    │
+│                    ├Se puede conectar con un host y número de puerto.
+│                    │
+│                    └Debe consultar la documentación de Firebird si desea usar
 │                     esto.
 ├─ibm
 │ │
@@ -1431,9 +1437,11 @@ Dependiendo de qué controlador de base de datos se use...
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └El número de puerto para
 │                 │            │               conectarse al host.
-│                 │        │                 │            └El host con el que conectarse para encontrar la
+│                 │            │
+│                 │            └El host con el que conectarse para encontrar la
 │                 │             base de datos.
-│             │                 └El nombre de la base de datos a usar.
+│                 │
+│                 └El nombre de la base de datos a usar.
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1441,16 +1449,20 @@ Dependiendo de qué controlador de base de datos se use...
 │              ╚╤════╝
 │               ├Puede hacer referencia a la base de datos catalogada
 │               │específica.
-│           │               ├Se puede conectar con un host y número de puerto.
-│           │               └Debe consultar la documentación de Oracle si desea usar esto.
+│               │
+│               ├Se puede conectar con un host y número de puerto.
+│               │
+│               └Debe consultar la documentación de Oracle si desea usar esto.
 ├─odbc
 │ │
 │ │      ╔═════╗
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Puede hacer referencia a la base de datos catalogada específica.
-│     │         ├Se puede conectar con un host y número de puerto.
-│     │         └Debe consultar la documentación de ODBC/DB2 si desea usar esto.
+│         │
+│         ├Se puede conectar con un host y número de puerto.
+│         │
+│         └Debe consultar la documentación de ODBC/DB2 si desea usar esto.
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1458,8 +1470,10 @@ Dependiendo de qué controlador de base de datos se use...
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └El nombre de la base de datos a
 │               │              │            usar.
-│               │          │               │              └El número de puerto para conectarse al host.
-│           │               └El host con el que conectarse para encontrar la base de datos.
+│               │              │
+│               │              └El número de puerto para conectarse al host.
+│               │
+│               └El host con el que conectarse para encontrar la base de datos.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1472,8 +1486,10 @@ Dependiendo de qué controlador de base de datos se use...
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └El nombre de la base de datos a usar.
-                   │                        │         └El número de puerto para conectarse al host.
-                                  └El host con el que conectarse para encontrar la base de datos.
+                   │         │
+                   │         └El número de puerto para conectarse al host.
+                   │
+                   └El host con el que conectarse para encontrar la base de datos.
 ```
 
 Si no está seguro de qué usar para una parte particular de su DSN, intenta ver primero si funciona como está, sin cambiar nada.

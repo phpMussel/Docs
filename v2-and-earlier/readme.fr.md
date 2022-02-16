@@ -1392,8 +1392,10 @@ En fonction du pilote de base de données utilisé ...
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └Le nom de la base de données à
 │                │              │             utiliser.
-│                │          │                │              └Le numéro de port auquel se connecter.
-│            │                └L'hôte avec lequel se connecter pour trouver la base de
+│                │              │
+│                │              └Le numéro de port auquel se connecter.
+│                │
+│                └L'hôte avec lequel se connecter pour trouver la base de
 │                 données.
 ├─dblib
 │ │
@@ -1401,9 +1403,11 @@ En fonction du pilote de base de données utilisé ...
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └Le nom de la base de données à utiliser.
-│    │      │    │          └L'hôte avec lequel se connecter pour trouver la base de
+│    │          │
+│    │          └L'hôte avec lequel se connecter pour trouver la base de
 │    │           données.
-││    └Valeurs possibles : « mssql », « sybase », « dblib ».
+│    │
+│    └Valeurs possibles : « mssql », « sybase », « dblib ».
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1411,8 +1415,10 @@ En fonction du pilote de base de données utilisé ...
 │                   ╚╤══════════════════╝
 │                    ├Peut être un chemin d'accès à un fichier de base de
 │                    │données local.
-│                │                    ├Peut se connecter avec un hôte et un numéro de port.
-│                │                    └Vous devriez vous référer à la documentation Firebird si
+│                    │
+│                    ├Peut se connecter avec un hôte et un numéro de port.
+│                    │
+│                    └Vous devriez vous référer à la documentation Firebird si
 │                     vous voulez l'utiliser.
 ├─ibm
 │ │
@@ -1433,9 +1439,11 @@ En fonction du pilote de base de données utilisé ...
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └Le numéro de port auquel se
 │                 │            │               connecter.
-│                 │        │                 │            └L'hôte avec lequel se connecter pour trouver la
+│                 │            │
+│                 │            └L'hôte avec lequel se connecter pour trouver la
 │                 │             base de données.
-│             │                 └Le nom de la base de données à utiliser.
+│                 │
+│                 └Le nom de la base de données à utiliser.
 ├─oci
 │ │
 │ │            ╔═════╗
@@ -1443,8 +1451,10 @@ En fonction du pilote de base de données utilisé ...
 │              ╚╤════╝
 │               ├Peut faire référence à la base de données cataloguée
 │               │spécifique.
-│           │               ├Peut se connecter avec un hôte et un numéro de port.
-│           │               └Vous devriez vous référer à la documentation Oracle si vous
+│               │
+│               ├Peut se connecter avec un hôte et un numéro de port.
+│               │
+│               └Vous devriez vous référer à la documentation Oracle si vous
 │                voulez l'utiliser.
 ├─odbc
 │ │
@@ -1452,8 +1462,10 @@ En fonction du pilote de base de données utilisé ...
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Peut faire référence à la base de données cataloguée spécifique.
-│     │         ├Peut se connecter avec un hôte et un numéro de port.
-│     │         └Vous devriez vous référer à la documentation ODBC/DB2 si vous voulez
+│         │
+│         ├Peut se connecter avec un hôte et un numéro de port.
+│         │
+│         └Vous devriez vous référer à la documentation ODBC/DB2 si vous voulez
 │          l'utiliser.
 ├─pgsql
 │ │
@@ -1462,8 +1474,10 @@ En fonction du pilote de base de données utilisé ...
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └Le nom de la base de données à
 │               │              │            utiliser.
-│               │          │               │              └Le numéro de port auquel se connecter.
-│           │               └L'hôte avec lequel se connecter pour trouver la base de
+│               │              │
+│               │              └Le numéro de port auquel se connecter.
+│               │
+│               └L'hôte avec lequel se connecter pour trouver la base de
 │                données.
 ├─sqlite
 │ │
@@ -1478,8 +1492,10 @@ En fonction du pilote de base de données utilisé ...
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └Le nom de la base de données à
                    │         │              utiliser.
-                   │                        │         └Le numéro de port auquel se connecter.
-                                  └L'hôte avec lequel se connecter pour trouver la base de
+                   │         │
+                   │         └Le numéro de port auquel se connecter.
+                   │
+                   └L'hôte avec lequel se connecter pour trouver la base de
                     données.
 ```
 

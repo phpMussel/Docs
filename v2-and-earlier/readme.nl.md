@@ -1393,9 +1393,11 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └De naam van de database te
 │                │              │             gebruiken.
-│                │          │                │              └Het poortnummer waarmee verbinding moet worden
+│                │              │
+│                │              └Het poortnummer waarmee verbinding moet worden
 │                │               gemaakt met de host.
-│            │                └De host waarmee verbinding wordt gemaakt om de database te
+│                │
+│                └De host waarmee verbinding wordt gemaakt om de database te
 │                 vinden.
 ├─dblib
 │ │
@@ -1403,17 +1405,21 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └De naam van de database te gebruiken.
-│    │      │    │          └De host waarmee verbinding wordt gemaakt om de database te
+│    │          │
+│    │          └De host waarmee verbinding wordt gemaakt om de database te
 │    │           vinden.
-││    └Mogelijke waarden: "mssql", "sybase", "dblib".
+│    │
+│    └Mogelijke waarden: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├Kan een pad zijn naar een lokaal databasebestand.
-│                │                    ├Kan verbinding maken met een host en poortnummer.
-│                │                    └Raadpleeg de Firebird-documentatie als u hiervan gebruik
+│                    │
+│                    ├Kan verbinding maken met een host en poortnummer.
+│                    │
+│                    └Raadpleeg de Firebird-documentatie als u hiervan gebruik
 │                     wilt maken.
 ├─ibm
 │ │
@@ -1436,17 +1442,21 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │                 │            │              └Het poortnummer waarmee
 │                 │            │               verbinding moet worden gemaakt
 │                 │            │               met de host.
-│                 │        │                 │            └De host waarmee verbinding wordt gemaakt om de
+│                 │            │
+│                 │            └De host waarmee verbinding wordt gemaakt om de
 │                 │             database te vinden.
-│             │                 └De naam van de database te gebruiken.
+│                 │
+│                 └De naam van de database te gebruiken.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├Kan verwijzen naar de specifieke gecatalogiseerde database.
-│           │               ├Kan verbinding maken met een host en poortnummer.
-│           │               └Raadpleeg de Oracle-documentatie als u hiervan gebruik wilt
+│               │
+│               ├Kan verbinding maken met een host en poortnummer.
+│               │
+│               └Raadpleeg de Oracle-documentatie als u hiervan gebruik wilt
 │                maken.
 ├─odbc
 │ │
@@ -1454,8 +1464,10 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Kan verwijzen naar de specifieke gecatalogiseerde database.
-│     │         ├Kan verbinding maken met een host en poortnummer.
-│     │         └Raadpleeg de ODBC/DB2-documentatie als u hiervan gebruik wilt maken.
+│         │
+│         ├Kan verbinding maken met een host en poortnummer.
+│         │
+│         └Raadpleeg de ODBC/DB2-documentatie als u hiervan gebruik wilt maken.
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1463,9 +1475,11 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └De naam van de database te
 │               │              │            gebruiken.
-│               │          │               │              └Het poortnummer waarmee verbinding moet worden
+│               │              │
+│               │              └Het poortnummer waarmee verbinding moet worden
 │               │               gemaakt met de host.
-│           │               └De host waarmee verbinding wordt gemaakt om de database te
+│               │
+│               └De host waarmee verbinding wordt gemaakt om de database te
 │                vinden.
 ├─sqlite
 │ │
@@ -1479,9 +1493,11 @@ Afhankelijk van welk databasestuurprogramma wordt gebruikt...
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └De naam van de database te gebruiken.
-                   │                        │         └Het poortnummer waarmee verbinding moet worden
+                   │         │
+                   │         └Het poortnummer waarmee verbinding moet worden
                    │          gemaakt met de host.
-                                  └De host waarmee verbinding wordt gemaakt om de database te
+                   │
+                   └De host waarmee verbinding wordt gemaakt om de database te
                     vinden.
 ```
 

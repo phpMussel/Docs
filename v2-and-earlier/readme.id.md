@@ -1392,24 +1392,30 @@ Tergantung pada driver basis data yang digunakan...
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └Nama basis data yang akan
 │                │              │             digunakan.
-│                │          │                │              └Nomor port yang akan dihubungkan dengan host.
-│            │                └Host untuk terhubung dengan untuk menemukan database.
+│                │              │
+│                │              └Nomor port yang akan dihubungkan dengan host.
+│                │
+│                └Host untuk terhubung dengan untuk menemukan database.
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └Nama basis data yang akan digunakan.
-│    │      │    │          └Host untuk terhubung dengan untuk menemukan database.
-││    └Nilai yang mungkin: "mssql", "sybase", "dblib".
+│    │          │
+│    │          └Host untuk terhubung dengan untuk menemukan database.
+│    │
+│    └Nilai yang mungkin: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├Dapat menjadi jalur ke file database lokal.
-│                │                    ├Dapat terhubung dengan nomor host dan port.
-│                │                    └Anda harus merujuk pada dokumentasi Firebird jika Anda
+│                    │
+│                    ├Dapat terhubung dengan nomor host dan port.
+│                    │
+│                    └Anda harus merujuk pada dokumentasi Firebird jika Anda
 │                     ingin menggunakan ini.
 ├─ibm
 │ │
@@ -1430,17 +1436,21 @@ Tergantung pada driver basis data yang digunakan...
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └Nomor port yang akan dihubungkan
 │                 │            │               dengan host.
-│                 │        │                 │            └Host untuk terhubung dengan untuk menemukan
+│                 │            │
+│                 │            └Host untuk terhubung dengan untuk menemukan
 │                 │             database.
-│             │                 └Nama basis data yang akan digunakan.
+│                 │
+│                 └Nama basis data yang akan digunakan.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├Dapat merujuk ke database terkatalog spesifik.
-│           │               ├Dapat terhubung dengan nomor host dan port.
-│           │               └Anda harus merujuk pada dokumentasi Oracle jika Anda ingin
+│               │
+│               ├Dapat terhubung dengan nomor host dan port.
+│               │
+│               └Anda harus merujuk pada dokumentasi Oracle jika Anda ingin
 │                menggunakan ini.
 ├─odbc
 │ │
@@ -1448,8 +1458,10 @@ Tergantung pada driver basis data yang digunakan...
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Dapat merujuk ke database terkatalog spesifik.
-│     │         ├Dapat terhubung dengan nomor host dan port.
-│     │         └Anda harus merujuk pada dokumentasi ODBC/DB2 jika Anda ingin
+│         │
+│         ├Dapat terhubung dengan nomor host dan port.
+│         │
+│         └Anda harus merujuk pada dokumentasi ODBC/DB2 jika Anda ingin
 │          menggunakan ini.
 ├─pgsql
 │ │
@@ -1458,8 +1470,10 @@ Tergantung pada driver basis data yang digunakan...
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └Nama basis data yang akan
 │               │              │            digunakan.
-│               │          │               │              └Nomor port yang akan dihubungkan dengan host.
-│           │               └Host untuk terhubung dengan untuk menemukan database.
+│               │              │
+│               │              └Nomor port yang akan dihubungkan dengan host.
+│               │
+│               └Host untuk terhubung dengan untuk menemukan database.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1472,8 +1486,10 @@ Tergantung pada driver basis data yang digunakan...
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └Nama basis data yang akan digunakan.
-                   │                        │         └Nomor port yang akan dihubungkan dengan host.
-                                  └Host untuk terhubung dengan untuk menemukan database.
+                   │         │
+                   │         └Nomor port yang akan dihubungkan dengan host.
+                   │
+                   └Host untuk terhubung dengan untuk menemukan database.
 ```
 
 Jika Anda tidak yakin tentang apa yang harus digunakan untuk beberapa bagian tertentu dari DSN Anda, coba lihat terlebih dahulu apakah itu berfungsi sebagaimana mestinya, tanpa mengubah apapun.

@@ -1392,25 +1392,31 @@ A seconda del driver del database utilizzato...
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └Il nome del database da
 │                │              │             utilizzare.
-│                │          │                │              └Il numero di porta con cui connettersi
+│                │              │
+│                │              └Il numero di porta con cui connettersi
 │                │               all'host.
-│            │                └L'host con cui connettersi per trovare il database.
+│                │
+│                └L'host con cui connettersi per trovare il database.
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └Il nome del database da utilizzare.
-│    │      │    │          └L'host con cui connettersi per trovare il database.
-││    └Valori possibili: "mssql", "sybase", "dblib".
+│    │          │
+│    │          └L'host con cui connettersi per trovare il database.
+│    │
+│    └Valori possibili: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├Può essere un percorso per un file di database locale.
-│                │                    ├Può connettersi con un host e un numero di porta.
-│                │                    └Dovresti leggi la documentazione di Firebird se si
+│                    │
+│                    ├Può connettersi con un host e un numero di porta.
+│                    │
+│                    └Dovresti leggi la documentazione di Firebird se si
 │                     desidera utilizzare questo.
 ├─ibm
 │ │
@@ -1431,17 +1437,21 @@ A seconda del driver del database utilizzato...
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └Il numero di porta con cui
 │                 │            │               connettersi all'host.
-│                 │        │                 │            └L'host con cui connettersi per trovare il
+│                 │            │
+│                 │            └L'host con cui connettersi per trovare il
 │                 │             database.
-│             │                 └Il nome del database da utilizzare.
+│                 │
+│                 └Il nome del database da utilizzare.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├Può fare riferimento al database catalogato specifico.
-│           │               ├Può connettersi con un host e un numero di porta.
-│           │               └Dovresti leggi la documentazione di Oracle se si desidera
+│               │
+│               ├Può connettersi con un host e un numero di porta.
+│               │
+│               └Dovresti leggi la documentazione di Oracle se si desidera
 │                utilizzare questo.
 ├─odbc
 │ │
@@ -1449,8 +1459,10 @@ A seconda del driver del database utilizzato...
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Può fare riferimento al database catalogato specifico.
-│     │         ├Può connettersi con un host e un numero di porta.
-│     │         └Dovresti leggi la documentazione di ODBC/DB2 se si desidera
+│         │
+│         ├Può connettersi con un host e un numero di porta.
+│         │
+│         └Dovresti leggi la documentazione di ODBC/DB2 se si desidera
 │          utilizzare questo.
 ├─pgsql
 │ │
@@ -1458,9 +1470,11 @@ A seconda del driver del database utilizzato...
 │ └─pgsql:host=localhost;port=5432;dbname=example
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └Il nome del database da utilizzare.
-│               │          │               │              └Il numero di porta con cui connettersi
+│               │              │
+│               │              └Il numero di porta con cui connettersi
 │               │               all'host.
-│           │               └L'host con cui connettersi per trovare il database.
+│               │
+│               └L'host con cui connettersi per trovare il database.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1473,8 +1487,10 @@ A seconda del driver del database utilizzato...
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └Il nome del database da utilizzare.
-                   │                        │         └Il numero di porta con cui connettersi all'host.
-                                  └L'host con cui connettersi per trovare il database.
+                   │         │
+                   │         └Il numero di porta con cui connettersi all'host.
+                   │
+                   └L'host con cui connettersi per trovare il database.
 ```
 
 Se non sei sicuro di cosa utilizzare per una parte particolare del tuo DSN, prova innanzitutto a vedere se funziona così com'è, senza cambiare nulla.

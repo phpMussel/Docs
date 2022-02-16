@@ -1392,26 +1392,32 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │ └─cubrid:host=localhost;port=33000;dbname=example
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └Der Name der Datenbank.
-│                │          │                │              └Die Portnummer, die beim Herstellen der
+│                │              │
+│                │              └Die Portnummer, die beim Herstellen der
 │                │               Verbindung verwendet werden soll.
-│            │                └Der Host, auf dem sich die Datenbank befindet.
+│                │
+│                └Der Host, auf dem sich die Datenbank befindet.
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └Der Name der Datenbank.
-│    │      │    │          └Der Host, auf dem sich die Datenbank befindet.
-││    └Mögliche Werte: "mssql", "sybase", "dblib".
+│    │          │
+│    │          └Der Host, auf dem sich die Datenbank befindet.
+│    │
+│    └Mögliche Werte: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
 │ └─firebird:dbname=/path/to/database.fdb
 │                   ╚╤══════════════════╝
 │                    ├Kann ein Pfad zu einer lokalen Datenbankdatei sein.
-│                │                    ├Kann eine Verbindung mit einem Host und einer Portnummer
+│                    │
+│                    ├Kann eine Verbindung mit einem Host und einer Portnummer
 │                    │herstellen.
-│                │                    └Sie sollten auf die Firebird-Dokumentation lesen wenn Sie
+│                    │
+│                    └Sie sollten auf die Firebird-Dokumentation lesen wenn Sie
 │                     diese verwenden möchten.
 ├─ibm
 │ │
@@ -1435,17 +1441,21 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │                 │            │              └Die Portnummer, die beim
 │                 │            │               Herstellen der Verbindung
 │                 │            │               verwendet werden soll.
-│                 │        │                 │            └Der Host, auf dem sich die Datenbank befindet.
-│             │                 └Der Name der Datenbank.
+│                 │            │
+│                 │            └Der Host, auf dem sich die Datenbank befindet.
+│                 │
+│                 └Der Name der Datenbank.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├Kann auf die spezifische katalogisierte Datenbank verweisen.
-│           │               ├Kann eine Verbindung mit einem Host und einer Portnummer
+│               │
+│               ├Kann eine Verbindung mit einem Host und einer Portnummer
 │               │herstellen.
-│           │               └Sie sollten auf die Oracle-Dokumentation lesen wenn Sie diese
+│               │
+│               └Sie sollten auf die Oracle-Dokumentation lesen wenn Sie diese
 │                verwenden möchten.
 ├─odbc
 │ │
@@ -1453,8 +1463,10 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Kann auf die spezifische katalogisierte Datenbank verweisen.
-│     │         ├Kann eine Verbindung mit einem Host und einer Portnummer herstellen.
-│     │         └Sie sollten auf die ODBC/DB2-Dokumentation lesen wenn Sie diese
+│         │
+│         ├Kann eine Verbindung mit einem Host und einer Portnummer herstellen.
+│         │
+│         └Sie sollten auf die ODBC/DB2-Dokumentation lesen wenn Sie diese
 │          verwenden möchten.
 ├─pgsql
 │ │
@@ -1462,9 +1474,11 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
 │ └─pgsql:host=localhost;port=5432;dbname=example
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └Der Name der Datenbank.
-│               │          │               │              └Die Portnummer, die beim Herstellen der
+│               │              │
+│               │              └Die Portnummer, die beim Herstellen der
 │               │               Verbindung verwendet werden soll.
-│           │               └Der Host, auf dem sich die Datenbank befindet.
+│               │
+│               └Der Host, auf dem sich die Datenbank befindet.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1477,9 +1491,11 @@ Abhängig davon, welcher Datenbanktreiber verwendet wird...
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └Der Name der Datenbank.
-                   │                        │         └Die Portnummer, die beim Herstellen der
+                   │         │
+                   │         └Die Portnummer, die beim Herstellen der
                    │          Verbindung verwendet werden soll.
-                                  └Der Host, auf dem sich die Datenbank befindet.
+                   │
+                   └Der Host, auf dem sich die Datenbank befindet.
 ```
 
 Wenn Sie sich nicht sicher sind, was Sie für einen bestimmten Teil Ihres DSN verwenden sollen, prüfen Sie zunächst, ob der DSN so funktioniert, wie er ist, ohne etwas zu ändern.

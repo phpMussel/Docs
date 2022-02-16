@@ -1391,16 +1391,20 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─cubrid:host=localhost;port=33000;dbname=example
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └Tên của cơ sở dữ liệu để sử dụng.
-│                │          │                │              └Số cổng để kết nối với máy chủ.
-│            │                └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│                │              │
+│                │              └Số cổng để kết nối với máy chủ.
+│                │
+│                └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └Tên của cơ sở dữ liệu để sử dụng.
-│    │      │    │          └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-││    └Những giá trị khả thi: "mssql", "sybase", "dblib".
+│    │          │
+│    │          └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│    │
+│    └Những giá trị khả thi: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1408,8 +1412,10 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │                   ╚╤══════════════════╝
 │                    ├Có thể là một đường dẫn đến một tập tin cơ sở dữ liệu
 │                    │cục bộ.
-│                │                    ├Có thể kết nối với một máy chủ và số cổng.
-│                │                    └Bạn nên tham khảo tài liệu Firebird nếu bạn muốn sử dụng
+│                    │
+│                    ├Có thể kết nối với một máy chủ và số cổng.
+│                    │
+│                    └Bạn nên tham khảo tài liệu Firebird nếu bạn muốn sử dụng
 │                     trình điều khiển này.
 ├─ibm
 │ │
@@ -1429,16 +1435,20 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─mysql:dbname=example;host=localhost;port=3306
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └Số cổng để kết nối với máy chủ.
-│                 │        │                 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
-│             │                 └Tên của cơ sở dữ liệu để sử dụng.
+│                 │            │
+│                 │            └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│                 │
+│                 └Tên của cơ sở dữ liệu để sử dụng.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├Can refer to the specific catalogued database.
-│           │               ├Có thể kết nối với một máy chủ và số cổng.
-│           │               └Bạn nên tham khảo tài liệu Oracle nếu bạn muốn sử dụng
+│               │
+│               ├Có thể kết nối với một máy chủ và số cổng.
+│               │
+│               └Bạn nên tham khảo tài liệu Oracle nếu bạn muốn sử dụng
 │                trình điều khiển này.
 ├─odbc
 │ │
@@ -1446,8 +1456,10 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Có thể tham khảo cơ sở dữ liệu danh mục cụ thể.
-│     │         ├Có thể kết nối với một máy chủ và số cổng.
-│     │         └Bạn nên tham khảo tài liệu ODBC/DB2 nếu bạn muốn sử dụng
+│         │
+│         ├Có thể kết nối với một máy chủ và số cổng.
+│         │
+│         └Bạn nên tham khảo tài liệu ODBC/DB2 nếu bạn muốn sử dụng
 │          trình điều khiển này.
 ├─pgsql
 │ │
@@ -1455,8 +1467,10 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
 │ └─pgsql:host=localhost;port=5432;dbname=example
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └Tên của cơ sở dữ liệu để sử dụng.
-│               │          │               │              └Số cổng để kết nối với máy chủ.
-│           │               └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+│               │              │
+│               │              └Số cổng để kết nối với máy chủ.
+│               │
+│               └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1469,8 +1483,10 @@ Tùy thuộc vào trình điều khiển cơ sở dữ liệu nào được sử
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └Tên của cơ sở dữ liệu để sử dụng.
-                   │                        │         └Số cổng để kết nối với máy chủ.
-                                  └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
+                   │         │
+                   │         └Số cổng để kết nối với máy chủ.
+                   │
+                   └Máy chủ để kết nối với để tìm cơ sở dữ liệu.
 ```
 
 Nếu bạn không chắc chắn về việc sử dụng cái gì cho một phần cụ thể trong DSN của mình, hãy thử xem trước tiên xem nó có hoạt động như cũ không mà không thay đổi gì.

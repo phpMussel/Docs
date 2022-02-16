@@ -1392,17 +1392,21 @@ Dependendo do driver de banco de dados usado...
 │               ╚╤══════╝      ╚╤══╝        ╚╤════╝
 │                │              │            └O nome do banco de dados a ser
 │                │              │             usado.
-│                │          │                │              └O número da porta com a qual se conectar ao
+│                │              │
+│                │              └O número da porta com a qual se conectar ao
 │                │               host.
-│            │                └O host para conectar-se para encontrar o banco de dados.
+│                │
+│                └O host para conectar-se para encontrar o banco de dados.
 ├─dblib
 │ │
 │ │ ╔═══╗      ╔═══════╗        ╔═════╗
 │ └─dblib:host=localhost;dbname=example
 │   ╚╤══╝      ╚╤══════╝        ╚╤════╝
 │    │          │                └O nome do banco de dados a ser usado.
-│    │      │    │          └O host para conectar-se para encontrar o banco de dados.
-││    └Valores possíveis: "mssql", "sybase", "dblib".
+│    │          │
+│    │          └O host para conectar-se para encontrar o banco de dados.
+│    │
+│    └Valores possíveis: "mssql", "sybase", "dblib".
 ├─firebird
 │ │
 │ │                 ╔═══════════════════╗
@@ -1410,8 +1414,10 @@ Dependendo do driver de banco de dados usado...
 │                   ╚╤══════════════════╝
 │                    ├Pode ser um caminho para um arquivo de banco de dados
 │                    │local.
-│                │                    ├Pode se conectar com um host e um número de porta.
-│                │                    └Você deve consultar a documentação do Firebird se quiser
+│                    │
+│                    ├Pode se conectar com um host e um número de porta.
+│                    │
+│                    └Você deve consultar a documentação do Firebird se quiser
 │                     usá-lo.
 ├─ibm
 │ │
@@ -1432,25 +1438,31 @@ Dependendo do driver de banco de dados usado...
 │                ╚╤════╝      ╚╤══════╝      ╚╤═╝
 │                 │            │              └O número da porta com a qual se
 │                 │            │               conectar ao host.
-│                 │        │                 │            └O host para conectar-se para encontrar o banco
+│                 │            │
+│                 │            └O host para conectar-se para encontrar o banco
 │                 │             de dados.
-│             │                 └O nome do banco de dados a ser usado.
+│                 │
+│                 └O nome do banco de dados a ser usado.
 ├─oci
 │ │
 │ │            ╔═════╗
 │ └─oci:dbname=example
 │              ╚╤════╝
 │               ├Pode se referir ao banco de dados catalogado específico.
-│           │               ├Pode se conectar com um host e um número de porta.
-│           │               └Você deve consultar a documentação do Oracle se quiser usá-lo.
+│               │
+│               ├Pode se conectar com um host e um número de porta.
+│               │
+│               └Você deve consultar a documentação do Oracle se quiser usá-lo.
 ├─odbc
 │ │
 │ │      ╔═════╗
 │ └─odbc:example
 │        ╚╤════╝
 │         ├Pode se referir ao banco de dados catalogado específico.
-│     │         ├Pode se conectar com um host e um número de porta.
-│     │         └Você deve consultar a documentação do ODBC/DB2 se quiser usá-lo.
+│         │
+│         ├Pode se conectar com um host e um número de porta.
+│         │
+│         └Você deve consultar a documentação do ODBC/DB2 se quiser usá-lo.
 ├─pgsql
 │ │
 │ │            ╔═══════╗      ╔══╗        ╔═════╗
@@ -1458,9 +1470,11 @@ Dependendo do driver de banco de dados usado...
 │              ╚╤══════╝      ╚╤═╝        ╚╤════╝
 │               │              │           └O nome do banco de dados a ser
 │               │              │            usado.
-│               │          │               │              └O número da porta com a qual se conectar ao
+│               │              │
+│               │              └O número da porta com a qual se conectar ao
 │               │               host.
-│           │               └O host para conectar-se para encontrar o banco de dados.
+│               │
+│               └O host para conectar-se para encontrar o banco de dados.
 ├─sqlite
 │ │
 │ │        ╔════════╗
@@ -1473,8 +1487,10 @@ Dependendo do driver de banco de dados usado...
   └─sqlsrv:Server=localhost,1521;Database=example
                   ╚╤══════╝ ╚╤═╝          ╚╤════╝
                    │         │             └O nome do banco de dados a ser usado.
-                   │                        │         └O número da porta com a qual se conectar ao host.
-                                  └O host para conectar-se para encontrar o banco de dados.
+                   │         │
+                   │         └O número da porta com a qual se conectar ao host.
+                   │
+                   └O host para conectar-se para encontrar o banco de dados.
 ```
 
 Se você não tiver certeza sobre o que usar para uma parte específica do seu DSN, tente primeiro verificar se funciona como está, sem alterar nada.
