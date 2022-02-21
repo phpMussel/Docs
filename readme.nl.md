@@ -674,6 +674,7 @@ ipaddr
 ├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
 ├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
 ├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─Forwarded ("Forwarded")
 ├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
 └─…Anders
 ```
@@ -681,6 +682,7 @@ ipaddr
 Zie ook:
 - [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
+- [Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded)
 
 ##### "delete_on_sight" `[bool]`
 - Het inschakelen van dit richtlijn zal instrueren het script om elke gescande geprobeerd bestand upload dat gecontroleerd tegen elke detectie criteria te proberen onmiddellijk verwijderen, via signatures of anderszins. Bestanden vastbesloten te zijn schoon zal niet worden aangeraakt. In het geval van archieven, het hele archief wordt verwijderd, ongeacht of niet het overtredende bestand is slechts één van meerdere bestanden vervat in het archief. Voor het geval van bestand upload scannen, doorgaans, het is niet nodig om dit richtlijn te inschakelen, omdat doorgaans, PHP zal automatisch zuiveren de inhoud van zijn cache wanneer de uitvoering is voltooid, wat betekent dat het doorgans zal verwijdert ieder bestanden geüpload doorheen aan de server tenzij ze zijn verhuisd, gekopieerd of verwijderd alreeds. Dit richtlijn is toegevoegd hier als een extra maatregel van veiligheid voor degenen wier kopies van PHP misschien niet altijd gedragen op de manier verwacht. False = Na het scannen, met rust laten het bestand [Standaard]; True = Na het scannen, als niet schoon, onmiddellijk verwijderen.
@@ -1748,4 +1750,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 31 Oktober 2021 (2021.10.31).
+Laatste Bijgewerkt: 20 Februari 2022 (2022.02.20).

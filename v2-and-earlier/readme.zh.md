@@ -293,6 +293,7 @@ https://github.com/phpMussel/phpMussel>v2
     │           DelayedIO.php
     │           Demojibakefier.php
     │           Events.php
+    │           IPHeader.php
     │           L10N.php
     │           Matrix.php
     │           NumberFormatter.php
@@ -587,6 +588,7 @@ Configuration (v2)
 `CF-Connecting-IP` | Cloudflare反向代理（替代；如果另一个不工作）。
 `HTTP_X_FORWARDED_FOR` | Cloudbric反向代理。
 `X-Forwarded-For` | [Squid反向代理](http://www.squid-cache.org/Doc/config/forwarded_for/)。
+`Forwarded` | *[Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded).*
 *由服务器配置定义。​* | [Nginx反向代理](https://www.nginx.com/resources/admin-guide/reverse-proxy/)。
 `REMOTE_ADDR` | 没有反向代理（默认值）。
 
@@ -1708,4 +1710,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2022年2月17日。
+最后更新：2022年2月20日。

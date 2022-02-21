@@ -674,6 +674,7 @@ ipaddr
 ├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
 ├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
 ├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─Forwarded ("Forwarded")
 ├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
 └─…Autres
 ```
@@ -681,6 +682,7 @@ ipaddr
 Voir également :
 - [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
+- [Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded)
 
 ##### « delete_on_sight » `[bool]`
 - Mise en cette option sera instruire le script à tenter immédiatement supprimer tout fichiers elle constate au cours de son analyse correspondant à des critères de détection, que ce soit via des signatures ou autrement. Fichiers jugées propre ne seront pas touchés. Dans le cas des archives, l'ensemble d'archive sera supprimé (indépendamment de si le incriminé fichier est que l'un de plusieurs fichiers contenus dans l'archive). Pour le cas d'analyse de fichiers téléchargement, généralement, il n'est pas nécessaire d'activer cette option sur, parce généralement, PHP faire purger automatiquement les contenus de son cache lorsque l'exécution est terminée, ce qui signifie que il va généralement supprimer tous les fichiers téléchargés à travers elle au serveur sauf qu'ils ont déménagé, copié ou supprimé déjà. L'option est ajoutée ici comme une supplémentaire mesure de sécurité pour ceux dont copies de PHP peut pas toujours se comporter de la manière attendu. False = Après l'analyse, laissez le fichier tel quel [Défaut] ; True = Après l'analyse, si pas propre, supprimer immédiatement.
@@ -1737,4 +1739,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 31 Octobre 2021 (2021.10.31).
+Dernière mise à jour : 20 Février 2022 (2022.02.20).

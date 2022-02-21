@@ -674,6 +674,7 @@ ipaddr
 ├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
 ├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
 ├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─Forwarded ("Forwarded")
 ├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
 └─…其他
 ```
@@ -681,6 +682,7 @@ ipaddr
 也可以看看：
 - [NGINX Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
+- [Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded)
 
 ##### 『delete_on_sight』 `[bool]`
 - 激活的這個指令將指示腳本馬上刪除任何掃描文件上傳匹配任何檢測標準，​是否通過簽名或任何事其他。​文件已確定是清潔將會忽略。​如果是存檔，​全存檔將會刪除，​不管如果違規文件是只有一個的幾個文件包含在存檔。​為文件上傳掃描，​按說，​它不必要為您激活這個指令，​因為按說，​PHP將自動清洗內容的它的緩存當執行是完，​意思它將按說刪除任何文件上傳從它向服務器如果不已移動，​複製或刪除。​這個指令是添加這里為額外安全為任何人誰的PHP副本可能不始終表現在預期方式。​False【假/負】：之後掃描，​忽略文件【標準】，​True【真/正】：之後掃描，​如果不清潔，​馬上刪除。
@@ -1725,4 +1727,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2021年10月31日。
+最後更新：2022年2月20日。

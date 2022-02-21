@@ -288,6 +288,7 @@ https://github.com/phpMussel/phpMussel>v2
     │           DelayedIO.php
     │           Demojibakefier.php
     │           Events.php
+    │           IPHeader.php
     │           L10N.php
     │           Matrix.php
     │           NumberFormatter.php
@@ -611,6 +612,7 @@ Configuration (v2)
 `CF-Connecting-IP` | Cloudflare reverse proxy (ریورس پراکسی؛ متبادل؛ مندرجہ بالا کام نہیں کرتا تو).
 `HTTP_X_FORWARDED_FOR` | Cloudbric reverse proxy (ریورس پراکسی).
 `X-Forwarded-For` | [Squid reverse proxy (ریورس پراکسی)](http://www.squid-cache.org/Doc/config/forwarded_for/).
+`Forwarded` | *[Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded).*
 &nbsp; <div dir="rtl" style="display:inline"><em>سرور کی ترتیب کی طرف سے وضاحت کی گئی.</em></div> | [Nginx reverse proxy (ریورس پراکسی)](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
 `REMOTE_ADDR` | &nbsp; <div dir="rtl" style="display:inline">نہیں کسی بھی ریورس پراکسی (پہلے سے طے شدہ قیمت).</div>
 
@@ -1976,4 +1978,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۱۷ فروری ۲۰۲۲ (۲۰۲۲.۰۲.۱۷).</div>
+<div dir="rtl">آخری تازہ کاری: ۲۰ فروری ۲۰۲۲ (۲۰۲۲.۰۲.۲۰).</div>

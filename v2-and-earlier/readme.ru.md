@@ -293,6 +293,7 @@ https://github.com/phpMussel/phpMussel>v2
     │           DelayedIO.php
     │           Demojibakefier.php
     │           Events.php
+    │           IPHeader.php
     │           L10N.php
     │           Matrix.php
     │           NumberFormatter.php
@@ -587,6 +588,7 @@ Configuration (v2)
 `CF-Connecting-IP` | Cloudflare обратный прокси-сервер (альтернатива; если вышеуказанное не работает).
 `HTTP_X_FORWARDED_FOR` | Cloudbric обратный прокси-сервер.
 `X-Forwarded-For` | [Squid обратный прокси-сервер](http://www.squid-cache.org/Doc/config/forwarded_for/).
+`Forwarded` | *[Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded).*
 *Определяется конфигурацией сервера.* | [Nginx обратный прокси-сервер](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
 `REMOTE_ADDR` | Не обратный прокси-сервер (стандартное значение).
 
@@ -1708,4 +1710,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 17 Февраля 2022 г (2022.02.17).
+Последнее обновление: 20 Февраля 2022 г (2022.02.20).

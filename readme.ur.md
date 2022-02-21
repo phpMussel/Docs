@@ -678,6 +678,7 @@ ipaddr
 ├─CF-Connecting-IP ("CF-Connecting-IP (Cloudflare)")
 ├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
 ├─X-Forwarded-For ("X-Forwarded-For (Squid)")
+├─Forwarded ("Forwarded")
 ├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
 └─…دیگر
 ```
@@ -685,6 +686,7 @@ ipaddr
 <div dir="rtl">بھی دیکھو:<ul dir="rtl">
 <li><a dir="ltr" href="https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/">NGINX Reverse Proxy</a></li>
 <li><a dir="ltr" href="http://www.squid-cache.org/Doc/config/forwarded_for/">Squid configuration directive forwarded_for</a></li>
+<li><a dir="ltr" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded">Forwarded - HTTP | MDN</a></li>
 </ul></div>
 
 ##### <div dir="rtl">"delete_on_sight" <code dir="ltr">[bool]</code><br /></div>
@@ -1765,4 +1767,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۳۱ اکتوبر ۲۰۲۱ (۲۰۲۱.۱۰.۳۱).</div>
+<div dir="rtl">آخری تازہ کاری: ۲۰ فروری ۲۰۲۲ (۲۰۲۲.۰۲.۲۰).</div>

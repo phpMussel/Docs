@@ -293,6 +293,7 @@ https://github.com/phpMussel/phpMussel>v2
     │           DelayedIO.php
     │           Demojibakefier.php
     │           Events.php
+    │           IPHeader.php
     │           L10N.php
     │           Matrix.php
     │           NumberFormatter.php
@@ -587,6 +588,7 @@ Valeur | En utilisant
 `CF-Connecting-IP` | Proxy inversé Cloudflare (alternative ; si ce qui précède ne fonctionne pas).
 `HTTP_X_FORWARDED_FOR` | Proxy inversé Cloudbric.
 `X-Forwarded-For` | [Proxy inversé Squid](http://www.squid-cache.org/Doc/config/forwarded_for/).
+`Forwarded` | *[Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded).*
 *Défini par la configuration du serveur.* | [Proxy inversé Nginx](https://www.nginx.com/resources/admin-guide/reverse-proxy/).
 `REMOTE_ADDR` | Pas de proxy inversé (valeur par défaut).
 
@@ -1720,4 +1722,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 17 Février 2022 (2022.02.17).
+Dernière mise à jour : 20 Février 2022 (2022.02.20).
