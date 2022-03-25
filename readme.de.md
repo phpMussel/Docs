@@ -421,6 +421,7 @@ Das Folgende ist eine Liste der Konfigurationsanweisungen die von phpMussel akze
 
 ```
 Konfiguration (v3)
+│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -675,7 +676,7 @@ ipaddr
 ├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
 ├─X-Forwarded-For ("X-Forwarded-For (Squid)")
 ├─Forwarded ("Forwarded")
-├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
+├─REMOTE_ADDR ("REMOTE_ADDR (Standardeinstellung)")
 └─…Andere
 ```
 
@@ -794,13 +795,25 @@ Einzelheiten zum Umgang mit Dateien beim Scannen.
 - Handhabung von Dateien, die die Begrenzung der Dateigröße (sofern angegeben) überschreiten. False = Hinzufügen zur Whitelist; True = Hinzufügen zur Blacklist [Standardeinstellung].
 
 ##### "filetype_whitelist" `[string]`
-- Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (comma separated values, Komma-getrennte Werte). Möchten Sie lieber alles überprüfen lassen, so lassen Sie die Variable(n) leer; Dies deaktiviert die Whitelist/Blacklist/Greylist. Logische Reihenfolge der Verarbeitung ist: Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem. Whitelist:
+- Whitelist:
+
+__Wie das funktioniert.__ Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (Komma-getrennte Werte).
+
+__Logische Reihenfolge der Verarbeitung.__ Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem.
 
 ##### "filetype_blacklist" `[string]`
 - Blacklist:
 
+__Wie das funktioniert.__ Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (Komma-getrennte Werte).
+
+__Logische Reihenfolge der Verarbeitung.__ Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem.
+
 ##### "filetype_greylist" `[string]`
 - Greylist:
+
+__Wie das funktioniert.__ Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (Komma-getrennte Werte).
+
+__Logische Reihenfolge der Verarbeitung.__ Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem.
 
 ##### "check_archives" `[bool]`
 - Soll der Inhalt von Archiven überprüft werden? False = Nein (keine Überprüfung); True = Ja (wird überprüft) [Standardeinstellung]. Unterstützt: Zip (erfordert libzip), Tar, Rar (erfordert die rar-Erweiterung).
@@ -845,7 +858,7 @@ Einzelheiten zum Umgang mit Dateien beim Scannen.
 - Erkannte Archiv-Dateierweiterungen (Format ist CSV; nur bei Problemen hinzufügen oder entfernen; unnötiges Entfernen könnte Fehlalarme für Archive auslösen, unnötiges Hinzufügen fügt das zur Whitelist hinzu, was vorher als möglicher Angriff definiert wurde; Ändern Sie diese Liste äußerst vorsichtig; Beachten Sie, dass dies keinen Einfluss darauf hat, wozu Archive fähig sind und nicht auf Inhaltsebene analysiert werden können). Diese Liste enthält die Archivformate, die am häufigsten von der Mehrzahl der Systeme und CMS verwendet werden, ist aber absichtlich nicht vollständig.
 
 ##### "block_control_characters" `[bool]`
-- Sollen Dateien, welche Steuerzeichen (andere als Newline/Zeilenumbruch) enthalten, blockiert werden? (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`) Sofern Sie *__NUR__* reinen Text hochladen, können Sie diese Option aktivieren, um Ihrem System zusätzlichen Schutz zu bieten. Sollten Sie anderes als reinen Text hochladen, werden bei aktivierter Option Fehlalarme ausgelöst. False = Nicht blockieren [Standardeinstellung]; True = Blockieren.
+- Sollen Dateien, welche Steuerzeichen (andere als Newline/Zeilenumbruch) enthalten, blockiert werden?Sofern Sie *__NUR__* reinen Text hochladen, können Sie diese Option aktivieren, um Ihrem System zusätzlichen Schutz zu bieten. Sollten Sie anderes als reinen Text hochladen, werden bei aktivierter Option Fehlalarme ausgelöst. False = Nicht blockieren [Standardeinstellung]; True = Blockieren.
 
 ##### "corrupted_exe" `[bool]`
 - Defekte Dateien und Parse-Errors. False = Ignorieren; True = Blockieren [Standardeinstellung]. Soll auf potentiell defekte ausführbare Dateien geprüft und diese blockiert werden? Oftmals (aber nicht immer), wenn bestimmte Aspekte einer PE-Datei beschädigt sind oder nicht korrekt verarbeitet werden können, ist dies ein Hinweis auf eine infizierte Datei. Viele Antiviren-Programme nutzen verschiedene Methoden, um Viren in solchen Dateien zu erkennen, sofern sich der Programmierer eines Virus dieser Tatsache bewußt ist, wird er versuchen, diese Maßnahmen zu verhindern, damit der Virus unentdeckt bleibt.
@@ -936,7 +949,7 @@ Zusätzliche Cache-Optionen. Hinweis: Das Ändern dieser Werte kann Sie möglich
 - Dieser Wert hier wird zu allen Cache-Eintragsschlüsseln vorangestellt. Standardmäßig leer. Wenn mehrere Installationen auf demselben Server vorhanden sind, kann dies nützlich sein, um ihre Caches getrennt zu halten.
 
 ##### "enable_apcu" `[bool]`
-- Dies gibt an, ob APCu für das Caching verwendet werden soll. Standardeinstellung = False.
+- Dies gibt an, ob APCu für das Caching verwendet werden soll. Standardeinstellung = True.
 
 ##### "enable_memcached" `[bool]`
 - Dies gibt an, ob Memcached für das Caching verwendet werden soll. Standardeinstellung = False.
@@ -985,32 +998,48 @@ Konfiguration für das Frontend.
 
 ```
 numbers
-├─NoSep-1 ("1234567.89")
-├─NoSep-2 ("1234567,89")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Armenian ("Ռ̅Մ̅Լ̅ՏՇԿԷ")
+├─Base-12 ("4b6547.a8")
+├─Base-16 ("12d687.e3")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─China-1 ("123,4567.89")
+├─Chinese-Simplified ("一百二十三万四千五百六十七点八九")
+├─Chinese-Simplified-Financial ("壹佰贰拾叁萬肆仟伍佰陆拾柒点捌玖")
+├─Chinese-Traditional ("一百二十三萬四千五百六十七點八九")
+├─Chinese-Traditional-Financial ("壹佰貳拾叄萬肆仟伍佰陸拾柒點捌玖")
+├─Fullwidth ("１２３４５６７.８９")
+├─Hebrew ("א׳׳ב׳קג׳יד׳ךסז")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯")
+├─Japanese ("百万二十万三万四千五百六十七・八九分")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
 ├─Latin-1 ("1,234,567.89")
 ├─Latin-2 ("1 234 567.89")
 ├─Latin-3 ("1.234.567,89")
 ├─Latin-4 ("1 234 567,89")
 ├─Latin-5 ("1,234,567·89")
-├─China-1 ("123,4567.89")
-├─India-1 ("12,34,567.89")
-├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
-├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
-├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
-├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
-├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
-├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
-├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
-├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
-├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
-├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
-├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
-├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
-├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Mayan ("𝋧𝋮𝋦𝋨𝋧.𝋱𝋰")
+├─Mongolian ("᠑᠒᠓᠔᠕᠖᠗.᠘᠙")
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+├─Roman ("M̅C̅C̅X̅X̅X̅I̅V̅DLXVII")
+├─SDN-Dwiggins ("4E6,547;X8")
+├─SDN-Pitman ("4↋6,547;↊8")
+├─Tamil ("௲௲௨௱௲௩௰௲௪௲௫௱௬௰௭")
 ├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
 ├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
-├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
-├─Odia ("୧୨୩୪୫୬୭.୮୯")
 └─Tibetan ("༡༢༣༤༥༦༧.༨༩")
 ```
 
@@ -1031,11 +1060,13 @@ default_algo
 ```
 theme
 ├─default ("Default")
+├─bluemetal ("Blue Metal")
+├─fullmoon ("Full Moon")
+├─moss ("Moss")
+├─primer ("Primer")
+├─primerdark ("Primer Dark")
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
-├─bluemetal ("Blue Metal")
-├─moss ("Moss")
-├─fullmoon ("Full Moon")
 └─…Andere
 ```
 
@@ -1066,11 +1097,13 @@ Konfiguration für den Upload-Handler.
 ```
 theme
 ├─default ("Default")
+├─bluemetal ("Blue Metal")
+├─fullmoon ("Full Moon")
+├─moss ("Moss")
+├─primer ("Primer")
+├─primerdark ("Primer Dark")
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
-├─bluemetal ("Blue Metal")
-├─moss ("Moss")
-├─fullmoon ("Full Moon")
 └─…Andere
 ```
 
@@ -1741,4 +1774,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 20. Februar 2022 (2022.02.20).
+Zuletzt aktualisiert: 25. März 2022 (2022.03.25).

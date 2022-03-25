@@ -1,43 +1,43 @@
 <?php
-$loadL10N = function (string $Language) {
+// Path to vendor directory.
+$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
+
+$loadL10N = function (string $Language) use (&$Vendor) {
     $YAML = new \Maikuolan\Common\YAML();
     $Arr = [];
-    $DataDocGen = file_get_contents(__DIR__ . '\DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml');
+    $DataDocGen = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml');
     $YAML->process($DataDocGen, $Arr);
     foreach (['frontend', 'web', 'phpmailer'] as $Dir) {
-        $DataThisDir = file_get_contents(__DIR__ . '\vendor\phpmussel' . DIRECTORY_SEPARATOR . $Dir . '\l10n' . DIRECTORY_SEPARATOR . $Language . '.yml');
+        $DataThisDir = file_get_contents($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . $Dir . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml');
         $YAML->process($DataThisDir, $Arr);
     }
     return new \Maikuolan\Common\L10N($Arr, []);
 };
 
-// Path to vendor directory.
-$Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
-
-// Composer's autoloader.
-require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
-
-$Loader = new \phpMussel\Core\Loader();
-$Scanner = new \phpMussel\Core\Scanner($Loader);
-$FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
-$Web = new \phpMussel\Web\Web($Loader, $Scanner);
-$Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
-
-header('Content-Type: text/plain');
-
 if (!isset($_GET['language'])) {
     echo 'No language specified.';
 } else {
+    // Composer's autoloader.
+    require $Vendor . DIRECTORY_SEPARATOR . 'autoload.php';
+
+    $Loader = new \phpMussel\Core\Loader();
+    $Scanner = new \phpMussel\Core\Scanner($Loader);
+    $FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
+    $Web = new \phpMussel\Web\Web($Loader, $Scanner);
+    $Loader->Events->addHandler('sendMail', new \phpMussel\PHPMailer\Linker($Loader));
+
+    header('Content-Type: text/plain');
+
     $Final = '';
     $Data = $loadL10N($_GET['language']);
-    echo "```\n" . $Data->getString('link_config') . " (v3)\n│\n";
+    $First = "```\n" . $Data->getString('link_config') . " (v3)\n│\n";
     $Cats = count($Loader->ConfigurationDefaults);
     $Current = 1;
     foreach ($Loader->ConfigurationDefaults as $Category => $Directives) {
         if (!isset($Data->Data['config_' . $Category])) {
             continue;
         }
-        echo ($Current === $Cats ? '└───' : '├───') . $Category . "\n";
+        $First .= ($Current === $Cats ? '└───' : '├───') . $Category . "\n";
         if (strpos($Data->Data['category'], '<div') === false) {
             $Out = str_replace(
                 ['<code>', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
@@ -80,7 +80,7 @@ if (!isset($_GET['language'])) {
             } elseif (isset($Info['choices'])) {
                 $Choices = $Info['choices'];
             }
-            echo ($Current === $Cats ? '        ' : '│       ') . $Directive . ' [' . $Type . "]\n";
+            $First .= ($Current === $Cats ? '        ' : '│       ') . $Directive . ' [' . $Type . "]\n";
             $Final .= sprintf($Data->getString('directive'), $Directive, $Type, $Out) . "\n\n";
             if (!empty($Choices)) {
                 $Final .= "```\n" . $Directive . "\n";
@@ -103,9 +103,23 @@ if (!isset($_GET['language'])) {
                 }
                 $Final .= "```\n\n";
             }
+            if (!empty($Info['hints'])) {
+                $Hints = $Data->Data[$Info['hints']] ?? $Info['hints'];
+                if (!is_array($Hints)) {
+                    $Hints = [$Hints];
+                }
+                foreach ($Hints as $HintKey => $HintValue) {
+                    if (is_int($HintKey)) {
+                        $Final .= $HintValue . "\n\n";
+                        continue;
+                    }
+                    $Final .= sprintf("__%s__ %s\n\n", $HintKey, $HintValue);
+                }
+            }
             if (!empty($Info['See also'])) {
                 $Final .= sprintf($Data->getString('menu_open'), $Data->getString('label_see_also')) . "\n";
                 foreach ($Info['See also'] as $RefKey => $RefLink) {
+                    $RefKey = addcslashes($RefKey, '|');
                     $Final .= sprintf($Data->getString('menu_item'), $RefKey, $RefLink) . "\n";
                 }
                 $Final .= $Data->getString('menu_close') . "\n";
@@ -115,7 +129,40 @@ if (!isset($_GET['language'])) {
             $Current++;
         }
     }
-    echo "```\n\n" . $Final;
+    $Matches = [];
+    if (preg_match_all('~\{([a-z_]+)\}~i', $Final, $Matches)) {
+        $Matches = array_unique($Matches[1]);
+        foreach ($Matches as $Match) {
+            if ($Try = $Data->getString($Match)) {
+                $Final = str_replace('{' . $Match . '}', $Try, $Final);
+            }
+        }
+    }
+    if (!isset($_GET['autoupdate'])) {
+        echo $First . "```\n\n" . $Final;
+    } else {
+        $Try = $_GET['autoupdate'] . $_GET['language'] . '.md';
+        if (is_file($Try) && is_writable($Try)) {
+            $README = file_get_contents($Try);
+            if (($Start = strpos($README, '<a name="SECTION7">')) !== false) {
+                $Start = strpos($README, '```', $Start);
+            }
+            if (($Finish = strpos($README, '<a name="SECTION8">')) !== false) {
+                $Finish = strrpos(substr($README, 0, $Finish), '---');
+            }
+            if ($Start === false || $Finish === false) {
+                echo 'Unable to find configuration section markers in ' . $Try . '!';
+            } else {
+                $New = substr($README, 0, $Start) . $First . "```\n\n" . $Final . substr($README, $Finish);
+                $Handle = fopen($Try, 'wb');
+                fwrite($Handle, $New);
+                fclose($Handle);
+                echo 'Successfully updated ' . $Try . '. :-)';
+            }
+        } else {
+            echo $Try . ' doesn\'t exist or isn\'t writable!';
+        }
+    }
 }
 
 unset($Web, $FrontEnd, $Scanner, $Loader);

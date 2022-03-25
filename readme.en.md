@@ -457,6 +457,7 @@ The following is a list of the configuration directives accepted by phpMussel, a
 
 ```
 Configuration (v3)
+│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -830,13 +831,25 @@ The specifics of how to handle files when scanning.
 - What to do with files that exceed the filesize limit (if one exists). False = Whitelist; True = Blacklist [Default].
 
 ##### "filetype_whitelist" `[string]`
-- If your system only allows specific types of files to be uploaded, or if your system explicitly denies certain types of files, specifying those filetypes in whitelists, blacklists and greylists can increase the speed at which scanning is performed by allowing the script to skip over certain filetypes. Format is CSV (comma separated values). If you want to scan everything, rather than whitelist, blacklist or greylist, leave the variable(/s) blank; Doing so will disable whitelist/blacklist/greylist. Logical order of processing is: If the filetype is whitelisted, don't scan and don't block the file, and don't check the file against the blacklist or the greylist. If the filetype is blacklisted, don't scan the file but block it anyway, and don't check the file against the greylist. If the greylist is empty or if the greylist is not empty and the filetype is greylisted, scan the file as per normal and determine whether to block it based on the results of the scan, but if the greylist is not empty and the filetype is not greylisted, treat the file as blacklisted, therefore not scanning it but blocking it anyway. Whitelist:
+- Whitelist:
+
+__How this works.__ If your system allows only specific types of files to be uploaded, or if your system explicitly denies certain types of files, specifying those filetypes in whitelists, blacklists, and greylists can increase the speed at which scanning is performed by allowing the script to skip over certain filetypes. Format is CSV (comma separated values).
+
+__Logical order of processing.__ If the filetype is whitelisted, don't scan and don't block the file, and don't check the file against the blacklist or the greylist. If the filetype is blacklisted, don't scan the file but block it anyway, and don't check the file against the greylist. If the greylist is empty or if the greylist is not empty and the filetype is greylisted, scan the file as per normal and determine whether to block it based on the results of the scan, but if the greylist is not empty and the filetype is not greylisted, treat the file as blacklisted, therefore not scanning it but blocking it anyway.
 
 ##### "filetype_blacklist" `[string]`
 - Blacklist:
 
+__How this works.__ If your system allows only specific types of files to be uploaded, or if your system explicitly denies certain types of files, specifying those filetypes in whitelists, blacklists, and greylists can increase the speed at which scanning is performed by allowing the script to skip over certain filetypes. Format is CSV (comma separated values).
+
+__Logical order of processing.__ If the filetype is whitelisted, don't scan and don't block the file, and don't check the file against the blacklist or the greylist. If the filetype is blacklisted, don't scan the file but block it anyway, and don't check the file against the greylist. If the greylist is empty or if the greylist is not empty and the filetype is greylisted, scan the file as per normal and determine whether to block it based on the results of the scan, but if the greylist is not empty and the filetype is not greylisted, treat the file as blacklisted, therefore not scanning it but blocking it anyway.
+
 ##### "filetype_greylist" `[string]`
 - Greylist:
+
+__How this works.__ If your system allows only specific types of files to be uploaded, or if your system explicitly denies certain types of files, specifying those filetypes in whitelists, blacklists, and greylists can increase the speed at which scanning is performed by allowing the script to skip over certain filetypes. Format is CSV (comma separated values).
+
+__Logical order of processing.__ If the filetype is whitelisted, don't scan and don't block the file, and don't check the file against the blacklist or the greylist. If the filetype is blacklisted, don't scan the file but block it anyway, and don't check the file against the greylist. If the greylist is empty or if the greylist is not empty and the filetype is greylisted, scan the file as per normal and determine whether to block it based on the results of the scan, but if the greylist is not empty and the filetype is not greylisted, treat the file as blacklisted, therefore not scanning it but blocking it anyway.
 
 ##### "check_archives" `[bool]`
 - Attempt to check the contents of archives? False = Don't check; True = Check [Default]. Supported: Zip (requires libzip), Tar, Rar (requires the rar extension).
@@ -881,7 +894,7 @@ The specifics of how to handle files when scanning.
 - Recognised archive file extensions (format is CSV; should only add or remove when problems occur; unnecessarily removing may cause false positives to appear for archive files, whereas unnecessarily adding will essentially whitelist what you're adding from attack specific detection; modify with caution; also note that this has no effect on what archives can and can't be analysed at content-level). The list, as is at default, lists those formats used most commonly across the majority of systems and CMS, but intentionally isn't necessarily comprehensive.
 
 ##### "block_control_characters" `[bool]`
-- Block any files containing any control characters (other than newlines)? (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`) If you're *__ONLY__* uploading plain-text, then you can turn this option on to provide some additional protection to your system. However, if you upload anything other than plain-text, turning this on may result in false positives. False = Don't block [Default]; True = Block.
+- Block any files containing any control characters (other than newlines)? If you're *__ONLY__* uploading plain-text, then you can turn this option on to provide some additional protection to your system. However, if you upload anything other than plain-text, turning this on may result in false positives. False = Don't block [Default]; True = Block.
 
 ##### "corrupted_exe" `[bool]`
 - Corrupted files and parse errors. False = Ignore; True = Block [Default]. Detect and block potentially corrupted PE (Portable Executable) files? Often (but not always), when certain aspects of a PE file are corrupted or can't be parsed correctly, it can be indicative of a viral infection. The processes used by most anti-virus programs to detect viruses in PE files require parsing those files in certain ways, which, if the programmer of a virus is aware of, will specifically try to prevent, in order to allow their virus to remain undetected.
@@ -972,7 +985,7 @@ Supplementary cache options. Note: Changing these values may potentially log you
 - The value specified here will be prepended to all cache entry keys. Empty by default. When multiple installations exist at the same server, this can be useful for keeping their caches separate from each other.
 
 ##### "enable_apcu" `[bool]`
-- Specifies whether to try using APCu for caching. Default = False.
+- Specifies whether to try using APCu for caching. Default = True.
 
 ##### "enable_memcached" `[bool]`
 - Specifies whether to try using Memcached for caching. Default = False.
@@ -1021,32 +1034,48 @@ Configuration for the front-end.
 
 ```
 numbers
-├─NoSep-1 ("1234567.89")
-├─NoSep-2 ("1234567,89")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Armenian ("Ռ̅Մ̅Լ̅ՏՇԿԷ")
+├─Base-12 ("4b6547.a8")
+├─Base-16 ("12d687.e3")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─China-1 ("123,4567.89")
+├─Chinese-Simplified ("一百二十三万四千五百六十七点八九")
+├─Chinese-Simplified-Financial ("壹佰贰拾叁萬肆仟伍佰陆拾柒点捌玖")
+├─Chinese-Traditional ("一百二十三萬四千五百六十七點八九")
+├─Chinese-Traditional-Financial ("壹佰貳拾叄萬肆仟伍佰陸拾柒點捌玖")
+├─Fullwidth ("１２３４５６７.８９")
+├─Hebrew ("א׳׳ב׳קג׳יד׳ךסז")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯")
+├─Japanese ("百万二十万三万四千五百六十七・八九分")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
 ├─Latin-1 ("1,234,567.89")
 ├─Latin-2 ("1 234 567.89")
 ├─Latin-3 ("1.234.567,89")
 ├─Latin-4 ("1 234 567,89")
 ├─Latin-5 ("1,234,567·89")
-├─China-1 ("123,4567.89")
-├─India-1 ("12,34,567.89")
-├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
-├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
-├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
-├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
-├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
-├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
-├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
-├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
-├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
-├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
-├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
-├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
-├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Mayan ("𝋧𝋮𝋦𝋨𝋧.𝋱𝋰")
+├─Mongolian ("᠑᠒᠓᠔᠕᠖᠗.᠘᠙")
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+├─Roman ("M̅C̅C̅X̅X̅X̅I̅V̅DLXVII")
+├─SDN-Dwiggins ("4E6,547;X8")
+├─SDN-Pitman ("4↋6,547;↊8")
+├─Tamil ("௲௲௨௱௲௩௰௲௪௲௫௱௬௰௭")
 ├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
 ├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
-├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
-├─Odia ("୧୨୩୪୫୬୭.୮୯")
 └─Tibetan ("༡༢༣༤༥༦༧.༨༩")
 ```
 
@@ -1067,11 +1096,13 @@ default_algo
 ```
 theme
 ├─default ("Default")
+├─bluemetal ("Blue Metal")
+├─fullmoon ("Full Moon")
+├─moss ("Moss")
+├─primer ("Primer")
+├─primerdark ("Primer Dark")
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
-├─bluemetal ("Blue Metal")
-├─moss ("Moss")
-├─fullmoon ("Full Moon")
 └─…Other
 ```
 
@@ -1102,11 +1133,13 @@ Configuration for the upload handler.
 ```
 theme
 ├─default ("Default")
+├─bluemetal ("Blue Metal")
+├─fullmoon ("Full Moon")
+├─moss ("Moss")
+├─primer ("Primer")
+├─primerdark ("Primer Dark")
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
-├─bluemetal ("Blue Metal")
-├─moss ("Moss")
-├─fullmoon ("Full Moon")
 └─…Other
 ```
 
@@ -1770,4 +1803,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 20 February 2022 (2022.02.20).
+Last Updated: 25 March 2022 (2022.03.25).

@@ -421,6 +421,7 @@ La siguiente es una lista de las directivas de configuración aceptadas por phpM
 
 ```
 Configuración (v3)
+│
 ├───core
 │       scan_log [string]
 │       scan_log_serialized [string]
@@ -675,7 +676,7 @@ ipaddr
 ├─HTTP_X_FORWARDED_FOR ("HTTP_X_FORWARDED_FOR (Cloudbric)")
 ├─X-Forwarded-For ("X-Forwarded-For (Squid)")
 ├─Forwarded ("Forwarded")
-├─REMOTE_ADDR ("REMOTE_ADDR (Default)")
+├─REMOTE_ADDR ("REMOTE_ADDR (Predefinido)")
 └─…Otro
 ```
 
@@ -794,13 +795,25 @@ Los detalles de cómo manejar archivos al escanear.
 - Qué hacer con los archivos que superen el límite del tamaño de archivos (si existe). False = Whitelist; True = Blacklist [Predefinido].
 
 ##### "filetype_whitelist" `[string]`
-- Si su sistema sólo permite ciertos tipos de archivos para ser subido, o si su sistema niega explícitamente ciertos tipos de archivos, especificando los tipos de archivos en la whitelist, blacklist y/o greylist puede aumentar la velocidad a que escaneando se realizado por permitiendo la script para saltar sobre ciertos tipos de archivos. Formato es CSV (comas separados valores). Si desea escanear todo, en lugar de utilizando la whitelist, blacklist o greylist, dejar las variables en blanco; haciendo tal desactivará la whitelist/blacklist/greylist. Lógico orden de procesamiento es: Si el tipo de archivo está en la whitelist, no escanear y no bloquear el archivo, y no cotejar el archivo con la blacklist o la greylist. Si el tipo de archivo está en la blacklist, no escanear el archivo, pero bloquearlo en todo caso, y no cotejar el archivo con la greylist. Si la greylist está vacía o si la greylist está no vacía y el tipo de archivo está en la greylist, escanearlo como normal y determinar si para bloquearlo basado en los resultados de la escaneo, pero si la greylist está no vacía y el tipo de archivo está no en la greylist, tratar el archivo como si está en la blacklist, por lo tanto no escanearlo pero bloquearlo en todo caso. Whitelist:
+- Whitelist:
+
+__Cómo funciona esto.__ Si su sistema sólo permite ciertos tipos de archivos para ser subido, o si su sistema niega explícitamente ciertos tipos de archivos, especificando los tipos de archivos en la whitelist, blacklist y/o greylist puede aumentar la velocidad a que escaneando se realizado por permitiendo la script para saltar sobre ciertos tipos de archivos. Formato es CSV (comas separados valores).
+
+__Orden lógico de procesamiento.__ Si el tipo de archivo está en la whitelist, no escanear y no bloquear el archivo, y no cotejar el archivo con la blacklist o la greylist. Si el tipo de archivo está en la blacklist, no escanear el archivo, pero bloquearlo en todo caso, y no cotejar el archivo con la greylist. Si la greylist está vacía o si la greylist está no vacía y el tipo de archivo está en la greylist, escanearlo como normal y determinar si para bloquearlo basado en los resultados de la escaneo, pero si la greylist está no vacía y el tipo de archivo está no en la greylist, tratar el archivo como si está en la blacklist, por lo tanto no escanearlo pero bloquearlo en todo caso.
 
 ##### "filetype_blacklist" `[string]`
 - Blacklist:
 
+__Cómo funciona esto.__ Si su sistema sólo permite ciertos tipos de archivos para ser subido, o si su sistema niega explícitamente ciertos tipos de archivos, especificando los tipos de archivos en la whitelist, blacklist y/o greylist puede aumentar la velocidad a que escaneando se realizado por permitiendo la script para saltar sobre ciertos tipos de archivos. Formato es CSV (comas separados valores).
+
+__Orden lógico de procesamiento.__ Si el tipo de archivo está en la whitelist, no escanear y no bloquear el archivo, y no cotejar el archivo con la blacklist o la greylist. Si el tipo de archivo está en la blacklist, no escanear el archivo, pero bloquearlo en todo caso, y no cotejar el archivo con la greylist. Si la greylist está vacía o si la greylist está no vacía y el tipo de archivo está en la greylist, escanearlo como normal y determinar si para bloquearlo basado en los resultados de la escaneo, pero si la greylist está no vacía y el tipo de archivo está no en la greylist, tratar el archivo como si está en la blacklist, por lo tanto no escanearlo pero bloquearlo en todo caso.
+
 ##### "filetype_greylist" `[string]`
 - Greylist:
+
+__Cómo funciona esto.__ Si su sistema sólo permite ciertos tipos de archivos para ser subido, o si su sistema niega explícitamente ciertos tipos de archivos, especificando los tipos de archivos en la whitelist, blacklist y/o greylist puede aumentar la velocidad a que escaneando se realizado por permitiendo la script para saltar sobre ciertos tipos de archivos. Formato es CSV (comas separados valores).
+
+__Orden lógico de procesamiento.__ Si el tipo de archivo está en la whitelist, no escanear y no bloquear el archivo, y no cotejar el archivo con la blacklist o la greylist. Si el tipo de archivo está en la blacklist, no escanear el archivo, pero bloquearlo en todo caso, y no cotejar el archivo con la greylist. Si la greylist está vacía o si la greylist está no vacía y el tipo de archivo está en la greylist, escanearlo como normal y determinar si para bloquearlo basado en los resultados de la escaneo, pero si la greylist está no vacía y el tipo de archivo está no en la greylist, tratar el archivo como si está en la blacklist, por lo tanto no escanearlo pero bloquearlo en todo caso.
 
 ##### "check_archives" `[bool]`
 - Intente comprobar el contenido de los compactados archivos? False = No (no comprobar); True = Sí (comprobar) [Predefinido]. Soportado: Zip (requiere libzip), Tar, Rar (requiere la extensión rar).
@@ -845,7 +858,7 @@ Los detalles de cómo manejar archivos al escanear.
 - Reconocido compactado archivo extensiones (formato es CSV; sólo debe agregar o eliminar cuando problemas ocurrir; eliminando innecesariamente puede causar falsos positivos a aparecer para compactados archivos, mientras añadiendo innecesariamente hará esencialmente whitelist que cuales eres añadiendo desde ataque específica detección; modificar con precaución; También notar que esto no tiene efecto en aquellos compactados archivos que pueden y no pueden ser analizado a contenido nivel). La lista, como es a predefinición, describe los formatos más comúnmente utilizados a través de la mayoría de sistemas y CMS, pero intencionalmente no es necesariamente exhaustiva.
 
 ##### "block_control_characters" `[bool]`
-- Bloquear cualquier archivos que contenga cualquier caracteres de control (aparte de saltos de línea)? (`[\x00-\x08\x0b\x0c\x0e\x1f\x7f]`) Si usted sólo subir texto sin cualquier formato, usted puede activar esta opción para proporcionar alguna adicional protección para su sistema. Pero, si usted subir cualquier cosa otro de texto sin cualquier formato, activando esto puede dar lugar a falsos positivos. False = No bloquear [Predefinido]; True = Bloquear.
+- Bloquear cualquier archivos que contenga cualquier caracteres de control (aparte de saltos de línea)? Si usted sólo subir texto sin cualquier formato, usted puede activar esta opción para proporcionar alguna adicional protección para su sistema. Pero, si usted subir cualquier cosa otro de texto sin cualquier formato, activando esto puede dar lugar a falsos positivos. False = No bloquear [Predefinido]; True = Bloquear.
 
 ##### "corrupted_exe" `[bool]`
 - Corrompido archivos y procesamiento errores. False = Ignorar; True = Bloquear [Predefinido]. Detectar y bloquear potencialmente corrompido PE (Portátil Ejecutable) archivos? Frecuentemente (pero no siempre), cuando ciertos aspectos de un PE archivo están corrompido, dañados o no podrá ser analizado correctamente, lo puede ser indicativo de una infección viral. Los procesos utilizados por la mayoría de los antivirus programas para detectar un virus en PE archivos requerir analizando esos archivos en ciertas maneras, que, si el programador de un virus es consciente de, intentará específicamente para prevenir, con el fin de permitir su virus permanezca sin ser detectado.
@@ -936,7 +949,7 @@ Opciones de caché suplementarias. Nota: Cambiar estos valores puede potencialme
 - El valor especificado aquí se antepondrá a las claves de todas las entradas de la caché. Vacía por predefinida. Cuando existen varias instalaciones en el mismo servidor, esto puede ser útil para mantener sus cachés separados entre sí.
 
 ##### "enable_apcu" `[bool]`
-- Especifica si se intenta utilizar APCu para el almacenamiento en caché. Predefinido = False.
+- Especifica si se intenta utilizar APCu para el almacenamiento en caché. Predefinido = True.
 
 ##### "enable_memcached" `[bool]`
 - Especifica si se intenta utilizar Memcached para el almacenamiento en caché. Predefinido = False.
@@ -985,32 +998,48 @@ Configuración para el front-end.
 
 ```
 numbers
-├─NoSep-1 ("1234567.89")
-├─NoSep-2 ("1234567,89")
+├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
+├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
+├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
+├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
+├─Armenian ("Ռ̅Մ̅Լ̅ՏՇԿԷ")
+├─Base-12 ("4b6547.a8")
+├─Base-16 ("12d687.e3")
+├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯")
+├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
+├─China-1 ("123,4567.89")
+├─Chinese-Simplified ("一百二十三万四千五百六十七点八九")
+├─Chinese-Simplified-Financial ("壹佰贰拾叁萬肆仟伍佰陆拾柒点捌玖")
+├─Chinese-Traditional ("一百二十三萬四千五百六十七點八九")
+├─Chinese-Traditional-Financial ("壹佰貳拾叄萬肆仟伍佰陸拾柒點捌玖")
+├─Fullwidth ("１２３４５６７.８９")
+├─Hebrew ("א׳׳ב׳קג׳יד׳ךסז")
+├─India-1 ("12,34,567.89")
+├─India-2 ("१२,३४,५६७.८९")
+├─India-3 ("૧૨,૩૪,૫૬૭.૮૯")
+├─India-4 ("੧੨,੩੪,੫੬੭.੮੯")
+├─India-5 ("೧೨,೩೪,೫೬೭.೮೯")
+├─India-6 ("౧౨,౩౪,౫౬౭.౮౯")
+├─Japanese ("百万二十万三万四千五百六十七・八九分")
+├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
+├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
+├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
 ├─Latin-1 ("1,234,567.89")
 ├─Latin-2 ("1 234 567.89")
 ├─Latin-3 ("1.234.567,89")
 ├─Latin-4 ("1 234 567,89")
 ├─Latin-5 ("1,234,567·89")
-├─China-1 ("123,4567.89")
-├─India-1 ("12,34,567.89")
-├─India-2 ("१२,३४,५६७.८९ (देवनागरी)")
-├─India-3 ("૧૨,૩૪,૫૬૭.૮૯ (ગુજરાતી)")
-├─India-4 ("੧੨,੩੪,੫੬੭.੮੯ (ਗੁਰਮੁਖੀ)")
-├─India-5 ("೧೨,೩೪,೫೬೭.೮೯ (ಕನ್ನಡ)")
-├─India-6 ("౧౨,౩౪,౫౬౭.౮౯ (తెలుగు)")
-├─Arabic-1 ("١٢٣٤٥٦٧٫٨٩")
-├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
-├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
-├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
-├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯ (বাংলা সংখ্যাসমূহ)")
-├─Burmese-1 ("၁၂၃၄၅၆၇.၈၉")
-├─Khmer-1 ("១.២៣៤.៥៦៧,៨៩")
-├─Lao-1 ("໑໒໓໔໕໖໗.໘໙")
+├─Mayan ("𝋧𝋮𝋦𝋨𝋧.𝋱𝋰")
+├─Mongolian ("᠑᠒᠓᠔᠕᠖᠗.᠘᠙")
+├─NoSep-1 ("1234567.89")
+├─NoSep-2 ("1234567,89")
+├─Odia ("୧୨୩୪୫୬୭.୮୯")
+├─Roman ("M̅C̅C̅X̅X̅X̅I̅V̅DLXVII")
+├─SDN-Dwiggins ("4E6,547;X8")
+├─SDN-Pitman ("4↋6,547;↊8")
+├─Tamil ("௲௲௨௱௲௩௰௲௪௲௫௱௬௰௭")
 ├─Thai-1 ("๑,๒๓๔,๕๖๗.๘๙")
 ├─Thai-2 ("๑๒๓๔๕๖๗.๘๙")
-├─Javanese ("꧑꧒꧓꧔꧕꧖꧗.꧘꧙")
-├─Odia ("୧୨୩୪୫୬୭.୮୯")
 └─Tibetan ("༡༢༣༤༥༦༧.༨༩")
 ```
 
@@ -1031,11 +1060,13 @@ default_algo
 ```
 theme
 ├─default ("Default")
+├─bluemetal ("Blue Metal")
+├─fullmoon ("Full Moon")
+├─moss ("Moss")
+├─primer ("Primer")
+├─primerdark ("Primer Dark")
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
-├─bluemetal ("Blue Metal")
-├─moss ("Moss")
-├─fullmoon ("Full Moon")
 └─…Otro
 ```
 
@@ -1066,11 +1097,13 @@ Configuración para el controlador de subidas.
 ```
 theme
 ├─default ("Default")
+├─bluemetal ("Blue Metal")
+├─fullmoon ("Full Moon")
+├─moss ("Moss")
+├─primer ("Primer")
+├─primerdark ("Primer Dark")
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
-├─bluemetal ("Blue Metal")
-├─moss ("Moss")
-├─fullmoon ("Full Moon")
 └─…Otro
 ```
 
@@ -1733,4 +1766,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 20 de Febrero de 2022 (2022.02.20).
+Última Actualización: 25 de Marzo de 2022 (2022.03.25).

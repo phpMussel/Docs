@@ -1,9 +1,5 @@
-category: |
- \#\#\#\# “%s” （类别）
- %s
-directive: |
- \#\#\#\#\# “%s” `[%s]`
- - %s
-menu_open: "%s"
-menu_item: "- [%s](%s)"
+category:  "\#\#\#\# “%s” （类别）\n%s"
+directive:  "\#\#\#\#\# “%s” `[%s]`\n- %s"
 menu_close: ""
+menu_item: "- [%s](%s)"
+menu_open: "%s"
