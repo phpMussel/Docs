@@ -565,12 +565,12 @@ Configurazione generale (qualsiasi configurazione di base non appartenente ad al
 - La rotazione dei log limita il numero di file di log che dovrebbero esistere in qualsiasi momento. Quando vengono creati nuovi file di log, se il numero totale di file di log supera il limite specificato, verrà eseguita l'azione specificata. Qui puoi specificare il limite desiderato. Un valore di 0 disabiliterà la rotazione dei log.
 
 ##### "log_rotation_action" `[string]`
-- La rotazione dei log limita il numero di file di log che dovrebbero esistere in qualsiasi momento. Quando vengono creati nuovi file di log, se il numero totale di file di log supera il limite specificato, verrà eseguita l'azione specificata. Qui puoi specificare l'azione desiderato. Delete = Elimina i file di log più vecchi, finché il limite non viene più superato. Archive = In primo luogo archiviare e quindi, eliminare i file di log più vecchi, finché il limite non viene più superato.
+- La rotazione dei log limita il numero di file di log che dovrebbero esistere in qualsiasi momento. Quando vengono creati nuovi file di log, se il numero totale di file di log supera il limite specificato, verrà eseguita l'azione specificata. Qui puoi specificare l'azione desiderato.
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("Elimina i file di log più vecchi, finché il limite non viene più superato.")
+└─Archive ("In primo luogo archiviare e quindi, eliminare i file di log più vecchi, finché il limite non viene più superato.")
 ```
 
 ##### "timezone" `[string]`
@@ -978,6 +978,8 @@ Opzioni di cache supplementari. Nota: La modifica di questi valori potrebbe pote
 ##### "pdo_dsn" `[string]`
 - Il valore della DSN per PDO. Predefinito = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.it.md#HOW_TO_USE_PDO" hreflang="it">Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?</a></em>
+
 ##### "pdo_username" `[string]`
 - Il nome utente per PDO.
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1762,4 +1764,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 25 Marzo 2022 (2022.03.25).
+Ultimo Aggiornamento: 23 Aprile 2022 (2022.04.23).

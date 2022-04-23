@@ -565,12 +565,12 @@ Cấu hình chung (bất kỳ cấu hình cốt lõi nào không thuộc về c�
 - Xoay vòng nhật ký giới hạn số lượng của tập tin nhật ký có cần tồn tại cùng một lúc. Khi các tập tin nhật ký mới được tạo, nếu tổng số lượng tập tin nhật ký vượt quá giới hạn được chỉ định, hành động được chỉ định sẽ được thực hiện. Bạn có thể chỉ định giới hạn mong muốn tại đây. Giá trị 0 sẽ vô hiệu hóa xoay vòng nhật ký.
 
 ##### "log_rotation_action" `[string]`
-- Xoay vòng nhật ký giới hạn số lượng của tập tin nhật ký có cần tồn tại cùng một lúc. Khi các tập tin nhật ký mới được tạo, nếu tổng số lượng tập tin nhật ký vượt quá giới hạn được chỉ định, hành động được chỉ định sẽ được thực hiện. Bạn có thể chỉ định hành động mong muốn tại đây. Delete = Xóa các tập tin nhật ký cũ nhất, cho đến khi giới hạn không còn vượt quá. Archive = Trước tiên lưu trữ, và sau đó xóa các tập tin nhật ký cũ nhất, cho đến khi giới hạn không còn vượt quá.
+- Xoay vòng nhật ký giới hạn số lượng của tập tin nhật ký có cần tồn tại cùng một lúc. Khi các tập tin nhật ký mới được tạo, nếu tổng số lượng tập tin nhật ký vượt quá giới hạn được chỉ định, hành động được chỉ định sẽ được thực hiện. Bạn có thể chỉ định hành động mong muốn tại đây.
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("Xóa các tập tin nhật ký cũ nhất, cho đến khi giới hạn không còn vượt quá.")
+└─Archive ("Trước tiên lưu trữ, và sau đó xóa các tập tin nhật ký cũ nhất, cho đến khi giới hạn không còn vượt quá.")
 ```
 
 ##### "timezone" `[string]`
@@ -978,6 +978,8 @@ Tùy chọn bộ nhớ cache bổ sung. Lưu ý: Việc thay đổi các giá tr
 ##### "pdo_dsn" `[string]`
 - Giá trị DSN PDO. Mặc định = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
+__Câu hỏi thường gặp.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.vi.md#HOW_TO_USE_PDO" hreflang="vi">"PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?</a></em>
+
 ##### "pdo_username" `[string]`
 - Tên người dùng PDO.
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1756,4 +1758,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2022.03.25.
+Lần cuối cập nhật: 2022.04.23.

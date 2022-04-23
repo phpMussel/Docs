@@ -565,12 +565,12 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 - 日志轮转限制了任何时候应该存在的日志文件的数量。​当新的日志文件被创建时，如果日志文件的指定的最大数量已经超过，将执行指定的操作。​您可以在此指定所需的限制。​值为“0”将禁用日志轮转。
 
 ##### “log_rotation_action” `[string]`
-- 日志轮转限制了任何时候应该存在的日志文件的数量。​当新的日志文件被创建时，如果日志文件的指定的最大数量已经超过，将执行指定的操作。​您可以在此处指定所需的操作。​“Delete”=删除最旧的日志文件，直到不再超出限制。​“Archive”=首先归档，然后删除最旧的日志文件，直到不再超出限制。
+- 日志轮转限制了任何时候应该存在的日志文件的数量。​当新的日志文件被创建时，如果日志文件的指定的最大数量已经超过，将执行指定的操作。​您可以在此处指定所需的操作。
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("删除最旧的日志文件，直到不再超出限制。")
+└─Archive ("首先归档，然后删除最旧的日志文件，直到不再超出限制。")
 ```
 
 ##### “timezone” `[string]`
@@ -978,6 +978,8 @@ URL扫描程序的配置。
 ##### “pdo_dsn” `[string]`
 - PDO DSN值。​标准 = “mysql:dbname=phpmussel;host=localhost;port=3306”。
 
+__常问问题。__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.zh.md#HOW_TO_USE_PDO" hreflang="zh-CN">“PDO DSN”是什么？如何能PDO与phpMussel一起使用？</a></em>
+
 ##### “pdo_username” `[string]`
 - PDO用户名。
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1760,4 +1762,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2022年3月25日。
+最后更新：2022年4月23日。

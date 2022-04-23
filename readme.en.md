@@ -601,12 +601,12 @@ General configuration (any core configuration not belonging to other categories)
 - Log rotation limits the number of logfiles that should exist at any one time. When new logfiles are created, if the total number of logfiles exceeds the specified limit, the specified action will be performed. You can specify the desired limit here. A value of 0 will disable log rotation.
 
 ##### "log_rotation_action" `[string]`
-- Log rotation limits the number of logfiles that should exist at any one time. When new logfiles are created, if the total number of logfiles exceeds the specified limit, the specified action will be performed. You can specify the desired action here. Delete = Delete the oldest logfiles, until the limit is no longer exceeded. Archive = Firstly archive, and then delete the oldest logfiles, until the limit is no longer exceeded.
+- Log rotation limits the number of logfiles that should exist at any one time. When new logfiles are created, if the total number of logfiles exceeds the specified limit, the specified action will be performed. You can specify the desired action here.
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("Delete the oldest logfiles, until the limit is no longer exceeded.")
+└─Archive ("Firstly archive, and then delete the oldest logfiles, until the limit is no longer exceeded.")
 ```
 
 ##### "timezone" `[string]`
@@ -1014,6 +1014,8 @@ Supplementary cache options. Note: Changing these values may potentially log you
 ##### "pdo_dsn" `[string]`
 - PDO DSN value. Default = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md#HOW_TO_USE_PDO" hreflang="en-AU">What is a "PDO DSN"? How can I use PDO with phpMussel?</a></em>
+
 ##### "pdo_username" `[string]`
 - PDO username.
 
@@ -1086,7 +1088,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1803,4 +1805,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 25 March 2022 (2022.03.25).
+Last Updated: 23 April 2022 (2022.04.23).

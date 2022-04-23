@@ -565,12 +565,12 @@ Configuration générale (toute configuration de base n'appartenant pas à d'aut
 - La rotation du journal limite le nombre de fichiers journaux qui doivent exister à un moment donné. Lorsque de nouveaux fichiers journaux sont créés, si le nombre total de fichiers journaux dépasse la limite spécifiée, l'action spécifiée sera effectuée. Vous pouvez spécifier la limite souhaitée ici. Une valeur de 0 désactivera la rotation du journal.
 
 ##### « log_rotation_action » `[string]`
-- La rotation du journal limite le nombre de fichiers journaux qui doivent exister à un moment donné. Lorsque de nouveaux fichiers journaux sont créés, si le nombre total de fichiers journaux dépasse la limite spécifiée, l'action spécifiée sera effectuée. Vous pouvez spécifier l'action souhaitée ici. Delete = Supprimez les fichiers journaux les plus anciens, jusqu'à ce que la limite ne soit plus dépassée. Archive = Tout d'abord archiver, puis supprimez les fichiers journaux les plus anciens, jusqu'à ce que la limite ne soit plus dépassée.
+- La rotation du journal limite le nombre de fichiers journaux qui doivent exister à un moment donné. Lorsque de nouveaux fichiers journaux sont créés, si le nombre total de fichiers journaux dépasse la limite spécifiée, l'action spécifiée sera effectuée. Vous pouvez spécifier l'action souhaitée ici.
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("Supprimez les fichiers journaux les plus anciens, jusqu'à ce que la limite ne soit plus dépassée.")
+└─Archive ("Tout d'abord archiver, puis supprimez les fichiers journaux les plus anciens, jusqu'à ce que la limite ne soit plus dépassée.")
 ```
 
 ##### « timezone » `[string]`
@@ -978,6 +978,8 @@ Options de cache supplémentaires. Remarque : La modification de ces valeurs pe
 ##### « pdo_dsn » `[string]`
 - Valeur de DSN de PDO. Défaut = « mysql:dbname=phpmussel;host=localhost;port=3306 ».
 
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.fr.md#HOW_TO_USE_PDO" hreflang="fr">Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?</a></em>
+
 ##### « pdo_username » `[string]`
 - Nom d'utilisateur PDO.
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1772,4 +1774,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 25 Mars 2022 (2022.03.25).
+Dernière mise à jour : 23 Avril 2022 (2022.04.23).

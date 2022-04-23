@@ -565,12 +565,12 @@ Configuración general (cualquier configuración que no pertenezca a otras categ
 - La rotación de registros limita la cantidad de archivos de registro que deberían existir al mismo tiempo. Cuando se crean nuevos archivos de registro, si la cantidad total de archivos de registro excede el límite especificado, se realizará la acción especificada. Puede especificar el límite deseado aquí. Un valor de 0 deshabilitará la rotación de registros.
 
 ##### "log_rotation_action" `[string]`
-- La rotación de registros limita la cantidad de archivos de registro que deberían existir al mismo tiempo. Cuando se crean nuevos archivos de registro, si la cantidad total de archivos de registro excede el límite especificado, se realizará la acción especificada. Puede especificar la acción deseada aquí. Delete = Eliminar los archivos de registro más antiguos, hasta que el límite ya no se exceda. Archive = Primero archiva, y luego eliminar los archivos de registro más antiguos, hasta que el límite ya no se exceda.
+- La rotación de registros limita la cantidad de archivos de registro que deberían existir al mismo tiempo. Cuando se crean nuevos archivos de registro, si la cantidad total de archivos de registro excede el límite especificado, se realizará la acción especificada. Puede especificar la acción deseada aquí.
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("Eliminar los archivos de registro más antiguos, hasta que el límite ya no se exceda.")
+└─Archive ("Primero archiva, y luego eliminar los archivos de registro más antiguos, hasta que el límite ya no se exceda.")
 ```
 
 ##### "timezone" `[string]`
@@ -978,6 +978,8 @@ Opciones de caché suplementarias. Nota: Cambiar estos valores puede potencialme
 ##### "pdo_dsn" `[string]`
 - Valor del DSN de PDO. Predefinido = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.es.md#HOW_TO_USE_PDO" hreflang="es">¿Qué es un "PDO DSN"? Cómo puedo usar PDO con phpMussel?</a></em>
+
 ##### "pdo_username" `[string]`
 - Nombre del usuario de PDO.
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1766,4 +1768,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 25 de Marzo de 2022 (2022.03.25).
+Última Actualización: 23 de Abril de 2022 (2022.04.23).

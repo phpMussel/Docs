@@ -565,12 +565,12 @@ Allgemeine Konfiguration (jede Kernkonfiguration, die nicht zu anderen Kategorie
 - Die Protokollrotation begrenzt die Anzahl der Protokolldateien, die gleichzeitig vorhanden sein dürfen. Wenn neue Protokolldateien erstellt werden, und wenn die Gesamtzahl der Protokolldateien den angegebenen Limit überschreitet, wird die angegebene Aktion ausgeführt. Sie können hier das gewünschte Limit angeben. Ein Wert von 0 deaktiviert die Protokollrotation.
 
 ##### "log_rotation_action" `[string]`
-- Die Protokollrotation begrenzt die Anzahl der Protokolldateien, die gleichzeitig vorhanden sein sollten. Wenn neue Protokolldateien erstellt werden, und wenn die Gesamtzahl der Protokolldateien den angegebenen Limit überschreitet, wird die angegebene Aktion ausgeführt. Sie können hier die gewünschte Aktion angeben. Delete = Löschen Sie die ältesten Protokolldateien, bis das Limit nicht mehr überschritten wird. Archive = Zuerst archivieren, und dann löschen Sie die ältesten Protokolldateien, bis das Limit nicht mehr überschritten wird.
+- Die Protokollrotation begrenzt die Anzahl der Protokolldateien, die gleichzeitig vorhanden sein sollten. Wenn neue Protokolldateien erstellt werden, und wenn die Gesamtzahl der Protokolldateien den angegebenen Limit überschreitet, wird die angegebene Aktion ausgeführt. Sie können hier die gewünschte Aktion angeben.
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("Löschen Sie die ältesten Protokolldateien, bis das Limit nicht mehr überschritten wird.")
+└─Archive ("Zuerst archivieren, und dann löschen Sie die ältesten Protokolldateien, bis das Limit nicht mehr überschritten wird.")
 ```
 
 ##### "timezone" `[string]`
@@ -978,6 +978,8 @@ Zusätzliche Cache-Optionen. Hinweis: Das Ändern dieser Werte kann Sie möglich
 ##### "pdo_dsn" `[string]`
 - PDO DSN-Wert. Standardeinstellung = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.de.md#HOW_TO_USE_PDO" hreflang="de">Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?</a></em>
+
 ##### "pdo_username" `[string]`
 - PDO Nutzername.
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1268,7 +1270,7 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 - [Ich möchte zum Projekt beitragen; Darf ich dies machen?](#WANT_TO_CONTRIBUTE)
 - [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#SCAN_DEBUGGING)
 - [Blacklists – Whitelists – Greylists – Was sind sie und wie benutze ich sie?](#BLACK_WHITE_GREY)
-- [Was ist ein "PDO DSN"? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)
+- [Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)
 - [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#AJAX_AJAJ_JSON)
 - [Kann phpMussel EICAR erkennen?](#DETECT_EICAR)
 
@@ -1412,7 +1414,7 @@ Die Signatur-Greylist ist eine Liste von Signaturen, die im Wesentlichen ignorie
 
 Die Signatur-Greylist ist nützlich, wenn Sie Probleme beheben müssen, die von einer bestimmten Signatur verursacht werden, ohne die gesamte Signaturdatei zu deaktivieren oder zu deinstallieren.
 
-#### <a name="HOW_TO_USE_PDO"></a>Was ist ein "PDO DSN"? Wie kann ich PDO mit phpMussel verwenden?
+#### <a name="HOW_TO_USE_PDO"></a>Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?
 
 "PDO" ist eine Akronym für "[PHP Data Objects](https://www.php.net/manual/de/intro.pdo.php)". Es bietet eine Schnittstelle zum Verbinden von PHP mit einigen Datenbanksystemen die häufig von verschiedenen PHP-Anwendungen verwendet werden.
 
@@ -1774,4 +1776,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 25. März 2022 (2022.03.25).
+Zuletzt aktualisiert: 23. April 2022 (2022.04.23).

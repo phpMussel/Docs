@@ -14,6 +14,29 @@ $loadL10N = function (string $Language) use (&$Vendor) {
     return new \Maikuolan\Common\L10N($Arr, []);
 };
 
+$ArrayFromL10NDataToArray = function ($References, &$L10N): array {
+    if (!is_array($References)) {
+        $References = [$References];
+    }
+    $Out = [];
+    foreach ($References as $Reference) {
+        if (isset($L10N->Data[$Reference])) {
+            $Reference = $L10N->Data[$Reference];
+        }
+        if (!is_array($Reference)) {
+            $Reference = [$Reference];
+        }
+        foreach ($Reference as $Key => $Value) {
+            if (is_int($Key)) {
+                $Out[] = $Value;
+                continue;
+            }
+            $Out[$Key] = $Value;
+        }
+    }
+    return $Out;
+};
+
 if (!isset($_GET['language'])) {
     echo 'No language specified.';
 } else {
@@ -90,12 +113,19 @@ if (!isset($_GET['language'])) {
                 }
                 $Iterant = 1;
                 foreach ($Choices as $Choice => $Value) {
+                    $Value = $Data->getString($Value) ?: $Value;
                     if ($Type === 'string') {
                         $Value = '"' . $Value . '"';
                     } elseif ($Type === 'bool') {
                         $Value = $Value ? 'true' : 'false';
                     }
-                    $Final .= ($Iterant === $Number ? '└─' : '├─') . $Choice . ' (' . $Value . ")\n";
+                    if (strpos($Value, "\n")) {
+                        $Value = explode("\n", $Value);
+                        $Value[1] = wordwrap($Value[1], 76, ($Iterant === $Number ? "\n  " : "\n│ "));
+                        $Final .= ($Iterant === $Number ? '└─' : '├─') . $Choice . ' (' . $Value[0] . '): ' . $Value[1] . "\n";
+                    } else {
+                        $Final .= ($Iterant === $Number ? '└─' : '├─') . $Choice . ' (' . $Value . ")\n";
+                    }
                     $Iterant++;
                 }
                 if (!empty($Info['allow_other'])) {
@@ -104,10 +134,7 @@ if (!isset($_GET['language'])) {
                 $Final .= "```\n\n";
             }
             if (!empty($Info['hints'])) {
-                $Hints = $Data->Data[$Info['hints']] ?? $Info['hints'];
-                if (!is_array($Hints)) {
-                    $Hints = [$Hints];
-                }
+                $Hints = $ArrayFromL10NDataToArray($Info['hints'], $Data);
                 foreach ($Hints as $HintKey => $HintValue) {
                     if (is_int($HintKey)) {
                         $Final .= $HintValue . "\n\n";

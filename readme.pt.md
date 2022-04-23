@@ -565,12 +565,12 @@ Configuração geral (qualquer configuração principal que não pertença a out
 - A rotação de log limita o número de arquivos de log que devem existir a qualquer momento. Quando novos arquivos de log são criados, se o número total de arquivos de log exceder o limite especificado, a ação especificada será executada. Você pode especificar o limite desejado aqui. Um valor de 0 desativará a rotação de log.
 
 ##### "log_rotation_action" `[string]`
-- A rotação de log limita o número de arquivos de log que devem existir a qualquer momento. Quando novos arquivos de log são criados, se o número total de arquivos de log exceder o limite especificado, a ação especificada será executada. Você pode especificar a ação desejada aqui. Delete = Deletar os arquivos de log mais antigos, até o limite não seja mais excedido. Archive = Primeiramente arquivar, e então deletar os arquivos de log mais antigos, até o limite não seja mais excedido.
+- A rotação de log limita o número de arquivos de log que devem existir a qualquer momento. Quando novos arquivos de log são criados, se o número total de arquivos de log exceder o limite especificado, a ação especificada será executada. Você pode especificar a ação desejada aqui.
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("Deletar os arquivos de log mais antigos, até o limite não seja mais excedido.")
+└─Archive ("Primeiramente arquivar, e então deletar os arquivos de log mais antigos, até o limite não seja mais excedido.")
 ```
 
 ##### "timezone" `[string]`
@@ -978,6 +978,8 @@ Opções de cache suplementares. Nota: Alterar estes valores podem potencialment
 ##### "pdo_dsn" `[string]`
 - Valor DSN do PDO. Padrão = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.pt.md#HOW_TO_USE_PDO" hreflang="pt">O que é um "PDO DSN"? Como posso usar o PDO com o phpMussel?</a></em>
+
 ##### "pdo_username" `[string]`
 - O nome de usuário do PDO.
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1762,4 +1764,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 25 de Março de 2022 (2022.03.25).
+Última Atualização: 23 de Abril de 2022 (2022.04.23).

@@ -565,12 +565,12 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 - ログ・ローテーションは、一度に存在する必要があるログ・ファイルの数を制限します。​新しいログ・ファイルが作成されると、ログ・ファイルの総数が指定された制限を超えると、指定されたアクションが実行されます。​ここで希望の制限を指定することができます。​値「0」は、ログ・ローテーションを無効にします。
 
 ##### "log_rotation_action" `[string]`
-- ログ・ローテーションは、一度に存在する必要があるログ・ファイルの数を制限します。​新しいログ・ファイルが作成されると、ログ・ファイルの総数が指定された制限を超えると、指定されたアクションが実行されます。​ここで希望のアクションを指定できます。 「Delete」 = 最も古いログ・ファイルを削除して、制限を超過しないようにします。 「Archive」 = 最初にアーカイブしてから、最も古いログ・ファイルを削除して、制限を超過しないようにします。
+- ログ・ローテーションは、一度に存在する必要があるログ・ファイルの数を制限します。​新しいログ・ファイルが作成されると、ログ・ファイルの総数が指定された制限を超えると、指定されたアクションが実行されます。​ここで希望のアクションを指定できます。
 
 ```
 log_rotation_action
-├─Delete ("Delete")
-└─Archive ("Archive")
+├─Delete ("最も古いログ・ファイルを削除して、制限を超過しないようにします。")
+└─Archive ("最初にアーカイブしてから、最も古いログ・ファイルを削除して、制限を超過しないようにします。")
 ```
 
 ##### "timezone" `[string]`
@@ -978,6 +978,8 @@ URLスキャナーの設定。
 ##### "pdo_dsn" `[string]`
 - PDOのDSN値。 Default/デフォルルト = 「mysql:dbname=phpmussel;host=localhost;port=3306」。
 
+__ＦＡＱ。__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ja.md#HOW_TO_USE_PDO" hreflang="ja">「PDO DSN」とは何ですか？​phpMusselでPDOを使用するにはどうすればよいですか？</a></em>
+
 ##### "pdo_username" `[string]`
 - PDOのユーザー名。
 
@@ -1050,7 +1052,7 @@ numbers
 default_algo
 ├─PASSWORD_DEFAULT ("PASSWORD_DEFAULT")
 ├─PASSWORD_BCRYPT ("PASSWORD_BCRYPT")
-├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I (PHP >= 7.2.0)")
+├─PASSWORD_ARGON2I ("PASSWORD_ARGON2I")
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
@@ -1759,4 +1761,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２２年３月２５日。
+最終アップデート：２０２２年４月２３日。

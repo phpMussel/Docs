@@ -1007,7 +1007,7 @@ Zusätzliche Cache-Optionen.
 ##### "pdo_dsn"
 - PDO DSN-Wert. Standardeinstellung = "`mysql:dbname=phpmussel;host=localhost;port=3306`".
 
-*Siehe auch: [Was ist ein "PDO DSN"? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)*
+*Siehe auch: [Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)*
 
 ##### "pdo_username"
 - PDO Nutzername.
@@ -1126,7 +1126,7 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 - [Kann phpMussel Dateien mit nicht-ANSI-Namen scannen?](#SCAN_NON_ANSI)
 - [Blacklists – Whitelists – Greylists – Was sind sie und wie benutze ich sie?](#BLACK_WHITE_GREY)
 - [Wenn ich Signaturdateien über die Aktualisierungsseite aktiviere oder deaktiviere, sortiert sie diese alphanumerisch in der Konfiguration. Kann ich die Art der Sortierung ändern?](#CHANGE_COMPONENT_SORT_ORDER)
-- [Was ist ein "PDO DSN"? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)
+- [Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)
 - [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#AJAX_AJAJ_JSON)
 - [Kann phpMussel EICAR erkennen?](#DETECT_EICAR)
 
@@ -1352,7 +1352,7 @@ Wenn dann eine neue Datei `file6.php` aktiviert wird, wenn die Aktualisierungsse
 
 Gleiche Situation, wenn eine Datei deaktiviert ist. Umgekehrt, wenn Sie möchten, dass die Datei zuletzt ausgeführt wird, Sie könnten etwas wie `zzz:` vor dem Namen der Datei hinzufügen. In jedem Fall müssen Sie die betreffende Datei nicht umbenennen.
 
-#### <a name="HOW_TO_USE_PDO"></a>Was ist ein "PDO DSN"? Wie kann ich PDO mit phpMussel verwenden?
+#### <a name="HOW_TO_USE_PDO"></a>Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?
 
 "PDO" ist eine Akronym für "[PHP Data Objects](https://www.php.net/manual/de/intro.pdo.php)". Es bietet eine Schnittstelle zum Verbinden von PHP mit einigen Datenbanksystemen die häufig von verschiedenen PHP-Anwendungen verwendet werden.
 
@@ -1725,4 +1725,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 20. Februar 2022 (2022.02.20).
+Zuletzt aktualisiert: 23. April 2022 (2022.04.23).
