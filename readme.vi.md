@@ -5,11 +5,11 @@
 - 2. [CÁCH CÀI ĐẶT](#SECTION2)
 - 3. [CÁCH SỬ DỤNG](#SECTION3)
 - 4. [MỞ RỘNG PHPMUSSEL](#SECTION4)
-- 7. [TÙY CHỌN CHO CẤU HÌNH](#SECTION7)
-- 8. [ĐỊNH DẠNG CỦA CHỬ KÝ](#SECTION8)
-- 9. [NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH](#SECTION9)
-- 10. [NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)](#SECTION10)
-- 11. [THÔNG TIN HỢP PHÁP](#SECTION11)
+- 5. [TÙY CHỌN CHO CẤU HÌNH](#SECTION5)
+- 6. [ĐỊNH DẠNG CỦA CHỬ KÝ](#SECTION6)
+- 7. [NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH](#SECTION7)
+- 8. [NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)](#SECTION8)
+- 9. [THÔNG TIN HỢP PHÁP](#SECTION9)
 
 *Lưu ý về bản dịch: Trong trường hợp có sai sót (ví dụ, sự khác biệt giữa bản dịch, lỗi chính tả, vv), phiên bản tiếng Anh của README được coi là phiên bản gốc và có thẩm quyền. Nếu bạn tìm thấy bất kỳ lỗi, giúp đỡ của bạn trong việc điều chỉnh họ sẽ được hoan nghênh.*
 
@@ -415,7 +415,7 @@ Bạn sẽ nhận thấy rằng cấu trúc của mã boilerplate v3 giống v�
 ---
 
 
-### 7. <a name="SECTION7"></a>TÙY CHỌN CHO CẤU HÌNH
+### 5. <a name="SECTION5"></a>TÙY CHỌN CHO CẤU HÌNH
 
 Sau đây là danh sách các chỉ thị cấu hình mà phpMussel chấp nhận, cùng với một mô tả về mục đích và chức năng của chúng.
 
@@ -1167,7 +1167,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>ĐỊNH DẠNG CỦA CHỬ KÝ
+### 6. <a name="SECTION6"></a>ĐỊNH DẠNG CỦA CHỬ KÝ
 
 *Xem thêm:*
 - *["Chữ ký" là gì?](#WHAT_IS_A_SIGNATURE)*
@@ -1240,7 +1240,7 @@ Bất kỳ cách thức biểu thức chính quy hiểu và xử lý một cách
 ---
 
 
-### 9. <a name="SECTION9"></a>NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH
+### 7. <a name="SECTION7"></a>NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH
 
 #### KHẢ NĂNG TƯƠNG THÍCH PHẦN MỀM CHỐNG VI RÚT
 
@@ -1255,7 +1255,7 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 ---
 
 
-### 10. <a name="SECTION10"></a>NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)
+### 8. <a name="SECTION8"></a>NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)
 
 - ["Chữ ký" là gì?](#WHAT_IS_A_SIGNATURE)
 - ["Sai tích cực" là gì?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1573,19 +1573,19 @@ Vâng. Chữ ký để phát hiện EICAR được bao gồm trong "tập tin ch
 ---
 
 
-### 11. <a name="SECTION11"></a>THÔNG TIN HỢP PHÁP
+### 9. <a name="SECTION9"></a>THÔNG TIN HỢP PHÁP
 
-#### 11.0 PHẦN MỞ ĐẦU
+#### 9.0 PHẦN MỞ ĐẦU
 
 Phần tài liệu này nhằm mô tả các cân nhắc pháp lý có thể có về việc sử dụng và thực hiện của gói, và cung cấp một số thông tin liên quan cơ bản. Điều này có thể quan trọng đối với một số người dùng như một phương tiện để đảm bảo tuân thủ mọi yêu cầu pháp lý có thể tồn tại ở các quốc gia mà họ hoạt động, và một số người dùng có thể cần phải điều chỉnh chính sách trang web của họ theo thông tin này.
 
 Đầu tiên và quan trọng nhất, xin vui lòng nhận ra rằng tôi (tác giả gói) không phải là luật sư, cũng không phải là một chuyên gia pháp lý đủ điều kiện. Do đó, tôi không đủ tư cách pháp lý để cung cấp tư vấn pháp lý. Ngoài ra, trong một số trường hợp, yêu cầu pháp lý chính xác có thể khác nhau giữa các quốc gia và khu vực pháp lý khác nhau, và các yêu cầu pháp lý khác nhau đôi khi có thể xung đột (chẳng hạn như, ví dụ, trong trường hợp các quốc gia mà ủng hộ [quyền riêng tư](https://vi.wikipedia.org/wiki/Quy%E1%BB%81n_%C4%91%C6%B0%E1%BB%A3c_b%E1%BA%A3o_v%E1%BB%87_%C4%91%E1%BB%9Di_t%C6%B0) và quyền bị lãng quên, so với các quốc gia mà ủng hộ luật lưu giữ dữ liệu). Cũng xem xét việc truy cập vào gói không bị giới hạn ở các quốc gia hoặc khu vực pháp lý cụ thể, và do đó, cơ sở người dùng gói có khả năng đa dạng về mặt địa lý. Những điểm này được xem xét, tôi không ở trong một vị trí để tuyên bố những gì nó có nghĩa là để "tuân thủ về mặt pháp lý" cho tất cả người dùng, trong tất cả các liên quan. Tuy nhiên, tôi hy vọng rằng thông tin trong tài liệu này sẽ giúp bạn tự quyết định về những gì bạn phải làm để duy trì tuân thủ về mặt pháp lý trong bối cảnh của gói. Nếu bạn có bất kỳ nghi ngờ hoặc quan tâm nào về thông tin ở đây, hoặc nếu bạn cần thêm trợ giúp và tư vấn từ góc độ pháp lý, tôi khuyên bạn nên tham khảo ý kiến chuyên gia pháp lý đủ điều kiện.
 
-#### 11.1 TRÁCH NHIỆM PHÁP LÝ
+#### 9.1 TRÁCH NHIỆM PHÁP LÝ
 
 Theo như đã nêu trong giấy phép gói, gói được cung cấp mà không có bất kỳ bảo hành nào. Điều này bao gồm (nhưng không giới hạn) tất cả phạm vi trách nhiệm pháp lý. Gói phần mềm được cung cấp cho bạn để thuận tiện cho bạn, với hy vọng rằng nó sẽ hữu ích, và rằng nó sẽ cung cấp một số lợi ích cho bạn. Tuy nhiên, việc sử dụng hoặc triển khai gói, là lựa chọn của riêng bạn. Bạn không bị buộc phải sử dụng hoặc triển khai gói, nhưng khi bạn làm như vậy, bạn chịu trách nhiệm về quyết định đó. Tôi và những người đóng góp gói khác, không chịu trách nhiệm pháp lý về hậu quả của các quyết định mà bạn đưa ra, bất kể trực tiếp, gián tiếp, ngụ ý, hay nói cách khác.
 
-#### 11.2 BÊN THỨ BA
+#### 9.2 BÊN THỨ BA
 
 Tùy thuộc vào cấu hình và triển khai chính xác của nó, gói có thể giao tiếp và chia sẻ thông tin với bên thứ ba trong một số trường hợp. Thông tin này có thể được định nghĩa là "[thông tin nhận dạng cá nhân](https://www.pcworld.com.vn/articles/cong-nghe/an-ninh-mang/2016/05/1248000/thong-tin-ca-nhan-tai-san-rieng-cung-la-tien/)" (PII) trong một số ngữ cảnh, bởi một số khu vực pháp lý.
 
@@ -1593,14 +1593,14 @@ Thông tin này có thể được các bên thứ ba này sử dụng như th�
 
 Với mục đích minh bạch, loại thông tin được chia sẻ, và với ai, được mô tả dưới đây.
 
-##### 11.2.1 MÁY QUÉT URL
+##### 9.2.1 MÁY QUÉT URL
 
 Các URL được tìm thấy trong các tải lên tập tin có thể được chia sẻ với API duyệt web an toàn của Google, tùy thuộc vào cách gói được định cấu hình. API duyệt web an toàn của Google yêu cầu các khóa API để hoạt động chính xác, và do đó được vô hiệu hóa theo mặc định.
 
 *Chỉ thị cấu hình có liên quan:*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 Khi phpMussel quét một tập tin tải lên, các băm của các tập tin đó có thể được chia sẻ với API Virus Total, tùy thuộc vào cách gói được định cấu hình. Có những kế hoạch để có thể chia sẻ toàn bộ tập tin tại một số thời điểm trong tương lai, nhưng tính năng này không được gói hỗ trợ tại thời điểm này. API Virus Total yêu cầu khóa API để hoạt động chính xác, và do đó được vô hiệu hóa theo mặc định.
 
@@ -1611,7 +1611,7 @@ Thông tin (bao gồm các tập tin và siêu dữ liệu tập tin có liên q
 *Chỉ thị cấu hình có liên quan:*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 NHẬT KÝ
+#### 9.3 NHẬT KÝ
 
 Nhật ký là một phần quan trọng của phpMussel vì một số lý do. Khi không có nhật ký, có thể khó để chẩn đoán sai tích cực, để xác định chính xác phpMussel hoạt động tốt như thế nào trong bất kỳ ngữ cảnh cụ thể nào, và để xác định nơi bất cập của nó, và những thay đổi nào có thể cần thiết đối với cấu hình hay chữ ký của nó, để nó có thể tiếp tục hoạt động như dự định. Bất kể, nhật ký có thể không được mong muốn cho tất cả người dùng, và vẫn hoàn toàn tùy chọn. Trong phpMussel, ghi nhật ký bị vô hiệu hóa theo mặc định. Để kích hoạt nó, phpMussel phải được cấu hình cho phù hợp.
 
@@ -1619,7 +1619,7 @@ Ngoài ra, việc nhật ký có được cho phép hợp pháp hay không, và 
 
 Có nhiều kiểu ghi nhật ký mà phpMussel có thể thực hiện. Các loại ghi nhật ký khác nhau liên quan đến các loại thông tin khác nhau, vì các lý do khác nhau.
 
-##### 11.3.0 NHẬT KÝ QUÉT
+##### 9.3.0 NHẬT KÝ QUÉT
 
 Khi được kích hoạt trong cấu hình gói, phpMussel lưu nhật ký của các tập tin mà nó quét. Loại ghi nhật ký này có sẵn ở hai định dạng khác nhau:
 - Tập tin nhật ký mà có thể được đọc bởi con người.
@@ -1645,7 +1645,7 @@ Mục nhập nhật ký quét thường bao gồm các thông tin sau:
 
 Khi các chỉ thị này được để trống, loại ghi nhật ký này sẽ vẫn bị vô hiệu hóa.
 
-##### 11.3.1 TẢI LÊN BỊ CHẶN
+##### 9.3.1 TẢI LÊN BỊ CHẶN
 
 Khi được kích hoạt trong cấu hình gói, phpMussel lưu nhật ký của các tải lên đã bị chặn.
 
@@ -1672,7 +1672,7 @@ Các mục nhật ký này thường bao gồm các thông tin sau:
 *Chỉ thị cấu hình có liên quan:*
 - `web` -> `uploads_log`
 
-##### 11.3.2 NHẬT KÝ FRONT-END
+##### 9.3.2 NHẬT KÝ FRONT-END
 
 Loại nhật ký này liên quan đến cố gắng đăng nhập, và chỉ xảy ra khi người dùng cố gắng đăng nhập vào front-end (giả sử truy cập front-end được kích hoạt).
 
@@ -1685,7 +1685,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Đã đăng nhập.
 *Chỉ thị cấu hình có liên quan:*
 - `general` -> `frontend_log`
 
-##### 11.3.3 XOAY VÒNG NHẬT KÝ
+##### 9.3.3 XOAY VÒNG NHẬT KÝ
 
 Bạn có thể muốn thanh lọc nhật ký sau một khoảng thời gian, hoặc có thể được yêu cầu làm như vậy theo luật pháp (khoảng thời gian được phép giữ nhật ký hợp pháp có thể bị giới hạn bởi luật pháp). Bạn có thể đạt được điều này bằng cách đưa dấu ngày/giờ vào tên tập tin nhật ký của bạn theo quy định của cấu hình gói của bạn (ví dụ, `{yyyy}-{mm}-{dd}.log`), và sau đó kích hoạt xoay vòng nhật ký (xoay vòng nhật ký cho phép bạn thực hiện một số hành động trên tập tin nhật ký khi vượt quá giới hạn được chỉ định).
 
@@ -1697,14 +1697,14 @@ Ngược lại, nếu bạn được yêu cầu giữ lại nhật ký trong m�
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 CẮT NGẮN NHẬT KÝ
+##### 9.3.4 CẮT NGẮN NHẬT KÝ
 
 Cũng có thể cắt ngắn các tập tin nhật ký riêng lẻ khi chúng vượt quá một kích thước nhất định, nếu đây bạn có thể cần hay muốn làm.
 
 *Chỉ thị cấu hình có liên quan:*
 - `general` -> `truncate`
 
-##### 11.3.5 PSEUDONYMISATION ĐỊA CHỈ IP
+##### 9.3.5 PSEUDONYMISATION ĐỊA CHỈ IP
 
 Thứ nhất, nếu bạn không quen thuộc với thuật ngữ này, "pseudonymisation" đề cập đến việc xử lý dữ liệu cá nhân sao cho không thể xác định được dữ liệu cá nhân cho bất kỳ chủ đề dữ liệu cụ thể nào nữa trừ khi có thông tin bổ sung, và miễn là thông tin bổ sung đó được duy trì riêng biệt và phải chịu sự các biện pháp kỹ thuật và tổ chức để đảm bảo rằng dữ liệu cá nhân không thể được xác định cho bất kỳ người tự nhiên nào.
 
@@ -1715,33 +1715,33 @@ phpMussel có thể sử dụng "pseudonymisation" cho các địa chỉ IP khi 
 *Chỉ thị cấu hình có liên quan:*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 SỐ LIỆU THỐNG KÊ
+##### 9.3.6 SỐ LIỆU THỐNG KÊ
 
 phpMussel có thể tùy chọn theo dõi số liệu thống kê như tổng số tập tin được quét và bị chặn kể từ một số thời điểm cụ thể. Tính năng này được vô hiệu hóa theo mặc định, nhưng có thể được kích hoạt thông qua cấu hình gói. Tính năng này chỉ theo dõi tổng số sự kiện đã xảy ra và không bao gồm bất kỳ thông tin nào về các sự kiện cụ thể (và do đó, không nên được coi là PII).
 
 *Chỉ thị cấu hình có liên quan:*
 - `general` -> `statistics`
 
-##### 11.3.7 MÃ HÓA
+##### 9.3.7 MÃ HÓA
 
 phpMussel không mã hóa bộ nhớ cache của nó hoặc bất kỳ thông tin log nào. [Mã hóa](https://vi.wikipedia.org/wiki/M%C3%A3_h%C3%B3a) bộ nhớ cache và log có thể được giới thiệu trong tương lai, nhưng hiện tại không có bất kỳ kế hoạch cụ thể nào. Nếu bạn lo lắng về các bên thứ ba không được phép truy cập vào các phần của phpMussel có thể chứa thông tin nhận dạng cá nhân hay thông tin nhạy cảm như bộ nhớ cache hoặc nhật ký của nó, tôi khuyên bạn không nên cài đặt phpMussel tại vị trí có thể truy cập công khai (ví dụ, cài đặt phpMussel bên ngoài thư mục `public_html` tiêu chuẩn hoặc tương đương chúng có sẵn cho hầu hết các máy chủ web tiêu chuẩn) và các quyền hạn chế thích hợp sẽ được thực thi cho thư mục nơi nó cư trú. Nếu điều đó không đủ để giải quyết mối quan ngại của bạn, hãy định cấu hình phpMussel để các loại thông tin gây ra mối lo ngại của bạn sẽ không được thu thập hoặc nhật ký ở địa điểm đầu tiên (ví dụ, bằng cách tắt ghi nhật ký).
 
-#### 11.4 COOKIE
+#### 9.4 COOKIE
 
 Khi người dùng đăng nhập thành công vào front-end, phpMussel đặt [cookie](https://vi.wikipedia.org/wiki/Cookie_(tin_h%E1%BB%8Dc)) để có thể nhớ người dùng cho các yêu cầu tiếp theo (cookie được sử dụng để xác thực người dùng đến phiên đăng nhập). Trên trang đăng nhập, cảnh báo cookie được hiển thị nổi bật, cảnh báo người dùng rằng cookie sẽ được đặt nếu họ tham gia vào các hành động có liên quan. Cookie không được đặt ở bất kỳ điểm nào khác trong cơ sở mã.
 
-#### 11.5 TIẾP THỊ VÀ QUẢNG CÁO
+#### 9.5 TIẾP THỊ VÀ QUẢNG CÁO
 
 phpMussel không thu thập hoặc xử lý bất kỳ thông tin nào cho mục đích tiếp thị hoặc quảng cáo, và không bán hoặc lợi nhuận từ bất kỳ thông tin được thu thập hoặc ghi lại nào. phpMussel không phải là một doanh nghiệp thương mại, cũng không liên quan đến bất kỳ lợi ích thương mại nào, do đó, làm những việc này sẽ không có ý nghĩa gì cả. Đây là trường hợp kể từ khi bắt đầu dự án, và tiếp tục là trường hợp ngày hôm nay. Ngoài ra, làm những việc này sẽ phản tác dụng với tinh thần và mục đích dự định của toàn bộ dự án, và miễn là tôi tiếp tục duy trì dự án, sẽ không bao giờ xảy ra.
 
-#### 11.6 CHÍNH SÁCH BẢO MẬT
+#### 9.6 CHÍNH SÁCH BẢO MẬT
 
 Trong một số trường hợp, bạn có thể được yêu cầu về mặt pháp lý để hiển thị rõ ràng liên kết đến chính sách bảo mật của bạn trên tất cả các trang và phần trong trang web của bạn. Điều này có thể quan trọng như một phương tiện để đảm bảo rằng người dùng được thông báo đầy đủ về các thực tiễn bảo mật chính xác của bạn, loại PII bạn thu thập, và cách bạn định sử dụng. Để có thể bao gồm một liên kết trên trang "Sự tải lên đã bị từ chối" của phpMussel, một chỉ thị cấu hình được cung cấp để chỉ định URL cho chính sách bảo mật của bạn.
 
 *Chỉ thị cấu hình có liên quan:*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO
+#### 9.7 GDPR/DSGVO
 
 Quy định bảo vệ dữ liệu chung (GDPR) là một quy định của Liên minh châu Âu, có hiệu lực kể từ 25 Tháng Năm 2018. Mục tiêu chính của quy định là cung cấp quyền kiểm soát cho công dân và cư dân EU về dữ liệu cá nhân của riêng họ, và thống nhất quy định trong EU về quyền riêng tư và dữ liệu cá nhân.
 
@@ -1758,4 +1758,4 @@ Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin
 ---
 
 
-Lần cuối cập nhật: 2022.04.23.
+Lần cuối cập nhật: 2022.05.12.

@@ -5,11 +5,11 @@
 - 2. [HOW TO INSTALL](#SECTION2)
 - 3. [HOW TO USE](#SECTION3)
 - 4. [EXTENDING PHPMUSSEL](#SECTION4)
-- 7. [CONFIGURATION OPTIONS](#SECTION7)
-- 8. [SIGNATURE FORMAT](#SECTION8)
-- 9. [KNOWN COMPATIBILITY PROBLEMS](#SECTION9)
-- 10. [FREQUENTLY ASKED QUESTIONS (FAQ)](#SECTION10)
-- 11. [LEGAL INFORMATION](#SECTION11)
+- 5. [CONFIGURATION OPTIONS](#SECTION5)
+- 6. [SIGNATURE FORMAT](#SECTION6)
+- 7. [KNOWN COMPATIBILITY PROBLEMS](#SECTION7)
+- 8. [FREQUENTLY ASKED QUESTIONS (FAQ)](#SECTION8)
+- 9. [LEGAL INFORMATION](#SECTION9)
 
 *Note regarding translations: In the event of errors (e.g., discrepancies between translations, typos, etc), the English version of the README is considered the original and authoritative version. If you find any errors, your assistance in correcting them would be welcomed.*
 
@@ -451,7 +451,7 @@ You'll notice that the structure of the v3 boilerplate code is identical to the 
 ---
 
 
-### 7. <a name="SECTION7"></a>CONFIGURATION OPTIONS
+### 5. <a name="SECTION5"></a>CONFIGURATION OPTIONS
 
 The following is a list of the configuration directives accepted by phpMussel, along with a description of their purpose and function.
 
@@ -1203,7 +1203,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>SIGNATURE FORMAT
+### 6. <a name="SECTION6"></a>SIGNATURE FORMAT
 
 *See also:*
 - *[What is a "signature"?](#WHAT_IS_A_SIGNATURE)*
@@ -1276,7 +1276,7 @@ Any form of regex understood and correctly processed by PHP should also be corre
 ---
 
 
-### 9. <a name="SECTION9"></a>KNOWN COMPATIBILITY PROBLEMS
+### 7. <a name="SECTION7"></a>KNOWN COMPATIBILITY PROBLEMS
 
 #### ANTI-VIRUS SOFTWARE COMPATIBILITY
 
@@ -1291,7 +1291,7 @@ I don't check the signature files, documentation, or other peripheral content. T
 ---
 
 
-### 10. <a name="SECTION10"></a>FREQUENTLY ASKED QUESTIONS (FAQ)
+### 8. <a name="SECTION8"></a>FREQUENTLY ASKED QUESTIONS (FAQ)
 
 - [What is a "signature"?](#WHAT_IS_A_SIGNATURE)
 - [What is a "false positive"?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1610,19 +1610,19 @@ Yes. A signature for detecting EICAR is included in the "phpMussel standard regu
 ---
 
 
-### 11. <a name="SECTION11"></a>LEGAL INFORMATION
+### 9. <a name="SECTION9"></a>LEGAL INFORMATION
 
-#### 11.0 SECTION PREAMBLE
+#### 9.0 SECTION PREAMBLE
 
 This section of the documentation is intended to describe possible legal considerations regarding the use and implementation of the package, and to provide some basic related information. This may be important for some users as a means to ensure compliancy with any legal requirements that may exist in the countries that they operate in, and some users may need to adjust their website policies in accordance with this information.
 
 First and foremost, please realise that I (the package author) am not a lawyer, nor a qualified legal professional of any kind. Therefore, I am not legally qualified to provide legal advice. Also, in some cases, exact legal requirements may vary between different countries and jurisdictions, and these varying legal requirements may sometimes conflict (such as, for example, in the case of countries that favour [privacy rights](https://en.wikipedia.org/wiki/Right_to_privacy) and the [right to be forgotten](https://en.wikipedia.org/wiki/Right_to_be_forgotten), versus countries that favour extended [data retention](https://en.wikipedia.org/wiki/Data_retention)). Consider also that access to the package is not restricted to specific countries or jurisdictions, and therefore, the package userbase is likely to the geographically diverse. These points considered, I'm not in a position to state what it means to be "legally compliant" for all users, in all regards. However, I hope that the information herein will help you to come to a decision yourself regarding what you must do in order to remain legally compliant in the context of the package. If you have any doubts or concerns regarding the information herein, or if you need additional help and advice from a legal perspective, I would recommend consulting a qualified legal professional.
 
-#### 11.1 LIABILITY AND RESPONSIBILITY
+#### 9.1 LIABILITY AND RESPONSIBILITY
 
 As per already stated by the package license, the package is provided without any warranty. This includes (but is not limited to) all scope of liability. The package is provided to you for your convenience, in the hope that it will be useful, and that it will provide some benefit for you. However, whether you use or implement the package, is your own choice. You are not forced to use or implement the package, but when you do so, you are responsible for that decision. Neither I, nor any other contributors to the package, are legally responsible for the consequences of the decisions that you make, regardless of whether direct, indirect, implied, or otherwise.
 
-#### 11.2 THIRD PARTIES
+#### 9.2 THIRD PARTIES
 
 Depending on its exact configuration and implementation, the package may communicate and share information with third parties in some cases. This information may be defined as "[personally identifiable information](https://en.wikipedia.org/wiki/Personal_data)" (PII) in some contexts, by some jurisdictions.
 
@@ -1630,14 +1630,14 @@ How this information may be used by these third parties, is subject to the vario
 
 For the purpose of transparency, the type of information shared, and with whom, is described below.
 
-##### 11.2.1 URL SCANNER
+##### 9.2.1 URL SCANNER
 
 URLs found within file uploads may be shared with the Google Safe Browsing API, depending on how the package is configured. The Google Safe Browsing API requires API keys in order to work correctly, and is therefore disabled by default.
 
 *Relevant configuration directives:*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 When phpMussel scans a file upload, the hashes of those files may be shared with the Virus Total API, depending on how the package is configured. There are plans to be able to share entire files at some point in the future too, but this feature isn't supported by the package at this time. The Virus Total API requires an API key in order to work correctly, and is therefore disabled by default.
 
@@ -1648,7 +1648,7 @@ Information (including files and related file metadata) shared with Virus Total,
 *Relevant configuration directives:*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 LOGGING
+#### 9.3 LOGGING
 
 Logging is an important part of phpMussel for a number of reasons. Without logging, it may be difficult to diagnose false positives, to ascertain exactly how performant phpMussel is in any particular context, and to determine where its shortfalls may be, and what changes may be required to its configuration or signatures accordingly, in order for it to continue functioning as intended. Regardless, logging mightn't be desirable for all users, and remains entirely optional. In phpMussel, logging is disabled by default. To enable it, phpMussel must be configured accordingly.
 
@@ -1656,7 +1656,7 @@ Additionally, whether logging is legally permissible, and to the extent that it 
 
 There are multiple types of logging that phpMussel can perform. Different types of logging involves different types of information, for different reasons.
 
-##### 11.3.0 SCAN LOGS
+##### 9.3.0 SCAN LOGS
 
 When enabled in the package configuration, phpMussel keeps logs of the files it scans. This type of logging is available in two different formats:
 - Human readable logfiles.
@@ -1682,7 +1682,7 @@ A scan log entry typically includes the following information:
 
 When these directives are left empty, this type of logging will remain disabled.
 
-##### 11.3.1 UPLOADS LOG
+##### 9.3.1 UPLOADS LOG
 
 When enabled in the package configuration, phpMussel keeps logs of the uploads that have been blocked.
 
@@ -1709,7 +1709,7 @@ These log entries typically includes the following information:
 *Relevant configuration directives:*
 - `web` -> `uploads_log`
 
-##### 11.3.2 FRONT-END LOGGING
+##### 9.3.2 FRONT-END LOGGING
 
 This type of logging relates front-end login attempts, and occurs only when a user attempts to log into the front-end (assuming front-end access is enabled).
 
@@ -1722,7 +1722,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Logged in.
 *Relevant configuration directives:*
 - `general` -> `frontend_log`
 
-##### 11.3.3 LOG ROTATION
+##### 9.3.3 LOG ROTATION
 
 You may want to purge logs after a period of time, or may be required to do so by law (i.e., the amount of time that it's legally permissible for you to retain logs may be limited by law). You can achieve this by including date/time markers in the names of your logfiles as per specified by your package configuration (e.g., `{yyyy}-{mm}-{dd}.log`), and then enabling log rotation (log rotation allows you to perform some action on logfiles when specified limits are exceeded).
 
@@ -1734,14 +1734,14 @@ Conversely, if you're required to retain logs for an extended period of time, yo
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 LOG TRUNCATION
+##### 9.3.4 LOG TRUNCATION
 
 It's also possible to truncate individual logfiles when they exceed a certain size, if this is something you might need or want to do.
 
 *Relevant configuration directives:*
 - `general` -> `truncate`
 
-##### 11.3.5 IP ADDRESS PSEUDONYMISATION
+##### 9.3.5 IP ADDRESS PSEUDONYMISATION
 
 Firstly, if you're not familiar with the term, "pseudonymisation" refers to the processing of personal data as such that it can't be identified to any specific data subject anymore without supplementary information, and provided that such supplementary information is maintained separately and subject to technical and organisational measures to ensure that personal data can't be identified to any natural person.
 
@@ -1757,33 +1757,33 @@ phpMussel is able to pseudonymise IP addresses when logging them, if this is som
 *Relevant configuration directives:*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 STATISTICS
+##### 9.3.6 STATISTICS
 
 phpMussel is optionally able to track statistics such as the total number of files scanned and blocked since some particular point in time. This feature is disabled by default, but can be enabled via the package configuration. The type of information tracked shouldn't be regarded as PII.
 
 *Relevant configuration directives:*
 - `general` -> `statistics`
 
-##### 11.3.7 ENCRYPTION
+##### 9.3.7 ENCRYPTION
 
 phpMussel doesn't encrypt its cache or any log information. Cache and log [encryption](https://en.wikipedia.org/wiki/Encryption) may be introduced in the future, but there aren't any specific plans for it currently. If you're concerned about unauthorised third parties gaining access to parts of phpMussel that may contain PII or sensitive information such as its cache or logs, I would recommend that phpMussel not be installed at a publicly accessible location (e.g., install phpMussel outside the standard `public_html` directory or equivalent thereof available to most standard webservers) and that appropriately restrictive permissions be enforced for the directory where it resides. If that isn't sufficient to address your concerns, then configure phpMussel as such that the types of information causing your concerns won't be collected or logged in the first place (such as, by disabling logging).
 
-#### 11.4 COOKIES
+#### 9.4 COOKIES
 
 When a user successfully logs into the front-end, phpMussel sets a [cookie](https://en.wikipedia.org/wiki/HTTP_cookie) in order to be able to remember the user for subsequent requests (i.e., cookies are used to authenticate the user to a login session). On the login page, a cookie warning is displayed prominently, warning the user that a cookie will be set if they engage in the relevant action. Cookies aren't set at any other points in the codebase.
 
-#### 11.5 MARKETING AND ADVERTISING
+#### 9.5 MARKETING AND ADVERTISING
 
 phpMussel doesn't collect or process any information for marketing or advertising purposes, and neither sells nor profits from any collected or logged information. phpMussel is not a commercial enterprise, nor is related to any commercial interests, so doing these things wouldn't make any sense. This has been the case since the beginning of the project, and continues to be the case today. Additionally, doing these things would be counter-productive to the spirit and intended purpose of the project as a whole, and for as long as I continue to maintain the project, will never happen.
 
-#### 11.6 PRIVACY POLICY
+#### 9.6 PRIVACY POLICY
 
 In some circumstances, you may be legally required to clearly display a link to your privacy policy on all pages and sections of your website. This may be important as a means to ensure that users are well-informed of your exact privacy practices, the types of PII you collect, and how you intend to use it. In order to be able to include such a link on phpMussel's "Upload Denied" page, a configuration directive is provided to specify the URL to your privacy policy.
 
 *Relevant configuration directives:*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO
+#### 9.7 GDPR/DSGVO
 
 The General Data Protection Regulation (GDPR) is a regulation of the European Union, which comes into effect as of May 25, 2018. The primary goal of the regulation is to give control to EU citizens and residents regarding their own personal data, and to unify regulation within the EU concerning privacy and personal data.
 
@@ -1805,4 +1805,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 23 April 2022 (2022.04.23).
+Last Updated: 12 May 2022 (2022.05.12).

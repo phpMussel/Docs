@@ -5,11 +5,11 @@
 - 2. [BAGAIMANA CARA MENGINSTAL](#SECTION2)
 - 3. [BAGAIMANA CARA MENGGUNAKAN](#SECTION3)
 - 4. [MEMPERLUAS PHPMUSSEL](#SECTION4)
-- 7. [OPSI KONFIGURASI](#SECTION7)
-- 8. [FORMAT TANDA TANGAN](#SECTION8)
-- 9. [MASALAH KOMPATIBILITAS DIKETAHUI](#SECTION9)
-- 10. [PERTANYAAN YANG SERING DIAJUKAN (FAQ)](#SECTION10)
-- 11. [INFORMASI HUKUM](#SECTION11)
+- 5. [OPSI KONFIGURASI](#SECTION5)
+- 6. [FORMAT TANDA TANGAN](#SECTION6)
+- 7. [MASALAH KOMPATIBILITAS DIKETAHUI](#SECTION7)
+- 8. [PERTANYAAN YANG SERING DIAJUKAN (FAQ)](#SECTION8)
+- 9. [INFORMASI HUKUM](#SECTION9)
 
 *Catatan tentang terjemahan: Dalam hal kesalahan (misalnya, perbedaan antara terjemahan, kesalahan cetak, dll), versi bahasa Inggris dari README dianggap versi asli dan berwibawa. Jika Anda menemukan kesalahan, bantuan Anda dalam mengoreksi mereka akan disambut.*
 
@@ -415,7 +415,7 @@ Anda akan melihat bahwa struktur kode boilerplate v3 identik dengan struktur ber
 ---
 
 
-### 7. <a name="SECTION7"></a>OPSI KONFIGURASI
+### 5. <a name="SECTION5"></a>OPSI KONFIGURASI
 
 Berikut ini adalah daftar direktif konfigurasi yang diterima oleh phpMussel, dengan deskripsi dari tujuan dan fungsi.
 
@@ -1167,7 +1167,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>FORMAT TANDA TANGAN
+### 6. <a name="SECTION6"></a>FORMAT TANDA TANGAN
 
 *Lihat juga:*
 - *[Apa yang "tanda tangan"?](#WHAT_IS_A_SIGNATURE)*
@@ -1240,7 +1240,7 @@ Setiap bentuk dari regex mengerti dan dengan benar diproses oleh PHP seharusnya 
 ---
 
 
-### 9. <a name="SECTION9"></a>MASALAH KOMPATIBILITAS DIKETAHUI
+### 7. <a name="SECTION7"></a>MASALAH KOMPATIBILITAS DIKETAHUI
 
 #### KOMPATIBILITAS SOFTWARE ANTI-VIRUS
 
@@ -1255,7 +1255,7 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 ---
 
 
-### 10. <a name="SECTION10"></a>PERTANYAAN YANG SERING DIAJUKAN (FAQ)
+### 8. <a name="SECTION8"></a>PERTANYAAN YANG SERING DIAJUKAN (FAQ)
 
 - [Apa yang "tanda tangan"?](#WHAT_IS_A_SIGNATURE)
 - [Apa yang dimaksud dengan "positif palsu"?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1576,19 +1576,19 @@ Ya. Tanda tangan untuk mendeteksi EICAR disertakan dalam "file tanda tangan eksp
 ---
 
 
-### 11. <a name="SECTION11"></a>INFORMASI HUKUM
+### 9. <a name="SECTION9"></a>INFORMASI HUKUM
 
-#### 11.0 PENGANTAR BAGIAN
+#### 9.0 PENGANTAR BAGIAN
 
 Bagian dokumentasi ini dimaksudkan untuk menjelaskan kemungkinan pertimbangan hukum mengenai penggunaan dan implementasi paket, dan untuk memberikan beberapa informasi dasar terkait. Ini mungkin penting bagi beberapa pengguna sebagai sarana untuk memastikan kepatuhan dengan persyaratan hukum yang mungkin ada di negara tempat mereka beroperasi, dan beberapa pengguna mungkin perlu menyesuaikan kebijakan situs web mereka sesuai dengan informasi ini.
 
 Pertama dan terutama, harap menyadari bahwa saya (penulis paket) bukan seorang pengacara, atau profesional hukum yang berkualitas dalam bentuk apapun. Oleh karena itu, saya secara hukum tidak memenuhi syarat untuk memberikan nasihat hukum. Juga, dalam beberapa kasus, persyaratan hukum yang tepat dapat bervariasi antara negara dan yurisdiksi yang berbeda, dan berbagai persyaratan hukum ini terkadang dapat menimbulkan konflik (seperti, misalnya, dalam kasus negara-negara yang mendukung hak privasi dan hak untuk dilupakan, versus negara-negara yang mendukung retensi data diperpanjang). Pertimbangkan juga bahwa akses ke paket tidak terbatas pada negara atau yurisdiksi tertentu, dan oleh karena itu, pengguna paket cenderung ke geografis yang beragam. Poin-poin ini dianggap, saya tidak dalam posisi untuk menyatakan apa artinya "mematuhi hukum" untuk semua pengguna, dalam semua hal. Namun, saya berharap informasi disini akan membantu Anda untuk mengambil keputusan sendiri mengenai apa yang Anda harus lakukan agar tetap mematuhi hukum dalam konteks paket. Jika Anda memiliki keraguan atau kekhawatiran mengenai informasi disini, atau jika Anda membutuhkan bantuan dan saran tambahan dari perspektif hukum, saya merekomendasikan konsultasi dengan profesional hukum yang berkualitas.
 
-#### 11.1 TANGGUNG JAWAB DAN KEWAJIBAN HUKUM
+#### 9.1 TANGGUNG JAWAB DAN KEWAJIBAN HUKUM
 
 Seperti yang telah dinyatakan oleh lisensi paket, paket ini disediakan tanpa jaminan apapun. Ini termasuk (tetapi tidak terbatas pada) semua lingkup kewajiban hukum. Paket ini diberikan kepada Anda untuk kenyamanan Anda, dengan harapan itu akan berguna, dan itu akan memberikan beberapa manfaat bagi Anda. Namun, apakah Anda menggunakan atau mengimplementasikan paket ini, adalah pilihan Anda sendiri. Anda tidak dipaksa untuk menggunakan atau mengimplementasikan paket ini, tetapi ketika Anda melakukannya, Anda bertanggung jawab atas keputusan itu. Bukan saya, dan tidak ada kontributor lain untuk paket ini, bertanggung jawab secara hukum atas konsekuensi keputusan yang Anda buat, terlepas dari apakah langsung, tidak langsung, tersirat, atau sebaliknya.
 
-#### 11.2 PIHAK KETIGA
+#### 9.2 PIHAK KETIGA
 
 Tergantung pada konfigurasi dan implementasinya yang tepat, paket dapat berkomunikasi dan berbagi informasi dengan pihak ketiga dalam beberapa kasus. Informasi ini dapat didefinisikan sebagai "informasi identitas pribadi" (PII) dalam beberapa konteks, oleh beberapa yurisdiksi.
 
@@ -1596,14 +1596,14 @@ Bagaimana informasi ini dapat digunakan oleh pihak ketiga, tunduk pada berbagai 
 
 Untuk tujuan transparansi, jenis informasi yang dibagikan, dan dengan siapa, dijelaskan dibawah ini.
 
-##### 11.2.1 SCANNER URL
+##### 9.2.1 SCANNER URL
 
 URL ditemukan dalam upload file dapat dibagikan dengan API Google Safe Browsing, tergantung bagaimana paket dikonfigurasi. API Google Safe Browsing memerlukan kunci API agar berfungsi dengan benar, dan karenanya dinonaktifkan secara default.
 
 *Direktif konfigurasi yang relevan:*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 Ketika phpMussel memindai upload file, hash dari file-file tersebut dapat dibagikan dengan API Virus Total, tergantung bagaimana paket dikonfigurasi. Ada rencana untuk dapat membagikan seluruh file di beberapa titik di masa depan juga, tetapi fitur ini tidak didukung oleh paket saat ini. API Virus Total membutuhkan kunci API agar berfungsi dengan benar, dan karenanya dinonaktifkan secara default.
 
@@ -1614,7 +1614,7 @@ Informasi (termasuk file dan metadata file terkait) yang dibagikan dengan Virus 
 *Direktif konfigurasi yang relevan:*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 PENCATATAN
+#### 9.3 PENCATATAN
 
 Pencatatan adalah bagian penting dari phpMussel karena berbagai alasan. Tanpa mencatat waktu terblokir, mungkin sulit untuk mendiagnosis kesalahan positif, untuk memastikan secara akurat seberapa baik kinerja phpMussel dalam konteks tertentu, dan untuk menentukan dimana kekurangannya, dan perubahan apa yang mungkin diperlukan untuk konfigurasi atau tanda tangan yang sesuai, agar terus berfungsi sebagaimana dimaksud. Apapun, pencatatan mungkin tidak diinginkan untuk semua pengguna, dan tetap sepenuhnya opsional. Di phpMussel, pencatatan dinonaktifkan secara default. Untuk mengaktifkannya, phpMussel harus dikonfigurasi dengan benar.
 
@@ -1622,7 +1622,7 @@ Juga, apakah pencatatan diizinkan secara hukum, dan sejauh diizinkan secara huku
 
 Ada beberapa jenis pencatatan yang dapat dilakukan oleh phpMussel. Berbagai jenis pencatatan melibatkan berbagai jenis informasi, untuk berbagai alasan.
 
-##### 11.3.0 LOG PEMINDAIAN
+##### 9.3.0 LOG PEMINDAIAN
 
 Ketika diaktifkan dalam konfigurasi paket, phpMussel menyimpan log dari file yang dipindainya. Jenis pencatatan ini tersedia dalam dua format berbeda:
 - File log yang dapat dibaca oleh manusia.
@@ -1648,7 +1648,7 @@ Entri log pemindaian biasanya mencakup informasi berikut:
 
 Ketika direktif ini dibiarkan kosong, jenis pencatatan ini akan tetap dinonaktifkan.
 
-##### 11.3.1 DIBLOKIR OLEH PEMINDAI
+##### 9.3.1 DIBLOKIR OLEH PEMINDAI
 
 Ketika diaktifkan dalam konfigurasi paket, phpMussel menyimpan log dari upload yang telah diblokir.
 
@@ -1675,7 +1675,7 @@ Entri log ini biasanya mencakup informasi berikut:
 *Direktif konfigurasi yang relevan:*
 - `web` -> `uploads_log`
 
-##### 11.3.2 LOG BAGIAN DEPAN
+##### 9.3.2 LOG BAGIAN DEPAN
 
 Jenis pencatatan ini berhubungan dengan upaya masuk bagian depan, dan hanya terjadi ketika pengguna mencoba masuk ke bagian depan (dengan asumsi akses bagian depan diaktifkan).
 
@@ -1688,7 +1688,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Dimasuk.
 *Direktif konfigurasi yang relevan:*
 - `general` -> `frontend_log`
 
-##### 11.3.3 ROTASI LOG
+##### 9.3.3 ROTASI LOG
 
 Anda mungkin ingin menanpilkan log setelah jangka waktu tertentu, atau mungkin diminta untuk melakukannya oleh hukum (yaitu, jumlah waktu yang diizinkan secara hukum bagi Anda untuk mempertahankan log mungkin dibatasi oleh hukum). Anda dapat mencapai ini dengan menyertakan penanda tanggal/waktu dalam nama-nama file log Anda sesuai yang ditentukan oleh konfigurasi paket Anda (misalnya, `{yyyy}-{mm}-{dd}.log`), dan kemudian mengaktifkan rotasi log (rotasi log memungkinkan Anda untuk melakukan beberapa tindakan pada file log ketika batas yang ditentukan terlampaui).
 
@@ -1700,14 +1700,14 @@ Sebaliknya, jika Anda diminta untuk menyimpan log untuk jangka waktu yang panjan
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 PEMOTONGAN LOG
+##### 9.3.4 PEMOTONGAN LOG
 
 Ini juga memungkinkan untuk memotong file log individu ketika mereka melebihi ukuran tertentu, jika ini adalah sesuatu yang mungkin Anda butuhkan atau ingin lakukan.
 
 *Direktif konfigurasi yang relevan:*
 - `general` -> `truncate`
 
-##### 11.3.5 PSEUDONIMISASI ALAMAT IP
+##### 9.3.5 PSEUDONIMISASI ALAMAT IP
 
 Pertama, jika Anda tidak akrab dengan istilah ini, "pseudonimisasi" mengacu pada memproses data pribadi sedemikian rupa sehingga tidak dapat diidentifikasi ke subjek data tertentu lagi tanpa beberapa informasi tambahan, dan dengan ketentuan bahwa informasi tambahan tersebut dipelihara secara terpisah dan tunduk pada tindakan teknis dan organisasi untuk memastikan bahwa data pribadi tidak dapat diidentifikasi kepada orang alami.
 
@@ -1718,33 +1718,33 @@ phpMussel mampu mem-pseudonimisasi alamat IP ketika melakukan pencatatan, jika i
 *Direktif konfigurasi yang relevan:*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 STATISTIK
+##### 9.3.6 STATISTIK
 
 phpMussel secara opsional dapat melacak statistik seperti jumlah total file yang dipindai dan diblokir sejak beberapa titik waktu tertentu. Fitur ini dinonaktifkan secara default, tetapi dapat diaktifkan melalui konfigurasi paket. Fitur ini hanya melacak jumlah total kejadian yang terjadi, dan tidak termasuk informasi apapun tentang kejadian tertentu (dan dengan demikian, tidak boleh dianggap sebagai PII).
 
 *Direktif konfigurasi yang relevan:*
 - `general` -> `statistics`
 
-##### 11.3.7 ENKRIPSI
+##### 9.3.7 ENKRIPSI
 
 phpMussel tidak mengenkripsi cache atau informasi log apapun. [Enkripsi](https://id.wikipedia.org/wiki/Enkripsi) cache dan log dapat diperkenalkan di masa depan, tetapi tidak ada rencana khusus untuk itu saat ini. Jika Anda khawatir tentang pihak ketiga yang tidak sah mendapatkan akses ke bagian depan dari phpMussel yang mungkin berisi PII atau informasi sensitif seperti cache atau log-nya, saya akan merekomendasikan bahwa phpMussel tidak diinstal di lokasi yang dapat diakses publik (misalnya, instal phpMussel di luar direktori `public_html` standar atau yang setara dengan yang tersedia untuk sebagian besar web server standar) dan bahwa perizinan restriktif yang tepat diberlakukan untuk direktori tempat ia tinggal. Jika itu tidak cukup untuk mengatasi masalah Anda, konfigurasikan phpMussel sedemikian rupa sehingga jenis informasi yang menyebabkan kekhawatiran Anda tidak akan dikumpulkan atau dicatat di tempat pertama (seperti, dengan menonaktifkan pencatatan).
 
-#### 11.4 COOKIE
+#### 9.4 COOKIE
 
 Ketika pengguna berhasil masuk ke akses bagian depan, phpMussel menetapkan [cookie](https://id.wikipedia.org/wiki/Kuki_HTTP) agar dapat mengingat pengguna untuk permintaan berikutnya (yaitu, cookie digunakan untuk mengotentikasi pengguna ke sesi masuk). Pada halaman masuk, peringatan cookie ditampilkan dengan jelas, memperingatkan pengguna bahwa cookie akan diatur jika mereka terlibat dalam tindakan yang relevan. Cookie tidak diatur dalam titik lain di basis kode.
 
-#### 11.5 PEMASARAN DAN PERIKLANAN
+#### 9.5 PEMASARAN DAN PERIKLANAN
 
 phpMussel tidak mengumpulkan atau memproses informasi apapun untuk tujuan pemasaran atau periklanan, dan tidak menjual atau memperoleh keuntungan dari informasi yang dikumpulkan atau dicatat. phpMussel bukan perusahaan komersial, juga tidak terkait dengan kepentingan komersial, sehingga melakukan hal-hal ini tidak akan masuk akal. Ini telah terjadi sejak awal proyek, dan terus menjadi kasus hari ini. Juga, melakukan hal-hal ini akan menjadi kontra-produktif terhadap semangat dan tujuan yang dimaksudkan dari proyek secara keseluruhan, dan selama saya terus mempertahankan proyek, tidak akan pernah terjadi.
 
-#### 11.6 KEBIJAKAN PRIVASI
+#### 9.6 KEBIJAKAN PRIVASI
 
 Dalam beberapa keadaan, Anda mungkin diharuskan secara hukum untuk secara jelas menampilkan tautan ke kebijakan privasi Anda pada semua halaman dan bagian dari situs web Anda. Ini mungkin penting sebagai sarana untuk memastikan bahwa pengguna mendapat informasi yang jelas tentang praktik privasi Anda, jenis PII yang Anda kumpulkan, dan bagaimana Anda akan menggunakannya. Agar dapat menyertakan tautan di halaman "Upload Ditolak" phpMussel, direktif konfigurasi disediakan untuk menentukan URL ke kebijakan privasi Anda.
 
 *Direktif konfigurasi yang relevan:*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO
+#### 9.7 GDPR/DSGVO
 
 Regulasi Perlindungan Data Umum (GDPR) adalah regulasi dari Uni Eropa, yang mulai berlaku pada 25 Mei 2018. Tujuan utama dari regulasi ini adalah untuk memberikan kontrol kepada warga dan penduduk negara Uni Eropa mengenai data pribadi mereka sendiri, dan untuk menyatukan regulasi di Uni Eropa terkait privasi dan data pribadi.
 
@@ -1761,4 +1761,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 23 April 2022 (2022.04.23).
+Terakhir Diperbarui: 12 Mei 2022 (2022.05.12).

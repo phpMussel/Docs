@@ -5,11 +5,11 @@
 - 2. [HOE TE INSTALLEREN](#SECTION2)
 - 3. [HOE TE GEBRUIKEN](#SECTION3)
 - 4. [PHPMUSSEL UITBREIDEN](#SECTION4)
-- 7. [CONFIGURATIE-OPTIES](#SECTION7)
-- 8. [SIGNATURE FORMAAT](#SECTION8)
-- 9. [BEKENDE COMPATIBILITEITSPROBLEMEN](#SECTION9)
-- 10. [VEELGESTELDE VRAGEN (FAQ)](#SECTION10)
-- 11. [LEGALE INFORMATIE](#SECTION11)
+- 5. [CONFIGURATIE-OPTIES](#SECTION5)
+- 6. [SIGNATURE FORMAAT](#SECTION6)
+- 7. [BEKENDE COMPATIBILITEITSPROBLEMEN](#SECTION7)
+- 8. [VEELGESTELDE VRAGEN (FAQ)](#SECTION8)
+- 9. [LEGALE INFORMATIE](#SECTION9)
 
 *Opmerking over vertalingen: In geval van fouten (b.v., verschillen tussen vertalingen, typefouten, enz), de Engels versie van de README wordt beschouwd als het origineel en gezaghebbende versie. Als u vinden elke fouten, uw hulp bij het corrigeren van hen zou worden toegejuicht.*
 
@@ -415,7 +415,7 @@ Je zult merken dat de structuur van de v3-boilerplate-code identiek is aan de st
 ---
 
 
-### 7. <a name="SECTION7"></a>CONFIGURATIE-OPTIES
+### 5. <a name="SECTION5"></a>CONFIGURATIE-OPTIES
 
 Hieronder volgt een lijst met de configuratierichtlijnen die door phpMussel zijn geaccepteerd, samen met een beschrijving van hun doel en functie.
 
@@ -1167,7 +1167,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>SIGNATURE FORMAAT
+### 6. <a name="SECTION6"></a>SIGNATURE FORMAAT
 
 *Zie ook:*
 - *[Wat is een "signature"?](#WHAT_IS_A_SIGNATURE)*
@@ -1240,7 +1240,7 @@ Elke vorm van reguliere expressie begrepen en correct verwerkt door moet ook cor
 ---
 
 
-### 9. <a name="SECTION9"></a>BEKENDE COMPATIBILITEITSPROBLEMEN
+### 7. <a name="SECTION7"></a>BEKENDE COMPATIBILITEITSPROBLEMEN
 
 #### ANTI-VIRUS SOFTWARECOMPATIBILITEIT
 
@@ -1255,7 +1255,7 @@ Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De sig
 ---
 
 
-### 10. <a name="SECTION10"></a>VEELGESTELDE VRAGEN (FAQ)
+### 8. <a name="SECTION8"></a>VEELGESTELDE VRAGEN (FAQ)
 
 - [Wat is een "signature"?](#WHAT_IS_A_SIGNATURE)
 - [Wat is een "vals positieve"?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1585,19 +1585,19 @@ Ja. Een signature voor het detecteren van EICAR is opgenomen in het "phpMussel s
 ---
 
 
-### 11. <a name="SECTION11"></a>LEGALE INFORMATIE
+### 9. <a name="SECTION9"></a>LEGALE INFORMATIE
 
-#### 11.0 SECTIE PREAMBULE
+#### 9.0 SECTIE PREAMBULE
 
 Dit sectie van de documentatie is bedoeld om mogelijke juridische overwegingen met betrekking tot het gebruik en de implementatie van het pakket te beschrijven, en om wat basisgerelateerde informatie te verstrekken. Dit kan voor sommige gebruikers belangrijk zijn om naleving van eventuele wettelijke vereisten in de landen waarin zij actief zijn te waarborgen, en sommige gebruikers moeten hun website-beleid mogelijk aanpassen in overeenstemming met deze informatie.
 
 Eerst en vooral, realiseer je alstublieft dat ik (de auteur van het pakket) geen advocaat en geen gekwalificeerde juridische professional van welke aard. Daarom ben ik niet juridisch gekwalificeerd om juridisch advies te geven. Ook in sommige gevallen, exacte wettelijke vereisten kunnen verschillen tussen verschillende landen en rechtsgebieden, en deze variërende wettelijke vereisten kunnen soms conflicteren (zoals bijvoorbeeld, in het geval van landen die voorrang geven aan [privacyrechten](https://nl.wikipedia.org/wiki/Privacy) en het [recht om te worden vergeten](https://nl.wikipedia.org/wiki/Recht_om_vergeten_te_worden), versus landen die de voorrang geven aan uitgebreide [dataretentie](https://nl.wikipedia.org/wiki/Dataretentie)). Overweeg ook dat toegang tot het pakket niet beperkt is tot specifieke landen of rechtsgebieden, en daarom is de gebruikersbasis van het pakket waarschijnlijk geografisch divers. Gezien deze punten, ben ik niet in de positie om aan te geven wat het betekent om "in overeenstemming met de wetgeving" te zijn voor alle gebruikers, in alle opzichten. Ik hoop echter dat de informatie hierin u zal helpen om zelf tot een beslissing te komen over wat u moet doen om wettelijk compatibel te blijven in de context van het pakket. Als u twijfels of zorgen hebt met betrekking tot de informatie hierin, of als u aanvullende hulp en advies nodig hebt vanuit een juridisch perspectief, ik zou aanraden een gekwalificeerde juridische professional te raadplegen.
 
-#### 11.1 AANSPRAKELIJKHEID EN VERANTWOORDELIJKHEID
+#### 9.1 AANSPRAKELIJKHEID EN VERANTWOORDELIJKHEID
 
 Zoals al aangegeven door de pakketlicentie, wordt het pakket geleverd zonder enige garantie. Dit omvat (maar is niet beperkt tot) alle reikwijdte van aansprakelijkheid. Het pakket wordt u aangeboden voor uw gemak, in de hoop dat dit nuttig zal zijn, en dat het u enig voordeel oplevert. Echter, of u het pakket gebruikt of implementeert, is uw eigen keuze. U bent niet gedwongen om het pakket te gebruiken of te implementeren, maar wanneer u dat doet, bent u verantwoordelijk voor dat besluit. Noch ik, noch andere bijdragers aan het pakket, zijn juridisch aansprakelijk voor de gevolgen van de beslissingen die u neemt, ongeacht of het direct, indirect, impliciet, of anderszins is.
 
-#### 11.2 DERDEN
+#### 9.2 DERDEN
 
 Afhankelijk van de precieze configuratie en implementatie, kan het pakket in sommige gevallen communiceren en informatie delen met derden. Deze informatie kan in sommige contexten door sommige rechtsgebieden worden gedefinieerd als "[persoonsgegevens](https://nl.wikipedia.org/wiki/Persoonsgegevens)".
 
@@ -1605,21 +1605,21 @@ Hoe deze informatie door deze derden kan worden gebruikt, is onderworpen aan de 
 
 Met het oog op transparantie wordt het type informatie dat wordt gedeeld en met wie, hieronder beschreven.
 
-##### 11.2.0 WEBFONTS
+##### 9.2.0 WEBFONTS
 
 Sommige aangepaste thema's, evenals de standaard UI ("gebruikersinterface") voor de frontend van phpMussel en de pagina "Upload Geweigerd", kunnen webfonts gebruiken om esthetische redenen. Webfonts zijn standaard uitgeschakeld, maar indien ingeschakeld, vindt directe communicatie plaats tussen de browser van de gebruiker en de service die de webfonts host. Dit kan mogelijk inhouden dat informatie wordt doorgegeven zoals het IP-adres van de gebruiker, user agent, besturingssysteem, en andere details die beschikbaar zijn voor het verzoek. De meeste van deze webfonts worden gehost door de [Google Fonts](https://fonts.google.com/)-service.
 
 *Relevante configuratie-opties:*
 - `general` -> `disable_webfonts`
 
-##### 11.2.1 URL SCANNER
+##### 9.2.1 URL SCANNER
 
 URL's die worden gevonden in bestandsuploads kunnen worden gedeeld met de Google Safe Browsing API, afhankelijk van hoe het pakket is geconfigureerd. De Google Safe Browsing API heeft API-sleutels nodig om correct te werken, en is daarom standaard uitgeschakeld.
 
 *Relevante configuratie-opties:*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 Wanneer phpMussel een bestandsupload scant, kunnen de hashes van die bestanden worden gedeeld met de Virus Total API, afhankelijk van hoe het pakket is geconfigureerd. Er zijn plannen om op enig moment in de toekomst volledige bestanden te kunnen delen, maar deze functie wordt op dit moment niet door het pakket ondersteund. De Virus Total API heeft een API-sleutel nodig om correct te werken, en is daarom standaard uitgeschakeld.
 
@@ -1630,7 +1630,7 @@ Informatie (inclusief bestanden en gerelateerde bestandsmetadata) die wordt gede
 *Relevante configuratie-opties:*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 LOGGEN
+#### 9.3 LOGGEN
 
 Te toggen is om een aantal redenen een belangrijk onderdeel van phpMussel. Zonder loggen kan het moeilijk zijn om valse positieven te diagnosticeren, om precies vast te stellen hoe performant phpMussel zich in een bepaalde context bevindt, en het kan moeilijk zijn om te bepalen waar zijn tekortkomingen kunnen zijn, en welke veranderingen nodig kunnen zijn voor de configuratie of signatures dienovereenkomstig, zodat het blijft functioneren zoals bedoeld. Ongeacht, loggen is misschien niet wenselijk voor alle gebruikers, en blijft volledig optioneel. In phpMussel te loggen is standaard uitgeschakeld. Om dit in te schakelen, moet phpMussel dienovereenkomstig worden geconfigureerd.
 
@@ -1638,7 +1638,7 @@ Ook, als te loggen wettelijk toegestaan is, en voor zover dat wettelijk toegesta
 
 phpMussel kan informatie op verschillende manieren loggen, wat verschillende soorten informatie inhoudt, om verschillende redenen.
 
-##### 11.3.0 SCAN LOGS
+##### 9.3.0 SCAN LOGS
 
 Indien ingeschakeld in de pakketconfiguratie houdt phpMussel logs bij van de bestanden die worden gescand. Dit type loggen is beschikbaar in twee verschillende indelingen:
 - Door mensen leesbare logbestanden.
@@ -1664,7 +1664,7 @@ Een scan log bevat meestal de volgende informatie:
 
 Wanneer deze richtlijnen leeg worden gelaten, blijft dit type logboek uitgeschakeld.
 
-##### 11.3.1 UPLOADS LOG
+##### 9.3.1 UPLOADS LOG
 
 Indien ingeschakeld in de pakketconfiguratie houdt phpMussel logs bij van de uploads die zijn geblokkeerd.
 
@@ -1691,7 +1691,7 @@ Deze logs bevatten doorgaans de volgende informatie:
 *Relevante configuratie-opties:*
 - `web` -> `uploads_log`
 
-##### 11.3.2 FRONTEND LOGGEN
+##### 9.3.2 FRONTEND LOGGEN
 
 Dit type loggen is bedoeld voor pogingen om bij de frontend in te loggen, en gebeurt alleen op wanneer een gebruiker zich probeert in te loggen bij de frontend (ervan uitgaande dat de frontend-toegang is ingeschakeld).
 
@@ -1704,7 +1704,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Ingelogd.
 *Relevante configuratie-opties:*
 - `general` -> `frontend_log`
 
-##### 11.3.3 LOGROTATIE
+##### 9.3.3 LOGROTATIE
 
 Mogelijk wilt u logs na een bepaalde periode opschonen, of mogelijk bent u wettelijk verplicht (d.w.z., de hoeveelheid tijd die het wettelijk toelaatbaar is om logs te bewaren, kan bij wet beperkt zijn). U kunt dit bereiken door datum/tijd-markeringen op te nemen in de namen van uw logbestanden, zoals gespecificeerd door uw pakketconfiguratie (b.v., `{yyyy}-{mm}-{dd}.log`), en vervolgens logrotatie in te schakelen (logrotatie stelt u in staat om enige actie in logbestanden uit te voeren wanneer de gespecificeerde limieten worden overschreden).
 
@@ -1716,14 +1716,14 @@ Omgekeerd, als u verplicht bent om logs gedurende langere tijd te bewaren, kunt 
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 LOGTRUNCATIE
+##### 9.3.4 LOGTRUNCATIE
 
 Het is ook mogelijk om afzonderlijke logbestanden af te kappen als ze een bepaalde grootte overschrijden, als dit iets is dat u misschien nodig heeft, of zou willen doen.
 
 *Relevante configuratie-opties:*
 - `general` -> `truncate`
 
-##### 11.3.5 IP-ADRES PSEUDONIMISATIE
+##### 9.3.5 IP-ADRES PSEUDONIMISATIE
 
 Ten eerste, als u niet bekend bent met de term, "pseudonimisatie" verwijst naar de verwerking van persoonsgegevens als zodanig, zodat deze niet meer kan worden geïdentificeerd aan een specifieke persoon zonder aanvullende informatie, en op voorwaarde dat dergelijke aanvullende informatie afzonderlijk wordt bijgehouden en onderworpen wordt aan technische en organisatorische maatregelen om ervoor te zorgen dat persoonsgegevens niet kunnen worden geïdentificeerd aan een natuurlijke persoon.
 
@@ -1740,33 +1740,33 @@ phpMussel kan IP-adressen pseudonimiseren wanneer ze worden geregistreerd, als d
 *Relevante configuratie-opties:*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 STATISTIEKEN
+##### 9.3.6 STATISTIEKEN
 
 phpMussel is optioneel in staat om statistieken bij te houden, zoals het totale aantal gescande en geblokkeerde bestanden sinds een bepaald tijdstip. Deze functie is standaard uitgeschakeld, maar kan worden ingeschakeld via de pakketconfiguratie. Het type gevolgde informatie moet niet als PII worden beschouwd.
 
 *Relevante configuratie-opties:*
 - `general` -> `statistics`
 
-##### 11.3.7 ENCRYPTIE
+##### 9.3.7 ENCRYPTIE
 
 phpMussel codeert de cache of logboekinformatie niet. [Encryptie](https://nl.wikipedia.org/wiki/Encryptie) voor de cache en logs kunnen in de toekomst worden geïntroduceerd, maar er zijn momenteel geen specifieke plannen voor. Als u zich zorgen maakt over ongeautoriseerde derden die toegang krijgen tot delen van phpMussel die mogelijk PII of gevoelige informatie bevatten, zoals de cache of logbestanden, raad ik phpMussel aan niet te installeren op een openbare locatie (b.v., installeer phpMussel buiten de standaard `public_html` folder of gelijkwaardig daarvan beschikbaar voor de meeste standaard webservers) en dat de juiste beperkende machtigingen worden afgedwongen voor de folder waar deze zich bevindt. Als dat niet voldoende is om uw zorgen weg te nemen, configureer dan phpMussel als zodanig dat de soorten informatie die uw zorgen veroorzaken, niet zullen worden verzameld of ingelogd (zoals door loggen uit te schakelen).
 
-#### 11.4 COOKIES
+#### 9.4 COOKIES
 
 Wanneer een gebruiker zich met succes ingelogd bij de frontend, stelt phpMussel een [cookie](https://nl.wikipedia.org/wiki/Cookie_(internet)) in om de gebruiker te kunnen onthouden voor volgende aanvragen (d.w.z., cookies worden gebruikt om de gebruiker te authenticeren voor een login-sessie). Op de inlogpagina wordt een cookiewaarschuwing prominent weergegeven, waardoor de gebruiker wordt gewaarschuwd dat een cookie zal worden ingesteld als deze zich bezighoudt met de relevante actie. Cookies zijn niet ingesteld op andere punten in de codebase.
 
-#### 11.5 MARKETING EN ADVERTEREN
+#### 9.5 MARKETING EN ADVERTEREN
 
 phpMussel verzamelt of verwerkt geen informatie voor marketing of advertentie doeleinden, en verkoopt of profiteert niet van verzamelde of geregistreerde informatie. phpMussel is geen commerciële onderneming, en houdt geen verband met commerciële belangen, dus het zou geen zin hebben om deze dingen te doen. Dit is sinds het begin van het project het geval geweest, en is nog steeds het geval. Bovendien zou het doen van deze dingen contraproductief zijn ten opzichte van de geest en het beoogde doel van het project als geheel, en zolang ik het project blijf onderhouden, zal het nooit gebeuren.
 
-#### 11.6 PRIVACYBELEID
+#### 9.6 PRIVACYBELEID
 
 In sommige omstandigheden kan het wettelijk verplicht zijn om duidelijk een link naar uw privacybeleid te tonen op alle pagina's en secties van uw website. Dit kan belangrijk zijn als middel om ervoor te zorgen dat gebruikers goed geïnformeerd zijn over uw exacte privacypraktijken, de soorten PII die u verzamelt, en hoe u van plan bent om het te gebruiken. Om een dergelijke link op de pagina "Upload Geweigerd" van phpMussel te kunnen opnemen, wordt een configuratie-optie verstrekt om de URL van uw privacybeleid op te geven.
 
 *Relevante configuratie-opties:*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO/AVG
+#### 9.7 GDPR/DSGVO/AVG
 
 De Algemene Verordening Gegevensbescherming (AVG, of GDPR/DSGVO) is een verordening van de Europese Unie, die met ingang van 25 Mei 2018 in werking treedt. Het primaire doel van de verordening is om burgers en inwoners van de EU controle te geven over hun eigen persoonsgegevens, en om regelgeving binnen de EU te verenigen met betrekking tot privacy en persoonlijke gegevens.
 
@@ -1785,4 +1785,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 23 April 2022 (2022.04.23).
+Laatste Bijgewerkt: 12 Mei 2022 (2022.05.12).

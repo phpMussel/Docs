@@ -5,11 +5,11 @@
 - 2. [COMO INSTALAR](#SECTION2)
 - 3. [COMO USAR](#SECTION3)
 - 4. [ESTENDENDO O PHPMUSSEL](#SECTION4)
-- 7. [OPÇÕES DE CONFIGURAÇÃO](#SECTION7)
-- 8. [FORMATOS DE ASSINATURAS](#SECTION8)
-- 9. [PROBLEMAS DE COMPATIBILIDADE CONHECIDOS](#SECTION9)
-- 10. [PERGUNTAS MAIS FREQUENTES (FAQ)](#SECTION10)
-- 11. [INFORMAÇÃO LEGAL](#SECTION11)
+- 5. [OPÇÕES DE CONFIGURAÇÃO](#SECTION5)
+- 6. [FORMATOS DE ASSINATURAS](#SECTION6)
+- 7. [PROBLEMAS DE COMPATIBILIDADE CONHECIDOS](#SECTION7)
+- 8. [PERGUNTAS MAIS FREQUENTES (FAQ)](#SECTION8)
+- 9. [INFORMAÇÃO LEGAL](#SECTION9)
 
 *Nota relativa às traduções: Em caso de erros (por exemplo, discrepâncias entre as traduções, erros de digitação, etc), a versão em inglês do README é considerada a versão original e autorizada. Se você encontrar algum erro, a sua ajuda em corrigi-los seria bem-vinda.*
 
@@ -415,7 +415,7 @@ Você notará que a estrutura do código padrão da v3 é idêntica à estrutura
 ---
 
 
-### 7. <a name="SECTION7"></a>OPÇÕES DE CONFIGURAÇÃO
+### 5. <a name="SECTION5"></a>OPÇÕES DE CONFIGURAÇÃO
 
 O seguinte é uma lista das diretivas de configuração aceitas pelo phpMussel, juntamente com uma descrição de sua propósito e função.
 
@@ -1167,7 +1167,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>FORMATOS DE ASSINATURAS
+### 6. <a name="SECTION6"></a>FORMATOS DE ASSINATURAS
 
 *Veja também:*
 - *[O que é uma "assinatura"?](#WHAT_IS_A_SIGNATURE)*
@@ -1240,7 +1240,7 @@ Qualquer forma de regex compreendido e processado corretamente pelo PHP também 
 ---
 
 
-### 9. <a name="SECTION9"></a>CONHECIDOS COMPATIBILIDADE PROBLEMAS
+### 7. <a name="SECTION7"></a>CONHECIDOS COMPATIBILIDADE PROBLEMAS
 
 #### ANTIVÍRUS SOFTWARE COMPATIBILIDADE
 
@@ -1255,7 +1255,7 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 ---
 
 
-### 10. <a name="SECTION10"></a>PERGUNTAS MAIS FREQUENTES (FAQ)
+### 8. <a name="SECTION8"></a>PERGUNTAS MAIS FREQUENTES (FAQ)
 
 - [O que é uma "assinatura"?](#WHAT_IS_A_SIGNATURE)
 - [O que é um "falso positivo"?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1577,19 +1577,19 @@ Sim. Uma assinatura para detectar EICAR está incluída no "arquivo de assinatur
 ---
 
 
-### 11. <a name="SECTION11"></a>INFORMAÇÃO LEGAL
+### 9. <a name="SECTION9"></a>INFORMAÇÃO LEGAL
 
-#### 11.0 PREÂMBULO DE SEÇÃO
+#### 9.0 PREÂMBULO DE SEÇÃO
 
 Esta seção da documentação destina-se a descrever possíveis considerações legais em relação ao uso e implementação do pacote, e fornecer algumas informações básicas relacionadas. Isso pode ser importante para alguns usuários como um meio de garantir a conformidade com quaisquer requisitos legais que possam existir nos países nos quais eles operam, e alguns usuários podem precisar ajustar as políticas do site de acordo com essas informações.
 
 Em primeiro lugar por favor, perceba que eu (o autor do pacote) não sou advogado, nem profissional legal qualificado de qualquer tipo. Portanto, não estou legalmente qualificado para fornecer aconselhamento jurídico. Além disso, em alguns casos, exigências legais exatas podem variar entre diferentes países e jurisdições, e estes requisitos legais variados podem, às vezes, conflitar (como, por exemplo, no caso de países que defendem os [direitos de privacidade](https://pt.wikipedia.org/wiki/Direito_%C3%A0_privacidade) e o [direito de ser esquecido](https://pt.wikipedia.org/wiki/Direito_ao_esquecimento), versus países que favorecem a retenção prolongada de dados). Considere também que o acesso ao pacote não está restrito a países ou jurisdições específicos e, portanto, o pacote userbase é provável que seja geograficamente diverso. Estes pontos considerados, eu não estou em posição de afirmar o que significa ser "legalmente compatível" para todos os usuários, em todos os aspectos. No entanto, espero que as informações aqui contidas o ajudem a chegar a uma decisão sobre o que você deve fazer para permanecer legalmente conforme no contexto do pacote. Se tiver alguma dúvida ou preocupação em relação às informações aqui contidas, ou se você precisar de ajuda e conselhos adicionais de uma perspectiva legal, eu recomendaria consultar um profissional legal qualificado.
 
-#### 11.1 RESPONSABILIDADE
+#### 9.1 RESPONSABILIDADE
 
 Conforme já declarado pela licença do pacote, o pacote é fornecido sem qualquer garantia. Isso inclui (mas não está limitado a) todo o escopo de responsabilidade. O pacote é fornecido a você para sua conveniência, na esperança de que seja útil e que traga algum benefício para você. Entretanto, se você usa ou implementa o pacote, é sua própria escolha. Você não é forçado a usar ou implementar o pacote, mas, quando o faz, você é responsável por essa decisão. Nem eu, nem qualquer outro colaborador do pacote, somos legalmente responsáveis pelas consequências das decisões que você toma, independentemente de ser direto, indireto, implícito, ou de outra forma.
 
-#### 11.2 TERCEIROS
+#### 9.2 TERCEIROS
 
 Dependendo de sua configuração e implementação exatas, o pacote pode se comunicar e compartilhar informações com terceiros em alguns casos. Essas informações podem ser definidas como "[informação pessoalmente identificável](https://pt.wikipedia.org/wiki/Informa%C3%A7%C3%A3o_pessoalmente_identific%C3%A1vel)" (PII) em alguns contextos, por algumas jurisdições.
 
@@ -1597,14 +1597,14 @@ Como esta informação pode ser usada por estes terceiros, está sujeita às vá
 
 Para fins de transparência, o tipo de informação compartilhada e com quem está descrito abaixo.
 
-##### 11.2.1 URL ANALISADOR
+##### 9.2.1 URL ANALISADOR
 
 Os URLs encontrados nos uploads de arquivos podem ser compartilhados com a API de navegação segura do Google, dependendo de como o pacote está configurado. A API de navegação segura do Google requer as chaves de API para funcionar corretamente e, portanto, é desativada por padrão.
 
 *Diretivas de configuração relevantes:*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 Quando o phpMussel analisa um upload de arquivo, os hashes desses arquivos podem ser compartilhados com a API do Virus Total, dependendo de como o pacote está configurado. Há planos para compartilhar arquivos inteiros em algum momento no futuro, mas essa funcionalidade não é suportada pelo pacote no momento. A API do Virus Total requer uma chave de API para funcionar corretamente e, portanto, está desativada por padrão.
 
@@ -1615,7 +1615,7 @@ As informações (incluindo arquivos e metadados de arquivos relacionados) compa
 *Diretivas de configuração relevantes:*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 REGISTRO
+#### 9.3 REGISTRO
 
 O registro é uma parte importante do phpMussel por vários motivos. Sem o registro, pode ser difícil diagnosticar falsos positivos, determinar exatamente o quão bem o phpMussel funciona em qualquer contexto específico, e determinar onde suas deficiências podem ser, e quais mudanças podem ser necessárias para sua configuração ou assinaturas de acordo, para que ele continue funcionando como pretendido. Não obstante, o registro pode não ser desejável para todos os usuários e permanece totalmente opcional. No phpMussel, o registro está desabilitado por padrão. Para ativá-lo, o phpMussel deve ser configurado de acordo.
 
@@ -1623,7 +1623,7 @@ Adicionalmente, se o registro é legalmente permissível, e na medida em que é 
 
 Existem vários tipos de registro que o phpMussel pode executar. Diferentes tipos de registro envolvem diferentes tipos de informações, por diferentes razões.
 
-##### 11.3.0 LOGS DE ANÁLISE
+##### 9.3.0 LOGS DE ANÁLISE
 
 Quando habilitado na configuração do pacote, o phpMussel mantém logs dos arquivos que analisa. Este tipo do registro está disponível em dois formatos diferentes:
 - Arquivos de log legíveis para humanos.
@@ -1649,7 +1649,7 @@ Uma entrada do log de análise geralmente inclui as seguintes informações:
 
 Quando essas diretivas são deixadas vazias, esse tipo de log permanecerá desabilitado.
 
-##### 11.3.1 LOG DO CARREGAMENTOS
+##### 9.3.1 LOG DO CARREGAMENTOS
 
 Quando habilitado na configuração do pacote, o phpMussel mantém logs dos uploads que foram bloqueados.
 
@@ -1676,7 +1676,7 @@ Essas entradas de log geralmente incluem as seguintes informações:
 *Diretivas de configuração relevantes:*
 - `web` -> `uploads_log`
 
-##### 11.3.2 REGISTRO DO FRONT-END
+##### 9.3.2 REGISTRO DO FRONT-END
 
 Esse tipo de registro está associado a tentativas de login no front-end, e ocorre apenas quando um usuário tenta efetuar login no front-end (supondo que o acesso ao front-end esteja ativado).
 
@@ -1689,7 +1689,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Conectado.
 *Diretivas de configuração relevantes:*
 - `general` -> `frontend_log`
 
-##### 11.3.3 ROTAÇÃO DE REGISTRO
+##### 9.3.3 ROTAÇÃO DE REGISTRO
 
 Você pode querer purgar os registros após um período de tempo, ou pode ser obrigado a fazê-lo por lei (ou seja, a quantidade de tempo permitida legalmente para você manter registros pode ser limitada por lei). Você pode conseguir isso incluindo marcadores de data/hora nos nomes de seus arquivos de registro conforme especificado pela sua configuração de pacote (por exemplo, `{yyyy}-{mm}-{dd}.log`) e, em seguida, ativando a rotação de registro (a rotação de registro permite que você execute alguma ação nos arquivos de registro quando os limites especificados são excedidos).
 
@@ -1701,14 +1701,14 @@ Por outro lado, se você precisar reter o registros por um longo período de tem
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 TRUNCAMENTO DE REGISTRO
+##### 9.3.4 TRUNCAMENTO DE REGISTRO
 
 Também é possível truncar arquivos de registro individuais quando eles excedem um certo tamanho, se isso for algo que você possa precisar ou desejar fazer.
 
 *Diretivas de configuração relevantes:*
 - `general` -> `truncate`
 
-##### 11.3.5 PSEUDONIMIZAÇÃO DE ENDEREÇOS IP
+##### 9.3.5 PSEUDONIMIZAÇÃO DE ENDEREÇOS IP
 
 Em primeiro lugar, se você não estiver familiarizado com o termo, "pseudonimização" refere-se ao processamento de dados pessoais como tal que não pode ser identificado a nenhuma pessoa específica sem informações suplementares, e desde que tais informações suplementares sejam mantidas separadamente e sujeitas a medidas técnicas e organizacionais para assegurar que os dados pessoais não possam ser identificados a nenhuma pessoa natural.
 
@@ -1719,33 +1719,33 @@ O phpMussel é capaz de pseudonimizar endereços IP ao registrá-los, se isso fo
 *Diretivas de configuração relevantes:*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 ESTATISTICAS
+##### 9.3.6 ESTATISTICAS
 
 O phpMussel é opcionalmente capaz de rastrear estatísticas como o número total de arquivos analisados e bloqueados desde algum ponto específico no tempo. Esta funcionalidade está desativada por padrão, mas pode ser ativada através da configuração do pacote. O tipo de informação rastreada não deve ser considerado como PII.
 
 *Diretivas de configuração relevantes:*
 - `general` -> `statistics`
 
-##### 11.3.7 ENCRIPTAÇÃO
+##### 9.3.7 ENCRIPTAÇÃO
 
 phpMussel não criptografa seu cache ou qualquer informação de registro. A [encriptação](https://pt.wikipedia.org/wiki/Encripta%C3%A7%C3%A3o) de cache e registro pode ser introduzida no futuro, mas não há planos específicos para ela atualmente. Se você estiver preocupado com o acesso de terceiros não autorizados a partes do phpMussel que possam conter PII ou informações confidenciais, como cache ou logs, recomendo que o phpMussel não seja instalado em um local de acesso público (por exemplo, instale o phpMussel fora do diretório `public_html` padrão ou seu equivalente disponível para a maioria dos servidores web padrão) e que as permissões apropriadamente restritivas sejam impostas para o diretório em que ele reside. Se isso não for suficiente para resolver suas preocupações, configure o phpMussel para que os tipos de informações que causam suas preocupações não sejam coletados ou registrados em primeiro lugar (tal como desabilitar o registro em log).
 
-#### 11.4 COOKIES
+#### 9.4 COOKIES
 
 Quando um usuário efetua login com êxito no front-end, o phpMussel define um [cookie](https://pt.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)) para poder lembrar o usuário das solicitações subsequentes (isto é, os cookies são usados para autenticar o usuário numa sessão de login). Na página de login, um aviso de cookie é exibido de forma proeminente, avisando o usuário que um cookie será definido se ele se envolver na ação relevante. Os cookies não são definidos em nenhum outro ponto da base de código.
 
-#### 11.5 MARKETING E PUBLICIDADE
+#### 9.5 MARKETING E PUBLICIDADE
 
 A phpMussel não coleta ou processa qualquer informação para fins de marketing ou publicidade, e nem vende nem lucra com qualquer informação coletada ou registrada. A phpMussel não é uma empresa comercial, nem está relacionada a nenhum interesse comercial, portanto, fazer essas coisas não faria sentido. Este tem sido o caso desde o início do projeto, e continua sendo o caso hoje. Além disso, fazer essas coisas seria contraproducente para o espírito e propósito do projeto como um todo, e enquanto eu continuar a manter o projeto, nunca acontecerá.
 
-#### 11.6 POLÍTICA DE PRIVACIDADE
+#### 9.6 POLÍTICA DE PRIVACIDADE
 
 Em algumas circunstâncias, você pode ser legalmente obrigado a exibir claramente um link para sua política de privacidade em todas as páginas e seções do seu site. Isso pode ser importante como um meio de garantir que os usuários estejam bem informados sobre suas práticas de privacidade exatas, os tipos de PII que você coletar, e como você pretende usá-lo. Para poder incluir esse link na página "Carregar Negado" do phpMussel, é fornecida uma diretiva de configuração para especificar o URL da sua política de privacidade.
 
 *Diretivas de configuração relevantes:*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO
+#### 9.7 GDPR/DSGVO
 
 O Regulamento Geral sobre a Proteção de Dados (GDPR) é um regulamento da União Europeia, que entra em vigor em 25 de Maio, 2018. O principal objectivo do regulamento é dar controlo aos cidadãos e residentes da UE relativamente aos seus próprios dados pessoais, e unificar a regulação na UE em matéria de privacidade e dados pessoais.
 
@@ -1764,4 +1764,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 23 de Abril de 2022 (2022.04.23).
+Última Atualização: 12 de Maio de 2022 (2022.05.12).

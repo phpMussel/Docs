@@ -5,11 +5,11 @@
 - 2. [CÓMO INSTALAR](#SECTION2)
 - 3. [CÓMO USAR](#SECTION3)
 - 4. [EXTENDIENDO PHPMUSSEL](#SECTION4)
-- 7. [OPCIONES DE CONFIGURACIÓN](#SECTION7)
-- 8. [FORMATOS DE FIRMAS](#SECTION8)
-- 9. [CONOCIDOS PROBLEMAS DE COMPATIBILIDAD](#SECTION9)
-- 10. [PREGUNTAS MÁS FRECUENTES (FAQ)](#SECTION10)
-- 11. [INFORMACIÓN LEGAL](#SECTION11)
+- 5. [OPCIONES DE CONFIGURACIÓN](#SECTION5)
+- 6. [FORMATOS DE FIRMAS](#SECTION6)
+- 7. [CONOCIDOS PROBLEMAS DE COMPATIBILIDAD](#SECTION7)
+- 8. [PREGUNTAS MÁS FRECUENTES (FAQ)](#SECTION8)
+- 9. [INFORMACIÓN LEGAL](#SECTION9)
 
 *Nota relativa a las traducciones: En caso de errores (por ejemplo, discrepancias entre traducciones, errores tipográficos, etc), la versión en Inglés del README se considera la versión original y autorizada. Si encuentra algún error, su ayuda para corregirlo sera bienvenida.*
 
@@ -415,7 +415,7 @@ Notarás que la estructura del código repetitivo v3 es idéntica a la estructur
 ---
 
 
-### 7. <a name="SECTION7"></a>OPCIONES DE CONFIGURACIÓN
+### 5. <a name="SECTION5"></a>OPCIONES DE CONFIGURACIÓN
 
 La siguiente es una lista de las directivas de configuración aceptadas por phpMussel, junto con una descripción de sus propósito y función.
 
@@ -1167,7 +1167,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>FORMATOS DE FIRMAS
+### 6. <a name="SECTION6"></a>FORMATOS DE FIRMAS
 
 *Ver también:*
 - *[¿Qué es una "firma"?](#WHAT_IS_A_SIGNATURE)*
@@ -1240,7 +1240,7 @@ Cualquier forma de regex entendido y correctamente procesado por PHP también de
 ---
 
 
-### 9. <a name="SECTION9"></a>CONOCIDOS PROBLEMAS DE COMPATIBILIDAD
+### 7. <a name="SECTION7"></a>CONOCIDOS PROBLEMAS DE COMPATIBILIDAD
 
 #### ANTI-VIRUS SOFTWARE COMPATIBILIDAD
 
@@ -1255,7 +1255,7 @@ No verifico los archivos de firma, la documentación u otro contenido periféric
 ---
 
 
-### 10. <a name="SECTION10"></a>PREGUNTAS MÁS FRECUENTES (FAQ)
+### 8. <a name="SECTION8"></a>PREGUNTAS MÁS FRECUENTES (FAQ)
 
 - [¿Qué es una "firma"?](#WHAT_IS_A_SIGNATURE)
 - [¿Qué es un "falso positivo"?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1576,19 +1576,19 @@ Sí. Se incluye una firma para detectar EICAR en el "archivo de firma de expresi
 ---
 
 
-### 11. <a name="SECTION11"></a>INFORMACIÓN LEGAL
+### 9. <a name="SECTION9"></a>INFORMACIÓN LEGAL
 
-#### 11.0 PREÁMBULO DE SECCIÓN
+#### 9.0 PREÁMBULO DE SECCIÓN
 
 La intención de esta sección de la documentación es para describir posibles consideraciones legales con respecto al uso y la implementación del paquete, y para proporcionar cierta información básica relacionada. Esto puede ser importante para algunos usuarios como un medio para garantizar el cumplimiento de los requisitos legales que puedan existir en los países en los que operan, y algunos usuarios pueden necesitar ajustar las políticas de su sitio web de acuerdo con esta información.
 
 Primero y ante todo, tenga en cuenta que yo (el autor del paquete) no soy un abogado, ni un profesional legal calificado de ningún tipo. Por lo tanto, no estoy legalmente calificado para brindar asesoramiento legal. Además, en algunos casos, los requisitos legales exactos pueden variar entre diferentes países y jurisdicciones, y estos diferentes requisitos legales pueden a veces entrar en conflicto (como, por ejemplo, en el caso de países que favorecen los [derechos de privacidad](https://es.wikipedia.org/wiki/Derecho_a_la_intimidad) y el [derecho a ser olvidado](https://es.wikipedia.org/wiki/Derecho_al_olvido), frente a los países que favorecen la [retención de datos extendida](https://es.wikipedia.org/wiki/Retenci%C3%B3n_de_datos_de_telecomunicaci%C3%B3n)). Considere también que el acceso al paquete no está restringido a países o jurisdicciones específicos, y por lo tanto, es probable que la base de usuarios del paquete sea geográficamente diversa. Considerados estos puntos, no estoy en condiciones de decir lo que significa ser "legalmente compatible" para todos los usuarios, en todos los aspectos. Sin embargo, espero que la información en este documento lo ayude a tomar una decisión sobre lo que debe hacer para cumplir con la ley en el contexto del paquete. Si tiene alguna duda o inquietud con respecto a la información aquí incluida, o si necesita ayuda y asesoramiento adicional desde una perspectiva legal, le recomiendo consultar a un profesional legal calificado.
 
-#### 11.1 RESPONSABILIDAD
+#### 9.1 RESPONSABILIDAD
 
 Según lo establecido por la licencia del paquete, el paquete se proporciona sin ninguna garantía. Esto incluye (pero no se limita a) todo el alcance de la responsabilidad. El paquete se le proporciona para su conveniencia, con la esperanza de que sea útil y le proporcionará algún beneficio. Pero, si usa o implementa el paquete, es su propia decisión. No está obligado a usar o implementar el paquete, pero cuando lo hace, usted es responsable de esa decisión. Ni yo ni ningún otro contribuyente del paquete somos legalmente responsables de las consecuencias de las decisiones que usted tome, independientemente de si son directas, indirectas, implícitas o de otro tipo.
 
-#### 11.2 TERCEROS
+#### 9.2 TERCEROS
 
 Dependiendo de su configuración e implementación exactas, el paquete puede comunicarse y compartir información con terceros en algunos casos. Esta información puede definirse como "[información personal](https://es.wikipedia.org/wiki/Informaci%C3%B3n_personal)" (PII) en algunos contextos, en algunas jurisdicciones.
 
@@ -1596,14 +1596,14 @@ La forma en que esta información puede ser utilizada por estos terceros está s
 
 A los efectos de la transparencia, el tipo de información compartida, y con quién, se describe a continuación.
 
-##### 11.2.1 ESCÁNER URL
+##### 9.2.1 ESCÁNER URL
 
 Las URL que se encuentran dentro de las subidas de archivos se pueden compartir con la API de Google Safe Browsing, según cómo esté configurado el paquete. La API de Google Safe Browsing requiere claves API para funcionar correctamente y, por lo tanto, está desactivada de manera predeterminada.
 
 *Directivas de configuración relevantes:*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 Cuando phpMussel escanea una subida de archivo, los valores hash de esos archivos se pueden compartir con la API de Virus Total, según cómo esté configurado el paquete. Hay planes para poder compartir archivos completos en algún momento en el futuro también, pero esta función no es soportado por el paquete en este momento. La API de Virus Total requiere una clave API para funcionar correctamente y, por lo tanto, está desactivada de forma predeterminada.
 
@@ -1614,7 +1614,7 @@ La información (incluidos los archivos y los metadatos de archivos relacionados
 *Directivas de configuración relevantes:*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 REGISTRO DE DATOS
+#### 9.3 REGISTRO DE DATOS
 
 El registro de datos es una parte importante de phpMussel por varias razones. Sin registro, puede ser difícil diagnosticar falsos positivos, determinar exactamente qué tan eficiente es el phpMussel en un contexto particular, y determinar dónde pueden encontrarse sus deficiencias, y qué cambios pueden requerirse en su configuración o firmas en consecuencia, para que continúe funcionando según lo previsto. En todo caso, el registro de datos puede no ser deseable para todos los usuarios, y sigue siendo totalmente opcional. En phpMussel, el registro de datos está deshabilitado de forma predeterminada. Para habilitarlo, phpMussel debe configurarse en consecuencia.
 
@@ -1622,7 +1622,7 @@ Además, si el registro de datos es legalmente permisible, y en la medida en que
 
 Existen varios tipos de registro que phpMussel puede realizar. Los diferentes tipos de registro implican diferentes tipos de información, por diferentes razones.
 
-##### 11.3.0 REGISTROS DEL ESCÁNER
+##### 9.3.0 REGISTROS DEL ESCÁNER
 
 Cuando está habilitado en la configuración del paquete, phpMussel guarda los registros de los archivos que escanea. Este tipo de registro está disponible en dos formatos diferentes:
 - Archivos de registro legibles por humanos.
@@ -1648,7 +1648,7 @@ Una entrada del registros de escanea normalmente incluye la siguiente informaci�
 
 Cuando estas directivas se dejan vacías, este tipo de registro permanecerá desactivado.
 
-##### 11.3.1 REGISTROS DE LAS SUBIDAS
+##### 9.3.1 REGISTROS DE LAS SUBIDAS
 
 Cuando está habilitado en la configuración del paquete, phpMussel guarda los registros de las subidas que se han bloqueado.
 
@@ -1675,7 +1675,7 @@ Estas entradas de registro generalmente incluyen la siguiente información:
 *Directivas de configuración relevantes:*
 - `web` -> `uploads_log`
 
-##### 11.3.2 REGISTROS DEL FRONT-END
+##### 9.3.2 REGISTROS DEL FRONT-END
 
 Este tipo de registro relaciona los intentos de inicio de sesión del front-end, y ocurre solo cuando un usuario intenta iniciar sesión en el front-end (suponiendo que el acceso al front-end esté habilitado).
 
@@ -1688,7 +1688,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Conectado.
 *La directiva de configuración responsable del inicio de sesión es:*
 - `general` -> `frontend_log`
 
-##### 11.3.3 ROTACIÓN DE REGISTROS
+##### 9.3.3 ROTACIÓN DE REGISTROS
 
 Es posible que desee purgar los registros después de un período de tiempo, o posible la ley lo requiera (es decir, la cantidad de tiempo que está legalmente permitido para conservar los registros puede estar limitada por la ley). Puede lograr esto incluyendo marcadores de fecha/hora en los nombres de sus archivos de registro según lo especificado por la configuración de su paquete (por ejemplo, `{yyyy}-{mm}-{dd}.log`), y luego habilitar la rotación de registros (la rotación de registros le permite realizar alguna acción en los archivos de registro cuando se exceden los límites especificados).
 
@@ -1700,14 +1700,14 @@ Por el contrario, si está obligado a conservar registros por un período prolon
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 TRUNCAMIENTO DE REGISTROS
+##### 9.3.4 TRUNCAMIENTO DE REGISTROS
 
 También es posible truncar archivos de registro individuales cuando exceden un cierto tamaño, si esto es algo que podría necesitar o querer hacer.
 
 *Directivas de configuración relevantes:*
 - `general` -> `truncate`
 
-##### 11.3.5 SEUDONIMIZACIÓN DE DIRECCIONES IP
+##### 9.3.5 SEUDONIMIZACIÓN DE DIRECCIONES IP
 
 Primeramente, si no está familiarizado con el término, "seudonimización" se refiere al procesamiento de datos personales como tal que ya no se puede identificar a ningún sujeto de datos específico sin información adicional, y siempre que dicha información adicional se mantenga por separado y esté sujeta a medidas técnicas y organizativas para garantizar que los datos personales no puedan identificarse a ninguna persona física.
 
@@ -1723,33 +1723,33 @@ phpMussel es capaz de seudonimizar las direcciones IP cuando las registra, si es
 *Directivas de configuración relevantes:*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 ESTADÍSTICA
+##### 9.3.6 ESTADÍSTICA
 
 phpMussel es opcionalmente capaz de rastrear estadísticas como el número total de archivos escaneados y bloqueados desde algún momento en particular. Esta característica está deshabilitada de manera predeterminada, pero se puede habilitar a través de la configuración del paquete. El tipo de información rastreada no debe considerarse como PII.
 
 *Directivas de configuración relevantes:*
 - `general` -> `statistics`
 
-##### 11.3.7 ENCRIPTACIÓN
+##### 9.3.7 ENCRIPTACIÓN
 
 phpMussel no encripta su caché ni ninguna información de registro. [Encriptación](https://es.wikipedia.org/wiki/Cifrado_(criptograf%C3%ADa)) del caché y del registro se puede introducir en el futuro, pero no hay planes actuales para esto. Si le preocupa que terceros no autorizados accedan a partes de phpMussel que puedan contener PII o información confidencial, como su caché o registros, recomendaría que phpMussel no se instale en una ubicación de acceso público (por ejemplo, instale phpMussel fuera del directorio `public_html` o equivalente disponible para la mayoría de los servidores web estándar) y que los permisos apropiadamente restrictivos se apliquen para el directorio donde reside. Si eso no es suficiente para abordar sus inquietudes, configure phpMussel de forma que los tipos de información que causen sus inquietudes no se recopilen o registrado en primer lugar (por ejemplo, a modo de deshabilitar el registro).
 
-#### 11.4 COOKIES
+#### 9.4 COOKIES
 
 Cuando un usuario ha iniciado una sesión en el front-end, phpMussel establece una [cookie](https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)) para poder recordar al usuario para solicitudes posteriores (es decir, las cookies se usan para autenticar al usuario en una sesión). En la página de inicio de sesión, una advertencia de cookie se muestra prominentemente, advirtiendo al usuario que una cookie se establecerán si participan en la acción relevante. Las cookies no se establecen en ningún otro punto en la base de código.
 
-#### 11.5 MARKETING Y PUBLICIDAD
+#### 9.5 MARKETING Y PUBLICIDAD
 
 phpMussel no recopila ni procesa ninguna información con fines comerciales o publicitarios, y tampoco vende ni obtiene ganancias de ninguna información recopilada o registrada. phpMussel no es una empresa comercial, ni está relacionada con ningún interés comercial, por lo que hacer estas cosas no tendría ningún sentido. Este ha sido el caso desde el comienzo del proyecto, y sigue siendo el caso hoy en día. Además, hacer estas cosas sería contraproducente para el espíritu y el propósito del proyecto como un todo, y mientras continúe manteniendo el proyecto, nunca sucederá.
 
-#### 11.6 POLÍTICA DE PRIVACIDAD
+#### 9.6 POLÍTICA DE PRIVACIDAD
 
 En algunas circunstancias, se le puede exigir legalmente que muestre claramente un enlace a su política de privacidad en todas las páginas y secciones de su sitio web. Esto puede ser importante como un medio para garantizar que los usuarios estén bien informados sobre sus prácticas de privacidad exactas, los tipos de información personal que recopila y cómo piensa utilizarla. Para poder incluir un enlace en la página "Subida Denegada" de phpMussel, se proporciona una directiva de configuración para especificar la URL de su política de privacidad.
 
 *Directivas de configuración relevantes:*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO
+#### 9.7 GDPR/DSGVO
 
 El Reglamento General de Protección de Datos (GDPR) es un reglamento de la Unión Europea, que entra en vigor el 25 Mayo de 2018. El objetivo principal de la regulación es dar control a los ciudadanos y residentes de la UE con respecto a sus propios datos personales, y unificar la regulación dentro de la UE con respecto a la privacidad y los datos personales.
 
@@ -1768,4 +1768,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 23 de Abril de 2022 (2022.04.23).
+Última Actualización: 12 de Mayo de 2022 (2022.05.12).

@@ -5,11 +5,11 @@
 - 2. [INSTALLATION](#SECTION2)
 - 3. [BENUTZUNG](#SECTION3)
 - 4. [ERWEITERUNG VON PHPMUSSEL](#SECTION4)
-- 7. [EINSTELLUNGEN](#SECTION7)
-- 8. [SIGNATURENFORMAT](#SECTION8)
-- 9. [BEKANNTE KOMPATIBILITÄTSPROBLEME](#SECTION9)
-- 10. [HÄUFIG GESTELLTE FRAGEN (FAQ)](#SECTION10)
-- 11. [RECHTSINFORMATION](#SECTION11)
+- 5. [EINSTELLUNGEN](#SECTION5)
+- 6. [SIGNATURENFORMAT](#SECTION6)
+- 7. [BEKANNTE KOMPATIBILITÄTSPROBLEME](#SECTION7)
+- 8. [HÄUFIG GESTELLTE FRAGEN (FAQ)](#SECTION8)
+- 9. [RECHTSINFORMATION](#SECTION9)
 
 *Hinweis für Übersetzungen: Im Falle von Fehlern (z.B., Diskrepanzen zwischen den Übersetzungen, Tippfehler, u.s.w.), die Englische Version des README als die ursprüngliche und maßgebliche Version ist betrachtet. Wenn Sie irgendwelche Fehler finden, ihre Hilfe bei der Korrektur wäre willkommen.*
 
@@ -415,7 +415,7 @@ Die Struktur des v3-Boilerplate-Codes ist identisch mit der Struktur einer Reihe
 ---
 
 
-### 7. <a name="SECTION7"></a>EINSTELLUNGEN
+### 5. <a name="SECTION5"></a>EINSTELLUNGEN
 
 Das Folgende ist eine Liste der Konfigurationsanweisungen die von phpMussel akzeptiert werden mit einer kurzen Beschreibung ihrer Funktionen.
 
@@ -1167,7 +1167,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>SIGNATURENFORMAT
+### 6. <a name="SECTION6"></a>SIGNATURENFORMAT
 
 *Siehe auch:*
 - *[Was ist eine "Signatur"?](#WHAT_IS_A_SIGNATURE)*
@@ -1240,7 +1240,7 @@ Jede Form von regulären Ausdrücken, die von PHP verstanden und korrekt ausgef�
 ---
 
 
-### 9. <a name="SECTION9"></a>BEKANNTE KOMPATIBILITÄTSPROBLEME
+### 7. <a name="SECTION7"></a>BEKANNTE KOMPATIBILITÄTSPROBLEME
 
 #### KOMPATIBILITÄT ZU ANTIVIREN-SOFTWARE
 
@@ -1255,7 +1255,7 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 ---
 
 
-### 10. <a name="SECTION10"></a>HÄUFIG GESTELLTE FRAGEN (FAQ)
+### 8. <a name="SECTION8"></a>HÄUFIG GESTELLTE FRAGEN (FAQ)
 
 - [Was ist eine "Signatur"?](#WHAT_IS_A_SIGNATURE)
 - [Was ist ein "Falsch-Positiv"?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1581,19 +1581,19 @@ Ja. Eine Signatur zum Erkennen von EICAR ist in der "phpMussel Standard Signatur
 ---
 
 
-### 11. <a name="SECTION11"></a>RECHTSINFORMATION
+### 9. <a name="SECTION9"></a>RECHTSINFORMATION
 
-#### 11.0 ABSCHNITT VORWORT
+#### 9.0 ABSCHNITT VORWORT
 
 Dieser Abschnitt der Dokumentation beschreibt mögliche rechtliche Überlegungen zur Verwendung und Implementierung des Pakets, und um einige grundlegende verwandte Informationen zur Verfügung zu stellen. Dies kann für einige Benutzer wichtig sein, um sicherzustellen, dass die gesetzlichen Anforderungen in den Ländern eingehalten werden, in denen sie tätig sind, und einige Benutzer müssen möglicherweise ihre Website-Richtlinien in Übereinstimmung mit diesen Informationen anpassen.
 
 Zuallererst, bitte beachten Sie, dass ich (der Autor des Pakets) weder Rechtsanwalt noch qualifizierter Jurist bin. Daher bin ich rechtlich nicht zur Rechtsberatung qualifiziert. Auch, in einigen Fällen können die genauen rechtlichen Anforderungen zwischen verschiedenen Ländern und Rechtsordnungen variieren, und diese unterschiedlichen rechtlichen Anforderungen können sich manchmal widersprechen (wie zum Beispiel, in Ländern, die [Privatsphäre](https://de.wikipedia.org/wiki/Privatsph%C3%A4re) und das [Recht auf Vergessenwerden bevorzugen](https://de.wikipedia.org/wiki/Recht_auf_Vergessenwerden), gegenüber Ländern, die eine erweiterte [Vorratsdatenspeicherung](https://de.wikipedia.org/wiki/Vorratsdatenspeicherung) bevorzugen). Berücksichtigen Sie auch, dass der Zugriff auf das Paket nicht auf bestimmte Länder oder Gerichtsbarkeiten beschränkt ist und daher die Paket-Nutzerbasis wahrscheinlich geografisch-vielfältig ist. Nach diesen Punkten kann ich nicht sagen, was es heißt, in allen Belangen für alle Nutzer "rechtskonform" zu sein. Jedoch, ich hoffe, dass die hier enthaltenen Informationen Ihnen helfen, selbst zu einer Entscheidung zu kommen, was Sie tun müssen, um im Kontext des Pakets rechtskonform zu bleiben. Wenn Sie Zweifel oder Bedenken hinsichtlich der hierin enthaltenen Informationen haben, oder wenn Sie aus rechtlicher Sicht zusätzliche Hilfe und Rat benötigen, würde ich Ihnen empfehlen, einen qualifizierten Rechtsberater zu konsultieren.
 
-#### 11.1 HAFTUNG UND VERANTWORTUNG
+#### 9.1 HAFTUNG UND VERANTWORTUNG
 
 Wie bereits in der Paketlizenz angegeben, wird das Paket ohne jegliche Gewährleistung bereitgestellt. Dies beinhaltet (aber ist nicht beschränkt auf) den gesamten Umfang der Haftung. Das Paket wird Ihnen zu Ihrer Bequemlichkeit zur Verfügung gestellt, in der Hoffnung, dass es nützlich sein wird, und dass es Ihnen einen Vorteil bringen wird. Sie das Paket verwenden oder implementieren, ist jedoch Ihre eigene Entscheidung. Sie sind nicht gezwungen, das Paket zu verwenden oder zu implementieren, aber wenn Sie dies tun, sind Sie für diese Entscheidung verantwortlich. Weder ich noch andere Mitwirkende des Pakets sind rechtlich verantwortlich für die Folgen der Entscheidungen, die Sie treffen, unabhängig davon, ob sie direkt, indirekt, implizit oder anderweitig sind.
 
-#### 11.2 DRITTE
+#### 9.2 DRITTE
 
 Abhängig von seiner genauen Konfiguration und Implementierung kann das Paket in einigen Fällen mit Dritten kommunizieren und Informationen teilen. Diese Informationen können in einigen Kontexten von einigen Gerichtsbarkeiten als "[personenbezogene Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten)" (oder "PII") definiert werden.
 
@@ -1601,14 +1601,14 @@ Wie diese Informationen von diesen Dritten verwendet werden können, unterliegt 
 
 Aus Gründen der Transparenz wird im Folgenden beschrieben, welche Art von Informationen, und mit wem, geteilt werden.
 
-##### 11.2.1 URL-SCANNER
+##### 9.2.1 URL-SCANNER
 
 URLs, die innerhalb von Dateiuploads gefunden werden, können je nach Konfiguration des Pakets mit der Google Safe Browsing-API geteilt werden. Die Google Safe Browsing-API benötigt API-Schlüssel, um ordnungsgemäß zu funktionieren, und ist daher standardmäßig deaktiviert.
 
 *Relevante Konfigurationsdirektiven:*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 Wenn phpMussel einen Dateiupload scannt, werden die Hashwerte dieser Dateien möglicherweise mit der Virus Total-API geteilt, je nachdem, wie das Paket konfiguriert ist. Es ist geplant, in der Zukunft auch ganze Dateien gemeinsam nutzen zu können, aber diese Funktion wird derzeit nicht vom Paket unterstützt. Die Virus Total API benötigt einen API-Schlüssel, um korrekt zu funktionieren, und ist daher standardmäßig deaktiviert.
 
@@ -1619,7 +1619,7 @@ Informationen (einschließlich Dateien und zugehörige Dateimetadaten), die mit 
 *Relevante Konfigurationsdirektiven:*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 PROTOKOLLIERUNG
+#### 9.3 PROTOKOLLIERUNG
 
 Protokollierung ist aus verschiedenen Gründen ein wichtiger Teil von phpMussel. Ohne Protokollierung kann es schwierig sein, falsche Positive zu diagnostizieren, um genau festzustellen, wie gut phpMussel in einem bestimmten Kontext funktioniert, und es kann schwierig sein zu bestimmen, wo seine Defizite liegen und welche Änderungen möglicherweise an seiner Konfiguration oder den Signatures vorgenommen werden müssen, damit es weiterhin wie beabsichtigt funktioniert. Ungeachtet, die Protokollierung ist möglicherweise nicht für alle Benutzer wünschenswert und bleibt vollständig optional. In phpMussel ist die Protokollierung standardmäßig deaktiviert. Um es zu aktivieren, muss phpMussel entsprechend konfiguriert werden.
 
@@ -1627,7 +1627,7 @@ Zusätzlich, ob Protokollierung rechtlich zulässig ist, und in welchem Umfang e
 
 Es gibt mehrere Arten der Protokollierung, die phpMussel ausführen kann. Verschiedene Arten der Protokollierung beinhalten verschiedene Arten von Informationen, aus verschiedenen Gründen.
 
-##### 11.3.0 SCAN PROTOKOLLIERUNG
+##### 9.3.0 SCAN PROTOKOLLIERUNG
 
 Wenn in der Paketkonfiguration aktiviert, speichert phpMussel Protokolle der Dateien, die es gescannt. Diese Art der Protokollierung ist in zwei verschiedenen Formaten verfügbar:
 - Menschenlesbar oder benutzerfreundliche Protokolldateien.
@@ -1653,7 +1653,7 @@ Ein Scan-Protokolleintrag enthält normalerweise die folgenden Informationen:
 
 Wenn diese Direktiven leer bleiben, bleibt diese Art der Protokollierung deaktiviert.
 
-##### 11.3.1 UPLOADS PROTOKOLLIERUNG
+##### 9.3.1 UPLOADS PROTOKOLLIERUNG
 
 Wenn in der Paketkonfiguration aktiviert, speichert phpMussel Protokolle der Uploads, die blockiert wurden.
 
@@ -1680,7 +1680,7 @@ Diese Protokolleinträge enthalten normalerweise die folgenden Informationen:
 *Relevante Konfigurationsdirektiven:*
 - `web` -> `uploads_log`
 
-##### 11.3.2 FRONTEND PROTOKOLLIERUNG
+##### 9.3.2 FRONTEND PROTOKOLLIERUNG
 
 Diese Art der Protokollierung bezieht sich auf Frontend-Einloggen-Versuchen und tritt nur auf, wenn ein Benutzer versucht, sich am Frontend anzumelden (vorausgesetzt, das Frontend-Zugriff ist aktiviert).
 
@@ -1693,7 +1693,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Eingeloggt.
 *Die für die Frontend-Protokollierung verantwortliche Konfigurationsdirektiven lautet:*
 - `general` -> `frontend_log`
 
-##### 11.3.3 PROTOKOLLROTATION
+##### 9.3.3 PROTOKOLLROTATION
 
 Möglicherweise möchten Sie Protokolle nach einer gewissen Zeit löschen, oder müssen dies gesetzlich tun (d.h., die Zeitspanne, die für die Aufbewahrung von Protokolldateien gesetzlich zulässig ist, kann gesetzlich beschränkt sein). Sie können dies erreichen, indem Sie Datums/Zeitmarkierungen in die Namen Ihrer Protokolldateien einfügen, die in Ihrer Paketkonfiguration festgelegt sind (z.B., `{yyyy}-{mm}-{dd}.log`), und dann Aktivieren der Protokollrotation (Protokollrotation ermöglicht es Ihnen, einige Aktionen in Protokolldateien durchzuführen, wenn bestimmte Limits überschritten werden).
 
@@ -1705,14 +1705,14 @@ Umgekehrt, wenn Sie Protokolldateien für einen längeren Zeitraum aufbewahren m
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 PROTOKOLL-TRUNKIERUNG
+##### 9.3.4 PROTOKOLL-TRUNKIERUNG
 
 Es ist auch möglich, um einzelne Protokolldateien zu trunkieren, wenn sie eine bestimmte Größe überschreiten, falls Sie dies benötigen oder tun möchten.
 
 *Relevante Konfigurationsdirektiven:*
 - `general` -> `truncate`
 
-##### 11.3.5 IP-ADRESSE PSEUDONYMISIERUNG
+##### 9.3.5 IP-ADRESSE PSEUDONYMISIERUNG
 
 Erstens, wenn Sie mit dem Begriff nicht vertraut sind, "Pseudonymisierung" bezieht sich auf die Verarbeitung personenbezogener Daten, so dass sie ohne zusätzliche Informationen nicht mehr für eine bestimmte Person identifiziert werden können, und vorausgesetzt, dass diese zusätzlichen Informationen getrennt aufbewahrt werden, und vorbehaltlich technischer und organisatorischer Maßnahmen, um sicherzustellen, dass personenbezogene Daten für keine natürliche Person identifiziert werden können.
 
@@ -1728,33 +1728,33 @@ phpMussel ist in der Lage, IP-Adressen zu pseudonymisieren, wenn Sie sie protoko
 *Relevante Konfigurationsdirektiven:*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 STATISTIKEN
+##### 9.3.6 STATISTIKEN
 
 phpMussel ist optional in der Lage, Statistiken wie die Gesamtzahl der gescannten und blockierten Dateien seit einem bestimmten Zeitpunkt zu verfolgen. Diese Funktion ist standardmäßig deaktiviert, kann jedoch über die Paketkonfiguration aktiviert werden. Die Art der erfassten Informationen sollte nicht als PII betrachtet werden.
 
 *Relevante Konfigurationsdirektiven:*
 - `general` -> `statistics`
 
-##### 11.3.7 KRYPTOGRAPHIE
+##### 9.3.7 KRYPTOGRAPHIE
 
 phpMussel verwendet keine [Kryptografie](https://de.wikipedia.org/wiki/Kryptographie) zu den Cache oder Protokollierung. Kryptographie für den Cache oder Protokollierung kann in Zukunft eingeführt werden, aber es gibt derzeit keine konkreten Pläne dafür. Wenn Sie befürchten, dass unbefugte Dritte Zugang zu Teilen von phpMussel erhalten, die PII oder vertrauliche Informationen wie Cache oder Protokolle enthalten, würde ich empfehlen, phpMussel nicht an einem öffentlich zugänglichen Ort zu installieren (z.B., installieren Sie phpMussel außerhalb des Standard-Verzeichnisses `public_html` oder eines entsprechenden Verzeichnisses, das für die meisten Standard-Webserver verfügbar ist) und dass entsprechend restriktive Berechtigungen für das Verzeichnis erzwungen werden, in dem sie sich befinden. Wenn dies nicht ausreicht, um Ihre Bedenken auszuräumen, konfigurieren Sie phpMussel so, dass die Arten von Informationen, die Ihre Bedenken verursachen, nicht erfasst oder protokolliert werden (z.B. durch Deaktivieren der Protokollierung).
 
-#### 11.4 COOKIES
+#### 9.4 COOKIES
 
 Wenn sich ein Benutzer erfolgreich am Frontend eingeloggt, phpMussel setzt eine einen [Cookie](https://de.wikipedia.org/wiki/HTTP-Cookie), um sich den Benutzer für nachfolgende Anfragen merken zu können (d.h., Cookies dienen zur Authentifizierung des Benutzers bei einer Einloggen-Sitzung). Auf der Einloggen-Seite wird eine Cookie-Warnung angezeigt, die den Benutzer warnen, dass ein Cookie gesetzt wird, wenn er die relevante Aktion ausführt. An anderen Stellen in der Codebasis werden keine Cookies gesetzt.
 
-#### 11.5 VERMARKTUNG UND WERBUNG
+#### 9.5 VERMARKTUNG UND WERBUNG
 
 phpMussel sammelt und verarbeitet keine Informationen für der Zweck des Vermarktung oder Werbung, und weder verkauft noch profitiert von gesammelten oder protokolliert Informationen. phpMussel ist kein kommerzielles Unternehmen, noch bezieht es sich auf irgendwelche kommerziellen Interessen, daher macht es keinen Sinn, diese Dinge zu tun. Dies ist seit Beginn des Projekts der Fall und ist auch heute noch der Fall. Außerdem, diese Dinge wären kontraproduktiv für den Geist und den beabsichtigten Zweck des gesamten Projekts, und so lange ich das Projekt weiterführen, wird nie passieren.
 
-#### 11.6 DATENSCHUTZERKLÄRUNG
+#### 9.6 DATENSCHUTZERKLÄRUNG
 
 Unter bestimmten Umständen können Sie gesetzlich dazu verpflichtet sein, auf allen Seiten und Abschnitten Ihrer Website einen Link zu Ihrer Datenschutzerklärung deutlich anzuzeigen. Dies kann wichtig sein, um sicherzustellen, dass die Benutzer genau über Ihre genauen Datenschutzpraktiken, die Arten von personenbezogenen Daten, die Sie sammeln, und über Ihre beabsichtigte Verwendung informiert sind. Um einen solchen Link auf der Seite "Zugriff verweigert" von phpMussel einzubinden, wird eine Konfigurationsdirektive bereitgestellt, um die URL zu Ihrer Datenschutzerklärung anzugeben.
 
 *Relevante Konfigurationsdirektiven:*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO
+#### 9.7 GDPR/DSGVO
 
 Die Datenschutz-Grundverordnung (DSGVO) ist eine Verordnung der Europäischen Union, die am 25. Mai 2018 in Kraft tritt. Das Hauptziel der Verordnung besteht darin, den EU-Bürgern und EU-Anwohnern die Kontrolle über ihre eigenen personenbezogenen Daten zu ermöglichen und die Regulierung innerhalb der EU in Bezug auf Privatsphäre und personenbezogene Daten zu vereinheitlichen.
 
@@ -1776,4 +1776,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 23. April 2022 (2022.04.23).
+Zuletzt aktualisiert: 12. Mai 2022 (2022.05.12).

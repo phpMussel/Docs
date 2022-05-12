@@ -5,11 +5,11 @@
 - 2. [COMMENT INSTALLER](#SECTION2)
 - 3. [COMMENT UTILISER](#SECTION3)
 - 4. [EXTENSION DE PHPMUSSEL](#SECTION4)
-- 7. [OPTIONS DE CONFIGURATION](#SECTION7)
-- 8. [FORMATS DE SIGNATURES](#SECTION8)
-- 9. [PROBLÈMES DE COMPATIBILITÉ CONNUS](#SECTION9)
-- 10. [QUESTIONS FRÉQUEMMENT POSÉES (FAQ)](#SECTION10)
-- 11. [INFORMATION LÉGALE](#SECTION11)
+- 5. [OPTIONS DE CONFIGURATION](#SECTION5)
+- 6. [FORMATS DE SIGNATURES](#SECTION6)
+- 7. [PROBLÈMES DE COMPATIBILITÉ CONNUS](#SECTION7)
+- 8. [QUESTIONS FRÉQUEMMENT POSÉES (FAQ)](#SECTION8)
+- 9. [INFORMATION LÉGALE](#SECTION9)
 
 *Note concernant les traductions : En cas d'erreurs (par exemple, différences entre les traductions, fautes de frappe, etc), la version Anglaise du README est considérée comme la version originale et faisant autorité. Si vous trouvez des erreurs, votre aide pour les corriger serait bienvenue.*
 
@@ -415,7 +415,7 @@ Vous remarquerez que la structure du code standard v3 est identique à la struct
 ---
 
 
-### 7. <a name="SECTION7"></a>OPTIONS DE CONFIGURATION
+### 5. <a name="SECTION5"></a>OPTIONS DE CONFIGURATION
 
 Voici une liste des directives de configuration acceptées par phpMussel, avec une description de leur objectif et leur fonction.
 
@@ -1167,7 +1167,7 @@ smtp_secure
 ---
 
 
-### 8. <a name="SECTION8"></a>FORMATS DE SIGNATURES
+### 6. <a name="SECTION6"></a>FORMATS DE SIGNATURES
 
 *Voir également :*
 - *[Qu'est-ce qu'une « signature » ?](#WHAT_IS_A_SIGNATURE)*
@@ -1240,7 +1240,7 @@ Toute forme de regex comprise et préparé correctement par PHP devrait aussi ê
 ---
 
 
-### 9. <a name="SECTION9"></a>PROBLÈMES DE COMPATIBILITÉ CONNUS
+### 7. <a name="SECTION7"></a>PROBLÈMES DE COMPATIBILITÉ CONNUS
 
 #### LOGICIELS ANTI-VIRUS COMPATIBILITÉ
 
@@ -1255,7 +1255,7 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 ---
 
 
-### 10. <a name="SECTION10"></a>QUESTIONS FRÉQUEMMENT POSÉES (FAQ)
+### 8. <a name="SECTION8"></a>QUESTIONS FRÉQUEMMENT POSÉES (FAQ)
 
 - [Qu'est-ce qu'une « signature » ?](#WHAT_IS_A_SIGNATURE)
 - [Qu'est-ce qu'un « faux positif » ?](#WHAT_IS_A_FALSE_POSITIVE)
@@ -1583,19 +1583,19 @@ Oui. Une signature pour détecter EICAR est incluse dans le « fichier de signa
 ---
 
 
-### 11. <a name="SECTION11"></a>INFORMATION LÉGALE
+### 9. <a name="SECTION9"></a>INFORMATION LÉGALE
 
-#### 11.0 PRÉAMBULE DE LA SECTION
+#### 9.0 PRÉAMBULE DE LA SECTION
 
 Cette section de la documentation est destinée à décrire les considérations juridiques possibles concernant l'utilisation et la mise en œuvre du paquet, et de fournir quelques informations de base connexes. Cela peut être important pour certains utilisateurs afin de garantir le respect des exigences légales qui peuvent exister dans les pays où ils opèrent, et certains utilisateurs peuvent avoir besoin d'ajuster leurs politiques de site Web conformément à cette information.
 
 Tout d'abord, s'il vous plaît se rendre compte que je (l'auteur du paquet) ne suis pas un avocat, ni un professionnel juridique qualifié de toute nature. Par conséquent, je ne suis pas légalement qualifié pour fournir des conseils juridiques. Aussi, dans certains cas, les exigences légales peuvent varier selon les pays et les juridictions, et ces différentes exigences juridiques peuvent parfois entrer en conflit (comme, par exemple, dans le cas des pays qui favorisent le droit à la [vie privée](https://fr.wikipedia.org/wiki/Vie_priv%C3%A9e) et le [droit à l'oubli](https://fr.wikipedia.org/wiki/Droit_%C3%A0_l%27oubli), par rapport aux pays qui favorisent la [conversation des données](https://fr.wikipedia.org/wiki/Conservation_des_donn%C3%A9es) étendue). Considérons également que l'accès au paquet n'est pas limité à des pays ou des juridictions spécifiques, et par conséquent, la base d'utilisateurs du paquet est susceptible de la diversité géographique. Ces points pris en compte, je ne suis pas en mesure de dire ce que cela signifie d'être « conforme à la loi » pour tous les utilisateurs, à tous égards. Cependant, j'espère que les informations contenues dans le présent document vous aideront à prendre vous-même une décision concernant ce que vous devez faire pour rester juridiquement conforme dans le cadre du paquet. Si vous avez des doutes ou des préoccupations concernant les informations contenues dans le présent document, ou si vous avez besoin d'aide supplémentaire et de conseils d'un point de vue juridique, je recommande de consulter un professionnel du droit qualifié.
 
-#### 11.1 RESPONSABILITÉ
+#### 9.1 RESPONSABILITÉ
 
 Comme déjà indiqué par la licence de paquet, le paquet est fourni sans aucune garantie. Cela inclut (mais n'est pas limité à) toute la portée de la responsabilité. Le paquet est fourni pour votre commodité, dans l'espoir qu'il vous sera utile, et qu'il vous apportera un certain avantage. Cependant, que vous utilisiez ou implémentiez le package, vous avez le choix. Vous n'êtes pas obligé d'utiliser ou de mettre en œuvre le package, mais lorsque vous le faites, vous êtes responsable de cette décision. Ni moi, ni aucun autre contributeur au paquet, ne sommes légalement responsables des conséquences des décisions que vous prenez, qu'elles soient directes, indirectes, implicites ou autres.
 
-#### 11.2 TIERS
+#### 9.2 TIERS
 
 En fonction de sa configuration et de son implémentation exactes, le paquet peut communiquer et partager des informations avec des tiers dans certains cas. Ces informations peuvent être définies comme des « [données personnelles](https://fr.wikipedia.org/wiki/Donn%C3%A9es_personnelles) » (PII) dans certains contextes, par certaines juridictions.
 
@@ -1603,14 +1603,14 @@ La manière dont ces informations peuvent être utilisées par ces tiers est sou
 
 Dans un souci de transparence, le type d'informations partagées, et avec qui, est décrit ci-dessous.
 
-##### 11.2.1 SCANNER D'URL
+##### 9.2.1 SCANNER D'URL
 
 Les URL trouvées dans les téléchargements de fichiers peuvent être partagées avec l'API Google Safe Browsing, en fonction de la configuration du package. L'API Google Safe Browsing requiert des clés API pour fonctionner correctement, et est donc désactivée par défaut.
 
 *Directives de configuration pertinentes :*
 - `urlscanner` -> `google_api_key`
 
-##### 11.2.2 VIRUS TOTAL
+##### 9.2.2 VIRUS TOTAL
 
 Lorsque phpMussel analyse un téléchargement de fichier, les hachages de ces fichiers peuvent être partagés avec l'API Virus Total, en fonction de la configuration du package. Il est prévu de pouvoir partager des fichiers entiers à un moment donné dans le futur, mais cette fonctionnalité n'est pas supportée par le paquet pour le moment. L'API Virus Total requiert une clé API pour fonctionner correctement, et est donc désactivée par défaut.
 
@@ -1621,7 +1621,7 @@ Les informations (y compris les fichiers et métadonnées de fichiers associés)
 *Directives de configuration pertinentes :*
 - `virustotal` -> `vt_public_api_key`
 
-#### 11.3 JOURNALISATION
+#### 9.3 JOURNALISATION
 
 La journalisation est une partie importante de phpMussel pour un certain nombre de raisons. Sans la journalisation, il peut être difficile de diagnostiquer des faux positifs, de déterminer exactement comment phpMussel est performant dans un contexte particulier, et de déterminer où ses lacunes peuvent être, et quels changements peuvent être nécessaires à sa configuration ou à ses signatures en conséquence, afin de continuer à fonctionner comme prévu. Quoi qu'il en soit, la journalisation peut ne pas être souhaitable pour tous les utilisateurs, et reste entièrement facultative. Dans phpMussel, la journalisation est désactivée par défaut. Pour l'activer, phpMussel doit être configuré en accord.
 
@@ -1629,7 +1629,7 @@ Aditionellement, si la journalisation est légalement autorisée, et dans la mes
 
 Il existe plusieurs types de journalisation que phpMussel peut effectuer. Différents types de journalisation impliquent différents types d'informations, pour différentes raisons.
 
-##### 11.3.0 JOURNAUX D'ANALYSE
+##### 9.3.0 JOURNAUX D'ANALYSE
 
 Lorsqu'il est activé dans la configuration du paquet, phpMussel conserve les journaux des fichiers qu'il analyse. Ce type de journalisation est disponible en deux formats différents :
 - Fichiers journaux lisibles par l'homme.
@@ -1655,7 +1655,7 @@ Une entrée de journal d'analyse inclut généralement les informations suivante
 
 Lorsque ces directives sont laissées vides, ce type de journalisation reste désactivé.
 
-##### 11.3.1 JOURNAUX DES TÉLÉCHARGEMENTS
+##### 9.3.1 JOURNAUX DES TÉLÉCHARGEMENTS
 
 Lorsqu'il est activé dans la configuration du paquet, phpMussel conserve les journaux des téléchargements qui ont été bloqués.
 
@@ -1682,7 +1682,7 @@ Ces entrées de journal incluent généralement les informations suivantes :
 *Directives de configuration pertinentes :*
 - `web` -> `uploads_log`
 
-##### 11.3.2 JOURNALISATION FRONTALE
+##### 9.3.2 JOURNALISATION FRONTALE
 
 Ce type de journalisation concerne les tentatives de connexion frontale, et se produit uniquement lorsqu'un utilisateur tente de se connecter à l'accès frontal (en supposant que l'accès frontal est activé).
 
@@ -1695,7 +1695,7 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Connecté.
 *Directives de configuration pertinentes :*
 - `general` -> `frontend_log`
 
-##### 11.3.3 ROTATION DES JOURNAUX
+##### 9.3.3 ROTATION DES JOURNAUX
 
 Vous voudrez peut-être purger les journaux après un certain temps, ou peut être requis de le faire par la loi (c'est à dire, la durée légale de la conservation des journaux peut être limitée par la loi). Vous pouvez y parvenir en incluant des marqueurs de date/heure dans les noms de vos fichiers journaux (par exemple, `{yyyy}-{mm}-{dd}.log`), conformément à la configuration de votre package, puis en activant la rotation des journaux (la rotation des journaux vous permet d'effectuer des actions sur les fichiers journaux lorsque les limites spécifiées sont dépassées).
 
@@ -1707,14 +1707,14 @@ Par exemple : Si j'étais légalement tenu de supprimer les journaux après 30 
 - `general` -> `log_rotation_limit`
 - `general` -> `log_rotation_action`
 
-##### 11.3.4 TRONCATION DES JOURNAUX
+##### 9.3.4 TRONCATION DES JOURNAUX
 
 Il est également possible de tronquer des fichiers journaux individuels lorsqu'ils dépassent une certaine taille, si c'est quelque chose que vous pourriez avoir besoin ou que vous voulez faire.
 
 *Directives de configuration pertinentes :*
 - `general` -> `truncate`
 
-##### 11.3.5 PSEUDONYMISATION D'ADRESSE IP
+##### 9.3.5 PSEUDONYMISATION D'ADRESSE IP
 
 Premièrement, si vous n'êtes pas familier avec le terme, « pseudonymisation » se réfère au traitement des données personnelles en tant que tel, il ne peut plus être identifié à une personne concernée sans information supplémentaire, et à condition que ces informations supplémentaires soient conservées séparément, et soumis à des mesures techniques et organisationnelles pour s'assurer que les données personnelles ne peuvent être identifiées à aucune personnes naturelles.
 
@@ -1729,33 +1729,33 @@ phpMussel est capable de pseudonymiser les adresses IP lors de la connexion, si 
 *Directives de configuration pertinentes :*
 - `legal` -> `pseudonymise_ip_addresses`
 
-##### 11.3.6 STATISTIQUES
+##### 9.3.6 STATISTIQUES
 
 phpMussel est facultativement capable de suivre des statistiques telles que le nombre total de fichiers analysés et bloqués depuis un certain moment. Cette fonctionnalité est désactivée par défaut, mais peut être activée via la configuration du package. Le type d'informations suivies ne doit pas être considéré comme les PII.
 
 *Directives de configuration pertinentes :*
 - `general` -> `statistics`
 
-##### 11.3.7 CRYPTAGE
+##### 9.3.7 CRYPTAGE
 
 phpMussel ne crypte pas son cache ou aucune information de journal. Le [cryptage](https://fr.wikipedia.org/wiki/Chiffrement) des cache et des journaux peuvent être introduits à l'avenir, mais il n'existe actuellement aucun plan spécifique. Si vous craignez que des tiers non autorisés puissent accéder à des parties de phpMussel pouvant contenir des informations personnelles/sensibles telles que son cache ou ses journaux, je recommanderais que phpMussel ne soit pas installé dans un endroit accessible au public (par exemple, installer phpMussel en dehors du répertoire `public_html` standard ou équivalent disponible pour la plupart des serveurs web standard) et et que des autorisations appropriées restrictives soient appliquées pour le répertoire où il réside. Si ce n'est pas suffisant pour répondre à vos préoccupations, configurez phpMussel de telle sorte que les types d'informations à l'origine de vos préoccupations ne soient pas collectées ou journalisées en premier lieu (tel que en désactivant la journalisation).
 
-#### 11.4 COOKIES
+#### 9.4 COOKIES
 
 Lorsqu'un utilisateur se connecte avec succès à l'accès frontal, phpMussel définit un cookie afin de pouvoir se souvenir de l'utilisateur pour les demandes suivantes (c'est à dire, les cookies sont utilisés pour authentifier l'utilisateur à une session de connexion). Sur la page de connexion, un avertissement de cookie est affiché en évidence, avertissant l'utilisateur qu'un cookie sera défini s'il s'engage dans l'action correspondante. Les cookies ne sont définis à aucun autre endroit du code.
 
-#### 11.5 COMMERCIALISATION ET PUBLICITÉ
+#### 9.5 COMMERCIALISATION ET PUBLICITÉ
 
 phpMussel ni collecte ni traite aucune information à des fins de commercialisation ou de publicité, et ni vend ni profite d'aucune information collectée ou journalisée. phpMussel n'est pas une entreprise commerciale, et n'est pas lié à des intérêts commerciaux, donc faire ces choses n'aurait aucun sens. Cela a été le cas depuis le début du projet, et continue d'être le cas aujourd'hui. Aditionellement, faire ces choses serait contre-productif à l'esprit et à l'objectif du projet dans son ensemble, et aussi longtemps que je continuerai à maintenir le projet, cela n'arrivera jamais.
 
-#### 11.6 POLITIQUE DE CONFIDENTIALITÉ
+#### 9.6 POLITIQUE DE CONFIDENTIALITÉ
 
 Dans certaines circonstances, vous pouvez être légalement tenu d'afficher clairement un lien vers votre politique de confidentialité sur toutes les pages et sections de votre site Web. Cela peut être important pour s'assurer que les utilisateurs sont bien informés de vos pratiques exactes de confidentialité, les types de PII que vous collectez, et comment vous avez l'intention de l'utiliser. Afin de pouvoir inclure un lien sur la page « Téléchargement Refusé » de phpMussel, une directive de configuration est fournie pour spécifier l'URL de votre politique de confidentialité.
 
 *Directives de configuration pertinentes :*
 - `legal` -> `privacy_policy`
 
-#### 11.7 GDPR/DSGVO
+#### 9.7 GDPR/DSGVO
 
 Le règlement général sur la protection des données (GDPR) est un règlement de l'Union européenne qui entrera en vigueur le 25 Mai 2018. L'objectif principal de la réglementation est de permettre aux citoyens et aux résidents de l'UE de contrôler leurs propres données personnelles et d'unifier la réglementation au sein de l'UE en matière de vie privée et de données personnelles.
 
@@ -1774,4 +1774,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 23 Avril 2022 (2022.04.23).
+Dernière mise à jour : 12 Mai 2022 (2022.05.12).
