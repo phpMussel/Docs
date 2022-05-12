@@ -171,10 +171,10 @@ if (!isset($_GET['language'])) {
         $Try = $_GET['autoupdate'] . $_GET['language'] . '.md';
         if (is_file($Try) && is_writable($Try)) {
             $README = file_get_contents($Try);
-            if (($Start = strpos($README, '<a name="SECTION7">')) !== false) {
+            if (($Start = strpos($README, '<a name="SECTION5">')) !== false) {
                 $Start = strpos($README, '```', $Start);
             }
-            if (($Finish = strpos($README, '<a name="SECTION8">')) !== false) {
+            if (($Finish = strpos($README, '<a name="SECTION6">')) !== false) {
                 $Finish = strrpos(substr($README, 0, $Finish), '---');
             }
             if ($Start === false || $Finish === false) {
