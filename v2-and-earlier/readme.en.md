@@ -1099,7 +1099,7 @@ Any form of regex understood and correctly processed by PHP should also be corre
 
 Compatibility problems between phpMussel and some anti-virus vendors have been known to occur sometimes in the past, so every few months or thereabouts, I check the latest available versions of the phpMussel codebase against Virus Total, to see whether any problems are reported there. When problems are reported there, I list the reported problems here, in the documentation.
 
-When I most recently checked (2019.10.10), no problems were reported.
+When I most recently checked (2022.05.12), no problems were reported.
 
 I don't check the signature files, documentation, or other peripheral content. The signature files always cause some false positives when other anti-virus solutions detect them. I would therefore strongly recommend, that if you plan to install phpMussel at a machine where another anti-virus solution already exists, to whitelist the phpMussel signature files.
 
@@ -1717,4 +1717,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 20 February 2022 (2022.02.20).
+Last Updated: 12 May 2022 (2022.05.12).

@@ -1099,7 +1099,7 @@ Setiap bentuk dari regex mengerti dan dengan benar diproses oleh PHP seharusnya 
 
 Masalah kompatibilitas antara phpMussel dan beberapa vendor anti-virus telah diketahui terjadi di masa lalu, jadi setiap beberapa bulan atau sekitar itu, saya memeriksa versi terbaru dari basis kode phpMussel terhadap Total Virus, untuk melihat apakah ada masalah dilaporkan disana. Ketika masalah dilaporkan disana, saya daftar masalah yang dilaporkan disini, dalam dokumentasi.
 
-Ketika saya baru-baru ini memeriksa (2019.10.10), tidak ada masalah dilaporkan.
+Ketika saya baru-baru ini memeriksa (2022.05.12), tidak ada masalah dilaporkan.
 
 Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainnya. File tanda tangan selalu menyebabkan beberapa kesalahan positif ketika solusi anti-virus lain mendeteksi mereka, jadi saya akan sangat menyarankan, bahwa jika Anda berencana untuk menginstal phpMussel di mesin dimana solusi anti-virus lain sudah ada, untuk daftar file tanda tangan phpMussel di daftar putih Anda.
 
@@ -1709,4 +1709,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 20 Februari 2022 (2022.02.20).
+Terakhir Diperbarui: 12 Mei 2022 (2022.05.12).

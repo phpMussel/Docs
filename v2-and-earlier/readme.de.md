@@ -1100,7 +1100,7 @@ Jede Form von regulären Ausdrücken, die von PHP verstanden und korrekt ausgef�
 
 Kompatibilitätsprobleme zwischen phpMussel und einigen Antiviren-Anbietern sind in der Vergangenheit aufgetreten, daher überprüfe ich etwa alle paar Monate die aktuellsten verfügbaren Versionen der phpMussel-Codebasis auf Virus Total, um festzustellen, ob dort Probleme gemeldet werden. Wenn dort Probleme gemeldet werden, ich liste die gemeldeten Probleme hier in der Dokumentation.
 
-Bei meiner letzten Überprüfung (2019.10.10) wurden keine Probleme gemeldet.
+Bei meiner letzten Überprüfung (2022.05.12) wurden keine Probleme gemeldet.
 
 Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren Inhalte. Die Signaturdateien verursachen immer einige Fehlalarme, wenn andere Antiviren-Lösungen sie erkennen. Ich würde daher dringend empfehlen, wenn Sie phpMussel auf einem Computer installieren möchten, auf dem bereits eine andere Antiviren-Lösung vorhanden ist, die phpMussel-Signaturdateien auf eine Whitelist zu setzen.
 
@@ -1725,4 +1725,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 23. April 2022 (2022.04.23).
+Zuletzt aktualisiert: 12. Mai 2022 (2022.05.12).
