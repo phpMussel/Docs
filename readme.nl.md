@@ -1246,7 +1246,7 @@ Elke vorm van reguliere expressie begrepen en correct verwerkt door moet ook cor
 
 Compatibiliteitsproblemen tussen phpMussel en sommige antivirusleveranciers zijn in het verleden soms bekend, dus om de paar maanden of daaromtrent, controleer ik de nieuwste beschikbare versies van de phpMussel-codebase tegen Virus Total, om te zien of daar problemen worden gemeld. Wanneer daar problemen worden gemeld, vermeld ik de gerapporteerde problemen hier in de documentatie.
 
-Toen ik het laatst controleerde (2019.10.10), werden er geen problemen gemeld.
+Toen ik het laatst controleerde (2022.05.12), werden er geen problemen gemeld.
 
 Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De signatuurbestanden veroorzaken altijd een aantal valse positieven wanneer andere antivirusoplossingen deze detecteren. Ik zou daarom ten zeerste aanbevelen dat als u phpMussel wilt installeren op een machine waar al een andere antivirusoplossing bestaat, de phpMussel-signatuurbestanden op de witte lijst worden gezet.
 

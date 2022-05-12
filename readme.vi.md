@@ -1246,7 +1246,7 @@ Bất kỳ cách thức biểu thức chính quy hiểu và xử lý một cách
 
 Các vấn đề tương thích giữa phpMussel và một số nhà cung cấp chống vi-rút đã được biết là đôi khi xảy ra trong quá khứ, vì vậy xấp xỉ cứ sau vài tháng, tôi kiểm tra các phiên bản mới nhất của cơ sở mã phpMussel chống lại Virus Total, để xem liệu có bất kỳ vấn đề nào được báo cáo ở đó không. Khi các vấn đề được báo cáo ở đó, tôi liệt kê các vấn đề được báo cáo ở đây, trong tài liệu.
 
-Khi tôi kiểm tra gần đây nhất (2019.10.10), không có vấn đề nào được báo cáo.
+Khi tôi kiểm tra gần đây nhất (2022.05.12), không có vấn đề nào được báo cáo.
 
 Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung ngoại vi khác. Các tập tin chữ ký luôn gây ra một số sai tích cực khi các giải pháp chống vi-rút khác phát hiện ra chúng. Do đó tôi rất muốn giới thiệu, nếu bạn có kế hoạch cài đặt phpMussel tại một máy đã có giải pháp chống vi-rút khác, đặt tập tin chữ ký của phpMussel trong danh sách trắng của bạn.
 

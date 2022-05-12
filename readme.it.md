@@ -1246,7 +1246,7 @@ Ogni forma di regex correttamente capito da PHP anche dovrebbe essere correttame
 
 Problemi di compatibilità tra phpMussel e alcuni fornitori di antivirus si sono verificati a volte in passato, così ogni pochi mesi o giù di lì, controllo le ultime versioni disponibili della base di codice phpMussel contro Virus Total, per vedere se vi sono segnalati problemi. Quando vengono segnalati problemi, elencherò qui i problemi riportati, nella documentazione.
 
-Quando ho controllato più di recente (2019.10.10), non sono stati segnalati problemi.
+Quando ho controllato più di recente (2022.05.12), non sono stati segnalati problemi.
 
 Non controllo i file di firma, la documentazione o altri contenuti periferici. I file di firma causano sempre alcuni falsi positivi quando vengono rilevati da altre soluzioni antivirus. Pertanto, consigliamo vivamente, se si prevede di installare phpMussel su una macchina in cui esiste già un'altra soluzione antivirus, di mettere i file delle firme phpMussel nella tua lista bianca.
 
