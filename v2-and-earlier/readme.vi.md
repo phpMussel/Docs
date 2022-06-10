@@ -579,7 +579,7 @@ Cấu hình chung cho phpMussel.
 ##### "ipaddr"
 - Nơi để tìm thấy các địa chỉ IP của các yêu cầu kết nối? (Hữu ích cho các dịch vụ như thế Cloudflare và vv) Mặc định = REMOTE_ADDR. CẢNH BÁO: Không thay đổi này trừ khi bạn biết những gì bạn đang làm!
 
-Giá trị được đề xuất cho "ipaddr":
+Giá trị được khuyến khích cho "ipaddr":
 
 Giá trị | Sử dụng
 ---|---
@@ -1699,11 +1699,11 @@ Dữ liệu có thể không được xử lý trừ khi có cơ sở hợp phá
 
 Bởi vì các khía cạnh của quy định có thể phát triển trong thời gian, để tránh việc truyền bá thông tin lỗi thời, nó có thể là tốt hơn để tìm hiểu về các quy định từ một nguồn có thẩm quyền, trái ngược với việc chỉ bao gồm các thông tin có liên quan ở đây trong tài liệu gói (mà cuối cùng có thể trở nên lỗi thời khi quy định phát triển).
 
-Một số tài nguyên được đề xuất để tìm hiểu thêm thông tin:
+Một số tài nguyên được khuyến khích để tìm hiểu thêm thông tin:
 - [REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32016R0679)
 - [Quy định bảo vệ dữ liệu chung](https://vi.wikipedia.org/wiki/Quy_%C4%91%E1%BB%8Bnh_b%E1%BA%A3o_v%E1%BB%87_d%E1%BB%AF_li%E1%BB%87u_chung)
 
 ---
 
 
-Lần cuối cập nhật: 2022.05.12.
+Lần cuối cập nhật: 2022.05.23.
