@@ -3,6 +3,15 @@
 $Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
 
 $loadL10N = function (string $Language) use (&$Vendor) {
+    if (
+        !file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml') ||
+        !file_exists($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml') ||
+        !file_exists($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml') ||
+        !file_exists($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'phpmailer' . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml')
+    ) {
+        echo 'Unable to read the "' . $Language . '" language files!';
+        die;
+    }
     $YAML = new \Maikuolan\Common\YAML();
     $Arr = [];
     $DataDocGen = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml');
