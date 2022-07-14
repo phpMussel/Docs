@@ -77,10 +77,10 @@ Die vorgefertigten ZIPs enthalten alle oben genannten Abhängigkeiten sowie alle
 
 Signaturen werden von phpMussel benötigt, um bestimmte Bedrohungen zu erkennen. Es gibt 2 Hauptmethoden, um Signaturen zu installieren:
 
-1. Signaturen mit "SigTool" generieren und manuell installieren.
+1. Signaturen mit „SigTool“ generieren und manuell installieren.
 2. Signaturen aus "phpMussel/Signatures" oder "phpMussel/Examples" herunterladen und manuell installieren.
 
-##### 2.1.0 Signaturen mit "SigTool" generieren und manuell installieren.
+##### 2.1.0 Signaturen mit „SigTool“ generieren und manuell installieren.
 
 *Sehen: [SigTool Dokumentation](https://github.com/phpMussel/SigTool#documentation).*
 
@@ -105,7 +105,7 @@ Wenn Sie mit der Standardkonfiguration für phpMussel zufrieden sind und nichts 
 
 Wenn Sie das phpMussel-Frontend verwenden möchten, können Sie alles auf das Frontend-Konfigurationsseite konfigurieren. Ab v3 werden die Frontend-Anmeldeinformationen jedoch in Ihrer Konfigurationsdatei gespeichert, also um sich das Frontend einzuloggen, müssen Sie mindestens ein Konto konfigurieren, um sich einzuloggen, und von dort aus können Sie sich einloggen und auf das Frontend-Konfigurationsseite alles andere konfigurieren.
 
-In den folgenden Auszügen wird ein neues Konto im Front-End mit dem Benutzernamen "admin" und dem Kennwort "password" hinzugefügt.
+In den folgenden Auszügen wird ein neues Konto im Front-End mit dem Benutzernamen „admin“ und dem Kennwort „password“ hinzugefügt.
 
 Für INI-Dateien:
 
@@ -391,7 +391,7 @@ Geben Sie *jede anderen Wert* um formatierten Text zurückzugeben an (d.h., die 
 
 #### 3.6 ZWEI-FAKTOR-AUTHENTIFIZIERUNG
 
-Es ist möglich, das Frontend sicherer zu machen, indem Sie die Zwei-Faktor-Authentifizierung ("2FA") aktivieren. Wenn Sie sich bei einem 2FA-aktivierten Konto eingeloggt, wird eine E-Mail an die mit diesem Konto verknüpfte E-Mail-Adresse gesendet. Diese E-Mail enthält einen "2FA-Code", den der Nutzer zusätzlich zum Benutzernamen und Passwort eingeben muss, um sich mit diesem Konto einloggen zu können. Das bedeutet, dass das Erlangen eines Kontopassworts nicht ausreicht, damit sich ein Hacker oder potentieller Angreifer in diesem Konto einloggen kann, da sie auch bereits Zugriff auf die mit diesem Konto verknüpfte E-Mail-Adresse haben müssen, um den mit der Sitzung verbundenen 2FA-Code empfangen und verwenden zu können, dadurch wird das Frontend sicherer.
+Es ist möglich, das Frontend sicherer zu machen, indem Sie die Zwei-Faktor-Authentifizierung ("2FA") aktivieren. Wenn Sie sich bei einem 2FA-aktivierten Konto eingeloggt, wird eine E-Mail an die mit diesem Konto verknüpfte E-Mail-Adresse gesendet. Diese E-Mail enthält einen „2FA-Code“, den der Nutzer zusätzlich zum Benutzernamen und Passwort eingeben muss, um sich mit diesem Konto einloggen zu können. Das bedeutet, dass das Erlangen eines Kontopassworts nicht ausreicht, damit sich ein Hacker oder potentieller Angreifer in diesem Konto einloggen kann, da sie auch bereits Zugriff auf die mit diesem Konto verknüpfte E-Mail-Adresse haben müssen, um den mit der Sitzung verbundenen 2FA-Code empfangen und verwenden zu können, dadurch wird das Frontend sicherer.
 
 Nachdem Sie PHPMailer installiert haben, müssen Sie die Konfigurationsdirektiven für PHPMailer über die phpMussel-Konfigurationsseite oder Konfigurationsdatei auffüllen. Weitere Informationen zu diesen Konfigurationsanweisungen finden Sie im Konfigurationsabschnitt dieses Dokuments. Nachdem Sie die PHPMailer-Konfigurationsdirektiven gefüllt haben, setzen Sie `enable_two_factor` auf `true`. Die Zwei-Faktor-Authentifizierung sollte jetzt aktiviert sein.
 
@@ -546,25 +546,25 @@ Konfiguration (v3)
         add_reply_to_name [string]
 ```
 
-#### "core" (Kategorie)
+#### „core“ (Kategorie)
 Allgemeine Konfiguration (jede Kernkonfiguration, die nicht zu anderen Kategorien gehört).
 
-##### "scan_log" `[string]`
+##### „scan_log“ `[string]`
 - Name einer Datei zum Aufzeichnen aller Resultate von Überprüfungen. Geben Sie einen Dateinamen an oder lassen Sie die Option zum Deaktivieren leer.
 
-##### "scan_log_serialized" `[string]`
+##### „scan_log_serialized“ `[string]`
 - Name einer Datei zum Aufzeichnen aller Resultate von Überprüfungen (Format ist serialisiert). Geben Sie einen Dateinamen an oder lassen Sie die Option zum Deaktivieren leer.
 
-##### "error_log" `[string]`
+##### „error_log“ `[string]`
 - Einer Datei zum Protokollieren aller erkannten Fehler, die nicht schwerwiegend sind. Geben Sie einen Dateinamen an oder lassen Sie die Option zum Deaktivieren leer.
 
-##### "truncate" `[string]`
+##### „truncate“ `[string]`
 - Trunkate Protokolldateien, wenn sie eine bestimmte Größe erreichen? Wert ist die maximale Größe in B/KB/MB/GB/TB, die eine Protokolldatei wachsen kann, bevor sie trunkiert wird. Der Standardwert von 0KB deaktiviert die Trunkierung (Protokolldateien können unbegrenzt wachsen). Hinweis: Gilt für einzelne Protokolldateien! Die Größe der Protokolldateien gilt nicht als kollektiv.
 
-##### "log_rotation_limit" `[int]`
+##### „log_rotation_limit“ `[int]`
 - Die Protokollrotation begrenzt die Anzahl der Protokolldateien, die gleichzeitig vorhanden sein dürfen. Wenn neue Protokolldateien erstellt werden, und wenn die Gesamtzahl der Protokolldateien den angegebenen Limit überschreitet, wird die angegebene Aktion ausgeführt. Sie können hier das gewünschte Limit angeben. Ein Wert von 0 deaktiviert die Protokollrotation.
 
-##### "log_rotation_action" `[string]`
+##### „log_rotation_action“ `[string]`
 - Die Protokollrotation begrenzt die Anzahl der Protokolldateien, die gleichzeitig vorhanden sein sollten. Wenn neue Protokolldateien erstellt werden, und wenn die Gesamtzahl der Protokolldateien den angegebenen Limit überschreitet, wird die angegebene Aktion ausgeführt. Sie können hier die gewünschte Aktion angeben.
 
 ```
@@ -573,8 +573,8 @@ log_rotation_action
 └─Archive ("Zuerst archivieren, und dann löschen Sie die ältesten Protokolldateien, bis das Limit nicht mehr überschritten wird.")
 ```
 
-##### "timezone" `[string]`
-- Gibt welche Zeitzone verwendet werden soll an (z.B., Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, u.s.w.). Damit PHP dies automatisch für Sie erledigt, geben Sie "SYSTEM" an.
+##### „timezone“ `[string]`
+- Gibt welche Zeitzone verwendet werden soll an (z.B., Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, u.s.w.). Damit PHP dies automatisch für Sie erledigt, geben Sie „SYSTEM“ an.
 
 ```
 timezone
@@ -583,10 +583,10 @@ timezone
 └─…Andere
 ```
 
-##### "time_offset" `[int]`
+##### „time_offset“ `[int]`
 - Zeitzonenversatz in Minuten.
 
-##### "time_format" `[string]`
+##### „time_format“ `[string]`
 - Das Datumsformat verwendet von phpMussel. Zusätzliche Optionen können auf Anfrage hinzugefügt werden.
 
 ```
@@ -665,7 +665,7 @@ time_format
 └─…Andere
 ```
 
-##### "ipaddr" `[string]`
+##### „ipaddr“ `[string]`
 - Ort der IP-Adresse der aktuellen Verbindung im gesamten Datenstrom (nützlich für Cloud-Services). Standardeinstellung = REMOTE_ADDR. ACHTUNG: Ändern Sie diesen Wert nur, wenn Sie wissen, was Sie tun!
 
 ```
@@ -685,10 +685,10 @@ Siehe auch:
 - [Squid configuration directive forwarded_for](http://www.squid-cache.org/Doc/config/forwarded_for/)
 - [Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded)
 
-##### "delete_on_sight" `[bool]`
+##### „delete_on_sight“ `[bool]`
 - Diese Option weist das Script an, Dateien während eines Scans sofort zu löschen, wenn ein Erkennungsmerkmal, ob durch Signaturen oder andere Methoden, zutrifft. Dateien, die als nicht infiziert eingestuft werden, werden nicht berührt. Im Falle von Archiven wird das gesamte Archiv gelöscht, auch wenn nur eine einzige Datei im Archiv infiziert sein sollte. Normalerweise ist es bei einem Dateiupload nicht notwendig, diese Option zu aktivieren, da PHP nach der Ausführung von Scripten den Inhalt vom Cache löscht, d.h. PHP löscht jede Datei, die über den Server hochgeladen wird, sofern Sie nicht verschoben, kopiert oder bereits gelöscht wurde. Diese Option wurde als zusätzliches Maß an Sicherheit hinzugefügt, außerdem für Systeme, deren PHP-Installation nicht dem üblichen Verhalten entspricht. False = Nach der Überprüfung wird die Datei so belassen [Standardeinstellung]; True = Nach der Überprüfung wird die Datei sofort gelöscht, sofern Sie infiziert ist.
 
-##### "lang" `[string]`
+##### „lang“ `[string]`
 - Gibt die Standardsprache für phpMussel an.
 
 ```
@@ -720,22 +720,22 @@ lang
 └─zh-TW ("中文（傳統）")
 ```
 
-##### "lang_override" `[bool]`
+##### „lang_override“ `[bool]`
 - Nach HTTP_ACCEPT_LANGUAGE lokalisieren wann möglich? True = Ja [Standardeinstellung]; False = Nein.
 
-##### "scan_cache_expiry" `[int]`
+##### „scan_cache_expiry“ `[int]`
 - Für wie lange soll phpMussel die Scan-Ergebnisse zwischenspeichern? Wert entspricht der Anzahl Sekunden, wie lange die Scan-Ergebnisse zwischengespeichert werden. Standard ist 21600 Sekunden (6 Stunden); Ein Wert von 0 wird das Zwischenspeichern von Scan-Ergebnissen deaktivieren.
 
-##### "maintenance_mode" `[bool]`
+##### „maintenance_mode“ `[bool]`
 - Deaktiviert alles andere als das Frontend. Manchmal nützlich für die Aktualisierung Ihrer CMS, Frameworks, u.s.w. Wartungsmodus aktivieren? True = Ja; False = Nein [Standardeinstellung].
 
-##### "statistics" `[bool]`
+##### „statistics“ `[bool]`
 - phpMussel-Nutzungsstatistiken verfolgen? True = Ja; False = Nein [Standardeinstellung].
 
-##### "hide_version" `[bool]`
+##### „hide_version“ `[bool]`
 - Versionsinformationen aus Protokollen und Seitenausgabe ausblenden? True = Ja; False = Nein [Standardeinstellung].
 
-##### "disabled_channels" `[string]`
+##### „disabled_channels“ `[string]`
 - Dies kann verwendet werden, um zu verhindern, dass phpMussel beim Senden von Anforderungen bestimmte Kanäle verwendet (z.B., beim Aktualisieren, beim Abrufen von Komponentenmetadaten, u.s.w.).
 
 ```
@@ -746,256 +746,256 @@ disabled_channels
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
-##### "default_timeout" `[int]`
+##### „default_timeout“ `[int]`
 - Standardzeitlimit für externe Anforderungen? Standardeinstellung = 12 Sekunden.
 
-#### "signatures" (Kategorie)
+#### „signatures“ (Kategorie)
 Konfiguration für Signaturen, Signaturdateien, u.s.w.
 
-##### "active" `[string]`
+##### „active“ `[string]`
 - Eine Liste der aktiven Signaturdateien, die durch Kommas getrennt sind. Hinweis: Signaturdateien müssen zuerst installiert werden, bevor Sie sie aktivieren können. Damit die Testdateien erkannt werden, müssen die phpMussel-Signaturdateien installiert sein.
 
-##### "fail_silently" `[bool]`
+##### „fail_silently“ `[bool]`
 - Reaktion von phpMussel auf fehlende oder defekte Signaturen. Ist `fail_silently` deaktiviert, werden fehlende oder defekte Signaturen während des Scanvorgangs gemeldet, ist `fail_silently` aktiviert, werden fehlende oder defekte Signaturen ignoriert, ohne dass entsprechende Probleme gemeldet werden. Diese Option sollte so belassen werden, es sei denn, Sie erwarten Abstürze oder ähnliches. False = Deaktiviert; True = Aktiviert [Standardeinstellung].
 
-##### "fail_extensions_silently" `[bool]`
+##### „fail_extensions_silently“ `[bool]`
 - Soll phpMussel melden, wenn Dateierweiterungen fehlen? Wenn `fail_extensions_silently` deaktiviert ist, werden fehlende Dateierweiterungen beim Scannen gemeldet und wenn `fail_extensions_silently` aktiviert ist, werden fehlende Dateierweiterungen ignoriert und beim Scan gemeldet, dass es mit diesen Dateien keine Probleme gibt. Das Deaktivieren dieser Anweisung kann möglicherweise deine Sicherheit erhöhen, kann aber auch zu mehr Falschmeldungen führen. False = Deaktiviert; True = Aktiviert [Standardeinstellung].
 
-##### "detect_adware" `[bool]`
+##### „detect_adware“ `[bool]`
 - Soll phpMussel Signaturen für die Erkennung von Adware parsen? False = Nein; True = Ja [Standardeinstellung].
 
-##### "detect_joke_hoax" `[bool]`
+##### „detect_joke_hoax“ `[bool]`
 - Soll phpMussel Signaturen für die Erkennung von Scherz/Fake-Malware/Viren parsen? False = Nein; True = Ja [Standardeinstellung].
 
-##### "detect_pua_pup" `[bool]`
+##### „detect_pua_pup“ `[bool]`
 - Soll phpMussel Signaturen für die Erkennung von PUAs/PUPs parsen? False = Nein; True = Ja [Standardeinstellung].
 
-##### "detect_packer_packed" `[bool]`
+##### „detect_packer_packed“ `[bool]`
 - Soll phpMussel Signaturen für die Erkennung von Packern und komprimierten Daten parsen? False = Nein; True = Ja [Standardeinstellung].
 
-##### "detect_shell" `[bool]`
+##### „detect_shell“ `[bool]`
 - Soll phpMussel Signaturen für die Erkennung von Shell-Scripten parsen? False = Nein; True = Ja [Standardeinstellung].
 
-##### "detect_deface" `[bool]`
+##### „detect_deface“ `[bool]`
 - Soll phpMussel Signaturen für die Erkennung von Defacements und Defacer parsen? False = Nein; True = Ja [Standardeinstellung].
 
-##### "detect_encryption" `[bool]`
+##### „detect_encryption“ `[bool]`
 - Soll phpMussel verschlüsselte Dateien erkennen und blockieren? False = Nein; True = Ja [Standardeinstellung].
 
-##### "heuristic_threshold" `[int]`
+##### „heuristic_threshold“ `[int]`
 - Es gibt bestimmte Signaturen in phpMussel, die dazu dienen, verdächtige und potenziell bösartige Eigenschaften von hochgeladenen Dateien zu identifizieren, ohne diese Dateien an sich zu überprüfen und als bösartig zu identifizieren. Diese Direktive teilt phpMussel mit, welche Gewichtung von verdächtigen und potenziell bösartigen Eigenschaften zulässig ist, bevor diese Dateien als bösartig gekennzeichnet werden. Die Definition des Gewichts ist in diesem Zusammenhang die Gesamtzahl der verdächtigen und potenziell bösartigen Eigenschaften. Standardwert ist 3. Ein niedriger Wert in der Regel führt zu einem vermehrten Auftreten von Fehlalarmen und eine größere Anzahl von schädlichen Dateien werden erkannt, während ein höherer Wert weniger Fehlalarme auslöst und eine geringere Anzahl von schädlichen Dateien markiert werden. Dieser Wert sollte so belassen werden, es sei denn, Sie erkennen Probleme, die durch diese Einstellung hervorgerufen werden.
 
-#### "files" (Kategorie)
+#### „files“ (Kategorie)
 Einzelheiten zum Umgang mit Dateien beim Scannen.
 
-##### "filesize_limit" `[string]`
+##### „filesize_limit“ `[string]`
 - Begrenzung der Dateigröße in KB. 65536 = 64MB [Standardeinstellung]; 0 = Keine Begrenzung (wird immer zur Greylist hinzugefügt), jeder (positive) numerische Wert wird akzeptiert. Dies ist nützlich, wenn Ihre PHP-Konfiguration den verfügbaren Speicherverbrauch je Prozess einschränkt oder die Dateigröße von Uploads begrenzt.
 
-##### "filesize_response" `[bool]`
+##### „filesize_response“ `[bool]`
 - Handhabung von Dateien, die die Begrenzung der Dateigröße (sofern angegeben) überschreiten. False = Hinzufügen zur Whitelist; True = Hinzufügen zur Blacklist [Standardeinstellung].
 
-##### "filetype_whitelist" `[string]`
+##### „filetype_whitelist“ `[string]`
 - Whitelist:
 
 __Wie das funktioniert.__ Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (Komma-getrennte Werte).
 
 __Logische Reihenfolge der Verarbeitung.__ Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem.
 
-##### "filetype_blacklist" `[string]`
+##### „filetype_blacklist“ `[string]`
 - Blacklist:
 
 __Wie das funktioniert.__ Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (Komma-getrennte Werte).
 
 __Logische Reihenfolge der Verarbeitung.__ Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem.
 
-##### "filetype_greylist" `[string]`
+##### „filetype_greylist“ `[string]`
 - Greylist:
 
 __Wie das funktioniert.__ Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (Komma-getrennte Werte).
 
 __Logische Reihenfolge der Verarbeitung.__ Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem.
 
-##### "check_archives" `[bool]`
+##### „check_archives“ `[bool]`
 - Soll der Inhalt von Archiven überprüft werden? False = Nein (keine Überprüfung); True = Ja (wird überprüft) [Standardeinstellung]. Unterstützt: Zip (erfordert libzip), Tar, Rar (erfordert die rar-Erweiterung).
 
-##### "filesize_archives" `[bool]`
+##### „filesize_archives“ `[bool]`
 - Soll das Blacklisting/Whitelisting der Dateigröße auf den Inhalt des Archivs übertragen werden? False = Nein (alles nur in die Greylist aufnehmen); True = Ja [Standardeinstellung].
 
-##### "filetype_archives" `[bool]`
+##### „filetype_archives“ `[bool]`
 - Soll das Blacklisting/Whitelisting des Dateityps auf den Inhalt des Archivs übertragen werden? False = Nein (alles nur in die Greylist aufnehmen) [Standardeinstellung]; True = Ja.
 
-##### "max_recursion" `[int]`
+##### „max_recursion“ `[int]`
 - Maximale Grenze der Rekursionstiefe von Archiven. Standardwert = 3.
 
-##### "block_encrypted_archives" `[bool]`
+##### „block_encrypted_archives“ `[bool]`
 - Verschlüsselte Archive erkennen und blockieren? Denn phpMussel ist nicht in der Lage, die Inhalte von verschlüsselten Archiven zu scannen. Es ist möglich, dass Archiv-Verschlüsselung von Angreifern zum Umgehen von phpMussel, Antiviren-Scanner und weiterer solcher Schutzlösungen verwendet wird. Die Anweisung, dass phpMussel verschlüsselte Archive blockiert kann möglicherweise helfen, die Risiken, die mit dieser Möglichkeit verbunden sind, zu verringern. False = Nein; True = Ja [Standardeinstellung].
 
-##### "max_files_in_archives" `[int]`
+##### „max_files_in_archives“ `[int]`
 - Maximale Anzahl Dateien, die aus Archiven gescannt werden sollen, bevor der Scan abgebrochen wird. Standardwert = 0 (kein Maximum).
 
-##### "chameleon_from_php" `[bool]`
+##### „chameleon_from_php“ `[bool]`
 - Suche nach PHP-Headern in Dateien, die weder PHP-Dateien noch erkannte Archive sind. False = Deaktiviert; True = Aktiviert.
 
-##### "can_contain_php_file_extensions" `[string]`
+##### „can_contain_php_file_extensions“ `[string]`
 - Eine Liste von Dateierweiterungen, die PHP-Code enthalten dürfen, getrennt durch Kommas. Wenn die PHP-Chameleon-Angriffserkennung aktiviert ist, werden Dateien mit PHP-Code, die Erweiterungen aufweisen, die nicht in dieser Liste enthalten sind, als PHP-Chameleon-Angriffe erkannt.
 
-##### "chameleon_from_exe" `[bool]`
+##### „chameleon_from_exe“ `[bool]`
 - Suche nach ausführbaren Headern in Dateien, die weder ausführbar noch erkannte Archive sind und nach ausführbaren Dateien, deren Header nicht korrekt sind. False = Deaktiviert; True = Aktiviert.
 
-##### "chameleon_to_archive" `[bool]`
+##### „chameleon_to_archive“ `[bool]`
 - Identifizieren Sie falsche Header in Archiven und komprimierten Dateien. Unterstützt: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Deaktiviert; True = Aktiviert.
 
-##### "chameleon_to_doc" `[bool]`
+##### „chameleon_to_doc“ `[bool]`
 - Suche nach Office-Dokumenten, deren Header nicht korrekt sind (Unterstützt: DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Deaktiviert; True = Aktiviert.
 
-##### "chameleon_to_img" `[bool]`
+##### „chameleon_to_img“ `[bool]`
 - Suche nach Bildern, deren Header nicht korrekt sind (Unterstützt: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Deaktiviert; True = Aktiviert.
 
-##### "chameleon_to_pdf" `[bool]`
+##### „chameleon_to_pdf“ `[bool]`
 - Suche nach PDF-Dateien, deren Header nicht korrekt sind. False = Deaktiviert; True = Aktiviert.
 
-##### "archive_file_extensions" `[string]`
+##### „archive_file_extensions“ `[string]`
 - Erkannte Archiv-Dateierweiterungen (Format ist CSV; nur bei Problemen hinzufügen oder entfernen; unnötiges Entfernen könnte Fehlalarme für Archive auslösen, unnötiges Hinzufügen fügt das zur Whitelist hinzu, was vorher als möglicher Angriff definiert wurde; Ändern Sie diese Liste äußerst vorsichtig; Beachten Sie, dass dies keinen Einfluss darauf hat, wozu Archive fähig sind und nicht auf Inhaltsebene analysiert werden können). Diese Liste enthält die Archivformate, die am häufigsten von der Mehrzahl der Systeme und CMS verwendet werden, ist aber absichtlich nicht vollständig.
 
-##### "block_control_characters" `[bool]`
+##### „block_control_characters“ `[bool]`
 - Sollen Dateien, welche Steuerzeichen (andere als Newline/Zeilenumbruch) enthalten, blockiert werden?Sofern Sie *__NUR__* reinen Text hochladen, können Sie diese Option aktivieren, um Ihrem System zusätzlichen Schutz zu bieten. Sollten Sie anderes als reinen Text hochladen, werden bei aktivierter Option Fehlalarme ausgelöst. False = Nicht blockieren [Standardeinstellung]; True = Blockieren.
 
-##### "corrupted_exe" `[bool]`
+##### „corrupted_exe“ `[bool]`
 - Defekte Dateien und Parse-Errors. False = Ignorieren; True = Blockieren [Standardeinstellung]. Soll auf potentiell defekte ausführbare Dateien geprüft und diese blockiert werden? Oftmals (aber nicht immer), wenn bestimmte Aspekte einer PE-Datei beschädigt sind oder nicht korrekt verarbeitet werden können, ist dies ein Hinweis auf eine infizierte Datei. Viele Antiviren-Programme nutzen verschiedene Methoden, um Viren in solchen Dateien zu erkennen, sofern sich der Programmierer eines Virus dieser Tatsache bewußt ist, wird er versuchen, diese Maßnahmen zu verhindern, damit der Virus unentdeckt bleibt.
 
-##### "decode_threshold" `[string]`
+##### „decode_threshold“ `[string]`
 - Schwelle der Menge der Rohdaten, die durch den Decode-Befehl erkannt werden sollen (sofern während des Scanvorgangs spürbare Performance-Probleme auftreten). Standardeinstellung ist 512KB. Null oder ein Null-Wert deaktiviert die Beschränkung (Entfernen aller solcher Einschränkungen basierend auf die Dateigröße).
 
-##### "scannable_threshold" `[string]`
-- Schwelle der Menge der Rohdaten, die phpMussel lesen und scannen darf (sofern während des Scanvorgangs spürbare Performance-Probleme auftreten). Standardeinstellung ist 32MB. Null oder ein Null-Wert deaktiviert die Beschränkung. Generell sollte dieser Wert nicht kleiner sein als die durchschnittliche Dateigröße von Datei-Uploads, die Sie auf Ihrem Server oder Ihrer Website erwarten, sollte nicht größer sein als die Richtlinie filesize_limit und sollte nicht mehr als ein Fünftel der Gesamtspeicherzuweisung für PHP in der Konfigurationsdatei "php.ini" sein. Diese Richtlinie verhindert, dass phpMussel zu viel Speicher benutzt (was phpMussel daran hindern würde, einen Scan ab einer bestimmten Dateigröße erfolgreich durchzuführen).
+##### „scannable_threshold“ `[string]`
+- Schwelle der Menge der Rohdaten, die phpMussel lesen und scannen darf (sofern während des Scanvorgangs spürbare Performance-Probleme auftreten). Standardeinstellung ist 32MB. Null oder ein Null-Wert deaktiviert die Beschränkung. Generell sollte dieser Wert nicht kleiner sein als die durchschnittliche Dateigröße von Datei-Uploads, die Sie auf Ihrem Server oder Ihrer Website erwarten, sollte nicht größer sein als die Richtlinie filesize_limit und sollte nicht mehr als ein Fünftel der Gesamtspeicherzuweisung für PHP in der Konfigurationsdatei „php.ini“ sein. Diese Richtlinie verhindert, dass phpMussel zu viel Speicher benutzt (was phpMussel daran hindern würde, einen Scan ab einer bestimmten Dateigröße erfolgreich durchzuführen).
 
-##### "allow_leading_trailing_dots" `[bool]`
+##### „allow_leading_trailing_dots“ `[bool]`
 - Erlaube führende und nachfolgende Punkte in Dateinamen? Dies kann manchmal verwendet werden, um Dateien auszublenden oder um einige Systeme dazu zu bringen, Directory Traversal zuzulassen. False = Nicht erlauben [Standardeinstellung]. True = Erlauben.
 
-##### "block_macros" `[bool]`
+##### „block_macros“ `[bool]`
 - Versuchen Sie, alle Dateien die Makros enthalten zu blockieren? Einige Arten von Dokumenten und Tabellen können ausführbare Makros enthalten und somit einen gefährlichen potenziellen Malware-Vektor darstellen. False = Nicht blockieren [Standardeinstellung]; True = Blockieren.
 
-##### "only_allow_images" `[bool]`
+##### „only_allow_images“ `[bool]`
 - Wenn auf true gesetzt, alle vom Scanner gefundenen Dateien die keine Bilder sind, werden sofort markiert, ohne gescannt zu werden. Dies kann in einigen Fällen hilfreich sein für die Durchführung eines Scans erforderliche Zeit zu verkürzen. Standardmäßig auf false gesetzt.
 
-#### "quarantine" (Kategorie)
+#### „quarantine“ (Kategorie)
 Konfiguration für die Quarantäne.
 
-##### "quarantine_key" `[string]`
+##### „quarantine_key“ `[string]`
 - phpMussel kann blockierte Datei-Uploads unter Quarantäne isolieren, sofern Sie dies tun wollen. Nutzer, die nur daran interessiert sind, ihre Webauftritte oder ihre Hosting-Umgebung zu schützen ohne das Interesse, die markierten Dateien weitergehend zu untersuchen, sollten diese Funktionalität deaktivieren, Nutzer, die diese Dateien zur Ananlyse auf Malware o.ä. benötigen, sollten diese Funktion aktivieren. Die Isolation von markierten Dateien kann manchmal auch bei der Fehlersuche von Fehlalarmen helfen, wenn dies häufiger bei Ihnen auftritt. Um die Quarantänefunktion zu deaktivieren, lassen Sie die Richtlinie `quarantine_key` leer oder löschen Sie den Inhalt dieser Richtlinie, wenn sie nicht bereits leer ist. Um die Quarantänefunktion zu aktivieren, geben Sie einen Wert ein. Der `quarantine_key` ist ein wichtiges Sicherheitsmerkmal der Quarantänfunktionen, um zu verhindern, dass die Quarantänefunktionen einem Exploit ausgesetzt wird und gespeicherte Daten in der Quarantäneumgebung ausgeführt werden können. Der Wert des `quarantine_key` sollte so behandelt werden, wie Ihre Passwörter: Je länger, desto besser, und halten Sie sie geheim. Optimal in Verbindung mit `delete_on_sight`.
 
-##### "quarantine_max_filesize" `[string]`
+##### „quarantine_max_filesize“ `[string]`
 - Die maximal zulässige Dateigröße von Dateien, die in der Quarantäne isoliert werden sollen. Dateien, die größer sind als der angegebene Wert, werden NICHT im Quarantäneverzeichnis gespeichert. Diese Richtlinie ist wichtig, um es einem potentiellen Angreifer zu erschweren, die Quarantäne -und somit Ihren zugesicherten Speicher auf Ihrem Hostservice- mit unerwünschten Daten zu überfluten. Standardeinstellung = 2MB.
 
-##### "quarantine_max_usage" `[string]`
+##### „quarantine_max_usage“ `[string]`
 - Die maximal zulässige Speichernutzung der Quarantäne. Erreicht die Geamtgröße der Dateien in der Quarantäne diesen Wert, werden die ältesten Dateien in der Quarantäne gelöscht, bis der Wert unterschritten wird. Diese Richtlinie ist wichtig, um es einem potentiellen Angreifer zu erschweren, die Quarantäne -und somit Ihren zugesicherten Speicher auf Ihrem Hostservice- mit unerwünschten Daten zu überfluten. Standardwert = 64MB.
 
-##### "quarantine_max_files" `[int]`
+##### „quarantine_max_files“ `[int]`
 - Die maximale Anzahl von Dateien, die in der Quarantäne vorhanden sein können. Wenn neue Dateien zur Quarantäne hinzugefügt werden, werden alte Dateien gelöscht, wenn diese Anzahl überschritten wird, bis der Rest diese Nummer nicht mehr überschreitet. Standardwert = 100.
 
-#### "virustotal" (Kategorie)
+#### „virustotal“ (Kategorie)
 Konfiguration für die Integration von Virus Total.
 
-##### "vt_public_api_key" `[string]`
-- Optional, phpMussel kann Dateien mit der Virus Total API scannen, um einen noch besseren Schutz gegen Viren, Trojaner, Malware und andere Bedrohungen zu bieten. Standardmäßig ist das Scannen von Dateien mit der Virus Total API deaktiviert. Um es zu aktivieren, wird ein API Schlüssel von Virus Total benötigt. Wegen dem großen Vorteil den dir das bietet, empfehle ich die Aktivierung. Bitte sei dir bewusst, um die Virus Total API zu nutzen, dass du deren Nutzungsbedingungen zustimmen und dich an alle Richtlinien halten musst, wie es in der Virus Total Dokumentation beschrieben ist! Du darfst diese Integrations-Funktion nicht verwenden AUSSER: Du hast die Nutzungsbedingungen von Virus Total und der API gelesen und stimmst diesen zu. Du hast, zu einem Minimum, das Vorwort von der Virus Total Public API Dokumentation gelesen und verstanden (alles nach "Virus Total Public API v2.0" aber vor "Contents").
+##### „vt_public_api_key“ `[string]`
+- Optional, phpMussel kann Dateien mit der Virus Total API scannen, um einen noch besseren Schutz gegen Viren, Trojaner, Malware und andere Bedrohungen zu bieten. Standardmäßig ist das Scannen von Dateien mit der Virus Total API deaktiviert. Um es zu aktivieren, wird ein API Schlüssel von Virus Total benötigt. Wegen dem großen Vorteil den dir das bietet, empfehle ich die Aktivierung. Bitte sei dir bewusst, um die Virus Total API zu nutzen, dass du deren Nutzungsbedingungen zustimmen und dich an alle Richtlinien halten musst, wie es in der Virus Total Dokumentation beschrieben ist! Du darfst diese Integrations-Funktion nicht verwenden AUSSER: Du hast die Nutzungsbedingungen von Virus Total und der API gelesen und stimmst diesen zu. Du hast, zu einem Minimum, das Vorwort von der Virus Total Public API Dokumentation gelesen und verstanden (alles nach „Virus Total Public API v2.0“ aber vor „Contents“).
 
 Siehe auch:
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
 - [Getting started](https://developers.virustotal.com/reference)
 
-##### "vt_suspicion_level" `[int]`
-- phpMussel wird standardmäßig die mit der Virus Total API zu scannenden Dateien auf Dateien eisnchränken, die es als "verdächtig" betrachtet. Du kannst optional diese Einschränkung durch Änderung des Wertes der `vt_suspicion_level` Direktive anpassen.
+##### „vt_suspicion_level“ `[int]`
+- phpMussel wird standardmäßig die mit der Virus Total API zu scannenden Dateien auf Dateien eisnchränken, die es als „verdächtig“ betrachtet. Du kannst optional diese Einschränkung durch Änderung des Wertes der `vt_suspicion_level` Direktive anpassen.
 
-##### "vt_weighting" `[int]`
+##### „vt_weighting“ `[int]`
 - Soll phpMussel die Ergebnisse des Scans mit der Virus Total API als Erkennungen oder Erkennungs-Gewichtung anwenden? Diese Direktive existiert, weil das Scannen einer Datei mit mehreren Engines (wie es Virus Total macht) in einer höheren Erkennungsrate resultieren sollte (und somit eine größere Anzahl schädlicher Dateien erwischt werden), dies kann aber zu in einer höheren Anzahl von Falschmeldungen führen. Unter manchen Umständen würden die Ergebnisse des Scans besser als Vertrauens-Wert als ein eindeutiges Ergebnis verwendet werden. Wenn der Wert 0 verwendet wird, werden die Ergebnisse des Scans als Erkennungen angewendet und somit wird phpMussel, falls irgendeine von Virus Total verwendete Engine die gescannte Datei als schädlich markiert, die Datei als schädlich betrachten. Wird ein anderer Wert verwendet, werden die Ergebnisse des Scans mit der Virus Total API als Erkennungs-Gewichtung angewendet. Die Anzahl der von Virus Total verwendeten Engines, welche die Datei als schädlich markieren, wird als Vertrauens-Wert (oder Erkennungs-Gewichtung) dienen, ob die gescannte Datei von phpMussel als schädlich angesehen werden soll (der verwendete Wert wird den Mindest-Vertrauens-Wert oder erforderliche Gewichtung repräsentieren, um als schädlich angesehen zu werden. Standardmäßig der Wert 0 verwendet.
 
-##### "vt_quota_rate" `[int]`
+##### „vt_quota_rate“ `[int]`
 - Laut der Virus Total API Dokumentation, "ist diese auf 4 Anfragen irgendeiner Art in einer 1 Minuten Zeitspanne limitiert. Falls du einen Honeyclient, Honeypot oder einen andere Automatisierung verwendest, was etwas zu VirusTotal beiträgt und nicht nur Berichte abruft, bist du für ein höheres Limit berechtigt". Standardmäßig wird sich phpMussel strikt daran halten, da aber diese Limits erhöht werden können, stehen dir diese zwei Direktiven zur Verfügung um phpMussel anzuweisen, an welches Limit es sich halten soll. Außer du bist dazu aufgefordert, ist es nicht empfohlen diese Werte zu erhöhen. Solltest du aber Probleme bezogen auf das Erreichen des Limits haben, *__SOLLTE__* das Verringern dieser Werte manchmal helfen. Dein Limit wird festgelegt als `vt_quota_rate` Anfragen jeder Art in jeder `vt_quota_time` Minuten Zeitspanne.
 
-##### "vt_quota_time" `[int]`
+##### „vt_quota_time“ `[int]`
 - (Siehe Beschreibung oben).
 
-#### "urlscanner" (Kategorie)
+#### „urlscanner“ (Kategorie)
 Konfiguration für den URL-Scanner.
 
-##### "google_api_key" `[string]`
+##### „google_api_key“ `[string]`
 - Aktiviert API-Abfragen zur Google Safe Browsing API wenn der benötigte API-Schlüssel festgelegt ist.
 
 Siehe auch:
 - [Google API Console](https://console.developers.google.com/)
 
-##### "maximum_api_lookups" `[int]`
+##### „maximum_api_lookups“ `[int]`
 - Die maximal erlaubte Anzahl von API-Abfragen die bei jedem Scan-Durchgang durchgeführt werden. Weil jede zusätzliche API-Abfrage die Zeit für einen Scan-Durchgang erhöht, wollen Sie unter Umständen ein Limit festlegen, um den gedamten Scan-Prozess zu beschleunigen. Wenn 0 eingestellt wird, wird kein Limit angewendet. Standardmäßig ist der Wert auf 10 gesetzt.
 
-##### "maximum_api_lookups_response" `[bool]`
+##### „maximum_api_lookups_response“ `[bool]`
 - Was soll passieren, wenn die maximale Anzahl der erlaubten API-Abfragen erreicht wird? False = Nichts (Verarbeitung fortführen) [Standardeinstellung]; True = Markiere/blockiere die Datei.
 
-##### "cache_time" `[int]`
+##### „cache_time“ `[int]`
 - Wie lange (in Sekunden) sollen die Ergebnisse von API-Abfragen zwischengespeichert werden? Standardeinstellung ist 3600 Sekunden (1 Stunde).
 
-#### "legal" (Kategorie)
+#### „legal“ (Kategorie)
 Konfiguration für gesetzliche Anforderungen.
 
-##### "pseudonymise_ip_addresses" `[bool]`
+##### „pseudonymise_ip_addresses“ `[bool]`
 - Pseudonymisieren IP-Adressen beim Schreiben der Protokolldateien? True = Ja [Standardeinstellung]; False = Nein.
 
-##### "privacy_policy" `[string]`
+##### „privacy_policy“ `[string]`
 - Die Adresse einer relevanten Datenschutz-Bestimmungen, die in der Fußzeile aller generierten Seiten angezeigt werden soll. Geben Sie eine URL ein, oder lassen Sie sie leer, um sie zu deaktivieren.
 
-#### "supplementary_cache_options" (Kategorie)
+#### „supplementary_cache_options“ (Kategorie)
 Zusätzliche Cache-Optionen. Hinweis: Das Ändern dieser Werte kann Sie möglicherweise ausloggen.
 
-##### "prefix" `[string]`
+##### „prefix“ `[string]`
 - Dieser Wert hier wird zu allen Cache-Eintragsschlüsseln vorangestellt. Standardmäßig leer. Wenn mehrere Installationen auf demselben Server vorhanden sind, kann dies nützlich sein, um ihre Caches getrennt zu halten.
 
-##### "enable_apcu" `[bool]`
+##### „enable_apcu“ `[bool]`
 - Dies gibt an, ob APCu für das Caching verwendet werden soll. Standardeinstellung = True.
 
-##### "enable_memcached" `[bool]`
+##### „enable_memcached“ `[bool]`
 - Dies gibt an, ob Memcached für das Caching verwendet werden soll. Standardeinstellung = False.
 
-##### "enable_redis" `[bool]`
+##### „enable_redis“ `[bool]`
 - Dies gibt an, ob Redis für das Caching verwendet werden soll. Standardeinstellung = False.
 
-##### "enable_pdo" `[bool]`
+##### „enable_pdo“ `[bool]`
 - Dies gibt an, ob PDO für das Caching verwendet werden soll. Standardeinstellung = False.
 
-##### "memcached_host" `[string]`
-- Memcached Hostwert. Standardeinstellung = "localhost".
+##### „memcached_host“ `[string]`
+- Memcached Hostwert. Standardeinstellung = „localhost“.
 
-##### "memcached_port" `[int]`
-- Memcached Portwert. Standardeinstellung = "11211".
+##### „memcached_port“ `[int]`
+- Memcached Portwert. Standardeinstellung = „11211“.
 
-##### "redis_host" `[string]`
-- Redis Hostwert. Standardeinstellung = "localhost".
+##### „redis_host“ `[string]`
+- Redis Hostwert. Standardeinstellung = „localhost“.
 
-##### "redis_port" `[int]`
-- Redis Portwert. Standardeinstellung = "6379".
+##### „redis_port“ `[int]`
+- Redis Portwert. Standardeinstellung = „6379“.
 
-##### "redis_timeout" `[float]`
-- Redis Timeout-Wert. Standardeinstellung = "2.5".
+##### „redis_timeout“ `[float]`
+- Redis Timeout-Wert. Standardeinstellung = „2.5“.
 
-##### "pdo_dsn" `[string]`
+##### „pdo_dsn“ `[string]`
 - PDO DSN-Wert. Standardeinstellung = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
 __FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.de.md#HOW_TO_USE_PDO" hreflang="de">Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?</a></em>
 
-##### "pdo_username" `[string]`
+##### „pdo_username“ `[string]`
 - PDO Nutzername.
 
-##### "pdo_password" `[string]`
+##### „pdo_password“ `[string]`
 - PDO Passwort.
 
-#### "frontend" (Kategorie)
+#### „frontend“ (Kategorie)
 Konfiguration für das Frontend.
 
-##### "frontend_log" `[string]`
+##### „frontend_log“ `[string]`
 - Datei für die Protokollierung von Frontend Anmelde-Versuchen. Geben Sie einen Dateinamen an oder lassen Sie die Option zum Deaktivieren leer.
 
-##### "max_login_attempts" `[int]`
+##### „max_login_attempts“ `[int]`
 - Maximale Anzahl der Versucht zum Anmelden (Frontend). Standardeinstellung = 5.
 
-##### "numbers" `[string]`
+##### „numbers“ `[string]`
 - Wie willst du Nummern anzeigen? Wählen Sie das Beispiel aus, das Ihnen am besten entspricht.
 
 ```
@@ -1045,7 +1045,7 @@ numbers
 └─Tibetan ("༡༢༣༤༥༦༧.༨༩")
 ```
 
-##### "default_algo" `[string]`
+##### „default_algo“ `[string]`
 - Definiert den Algorithmus für alle zukünftigen Passwörter und Sitzungen. Optionen: PASSWORD_DEFAULT (Standardeinstellung), PASSWORD_BCRYPT, PASSWORD_ARGON2I (erfordert PHP >= 7.2.0), PASSWORD_ARGON2ID (erfordert PHP >= 7.3.0).
 
 ```
@@ -1056,7 +1056,7 @@ default_algo
 └─PASSWORD_ARGON2ID ("PASSWORD_ARGON2ID (PHP >= 7.3.0)")
 ```
 
-##### "theme" `[string]`
+##### „theme“ `[string]`
 - Die Ästhetik für das phpMussel-Frontend.
 
 ```
@@ -1072,29 +1072,29 @@ theme
 └─…Andere
 ```
 
-##### "magnification" `[float]`
+##### „magnification“ `[float]`
 - Schriftvergrößerung. Standardeinstellung = 1.
 
-#### "web" (Kategorie)
+#### „web“ (Kategorie)
 Konfiguration für den Upload-Handler.
 
-##### "uploads_log" `[string]`
+##### „uploads_log“ `[string]`
 - Wo sollen alle blockierten Uploads protokolliert werden. Geben Sie einen Dateinamen an oder lassen Sie die Option zum Deaktivieren leer.
 
-##### "forbid_on_block" `[bool]`
+##### „forbid_on_block“ `[bool]`
 - Zurückgegebener 403-HTTP-Header bei einem blockierten Dateiupload. False = Nein (200); True = Ja (403) [Standardeinstellung].
 
-##### "unsupported_media_type_header" `[bool]`
+##### „unsupported_media_type_header“ `[bool]`
 - Sollte phpMussel 415 Header senden, wenn Uploads aufgrund von Dateitypen auf der schwarzen Liste blockiert werden? Wenn true, ersetzt diese Einstellung `forbid_on_block`. False = Nein [Standardeinstellung]; True = Ja.
 
-##### "max_uploads" `[int]`
+##### „max_uploads“ `[int]`
 - Maximale erlaubte Anzahl zu überprüfender Dateien während eines Dateiuploads bevor der Scan abgebrochen und der Nutzer darüber informiert wird, dass er zu viele Dateien auf einmal hochgeladen hat. Bietet einen Schutz gegen den theoretischen Angriff eines DDoS auf Ihr System oder CMS, indem der Angreifer phpMussel überlastet und den PHP-Prozess zum Stillstand bringt. Empfohlen: 10. Sie können den Wert abhängig von Ihrer Hardware erhöhen oder senken. Beachten Sie, dass dieser Wert nicht den Inhalt von Archiven berücksichtigt.
 
-##### "ignore_upload_errors" `[bool]`
+##### „ignore_upload_errors“ `[bool]`
 - Diese Direktive sollte generell AUS geschaltet bleiben sofern es nicht für die korrekte Funktion von phpMussel auf Ihrem System benötigt wird. Normalerweise, sobald phpMussel bei AUS geschalteter Direktive ein Element in `$_FILES` array() erkennt, wird es beginnen, die Dateien, die diese Elemente repräsentieren, zu überprüfen, sollten diese Elemente leer sein, gibt phpMussel eine Fehlermeldung zurück. Dies ist das normale Verhalten von phpMussel. Bei einigen CMS werden allerdings als normales Verhalten leere Elemente in `$_FILES` zurückgegeben oder Fehlermeldungen ausgelöst, sobald sich dort keine leeren Elemente befinden, in diesem Fall tritt ein Konflikt zwischen dem normalen Verhalten von phpMussel und dem CMS auf. Sollte eine solche Konstellation bei Ihrem CMS zutreffen, so stellen Sie diese Option AN, phpMussel wird somit nicht nach leeren Elementen suchen, Sie bei einem Fund ignorieren und keine zugehörigen Fehlermeldungen ausgeben, der Request zum Seitenaufruf kann somit fortgesetzt werden. False = AUS/OFF; True = AN/ON.
 
-##### "theme" `[string]`
-- Die Ästhetik für die Seite "Upload verweigert".
+##### „theme“ `[string]`
+- Die Ästhetik für die Seite „Upload verweigert“.
 
 ```
 theme
@@ -1109,31 +1109,31 @@ theme
 └─…Andere
 ```
 
-##### "magnification" `[float]`
+##### „magnification“ `[float]`
 - Schriftvergrößerung. Standardeinstellung = 1.
 
-#### "phpmailer" (Kategorie)
+#### „phpmailer“ (Kategorie)
 Konfiguration für PHPMailer (für Zwei-Faktor-Authentifizierung verwendet).
 
-##### "event_log" `[string]`
+##### „event_log“ `[string]`
 - Eine Datei zum Protokollieren aller Ereignisse in Bezug auf PHPMailer. Geben Sie einen Dateinamen an oder lassen Sie die Option zum Deaktivieren leer.
 
-##### "enable_two_factor" `[bool]`
+##### „enable_two_factor“ `[bool]`
 - Diese Direktive bestimmt, ob 2FA für Frontend-Konten verwendet werden soll.
 
-##### "enable_notifications" `[string]`
+##### „enable_notifications“ `[string]`
 - Wenn Sie per E-Mail benachrichtigt werden möchten, wenn ein Upload blockiert ist, geben Sie hier die E-Mail-Adresse des Empfängers an.
 
-##### "skip_auth_process" `[bool]`
+##### „skip_auth_process“ `[bool]`
 - Wenn Sie diese Direktive auf `true` setzen, wird PHPMailer angewiesen, den normalen Authentifizierungsprozess zu überspringen, der normalerweise beim Senden von E-Mails über SMTP auftritt. Dies sollte vermieden werden, da das Überspringen dieses Prozesses ausgehende E-Mails MITM-Angriffen aussetzen kann. Dies kann jedoch in Fällen erforderlich sein, in denen dieser Prozess die Verbindung von PHPMailer zu einem SMTP-Server verhindert.
 
-##### "host" `[string]`
+##### „host“ `[string]`
 - Der SMTP-Host zum Senden von ausgehende E-Mails.
 
-##### "port" `[int]`
+##### „port“ `[int]`
 - Die Portnummer zum Senden von ausgehende E-Mails. Standardeinstellung = 587.
 
-##### "smtp_secure" `[string]`
+##### „smtp_secure“ `[string]`
 - Das Protokoll zum Senden von E-Mails über SMTP (TLS oder SSL).
 
 ```
@@ -1143,25 +1143,25 @@ smtp_secure
 └─ssl ("SSL")
 ```
 
-##### "smtp_auth" `[bool]`
+##### „smtp_auth“ `[bool]`
 - Diese Direktive bestimmt, ob SMTP-Sitzungen authentifiziert werden sollen (sollte normalerweise in Ruhe gelassen werden).
 
-##### "username" `[string]`
+##### „username“ `[string]`
 - Der Benutzername zum Senden von E-Mails über SMTP.
 
-##### "password" `[string]`
+##### „password“ `[string]`
 - Das Passwort zum Senden von E-Mails über SMTP.
 
-##### "set_from_address" `[string]`
+##### „set_from_address“ `[string]`
 - Die Absenderadresse, die beim Senden von E-Mails über SMTP verwendet werden soll.
 
-##### "set_from_name" `[string]`
+##### „set_from_name“ `[string]`
 - Der Name des Absenders, der beim Senden von E-Mails über SMTP verwendet werden soll.
 
-##### "add_reply_to_address" `[string]`
+##### „add_reply_to_address“ `[string]`
 - Die Antwortadresse, die beim Senden von E-Mails über SMTP verwendet werden soll.
 
-##### "add_reply_to_name" `[string]`
+##### „add_reply_to_name“ `[string]`
 - Der Name für der Antwort, die beim Senden von E-Mails über SMTP verwendet werden soll.
 
 ---
@@ -1170,9 +1170,9 @@ smtp_secure
 ### 6. <a name="SECTION6"></a>SIGNATURENFORMAT
 
 *Siehe auch:*
-- *[Was ist eine "Signatur"?](#WHAT_IS_A_SIGNATURE)*
+- *[Was ist eine „Signatur“?](#WHAT_IS_A_SIGNATURE)*
 
-Die ersten 9 Bytes `[x0-x8]` einer phpMussel Signaturdatei sind `phpMussel`, und handeln als eine "Magische Zahl" (Magic Number), um sie als Signaturdateien zu identifizieren (dies hilft zu verhindern, dass phpMussel versehentlich versucht, Dateien zu verwenden, die keine Signaturdateien sind). Das nächste Byte `[x9]` identifiziert die Art der Signaturdatei, welche phpMussel wissen muss, um die Signaturdatei korrekt interpretieren zu können. Folgende Arten von Signaturdateien werden erkannt:
+Die ersten 9 Bytes `[x0-x8]` einer phpMussel Signaturdatei sind `phpMussel`, und handeln als eine „Magische Zahl“ (Magic Number), um sie als Signaturdateien zu identifizieren (dies hilft zu verhindern, dass phpMussel versehentlich versucht, Dateien zu verwenden, die keine Signaturdateien sind). Das nächste Byte `[x9]` identifiziert die Art der Signaturdatei, welche phpMussel wissen muss, um die Signaturdatei korrekt interpretieren zu können. Folgende Arten von Signaturdateien werden erkannt:
 
 Art | Byte | Beschreibung
 ---|---|---
@@ -1257,8 +1257,8 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 
 ### 8. <a name="SECTION8"></a>HÄUFIG GESTELLTE FRAGEN (FAQ)
 
-- [Was ist eine "Signatur"?](#WHAT_IS_A_SIGNATURE)
-- [Was ist ein "Falsch-Positiv"?](#WHAT_IS_A_FALSE_POSITIVE)
+- [Was ist eine „Signatur“?](#WHAT_IS_A_SIGNATURE)
+- [Was ist ein „Falsch-Positiv“?](#WHAT_IS_A_FALSE_POSITIVE)
 - [Wie häufig werden Signaturen aktualisiert?](#SIGNATURE_UPDATE_FREQUENCY)
 - [Ich habe ein Problem bei der Verwendung von phpMussel und ich weiß nicht was ich tun soll! Bitte helfen Sie!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Ich möchte phpMussel v3 mit einer PHP-Version älter als 7.2.0 verwenden; Können Sie helfen?](#MINIMUM_PHP_VERSION_V3)
@@ -1274,17 +1274,17 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 - [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#AJAX_AJAJ_JSON)
 - [Kann phpMussel EICAR erkennen?](#DETECT_EICAR)
 
-#### <a name="WHAT_IS_A_SIGNATURE"></a>Was ist eine "Signatur"?
+#### <a name="WHAT_IS_A_SIGNATURE"></a>Was ist eine „Signatur“?
 
-Im Kontext von phpMussel, eine "Signatur" bezieht sich auf Daten, die als Indikator/Identifikator fungieren, für etwas Bestimmtes das wir suchen, in der Regel in Form eines sehr kleinen, deutlichen, unschädlichen Segments von etwas Größerem und sonst schädlich, so wie ein Virus oder Trojaner, oder in Form einer Datei-Prüfsumme, Hash oder einer anderen identifizierenden Indikator, und enthält in der Regel ein Label, und einige andere Daten zu helfen, zusätzliche Kontext, die von phpMussel verwendet werden können, um den besten Weg zu bestimmen, wenn es aufsieht was wir suchen.
+Im Kontext von phpMussel, eine „Signatur“ bezieht sich auf Daten, die als Indikator/Identifikator fungieren, für etwas Bestimmtes das wir suchen, in der Regel in Form eines sehr kleinen, deutlichen, unschädlichen Segments von etwas Größerem und sonst schädlich, so wie ein Virus oder Trojaner, oder in Form einer Datei-Prüfsumme, Hash oder einer anderen identifizierenden Indikator, und enthält in der Regel ein Label, und einige andere Daten zu helfen, zusätzliche Kontext, die von phpMussel verwendet werden können, um den besten Weg zu bestimmen, wenn es aufsieht was wir suchen.
 
-#### <a name="WHAT_IS_A_FALSE_POSITIVE"></a>Was ist ein "Falsch-Positiv"?
+#### <a name="WHAT_IS_A_FALSE_POSITIVE"></a>Was ist ein „Falsch-Positiv“?
 
-Der Begriff "Falsch-Positiv" (*Alternative: "falsch-positiv Fehler"; "falscher Alarm"*; Englisch: *false positive*; *false positive error*; *false alarm*), sehr einfach beschrieben, und in einem verallgemeinerten Kontext, verwendet wird, wenn eine Bedingung zu testen und wenn die Ergebnisse positiv sind, um die Ergebnisse dieser Tests zu entnehmen (d.h., die Bedingung bestimmt wird positiv oder wahr), aber sind zu erwarten sein (oder sollte gewesen) negativ (d.h., der Zustand, in Wirklichkeit, ist negativ oder falsch). Eine "Falsch-Positiv" könnte analog zu "weinen Wolf" betrachtet (wobei die Bedingung geprüft wird, ob es ein Wolf in der Nähe der Herde ist, die Bedingung "falsch" ist in dass es keinen Wolf in der Nähe der Herde, und die Bedingung wird als "positiv" berichtet durch die Schäfer durch Aufruf "Wolf, Wolf"), oder analog zu Situationen in medizinischen Tests, wobei ein Patient als mit eine Krankheit diagnostiziert, wenn sie in Wirklichkeit haben sie keine solche Krankheit.
+Der Begriff „Falsch-Positiv“ (*Alternative: „falsch-positiv Fehler“; „falscher Alarm“*; Englisch: *false positive*; *false positive error*; *false alarm*), sehr einfach beschrieben, und in einem verallgemeinerten Kontext, verwendet wird, wenn eine Bedingung zu testen und wenn die Ergebnisse positiv sind, um die Ergebnisse dieser Tests zu entnehmen (d.h., die Bedingung bestimmt wird positiv oder wahr), aber sind zu erwarten sein (oder sollte gewesen) negativ (d.h., der Zustand, in Wirklichkeit, ist negativ oder falsch). Eine „Falsch-Positiv“ könnte analog zu „weinen Wolf“ betrachtet (wobei die Bedingung geprüft wird, ob es ein Wolf in der Nähe der Herde ist, die Bedingung „falsch“ ist in dass es keinen Wolf in der Nähe der Herde, und die Bedingung wird als „positiv“ berichtet durch die Schäfer durch Aufruf "Wolf, Wolf"), oder analog zu Situationen in medizinischen Tests, wobei ein Patient als mit eine Krankheit diagnostiziert, wenn sie in Wirklichkeit haben sie keine solche Krankheit.
 
-Einige andere Begriffe verwendet: "Wahr-Positiv", "Wahr-Negativ" und "Falsch-Negativ". Eine "Wahr-Positiv" ist, wenn die Ergebnisse des Tests und der wahren Zustand beide wahr sind (oder "Positiv"), und eine "Wahr-Negativ" ist, wenn die Ergebnisse des Tests und der wahren Zustand beide falsch sind (oder "Negativ"); Eine "Wahr-Positiv" oder Eine "Wahr-Negativ" gilt als eine "korrekte Folgerung" zu sein. Der Antithese von einem "Falsch-Positiv" ist eine "Falsch-Negativ"; Eine "Falsch-Negativ" ist, wenn die Ergebnisse des Tests negativ sind (d.h., die Bedingung bestimmt wird negativ oder falsch zu sein), aber sind zu erwarten sein (oder sollte gewesen) positiv (d.h., der Zustand, in Wirklichkeit, ist "positiv", oder "wahr").
+Einige andere Begriffe verwendet: „Wahr-Positiv“, „Wahr-Negativ“ und „Falsch-Negativ“. Eine „Wahr-Positiv“ ist, wenn die Ergebnisse des Tests und der wahren Zustand beide wahr sind (oder „Positiv“), und eine „Wahr-Negativ“ ist, wenn die Ergebnisse des Tests und der wahren Zustand beide falsch sind (oder „Negativ“); Eine „Wahr-Positiv“ oder Eine „Wahr-Negativ“ gilt als eine „korrekte Folgerung“ zu sein. Der Antithese von einem „Falsch-Positiv“ ist eine „Falsch-Negativ“; Eine „Falsch-Negativ“ ist, wenn die Ergebnisse des Tests negativ sind (d.h., die Bedingung bestimmt wird negativ oder falsch zu sein), aber sind zu erwarten sein (oder sollte gewesen) positiv (d.h., der Zustand, in Wirklichkeit, ist „positiv“, oder „wahr“).
 
-Im Kontext der phpMussel, Diese Begriffe beziehen sich auf der Signaturen von phpMussel, und die Dateien die Sie blockieren. Wenn phpMussel Blöcke eine Datei wegen schlechten, veraltete oder falsche Signaturen, sollte aber nicht so getan haben, oder wenn sie es tut, so aus den falschen Gründen, wir beziehen sich auf dieses Ereignis als eine "Falsch-Positiv". Wenn phpMussel, aufgrund unvorhergesehener Bedrohungen, fehlende Signaturen oder Defizite in ihren Signaturen, versagt eine Datei zu blockieren, die blockiert werden sollte, wir beziehen sich auf dieses Ereignis als eine "verpasste Erkennung" (das entspricht einem "Falsch-Negativ").
+Im Kontext der phpMussel, Diese Begriffe beziehen sich auf der Signaturen von phpMussel, und die Dateien die Sie blockieren. Wenn phpMussel Blöcke eine Datei wegen schlechten, veraltete oder falsche Signaturen, sollte aber nicht so getan haben, oder wenn sie es tut, so aus den falschen Gründen, wir beziehen sich auf dieses Ereignis als eine „Falsch-Positiv“. Wenn phpMussel, aufgrund unvorhergesehener Bedrohungen, fehlende Signaturen oder Defizite in ihren Signaturen, versagt eine Datei zu blockieren, die blockiert werden sollte, wir beziehen sich auf dieses Ereignis als eine „verpasste Erkennung“ (das entspricht einem „Falsch-Negativ“).
 
 Dies kann durch die folgende Tabelle zusammengefasst werden:
 
@@ -1332,7 +1332,7 @@ Ja. Unsere Lizenz verbietet dies nicht.
 
 #### <a name="WANT_TO_CONTRIBUTE"></a>Ich möchte zum Projekt beitragen; Darf ich dies machen?
 
-Ja. Beiträge zum Projekt sind sehr willkommen. Bitte beachten Sie "CONTRIBUTING.md" für weitere Informationen.
+Ja. Beiträge zum Projekt sind sehr willkommen. Bitte beachten Sie „CONTRIBUTING.md“ für weitere Informationen.
 
 #### <a name="SCAN_DEBUGGING"></a>Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?
 
@@ -1416,9 +1416,9 @@ Die Signatur-Greylist ist nützlich, wenn Sie Probleme beheben müssen, die von 
 
 #### <a name="HOW_TO_USE_PDO"></a>Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?
 
-"PDO" ist eine Akronym für "[PHP Data Objects](https://www.php.net/manual/de/intro.pdo.php)". Es bietet eine Schnittstelle zum Verbinden von PHP mit einigen Datenbanksystemen die häufig von verschiedenen PHP-Anwendungen verwendet werden.
+„PDO“ ist eine Akronym für "[PHP Data Objects](https://www.php.net/manual/de/intro.pdo.php)". Es bietet eine Schnittstelle zum Verbinden von PHP mit einigen Datenbanksystemen die häufig von verschiedenen PHP-Anwendungen verwendet werden.
 
-"DSN" ist eine Akronym für "[data source name](https://de.wikipedia.org/wiki/Data_Source_Name)". Der "PDO DSN" beschreibt wie PDO zum einer Datenbank verbindet.
+„DSN“ ist eine Akronym für "[data source name](https://de.wikipedia.org/wiki/Data_Source_Name)". Der „PDO DSN“ beschreibt wie PDO zum einer Datenbank verbindet.
 
 phpMussel bietet die Option, PDO für Caching-Zwecke zu verwenden. Damit dies ordnungsgemäß funktioniert, müssen Sie phpMussel entsprechend konfigurieren, PDO aktivieren, eine neue Datenbank für phpMussel erstellen (falls Sie noch keine Datenbank für phpMussel in Betracht gezogen haben) und eine neue Tabelle erstellen in Ihrer Datenbank entsprechend der unten beschriebenen Struktur.
 
@@ -1426,7 +1426,7 @@ Wenn eine Datenbankverbindung erfolgreich hergestellt wurde, aber die erforderli
 
 Dies gilt natürlich nur, wenn phpMussel tatsächlich PDO verwenden soll. Wenn Sie zufrieden sind, dass phpMussel Flatfile-Caching (gemäß Standardkonfiguration) oder eine der verschiedenen anderen Caching-Optionen verwendet, müssen Sie sich nicht mit dem Einrichten von Datenbanken, Tabellen u.s.w. befassen.
 
-In der unten beschriebenen Struktur wird "phpmussel" als Datenbankname verwendet. Sie können jedoch einen beliebigen Namen für Ihre Datenbank verwenden, sofern dieser Name in Ihrer DSN-Konfiguration repliziert wird.
+In der unten beschriebenen Struktur wird „phpmussel“ als Datenbankname verwendet. Sie können jedoch einen beliebigen Namen für Ihre Datenbank verwenden, sofern dieser Name in Ihrer DSN-Konfiguration repliziert wird.
 
 ```
 ╔══════════════════════════════════════════════╗
@@ -1568,15 +1568,15 @@ Beachten Sie, dass `pdo_username` und `pdo_password` mit dem Benutzernamen und d
 
 #### <a name="AJAX_AJAJ_JSON"></a>Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?
 
-Das ist normal. Die Standardseite "Upload verweigert" von phpMussel wird als HTML-Code bereitgestellt, der für typische synchrone Anforderungen ausreichen sollte, aber das wird wahrscheinlich nicht ausreichen, wenn Ihre Upload-Funktionalität etwas anderes erwartet. Wenn Ihre Upload-Funktionalität asynchron ist, oder erwartet dass ein Upload-Status asynchron bereitgestellt wird, es gibt einige Dinge die Sie versuchen könnten, damit phpMussel die Anforderungen Ihrer Upload-Funktionalität erfüllt.
+Das ist normal. Die Standardseite „Upload verweigert“ von phpMussel wird als HTML-Code bereitgestellt, der für typische synchrone Anforderungen ausreichen sollte, aber das wird wahrscheinlich nicht ausreichen, wenn Ihre Upload-Funktionalität etwas anderes erwartet. Wenn Ihre Upload-Funktionalität asynchron ist, oder erwartet dass ein Upload-Status asynchron bereitgestellt wird, es gibt einige Dinge die Sie versuchen könnten, damit phpMussel die Anforderungen Ihrer Upload-Funktionalität erfüllt.
 
 1. Erstellen einer benutzerdefinierten Ausgabevorlage für anderes als HTML zu bedienen.
-2. Erstellen einer benutzerdefinierten Plugin, um die Standardseite "Upload verweigert" vollständig zu umgehen, und lassen Sie den Upload-Handler etwas anderes tun wenn ein Upload blockiert ist (es gibt einige Plugin-Hooks, die vom Upload-Handler bereitgestellt werden und für diese Aufgabe hilfreich sein könnten).
+2. Erstellen einer benutzerdefinierten Plugin, um die Standardseite „Upload verweigert“ vollständig zu umgehen, und lassen Sie den Upload-Handler etwas anderes tun wenn ein Upload blockiert ist (es gibt einige Plugin-Hooks, die vom Upload-Handler bereitgestellt werden und für diese Aufgabe hilfreich sein könnten).
 3. Deaktivieren Sie den Upload-Handler vollständig und rufen Sie stattdessen einfach die phpMussel-API in Ihrer Upload-Funktionalität auf.
 
 #### <a name="DETECT_EICAR"></a>Kann phpMussel EICAR erkennen?
 
-Ja. Eine Signatur zum Erkennen von EICAR ist in der "phpMussel Standard Signaturdatei für reguläre Ausdrücke" enthalten (`phpmussel_regex.db`). Solange diese Signaturdatei installiert und aktiviert ist, sollte phpMussel EICAR erkennen können. Da die ClamAV-Datenbank auch zahlreiche Signaturen speziell zur Erkennung von EICAR enthält, kann ClamAV EICAR problemlos erkennen, aber da phpMussel nur eine reduzierte Teilmenge der von ClamAV bereitgestellten Signaturen verwendet, reichen sie möglicherweise nicht aus damit phpMussel EICAR erkennt. Die Fähigkeit zu erkennen hängt auch von Ihrer genauen Konfiguration ab.
+Ja. Eine Signatur zum Erkennen von EICAR ist in der „phpMussel Standard Signaturdatei für reguläre Ausdrücke“ enthalten (`phpmussel_regex.db`). Solange diese Signaturdatei installiert und aktiviert ist, sollte phpMussel EICAR erkennen können. Da die ClamAV-Datenbank auch zahlreiche Signaturen speziell zur Erkennung von EICAR enthält, kann ClamAV EICAR problemlos erkennen, aber da phpMussel nur eine reduzierte Teilmenge der von ClamAV bereitgestellten Signaturen verwendet, reichen sie möglicherweise nicht aus damit phpMussel EICAR erkennt. Die Fähigkeit zu erkennen hängt auch von Ihrer genauen Konfiguration ab.
 
 ---
 
@@ -1587,7 +1587,7 @@ Ja. Eine Signatur zum Erkennen von EICAR ist in der "phpMussel Standard Signatur
 
 Dieser Abschnitt der Dokumentation beschreibt mögliche rechtliche Überlegungen zur Verwendung und Implementierung des Pakets, und um einige grundlegende verwandte Informationen zur Verfügung zu stellen. Dies kann für einige Benutzer wichtig sein, um sicherzustellen, dass die gesetzlichen Anforderungen in den Ländern eingehalten werden, in denen sie tätig sind, und einige Benutzer müssen möglicherweise ihre Website-Richtlinien in Übereinstimmung mit diesen Informationen anpassen.
 
-Zuallererst, bitte beachten Sie, dass ich (der Autor des Pakets) weder Rechtsanwalt noch qualifizierter Jurist bin. Daher bin ich rechtlich nicht zur Rechtsberatung qualifiziert. Auch, in einigen Fällen können die genauen rechtlichen Anforderungen zwischen verschiedenen Ländern und Rechtsordnungen variieren, und diese unterschiedlichen rechtlichen Anforderungen können sich manchmal widersprechen (wie zum Beispiel, in Ländern, die [Privatsphäre](https://de.wikipedia.org/wiki/Privatsph%C3%A4re) und das [Recht auf Vergessenwerden bevorzugen](https://de.wikipedia.org/wiki/Recht_auf_Vergessenwerden), gegenüber Ländern, die eine erweiterte [Vorratsdatenspeicherung](https://de.wikipedia.org/wiki/Vorratsdatenspeicherung) bevorzugen). Berücksichtigen Sie auch, dass der Zugriff auf das Paket nicht auf bestimmte Länder oder Gerichtsbarkeiten beschränkt ist und daher die Paket-Nutzerbasis wahrscheinlich geografisch-vielfältig ist. Nach diesen Punkten kann ich nicht sagen, was es heißt, in allen Belangen für alle Nutzer "rechtskonform" zu sein. Jedoch, ich hoffe, dass die hier enthaltenen Informationen Ihnen helfen, selbst zu einer Entscheidung zu kommen, was Sie tun müssen, um im Kontext des Pakets rechtskonform zu bleiben. Wenn Sie Zweifel oder Bedenken hinsichtlich der hierin enthaltenen Informationen haben, oder wenn Sie aus rechtlicher Sicht zusätzliche Hilfe und Rat benötigen, würde ich Ihnen empfehlen, einen qualifizierten Rechtsberater zu konsultieren.
+Zuallererst, bitte beachten Sie, dass ich (der Autor des Pakets) weder Rechtsanwalt noch qualifizierter Jurist bin. Daher bin ich rechtlich nicht zur Rechtsberatung qualifiziert. Auch, in einigen Fällen können die genauen rechtlichen Anforderungen zwischen verschiedenen Ländern und Rechtsordnungen variieren, und diese unterschiedlichen rechtlichen Anforderungen können sich manchmal widersprechen (wie zum Beispiel, in Ländern, die [Privatsphäre](https://de.wikipedia.org/wiki/Privatsph%C3%A4re) und das [Recht auf Vergessenwerden bevorzugen](https://de.wikipedia.org/wiki/Recht_auf_Vergessenwerden), gegenüber Ländern, die eine erweiterte [Vorratsdatenspeicherung](https://de.wikipedia.org/wiki/Vorratsdatenspeicherung) bevorzugen). Berücksichtigen Sie auch, dass der Zugriff auf das Paket nicht auf bestimmte Länder oder Gerichtsbarkeiten beschränkt ist und daher die Paket-Nutzerbasis wahrscheinlich geografisch-vielfältig ist. Nach diesen Punkten kann ich nicht sagen, was es heißt, in allen Belangen für alle Nutzer „rechtskonform“ zu sein. Jedoch, ich hoffe, dass die hier enthaltenen Informationen Ihnen helfen, selbst zu einer Entscheidung zu kommen, was Sie tun müssen, um im Kontext des Pakets rechtskonform zu bleiben. Wenn Sie Zweifel oder Bedenken hinsichtlich der hierin enthaltenen Informationen haben, oder wenn Sie aus rechtlicher Sicht zusätzliche Hilfe und Rat benötigen, würde ich Ihnen empfehlen, einen qualifizierten Rechtsberater zu konsultieren.
 
 #### 9.1 HAFTUNG UND VERANTWORTUNG
 
@@ -1595,7 +1595,7 @@ Wie bereits in der Paketlizenz angegeben, wird das Paket ohne jegliche Gewährle
 
 #### 9.2 DRITTE
 
-Abhängig von seiner genauen Konfiguration und Implementierung kann das Paket in einigen Fällen mit Dritten kommunizieren und Informationen teilen. Diese Informationen können in einigen Kontexten von einigen Gerichtsbarkeiten als "[personenbezogene Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten)" (oder "PII") definiert werden.
+Abhängig von seiner genauen Konfiguration und Implementierung kann das Paket in einigen Fällen mit Dritten kommunizieren und Informationen teilen. Diese Informationen können in einigen Kontexten von einigen Gerichtsbarkeiten als "[personenbezogene Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten)" (oder „PII“) definiert werden.
 
 Wie diese Informationen von diesen Dritten verwendet werden können, unterliegt den verschiedenen Richtlinien, die von diesen Dritten festgelegt wurden, und liegt außerhalb des Anwendungsbereichs dieser Dokumentation. In allen diesen Fällen jedoch kann der Austausch von Informationen mit diesen Dritten deaktiviert werden. In allen diesen Fällen liegt es in Ihrer Verantwortung, wenn Sie sich dafür entscheiden, Ihre Bedenken hinsichtlich der Vertraulichkeit, Sicherheit, und Verwendung von personenbezogenen Daten durch diese Dritten zu untersuchen. Wenn irgendwelche Zweifel bestehen oder wenn Sie mit dem Verhalten dieser Dritten in Bezug auf PII nicht zufrieden sind, ist es möglicherweise am besten, den gesamten Informationsaustausch mit diesen Dritten zu deaktivieren.
 
@@ -1687,7 +1687,7 @@ Diese Art der Protokollierung bezieht sich auf Frontend-Einloggen-Versuchen und 
 Ein Frontend-Protokolleintrag enthält die IP-Adresse des Benutzers, der sich anzumelden versucht, das Datum und die Uhrzeit des Versuchs, und die Ergebnisse des Versuchs (erfolgreich eingeloggt oder könnte sich nicht einloggen). Ein Frontend-Protokolleintrag sieht in etwa wie folgt aus (als Beispiel):
 
 ```
-x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - Eingeloggt.
+x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - „admin“ - Eingeloggt.
 ```
 
 *Die für die Frontend-Protokollierung verantwortliche Konfigurationsdirektiven lautet:*
@@ -1714,16 +1714,16 @@ Es ist auch möglich, um einzelne Protokolldateien zu trunkieren, wenn sie eine 
 
 ##### 9.3.5 IP-ADRESSE PSEUDONYMISIERUNG
 
-Erstens, wenn Sie mit dem Begriff nicht vertraut sind, "Pseudonymisierung" bezieht sich auf die Verarbeitung personenbezogener Daten, so dass sie ohne zusätzliche Informationen nicht mehr für eine bestimmte Person identifiziert werden können, und vorausgesetzt, dass diese zusätzlichen Informationen getrennt aufbewahrt werden, und vorbehaltlich technischer und organisatorischer Maßnahmen, um sicherzustellen, dass personenbezogene Daten für keine natürliche Person identifiziert werden können.
+Erstens, wenn Sie mit dem Begriff nicht vertraut sind, „Pseudonymisierung“ bezieht sich auf die Verarbeitung personenbezogener Daten, so dass sie ohne zusätzliche Informationen nicht mehr für eine bestimmte Person identifiziert werden können, und vorausgesetzt, dass diese zusätzlichen Informationen getrennt aufbewahrt werden, und vorbehaltlich technischer und organisatorischer Maßnahmen, um sicherzustellen, dass personenbezogene Daten für keine natürliche Person identifiziert werden können.
 
 Die folgenden Ressourcen können helfen, es genauer zu erklären:
 - [[johner-institut.de] Anonymisierung und Pseudonymisierung](https://www.johner-institut.de/blog/gesundheitswesen/anonymisierung-und-pseudonymisierung/)
 - [[datenschutzbeauftragter-info.de] Pseudonymisierung – was ist das eigentlich?](https://www.datenschutzbeauftragter-info.de/pseudonymisierung-was-ist-das-eigentlich/)
 - [[Wikipedia] Anonymisierung und Pseudonymisierung](https://de.wikipedia.org/wiki/Anonymisierung_und_Pseudonymisierung)
 
-Unter gewissen Umständen sind Sie gesetzlich dazu verpflichtet, alle PII, die gesammelt, verarbeitet oder gespeichert werden, zu anonymisieren oder zu pseudonymisieren. Obwohl dieses Konzept schon seit einiger Zeit besteht, erwähnt und ermutigt die GDPR/DSGVO ausdrücklich die "Pseudonymisierung" der PII.
+Unter gewissen Umständen sind Sie gesetzlich dazu verpflichtet, alle PII, die gesammelt, verarbeitet oder gespeichert werden, zu anonymisieren oder zu pseudonymisieren. Obwohl dieses Konzept schon seit einiger Zeit besteht, erwähnt und ermutigt die GDPR/DSGVO ausdrücklich die „Pseudonymisierung“ der PII.
 
-phpMussel ist in der Lage, IP-Adressen zu pseudonymisieren, wenn Sie sie protokollieren, wenn Sie dies benötigen oder tun möchten. Wenn phpMussel IP-Adressen pseudonymisiert, wird das letzte Oktett von IPv4-Adressen und alles nach dem zweiten Teil von IPv6-Adressen durch ein "x" dargestellt (runden effektiv IPv4-Adressen in Subnetz 24 und IPv6-Adressen in Subnetz 32 ab).
+phpMussel ist in der Lage, IP-Adressen zu pseudonymisieren, wenn Sie sie protokollieren, wenn Sie dies benötigen oder tun möchten. Wenn phpMussel IP-Adressen pseudonymisiert, wird das letzte Oktett von IPv4-Adressen und alles nach dem zweiten Teil von IPv6-Adressen durch ein „x“ dargestellt (runden effektiv IPv4-Adressen in Subnetz 24 und IPv6-Adressen in Subnetz 32 ab).
 
 *Relevante Konfigurationsdirektiven:*
 - `legal` -> `pseudonymise_ip_addresses`
@@ -1749,7 +1749,7 @@ phpMussel sammelt und verarbeitet keine Informationen für der Zweck des Vermark
 
 #### 9.6 DATENSCHUTZERKLÄRUNG
 
-Unter bestimmten Umständen können Sie gesetzlich dazu verpflichtet sein, auf allen Seiten und Abschnitten Ihrer Website einen Link zu Ihrer Datenschutzerklärung deutlich anzuzeigen. Dies kann wichtig sein, um sicherzustellen, dass die Benutzer genau über Ihre genauen Datenschutzpraktiken, die Arten von personenbezogenen Daten, die Sie sammeln, und über Ihre beabsichtigte Verwendung informiert sind. Um einen solchen Link auf der Seite "Zugriff verweigert" von phpMussel einzubinden, wird eine Konfigurationsdirektive bereitgestellt, um die URL zu Ihrer Datenschutzerklärung anzugeben.
+Unter bestimmten Umständen können Sie gesetzlich dazu verpflichtet sein, auf allen Seiten und Abschnitten Ihrer Website einen Link zu Ihrer Datenschutzerklärung deutlich anzuzeigen. Dies kann wichtig sein, um sicherzustellen, dass die Benutzer genau über Ihre genauen Datenschutzpraktiken, die Arten von personenbezogenen Daten, die Sie sammeln, und über Ihre beabsichtigte Verwendung informiert sind. Um einen solchen Link auf der Seite „Zugriff verweigert“ von phpMussel einzubinden, wird eine Konfigurationsdirektive bereitgestellt, um die URL zu Ihrer Datenschutzerklärung anzugeben.
 
 *Relevante Konfigurationsdirektiven:*
 - `legal` -> `privacy_policy`
@@ -1758,7 +1758,7 @@ Unter bestimmten Umständen können Sie gesetzlich dazu verpflichtet sein, auf a
 
 Die Datenschutz-Grundverordnung (DSGVO) ist eine Verordnung der Europäischen Union, die am 25. Mai 2018 in Kraft tritt. Das Hauptziel der Verordnung besteht darin, den EU-Bürgern und EU-Anwohnern die Kontrolle über ihre eigenen personenbezogenen Daten zu ermöglichen und die Regulierung innerhalb der EU in Bezug auf Privatsphäre und personenbezogene Daten zu vereinheitlichen.
 
-Die Verordnung enthält spezifische Bestimmungen für die Verarbeitung "[personenbezogenen Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten)" (PII) von "betroffenen Personen" (jede identifizierte oder identifizierbare natürliche Person) aus oder innerhalb der EU. Um der Verordnung zu entsprechen, müssen "Unternehmen" (gemäß der Definition in der Verordnung) und alle relevanten Systeme und Prozesse "[Datenschutz durch Design](https://digitalcourage.de/blog/2015/was-ist-privacy-design)" standardmäßig implementieren, müssen die höchstmögliche Privatsphäre Einstellungen verwenden, müssen die erforderlichen Sicherheitsmaßnahmen für gespeicherte oder verarbeitete Informationen implementieren (einschließlich, aber nicht beschränkt auf die Durchführung der Pseudonymisierung oder vollständigen Anonymisierung von Daten), müssen die Art der Daten, die sie sammeln, eindeutig und eindeutig angeben, aus welchen Gründen, für wie lange sie diese Daten speichern und ob sie diese Daten an Dritte weitergeben, die Arten von Daten, die mit Dritten geteilt werden, wie, warum, u.s.w.
+Die Verordnung enthält spezifische Bestimmungen für die Verarbeitung "[personenbezogenen Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten)" (PII) von „betroffenen Personen“ (jede identifizierte oder identifizierbare natürliche Person) aus oder innerhalb der EU. Um der Verordnung zu entsprechen, müssen „Unternehmen“ (gemäß der Definition in der Verordnung) und alle relevanten Systeme und Prozesse "[Datenschutz durch Design](https://digitalcourage.de/blog/2015/was-ist-privacy-design)" standardmäßig implementieren, müssen die höchstmögliche Privatsphäre Einstellungen verwenden, müssen die erforderlichen Sicherheitsmaßnahmen für gespeicherte oder verarbeitete Informationen implementieren (einschließlich, aber nicht beschränkt auf die Durchführung der Pseudonymisierung oder vollständigen Anonymisierung von Daten), müssen die Art der Daten, die sie sammeln, eindeutig und eindeutig angeben, aus welchen Gründen, für wie lange sie diese Daten speichern und ob sie diese Daten an Dritte weitergeben, die Arten von Daten, die mit Dritten geteilt werden, wie, warum, u.s.w.
 
 Daten dürfen nicht verarbeitet werden, es sei denn, es gibt eine gesetzliche Grundlage dafür, wie in der Verordnung definiert. Im Allgemeinen bedeutet dies, dass die Verarbeitung der Daten eines Datensubjekts auf gesetzlicher Grundlage gemäß den gesetzlichen Verpflichtungen oder nur nach ausdrücklicher, gut informierter und eindeutiger Zustimmung der betroffenen Person erfolgen muss.
 
