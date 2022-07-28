@@ -11,7 +11,7 @@
 - １０.[よくある質問（ＦＡＱ）](#SECTION8)
 - １１.[法律情報](#SECTION9)
 
-*翻訳についての注意：エラーが発生した場合（例えば、​翻訳の間の不一致、​タイプミス、​等等）、​READMEの英語版が原本と権威のバージョンであると考えられます。​誤りを見つけた場合は、​それらを修正するにご協力を歓迎されるだろう。​*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
