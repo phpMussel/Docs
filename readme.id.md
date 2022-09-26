@@ -11,7 +11,7 @@
 - 8. [PERTANYAAN YANG SERING DIAJUKAN (FAQ)](#SECTION8)
 - 9. [INFORMASI HUKUM](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Konfigurasi (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Konfigurasi (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -666,7 +670,7 @@ time_format
 ```
 
 ##### "ipaddr" `[string]`
-- Dimana menemukan alamat IP dari permintaan alamat? (Bergunak untuk pelayanan-pelayanan seperti Cloudflare dan sejenisnya). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
+- Dimana menemukan alamat IP dari menghubungkan permintaan? (Berguna untuk pelayanan-pelayanan seperti Cloudflare dan sejenisnya). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
 
 ```
 ipaddr
@@ -686,7 +690,7 @@ Lihat juga:
 - [Forwarded - HTTP \| MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded)
 
 ##### "delete_on_sight" `[bool]`
-- Mengaktifkan opsi ini akan menginstruksikan skrip untuk berusaha secepatnya menghapus file apapun yang ditemukannya selama scan yang mencocokkan pada kriteria deteksi apapun, baik melalui tanda tangan atau yang lain. file-file ditentukan "clean" tidak akan disentuh. Pada kasus file terkompress seluruh file terkompress akan didelate (kecuali file yang menyerang adalah satu-satunya dari beberapa file yang menjadi isi file terkompress). Untuk kasus pemindaian upload file biasanya, tidak cocok untuk mengaktifkan opsi ini, karena biasanya PHP akan secara otomatis menyatukan isi dari cache ketika eksekusi selesai, berarti bahwa dia akan selalu menghapus file terupload apapun melalui server jika tidak dipindahkan, dikopi atau dihapus sebelumnya. Opsi tersebut ditambahkan disini sebagai ukuran keamanan ekstra untuk semua salinan PHP yang tidak selalu bersikap pada perilaku yang diharapkan. False = Setelah pemindahaian, biarkan file [Default]; True = Setelah pemindaian, jika tidak bersih, hapus langsung.
+- Mengaktifkan direktif ini akan menginstruksikan skrip untuk berusaha secepatnya menghapus file apapun yang ditemukannya selama scan yang mencocokkan pada kriteria deteksi apapun, baik melalui tanda tangan atau yang lain. File yang diidentifikasi sebagai "bersih" tidak akan disentuh. Dalam kasus arsip, seluruh arsip akan dihapus, terlepas dari apakah file tersebut hanya salah satu dari beberapa file yang terdapat dalam arsip. Untuk kasus pemindaian upload file biasanya, tidak cocok untuk Mengaktifkan direktif ini, karena biasanya, PHP akan secara otomatis menyatukan isi dari cache ketika eksekusi selesai, berarti bahwa dia akan selalu menghapus file terupload apapun melalui server jika tidak dipindahkan, dikopi, atau dihapus sebelumnya. Direktif tersebut ditambahkan disini sebagai ukuran keamanan ekstra untuk semua salinan PHP yang tidak selalu bersikap pada perilaku yang diharapkan. False = Setelah pemindahaian, biarkan file [Default]; True = Setelah pemindaian, jika bukan bersih, menghapusnya langsung.
 
 ##### "lang" `[string]`
 - Tentukan bahasa default untuk phpMussel.
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - Sembunyikan informasi versi dari log dan output halaman? True = Ya; False = Tidak [Default].
 
 ##### "disabled_channels" `[string]`
-- Ini dapat digunakan untuk mencegah phpMussel dari menggunakan saluran tertentu saat mengirim permintaan (misalnya, saat memperbarui, saat mengambil metadata komponen, dll).
+- Ini dapat digunakan untuk mencegah phpMussel dari menggunakan saluran tertentu saat mengirim permintaan.
 
 ```
 disabled_channels
@@ -747,7 +753,7 @@ disabled_channels
 ```
 
 ##### "default_timeout" `[int]`
-- Batas waktu default untuk digunakan untuk permintaan eksternal? Default = 12 detik.
+- Batas waktu default yang digunakan untuk permintaan eksternal? Default = 12 detik.
 
 #### "signatures" (Kategori)
 Konfigurasi untuk tanda tangan, file tanda tangan, dll.
@@ -797,23 +803,23 @@ Rincian cara menangani file saat memindai.
 ##### "filetype_whitelist" `[string]`
 - Daftar Putih:
 
-__Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan tipe file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak tipe file-file tertentu, menspesifikasikan tipe file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan tipe file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
+__Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan jenis file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak jenis file-file tertentu, menspesifikasikan jenis file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan jenis file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
 
-__Urutan logis dari pengolahan.__ Jika tipe file bertanda putih, tidak memindai dan tidak memblokir file, dan tidak memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika tipe file bertanda hitem, tidak memindai file tapi memblokir bagaimanapun, dan tidak memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan tipe file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan tipe file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
+__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
 
 ##### "filetype_blacklist" `[string]`
 - Daftar Hitam:
 
-__Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan tipe file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak tipe file-file tertentu, menspesifikasikan tipe file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan tipe file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
+__Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan jenis file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak jenis file-file tertentu, menspesifikasikan jenis file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan jenis file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
 
-__Urutan logis dari pengolahan.__ Jika tipe file bertanda putih, tidak memindai dan tidak memblokir file, dan tidak memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika tipe file bertanda hitem, tidak memindai file tapi memblokir bagaimanapun, dan tidak memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan tipe file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan tipe file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
+__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
 
 ##### "filetype_greylist" `[string]`
 - Daftar Abu-Abu:
 
-__Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan tipe file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak tipe file-file tertentu, menspesifikasikan tipe file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan tipe file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
+__Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan jenis file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak jenis file-file tertentu, menspesifikasikan jenis file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan jenis file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
 
-__Urutan logis dari pengolahan.__ Jika tipe file bertanda putih, tidak memindai dan tidak memblokir file, dan tidak memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika tipe file bertanda hitem, tidak memindai file tapi memblokir bagaimanapun, dan tidak memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan tipe file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan tipe file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
+__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
 
 ##### "check_archives" `[bool]`
 - Berusaha mencek isi file terkompress? False = Tidak (Tidak mencek); True = Ya (Mencek) [Default]. Didukung: Zip (membutuhkan libzip), Tar, Rar (membutuhkan ekstensi rar).
@@ -855,7 +861,7 @@ __Urutan logis dari pengolahan.__ Jika tipe file bertanda putih, tidak memindai 
 - Cari file PDF yang headernya tidak benar. False = Dinonaktifkan; True = Diaktifkan.
 
 ##### "archive_file_extensions" `[string]`
-- Ekstensi file terkompres yang dikenali (format nya CSV; seharusnya hanya menambah atau menghapus ketika masalah terjadi; Tidak cocok langsung menghapus karena dapat menyebabkan angka positif yang salah terjadi pada file terkompres, dimana juga menambahkan deteksi; memodifikasi dengan peringatan; Juga dicatat bahwa ini tidak memberi efek pada file terkompress apa yang dapat dan tidak dapat di analisa pada level isi). Daftar sebagaimana defaultnya, memberi daftar format-format yang digunakan yang paling umum melalui melalui mayoritas sistem dan CMS, tapi bermaksud tidak komprehensif.
+- Ekstensi file terkompres yang dikenali (format nya CSV; seharusnya hanya menambah atau menghapus ketika masalah terjadi; tidak cocok langsung menghapus karena dapat menyebabkan angka positif yang salah terjadi pada file terkompres, dimana juga menambahkan deteksi; memodifikasi dengan peringatan; juga dicatat bahwa ini tidak memberi efek pada file terkompress apa yang dapat dan tidak dapat di analisa pada level isi). Daftar sebagaimana defaultnya, memberi daftar format-format yang digunakan yang paling umum melalui melalui mayoritas sistem dan CMS, tapi bermaksud tidak komprehensif.
 
 ##### "block_control_characters" `[bool]`
 - Memblokir file apapun yang berisi karakter pengendali (lain dari baris baru)? Jika Anda hanya sedang mengupload file teks biasa, maka Anda dapat menghidupkan opsi ini untuk menyediakan perlindungan tambahan ke sistem Anda. Bagaimanapun jika Anda mengupload apapun lebih dari file teks biasa, menghidupkan opsi ini mungkin mengakibatkan angka positif salah. False = Jangan memblokirnya [Default]; True = Memblokirnya.
@@ -873,7 +879,7 @@ __Urutan logis dari pengolahan.__ Jika tipe file bertanda putih, tidak memindai 
 - Izinkan memimpin dan mengikuti titik-titik dalam nama file? Ini kadang-kadang dapat digunakan untuk menyembunyikan file, atau untuk mengelabui beberapa sistem agar memungkinkan direktori traversal. False = Jangan izinkan [Default]. True = Izinkan.
 
 ##### "block_macros" `[bool]`
-- Cobalah untuk memblokir semua file yang mengandung macro? Beberapa jenis dokumen dan spreadsheet mungkin berisi makro yang dapat dijalankan, sehingga menyediakan vektor berbahaya berpotensi. False = Jangan memblokirnya [Default]; True = Memblokirnya.
+- Cobalah memblokir semua file yang mengandung macro? Beberapa jenis dokumen dan spreadsheet mungkin berisi makro yang dapat dijalankan, sehingga menyediakan vektor berbahaya berpotensi. False = Jangan memblokirnya [Default]; True = Memblokirnya.
 
 ##### "only_allow_images" `[bool]`
 - Bila diset ke true, file apapun ditemukan oleh pemindai yang bukan gambar akan segera ditandai, tanpa dipindai. Ini dapat membantu mengurangi waktu yang dibutuhkan untuk menyelesaikan pemindaian dalam beberapa kasus. Diset ke false secara default.
@@ -897,17 +903,17 @@ Konfigurasi untuk karantina.
 Konfigurasi untuk integrasi Virus Total.
 
 ##### "vt_public_api_key" `[string]`
-- Secara fakultatif, phpMussel mampu memindai file menggunakan Virus Total API sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan Virus Total API dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan Virus Total API, Anda *__HARUS__* setuju untuk Terms of Service dan Anda *__HARUS__* mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents").
+- Secara fakultatif, phpMussel mampu memindai file menggunakan API Virus Total sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan API Virus Total dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan API Virus Total, Anda *__HARUS__* setuju untuk Terms of Service dan Anda *__HARUS__* mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents").
 
 Lihat juga:
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
 - [Getting started](https://developers.virustotal.com/reference)
 
 ##### "vt_suspicion_level" `[int]`
-- Secara default, phpMussel akan membatasi file dipindai menggunakan Virus Total API untuk file-file yang dianggap "mencurigakan". Anda dapat menyesuaikan pembatasan ini dengan mengubah nilai direktif `vt_suspicion_level`.
+- Secara default, phpMussel akan membatasi file dipindai menggunakan API Virus Total untuk file-file yang dianggap "mencurigakan". Anda dapat menyesuaikan pembatasan ini dengan mengubah nilai direktif `vt_suspicion_level`.
 
 ##### "vt_weighting" `[int]`
-- Apakah Anda ingin phpMussel menerapkan hasil pemindaian menggunakan Virus Total API sebagai deteksi atau deteksi pembobotan? Direktif ini ada, karena, meskipun memindai file menggunakan mesin-mesin kelipatan (sebagai Virus Total melakukannya) harus menghasilkan tingkat deteksi meningkat (dan demikian lebih banyak file berbahaya tertangkap), juga dapat menghasilkan jumlah yang lebih banyak dari positif palsu, dan demikian, dalam kondisi beberapa, hasil pemindaian dapat digunakan lebih efektif sebagai nilai keyakinan daripada daripada sebagai kesimpulan definitif. Jika nilai 0 digunakan, hasil pemindaian menggunakan Virus Total API akan diaplikasikan sebagai pendeteksian, dan demikian, jika mesin-mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya, phpMussel akan menganggap file yang berbahaya. Jika nilai lain yang digunakan, hasil pemindaian menggunakan Virus Total API akan diaplikasikan sebagai deteksi pembobotan, dan demikian, jumlah mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya akan berfungsi sebagai nilai keyakinan (atau deteksi pembobotan) untuk jika file dipindai harus dianggap berbahaya oleh phpMussel (nilai digunakan akan mewakili nilai keyakinan minimum atau pembobotan minimum diperlukan untuk dianggap berbahaya). Nilai 0 digunakan secara default.
+- Apakah Anda ingin phpMussel menerapkan hasil pemindaian menggunakan API Virus Total sebagai deteksi atau deteksi pembobotan? Direktif ini ada, karena, meskipun memindai file menggunakan mesin-mesin kelipatan (sebagai Virus Total melakukannya) harus menghasilkan tingkat deteksi meningkat (dan demikian lebih banyak file berbahaya tertangkap), juga dapat menghasilkan jumlah yang lebih banyak dari positif palsu, dan demikian, dalam kondisi beberapa, hasil pemindaian dapat digunakan lebih efektif sebagai nilai keyakinan daripada daripada sebagai kesimpulan definitif. Jika nilai 0 digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai pendeteksian, dan demikian, jika mesin-mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya, phpMussel akan menganggap file yang berbahaya. Jika nilai lain yang digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai deteksi pembobotan, dan demikian, jumlah mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya akan berfungsi sebagai nilai keyakinan (atau deteksi pembobotan) untuk jika file dipindai harus dianggap berbahaya oleh phpMussel (nilai digunakan akan mewakili nilai keyakinan minimum atau pembobotan minimum diperlukan untuk dianggap berbahaya). Nilai 0 digunakan secara default.
 
 ##### "vt_quota_rate" `[int]`
 - Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang *__DAPAT__* membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai `vt_quota_rate` permintaan dalam bentuk apapun dalam jangka waktu `vt_quota_time` menit.
@@ -928,7 +934,7 @@ Lihat juga:
 - Jumlah maksimum pemeriksaan API melakukan per iterasi memindai individual. Karena setiap API pemeriksaan akan menambah tambahan waktu total dibutuhkan untuk menyelesaikan setiap iterasi pemindaian, Anda mungkin ingin menetapkan batasan untuk mempercepat proses pemindaian secara keseluruhan. Bila diset untuk 0, sejumlah maksimum tidak akan diterapkan. Diset untuk 10 secara default.
 
 ##### "maximum_api_lookups_response" `[bool]`
-- Apa yang harus dilakukan jika jumlah maksimal pemeriksaan API dilampaui? False = Tidak melakukan apa-apa (melanjutkan pemrosesan) [Default]; True = Memblokir file.
+- Apa yang harus dilakukan jika jumlah maksimal pemeriksaan API dilampaui? False = Jangan melakukan apa-apa (melanjutkan pemrosesan) [Default]; True = Menandai/Memblokir file.
 
 ##### "cache_time" `[int]`
 - Berapa lama (dalam detik) harus hasil API untuk disimpan dalam cache? Default adalah 3600 detik (1 jam).
@@ -937,7 +943,7 @@ Lihat juga:
 Konfigurasi untuk persyaratan hukum.
 
 ##### "pseudonymise_ip_addresses" `[bool]`
-- Pseudonymise alamat IP saat menulis file log? True = Ya [Default]; False = Tidak.
+- Pseudonimisasikan alamat IP saat menulis file log? True = Ya [Default]; False = Tidak.
 
 ##### "privacy_policy" `[string]`
 - Alamat dari kebijakan privasi yang relevan untuk ditampilkan di footer dari setiap halaman yang dihasilkan. Spesifikasikan URL, atau biarkan kosong untuk menonaktifkan.
@@ -946,7 +952,7 @@ Konfigurasi untuk persyaratan hukum.
 Opsi cache tambahan. Catatan: Mengubah nilai ini berpotensi membuat Anda keluar.
 
 ##### "prefix" `[string]`
-- Nilai yang ditentukan disini akan ditambahkan ke awal kunci untuk semua entri di cache. Kosong secara default. Ketika beberapa instalasi ada di server, ini dapat berguna untuk menjaga cache mereka terpisah.
+- Nilai yang ditentukan disini akan ditambahkan ke awal kunci untuk semua entri di cache. Default = "phpMussel_". Ketika beberapa instalasi ada di server, ini dapat berguna untuk menjaga cache mereka terpisah.
 
 ##### "enable_apcu" `[bool]`
 - Menentukan apakah akan mencoba menggunakan APCu untuk cache. Default = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- Mendefinisikan algoritma mana yang akan digunakan untuk semua kata sandi dan sesi di masa depan. Opsi: PASSWORD_DEFAULT (default), PASSWORD_BCRYPT, PASSWORD_ARGON2I (membutuhkan PHP >= 7.2.0), PASSWORD_ARGON2ID (membutuhkan PHP >= 7.3.0).
+- Mendefinisikan algoritma mana yang akan digunakan untuk semua kata sandi dan sesi di masa depan.
 
 ```
 default_algo
@@ -1075,6 +1081,12 @@ theme
 ##### "magnification" `[float]`
 - Perbesaran font. Default = 1.
 
+##### "custom_header" `[string]`
+- Disisipkan sebagai HTML di awal semua halaman front-end. Ini dapat berguna jika Anda ingin menyertakan logo situs web, header yang dipersonalisasi, skrip, atau sejenisnya di semua halaman tersebut.
+
+##### "custom_footer" `[string]`
+- Disisipkan sebagai HTML di akhir semua halaman front-end. Ini dapat berguna jika Anda ingin menyertakan pemberitahuan hukum, tautan kontak, informasi bisnis, atau sejenisnya di semua halaman tersebut.
+
 #### "web" (Kategori)
 Konfigurasi untuk penangan upload.
 
@@ -1088,10 +1100,10 @@ Konfigurasi untuk penangan upload.
 - Seharusnya phpMussel mengirimkan 415 headers saat upload diblokir karena jenis filenya ada di daftar hitam? Jika true, pengaturan ini menggantikan `forbid_on_block`. False = Tidak [Default]; True = Ya.
 
 ##### "max_uploads" `[int]`
-- Maksimum jumla file-file yang diizinkan untuk dipindai selama pemindaian upload file sebelum menghentikan pemindaian dan menginformasikan pengguna bahwa pengguna mengupload terlalu banyak! Menyediakan perlindungan pada serangan teoritis dimana penyerang mencoba DDoS pada sistem Anda atau CMS ada dengan overloading phpMussel supaya berjalan lambat. Proses PHP ke penghentian keras. Recommendasi: 10. Anda dapat menaikkan atau menurunkan angka ini bergantung dari kecepatan hardware Anda. Catat itu nomor ini tidak mengakuntabilitas atau mengikutkan konten dari file terkompres.
+- Maksimum jumla file-file yang diizinkan untuk dipindai selama pemindaian upload file sebelum menghentikan pemindaian dan menginformasikan pengguna bahwa mereka mengupload terlalu banyak! Menyediakan perlindungan pada serangan teoritis dimana penyerang mencoba DDoS pada sistem atau CMS Anda melalui membebani phpMussel supaya berjalan lambat. Proses PHP ke penghentian keras. Recommendasi: 10. Anda dapat menaikkan atau menurunkan angka ini bergantung dari kecepatan hardware Anda. Catat itu nomor ini tidak mengakuntabilitas atau mengikutkan konten dari file terkompres.
 
 ##### "ignore_upload_errors" `[bool]`
-- Direktif ini umumnya harus DINONAKTIFKAN kecuali diharuskan untuk fungsi yang benar dari phpMussel pada sistem tertentu. Biasanya, ketika DINONAKTIFKAN, ketika phpMussel mendeteksi adanya elemen dalam `$_FILES` array(), itu akan mencoba untuk memulai scan file yang mewakili elemen, dan, jika elemen yang kosong, phpMussel akan mengembalikan pesan kesalahan. Ini adalah perilaku yang tepat untuk phpMussel. Namun, untuk beberapa CMS, elemen kosong di `$_FILES` dapat terjadi sebagai akibat dari perilaku alami itu CMS, atau kesalahan dapat dilaporkan bila tidak ada, dalam kasus seperti itu, perilaku normal untuk phpMussel akan mengganggu untuk perilaku normal itu CMS. Jika situasi seperti itu terjadi untuk Anda, MENGAKTIFKAN direktif ini akan menginstruksikan phpMussel untuk tidak mencoba untuk memulai scan untuk elemen kosong, mengabaikan saat ditemui dan untuk tidak kembali terkait pesan kesalahan, sehingga memungkinkan kelanjutan dari halaman permintaan. False = DINONAKTIFKAN; True = DIAKTIFKAN.
+- Direktif ini umumnya harus DINONAKTIFKAN kecuali diharuskan untuk fungsi yang benar dari phpMussel pada sistem tertentu. Biasanya, ketika DINONAKTIFKAN, ketika phpMussel mendeteksi adanya elemen dalam `$_FILES` array(), itu akan mencoba untuk memulai scan file yang mewakili elemen, dan, jika elemen tersebut adalah kosong, phpMussel akan mengembalikan pesan kesalahan. Ini adalah perilaku yang tepat untuk phpMussel. Namun, untuk beberapa CMS, elemen kosong di `$_FILES` dapat terjadi sebagai akibat dari perilaku alami jadi CMS tersebut, atau kesalahan dapat dilaporkan bila tidak ada, dan dalam kasus seperti itu, perilaku normal untuk phpMussel akan mengganggu untuk perilaku normal itu CMS. Jika situasi seperti itu terjadi untuk Anda, MENGAKTIFKAN direktif ini akan menginstruksikan phpMussel untuk tidak mencoba untuk memulai scan untuk elemen kosong, mengabaikan saat ditemui dan untuk tidak kembali terkait pesan kesalahan, sehingga memungkinkan kelanjutan dari halaman permintaan. False = DINONAKTIFKAN; True = DIAKTIFKAN.
 
 ##### "theme" `[string]`
 - Estetika yang digunakan untuk halaman "Upload Ditolak".
@@ -1112,6 +1124,12 @@ theme
 ##### "magnification" `[float]`
 - Perbesaran font. Default = 1.
 
+##### "custom_header" `[string]`
+- Disisipkan sebagai HTML di awal semua halaman "upload ditolak". Ini dapat berguna jika Anda ingin menyertakan logo situs web, header yang dipersonalisasi, skrip, atau sejenisnya di semua halaman tersebut.
+
+##### "custom_footer" `[string]`
+- Disisipkan sebagai HTML di akhir semua halaman "upload ditolak". Ini dapat berguna jika Anda ingin menyertakan pemberitahuan hukum, tautan kontak, informasi bisnis, atau sejenisnya di semua halaman tersebut.
+
 #### "phpmailer" (Kategori)
 Konfigurasi untuk PHPMailer (digunakan untuk otentikasi dua-faktor).
 
@@ -1125,7 +1143,7 @@ Konfigurasi untuk PHPMailer (digunakan untuk otentikasi dua-faktor).
 - Jika Anda ingin diberi tahu melalui email saat upload diblokir, tentukan alamat email penerima disini.
 
 ##### "skip_auth_process" `[bool]`
-- Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses otentikasi normal yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.
+- Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses otentikasi yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.
 
 ##### "host" `[string]`
 - Host SMTP yang digunakan untuk email keluar.
@@ -1761,4 +1779,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 30 Juni 2022 (2022.06.30).
+Terakhir Diperbarui: 26 September 2022 (2022.09.26).

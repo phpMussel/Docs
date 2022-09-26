@@ -11,7 +11,7 @@
 - 8. [NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)](#SECTION8)
 - 9. [THÔNG TIN HỢP PHÁP](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Cấu Hình (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Cấu Hình (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - Ẩn thông tin phiên bản từ nhật ký và đầu ra của trang? True = Vâng; False = Không [Mặc định].
 
 ##### "disabled_channels" `[string]`
-- Điều này có thể được sử dụng để ngăn phpMussel sử dụng các kênh cụ thể khi gửi yêu cầu (ví dụ, khi cập nhật, khi lấy siêu dữ liệu thành phần, vv).
+- Điều này có thể được sử dụng để ngăn phpMussel sử dụng các kênh cụ thể khi gửi yêu cầu.
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ Cấu hình cho các yêu cầu pháp lý.
 Tùy chọn bộ nhớ cache bổ sung. Lưu ý: Việc thay đổi các giá trị này có thể khiến bạn bị đăng xuất.
 
 ##### "prefix" `[string]`
-- Giá trị được chỉ định ở đây sẽ được thêm vào trước tất cả các khóa mục nhập bộ nhớ cache. Trống theo mặc định. Khi nhiều bản cài đặt tồn tại trên cùng một máy chủ, điều này có thể hữu ích để giữ các bộ nhớ cache của chúng tách biệt với nhau.
+- Giá trị được chỉ định ở đây sẽ được thêm vào trước tất cả các khóa mục nhập bộ nhớ cache. Mặc định = "phpMussel_". Khi nhiều bản cài đặt tồn tại trên cùng một máy chủ, điều này có thể hữu ích để giữ các bộ nhớ cache của chúng tách biệt với nhau.
 
 ##### "enable_apcu" `[bool]`
 - Điều này xác định có nên thử sử dụng APCu để lưu trữ không. Mặc định = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- Xác định thuật toán nào sẽ sử dụng cho tất cả các mật khẩu và phiên trong tương lai. Tùy chọn: PASSWORD_DEFAULT (mặc định), PASSWORD_BCRYPT, PASSWORD_ARGON2I (yêu cầu PHP >= 7.2.0), PASSWORD_ARGON2ID (yêu cầu PHP >= 7.3.0).
+- Xác định thuật toán nào sẽ sử dụng cho tất cả các mật khẩu và phiên trong tương lai.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### "magnification" `[float]`
 - Phóng to chữ. Mặc định = 1.
+
+##### "custom_header" `[string]`
+- Được chèn dưới dạng HTML ở đầu tất cả các trang front-end. Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm biểu trưng trang web, tiêu đề được cá nhân hóa, tập lệnh, hoặc tương tự ở tất cả các trang như vậy.
+
+##### "custom_footer" `[string]`
+- Được chèn dưới dạng HTML ở cuối tất cả các trang front-end. Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm thông báo pháp lý, liên kết liên hệ, thông tin doanh nghiệp, hoặc tương tự ở tất cả các trang như vậy.
 
 #### "web" (Thể loại)
 Cấu hình cho trình xử lý tải lên.
@@ -1111,6 +1123,12 @@ theme
 
 ##### "magnification" `[float]`
 - Phóng to chữ. Mặc định = 1.
+
+##### "custom_header" `[string]`
+- Được chèn dưới dạng HTML ở đầu tất cả các trang "sự tải lên đã bị từ chối". Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm biểu trưng trang web, tiêu đề được cá nhân hóa, tập lệnh, hoặc tương tự ở tất cả các trang như vậy.
+
+##### "custom_footer" `[string]`
+- Được chèn dưới dạng HTML ở cuối tất cả các trang "sự tải lên đã bị từ chối". Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm thông báo pháp lý, liên kết liên hệ, thông tin doanh nghiệp, hoặc tương tự ở tất cả các trang như vậy.
 
 #### "phpmailer" (Thể loại)
 Cấu hình cho PHPMailer (được sử dụng để xác thực hai yếu tố).
@@ -1758,4 +1776,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2022.05.23.
+Lần cuối cập nhật: 2022.09.26.

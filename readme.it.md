@@ -11,7 +11,7 @@
 - 8. [DOMANDE FREQUENTI (FAQ)](#SECTION8)
 - 9. [INFORMAZIONE LEGALE](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Configurazione (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Configurazione (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - Nascondi informazioni sulla versione dai registri e l'output della pagina? True = Sì; False = No [Predefinito].
 
 ##### "disabled_channels" `[string]`
-- Questo può essere usato per impedire a phpMussel di usare canali particolari quando si inviano richieste (ad esempio, quando si aggiorna, quando si recuperano i metadati del componente, ecc).
+- Questo può essere usato per impedire a phpMussel di usare canali particolari quando si inviano richieste.
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ Configurazione per requisiti legali.
 Opzioni di cache supplementari. Nota: La modifica di questi valori potrebbe potenzialmente disconnettersi.
 
 ##### "prefix" `[string]`
-- Il valore specificato qui verrà anteposto a tutte le chiavi di ingresso della cache. Vuoto per impostazione predefinita. Quando esistono più installazioni sullo stesso server, questo può essere utile per mantenere le loro cache separate l'una dall'altra.
+- Il valore specificato qui verrà anteposto a tutte le chiavi di ingresso della cache. Predefinito = "phpMussel_". Quando esistono più installazioni sullo stesso server, questo può essere utile per mantenere le loro cache separate l'una dall'altra.
 
 ##### "enable_apcu" `[bool]`
 - Specifica se provare a utilizzare APCu per la memorizzazione nella cache. Predefinito = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- Definisce quale algoritmo da utilizzare per tutte le password e le sessioni in futuro. Opzioni: PASSWORD_DEFAULT (predefinito), PASSWORD_BCRYPT, PASSWORD_ARGON2I (richiede PHP >= 7.2.0), PASSWORD_ARGON2ID (richiede PHP >= 7.3.0).
+- Definisce quale algoritmo da utilizzare per tutte le password e le sessioni in futuro.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### "magnification" `[float]`
 - Ingrandimento del carattere. Predefinito = 1.
+
+##### "custom_header" `[string]`
+- Inserito come HTML all'inizio di tutte le pagine del front-end. Questo potrebbe essere utile nel caso in cui desideri includere il logo di un sito web, un'intestazione personalizzata, script, o simili in tutte queste pagine.
+
+##### "custom_footer" `[string]`
+- Inserito come HTML alla fine di tutte le pagine del front-end. Questo potrebbe essere utile nel caso in cui desideri includere un avviso legale, un link di contatto, informazioni commerciali, o simili in tutte queste pagine.
 
 #### "web" (Categoria)
 Configurazione per il gestore di caricamenti.
@@ -1111,6 +1123,12 @@ theme
 
 ##### "magnification" `[float]`
 - Ingrandimento del carattere. Predefinito = 1.
+
+##### "custom_header" `[string]`
+- Inserito come HTML all'inizio di tutte le pagine di "caricamento negato". Questo potrebbe essere utile nel caso in cui desideri includere il logo di un sito web, un'intestazione personalizzata, script, o simili in tutte queste pagine.
+
+##### "custom_footer" `[string]`
+- Inserito come HTML alla fine di tutte le pagine di "caricamento negato". Questo potrebbe essere utile nel caso in cui desideri includere un avviso legale, un link di contatto, informazioni commerciali, o simili in tutte queste pagine.
 
 #### "phpmailer" (Categoria)
 Configurazione per PHPMailer (utilizzato per l'autenticazione a due fattori).
@@ -1764,4 +1782,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 12 Maggio 2022 (2022.05.12).
+Ultimo Aggiornamento: 26 Settembre 2022 (2022.09.26).

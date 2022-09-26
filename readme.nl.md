@@ -11,7 +11,7 @@
 - 8. [VEELGESTELDE VRAGEN (FAQ)](#SECTION8)
 - 9. [LEGALE INFORMATIE](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Configuratie (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Configuratie (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - Versleutelingsinformatie uit logs en pagina-uitvoer verbergen? True = Ja; False = Nee [Standaard].
 
 ##### "disabled_channels" `[string]`
-- Dit kan worden gebruikt om te voorkomen dat phpMussel bepaalde kanalen gebruikt bij het verzenden van verzoeken (b.v., bij het bijwerken, bij het ophalen van metagegevens van componenten, enzovoort).
+- Dit kan worden gebruikt om te voorkomen dat phpMussel bepaalde kanalen gebruikt bij het verzenden van verzoeken.
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ Configuratie voor wettelijke vereisten.
 Aanvullende cache-opties. Opmerking: Als u deze waarden wijzigt, mogelijk bent u uitgelogd.
 
 ##### "prefix" `[string]`
-- De hier opgegeven waarde wordt toegevoegd aan alle cache-invoersleutels. Standaard leeg. Als er meerdere installaties op dezelfde server staan, dit kan handig zijn om hun caches gescheiden van elkaar te houden.
+- De hier opgegeven waarde wordt toegevoegd aan alle cache-invoersleutels. Standaard = "phpMussel_". Als er meerdere installaties op dezelfde server staan, dit kan handig zijn om hun caches gescheiden van elkaar te houden.
 
 ##### "enable_apcu" `[bool]`
 - Dit geeft aan of APCu moet worden gebruikt voor caching. Standaard = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- Definieert welk algoritme u wilt gebruiken voor alle toekomstige wachtwoorden en sessies. Opties: PASSWORD_DEFAULT (standaard), PASSWORD_BCRYPT, PASSWORD_ARGON2I (vereist PHP >= 7.2.0), PASSWORD_ARGON2ID (vereist PHP >= 7.3.0).
+- Definieert welk algoritme u wilt gebruiken voor alle toekomstige wachtwoorden en sessies.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### "magnification" `[float]`
 - Lettergrootte vergroting. Standaard = 1.
+
+##### "custom_header" `[string]`
+- Ingevoegd als HTML aan het begin van alle frontend pagina's. Dit kan handig zijn als u op al dergelijke pagina's een websitelogo, gepersonaliseerde koptekst, scripts, of iets dergelijks wilt opnemen.
+
+##### "custom_footer" `[string]`
+- Ingevoegd als HTML onderaan alle frontend pagina's. Dit kan handig zijn als u op al dergelijke pagina's een juridische kennisgeving, een contactlink, bedrijfsinformatie, of iets dergelijks wilt opnemen.
 
 #### "web" (Categorie)
 Configuratie voor de uploadhandler.
@@ -1111,6 +1123,12 @@ theme
 
 ##### "magnification" `[float]`
 - Lettergrootte vergroting. Standaard = 1.
+
+##### "custom_header" `[string]`
+- Ingevoegd als HTML aan het begin van alle "upload geweigerd" pagina's. Dit kan handig zijn als u op al dergelijke pagina's een websitelogo, gepersonaliseerde koptekst, scripts, of iets dergelijks wilt opnemen.
+
+##### "custom_footer" `[string]`
+- Ingevoegd als HTML onderaan alle "upload geweigerd" pagina's. Dit kan handig zijn als u op al dergelijke pagina's een juridische kennisgeving, een contactlink, bedrijfsinformatie, of iets dergelijks wilt opnemen.
 
 #### "phpmailer" (Categorie)
 Configuratie voor PHPMailer (gebruikt voor tweefactorauthenticatie).
@@ -1785,4 +1803,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 12 Mei 2022 (2022.05.12).
+Laatste Bijgewerkt: 26 September 2022 (2022.09.26).

@@ -13,7 +13,7 @@
  <li>٩. <a href="#SECTION9">المعلومات القانونية</a></li>
 </ul></div>
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -525,6 +525,8 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -533,6 +535,8 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -710,6 +714,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -719,6 +724,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -741,7 +747,7 @@ lang
 <div dir="rtl"><ul><li>إخفاء معلومات الإصدار من السجلات وإخراج الصفحة؟ صحيح/True = نعم؛ زائفة/False = لا [افتراضي].</li></ul></div>
 
 ##### <div dir="rtl">"disabled_channels" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>يمكن استخدام هذا لمنع phpMussel من استخدام قنوات معينة عند إرسال الطلبات (على سبيل المثال، عند التحديث، عند جلب بيانات تعريف المكون، إلخ).</li></ul></div>
+<div dir="rtl"><ul><li>يمكن استخدام هذا لمنع phpMussel من استخدام قنوات معينة عند إرسال الطلبات.</li></ul></div>
 
 ```
 disabled_channels
@@ -953,7 +959,7 @@ __الترتيب المنطقي للمعالجة.__ إذا نوع الملف م�
 <div dir="rtl">خيارات ذاكرة التخزين المؤقت التكميلية. ملاحظة: قد يؤدي تغيير هذه القيم إلى تسجيل خروجك.<br /><br /></div>
 
 ##### <div dir="rtl">"prefix" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>سيتم إضافة القيمة المحددة هنا إلى جميع مفاتيح إدخال ذاكرة التخزين المؤقت. فارغ بشكل افتراضي. عند وجود عدة عمليات تثبيت على نفس الخادم، يمكن أن يكون ذلك مفيدًا للحفاظ على ذاكرة التخزين المؤقت منفصلة عن بعضها البعض.</li></ul></div>
+<div dir="rtl"><ul><li>سيتم إضافة القيمة المحددة هنا إلى جميع مفاتيح إدخال ذاكرة التخزين المؤقت. افتراضي = "phpMussel_". عند وجود عدة عمليات تثبيت على نفس الخادم، يمكن أن يكون ذلك مفيدًا للحفاظ على ذاكرة التخزين المؤقت منفصلة عن بعضها البعض.</li></ul></div>
 
 ##### <div dir="rtl">"enable_apcu" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>يحدد هذا ما إذا كنت تريد استخدام APCu للتخزين المؤقت. افتراضي = True (صحيح).</li></ul></div>
@@ -1053,7 +1059,7 @@ numbers
 ```
 
 ##### <div dir="rtl">"default_algo" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>يحدد الخوارزمية التي سيتم استخدامها لكل كلمات المرور والجلسات المستقبلية. خيارات: PASSWORD_DEFAULT (افتراضي)، PASSWORD_BCRYPT، PASSWORD_ARGON2I (يتطلب PHP &gt;= 7.2.0)، PASSWORD_ARGON2ID (يتطلب PHP &gt;= 7.3.0).</li></ul></div>
+<div dir="rtl"><ul><li>يحدد الخوارزمية التي سيتم استخدامها لكل كلمات المرور والجلسات المستقبلية.</li></ul></div>
 
 ```
 default_algo
@@ -1081,6 +1087,12 @@ theme
 
 ##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
 <div dir="rtl"><ul><li>تكبير الخط. افتراضي = 1.</li></ul></div>
+
+##### <div dir="rtl">"custom_header" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تم إدراجها بتنسيق HTML في بداية جميع الصفحات الأمامية. قد يكون هذا مفيدًا في حالة رغبتك في تضمين شعار موقع ويب أو رأس مخصص أو نصوص أو ما شابه ذلك في جميع هذه الصفحات.</li></ul></div>
+
+##### <div dir="rtl">"custom_footer" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تم إدراجها بتنسيق HTML في الجزء السفلي من جميع الصفحات الأمامية. قد يكون هذا مفيدًا في حالة رغبتك في تضمين إشعار قانوني أو رابط اتصال أو معلومات تجارية أو ما شابه ذلك في كل هذه الصفحات.</li></ul></div>
 
 #### <div dir="rtl">"web" (التصنيف)<br /></div>
 <div dir="rtl">التكوين لمعالج التحميل.<br /><br /></div>
@@ -1118,6 +1130,12 @@ theme
 
 ##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
 <div dir="rtl"><ul><li>تكبير الخط. افتراضي = 1.</li></ul></div>
+
+##### <div dir="rtl">"custom_header" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تم إدراجها بتنسيق HTML في بداية كل صفحات "رفض تحميل". قد يكون هذا مفيدًا في حالة رغبتك في تضمين شعار موقع ويب أو رأس مخصص أو نصوص أو ما شابه ذلك في جميع هذه الصفحات.</li></ul></div>
+
+##### <div dir="rtl">"custom_footer" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تم إدراجها بتنسيق HTML في الجزء السفلي من جميع صفحات "رفض تحميل". قد يكون هذا مفيدًا في حالة رغبتك في تضمين إشعار قانوني أو رابط اتصال أو معلومات تجارية أو ما شابه ذلك في كل هذه الصفحات.</li></ul></div>
 
 #### <div dir="rtl">"phpmailer" (التصنيف)<br /></div>
 <div dir="rtl">التكوين ل PHPMailer (تستخدم لمصادقة ثنائية العامل).<br /><br /></div>
@@ -1803,4 +1821,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ١٢ مايو ٢٠٢٢ (٢٠٢٢.٠٥.١٢).</div>
+<div dir="rtl">آخر تحديث: ٢٦ سبتمبر ٢٠٢٢ (٢٠٢٢.٠٩.٢٦).</div>

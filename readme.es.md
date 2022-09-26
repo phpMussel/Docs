@@ -11,7 +11,7 @@
 - 8. [PREGUNTAS MÁS FRECUENTES (FAQ)](#SECTION8)
 - 9. [INFORMACIÓN LEGAL](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Configuración (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Configuración (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - ¿Ocultar información de la versión de los archivos de registro y la salida de la página? True = Sí; False = No [Predefinido].
 
 ##### "disabled_channels" `[string]`
-- Esto se puede usar para evitar que phpMussel use canales particulares al enviar solicitudes (por ejemplo, al actualizar, al obtener metadatos de componentes, etc).
+- Esto se puede usar para evitar que phpMussel use canales particulares al enviar solicitudes.
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ Configuración para requisitos legales.
 Opciones de caché suplementarias. Nota: Cambiar estos valores puede potencialmente cerrar la sesión.
 
 ##### "prefix" `[string]`
-- El valor especificado aquí se antepondrá a las claves de todas las entradas de la caché. Vacía por predefinida. Cuando existen varias instalaciones en el mismo servidor, esto puede ser útil para mantener sus cachés separados entre sí.
+- El valor especificado aquí se antepondrá a las claves de todas las entradas de la caché. Predefinido = "phpMussel_". Cuando existen varias instalaciones en el mismo servidor, esto puede ser útil para mantener sus cachés separados entre sí.
 
 ##### "enable_apcu" `[bool]`
 - Especifica si se intenta utilizar APCu para el almacenamiento en caché. Predefinido = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- Define qué algoritmo utilizar para todas las contraseñas y sesiones en el futuro. Opciones: PASSWORD_DEFAULT (predefinido), PASSWORD_BCRYPT, PASSWORD_ARGON2I (requiere PHP >= 7.2.0), PASSWORD_ARGON2ID (requiere PHP >= 7.3.0).
+- Define qué algoritmo utilizar para todas las contraseñas y sesiones en el futuro.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### "magnification" `[float]`
 - Ampliación de fuente. Predefinido = 1.
+
+##### "custom_header" `[string]`
+- Insertado como HTML al principio de todas las páginas del front-end. Esto podría ser útil en caso de que desee incluir un logotipo de sitio web, un encabezado personalizado, scripts, o similar en todas dichas páginas.
+
+##### "custom_footer" `[string]`
+- Insertado como HTML al final de todas las páginas del front-end. Esto podría ser útil en caso de que desee incluir un aviso legal, enlace de contacto, información comercial, o similar en todas dichas páginas.
 
 #### "web" (Categoría)
 Configuración para el controlador de subidas.
@@ -1111,6 +1123,12 @@ theme
 
 ##### "magnification" `[float]`
 - Ampliación de fuente. Predefinido = 1.
+
+##### "custom_header" `[string]`
+- Insertado como HTML al principio de todas las páginas "subida denegada". Esto podría ser útil en caso de que desee incluir un logotipo de sitio web, un encabezado personalizado, scripts, o similar en todas dichas páginas.
+
+##### "custom_footer" `[string]`
+- Insertado como HTML al final de todas las páginas "subida denegada". Esto podría ser útil en caso de que desee incluir un aviso legal, enlace de contacto, información comercial, o similar en todas dichas páginas.
 
 #### "phpmailer" (Categoría)
 Configuración para PHPMailer (utilizado para la autenticación de dos factores).
@@ -1768,4 +1786,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 12 de Mayo de 2022 (2022.05.12).
+Última Actualización: 26 de Septiembre de 2022 (2022.09.26).

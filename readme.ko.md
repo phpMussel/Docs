@@ -11,7 +11,7 @@
 - 8. [자주 묻는 질문 (FAQ)](#SECTION8)
 - 9. [법률 정보](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ v3 상용구 코드의 구조는 다양한 다른 phpMussel v3 리포지토리�
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ v3 상용구 코드의 구조는 다양한 다른 phpMussel v3 리포지토리�
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - 로그 및 페이지 출력에서 버전 정보 숨기기? True = 예; False = 아니오 (Default / 기본 설정).
 
 ##### "disabled_channels" `[string]`
-- 이것은 phpMussel이 요청을 보낼 때 특정 채널을 사용하지 못하게하는 데 사용할 수 있습니다 (예를 들어, 업데이트 할 때, 구성 요소 메타 데이터를 가져올 때, 등등).
+- 이것은 phpMussel이 요청을 보낼 때 특정 채널을 사용하지 못하게하는 데 사용할 수 있습니다.
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ URL 스캐너 설정.
 보충 캐시 옵션. 참고 : 이 값을 변경하면 잠재적으로 로그아웃될 수 있습니다.
 
 ##### "prefix" `[string]`
-- 여기에 지정된 값은 모든 캐시 항목 키 앞에 추가됩니다. 기본적으로 비어 있습니다. 동일한 서버에 여러 설치가 있는 경우, 캐시를 서로 분리하여 유지하는 데 유용할 수 있습니다.
+- 여기에 지정된 값은 모든 캐시 항목 키 앞에 추가됩니다. Default (기본값) = "phpMussel_". 동일한 서버에 여러 설치가 있는 경우, 캐시를 서로 분리하여 유지하는 데 유용할 수 있습니다.
 
 ##### "enable_apcu" `[bool]`
 - 캐싱에 APCu를 사용할지 여부를 지정합니다. Default (기본값) = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다. 옵션 : PASSWORD_DEFAULT (default / 기본 설정), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP >= 7.2.0 가 필요합니다), PASSWORD_ARGON2ID (PHP >= 7.3.0 가 필요합니다).
+- 향후 모든 암호와 세션에 사용할 알고리즘을 정의합니다.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### "magnification" `[float]`
 - 글꼴 배율. Default (기본 설정) = 1.
+
+##### "custom_header" `[string]`
+- 모든 프런트 엔드 페이지의 맨 처음에 HTML로 삽입됩니다. 웹사이트 로고, 개인화된 헤더, 스크립트, 등에 유용합니다.
+
+##### "custom_footer" `[string]`
+- 모든 프런트 엔드 페이지의 맨 아래에 HTML로 삽입됩니다. 법적 고지, 연락처 링크, 비즈니스 정보, 등에 유용합니다.
 
 #### "web" (카테고리)
 업로드 핸들러 설정.
@@ -1111,6 +1123,12 @@ theme
 
 ##### "magnification" `[float]`
 - 글꼴 배율. Default (기본 설정) = 1.
+
+##### "custom_header" `[string]`
+- 모든 "업로드 거부" 페이지의 맨 처음에 HTML로 삽입됩니다. 웹사이트 로고, 개인화된 헤더, 스크립트, 등에 유용합니다.
+
+##### "custom_footer" `[string]`
+- 모든 "업로드 거부" 페이지 맨 아래에 HTML로 삽입됩니다. 법적 고지, 연락처 링크, 비즈니스 정보, 등에 유용합니다.
 
 #### "phpmailer" (카테고리)
 PHPMailer 설정 (이중 인증에 사용).
@@ -1759,4 +1777,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2022년 5월 12일.
+최종 업데이트 : 2022년 9월 26일.

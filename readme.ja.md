@@ -11,7 +11,7 @@
 - １０.[よくある質問（ＦＡＱ）](#SECTION8)
 - １１.[法律情報](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - ログとページ出力からバージョン情報を隠すか？ True = はい。 False = いいえ（Default/デフォルルト）。
 
 ##### "disabled_channels" `[string]`
-- これは、要求を送信するときにphpMusselが特定のチャネルを使用しないようにするために使用できます​（例えば、更新時、コンポーネント・メタデータの取得時、など）。
+- これは、要求を送信するときにphpMusselが特定のチャネルを使用しないようにするために使用できます。
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ URLスキャナーの設定。
 補足キャッシュ・オプション。 注：これらの値を変更すると、ログアウトする可能性があります。
 
 ##### "prefix" `[string]`
-- ここで指定された値は、すべてのキャッシュ・エントリ・キーの前に追加されます。​デフォルトでは空です。​同じサーバーに複数のインストールが存在する場合、これはキャッシュを互いに分離しておくのに役立ちます。
+- ここで指定された値は、すべてのキャッシュ・エントリ・キーの前に追加されます。 Default/デフォルルト = 「phpMussel_」。 同じサーバーに複数のインストールが存在する場合、これはキャッシュを互いに分離しておくのに役立ちます。
 
 ##### "enable_apcu" `[bool]`
 - キャッシュに「APCu」を使用するかどうかを指定します。 Default/デフォルルト = True。
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- 将来のすべてのパスワードとセッションに使用するアルゴリズムを定義します。​オプション：​PASSWORD_DEFAULT（Default/デフォルルト）、​PASSWORD_BCRYPT、​PASSWORD_ARGON2I （ＰＨＰ >= 7.2.0 が必要）、​PASSWORD_ARGON2ID （ＰＨＰ >= 7.3.0 が必要）。
+- 将来のすべてのパスワードとセッションに使用するアルゴリズムを定義します。
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### "magnification" `[float]`
 - フォントの倍率。​Default/デフォルルト = １。
+
+##### "custom_header" `[string]`
+- すべてのフロントエンド・ページの最初にＨＴＭＬとして挿入されます。​ウェブサイトのロゴ、パーソナライズされたヘッダー、スクリプト、などに役立ちます。
+
+##### "custom_footer" `[string]`
+- すべてのフロントエンド・ページの最下部にＨＴＭＬとして挿入されます。​法的通知、連絡先リンク、ビジネス情報、などに役立ちます。
 
 #### "web" （カテゴリ）
 アップロード・ハンドラの設定。
@@ -1111,6 +1123,12 @@ theme
 
 ##### "magnification" `[float]`
 - フォントの倍率。​Default/デフォルルト = １。
+
+##### "custom_header" `[string]`
+- すべての「アップロード拒否」ページの最初にＨＴＭＬとして挿入されます。​ウェブサイトのロゴ、パーソナライズされたヘッダー、スクリプト、などに役立ちます。
+
+##### "custom_footer" `[string]`
+- すべての「アップロード拒否」ページの最下部にＨＴＭＬとして挿入されます。​法的通知、連絡先リンク、ビジネス情報、などに役立ちます。
 
 #### "phpmailer" （カテゴリ）
 PHPMailerの設定（二要素認証に使用されます）。
@@ -1761,4 +1779,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２２年５月１２日。
+最終アップデート：２０２２年９月２６日。

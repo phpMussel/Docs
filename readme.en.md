@@ -11,7 +11,7 @@
 - 8. [FREQUENTLY ASKED QUESTIONS (FAQ)](#SECTION8)
 - 9. [LEGAL INFORMATION](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -557,6 +557,8 @@ Configuration (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -565,6 +567,8 @@ Configuration (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -741,6 +745,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -750,6 +755,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -772,7 +778,7 @@ lang
 - Hide version information from logs and page output? True = Yes; False = No [Default].
 
 ##### "disabled_channels" `[string]`
-- This can be used to prevent phpMussel from using particular channels when sending requests (e.g., when updating, when fetching component metadata, etc).
+- This can be used to prevent phpMussel from using particular channels when sending requests.
 
 ```
 disabled_channels
@@ -982,7 +988,7 @@ Configuration for legal requirements.
 Supplementary cache options. Note: Changing these values may potentially log you out.
 
 ##### "prefix" `[string]`
-- The value specified here will be prepended to all cache entry keys. Empty by default. When multiple installations exist at the same server, this can be useful for keeping their caches separate from each other.
+- The value specified here will be prepended to all cache entry keys. Default = "phpMussel_". When multiple installations exist at the same server, this can be useful for keeping their caches separate from each other.
 
 ##### "enable_apcu" `[bool]`
 - Specifies whether to try using APCu for caching. Default = True.
@@ -1082,7 +1088,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- Defines which algorithm to use for all future passwords and sessions. Options: PASSWORD_DEFAULT (default), PASSWORD_BCRYPT, PASSWORD_ARGON2I (requires PHP >= 7.2.0), PASSWORD_ARGON2ID (requires PHP >= 7.3.0).
+- Defines which algorithm to use for all future passwords and sessions.
 
 ```
 default_algo
@@ -1110,6 +1116,12 @@ theme
 
 ##### "magnification" `[float]`
 - Font magnification. Default = 1.
+
+##### "custom_header" `[string]`
+- Inserted as HTML at the very beginning of all front-end pages. This could be useful in case you want to include a website logo, personalised header, scripts, or similar at all such pages.
+
+##### "custom_footer" `[string]`
+- Inserted as HTML at the very bottom of all front-end pages. This could be useful in case you want to include a legal notice, contact link, business information or similar at all such pages.
 
 #### "web" (Category)
 Configuration for the upload handler.
@@ -1147,6 +1159,12 @@ theme
 
 ##### "magnification" `[float]`
 - Font magnification. Default = 1.
+
+##### "custom_header" `[string]`
+- Inserted as HTML at the very beginning of all "upload denied" pages. This could be useful in case you want to include a website logo, personalised header, scripts, or similar at all such pages.
+
+##### "custom_footer" `[string]`
+- Inserted as HTML at the very bottom of all "upload denied" pages. This could be useful in case you want to include a legal notice, contact link, business information or similar at all such pages.
 
 #### "phpmailer" (Category)
 Configuration for PHPMailer (used for two-factor authentication).
@@ -1805,4 +1823,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 12 May 2022 (2022.05.12).
+Last Updated: 26 September 2022 (2022.09.26).

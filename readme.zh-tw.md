@@ -11,7 +11,7 @@
 - 8. [常見問題（FAQ）](#SECTION8)
 - 9. [法律信息](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ v3樣板代碼的結構與phpMussel組織中各種phpMussel v3存儲庫的結構
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ v3樣板代碼的結構與phpMussel組織中各種phpMussel v3存儲庫的結構
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - 從日誌和頁面輸出中隱藏版本信息嗎？​True（真）=關閉；False（假）=不關閉【標準】。
 
 ##### 『disabled_channels』 `[string]`
-- 這可用於防止phpMussel在發送請求時使用特定通道（例如，在更新時，在獲取組件元數據時，等等）。
+- 這可用於防止phpMussel在發送請求時使用特定通道。
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ URL掃描程序的配置。
 補充緩存選項。​注意：更改這些值可能會使您註銷。
 
 ##### 『prefix』 `[string]`
-- 該值將附加到所有緩存條目的鍵的開頭。​默認值為空。​當同一服務器上存在多個安裝時，這對於將它們的緩存彼此分開非常有用。
+- 該值將附加到所有緩存條目的鍵的開頭。​默認 = 『phpMussel_』。​當同一服務器上存在多個安裝時，這對於將它們的緩存彼此分開非常有用。
 
 ##### 『enable_apcu』 `[bool]`
 - 指定是否嘗試使用APCu進行緩存。​默認 = True。
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### 『default_algo』 `[string]`
-- 定義要用於所有未來密碼和會話的算法。​選項：​PASSWORD_DEFAULT（標準），​PASSWORD_BCRYPT，​PASSWORD_ARGON2I（需要PHP >= 7.2.0），​PASSWORD_ARGON2ID（需要PHP >= 7.3.0）。
+- 定義要用於所有未來密碼和會話的算法。
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### 『magnification』 `[float]`
 - 字體放大。​標準 = 1。
+
+##### 『custom_header』 `[string]`
+- 在所有前端頁面的開頭作為HTML插入。​如果您想在所有此類頁面中包含網站徽標、個性化標題、腳本、或類似，這可能會很有用。
+
+##### 『custom_footer』 `[string]`
+- 在所有前端頁面的末尾作為HTML插入。​如果您想在所有此類頁面中包含法律聲明、聯繫鏈接、業務信息、或類似，這可能會很有用。
 
 #### 『web』 （類別）
 上傳處理程序的配置。
@@ -1111,6 +1123,12 @@ theme
 
 ##### 『magnification』 `[float]`
 - 字體放大。​標準 = 1。
+
+##### 『custom_header』 `[string]`
+- 在所有『上傳是否認』頁面的開頭作為HTML插入。​如果您想在所有此類頁面中包含網站徽標、個性化標題、腳本、或類似，這可能會很有用。
+
+##### 『custom_footer』 `[string]`
+- 在所有『上傳是否認』頁面的末尾作為HTML插入。​如果您想在所有此類頁面中包含法律聲明、聯繫鏈接、業務信息、或類似，這可能會很有用。
 
 #### 『phpmailer』 （類別）
 PHPMailer的配置（用於雙因素身份驗證）。
@@ -1762,4 +1780,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2022年5月12日。
+最後更新：2022年9月26日。

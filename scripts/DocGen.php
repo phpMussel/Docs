@@ -177,7 +177,7 @@ if (!isset($_GET['language'])) {
     if (!isset($_GET['autoupdate'])) {
         echo $First . "```\n\n" . $Final;
     } else {
-        $Try = $_GET['autoupdate'] . $_GET['language'] . '.md';
+        $Try = $_GET['autoupdate'] . '.' . $_GET['language'] . '.md';
         if (is_file($Try) && is_writable($Try)) {
             $README = file_get_contents($Try);
             if (($Start = strpos($README, '<a name="SECTION5">')) !== false) {

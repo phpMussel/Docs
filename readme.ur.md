@@ -13,7 +13,7 @@
  <li>۹. <a href="#SECTION9">قانونی معلومات</a></li>
 </ul></div>
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -525,6 +525,8 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -533,6 +535,8 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -710,6 +714,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -719,6 +724,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -741,7 +747,7 @@ lang
 <div dir="rtl"><ul><li>لاگ ان اور صفحے کی پیداوار سے ورژن کی معلومات چھپائیں؟ True (سچے) = جی ہاں؛ False (جھوٹی) = نہیں [پہلے سے طے شدہ].</li></ul></div>
 
 ##### <div dir="rtl">"disabled_channels" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>درخواستوں کو بھیجنے کے لئے خاص طور پر چینلز کا استعمال کے لئے phpMussel کو روکنے کے لئے یہ استعمال کیا جا سکتا ہے (مثال کے طور پر، جب اپ ڈیٹ کرنا، اجزاء میٹا ڈیٹا، وغیرہ کو پکڑنے کے بعد).</li></ul></div>
+<div dir="rtl"><ul><li>درخواستوں کو بھیجنے کے لئے خاص طور پر چینلز کا استعمال کے لئے phpMussel کو روکنے کے لئے یہ استعمال کیا جا سکتا ہے.</li></ul></div>
 
 ```
 disabled_channels
@@ -947,7 +953,7 @@ __یہ کیسے کام کرتا ہے.__ آپ کے سسٹم صرف فائلوں �
 <div dir="rtl">ضمنی کیشے کے اختیارات. نوٹ: ان اقدار کو تبدیل کرنے سے آپ ممکنہ طور پر لاگ آؤٹ ہو سکتے ہیں.<br /><br /></div>
 
 ##### <div dir="rtl">"prefix" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>یہاں بیان کردہ قدر کو تمام کیش انٹری کیز کے ساتھ پہلے سے جوڑا جائے گا. بطور ڈیفالٹ خالی. جب ایک ہی سرور پر متعدد تنصیبات موجود ہوں، تو یہ ان کے کیچز کو ایک دوسرے سے الگ رکھنے کے لیے مفید ہو سکتا ہے.</li></ul></div>
+<div dir="rtl"><ul><li>یہاں بیان کردہ قدر کو تمام کیش انٹری کیز کے ساتھ پہلے سے جوڑا جائے گا. پہلے سے طے شدہ = "phpMussel_". جب ایک ہی سرور پر متعدد تنصیبات موجود ہوں، تو یہ ان کے کیچز کو ایک دوسرے سے الگ رکھنے کے لیے مفید ہو سکتا ہے.</li></ul></div>
 
 ##### <div dir="rtl">"enable_apcu" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>اس کی وضاحت کرتا ہے کہ کیش کے لئے APCu استعمال کرنا چاہے. پہلے سے طے شدہ = True (سچ).</li></ul></div>
@@ -1047,7 +1053,7 @@ numbers
 ```
 
 ##### <div dir="rtl">"default_algo" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>اس بات کی وضاحت کرتا ہے جو تمام مستقبل کے پاس ورڈ اور سیشن کے لئے الگورتھم استعمال کرنا ہے. اختیارات: PASSWORD_DEFAULT (ڈیفالٹ), PASSWORD_BCRYPT, PASSWORD_ARGON2I (PHP &gt;= 7.2.0 کی ضرورت ہے), PASSWORD_ARGON2ID (PHP &gt;= 7.3.0 کی ضرورت ہے).</li></ul></div>
+<div dir="rtl"><ul><li>اس بات کی وضاحت کرتا ہے جو تمام مستقبل کے پاس ورڈ اور سیشن کے لئے الگورتھم استعمال کرنا ہے.</li></ul></div>
 
 ```
 default_algo
@@ -1075,6 +1081,12 @@ theme
 
 ##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
 <div dir="rtl"><ul><li>فونٹ اضافہ. پہلے سے طے شدہ = 1.</li></ul></div>
+
+##### <div dir="rtl">"custom_header" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تمام فرنٹ اینڈ پیجز کے شروع میں HTML کے بطور داخل کیا گیا. اگر آپ ویب سائٹ کا لوگو، پرسنلائزڈ ہیڈر، اسکرپٹس، وغیرہ شامل کرنا چاہتے ہیں، تو یہ مفید ہو سکتا ہے.</li></ul></div>
+
+##### <div dir="rtl">"custom_footer" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تمام فرنٹ اینڈ پیجز کے آخر میں HTML کے بطور داخل کیا گیا. اگر آپ قانونی نوٹس، رابطہ لنک، کاروباری معلومات، وغیرہ شامل کرنا چاہتے ہیں، تو یہ مفید ہو سکتا ہے.</li></ul></div>
 
 #### <div dir="rtl">"web" (قسم)<br /></div>
 <div dir="rtl">اپ لوڈ ہینڈلر کیلئے ترتیبات.<br /><br /></div>
@@ -1112,6 +1124,12 @@ theme
 
 ##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
 <div dir="rtl"><ul><li>فونٹ اضافہ. پہلے سے طے شدہ = 1.</li></ul></div>
+
+##### <div dir="rtl">"custom_header" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تمام "اپ لوڈ کریں تردید" صفحات کے شروع میں بطور HTML داخل کیا گیا. اگر آپ ویب سائٹ کا لوگو، پرسنلائزڈ ہیڈر، اسکرپٹس، وغیرہ شامل کرنا چاہتے ہیں، تو یہ مفید ہو سکتا ہے.</li></ul></div>
+
+##### <div dir="rtl">"custom_footer" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>تمام "اپ لوڈ کریں تردید" صفحات کے آخر میں بطور HTML داخل کیا گیا. اگر آپ قانونی نوٹس، رابطہ لنک، کاروباری معلومات، وغیرہ شامل کرنا چاہتے ہیں، تو یہ مفید ہو سکتا ہے.</li></ul></div>
 
 #### <div dir="rtl">"phpmailer" (قسم)<br /></div>
 <div dir="rtl">PHPMailer کی ترتیبات (دو عنصر کی توثیق کے لئے استعمال کیا جاتا ہےn).<br /><br /></div>
@@ -1796,4 +1814,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۱۲ مئی ۲۰۲۲ (۲۰۲۲.۰۵.۱۲).</div>
+<div dir="rtl">آخری تازہ کاری: ۲۶ ستمبر ۲۰۲۲ (۲۰۲۲.۰۹.۲۶).</div>

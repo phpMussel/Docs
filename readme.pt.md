@@ -11,7 +11,7 @@
 - 8. [PERGUNTAS MAIS FREQUENTES (FAQ)](#SECTION8)
 - 9. [INFORMAÇÃO LEGAL](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Configuração (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Configuração (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - Ocultar informações da versão dos logs e da saída da página? True = Sim; False = Não [Padrão].
 
 ##### "disabled_channels" `[string]`
-- Isso pode ser usado para impedir que o phpMussel use canais específicos ao enviar solicitações (por exemplo, ao atualizar, ao buscar metadados de componentes, etc).
+- Isso pode ser usado para impedir que o phpMussel use canais específicos ao enviar solicitações.
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ Configuração para requisitos legais.
 Opções de cache suplementares. Nota: Alterar estes valores podem potencialmente fazer você ser estar desconectado.
 
 ##### "prefix" `[string]`
-- O valor especificado aqui será adicionado ao começo das chaves para todas as entradas de cache. Vazio por padrão. Quando existem várias instalações no mesmo servidor, isso pode ser útil para manter seus caches separados uns dos outros.
+- O valor especificado aqui será adicionado ao começo das chaves para todas as entradas de cache. Padrão = "phpMussel_". Quando existem várias instalações no mesmo servidor, isso pode ser útil para manter seus caches separados uns dos outros.
 
 ##### "enable_apcu" `[bool]`
 - Especifica se deve tentar usar o APCu para armazenamento em cache. Padrão = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### "default_algo" `[string]`
-- Define qual algoritmo usar para todas as futuras senhas e sessões. Opções: PASSWORD_DEFAULT (padrão), PASSWORD_BCRYPT, PASSWORD_ARGON2I (requer PHP >= 7.2.0), PASSWORD_ARGON2ID (requer PHP >= 7.3.0).
+- Define qual algoritmo usar para todas as futuras senhas e sessões.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### "magnification" `[float]`
 - Ampliação de fonte. Padrão = 1.
+
+##### "custom_header" `[string]`
+- Inserido como HTML no início de todas as páginas do front-end. Isso pode ser útil caso você queira incluir um logotipo de site, cabeçalho personalizado, scripts, ou similares em todas essas páginas.
+
+##### "custom_footer" `[string]`
+- Inserido como HTML no final de todas as páginas do front-end. Isso pode ser útil caso você queira incluir um aviso legal, link de contato, informações comerciais, ou similares em todas essas páginas.
 
 #### "web" (Categoria)
 Configuração para o manipulador de carregamentos.
@@ -1111,6 +1123,12 @@ theme
 
 ##### "magnification" `[float]`
 - Ampliação de fonte. Padrão = 1.
+
+##### "custom_header" `[string]`
+- Inserido como HTML no início de todas as páginas "carregar negado". Isso pode ser útil caso você queira incluir um logotipo de site, cabeçalho personalizado, scripts, ou similares em todas essas páginas.
+
+##### "custom_footer" `[string]`
+- Inserido como HTML no final de todas as páginas "carregar negado". Isso pode ser útil caso você queira incluir um aviso legal, link de contato, informações comerciais, ou similares em todas essas páginas.
 
 #### "phpmailer" (Categoria)
 Configuração para PHPMailer (usado para autenticação de dois fatores).
@@ -1764,4 +1782,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 30 de Junho de 2022 (2022.06.30).
+Última Atualização: 26 de Setembro de 2022 (2022.09.26).

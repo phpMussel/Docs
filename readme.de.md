@@ -11,7 +11,7 @@
 - 8. [HÄUFIG GESTELLTE FRAGEN (FAQ)](#SECTION8)
 - 9. [RECHTSINFORMATION](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Konfiguration (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Konfiguration (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - Versionsinformationen aus Protokollen und Seitenausgabe ausblenden? True = Ja; False = Nein [Standardeinstellung].
 
 ##### „disabled_channels“ `[string]`
-- Dies kann verwendet werden, um zu verhindern, dass phpMussel beim Senden von Anforderungen bestimmte Kanäle verwendet (z.B., beim Aktualisieren, beim Abrufen von Komponentenmetadaten, u.s.w.).
+- Dies kann verwendet werden, um zu verhindern, dass phpMussel beim Senden von Anforderungen bestimmte Kanäle verwendet.
 
 ```
 disabled_channels
@@ -910,7 +916,7 @@ Siehe auch:
 - Soll phpMussel die Ergebnisse des Scans mit der Virus Total API als Erkennungen oder Erkennungs-Gewichtung anwenden? Diese Direktive existiert, weil das Scannen einer Datei mit mehreren Engines (wie es Virus Total macht) in einer höheren Erkennungsrate resultieren sollte (und somit eine größere Anzahl schädlicher Dateien erwischt werden), dies kann aber zu in einer höheren Anzahl von Falschmeldungen führen. Unter manchen Umständen würden die Ergebnisse des Scans besser als Vertrauens-Wert als ein eindeutiges Ergebnis verwendet werden. Wenn der Wert 0 verwendet wird, werden die Ergebnisse des Scans als Erkennungen angewendet und somit wird phpMussel, falls irgendeine von Virus Total verwendete Engine die gescannte Datei als schädlich markiert, die Datei als schädlich betrachten. Wird ein anderer Wert verwendet, werden die Ergebnisse des Scans mit der Virus Total API als Erkennungs-Gewichtung angewendet. Die Anzahl der von Virus Total verwendeten Engines, welche die Datei als schädlich markieren, wird als Vertrauens-Wert (oder Erkennungs-Gewichtung) dienen, ob die gescannte Datei von phpMussel als schädlich angesehen werden soll (der verwendete Wert wird den Mindest-Vertrauens-Wert oder erforderliche Gewichtung repräsentieren, um als schädlich angesehen zu werden. Standardmäßig der Wert 0 verwendet.
 
 ##### „vt_quota_rate“ `[int]`
-- Laut der Virus Total API Dokumentation, "ist diese auf 4 Anfragen irgendeiner Art in einer 1 Minuten Zeitspanne limitiert. Falls du einen Honeyclient, Honeypot oder einen andere Automatisierung verwendest, was etwas zu VirusTotal beiträgt und nicht nur Berichte abruft, bist du für ein höheres Limit berechtigt". Standardmäßig wird sich phpMussel strikt daran halten, da aber diese Limits erhöht werden können, stehen dir diese zwei Direktiven zur Verfügung um phpMussel anzuweisen, an welches Limit es sich halten soll. Außer du bist dazu aufgefordert, ist es nicht empfohlen diese Werte zu erhöhen. Solltest du aber Probleme bezogen auf das Erreichen des Limits haben, *__SOLLTE__* das Verringern dieser Werte manchmal helfen. Dein Limit wird festgelegt als `vt_quota_rate` Anfragen jeder Art in jeder `vt_quota_time` Minuten Zeitspanne.
+- Laut der Virus Total API Dokumentation, „ist diese auf 4 Anfragen irgendeiner Art in einer 1 Minuten Zeitspanne limitiert. Falls du einen Honeyclient, Honeypot oder einen andere Automatisierung verwendest, was etwas zu VirusTotal beiträgt und nicht nur Berichte abruft, bist du für ein höheres Limit berechtigt“. Standardmäßig wird sich phpMussel strikt daran halten, da aber diese Limits erhöht werden können, stehen dir diese zwei Direktiven zur Verfügung um phpMussel anzuweisen, an welches Limit es sich halten soll. Außer du bist dazu aufgefordert, ist es nicht empfohlen diese Werte zu erhöhen. Solltest du aber Probleme bezogen auf das Erreichen des Limits haben, *__SOLLTE__* das Verringern dieser Werte manchmal helfen. Dein Limit wird festgelegt als `vt_quota_rate` Anfragen jeder Art in jeder `vt_quota_time` Minuten Zeitspanne.
 
 ##### „vt_quota_time“ `[int]`
 - (Siehe Beschreibung oben).
@@ -946,7 +952,7 @@ Konfiguration für gesetzliche Anforderungen.
 Zusätzliche Cache-Optionen. Hinweis: Das Ändern dieser Werte kann Sie möglicherweise ausloggen.
 
 ##### „prefix“ `[string]`
-- Dieser Wert hier wird zu allen Cache-Eintragsschlüsseln vorangestellt. Standardmäßig leer. Wenn mehrere Installationen auf demselben Server vorhanden sind, kann dies nützlich sein, um ihre Caches getrennt zu halten.
+- Dieser Wert hier wird zu allen Cache-Eintragsschlüsseln vorangestellt. Standardeinstellung = „phpMussel_“. Wenn mehrere Installationen auf demselben Server vorhanden sind, kann dies nützlich sein, um ihre Caches getrennt zu halten.
 
 ##### „enable_apcu“ `[bool]`
 - Dies gibt an, ob APCu für das Caching verwendet werden soll. Standardeinstellung = True.
@@ -976,7 +982,7 @@ Zusätzliche Cache-Optionen. Hinweis: Das Ändern dieser Werte kann Sie möglich
 - Redis Timeout-Wert. Standardeinstellung = „2.5“.
 
 ##### „pdo_dsn“ `[string]`
-- PDO DSN-Wert. Standardeinstellung = "mysql:dbname=phpmussel;host=localhost;port=3306".
+- PDO DSN-Wert. Standardeinstellung = „mysql:dbname=phpmussel;host=localhost;port=3306“.
 
 __FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.de.md#HOW_TO_USE_PDO" hreflang="de">Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?</a></em>
 
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### „default_algo“ `[string]`
-- Definiert den Algorithmus für alle zukünftigen Passwörter und Sitzungen. Optionen: PASSWORD_DEFAULT (Standardeinstellung), PASSWORD_BCRYPT, PASSWORD_ARGON2I (erfordert PHP >= 7.2.0), PASSWORD_ARGON2ID (erfordert PHP >= 7.3.0).
+- Definiert den Algorithmus für alle zukünftigen Passwörter und Sitzungen.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### „magnification“ `[float]`
 - Schriftvergrößerung. Standardeinstellung = 1.
+
+##### „custom_header“ `[string]`
+- Als HTML ganz am Anfang aller Frontend-Seiten eingefügt. Dies kann nützlich sein, wenn Sie auf allen solchen Seiten ein Website-Logo, einen personalisierten Header, Skripte, oder ähnliches einfügen möchten.
+
+##### „custom_footer“ `[string]`
+- Als HTML ganz am Unten aller Frontend-Seiten eingefügt. Dies kann nützlich sein, wenn Sie auf allen solchen Seiten einen rechtlichen Hinweis, einen Kontaktlink, Geschäftsinformationen, oder ähnliches einfügen möchten.
 
 #### „web“ (Kategorie)
 Konfiguration für den Upload-Handler.
@@ -1111,6 +1123,12 @@ theme
 
 ##### „magnification“ `[float]`
 - Schriftvergrößerung. Standardeinstellung = 1.
+
+##### „custom_header“ `[string]`
+- Als HTML ganz am Anfang aller "Upload verweigert"-Seiten eingefügt. Dies kann nützlich sein, wenn Sie auf allen solchen Seiten ein Website-Logo, einen personalisierten Header, Skripte, oder ähnliches einfügen möchten.
+
+##### „custom_footer“ `[string]`
+- Als HTML ganz am Unten aller "Upload verweigert"-Seiten eingefügt. Dies kann nützlich sein, wenn Sie auf allen solchen Seiten einen rechtlichen Hinweis, einen Kontaktlink, Geschäftsinformationen, oder ähnliches einfügen möchten.
 
 #### „phpmailer“ (Kategorie)
 Konfiguration für PHPMailer (für Zwei-Faktor-Authentifizierung verwendet).
@@ -1776,4 +1794,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 30. Juni 2022 (2022.06.30).
+Zuletzt aktualisiert: 26. September 2022 (2022.09.26).

@@ -11,7 +11,7 @@
 - 8. [QUESTIONS FRÉQUEMMENT POSÉES (FAQ)](#SECTION8)
 - 9. [INFORMATION LÉGALE](#SECTION9)
 
-*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is totally irredeemably incomprehensible, let me know which, and I can just delete them entirely. If you're not sure how to perform pull requests, ask. I can help.*
+*Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
 ---
 
@@ -521,6 +521,8 @@ Configuration (v3)
 │       default_algo [string]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 ├───web
 │       uploads_log [string]
 │       forbid_on_block [bool]
@@ -529,6 +531,8 @@ Configuration (v3)
 │       ignore_upload_errors [bool]
 │       theme [string]
 │       magnification [float]
+│       custom_header [string]
+│       custom_footer [string]
 └───phpmailer
         event_log [string]
         enable_two_factor [bool]
@@ -705,6 +709,7 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
 ├─pl ("Polski")
@@ -714,6 +719,7 @@ lang
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
+├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
 ├─zh ("中文（简体）")
@@ -736,7 +742,7 @@ lang
 - Masquer les informations de version à partir des journaux et de la sortie de la page ? True = Oui ; False = Non [Défaut].
 
 ##### « disabled_channels » `[string]`
-- Ceci peut être utilisé pour empêcher phpMussel d'utiliser des canaux particuliers lors de l'envoi de requêtes (par exemple, lors de la mise à jour, lors de l'extraction de métadonnées de composant, etc).
+- Ceci peut être utilisé pour empêcher phpMussel d'utiliser des canaux particuliers lors de l'envoi de requêtes.
 
 ```
 disabled_channels
@@ -946,7 +952,7 @@ Configuration pour les exigences légales.
 Options de cache supplémentaires. Remarque : La modification de ces valeurs peut potentiellement vous déconnecter.
 
 ##### « prefix » `[string]`
-- La valeur spécifiée ici sera ajoutée à toutes les clés d'entrée du cache. Vide par défaut. Lorsque plusieurs installations existent sur le même serveur, cela peut être utile pour séparer leurs caches les uns des autres.
+- La valeur spécifiée ici sera ajoutée à toutes les clés d'entrée du cache. Défaut = « phpMussel_ ». Lorsque plusieurs installations existent sur le même serveur, cela peut être utile pour séparer leurs caches les uns des autres.
 
 ##### « enable_apcu » `[bool]`
 - Spécifie s'il faut essayer d'utiliser APCu pour la mise en cache. Défaut = True.
@@ -1046,7 +1052,7 @@ numbers
 ```
 
 ##### « default_algo » `[string]`
-- Définit quel algorithme utiliser pour tous les mots de passe et les sessions à l'avenir. Options : PASSWORD_DEFAULT (défaut), PASSWORD_BCRYPT, PASSWORD_ARGON2I (nécessite PHP >= 7.2.0), PASSWORD_ARGON2ID (nécessite PHP >= 7.3.0).
+- Définit quel algorithme utiliser pour tous les mots de passe et les sessions à l'avenir.
 
 ```
 default_algo
@@ -1074,6 +1080,12 @@ theme
 
 ##### « magnification » `[float]`
 - Grossissement des fontes. Défaut = 1.
+
+##### « custom_header » `[string]`
+- Inséré en tant que HTML au tout début de toutes les pages frontales. Cela peut être utile si vous souhaitez inclure un logo de site Web, un en-tête personnalisé, des scripts, ou similaires sur toutes ces pages.
+
+##### « custom_footer » `[string]`
+- Inséré en tant que HTML au tout bas de toutes les pages frontales. Cela peut être utile si vous souhaitez inclure une notice légale, un lien de contact, des informations commerciales, ou similaires sur toutes ces pages.
 
 #### « web » (Catégorie)
 Configuration du gestionnaire de téléchargements.
@@ -1111,6 +1123,12 @@ theme
 
 ##### « magnification » `[float]`
 - Grossissement des fontes. Défaut = 1.
+
+##### « custom_header » `[string]`
+- Inséré en tant que HTML au tout début de toutes les pages « téléchargement refusé ». Cela peut être utile si vous souhaitez inclure un logo de site Web, un en-tête personnalisé, des scripts, ou similaires sur toutes ces pages.
+
+##### « custom_footer » `[string]`
+- Inséré en tant que HTML au tout bas de toutes les pages « téléchargement refusé ». Cela peut être utile si vous souhaitez inclure une notice légale, un lien de contact, des informations commerciales, ou similaires sur toutes ces pages.
 
 #### « phpmailer » (Catégorie)
 Configuration pour PHPMailer (utilisé pour l'authentification à deux facteurs).
@@ -1774,4 +1792,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 12 Mai 2022 (2022.05.12).
+Dernière mise à jour : 26 Septembre 2022 (2022.09.26).
