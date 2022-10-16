@@ -18,15 +18,15 @@
 
 ### 1. <a name="SECTION1"></a>서문
 
-phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 hook된 곳에서 ClamAV 등의 서명을 기반으로 시스템에 업로드된 파일 내의 트로이 목마, 바이러스, 멀웨어 및 기타 위협 요소를 탐지하기 위한 PHP 스크립트입니다.
+스크립트가 hook된 곳에서 ClamAV 등의 서명을 기반으로 시스템에 업로드된 파일 내의 트로이 목마, 바이러스, 멀웨어 및 기타 위협 요소를 탐지하기 위한 PHP 스크립트인 phpMussel을 이용해 주셔서 감사합니다.
 
 [PHPMUSSEL](https://phpmussel.github.io/) COPYRIGHT 2013 and beyond GNU/GPLv2 by [Caleb M (Maikuolan)](https://github.com/Maikuolan).
 
-이 스크립트는 자유 소프트웨어입니다; 당신은 자유 소프트웨어 재단이 발표한 GNU 일반 공중 사용 허가서 버전 2 또는 그 이후 버전에 따라 이 스크립트를 재배포하거나 수정할 수 있습니다. 이 스크립트가 유용하게 사용되기를 바라지만 상용으로 사용되거나 특정 목적에 적합할 것이라는 것을 묵시적인 보증을 포함한 그 어떠한 형태로도 보증하지 않습니다. 자세한 내용은 `LICENSE.txt` 파일 또는 다음 링크에서 확인할 수 있는 GNU 일반 공중 사용 허가서를 참조하시기 바랍니다:
+이 스크립트는 자유 소프트웨어입니다; 자유 소프트웨어 재단이 공표한 GNU 일반 공중 사용 허가서의 버전 2 또는 그 이후 버전 (선택 사항)의 조건에 따라 이를 재배포하거나 수정할 수 있습니다. 이 스크립트가 유용할 것이라는 희망에서 배포되었지만 어떠한 보증도 하지 않습니다; 상품성 또는 특정 목적에 대한 적합성에 대한 묵시적인 보증조차 하지 않습니다. 자세한 사항은 `LICENSE.txt` 파일 또는 다음 링크에서 확인할 수 있는 GNU 일반 공중 사용 허가서를 참조하시기 바랍니다:
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
-프로젝트에 영감을 주고 이 스크립트가 활용하는 서명을 제공하는 [ClamAV](https://www.clamav.net/)에게 감사의 말씀을 드립니다. 그 서명 없이는 이 스크립트가 존재하지 못했거나 극히 제한적인 가치만을 가졌을 것입니다.
+프로젝트에 영감을 주고 이 스크립트가 활용하는 서명을 제공하는 [ClamAV](https://www.clamav.net/)에게 감사의 말씀을 드립니다. 그 서명 없이는 이 스크립트가 존재하지 않았거나 극히 제한적인 가치밖에 없었을 것입니다.
 
 프로젝트 파일을 호스팅하는 GitHub과 Bitbucket, phpMussel이 활용하는 서명의 추가적인 소스: [PhishTank](https://www.phishtank.com/), [NLNetLabs](https://nlnetlabs.nl/), [Malware.Expert](https://malware.expert/) 등, 이 프로젝트를 지원해 주신 분들, 제가 잊어버리고 언급하지 못했을 다른 분들과 이 스크립트를 사용하는 당신에게 감사의 말씀을 드립니다.
 
@@ -35,62 +35,62 @@ phpMussel을 이용해 주셔서 감사합니다. phpMussel는 스크립트가 h
 
 ### 2. <a name="SECTION2"></a>설치 방법
 
-#### 2.0 COMPOSER를 사용하여 설치한다
+#### 2.0 COMPOSER를 이용하여 설치
 
-phpMussel v3을 설치하는 권장 방법은 Composer를 사용하는 것입니다.
+phpMussel v3을 설치하는 권장되는 방법은 Composer를 통해 설치하는 것입니다.
 
-편의를 위해 이전 기본 phpMussel 저장소를 통해 가장 일반적으로 필요한 phpMussel 종속성을 설치할 수 있습니다.
+편의를 위해 예전의 주 저장소를 통해 가장 일반적으로 필요한 phpMussel 의존성을 설치할 수 있습니다:
 
 `composer require phpmussel/phpmussel`
 
-또는, 구현에 필요한 종속성을 개별적으로 선택할 수 있습니다. 특정 종속성 만을 원하고 모든 것이 필요하지는 않을 가능성이 큽니다.
+또는 구현 시 필요할 의존성을 개별적으로 선택할 수 있습니다. 특정 의존성만 원하고 모든 것이 다 필요하지는 않을 가능성이 높습니다.
 
-phpMussel로 무엇이든 하기 위해서는, phpMussel 핵심 코드 베이스가 필요합니다 :
+phpMussel을 이용하여 무엇이든 하려면 phpMussel 코어 코드베이스가 필요합니다:
 
 `composer require phpmussel/core`
 
-phpMussel을 위한 프론트 엔드 관리 기능을 제공합니다 :
+phpMussel에 대한 프론트엔드 관리 기능을 제공합니다:
 
 `composer require phpmussel/frontend`
 
-웹 사이트에 대한 자동 파일 업로드 스캔을 제공합니다 :
+웹 사이트에 대해 자동 파일 업로드 검사를 제공합니다:
 
 `composer require phpmussel/web`
 
-phpMussel을 대화식 CLI 모드 응용 프로그램으로 활용할 수 있는 기능을 제공합니다 :
+phpMussel을 대화형 CLI 모드 애플리케이션으로 활용할 수 있도록 해 줍니다:
 
 `composer require phpmussel/cli`
 
-phpMussel과 PHPMailer를 연결하여 phpMussel이 2단계 인증, 차단된 파일 업로드에 대한 이메일 알림, 등을 위해 PHPMailer를 활용할 수 있도록 합니다 :
+phpMussel과 PHPMailer를 연결하여 phpMussel이 2단계 인증, 차단된 파일 업로드에 대한 이메일 알림 등에 PHPMailer를 활용할 수 있도록 해 줍니다:
 
 `composer require phpmussel/phpmailer`
 
-phpMussel이 무엇이든 감지하려면 서명을 설치해야 합니다. 그 목적을 위한 특정 패키지는 없습니다. 서명을 설치하려면이 문서의 다음 섹션을 참조하십시오.
+phpMussel이 무엇이든 감지하려면 서명을 설치해야 합니다. 이를 위한 특정 패키지는 없습니다. 서명을 설치하려면 이 문서의 다음 섹션을 참조하십시오.
 
-또는, Composer를 사용하지 않으려면, 여기에서 사전 패키지 된 ZIP을 다운로드할 수 있습니다 :
+또는 Composer를 사용하고 싶지 않다면 여기에서 사전 패키지된 ZIP을 다운로드할 수 있습니다:
 
 https://github.com/phpMussel/Examples
 
-사전 패키지 된 ZIP에는 위에서 언급 한 모든 종속성과 모든 표준 phpMussel 서명 파일과 구현 시 phpMussel을 사용하는 방법에 대한 예제가 포함되어 있습니다.
+사전 패키지된 ZIP에는 앞서 언급한 모든 의존성과 모든 표준 phpMussel 서명 파일과 구현 시 phpMussel을 사용하는 방법에 대한 예제가 포함되어 있습니다.
 
 #### <a name="INSTALLING_SIGNATURES"></a>2.1 서명 설치
 
-특정 위협을 감지하기 위해서는, phpMussel 의해 서명이 필요합니다. 서명을 설치하는 주요 방법은 2 가지가 있습니다.
+phpMussel은 특정 위협을 감지하기 위해 서명을 요구합니다. 서명을 설치하는 2가지 주요 방법이 있습니다:
 
-1. "SigTool"를 사용하여 서명을 생성하여 수동으로 설치합니다.
-2. "phpMussel/Signatures" 또는 "phpMussel/Examples"에서 서명을 다운로드하여 수동으로 설치합니다.
+1. "SigTool"을 이용하여 서명 생성 및 수동 설치.
+2. "phpMussel/Signatures"나 "phpMussel/Examples"에서 서명 다운로드 후 수동 설치.
 
-##### 2.1.0 "SigTool"를 사용하여 서명을 생성하여 수동으로 설치합니다.
+##### 2.1.0 "SigTool"을 이용하여 서명 생성 및 수동 설치.
 
-*참조 : [SigTool 설명서](https://github.com/phpMussel/SigTool#documentation).*
+*참조: [SigTool 설명서](https://github.com/phpMussel/SigTool#documentation).*
 
-*참고 사항 : SigTool은 ClamAV의 서명 만 처리합니다. 다른 출처에서 서명을 얻으려면 (예를 들어 phpMussel의 테스트 샘플을 탐지하는 데 필요한 서명이 포함 된 phpMussel 전용으로 작성된 것), 이 방법은 여기에 언급 된 다른 방법 중 하나로 보완해야합니다.*
+*참고 사항: SigTool은 ClamAV의 서명만 처리합니다. phpMussel의 테스트 샘플을 탐지하는 데 필요한 서명이 포함된 phpMussel 전용 서명과 같이 다른 소스에서 서명을 얻으려면 여기에 언급된 다른 방법으로 보완해야 합니다.*
 
-##### 2.1.1 "phpMussel/Signatures" 또는 "phpMussel/Examples"에서 서명을 다운로드하여 수동으로 설치합니다.
+##### 2.1.1 "phpMussel/Signatures"나 "phpMussel/Examples"에서 서명 다운로드 후 수동 설치
 
-첫째, [phpMussel/Signatures](https://github.com/phpMussel/Signatures)간다. 저장소는 다양한 GZ 압축 서명 파일이 포함되어 있습니다. 그들을 설치하려면, 필요한 파일을 다운로드하여 압축을 품니, 설치 시그니처 디렉터리로 복사하십시오.
+먼저 [phpMussel/Signatures](https://github.com/phpMussel/Signatures)로 가세요. 저장소에 다양한 GZ 압축 서명 파일이 포함되어 있습니다. 필요한 파일을 다운로드하고 압축을 푼 다음 설치본의 signatures 디렉토리에 복사하세요.
 
-대안 적으로, [phpMussel/Examples](https://github.com/phpMussel/Examples)에서 최신 ZIP을 다운로드하십시오. 그런 다음 해당 아카이브의 서명을 설치에 복사/붙여 넣기 할 수 있습니다.
+또는 [phpMussel/Examples](https://github.com/phpMussel/Examples)에서 최신 ZIP을 다운로드하세요. 그리고 해당 압축 파일에 들어 있는 서명을 설치본에 복사/붙여넣기할 수 있습니다.
 
 ---
 
