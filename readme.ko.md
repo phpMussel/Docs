@@ -65,7 +65,7 @@ phpMussel과 PHPMailer를 연결하여 phpMussel이 2단계 인증, 차단된 �
 
 `composer require phpmussel/phpmailer`
 
-phpMussel이 무엇이든 감지하려면 서명을 설치해야 합니다. 이를 위한 특정 패키지는 없습니다. 서명을 설치하려면 이 문서의 다음 섹션을 참조하십시오.
+phpMussel이 무엇이든 감지하려면 서명을 설치해야 합니다. 이를 위한 특정 패키지는 없습니다. 서명을 설치하려면 이 문서의 다음 섹션을 참조하세요.
 
 또는 Composer를 사용하고 싶지 않다면 여기에서 사전 패키지된 ZIP을 다운로드할 수 있습니다:
 
@@ -99,15 +99,15 @@ phpMussel은 특정 위협을 감지하기 위해 서명을 요구합니다. 서
 
 #### 3.0 PHPMUSSEL 구성
 
-phpMussel을 설치한 후, 구성 할 수 있도록 구성 파일이 필요합니다. phpMussel 설정 파일은 INI 또는 YML 파일로 포맷 될 수 있습니다. 예제 ZIP 중 하나에서 작업하는 경우 이미 사용 가능한 두 개의 구성 파일이 있습니다 (`phpmussel.ini`와 `phpmussel.yml`). 당신은 이것들로부터 작업을 할 수 있습니다, 네가 원한다면. 예제 ZIP 중 하나에서 작업하지 않는 경우 새 파일을 작성해야 합니다.
+phpMussel을 설치한 후 이를 구성하기 위해 구성 파일이 필요합니다. phpMussel 구성 파일에 INI나 YML 파일 형식을 사용할 수 있습니다. 예제 ZIP 중 하나를 이용하여 작업하는 경우 이미 두 가지 예제 구성 파일인 `phpmussel.ini`와 `phpmussel.yml` 파일이 있습니다; 원한다면 둘 중 하나를 선택하여 작업할 수 있습니다. 예제 ZIP 중 하나를 이용하여 작업하지 않는다면 새 파일을 만들어야 합니다.
 
-phpMussel의 기본 구성에 만족하고 아무것도 변경하지 않으려는 경우, 빈 파일을 구성 파일로 사용할 수 있습니다. 변경하려는 값을 설정하십시오. 다른 모든 것은 기본값을 사용합니다.
+phpMussel의 기본 구성에 만족하고 아무것도 변경하지 않으려면 빈 파일을 구성 파일로 사용할 수 있습니다. 구성 파일에서 구성되지 않은 것은 기본값을 사용하므로 기본값과 다른 것을 사용하고 싶은 것만 명시적으로 구성하면 됩니다 (즉, 빈 구성 파일은 phpMussel이 모든 기본값을 사용하도록 합니다).
 
-프런트 엔드 구성 페이지에서 모든 것을 구성 할 수 있습니다, 네가 원한다면. 그러나 v3부터는 프런트 엔드 로그인 정보가 구성 파일에 저장됩니다. 그러므로, 프런트 엔드임에 로그인하려면 계정을 설정해야 합니다. 그런 다음을 사용하여 로그인하고 다른 모든 것을 구성 할 수 있습니다.
+phpMussel 프론트엔드를 사용하고 싶다면 프론트엔드 구성 페이지에서 모든 것을 구성할 수 있습니다. 단 v3부터는 프론트엔드 로그인 정보가 구성 파일에 저장되므로 프론트엔드에 로그인하려면 최소한 로그인할 때 사용할 계정을 구성해야 하며, 그런 다음 로그인한 후 프론트엔드 구성 페이지를 이용하여 다른 것들을 구성할 수 있습니다.
 
-아래 발췌 부분은 사용자 이름이 "admin"이고 암호가 "password"인 새 계정을 프런트 엔도임에 추가합니다.
+아래는 사용자 이름이 "admin"이고 비밀번호가 "password"인 새 계정을 프론트엔드에 추가합니다.
 
-INI 파일의 경우 :
+INI 파일의 경우:
 
 ```INI
 [user.admin]
@@ -115,7 +115,7 @@ password='$2y$10$FPF5Im9MELEvF5AYuuRMSO.QKoYVpsiu1YU9aDClgrU57XtLof/dK'
 permissions='1'
 ```
 
-YML 파일의 경우 :
+YML 파일의 경우:
 
 ```YAML
 user.admin:
@@ -123,15 +123,15 @@ user.admin:
  permissions: 1
 ```
 
-원하는 대로 구성 이름을 지정할 수 있습니다 (확장명을 유지하는 한, phpMussel이 파일이 사용하는 형식을 알 수 있도록). 또한 원하는 곳에 저장할 수 있습니다. 로더를 인스턴스화 할 때 경로를 제공하여 phpMussel에게 구성 파일을 찾을 위치를 알려줄 수 있습니다. 경로가 제공되지 않으면 phpMussel은 vendor디렉토리의 상위에서 경로를 찾으려고 시도합니다.
+원하는 대로 구성 이름을 지정할 수 있으며 (어떤 형식을 사용하는지 phpMussel이 알 수 있도록 확장자를 유지하는 한) 원하는 곳에 저장할 수 있습니다. 로더를 인스턴스화할 때 경로를 제공하여 phpMussel이 어디서 구성 파일을 찾을지 알려줄 수 있습니다. 경로가 제공되지 않으면 phpMussel은 vendor 디렉토리의 상위에서 구성 파일 찾기를 시도합니다.
 
-Apache와 같은 환경에서는 구성 앞에 점을 두어 구성 요소를 숨기고 공개 액세스를 막을 수도 있습니다.
+Apache와 같은 일부 환경에서는 구성 파일 앞에 점을 붙여 이를 숨기고 공개 액세스를 막을 수도 있습니다.
 
-phpMussel에서 사용할 수있는 다양한 구성 지시문에 대한 자세한 내용은이 문서의 구성 섹션을 참조하십시오.
+phpMussel에서 사용할 수 있는 다양한 구성 지시문에 대한 자세한 내용은 이 문서의 구성 섹션을 참조하세요.
 
 #### 3.1 PHPMUSSEL CORE
 
-phpMussel 사용 방법과 관계없이, 거의 모든 구현에는 최소한 다음과 같은 내용이 포함됩니다 :
+phpMussel을 어떻게 사용하고 싶든 거의 모든 구현에는 최소한 다음과 같은 내용이 포함됩니다:
 
 ```PHP
 <?php
@@ -139,9 +139,9 @@ $Loader = new \phpMussel\Core\Loader();
 $Scanner = new \phpMussel\Core\Scanner($Loader);
 ```
 
-로더 (loader)는 phpMussel 사용의 기본 필요성을 준비합니다. 스캐너 (scanner)는 모든 핵심 스캔 기능을 담당합니다.
+클래스 이름이 암시하듯이 로더는 phpMussel을 사용하는 데 기본적으로 필요한 것들을 준비하는 것을 담당하고 스캐너는 모든 핵심 검사 기능을 담당합니다.
 
-로더의 생성자는 5개의 매개 변수를 허용합니다 (모두 선택 사항입니다).
+로더의 생성자는 매개변수 5개를 허용하며 모두 선택 사항입니다.
 
 ```PHP
 public function __construct(
@@ -153,43 +153,43 @@ public function __construct(
 )
 ```
 
-매개 변수 1은 구성 파일의 전체 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel.ini` 또는 `phpmussel.yml` 이라는 이름의 구성 파일을 찾습니다.
+1번째 매개변수는 구성 파일의 전체 경로입니다. 생략하면 phpMussel은 vendor 디렉토리의 상위에서 `phpmussel.ini`나 `phpmussel.yml`이라는 이름의 구성 파일을 찾습니다.
 
-매개 변수 2는 phpMussel이 캐싱 및 임시 파일 저장에 사용할 수 있는 디렉터리의 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel-cache` 라는 이름으로 사용할 새로운 디렉토리를 만들려고합니다. 이 경로를 직접 지정하려면 지정된 디렉터리에서 다른 데이터의 원치 않는 손실을 피하고자 빈 디렉터리를 선택하는 것이 가장 좋습니다.
+2번째 매개변수는 phpMussel이 캐싱과 임시 파일 저장에 사용하도록 허용하는 디렉토리의 경로입니다. 생략하면 phpMussel은 vendor 디렉토리의 상위에 `phpmussel-cache`라는 이름으로 사용할 새 디렉토리 만들기를 시도합니다. 이 경로를 직접 지정하고 싶다면 지정된 디렉토리에 있는 다른 데이터의 원치 않는 손실을 방지하기 위해 빈 디렉토리를 선택하는 것이 가장 좋습니다.
 
-매개 변수 3은 phpMussel이 격리에 사용할 수 있는 디렉터리의 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel-quarantine` 이라는 이름의 새로운 디렉토리를 만들려고합니다. 이 경로를 직접 지정하려면 지정된 디렉터리에서 다른 데이터의 원치 않는 손실을 피하고자 빈 디렉터리를 선택하는 것이 가장 좋습니다. 격리에 사용된 디렉터리에 공개적으로 액세스하지 못하게 하는 것이 좋습니다.
+3번째 매개변수는 phpMussel이 격리에 사용하도록 허용하는 디렉토리의 경로입니다. 생략하면 phpMussel은 vendor 디렉토리의 상위에 `phpmussel-quarantine`이라는 이름으로 사용할 새 디렉토리 만들기를 시도합니다. 이 경로를 직접 지정하고 싶다면 지정된 디렉토리에 있는 다른 데이터의 원치 않는 손실을 방지하기 위해 빈 디렉토리를 선택하는 것이 가장 좋습니다. 격리에 사용되는 디렉토리에 대한 공개 액세스를 막는 것이 좋습니다.
 
-매개 변수 4는 phpMussel의 서명 파일이 들어 있는 디렉터리의 경로입니다. 생략하면, phpMussel은 vendor 디렉토리의 상위 내에 `phpmussel-signatures` 라는 이름의 디렉토리에서 서명 파일을 찾습니다.
+4번째 매개변수는 phpMussel의 서명 파일이 포함된 디렉토리의 경로입니다. 생략하면 phpMussel은 vendor 디렉토리의 상위에 있는 `phpmussel-signatures`라는 이름의 디렉토리에서 서명 파일 찾기를 시도합니다.
 
-매개 변수 5는 vendor 디렉터리의 경로입니다. 절대 다른 것을 가리켜서는 안 됩니다. 생략하면, phpMussel 은 이 디렉터리를 찾으려고 시도합니다. 이 매개 변수는 일반적인 Composer 프로젝트와 구조가 동일하지 않아도 되는 구현과 쉽게 통합 할 수 있도록 하기 위해 제공됩니다.
+5번째 매개변수는 vendor 디렉토리의 경로입니다. 절대로 다른 것을 가리켜서는 안 됩니다. 생략하면 phpMussel은 스스로 이 디렉토리 찾기를 시도합니다. 이 매개변수는 일반적인 Composer 프로젝트와 구조가 같지 않을 수도 있는 구현과 쉽게 통합할 수 있도록 제공됩니다.
 
-스캐너의 생성자는 하나의 매개 변수만 허용합니다 (필수입니다) : 인스턴스 화 된 로더 객체. 참조로 전달되므로 로더는 변수로 인스턴스화해야합니다 (로더를 스캐너의 매개 변수로 직접 인스턴스화하는 것은 phpMussel을 사용하는 올바른 방법이 아닙니다).
+스캐너의 생성자는 매개변수 1개만 허용하며 이는 필수입니다: 인스턴스화된 로더 객체. 이는 참조로 전달되므로 변수를 이용하여 인스턴스화해야 합니다 (값으로 전달하기 위해 스캐너 내에서 직접 인스턴스화하는 것은 phpMussel을 사용하는 올바른 방법이 아닙니다).
 
 ```PHP
 public function __construct(\phpMussel\Core\Loader &$Loader)
 ```
 
-#### 3.2 자동 파일 업로드 스캔
+#### 3.2 자동 파일 업로드 검사
 
-업로드 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
+업로드 핸들러를 인스턴스화하려면:
 
 ```PHP
 $Web = new \phpMussel\Web\Web($Loader, $Scanner);
 ```
 
-파일 업로드를 스캔하려면 :
+파일 업로드를 검사하려면:
 
 ```PHP
 $Web->scan();
 ```
 
-선택적으로 phpMussel은 원하는 경우 업로드 이름을 복구하려고 시도 할 수 있습니다 :
+선택적으로, 원하는 경우 phpMussel은 문제가 있는 경우 업로드의 이름 복구를 시도할 수 있습니다:
 
 ```PHP
 $Web->demojibakefier();
 ```
 
-완전한 예를 들면 :
+완전한 예를 들면:
 
 ```PHP
 <?php
@@ -223,19 +223,19 @@ unset($Web, $Scanner, $Loader);
 </html>
 ```
 
-*파일 `ascii_standard_testfile.txt` 업로드 시도 (이것은 phpMussel 테스트를위한 무해한 샘플입니다) :*
+*phpMussel 테스트 전용으로 제공되는 무해한 샘플인 `ascii_standard_testfile.txt` 파일 업로드 시도:*
 
-![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
+![스크린샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/web-v3.0.0-alpha2.png)
 
 #### 3.3 CLI 모드
 
-CLI 핸들러를 인스턴스화하려면 다음을 수행하십시오 :
+CLI 핸들러를 인스턴스화하려면:
 
 ```PHP
 $CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
 ```
 
-완전한 예를 들면 :
+완전한 예를 들면:
 
 ```PHP
 <?php
@@ -252,19 +252,19 @@ $CLI = new \phpMussel\CLI\CLI($Loader, $Scanner);
 unset($CLI, $Scanner, $Loader);
 ```
 
-*스크린 샷 :*
+*스크린샷:*
 
-![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![스크린샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
 
-#### 3.4 프론트 엔드
+#### 3.4 프론트엔드
 
-프런트 엔드를 인스턴스화하려면 :
+프론트엔드를 인스턴스화하려면:
 
 ```PHP
 $FrontEnd = new \phpMussel\FrontEnd\FrontEnd($Loader, $Scanner);
 ```
 
-완전한 예를 들면 :
+완전한 예를 들면:
 
 ```PHP
 <?php
@@ -293,15 +293,15 @@ $FrontEnd->view();
 unset($Web, $FrontEnd, $Scanner, $Loader);
 ```
 
-*스크린 샷 :*
+*스크린샷:*
 
-![스크린 샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![스크린샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
 
 #### 3.5 스캐너 API
 
-원하는 경우 다른 프로그램 및 스크립트 내에서 phpMussel 스캐너 API를 구현할 수도 있습니다.
+원하는 경우 다른 프로그램이나 스크립트에서 phpMussel 스캐너 API를 구현할 수도 있습니다.
 
-완전한 예를 들면 :
+완전한 예를 들면:
 
 ```PHP
 // Path to vendor directory.
@@ -326,43 +326,43 @@ unset($Scanner, $Loader);
 var_dump($Results);
 ```
 
-이 예에서 주목할 중요한 부분은 `scan()`방법입니다. `scan()`메소드는 두 가지 매개 변수를 승인합니다.
+해당 예시에서 주목해야 할 중요한 부분은 `scan()` 메서드입니다. `scan()` 메서드는 매개변수 2개를 허용합니다:
 
 ```PHP
 public function scan(mixed $Files, int $Format = 0): mixed
 ```
 
-첫 번째 매개 변수는 문자열 또는 배열 일수 있으며 스캐너에 스캔 대상을 알려줍니다. 특정 파일이나 디렉터리를 나타내는 문자열이거나 여러 파일/디렉터리를 지정하기 위한 이러한 문자열의 배열 일수 있습니다.
+1번째 매개변수는 문자열이나 배열일 수 있으며 스캐너에 무엇을 검사해야 하는지 알려줍니다. 특정 파일이나 디렉토리를 나타내는 문자열이나 여러 파일/디렉토리를 지정하는 이러한 문자열의 배열일 수 있습니다.
 
-문자열인 경우, 데이터를 찾을 수 있는 위치를 가리켜야 합니다. 배열인 경우, 배열 키는 스캔 할 항목의 원래 이름을 나타내야 하며 값은 데이터를 찾을 수 있는 위치를 가리켜야 합니다.
+문자열인 경우 데이터를 찾을 수 있는 위치를 가리켜야 합니다. 배열인 경우 배열 키는 검사할 항목의 원래 이름을 나타내야 하고 값은 데이터를 찾을 수 있는 위치를 가리켜야 합니다.
 
-두 번째 매개 변수는 정수이며 검색 결과를 반환하는 방법을 스캐너에 알려줍니다.
+2번째 매개변수는 정수이며 스캐너가 검사 결과를 반환하는 방법을 알려줍니다.
 
-스캔 결과를 정수로 스캔 된 각 항목에 대한 배열로 돌려보내려면 1을 지정하십시오.
+검사 결과를 검사한 각 항목에 대한 정수의 배열로 반환하려면 1을 지정하세요.
 
-이들 정수는 다음과 같은 의미가 있습니다 :
+이러한 정수의 의미는 다음과 같습니다:
 
-결과 | 기술
+결과 | 설명
 --:|:--
--5 | 다른 이유로 스캔을 완료하지 못했습니다.
--4 | 암호화 때문에 데이터를 검사 할 수 없었습니다.
--3 | phpMussel 서명 파일에 문제가 있음을 나타냅니다.
--2 | 스캔 중에 손상된 데이터를 검색하여 스캔 실패.
--1 | PHP를 검사하는 데 필요한 확장 또는 추가 기능이 없기 때문에 스캔 실패.
-0 | 검사 대상이 존재하지 않음.
-1 | 대상의 스캔을 완료하고 문제가 없는지.
-2 | 대상의 스캔을 완료하고 문제를 발견 한 것을 의미합니다.
+-5 | 다른 이유로 검사를 완료하지 못했음을 나타냄.
+-4 | 암호화로 인해 데이터를 검사할 수 없었음을 나타냄.
+-3 | phpMussel 서명 파일에 문제가 있었음을 나타냄.
+-2 | 검사 중 손상된 데이터가 감지되어 검사를 완료하지 못했음을 나타냄.
+-1 | PHP가 검사를 수행하기 위해 요구하는 확장 기능이나 애드온이 없어서 검사를 완료하지 못했음을 나타냄.
+0 | 검사 대상이 존재하지 않아서 검사할 것이 없었음을 나타냄.
+1 | 대상이 성공적으로 검사되었고 문제가 감지되지 않았음을 나타냄.
+2 | 대상이 성공적으로 검사되었고 문제가 감지되었음을 나타냄.
 
-스캔 결과를 부울로 돌려보내려면 2를 지정하십시오.
+검사 결과를 부울로 반환하려면 2를 지정하세요.
 
-결과 | 기술
+결과 | 설명
 :-:|:--
-`true` | 문제가 감지되었습니다 (스캔 대상이 위험합니다).
-`false` | 문제가 감지되지 않았습니다 (스캔 대상은 아마 위험하지 않습니다).
+`true` | 문제가 감지됨 (검사 대상이 악의적이거나 위험함).
+`false` | 문제가 감지되지 않음 (검사 대상이 정상일 수 있음).
 
-사람이 읽을 수 있는 텍스트로 스캔 된 각 항목에 대한 스캔 결과를 배열로 돌려보내려면 3을 지정하십시오.
+검사 결과를 검사한 각 항목에 대한 사람이 읽을 수 있는 텍스트의 배열로 반환하려면 3을 지정하세요.
 
-*출력 예 :*
+*출력 예시:*
 
 ```
 array(3) {
@@ -375,19 +375,55 @@ array(3) {
 }
 ```
 
-스캔 결과를 사람이 읽을 수 있는 문자열로 돌려보내려면 4를 지정하십시오 (3과 같지만 파열했다).
+검사 결과를 사람이 읽을 수 있는 텍스트의 문자열로 반환하려면 4를 지정하세요 (3과 비슷하지만 합쳐져 있습니다).
 
-*출력 예 :*
+*출력 예시:*
 
 ```
 Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)! Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
 ```
 
-형식이 지정된 텍스트로 리턴하려면 다른 값을 지정하십시오 (i.e., the scan results seen when using CLI).
+형식화된 텍스트 (즉, CLI를 사용할 때 표시되는 검사 결과)를 반환하려면 다른 값을 지정하세요.
 
-*출력 예 :*
+*출력 예시:*
 
-*꼭 참조하십시오 : [파일 검색시 특정 정보에 액세스하려면 어떻게해야합니까?](#SCAN_DEBUGGING)*
+```
+string(1826) "Fri, 17 Jul 2020 18:50:47 +0800 Started.
+─→ Checking "ascii_standard_testfile.txt".
+──→ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+─→ Checking "coex_testfile.rtf".
+──→ Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!
+─→ Checking "encrypted.zip".
+──→ Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+─→ Checking "exe_standard_testfile.exe".
+──→ Filetype blacklisted (exe_standard_testfile.exe)!
+─→ Checking "general_standard_testfile.txt".
+──→ Detected phpMussel-Testfile.General.Standard (general_standard_testfile.txt)!
+─→ Checking "graphics_standard_testfile.gif".
+──→ Detected phpMussel-Testfile.Graphics.Standard (graphics_standard_testfile.gif)!
+─→ Checking "hash_testfile_md5.txt".
+──→ Detected phpMussel-Testfile.HASH.MD5 (hash_testfile_md5.txt)!
+─→ Checking "hash_testfile_sha1.txt".
+──→ Detected phpMussel-Testfile.HASH.SHA1 (hash_testfile_sha1.txt)!
+─→ Checking "hash_testfile_sha256.txt".
+──→ Detected phpMussel-Testfile.HASH.SHA256 (hash_testfile_sha256.txt)!
+─→ Checking "hello.txt".
+──→ No problems found.
+─→ Checking "html_standard_testfile.html".
+──→ Detected phpMussel-Testfile.HTML.Standard (html_standard_testfile.html)!
+─→ Checking "ole_testfile.ole".
+────→ Detected phpMussel-Testfile.OLE.Standard (ole_testfile.bin)!
+─→ Checking "pdf_standard_testfile.pdf".
+──→ Detected phpMussel-Testfile.PDF.Standard (pdf_standard_testfile.pdf)!
+─→ Checking "pe_sectional_testfile.exe".
+──→ Filetype blacklisted (pe_sectional_testfile.exe)!
+─→ Checking "swf_standard_testfile.swf".
+──→ Detected phpMussel-Testfile.SWF.Standard (swf_standard_testfile.swf)!
+Fri, 17 Jul 2020 18:50:50 +0800 Finished.
+"
+```
+
+*도보시오: [파일을 스캔할 때 파일에 대한 특정 세부 정보에 액세스하는 방법은 무엇입니까?](#SCAN_DEBUGGING)*
 
 #### 3.6 2FA (이중 인증)
 
