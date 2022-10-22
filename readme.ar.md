@@ -391,6 +391,42 @@ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)! Detect
 
 <div dir="rtl">إخراج المثال:<br /><br /></div>
 
+```
+string(1826) "Fri, 17 Jul 2020 18:50:47 +0800 Started.
+─→ Checking "ascii_standard_testfile.txt".
+──→ Detected phpMussel-Testfile.ASCII.Standard (ascii_standard_testfile.txt)!
+─→ Checking "coex_testfile.rtf".
+──→ Detected phpMussel-Testfile.CoEx (coex_testfile.rtf)!
+─→ Checking "encrypted.zip".
+──→ Detected encrypted archive; Encrypted archives not permitted (encrypted.zip)!
+─→ Checking "exe_standard_testfile.exe".
+──→ Filetype blacklisted (exe_standard_testfile.exe)!
+─→ Checking "general_standard_testfile.txt".
+──→ Detected phpMussel-Testfile.General.Standard (general_standard_testfile.txt)!
+─→ Checking "graphics_standard_testfile.gif".
+──→ Detected phpMussel-Testfile.Graphics.Standard (graphics_standard_testfile.gif)!
+─→ Checking "hash_testfile_md5.txt".
+──→ Detected phpMussel-Testfile.HASH.MD5 (hash_testfile_md5.txt)!
+─→ Checking "hash_testfile_sha1.txt".
+──→ Detected phpMussel-Testfile.HASH.SHA1 (hash_testfile_sha1.txt)!
+─→ Checking "hash_testfile_sha256.txt".
+──→ Detected phpMussel-Testfile.HASH.SHA256 (hash_testfile_sha256.txt)!
+─→ Checking "hello.txt".
+──→ No problems found.
+─→ Checking "html_standard_testfile.html".
+──→ Detected phpMussel-Testfile.HTML.Standard (html_standard_testfile.html)!
+─→ Checking "ole_testfile.ole".
+────→ Detected phpMussel-Testfile.OLE.Standard (ole_testfile.bin)!
+─→ Checking "pdf_standard_testfile.pdf".
+──→ Detected phpMussel-Testfile.PDF.Standard (pdf_standard_testfile.pdf)!
+─→ Checking "pe_sectional_testfile.exe".
+──→ Filetype blacklisted (pe_sectional_testfile.exe)!
+─→ Checking "swf_standard_testfile.swf".
+──→ Detected phpMussel-Testfile.SWF.Standard (swf_standard_testfile.swf)!
+Fri, 17 Jul 2020 18:50:50 +0800 Finished.
+"
+```
+
 <div dir="rtl">أنظر أيضا: <a href="#SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a><br /></div>
 
 #### <div dir="rtl">٣.٦ 2FA<br /><br /></div>
