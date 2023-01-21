@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -948,6 +950,20 @@ See also:
 ##### "vt_suspicion_level" `[int]`
 - By default, phpMussel will restrict which files it scans using the Virus Total API to those files that it considers "suspicious". You can optionally adjust this restriction by changing the value of the `vt_suspicion_level` directive.
 
+```
+vt_suspicion_level
+├─0 (Scan only files with heuristic weight.): Files will be scanned only if they incur some heuristic weight. Heuristic
+│ weight can be incurred from signatures intended to catch common fingerprints
+│ associated with potential infection which don't necessarily guarantee
+│ infection. The lookup, in such cases, can serve to provide a second opinion
+│ for results which justify suspicion but don't otherwise provide any
+│ certainty.
+├─1 (Scan files with heuristic weight, executable files, and files potentially containing executable data.): Examples of executable files, and files potentially containing executable
+│ data, includes Windows PE files, Linux ELF files, Mach-O files, DOCX files,
+│ ZIP files, etc.
+└─2 (Scan all files.)
+```
+
 ##### "vt_weighting" `[int]`
 - Should phpMussel apply the results of scanning using the Virus Total API as detections or as detection weighting? This directive exists, because, although scanning a file using multiple engines (as Virus Total does) should result in an increased detection rate (and therefore in a higher number of malicious files being caught), it can also result in a higher number of false positives, and therefore, in some circumstances, the results of scanning may be better utilised as a confidence score rather than as a definitive conclusion. If a value of 0 is used, the results of scanning using the Virus Total API will be applied as detections, and therefore, if any engine used by Virus Total flags the file being scanned as being malicious, phpMussel will consider the file to be malicious. If any other value is used, the results of scanning using the Virus Total API will be applied as detection weighting, and therefore, the number of engines used by Virus Total that flag the file being scanned as being malicious will serve as a confidence score (or detection weighting) for whether or not the file being scanned should be considered malicious by phpMussel (the value used will represent the minimum confidence score or weight required in order to be considered malicious). A value of 0 is used by default.
 
@@ -1142,7 +1158,7 @@ Configuration for the upload handler.
 - This directive should generally be disabled unless it's required for correct functionality of phpMussel on your specific system. Normally, when disabled, when phpMussel detects the presence of elements in the `$_FILES` array(), it'll attempt to initiate a scan of the files that those elements represent, and, if those elements are blank or empty, phpMussel will return an error message. This is proper behaviour for phpMussel. However, for some CMS, empty elements in `$_FILES` can occur as a result of the natural behaviour of those CMS, or errors may be reported when there aren't any, in which case, the normal behaviour for phpMussel will be interfering with the normal behaviour of those CMS. If such a situation occurs for you, enabling this option will instruct phpMussel to not attempt to initiate scans for such empty elements, ignore them when found and to not return any related error messages, thus allowing continuation of the page request. False = OFF; True = ON.
 
 ##### "theme" `[string]`
-- The aesthetic to use for the "Upload Denied" page.
+- The aesthetic to use for the "upload denied" page.
 
 ```
 theme
@@ -1823,4 +1839,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 26 September 2022 (2022.09.26).
+Last Updated: 21 January 2023 (2023.01.21).

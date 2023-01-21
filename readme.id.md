@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -948,6 +950,20 @@ Lihat juga:
 ##### "vt_suspicion_level" `[int]`
 - Secara default, phpMussel akan membatasi file dipindai menggunakan API Virus Total untuk file-file yang dianggap "mencurigakan". Anda dapat menyesuaikan pembatasan ini dengan mengubah nilai direktif `vt_suspicion_level`.
 
+```
+vt_suspicion_level
+├─0 (Pindai hanya file dengan bobot heuristik.): File akan dipindai hanya jika memiliki bobot heuristik. Bobot heuristik
+│ dapat ditimbulkan dari tanda tangan yang dimaksudkan untuk menangkap sidik
+│ jari umum yang terkait dengan infeksi potensial yang tidak selalu menjamin
+│ infeksi. Pencarian, dalam kasus tersebut, dapat berfungsi untuk memberikan
+│ pendapat kedua untuk hasil yang membenarkan kecurigaan tetapi tidak
+│ memberikan kepastian apapun.
+├─1 (Pindai file dengan bobot heuristik, file yang dapat dieksekusi, dan file yang berpotensi berisi data yang dapat dieksekusi.): Contoh file yang dapat dieksekusi, dan file yang berpotensi berisi data yang
+│ dapat dieksekusi, termasuk file Windows PE, file Linux ELF, file Mach-O,
+│ file DOCX, file ZIP, dll.
+└─2 (Pindai semua file.)
+```
+
 ##### "vt_weighting" `[int]`
 - Apakah Anda ingin phpMussel menerapkan hasil pemindaian menggunakan API Virus Total sebagai deteksi atau deteksi pembobotan? Direktif ini ada, karena, meskipun memindai file menggunakan mesin-mesin kelipatan (sebagai Virus Total melakukannya) harus menghasilkan tingkat deteksi meningkat (dan demikian lebih banyak file berbahaya tertangkap), juga dapat menghasilkan jumlah yang lebih banyak dari positif palsu, dan demikian, dalam kondisi beberapa, hasil pemindaian dapat digunakan lebih efektif sebagai nilai keyakinan daripada daripada sebagai kesimpulan definitif. Jika nilai 0 digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai pendeteksian, dan demikian, jika mesin-mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya, phpMussel akan menganggap file yang berbahaya. Jika nilai lain yang digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai deteksi pembobotan, dan demikian, jumlah mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya akan berfungsi sebagai nilai keyakinan (atau deteksi pembobotan) untuk jika file dipindai harus dianggap berbahaya oleh phpMussel (nilai digunakan akan mewakili nilai keyakinan minimum atau pembobotan minimum diperlukan untuk dianggap berbahaya). Nilai 0 digunakan secara default.
 
@@ -1142,7 +1158,7 @@ Konfigurasi untuk penangan upload.
 - Direktif ini umumnya harus DINONAKTIFKAN kecuali diharuskan untuk fungsi yang benar dari phpMussel pada sistem tertentu. Biasanya, ketika DINONAKTIFKAN, ketika phpMussel mendeteksi adanya elemen dalam `$_FILES` array(), itu akan mencoba untuk memulai scan file yang mewakili elemen, dan, jika elemen tersebut adalah kosong, phpMussel akan mengembalikan pesan kesalahan. Ini adalah perilaku yang tepat untuk phpMussel. Namun, untuk beberapa CMS, elemen kosong di `$_FILES` dapat terjadi sebagai akibat dari perilaku alami jadi CMS tersebut, atau kesalahan dapat dilaporkan bila tidak ada, dan dalam kasus seperti itu, perilaku normal untuk phpMussel akan mengganggu untuk perilaku normal itu CMS. Jika situasi seperti itu terjadi untuk Anda, MENGAKTIFKAN direktif ini akan menginstruksikan phpMussel untuk tidak mencoba untuk memulai scan untuk elemen kosong, mengabaikan saat ditemui dan untuk tidak kembali terkait pesan kesalahan, sehingga memungkinkan kelanjutan dari halaman permintaan. False = DINONAKTIFKAN; True = DIAKTIFKAN.
 
 ##### "theme" `[string]`
-- Estetika yang digunakan untuk halaman "Upload Ditolak".
+- Estetika yang digunakan untuk halaman "upload ditolak".
 
 ```
 theme
@@ -1815,4 +1831,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 26 September 2022 (2022.09.26).
+Terakhir Diperbarui: 21 Januari 2023 (2023.01.21).

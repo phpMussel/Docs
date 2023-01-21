@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -948,6 +950,20 @@ Veja também:
 ##### "vt_suspicion_level" `[int]`
 - Por padrão, phpMussel restringirá os arquivos que são verificado usando o Virus Total API a esses arquivos que considera "suspeito". Opcionalmente, você pode ajustar essa restrição via alterando o valor ao `vt_suspicion_level` directiva.
 
+```
+vt_suspicion_level
+├─0 (Analisar apenas arquivos com peso heurístico.): Arquivos serão analisados apenas se incorrerem em algum peso heurístico. O
+│ peso heurístico pode ser incorrido por meio de assinaturas destinadas a
+│ capturar impressões digitais comuns associadas a possíveis infecções que
+│ não garantem necessariamente a infecção. A pesquisa, nesses casos, pode
+│ servir para fornecer uma segunda opinião para resultados que justificam a
+│ suspeita, mas não fornecem nenhuma certeza.
+├─1 (Analisar arquivos com peso heurístico, arquivos executáveis, e arquivos potencialmente contendo dados executáveis.): Exemplos de arquivos executáveis, e arquivos potencialmente contendo dados
+│ executáveis, incluem arquivos Windows PE, arquivos Linux ELF, arquivos
+│ Mach-O, arquivos DOCX, arquivos ZIP, etc.
+└─2 (Analisar todos os arquivos.)
+```
+
 ##### "vt_weighting" `[int]`
 - Deve phpMussel aplicar os resultados de analisando usando o Virus Total API como detecções ou como detecção ponderação? Esta directiva existe, porque, embora verificando um arquivo usando múltiplos mecanismos (como Virus Total faz) deve resultar em um aumento da taxa de detecção (e por conseguinte em um maior número de arquivos maliciosos detectados), isto também pode resultar em um aumento número de falsos positivos, e por conseguinte, em algumas circunstâncias, os resultados de análise pode ser melhor utilizado como uma pontuação de confiança e não como uma conclusão definitiva. Se um valor de 0 é usado, os resultados de análise usando o Virus Total API será aplicado como detecções, e por conseguinte, Se qualquer mecanismo usado pelo Virus Total marca o arquivo que está sendo analisado como sendo malicioso, phpMussel considerará o arquivo a ser malicioso. Se qualquer outro valor é usado, os resultados de análise usando o Virus Total API será aplicado como detecção ponderação, e por conseguinte, o número de mecanismos utilizados pela Virus Total que marcar o arquivo que está sendo analisado como sendo malicioso servirá como uma pontuação de confiança (ou ponderação de detecção) para se ou não o arquivo que está sendo analisado deve ser considerado malicioso por phpMussel (o valor utilizado representará o mínima pontuação de confiança ou peso requerido a fim de ser considerado malicioso). Um valor de 0 é usado por padrão.
 
@@ -1142,7 +1158,7 @@ Configuração para o manipulador de carregamentos.
 - Essa directiva deve ser geralmente desativada a menos que seja necessário por correta funcionalidade de phpMussel no seu específico sistema. Normalmente, quando desativado, quando phpMussel detecta a presença de elementos dentro a `$_FILES` array(), ele tentará iniciar uma análise dos arquivos que esses elementos representam, e, se esses elementos estão branco ou vazia, phpMussel irá retornar uma erro mensagem. Esse é um apropriado comportamento por phpMussel. Mas, por alguns CMS, vazios elementos podem ocorrer como resultado do natural comportamento dessas CMS, ou erros podem ser reportado quando não houver alguma, nesse caso, o normal comportamento por phpMussel será interferindo com o normal comportamento dessas CMS. Se tal situação ocorre por você, ativando esta opção irá instruir phpMussel para não tentar iniciar um análise por tais vazios elementos, ignorá-los quando encontrado e para não retornar qualquer relacionado erro mensagens, assim, permitindo a continuação da página carga. False = DESATIVADO; True = ATIVADO.
 
 ##### "theme" `[string]`
-- A estética a ser usada na página "Carregar Negado".
+- A estética a ser usada na página "carregar negado".
 
 ```
 theme
@@ -1818,4 +1834,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 26 de Setembro de 2022 (2022.09.26).
+Última Atualização: 21 de Janeiro de 2023 (2023.01.21).

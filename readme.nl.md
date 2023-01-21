@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -948,6 +950,21 @@ Zie ook:
 ##### "vt_suspicion_level" `[int]`
 - Normaal, phpMussel zal beperken welke bestanden scant met behulp van de Virus Total API om het bestanden die zijn beschouwd "achterdochtig". Optioneel, u kan dit beperking aan te passen door de waarde van het `vt_suspicion_level` richtlijn.
 
+```
+vt_suspicion_level
+├─0 (Scan alleen bestanden met heuristisch gewicht.): Bestanden worden alleen gescand als ze een heuristisch gewicht hebben.
+│ Heuristisch gewicht kan worden verkregen uit signatures die bedoeld zijn om
+│ veelvoorkomende vingerafdrukken op te vangen die verband houden met een
+│ mogelijke infectie die niet noodzakelijkerwijs een infectie garandeert. De
+│ zoekopdracht kan in dergelijke gevallen dienen om een second opinion te
+│ geven voor resultaten die een verdenking rechtvaardigen, maar verder geen
+│ absoluut vertrouwen bieden.
+├─1 (Scan bestanden met heuristisch gewicht, uitvoerbare bestanden, en bestanden die mogelijk uitvoerbare gegevens bevatten.): Voorbeelden van uitvoerbare bestanden, en bestanden die mogelijk uitvoerbare
+│ gegevens bevatten, omvatten Windows PE-bestanden, Linux ELF-bestanden,
+│ Mach-O-bestanden, DOCX-bestanden, ZIP-bestanden, enz.
+└─2 (Scan alle bestanden.)
+```
+
 ##### "vt_weighting" `[int]`
 - Moeten phpMussel de resultaten van het scannen met behulp van de Virus Total API toe te passen als detecties of detectie weging? Dit richtlijn bestaat, omdat, hoewel het scannen van een bestand met behulp van meerdere motoren (als Virus Total doet) moet leiden tot een verhoogde aantal van detecties (en dus in een hoger aantal van kwaadaardige bestanden worden gedetecteerd), het kan ook resulteren in een hoger aantal van valse positieven, en daarom, in sommige gevallen, de resultaten van de scan kan beter worden benut als betrouwbaarheidsscore eerder dan als een definitieve conclusie. Als een waarde van 0 wordt gebruikt, de resultaten van het scannen met behulp van de Virus Total API zal worden toegepast als detecties, en zo, als een motor gebruikt door Virus Total vlaggen het bestand wordt gescand als kwaadaardige, phpMussel zal het bestand overwegen kwaadaardig te zijn. Als een andere waarde wordt gebruikt, de resultaten van het scannen met behulp van de Virus Total API zal worden toegepast als detectie weging, en zo, het aantal van motoren gebruikt door Virus Total dat vlag het bestand wordt gescand als kwaadaardige zal dienen als een betrouwbaarheidsscore (of detectie weging) voor of het bestand dat wordt gescand moet worden beschouwd als kwaadaardige door phpMussel (de waarde die wordt gebruikt zal vertegenwoordigen de minimale betrouwbaarheidsscore of weging vereist om kwaadaardige te worden beschouwd). Een waarde van 0 wordt standaard gebruikt.
 
@@ -1142,7 +1159,7 @@ Configuratie voor de uploadhandler.
 - Dit richtlijn moet in het algemeen worden uitgeschakeld tenzij het is vereist voor de juiste functionaliteit van phpMussel op uw specifieke systeem. Normaal, wanneer uitgeschakeld, wanneer phpMussel detecteert de aanwezigheid van elementen van de `$_FILES` array(), het zal proberen initiëren een scan van het bestanden deze elementen vertegenwoordigen, en, als deze elementen zijn leeg, phpMussel zal terugkeren een foutmelding. Dit is het juiste gedrag voor phpMussel. Dat gezegd hebbende, voor sommige CMS, lege elementen in `$_FILES` kan optreden als gevolg van het natuurlijke gedrag van deze CMS, of fouten zouden zijn gerapporteerd wanneer er geen, in welk geval, het normale gedrag voor phpMussel zullen bemoeien met het normale gedrag van deze CMS. Als dergelijke een situatie optreedt voor u, inschakelen dit optie zal instrueren phpMussel niet te proberen te initiëren scannen voor dergelijke lege elementen, negeer hem wanneer gevonden en niet terugkeren gerelateerde foutmeldingen, dus toelaten de voortzetting van de pagina-aanvraag. False = UITGESCHAKELD; True = INGESCHAKELD.
 
 ##### "theme" `[string]`
-- De esthetiek die moet worden gebruikt voor de pagina "Upload Geweigerd".
+- De esthetiek die moet worden gebruikt voor de pagina "upload geweigerd".
 
 ```
 theme
@@ -1839,4 +1856,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 26 September 2022 (2022.09.26).
+Laatste Bijgewerkt: 21 Januari 2023 (2023.01.21).

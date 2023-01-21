@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -948,6 +950,21 @@ Voir également :
 ##### « vt_suspicion_level » `[int]`
 - Par défaut, phpMussel va restreindre les fichiers de l'analyse utilisant le Virus Total API à ces fichiers qu'il juges comme soupçonneux. Facultativement, vous pouvez régler cette restriction par changeant la valeur de la `vt_suspicion_level` directive.
 
+```
+vt_suspicion_level
+├─0 (Analyser seulement les fichiers avec un poids heuristique.): Les fichiers seront analysés s'ils ont un poids heuristique, mais dans
+│ aucun autre cas. Le poids heuristique peut être induit par des signatures
+│ destinées à capturer des empreintes digitales communes associées à une
+│ infection potentielle qui ne garantissent pas nécessairement l'infection.
+│ L'utilisation de l'API, dans de tels cas, peut servir à fournir une
+│ deuxième opinion pour des résultats qui justifient des soupçons mais ne
+│ fournissent aucune certitude.
+├─1 (Analysez les fichiers avec un poids heuristique, les fichiers exécutables, et les fichiers contenant potentiellement des données exécutables.): Exemples des fichiers exécutables, et de fichiers contenant potentiellement
+│ des données exécutables, incluent les fichiers Windows PE, les fichiers
+│ Linux ELF, les fichiers Mach-O, les fichiers DOCX, les fichiers ZIP, etc.
+└─2 (Analysez tous les fichiers.)
+```
+
 ##### « vt_weighting » `[int]`
 - Devrais phpMussel appliquer les résultats de l'analyse en utilisant le Virus Total API comme détections ou comme pondération de détection ? Cette directive existe, parce que, quoique analyse d'un fichier à l'aide de plusieurs moteurs (comme Virus Total fait) devrait résulter en un augmenté taux de détection (et donc en un plus grand nombre de fichiers malveillants être détectés), il peut également résulter en un plus grand nombre de faux positifs, et donc, dans certaines circonstances, les résultats de l'analyse peuvent être mieux utilisées comme un score de confiance plutôt que comme une conclusion définitive. Si la valeur 0 est utilisée, les résultats de l'analyse en utilisant le Virus Total API seront être appliquées comme détections, et donc, si quelconque moteur utilisé par Virus Total marques le fichier analysé comme étant malveillants, phpMussel va considérer le fichier comme malveillant. Si quelconque autre valeur est utilisée, les résultats de l'analyse en utilisant le Virus Total API sera appliquée comme pondération de détection, et donc, le nombre de moteurs utilisés par Total Virus que marque le fichier analysé comme étant malveillant sera servir un score de confiance (ou une pondération de détection) pour savoir si ou non le fichier êtant analysé devrait être considéré comme malveillant par phpMussel (la valeur utilisée représentera le minimum score de confiance ou le poids requis pour être considéré comme malveillant). Une valeur de 0 est utilisée par défaut.
 
@@ -1142,7 +1159,7 @@ Configuration du gestionnaire de téléchargements.
 - Cette directive doit généralement être DÉSACTIVÉ sauf si cela est nécessaire pour la correcte fonctionnalité de phpMussel sur votre spécifique système. Normalement, lorsque DÉSACTIVÉ, lorsque phpMussel détecte la présence d'éléments dans le `$_FILES`() tableau, il va tenter de lancer une analyse du fichiers que ces éléments représentent, et, si ces éléments sont vide, phpMussel retourne un message d'erreur. Ce comportement est normal pour phpMussel. Mais, pour certains CMS, vides éléments dans `$_FILES` peuvent survenir à la suite du naturel comportement de ces CMS, ou erreurs peuvent être signalés quand il ne sont pas tout, dans ce cas, le normal comportement pour phpMussel seront interférer avec le normal comportement de ces CMS. Si telle une situation se produit pour vous, ACTIVATION de cette option sera instruire phpMussel ne pas à tenter de lancer d'analyses pour ces vides éléments, ignorer quand il est reconnu et ne pas à retourner tout de connexes messages d'erreur, permettant ainsi la continuation de la requête de page. False = Désactivé ; True = Activé.
 
 ##### « theme » `[string]`
-- L'esthétique à utiliser pour la page « Téléchargement Refusé ».
+- L'esthétique à utiliser pour la page « téléchargement refusé ».
 
 ```
 theme
@@ -1828,4 +1845,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 26 Septembre 2022 (2022.09.26).
+Dernière mise à jour : 21 Janvier 2023 (2023.01.21).

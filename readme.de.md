@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -947,6 +949,19 @@ Siehe auch:
 
 ##### „vt_suspicion_level“ `[int]`
 - phpMussel wird standardmäßig die mit der Virus Total API zu scannenden Dateien auf Dateien eisnchränken, die es als „verdächtig“ betrachtet. Du kannst optional diese Einschränkung durch Änderung des Wertes der `vt_suspicion_level` Direktive anpassen.
+
+```
+vt_suspicion_level
+├─0 (Scannen nur Dateien mit heuristischem Gewicht.): Dateien werden nur gescannt wenn sie ein heuristisches Gewicht haben.
+│ Heuristisches Gewicht kann aus Signaturen entstehen die gemeinsame
+│ Fingerabdrücke erfassen, die eine Infektion nahelegen aber keine Infektion
+│ garantieren. Für Ergebnissen die einen Verdacht rechtfertigen aber keine
+│ Gewissheit geben, kann die Lookup dazu dienen eine zweite Meinung dienen.
+├─1 (Scannen Dateien mit heuristischem Gewicht, ausführbare Dateien, und Dateien die möglicherweise ausführbare Daten enthalten.): Beispiele für ausführbare Dateien, und Dateien die möglicherweise
+│ ausführbare Daten enthalten, umfassen Windows PE-Dateien, Linux
+│ ELF-Dateien, Mach-O-Dateien, DOCX-Dateien, ZIP-Dateien, u.s.w.
+└─2 (Scannen alle Dateien.)
+```
 
 ##### „vt_weighting“ `[int]`
 - Soll phpMussel die Ergebnisse des Scans mit der Virus Total API als Erkennungen oder Erkennungs-Gewichtung anwenden? Diese Direktive existiert, weil das Scannen einer Datei mit mehreren Engines (wie es Virus Total macht) in einer höheren Erkennungsrate resultieren sollte (und somit eine größere Anzahl schädlicher Dateien erwischt werden), dies kann aber zu in einer höheren Anzahl von Falschmeldungen führen. Unter manchen Umständen würden die Ergebnisse des Scans besser als Vertrauens-Wert als ein eindeutiges Ergebnis verwendet werden. Wenn der Wert 0 verwendet wird, werden die Ergebnisse des Scans als Erkennungen angewendet und somit wird phpMussel, falls irgendeine von Virus Total verwendete Engine die gescannte Datei als schädlich markiert, die Datei als schädlich betrachten. Wird ein anderer Wert verwendet, werden die Ergebnisse des Scans mit der Virus Total API als Erkennungs-Gewichtung angewendet. Die Anzahl der von Virus Total verwendeten Engines, welche die Datei als schädlich markieren, wird als Vertrauens-Wert (oder Erkennungs-Gewichtung) dienen, ob die gescannte Datei von phpMussel als schädlich angesehen werden soll (der verwendete Wert wird den Mindest-Vertrauens-Wert oder erforderliche Gewichtung repräsentieren, um als schädlich angesehen zu werden. Standardmäßig der Wert 0 verwendet.
@@ -1830,4 +1845,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 26. September 2022 (2022.09.26).
+Zuletzt aktualisiert: 21. Januar 2023 (2023.01.21).

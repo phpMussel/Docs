@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -948,6 +950,20 @@ Guarda anche:
 ##### "vt_suspicion_level" `[int]`
 - Per predefinita, phpMussel limiterà quali file ciò scansiona utilizzando il Virus Total API ai quei file che considera "sospettose". Facoltativamente, è possibile modificare questa restrizione per mezzo di modificando il valore del `vt_suspicion_level` direttiva.
 
+```
+vt_suspicion_level
+├─0 (Analizza solo i file con peso euristico.): I file verranno scansionati solo se hanno un peso euristico. Il peso
+│ euristico può derivare da firme destinate a rilevare impronte digitali
+│ comuni associate a potenziali infezioni che non garantiscono necessariamente
+│ l'infezione. L'uso dell'API, in questi casi, può servire a fornire una
+│ seconda opinione per risultati che giustificano il sospetto ma non
+│ forniscono alcuna certezza.
+├─1 (Scansiona file con peso euristico, file eseguibili, e file potenzialmente contenenti dati eseguibili.): Esempi di file eseguibili e file potenzialmente contenenti dati eseguibili
+│ includono file Windows PE, file Linux ELF, file Mach-O, file DOCX, file ZIP,
+│ ecc.
+└─2 (Scansiona tutti i file.)
+```
+
 ##### "vt_weighting" `[int]`
 - Dovrebbe phpMussel applica i risultati della scansione utilizzando il Virus Total API come rilevamenti o il ponderazione rilevamenti? Questa direttiva esiste, perché, sebbene scansione di un file utilizzando più motori (come Virus Total fa) dovrebbe risulta in un maggiore tasso di rilevamenti (e quindi in un maggiore numero di maligni file essere catturati), può anche risulta in un maggiore numero di falsi positivi, e quindi, in certe circostanze, i risultati della scansione possono essere meglio utilizzato come un punteggio di confidenza anziché come una conclusione definitiva. Se viene utilizzato un valore di 0, i risultati della scansione utilizzando il Virus Total API saranno applicati come rilevamenti, e quindi, se qualsiasi motori utilizzati da Virus Total che marca il file sottoposto a scansione come maligno, phpMussel considererà il file come maligno. Se qualsiasi altro valore è utilizzato, i risultati della scansione utilizzando il Virus Total API saranno applicati come ponderazione rilevamenti, e quindi, il numero di motori utilizzati da Virus Total marcando il file sottoposto a scansione come maligno servirà come un punteggio di confidenza (o ponderazione rilevamenti) per se il file sottoposto a scansione deve essere considerato maligno per phpMussel (il valore utilizzato rappresenterà il minimo punteggio di confidenza o ponderazione richiesto per essere considerato maligno). Un valore di 0 è utilizzato per predefinita.
 
@@ -1142,7 +1158,7 @@ Configurazione per il gestore di caricamenti.
 - Questa direttiva dovrebbe generalmente essere SPENTO meno se necessario per la corretta funzionalità del phpMussel sul vostra sistema. Normalmente, quando spento, quando phpMussel rileva la presenza di elementi nella `$_FILES` array(), è tenterà di avviare una scansione dei file che tali elementi rappresentano, e, se tali elementi sono vuoti, phpMussel restituirà un errore messaggio. Questo è un comportamento adeguato per phpMussel. Tuttavia, per alcuni CMS, vuoti elementi nel `$_FILES` può avvenire come conseguenza del naturale comportamento di questi CMS, o errori possono essere segnalati quando non ce ne sono, nel qual caso, il normale comportamento per phpMussel sarà interferire con il normale comportamento di questi CMS. Se una tale situazione avvenire per voi, attivazione di questa opzione SU sarà istruirà phpMussel a non tenta avviare scansioni per tali vuoti elementi, ignorarli quando si trova ea non ritorno qualsiasi errore correlato messaggi, così permettendo proseguimento della pagina richiesta. False = SPENTO/OFF; True = SU/ON.
 
 ##### "theme" `[string]`
-- L'estetica da utilizzare per la pagina "Caricamento Negato".
+- L'estetica da utilizzare per la pagina "caricamento negato".
 
 ```
 theme
@@ -1818,4 +1834,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 26 Settembre 2022 (2022.09.26).
+Ultimo Aggiornamento: 21 Gennaio 2023 (2023.01.21).

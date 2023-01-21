@@ -738,7 +738,9 @@ lang
 ├─bn ("বাংলা")
 ├─de ("Deutsch")
 ├─es ("Español")
+├─fa ("فارسی")
 ├─fr ("Français")
+├─he ("עברית")
 ├─hi ("हिंदी")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
@@ -948,6 +950,20 @@ Ver también:
 ##### "vt_suspicion_level" `[int]`
 - Por predefinido, phpMussel restringirá qué archivos se escaneado usando el Virus Total API a esos archivos que se considera "sospechosa". Opcionalmente, usted puede ajustar esta restricción por manera de cambiando el valor de la `vt_suspicion_level` directiva.
 
+```
+vt_suspicion_level
+├─0 (Escanear solo archivos con peso heurísticos.): Los archivos se escanearán solo si tienen algún peso heurístico. Se puede
+│ incurrir peso heurístico a través de firmas destinadas a capturar huellas
+│ digitales comunes asociadas con una infección potencial que no
+│ necesariamente garantiza una infección. La búsqueda, en tales casos, puede
+│ servir para proporcionar una segunda opinión para los resultados que
+│ justifican la sospecha pero que de otro modo no brindan ninguna certeza.
+├─1 (Escanear los archivos con peso heurísticos, archivos ejecutables, y archivos que potencialmente contengan datos ejecutables.): Ejemplos de archivos ejecutables, y archivos que potencialmente contienen
+│ datos ejecutables, incluyen archivos Windows PE, archivos ELF Linux,
+│ archivos Mach-O, archivos DOCX, archivos ZIP, etc.
+└─2 (Escanear todos los archivos.)
+```
+
 ##### "vt_weighting" `[int]`
 - ¿Debería phpMussel aplicar los resultados del escaneo utilizando el Virus Total API como detecciones o como detección peso? Esta directiva existe, por razón de que, aunque escanear un archivo usando múltiples motores (como Virus Total hacer) debería resultar en un aumento detección cuenta (y por lo tanto en un mayor número de maliciosos archivos ser atrapado), esta también puede resultar en un mayor número de falsos positivos, y por lo tanto, en algunas circunstancias, los resultados del escanear pueden ser mejor utilizados como una puntuación de confianza y no como una definitiva conclusión. Si un valor de 0 es utiliza, los resultados del escaneo utilizando el Virus Total API se aplicará como detecciones, y por lo tanto, si cualquier motor utilizado por Virus Total marca el archivo está escaneando como malicioso, phpMussel considerará el archivo a ser malicioso. Si cualquier otro valor es utiliza, los resultados del escaneo utilizando el Virus Total API se aplicará como detección peso, y por lo tanto, el número de motores utilizados por Virus Total que marca el archivo está escaneando como malicioso servirá como una puntuación de confianza (o detección peso) para si el archivo que ser escanear debe ser considerado malicioso por phpMussel (el valor utilizado representará el mínima puntuación de confianza o peso requerido con el fin de ser considerado malicioso). Un valor de 0 es utilizado por predefinido.
 
@@ -1142,7 +1158,7 @@ Configuración para el controlador de subidas.
 - Esta directiva, en general, debe ser desactivado, a menos que se requiere para la correcta funcionalidad de phpMussel en su específico sistema. Normalmente, cuando está desactivado, cuando phpMussel detecta la presencia de elementos en la `$_FILES` array(), intentará iniciar un escaneo de los archivos que esos elementos representan, y, si esos elementos están blanco o vacío, phpMussel devolverá un mensaje de error. Este es el comportamiento natural para phpMussel. Pero, para algunos CMS, vacíos elementos en `$_FILES` puede ocurrir como resultado del comportamiento natural de los CMS, o errores pueden ser reportados cuando no existe ninguna, en cuyo caso, el comportamiento natural para phpMussel será interfiriendo con el comportamiento natural de los CMS. Si tal situación ocurre para usted, activando esta opción instruirá phpMussel no intentar iniciar un escaneo para tales vacíos elementos, ignorarlos cuando encontrado y no devuelva cualquier relacionado mensaje de error, así permitiendo la continuación de la página cargando. False = DESACTIVADO; True = ACTIVADO.
 
 ##### "theme" `[string]`
-- La estética a utilizar para la página "Subida Denegada".
+- La estética a utilizar para la página "subida denegada".
 
 ```
 theme
@@ -1822,4 +1838,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 26 de Septiembre de 2022 (2022.09.26).
+Última Actualización: 21 de Enero de 2023 (2023.01.21).
