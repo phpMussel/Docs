@@ -2,15 +2,15 @@
 
 ### <div dir="rtl">المحتويات:</div>
 <div dir="rtl"><ul>
- <li>١. <a href="#SECTION1">مقدمة</a></li>
- <li>٢. <a href="#SECTION2">كيفية التحميل</a></li>
- <li>٣. <a href="#SECTION3">كيفية الإستخدام</a></li>
- <li>٤. <a href="#SECTION4">تمديد PHPMUSSEL</a></li>
- <li>٥. <a href="#SECTION5">خيارات التكوين/التهيئة</a></li>
- <li>٦. <a href="#SECTION6">شكل/تنسيق التوقيع</a></li>
- <li>٧. <a href="#SECTION7">مشاكل التوافق المعروفة</a></li>
- <li>٨. <a href="#SECTION8">أسئلة وأجوبة (FAQ)</a></li>
- <li>٩. <a href="#SECTION9">المعلومات القانونية</a></li>
+ <li>١. <a href="#user-content-SECTION1">مقدمة</a></li>
+ <li>٢. <a href="#user-content-SECTION2">كيفية التحميل</a></li>
+ <li>٣. <a href="#user-content-SECTION3">كيفية الإستخدام</a></li>
+ <li>٤. <a href="#user-content-SECTION4">تمديد PHPMUSSEL</a></li>
+ <li>٥. <a href="#user-content-SECTION5">خيارات التكوين/التهيئة</a></li>
+ <li>٦. <a href="#user-content-SECTION6">شكل/تنسيق التوقيع</a></li>
+ <li>٧. <a href="#user-content-SECTION7">مشاكل التوافق المعروفة</a></li>
+ <li>٨. <a href="#user-content-SECTION8">أسئلة وأجوبة (FAQ)</a></li>
+ <li>٩. <a href="#user-content-SECTION9">المعلومات القانونية</a></li>
 </ul></div>
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
@@ -427,7 +427,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-<div dir="rtl">أنظر أيضا: <a href="#SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a><br /></div>
+<div dir="rtl">أنظر أيضا: <a href="#user-content-SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a><br /></div>
 
 #### <div dir="rtl">٣.٦ 2FA<br /><br /></div>
 
@@ -1248,7 +1248,7 @@ smtp_secure
 
 <div dir="rtl">أنظر أيضا:<br /></div>
 <div dir="rtl"><ul>
- <li><a href="#WHAT_IS_A_SIGNATURE">ما هو "التوقيع"؟</a></li>
+ <li><a href="#user-content-WHAT_IS_A_SIGNATURE">ما هو "التوقيع"؟</a></li>
 </ul></div>
 
 <div dir="rtl">أول 9 بايت <code dir="ltr">[x0-x8]</code> من ملف التوقيع phpMussel هو <code dir="ltr">phpMussel</code>، والعمل بمثابة "عدد سحري" (magic number)، لتحديدها كملفات توقيع (وهذا يساعد على منع عن طريق الخطأ باستخدام الملفات التي ليست ملفات التوقيع). البايت المقبل <code dir="ltr">[x9]</code> يحدد نوع ملف التوقيع، والتي يجب أن تعرف من أجل أن تكون قادرة على تفسير ملف التوقيع بشكل صحيح. يتم التعرف على الأنواع التالية من ملفات التوقيع:<br /><br /></div>
@@ -1337,22 +1337,22 @@ smtp_secure
 ### <div dir="rtl">٨. <a name="SECTION8"></a>أسئلة وأجوبة (FAQ)</div>
 
 <div dir="rtl"><ul>
- <li><a href="#WHAT_IS_A_SIGNATURE">ما هو "التوقيع"؟</a></li>
- <li><a href="#WHAT_IS_A_FALSE_POSITIVE">ما هو "إيجابية خاطئة"؟</a></li>
- <li><a href="#SIGNATURE_UPDATE_FREQUENCY">عدد المرات التي يتم تحديثها التوقيعات؟</a></li>
- <li><a href="#ENCOUNTERED_PROBLEM_WHAT_TO_DO">لقد واجهت مشكلة! أنا لا أعرف ما يجب القيام به! الرجاء المساعدة!</a></li>
- <li><a href="#MINIMUM_PHP_VERSION_V3">أريد استخدام phpMussel v3 مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟</a></li>
- <li><a href="#PROTECT_MULTIPLE_DOMAINS">هل يمكنني استخدام تثبيت phpMussel واحد لحماية نطاقات متعددة؟</a></li>
- <li><a href="#PAY_YOU_TO_DO_IT">أنا لا أريد أن تضيع الوقت مع تثبيت هذا أو ضمان أنه يعمل لموقع الويب الخاص بي؛ يمكنني دفع لك أن تفعل ذلك بالنسبة لي؟</a></li>
- <li><a href="#HIRE_FOR_PRIVATE_WORK">هل يمكنني توظيفك أو أي من مطوري هذا المشروع للعمل الخاص؟</a></li>
- <li><a href="#SPECIALIST_MODIFICATIONS">أنا بحاجة إلى تعديلات متخصصة، والتخصيصات، الخ؛ يمكنك أن تساعد؟</a></li>
- <li><a href="#ACCEPT_OR_OFFER_WORK">أنا مطور، مصمم موقع، أو مبرمج. هل يمكنني قبول أو عرض العمل المتعلق بهذا المشروع؟</a></li>
- <li><a href="#WANT_TO_CONTRIBUTE">أريد أن أساهم في المشروع؛ هل يمكنني فعل هذا؟</a></li>
- <li><a href="#SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a></li>
- <li><a href="#BLACK_WHITE_GREY">القوائم السوداء – القوائم البيضاء – القائمة الرمادية – ما هي، وكيف أستخدمها؟</a></li>
- <li><a href="#HOW_TO_USE_PDO">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a></li>
- <li><a href="#AJAX_AJAJ_JSON">تحميلاتي غير متزامنة (على سبيل المثال، يستخدم ajax، ajaj، json، إلخ). لا أرى أي رسالة أو تحذير خاص عند حظر التحميل. ماذا يحدث هنا؟</a></li>
- <li><a href="#DETECT_EICAR">هل يستطيع phpMussel اكتشاف EICAR؟</a></li>
+ <li><a href="#user-content-WHAT_IS_A_SIGNATURE">ما هو "التوقيع"؟</a></li>
+ <li><a href="#user-content-WHAT_IS_A_FALSE_POSITIVE">ما هو "إيجابية خاطئة"؟</a></li>
+ <li><a href="#user-content-SIGNATURE_UPDATE_FREQUENCY">عدد المرات التي يتم تحديثها التوقيعات؟</a></li>
+ <li><a href="#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO">لقد واجهت مشكلة! أنا لا أعرف ما يجب القيام به! الرجاء المساعدة!</a></li>
+ <li><a href="#user-content-MINIMUM_PHP_VERSION_V3">أريد استخدام phpMussel v3 مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟</a></li>
+ <li><a href="#user-content-PROTECT_MULTIPLE_DOMAINS">هل يمكنني استخدام تثبيت phpMussel واحد لحماية نطاقات متعددة؟</a></li>
+ <li><a href="#user-content-PAY_YOU_TO_DO_IT">أنا لا أريد أن تضيع الوقت مع تثبيت هذا أو ضمان أنه يعمل لموقع الويب الخاص بي؛ يمكنني دفع لك أن تفعل ذلك بالنسبة لي؟</a></li>
+ <li><a href="#user-content-HIRE_FOR_PRIVATE_WORK">هل يمكنني توظيفك أو أي من مطوري هذا المشروع للعمل الخاص؟</a></li>
+ <li><a href="#user-content-SPECIALIST_MODIFICATIONS">أنا بحاجة إلى تعديلات متخصصة، والتخصيصات، الخ؛ يمكنك أن تساعد؟</a></li>
+ <li><a href="#user-content-ACCEPT_OR_OFFER_WORK">أنا مطور، مصمم موقع، أو مبرمج. هل يمكنني قبول أو عرض العمل المتعلق بهذا المشروع؟</a></li>
+ <li><a href="#user-content-WANT_TO_CONTRIBUTE">أريد أن أساهم في المشروع؛ هل يمكنني فعل هذا؟</a></li>
+ <li><a href="#user-content-SCAN_DEBUGGING">كيفية الوصول إلى تفاصيل محددة حول الملفات عند مسحها ضوئيا؟</a></li>
+ <li><a href="#user-content-BLACK_WHITE_GREY">القوائم السوداء – القوائم البيضاء – القائمة الرمادية – ما هي، وكيف أستخدمها؟</a></li>
+ <li><a href="#user-content-HOW_TO_USE_PDO">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a></li>
+ <li><a href="#user-content-AJAX_AJAJ_JSON">تحميلاتي غير متزامنة (على سبيل المثال، يستخدم ajax، ajaj، json، إلخ). لا أرى أي رسالة أو تحذير خاص عند حظر التحميل. ماذا يحدث هنا؟</a></li>
+ <li><a href="#user-content-DETECT_EICAR">هل يستطيع phpMussel اكتشاف EICAR؟</a></li>
 </ul></div>
 
 #### <div dir="rtl"><a name="WHAT_IS_A_SIGNATURE"></a>ما هو "التوقيع"؟<br /><br /></div>
@@ -1873,4 +1873,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٢١ يناير ٢٠٢٣ (٢٠٢٣.٠١.٢١).</div>
+<div dir="rtl">آخر تحديث: ٥ مارس ٢٠٢٣ (٢٠٢٣.٠٣.٠٥).</div>

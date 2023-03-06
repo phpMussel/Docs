@@ -1,15 +1,15 @@
 ## phpMussel v3 설명서 (한국어).
 
 ### 목차
-- 1. [서문](#SECTION1)
-- 2. [설치 방법](#SECTION2)
-- 3. [사용 방법](#SECTION3)
-- 4. [PHPMUSSEL 확장](#SECTION4)
-- 5. [설정 옵션](#SECTION5)
-- 6. [서명 형식](#SECTION6)
-- 7. [알려진 호환성 문제](#SECTION7)
-- 8. [자주 묻는 질문 (FAQ)](#SECTION8)
-- 9. [법률 정보](#SECTION9)
+- 1. [서문](#user-content-SECTION1)
+- 2. [설치 방법](#user-content-SECTION2)
+- 3. [사용 방법](#user-content-SECTION3)
+- 4. [PHPMUSSEL 확장](#user-content-SECTION4)
+- 5. [설정 옵션](#user-content-SECTION5)
+- 6. [서명 형식](#user-content-SECTION6)
+- 7. [알려진 호환성 문제](#user-content-SECTION7)
+- 8. [자주 묻는 질문 (FAQ)](#user-content-SECTION8)
+- 9. [법률 정보](#user-content-SECTION9)
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
@@ -423,7 +423,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-*도보시오: [파일을 스캔할 때 파일에 대한 특정 세부 정보에 액세스하는 방법은 무엇입니까?](#SCAN_DEBUGGING)*
+*도보시오: [파일을 스캔할 때 파일에 대한 특정 세부 정보에 액세스하는 방법은 무엇입니까?](#user-content-SCAN_DEBUGGING)*
 
 #### 3.6 2FA (이중 인증)
 
@@ -1240,7 +1240,7 @@ smtp_secure
 ### 6. <a name="SECTION6"></a>서명 형식
 
 *참조 :*
-- *["서명"이란 무엇입니까?](#WHAT_IS_A_SIGNATURE)*
+- *["서명"이란 무엇입니까?](#user-content-WHAT_IS_A_SIGNATURE)*
 
 phpMussel 서명 파일의 첫 번째 9 바이트 `[x0-x8]` 는`phpMussel`이며, "매직 넘버" (magic number)로 기능합니다 (그들을 서명 파일로 식별하기 위해). 서명 파일이 아닌 파일을 잘못 사용하는 것을 방지 할 수 있습니다. 다음 바이트는 `[x9]` 서명 파일의 유형을 식별합니다. 서명 파일을 올바르게 해석 할 수 있도록하기 위해 이것을 알고 있어야합니다. 다음 유형의 서명 파일이 인식됩니다.
 
@@ -1327,22 +1327,22 @@ phpMussel과 일부 안티바이러스 공급 업체 간의 호환성 문제는 
 
 ### 8. <a name="SECTION8"></a>자주 묻는 질문 (FAQ)
 
-- ["서명"이란 무엇입니까?](#WHAT_IS_A_SIGNATURE)
-- ["거짓 양성"는 무엇입니까?](#WHAT_IS_A_FALSE_POSITIVE)
-- [서명은 얼마나 자주 업데이트됩니까?](#SIGNATURE_UPDATE_FREQUENCY)
-- [phpMussel을 사용하는 데 문제가 발생했지만 무엇을 해야할지 모르겠어요! 도와주세요!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [7.2.0보다 오래된 PHP 버전에서 phpMussel v3을 사용하고 싶습니다; 도울 수 있니?](#MINIMUM_PHP_VERSION_V3)
-- [단일 phpMussel 설치를 사용하여 여러 도메인을 보호 할 수 있습니까?](#PROTECT_MULTIPLE_DOMAINS)
-- [나는 이것을 설치하거나 그것이 내 웹 사이트상에서 동작하는 것을 보장하는 시간을 보내고, 하고 싶지 않아; 그것을 할 수 있습니까? 나는 당신을 고용 할 수 있습니까?](#PAY_YOU_TO_DO_IT)
-- [당신 또는 이 프로젝트의 모든 개발자는 고용 가능합니까?](#HIRE_FOR_PRIVATE_WORK)
-- [나는 전문가의 변경 및 사용자 맞춤형 등이 필요합니다; 도울 수 있니?](#SPECIALIST_MODIFICATIONS)
-- [나는 개발자, 웹 사이트 디자이너, 또는 프로그래머입니다. 이 프로젝트 관련 작업을 할 수 있습니까?](#ACCEPT_OR_OFFER_WORK)
-- [나는 프로젝트에 공헌하고 싶다; 이것은 수 있습니까?](#WANT_TO_CONTRIBUTE)
-- [파일 검색시 특정 정보에 액세스하려면 어떻게해야합니까?](#SCAN_DEBUGGING)
-- [블랙리스트 – 화이트리스트 – 그레이리스트 – 그들은 무엇이며 어떻게 사용합니까?](#BLACK_WHITE_GREY)
-- ["PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?](#HOW_TO_USE_PDO)
-- [내 업로드 기능이 비동기입니다 (예를 들어, ajax, ajaj, json 등을 사용합니다). 업로드가 차단되면 특별한 메시지 나 경고가 표시되지 않습니다. 무슨 일이야?](#AJAX_AJAJ_JSON)
-- [phpMussel이 EICAR를 감지 할 수 있습니까?](#DETECT_EICAR)
+- ["서명"이란 무엇입니까?](#user-content-WHAT_IS_A_SIGNATURE)
+- ["거짓 양성"는 무엇입니까?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
+- [서명은 얼마나 자주 업데이트됩니까?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
+- [phpMussel을 사용하는 데 문제가 발생했지만 무엇을 해야할지 모르겠어요! 도와주세요!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
+- [7.2.0보다 오래된 PHP 버전에서 phpMussel v3을 사용하고 싶습니다; 도울 수 있니?](#user-content-MINIMUM_PHP_VERSION_V3)
+- [단일 phpMussel 설치를 사용하여 여러 도메인을 보호 할 수 있습니까?](#user-content-PROTECT_MULTIPLE_DOMAINS)
+- [나는 이것을 설치하거나 그것이 내 웹 사이트상에서 동작하는 것을 보장하는 시간을 보내고, 하고 싶지 않아; 그것을 할 수 있습니까? 나는 당신을 고용 할 수 있습니까?](#user-content-PAY_YOU_TO_DO_IT)
+- [당신 또는 이 프로젝트의 모든 개발자는 고용 가능합니까?](#user-content-HIRE_FOR_PRIVATE_WORK)
+- [나는 전문가의 변경 및 사용자 맞춤형 등이 필요합니다; 도울 수 있니?](#user-content-SPECIALIST_MODIFICATIONS)
+- [나는 개발자, 웹 사이트 디자이너, 또는 프로그래머입니다. 이 프로젝트 관련 작업을 할 수 있습니까?](#user-content-ACCEPT_OR_OFFER_WORK)
+- [나는 프로젝트에 공헌하고 싶다; 이것은 수 있습니까?](#user-content-WANT_TO_CONTRIBUTE)
+- [파일 검색시 특정 정보에 액세스하려면 어떻게해야합니까?](#user-content-SCAN_DEBUGGING)
+- [블랙리스트 – 화이트리스트 – 그레이리스트 – 그들은 무엇이며 어떻게 사용합니까?](#user-content-BLACK_WHITE_GREY)
+- ["PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?](#user-content-HOW_TO_USE_PDO)
+- [내 업로드 기능이 비동기입니다 (예를 들어, ajax, ajaj, json 등을 사용합니다). 업로드가 차단되면 특별한 메시지 나 경고가 표시되지 않습니다. 무슨 일이야?](#user-content-AJAX_AJAJ_JSON)
+- [phpMussel이 EICAR를 감지 할 수 있습니까?](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>"서명"이란 무엇입니까?
 
@@ -1829,4 +1829,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2023년 1월 21일.
+최종 업데이트 : 2023년 3월 5일.

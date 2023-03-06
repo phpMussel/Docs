@@ -1,15 +1,15 @@
 ## phpMussel v3 中文（傳統）文檔。
 
 ### 內容
-- 1. [前言](#SECTION1)
-- 2. [如何安裝](#SECTION2)
-- 3. [如何使用](#SECTION3)
-- 4. [擴展PHPMUSSEL](#SECTION4)
-- 5. [配置選項](#SECTION5)
-- 6. [簽名格式](#SECTION6)
-- 7. [已知的兼容問題](#SECTION7)
-- 8. [常見問題（FAQ）](#SECTION8)
-- 9. [法律信息](#SECTION9)
+- 1. [前言](#user-content-SECTION1)
+- 2. [如何安裝](#user-content-SECTION2)
+- 3. [如何使用](#user-content-SECTION3)
+- 4. [擴展PHPMUSSEL](#user-content-SECTION4)
+- 5. [配置選項](#user-content-SECTION5)
+- 6. [簽名格式](#user-content-SECTION6)
+- 7. [已知的兼容問題](#user-content-SECTION7)
+- 8. [常見問題（FAQ）](#user-content-SECTION8)
+- 9. [法律信息](#user-content-SECTION9)
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
@@ -423,7 +423,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-*也可以看看： [掃描時如何訪問文件的具體細節？](#SCAN_DEBUGGING)*
+*也可以看看： [掃描時如何訪問文件的具體細節？](#user-content-SCAN_DEBUGGING)*
 
 #### 3.6 2FA（雙因素身份驗證）
 
@@ -1234,7 +1234,7 @@ smtp_secure
 ### 6. <a name="SECTION6"></a>簽名格式
 
 *也可以看看：*
-- *[什麼是『簽名』？](#WHAT_IS_A_SIGNATURE)*
+- *[什麼是『簽名』？](#user-content-WHAT_IS_A_SIGNATURE)*
 
 phpMussel簽名文件前9個字節（`[x0-x8]`）是`phpMussel`。​它作為一個『魔術數字』【magic number】，將其標識為簽名文件（這有助於防止phpMussel意外地嘗試使用文件不是簽名文件）。​下一個字節`[x9]`標識簽名文件的類型。​這一點必須知道以便能夠正確解釋簽名文件。​以下類型的簽名文件被認可：
 
@@ -1321,22 +1321,22 @@ phpMussel簽名文件前9個字節（`[x0-x8]`）是`phpMussel`。​它作為�
 
 ### 8. <a name="SECTION8"></a>常見問題（FAQ）
 
-- [什麼是『簽名』？](#WHAT_IS_A_SIGNATURE)
-- [什麼是『假陽性』？](#WHAT_IS_A_FALSE_POSITIVE)
-- [什麼是簽名更新頻率？](#SIGNATURE_UPDATE_FREQUENCY)
-- [我在使用phpMussel時遇到問題和我不知道該怎麼辦！​請幫忙！](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [我想使用phpMussel v3與早於7.2.0的PHP版本；​您能幫我嗎？](#MINIMUM_PHP_VERSION_V3)
-- [我可以使用單個phpMussel安裝來保護多個域嗎？](#PROTECT_MULTIPLE_DOMAINS)
-- [我不想浪費時間安裝這個和確保它在我的網站上功能正常；我可以僱用您這樣做嗎？](#PAY_YOU_TO_DO_IT)
-- [我可以聘請您或這個項目的任何開發者私人工作嗎？](#HIRE_FOR_PRIVATE_WORK)
-- [我需要專家修改，​的定制，​等等；您能幫我嗎？](#SPECIALIST_MODIFICATIONS)
-- [我是開發人員，​網站設計師，​或程序員。​我可以接受還是提供與這個項目有關的工作？](#ACCEPT_OR_OFFER_WORK)
-- [我想為這個項目做出貢獻；我可以這樣做嗎？](#WANT_TO_CONTRIBUTE)
-- [掃描時如何訪問文件的具體細節？](#SCAN_DEBUGGING)
-- [黑名單 – 白名單 – 灰名單 – 他們是什麼，我如何使用它們？](#BLACK_WHITE_GREY)
-- [『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？](#HOW_TO_USE_PDO)
-- [我的上傳工具是異步的（例如，使用ajax，ajaj，json，等等）。當上傳阻止時，我看不到任何特殊消息或警告。發生了什麼？](#AJAX_AJAJ_JSON)
-- [phpMussel可以檢測EICAR嗎？](#DETECT_EICAR)
+- [什麼是『簽名』？](#user-content-WHAT_IS_A_SIGNATURE)
+- [什麼是『假陽性』？](#user-content-WHAT_IS_A_FALSE_POSITIVE)
+- [什麼是簽名更新頻率？](#user-content-SIGNATURE_UPDATE_FREQUENCY)
+- [我在使用phpMussel時遇到問題和我不知道該怎麼辦！​請幫忙！](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
+- [我想使用phpMussel v3與早於7.2.0的PHP版本；​您能幫我嗎？](#user-content-MINIMUM_PHP_VERSION_V3)
+- [我可以使用單個phpMussel安裝來保護多個域嗎？](#user-content-PROTECT_MULTIPLE_DOMAINS)
+- [我不想浪費時間安裝這個和確保它在我的網站上功能正常；我可以僱用您這樣做嗎？](#user-content-PAY_YOU_TO_DO_IT)
+- [我可以聘請您或這個項目的任何開發者私人工作嗎？](#user-content-HIRE_FOR_PRIVATE_WORK)
+- [我需要專家修改，​的定制，​等等；您能幫我嗎？](#user-content-SPECIALIST_MODIFICATIONS)
+- [我是開發人員，​網站設計師，​或程序員。​我可以接受還是提供與這個項目有關的工作？](#user-content-ACCEPT_OR_OFFER_WORK)
+- [我想為這個項目做出貢獻；我可以這樣做嗎？](#user-content-WANT_TO_CONTRIBUTE)
+- [掃描時如何訪問文件的具體細節？](#user-content-SCAN_DEBUGGING)
+- [黑名單 – 白名單 – 灰名單 – 他們是什麼，我如何使用它們？](#user-content-BLACK_WHITE_GREY)
+- [『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？](#user-content-HOW_TO_USE_PDO)
+- [我的上傳工具是異步的（例如，使用ajax，ajaj，json，等等）。當上傳阻止時，我看不到任何特殊消息或警告。發生了什麼？](#user-content-AJAX_AJAJ_JSON)
+- [phpMussel可以檢測EICAR嗎？](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>什麼是『簽名』？
 
@@ -1826,4 +1826,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2023年1月21日。
+最後更新：2023年3月5日。

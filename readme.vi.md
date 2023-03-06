@@ -1,15 +1,15 @@
 ## Tài liệu của phpMussel v3 (Tiếng Việt).
 
 ### Nội dung
-- 1. [LỜI GIỚI THIỆU](#SECTION1)
-- 2. [CÁCH CÀI ĐẶT](#SECTION2)
-- 3. [CÁCH SỬ DỤNG](#SECTION3)
-- 4. [MỞ RỘNG PHPMUSSEL](#SECTION4)
-- 5. [TÙY CHỌN CHO CẤU HÌNH](#SECTION5)
-- 6. [ĐỊNH DẠNG CỦA CHỬ KÝ](#SECTION6)
-- 7. [NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH](#SECTION7)
-- 8. [NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)](#SECTION8)
-- 9. [THÔNG TIN HỢP PHÁP](#SECTION9)
+- 1. [LỜI GIỚI THIỆU](#user-content-SECTION1)
+- 2. [CÁCH CÀI ĐẶT](#user-content-SECTION2)
+- 3. [CÁCH SỬ DỤNG](#user-content-SECTION3)
+- 4. [MỞ RỘNG PHPMUSSEL](#user-content-SECTION4)
+- 5. [TÙY CHỌN CHO CẤU HÌNH](#user-content-SECTION5)
+- 6. [ĐỊNH DẠNG CỦA CHỬ KÝ](#user-content-SECTION6)
+- 7. [NHỮNG VẤN ĐỀ HỢP TƯƠNG TÍCH](#user-content-SECTION7)
+- 8. [NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)](#user-content-SECTION8)
+- 9. [THÔNG TIN HỢP PHÁP](#user-content-SECTION9)
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
@@ -423,7 +423,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-*Xem thêm: [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#SCAN_DEBUGGING)*
+*Xem thêm: [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#user-content-SCAN_DEBUGGING)*
 
 #### 3.6 2FA (XÁC THỰC HAI YẾU TỐ)
 
@@ -1241,7 +1241,7 @@ smtp_secure
 ### 6. <a name="SECTION6"></a>ĐỊNH DẠNG CỦA CHỬ KÝ
 
 *Xem thêm:*
-- *["Chữ ký" là gì?](#WHAT_IS_A_SIGNATURE)*
+- *["Chữ ký" là gì?](#user-content-WHAT_IS_A_SIGNATURE)*
 
 9 byte đầu tiên `[x0-x8]` của một tập tin chữ ký cho phpMussel là `phpMussel`, và hoạt động như một "số ma thuật" (magic number), để xác định chúng như tập tin chữ ký (điều này giúp ngăn ngừa phpMussel vô tình cố gắng sử dụng các tập tin mà không phải là tập tin chữ ký). Byte tiếp theo `[x9]` xác định loại tập tin chữ ký, mà phpMussel phải biết để có thể giải thích chính xác các tập tin chữ ký. Các loại tập tin chữ ký sau đây được nhận dạng:
 
@@ -1328,22 +1328,22 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 
 ### 8. <a name="SECTION8"></a>NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)
 
-- ["Chữ ký" là gì?](#WHAT_IS_A_SIGNATURE)
-- ["Sai tích cực" là gì?](#WHAT_IS_A_FALSE_POSITIVE)
-- [Tần suất cập nhật chữ ký là bao nhiêu?](#SIGNATURE_UPDATE_FREQUENCY)
-- [Tôi đã gặp một vấn đề trong khi sử dụng phpMussel và tôi không biết phải làm gì về nó! Hãy giúp tôi!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Tôi muốn sử dụng phpMussel v3 với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?](#MINIMUM_PHP_VERSION_V3)
-- [Tôi có thể sử dụng một cài đặt phpMussel để bảo vệ nhiều tên miền?](#PROTECT_MULTIPLE_DOMAINS)
-- [Tôi không muốn lãng phí thời gian bằng cách cài đặt này và đảm bảo rằng nó hoạt động với trang web của tôi; Tôi có thể trả tiền cho bạn để làm điều đó cho tôi?](#PAY_YOU_TO_DO_IT)
-- [Tôi có thể thuê bạn hay bất kỳ nhà phát triển nào của dự án này cho công việc riêng tư?](#HIRE_FOR_PRIVATE_WORK)
-- [Tôi cần sửa đổi chuyên môn, tuỳ chỉnh, vv; Bạn có thể giúp?](#SPECIALIST_MODIFICATIONS)
-- [Tôi là nhà phát triển, nhà thiết kế trang web, hay lập trình viên. Tôi có thể chấp nhận hay cung cấp các công việc liên quan đến dự án này không?](#ACCEPT_OR_OFFER_WORK)
-- [Tôi muốn đóng góp cho dự án; Tôi có thể làm được điều này?](#WANT_TO_CONTRIBUTE)
-- [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#SCAN_DEBUGGING)
-- [Danh sách đen – Danh sách trắng – Danh sách xám – Họ là gì, và làm cách nào để sử dụng chúng?](#BLACK_WHITE_GREY)
-- ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#HOW_TO_USE_PDO)
-- [Chức năng tải lên của tôi không đồng bộ (ví dụ, sử dụng ajax, ajaj, json, vv). Tôi không thấy bất kỳ thông báo hoặc cảnh báo đặc biệt nào khi tải lên bị chặn. Chuyện gì đang xảy ra vậy?](#AJAX_AJAJ_JSON)
-- [phpMussel có thể phát hiện EICAR không?](#DETECT_EICAR)
+- ["Chữ ký" là gì?](#user-content-WHAT_IS_A_SIGNATURE)
+- ["Sai tích cực" là gì?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
+- [Tần suất cập nhật chữ ký là bao nhiêu?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
+- [Tôi đã gặp một vấn đề trong khi sử dụng phpMussel và tôi không biết phải làm gì về nó! Hãy giúp tôi!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
+- [Tôi muốn sử dụng phpMussel v3 với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?](#user-content-MINIMUM_PHP_VERSION_V3)
+- [Tôi có thể sử dụng một cài đặt phpMussel để bảo vệ nhiều tên miền?](#user-content-PROTECT_MULTIPLE_DOMAINS)
+- [Tôi không muốn lãng phí thời gian bằng cách cài đặt này và đảm bảo rằng nó hoạt động với trang web của tôi; Tôi có thể trả tiền cho bạn để làm điều đó cho tôi?](#user-content-PAY_YOU_TO_DO_IT)
+- [Tôi có thể thuê bạn hay bất kỳ nhà phát triển nào của dự án này cho công việc riêng tư?](#user-content-HIRE_FOR_PRIVATE_WORK)
+- [Tôi cần sửa đổi chuyên môn, tuỳ chỉnh, vv; Bạn có thể giúp?](#user-content-SPECIALIST_MODIFICATIONS)
+- [Tôi là nhà phát triển, nhà thiết kế trang web, hay lập trình viên. Tôi có thể chấp nhận hay cung cấp các công việc liên quan đến dự án này không?](#user-content-ACCEPT_OR_OFFER_WORK)
+- [Tôi muốn đóng góp cho dự án; Tôi có thể làm được điều này?](#user-content-WANT_TO_CONTRIBUTE)
+- [Làm thế nào để truy cập chi tiết cụ thể về các tập tin khi chúng được quét?](#user-content-SCAN_DEBUGGING)
+- [Danh sách đen – Danh sách trắng – Danh sách xám – Họ là gì, và làm cách nào để sử dụng chúng?](#user-content-BLACK_WHITE_GREY)
+- ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#user-content-HOW_TO_USE_PDO)
+- [Chức năng tải lên của tôi không đồng bộ (ví dụ, sử dụng ajax, ajaj, json, vv). Tôi không thấy bất kỳ thông báo hoặc cảnh báo đặc biệt nào khi tải lên bị chặn. Chuyện gì đang xảy ra vậy?](#user-content-AJAX_AJAJ_JSON)
+- [phpMussel có thể phát hiện EICAR không?](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>"Chữ ký" là gì?
 
@@ -1829,4 +1829,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2023.01.21.
+Lần cuối cập nhật: 2023.03.05.

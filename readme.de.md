@@ -1,15 +1,15 @@
 ## Dokumentation für phpMussel v3 (Deutsch).
 
 ### Inhalt
-- 1. [VORWORT](#SECTION1)
-- 2. [INSTALLATION](#SECTION2)
-- 3. [BENUTZUNG](#SECTION3)
-- 4. [ERWEITERUNG VON PHPMUSSEL](#SECTION4)
-- 5. [EINSTELLUNGEN](#SECTION5)
-- 6. [SIGNATURENFORMAT](#SECTION6)
-- 7. [BEKANNTE KOMPATIBILITÄTSPROBLEME](#SECTION7)
-- 8. [HÄUFIG GESTELLTE FRAGEN (FAQ)](#SECTION8)
-- 9. [RECHTSINFORMATION](#SECTION9)
+- 1. [VORWORT](#user-content-SECTION1)
+- 2. [INSTALLATION](#user-content-SECTION2)
+- 3. [BENUTZUNG](#user-content-SECTION3)
+- 4. [ERWEITERUNG VON PHPMUSSEL](#user-content-SECTION4)
+- 5. [EINSTELLUNGEN](#user-content-SECTION5)
+- 6. [SIGNATURENFORMAT](#user-content-SECTION6)
+- 7. [BEKANNTE KOMPATIBILITÄTSPROBLEME](#user-content-SECTION7)
+- 8. [HÄUFIG GESTELLTE FRAGEN (FAQ)](#user-content-SECTION8)
+- 9. [RECHTSINFORMATION](#user-content-SECTION9)
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
@@ -423,7 +423,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-*Siehe auch: [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#SCAN_DEBUGGING)*
+*Siehe auch: [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#user-content-SCAN_DEBUGGING)*
 
 #### 3.6 ZWEI-FAKTOR-AUTHENTIFIZIERUNG
 
@@ -1239,7 +1239,7 @@ smtp_secure
 ### 6. <a name="SECTION6"></a>SIGNATURENFORMAT
 
 *Siehe auch:*
-- *[Was ist eine „Signatur“?](#WHAT_IS_A_SIGNATURE)*
+- *[Was ist eine „Signatur“?](#user-content-WHAT_IS_A_SIGNATURE)*
 
 Die ersten 9 Bytes `[x0-x8]` einer phpMussel Signaturdatei sind `phpMussel`, und handeln als eine „Magische Zahl“ (Magic Number), um sie als Signaturdateien zu identifizieren (dies hilft zu verhindern, dass phpMussel versehentlich versucht, Dateien zu verwenden, die keine Signaturdateien sind). Das nächste Byte `[x9]` identifiziert die Art der Signaturdatei, welche phpMussel wissen muss, um die Signaturdatei korrekt interpretieren zu können. Folgende Arten von Signaturdateien werden erkannt:
 
@@ -1326,22 +1326,22 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 
 ### 8. <a name="SECTION8"></a>HÄUFIG GESTELLTE FRAGEN (FAQ)
 
-- [Was ist eine „Signatur“?](#WHAT_IS_A_SIGNATURE)
-- [Was ist ein „Falsch-Positiv“?](#WHAT_IS_A_FALSE_POSITIVE)
-- [Wie häufig werden Signaturen aktualisiert?](#SIGNATURE_UPDATE_FREQUENCY)
-- [Ich habe ein Problem bei der Verwendung von phpMussel und ich weiß nicht was ich tun soll! Bitte helfen Sie!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Ich möchte phpMussel v3 mit einer PHP-Version älter als 7.2.0 verwenden; Können Sie helfen?](#MINIMUM_PHP_VERSION_V3)
-- [Kann ich eine einzige phpMussel-Installation verwenden, um mehrere Domains zu schützen?](#PROTECT_MULTIPLE_DOMAINS)
-- [Ich möchte keine Zeit damit verbringen (es zu installieren, es richtig zu ordnen, u.s.w.); Kann ich dich einfach bezahlen, um alles für mich zu tun?](#PAY_YOU_TO_DO_IT)
-- [Kann ich Sie oder einen der Entwickler dieses Projektes für private Arbeit einstellen?](#HIRE_FOR_PRIVATE_WORK)
-- [Ich brauche spezialisierte Modifikationen, Anpassungen, u.s.w.; Können Sie helfen?](#SPECIALIST_MODIFICATIONS)
-- [Ich bin ein Entwickler, Website-Designer oder Programmierer. Kann ich die Arbeit an diesem Projekt annehmen oder anbieten?](#ACCEPT_OR_OFFER_WORK)
-- [Ich möchte zum Projekt beitragen; Darf ich dies machen?](#WANT_TO_CONTRIBUTE)
-- [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#SCAN_DEBUGGING)
-- [Blacklists – Whitelists – Greylists – Was sind sie und wie benutze ich sie?](#BLACK_WHITE_GREY)
-- [Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?](#HOW_TO_USE_PDO)
-- [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#AJAX_AJAJ_JSON)
-- [Kann phpMussel EICAR erkennen?](#DETECT_EICAR)
+- [Was ist eine „Signatur“?](#user-content-WHAT_IS_A_SIGNATURE)
+- [Was ist ein „Falsch-Positiv“?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
+- [Wie häufig werden Signaturen aktualisiert?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
+- [Ich habe ein Problem bei der Verwendung von phpMussel und ich weiß nicht was ich tun soll! Bitte helfen Sie!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
+- [Ich möchte phpMussel v3 mit einer PHP-Version älter als 7.2.0 verwenden; Können Sie helfen?](#user-content-MINIMUM_PHP_VERSION_V3)
+- [Kann ich eine einzige phpMussel-Installation verwenden, um mehrere Domains zu schützen?](#user-content-PROTECT_MULTIPLE_DOMAINS)
+- [Ich möchte keine Zeit damit verbringen (es zu installieren, es richtig zu ordnen, u.s.w.); Kann ich dich einfach bezahlen, um alles für mich zu tun?](#user-content-PAY_YOU_TO_DO_IT)
+- [Kann ich Sie oder einen der Entwickler dieses Projektes für private Arbeit einstellen?](#user-content-HIRE_FOR_PRIVATE_WORK)
+- [Ich brauche spezialisierte Modifikationen, Anpassungen, u.s.w.; Können Sie helfen?](#user-content-SPECIALIST_MODIFICATIONS)
+- [Ich bin ein Entwickler, Website-Designer oder Programmierer. Kann ich die Arbeit an diesem Projekt annehmen oder anbieten?](#user-content-ACCEPT_OR_OFFER_WORK)
+- [Ich möchte zum Projekt beitragen; Darf ich dies machen?](#user-content-WANT_TO_CONTRIBUTE)
+- [Wie man spezifische Details über Dateien zugreifen, wenn sie gescannt werden?](#user-content-SCAN_DEBUGGING)
+- [Blacklists – Whitelists – Greylists – Was sind sie und wie benutze ich sie?](#user-content-BLACK_WHITE_GREY)
+- [Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?](#user-content-HOW_TO_USE_PDO)
+- [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#user-content-AJAX_AJAJ_JSON)
+- [Kann phpMussel EICAR erkennen?](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Was ist eine „Signatur“?
 
@@ -1845,4 +1845,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 21. Januar 2023 (2023.01.21).
+Zuletzt aktualisiert: 5. März 2023 (2023.03.05).

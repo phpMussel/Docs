@@ -1,15 +1,15 @@
 ## phpMussel v3のドキュメンテーション（日本語）。
 
 ### 目次
-- １.[序文](#SECTION1)
-- ２.[インストール方法](#SECTION2)
-- ３.[使用方法](#SECTION3)
-- ４.[PHPMUSSELの拡張](#SECTION4)
-- ７.[コンフィギュレーション（設定オプション）](#SECTION5)
-- ８.[シグネチャ（署名）フォーマット](#SECTION6)
-- ９.[適合性問題](#SECTION7)
-- １０.[よくある質問（ＦＡＱ）](#SECTION8)
-- １１.[法律情報](#SECTION9)
+- １.[序文](#user-content-SECTION1)
+- ２.[インストール方法](#user-content-SECTION2)
+- ３.[使用方法](#user-content-SECTION3)
+- ４.[PHPMUSSELの拡張](#user-content-SECTION4)
+- ７.[コンフィギュレーション（設定オプション）](#user-content-SECTION5)
+- ８.[シグネチャ（署名）フォーマット](#user-content-SECTION6)
+- ９.[適合性問題](#user-content-SECTION7)
+- １０.[よくある質問（ＦＡＱ）](#user-content-SECTION8)
+- １１.[法律情報](#user-content-SECTION9)
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
@@ -423,7 +423,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-*また見てください： [ファイルのスキャン時に特定の詳細情報にアクセスするにはどうすればよいですか？](#SCAN_DEBUGGING)*
+*また見てください： [ファイルのスキャン時に特定の詳細情報にアクセスするにはどうすればよいですか？](#user-content-SCAN_DEBUGGING)*
 
 #### 3.6 ２ＦＡ（二要素認証）
 
@@ -1235,7 +1235,7 @@ smtp_secure
 ### ８.<a name="SECTION6"></a>シグネチャ（署名）フォーマット
 
 *参照：*
-- *[「シグネチャ」とは何ですか？](#WHAT_IS_A_SIGNATURE)*
+- *[「シグネチャ」とは何ですか？](#user-content-WHAT_IS_A_SIGNATURE)*
 
 phpMusselシグネチャ・ファイルの最初の9バイト（`[x0-x8]`）は`phpMussel`であり、​「マジック・ナンバー」（magic number）として機能します（それらをシグネチャ・ファイルとして識別するために）。​シグネチャ・ファイルではないファイルを誤って使用するのを防ぐのに役立ちます。​次のバイト（`[x9]`）は、シグネチャ・ファイルのタイプを識別する。​シグネチャ・ファイルを正しく解釈できるようにするためにこれを知っておく必要があります。​次のタイプのシグネチャ・ファイルが認識されます。
 
@@ -1322,22 +1322,22 @@ phpMusselと一部のアンチウイルス・ベンダー間の互換性の問�
 
 ### １０.<a name="SECTION8"></a>よくある質問（ＦＡＱ）
 
-- [「シグネチャ」とは何ですか？](#WHAT_IS_A_SIGNATURE)
-- [「偽陽性」とは何ですか？](#WHAT_IS_A_FALSE_POSITIVE)
-- [シグネチャはどれくらいの頻度でアップデイトされますか？](#SIGNATURE_UPDATE_FREQUENCY)
-- [phpMusselを使用しているときに問題が発生しましたが、​何をすべきかわかりません！​助けてください！](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [7.2.0より古いＰＨＰバージョンでphpMussel v3を使用したいと思います；​手伝ってくれますか？](#MINIMUM_PHP_VERSION_V3)
-- [複数のドメインを保護するために１つのphpMusselインストールを使用できますか？](#PROTECT_MULTIPLE_DOMAINS)
-- [私はこれをインストールするか、​それが私のウェブサイト上で動作することを保証する時間を費やす、​にしたくない；​それできますか？​私はあなたを雇うことができますか？](#PAY_YOU_TO_DO_IT)
-- [あなたまたはこのプロジェクトの任意の開発者は雇用可能ですか？](#HIRE_FOR_PRIVATE_WORK)
-- [私は専門家の変更、​カスタム化、​等が必要です；​手伝ってくれますか？](#SPECIALIST_MODIFICATIONS)
-- [私は開発者、​ウェブサイトデザイナー、​またはプログラマーです。​このプロジェクトに関連する作業を行うことはできますか？](#ACCEPT_OR_OFFER_WORK)
-- [私はプロジェクトに貢献したい；​これはできますか？](#WANT_TO_CONTRIBUTE)
-- [ファイルのスキャン時に特定の詳細情報にアクセスするにはどうすればよいですか？](#SCAN_DEBUGGING)
-- [ブラックリスト – ホワイトリスト – グレーリスト – 彼らは何ですか？私はどのように使用しますか？](#BLACK_WHITE_GREY)
-- [「PDO DSN」とは何ですか？​phpMusselでPDOを使用するにはどうすればよいですか？](#HOW_TO_USE_PDO)
-- [私のアップロード機能性は非同期です（例えば、ajax、ajaj、json、などを使用します）。​アップロードがブロックされたときに特別なメッセージや警告が表示されません。​何が起こっていますか？](#AJAX_AJAJ_JSON)
-- [phpMusselはEICARを検出できますか？](#DETECT_EICAR)
+- [「シグネチャ」とは何ですか？](#user-content-WHAT_IS_A_SIGNATURE)
+- [「偽陽性」とは何ですか？](#user-content-WHAT_IS_A_FALSE_POSITIVE)
+- [シグネチャはどれくらいの頻度でアップデイトされますか？](#user-content-SIGNATURE_UPDATE_FREQUENCY)
+- [phpMusselを使用しているときに問題が発生しましたが、​何をすべきかわかりません！​助けてください！](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
+- [7.2.0より古いＰＨＰバージョンでphpMussel v3を使用したいと思います；​手伝ってくれますか？](#user-content-MINIMUM_PHP_VERSION_V3)
+- [複数のドメインを保護するために１つのphpMusselインストールを使用できますか？](#user-content-PROTECT_MULTIPLE_DOMAINS)
+- [私はこれをインストールするか、​それが私のウェブサイト上で動作することを保証する時間を費やす、​にしたくない；​それできますか？​私はあなたを雇うことができますか？](#user-content-PAY_YOU_TO_DO_IT)
+- [あなたまたはこのプロジェクトの任意の開発者は雇用可能ですか？](#user-content-HIRE_FOR_PRIVATE_WORK)
+- [私は専門家の変更、​カスタム化、​等が必要です；​手伝ってくれますか？](#user-content-SPECIALIST_MODIFICATIONS)
+- [私は開発者、​ウェブサイトデザイナー、​またはプログラマーです。​このプロジェクトに関連する作業を行うことはできますか？](#user-content-ACCEPT_OR_OFFER_WORK)
+- [私はプロジェクトに貢献したい；​これはできますか？](#user-content-WANT_TO_CONTRIBUTE)
+- [ファイルのスキャン時に特定の詳細情報にアクセスするにはどうすればよいですか？](#user-content-SCAN_DEBUGGING)
+- [ブラックリスト – ホワイトリスト – グレーリスト – 彼らは何ですか？私はどのように使用しますか？](#user-content-BLACK_WHITE_GREY)
+- [「PDO DSN」とは何ですか？​phpMusselでPDOを使用するにはどうすればよいですか？](#user-content-HOW_TO_USE_PDO)
+- [私のアップロード機能性は非同期です（例えば、ajax、ajaj、json、などを使用します）。​アップロードがブロックされたときに特別なメッセージや警告が表示されません。​何が起こっていますか？](#user-content-AJAX_AJAJ_JSON)
+- [phpMusselはEICARを検出できますか？](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>「シグネチャ」とは何ですか？
 
@@ -1826,4 +1826,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２３年１月２１日。
+最終アップデート：２０２３年３月５日。

@@ -1,15 +1,15 @@
 ## Dokumentasi untuk phpMussel v3 (Bahasa Indonesia).
 
 ### Isi
-- 1. [SEPATAH KATA](#SECTION1)
-- 2. [BAGAIMANA CARA MENGINSTAL](#SECTION2)
-- 3. [BAGAIMANA CARA MENGGUNAKAN](#SECTION3)
-- 4. [MEMPERLUAS PHPMUSSEL](#SECTION4)
-- 5. [OPSI KONFIGURASI](#SECTION5)
-- 6. [FORMAT TANDA TANGAN](#SECTION6)
-- 7. [MASALAH KOMPATIBILITAS DIKETAHUI](#SECTION7)
-- 8. [PERTANYAAN YANG SERING DIAJUKAN (FAQ)](#SECTION8)
-- 9. [INFORMASI HUKUM](#SECTION9)
+- 1. [SEPATAH KATA](#user-content-SECTION1)
+- 2. [BAGAIMANA CARA MENGINSTAL](#user-content-SECTION2)
+- 3. [BAGAIMANA CARA MENGGUNAKAN](#user-content-SECTION3)
+- 4. [MEMPERLUAS PHPMUSSEL](#user-content-SECTION4)
+- 5. [OPSI KONFIGURASI](#user-content-SECTION5)
+- 6. [FORMAT TANDA TANGAN](#user-content-SECTION6)
+- 7. [MASALAH KOMPATIBILITAS DIKETAHUI](#user-content-SECTION7)
+- 8. [PERTANYAAN YANG SERING DIAJUKAN (FAQ)](#user-content-SECTION8)
+- 9. [INFORMASI HUKUM](#user-content-SECTION9)
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
@@ -423,7 +423,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-*Lihat juga: [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#SCAN_DEBUGGING)*
+*Lihat juga: [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#user-content-SCAN_DEBUGGING)*
 
 #### 3.6 OTENTIKASI DUA FAKTOR
 
@@ -1240,7 +1240,7 @@ smtp_secure
 ### 6. <a name="SECTION6"></a>FORMAT TANDA TANGAN
 
 *Lihat juga:*
-- *[Apa yang "tanda tangan"?](#WHAT_IS_A_SIGNATURE)*
+- *[Apa yang "tanda tangan"?](#user-content-WHAT_IS_A_SIGNATURE)*
 
 9 byte pertama `[x0-x8]` dari file tanda tangan phpMussel adalah `phpMussel`, dan Bertindak sebagai "nomor ajaib" (magic number), untuk mengidentifikasi mereka sebagai file tanda tangan (ini membantu mencegah phpMussel secara tidak sengaja mencoba menggunakan file yang bukan file tanda tangan). Byte berikutnya `[x9]` mengidentifikasi jenis file tanda tangan, yang harus diketahui oleh phpMussel agar bisa menafsirkan file tanda tangan dengan benar. Jenis file tanda tangan berikut dikenali:
 
@@ -1327,22 +1327,22 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 
 ### 8. <a name="SECTION8"></a>PERTANYAAN YANG SERING DIAJUKAN (FAQ)
 
-- [Apa yang "tanda tangan"?](#WHAT_IS_A_SIGNATURE)
-- [Apa yang dimaksud dengan "positif palsu"?](#WHAT_IS_A_FALSE_POSITIVE)
-- [Seberapa sering tanda tangan diperbarui?](#SIGNATURE_UPDATE_FREQUENCY)
-- [Saya mengalami masalah ketika menggunakan phpMussel dan saya tidak tahu apa saya harus lakukan! Tolong bantu!](#ENCOUNTERED_PROBLEM_WHAT_TO_DO)
-- [Saya ingin menggunakan phpMussel v3 dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?](#MINIMUM_PHP_VERSION_V3)
-- [Dapatkah saya menggunakan satu instalasi phpMussel untuk melindungi beberapa domain?](#PROTECT_MULTIPLE_DOMAINS)
-- [Saya tidak ingin membuang waktu dengan menginstal ini dan membuatnya bekerja dengan situs web saya; Bisakah saya membayar Anda untuk melakukan semuanya untuk saya?](#PAY_YOU_TO_DO_IT)
-- [Dapatkah saya mempekerjakan Anda atau pengembang proyek ini untuk pekerjaan pribadi?](#HIRE_FOR_PRIVATE_WORK)
-- [Saya perlu modifikasi khusus, customisasi, dll; Apakah kamu bisa membantu?](#SPECIALIST_MODIFICATIONS)
-- [Saya seorang pengembang, perancang situs web, atau programmer. Dapatkah saya menerima atau menawarkan pekerjaan yang berkaitan dengan proyek ini?](#ACCEPT_OR_OFFER_WORK)
-- [Saya ingin berkontribusi pada proyek ini; Dapatkah saya melakukan ini?](#WANT_TO_CONTRIBUTE)
-- [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#SCAN_DEBUGGING)
-- [Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?](#BLACK_WHITE_GREY)
-- [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#HOW_TO_USE_PDO)
-- [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#AJAX_AJAJ_JSON)
-- [Bisakah phpMussel mendeteksi EICAR?](#DETECT_EICAR)
+- [Apa yang "tanda tangan"?](#user-content-WHAT_IS_A_SIGNATURE)
+- [Apa yang dimaksud dengan "positif palsu"?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
+- [Seberapa sering tanda tangan diperbarui?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
+- [Saya mengalami masalah ketika menggunakan phpMussel dan saya tidak tahu apa saya harus lakukan! Tolong bantu!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
+- [Saya ingin menggunakan phpMussel v3 dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?](#user-content-MINIMUM_PHP_VERSION_V3)
+- [Dapatkah saya menggunakan satu instalasi phpMussel untuk melindungi beberapa domain?](#user-content-PROTECT_MULTIPLE_DOMAINS)
+- [Saya tidak ingin membuang waktu dengan menginstal ini dan membuatnya bekerja dengan situs web saya; Bisakah saya membayar Anda untuk melakukan semuanya untuk saya?](#user-content-PAY_YOU_TO_DO_IT)
+- [Dapatkah saya mempekerjakan Anda atau pengembang proyek ini untuk pekerjaan pribadi?](#user-content-HIRE_FOR_PRIVATE_WORK)
+- [Saya perlu modifikasi khusus, customisasi, dll; Apakah kamu bisa membantu?](#user-content-SPECIALIST_MODIFICATIONS)
+- [Saya seorang pengembang, perancang situs web, atau programmer. Dapatkah saya menerima atau menawarkan pekerjaan yang berkaitan dengan proyek ini?](#user-content-ACCEPT_OR_OFFER_WORK)
+- [Saya ingin berkontribusi pada proyek ini; Dapatkah saya melakukan ini?](#user-content-WANT_TO_CONTRIBUTE)
+- [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#user-content-SCAN_DEBUGGING)
+- [Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?](#user-content-BLACK_WHITE_GREY)
+- [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#user-content-HOW_TO_USE_PDO)
+- [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#user-content-AJAX_AJAJ_JSON)
+- [Bisakah phpMussel mendeteksi EICAR?](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Apa yang "tanda tangan"?
 
@@ -1831,4 +1831,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 21 Januari 2023 (2023.01.21).
+Terakhir Diperbarui: 5 Maret 2023 (2023.03.05).
