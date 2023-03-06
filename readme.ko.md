@@ -1825,6 +1825,7 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 - [유럽 개인정보 보호법 GDPR 안내](https://www.privacy.go.kr/gdpr)
 - [유럽 개인정보보호법, GDPR을 알아보자 | HACKTAGON](https://hacktagon.github.io/chinnie/law/gdpr/privacy/GDPR_01)
 - [REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32016R0679)
+- [일반 데이터 보호 규칙](https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B0%98_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EB%B3%B4%ED%98%B8_%EA%B7%9C%EC%B9%99)
 
 ---
 
