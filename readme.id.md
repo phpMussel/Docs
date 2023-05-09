@@ -295,7 +295,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 *Screenshot:*
 
-![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### 3.5 API PEMINDAI
 
@@ -1036,7 +1036,7 @@ Opsi cache tambahan. Catatan: Mengubah nilai ini berpotensi membuat Anda keluar.
 ##### "pdo_dsn" `[string]`
 - Nilai DSN PDO. Default = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
-__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.id.md#HOW_TO_USE_PDO" hreflang="id">Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?</a></em>
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.id.md#HOW_TO_USE_PDO" hreflang="id-ID">Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?</a></em>
 
 ##### "pdo_username" `[string]`
 - Nama pengguna PDO.
@@ -1831,4 +1831,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 5 Maret 2023 (2023.03.05).
+Terakhir Diperbarui: 5 Mei 2023 (2023.05.05).

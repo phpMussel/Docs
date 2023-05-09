@@ -295,7 +295,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 *스크린샷:*
 
-![스크린샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![스크린샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### 3.5 스캐너 API
 
@@ -1036,7 +1036,7 @@ URL 스캐너 설정.
 ##### "pdo_dsn" `[string]`
 - PDO DSN 값. Default (기본값) = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
-__자주하는 질문.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ko.md#HOW_TO_USE_PDO" hreflang="ko">"PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?</a></em>
+__자주하는 질문.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ko.md#HOW_TO_USE_PDO" hreflang="ko-KR">"PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?</a></em>
 
 ##### "pdo_username" `[string]`
 - PDO 사용자 이름.
@@ -1830,4 +1830,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2023년 3월 5일.
+최종 업데이트 : 2023년 5월 5일.

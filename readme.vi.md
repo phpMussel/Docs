@@ -295,7 +295,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 *Ảnh chụp màn hình:*
 
-![Ảnh chụp màn hình](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![Ảnh chụp màn hình](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### 3.5 API MÁY QUÉT
 
@@ -1037,7 +1037,7 @@ Tùy chọn bộ nhớ cache bổ sung. Lưu ý: Việc thay đổi các giá tr
 ##### "pdo_dsn" `[string]`
 - Giá trị DSN PDO. Mặc định = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
-__Câu hỏi thường gặp.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.vi.md#HOW_TO_USE_PDO" hreflang="vi">"PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?</a></em>
+__Câu hỏi thường gặp.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.vi.md#HOW_TO_USE_PDO" hreflang="vi-VN">"PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?</a></em>
 
 ##### "pdo_username" `[string]`
 - Tên người dùng PDO.
@@ -1829,4 +1829,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2023.03.05.
+Lần cuối cập nhật: 2023.05.05.

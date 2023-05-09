@@ -299,7 +299,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 <div dir="rtl">لقطة شاشة:<br /><br /></div>
 
-![لقطة شاشة](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![لقطة شاشة](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### <div dir="rtl">٣.٥ API الماسح</div>
 

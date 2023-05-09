@@ -295,7 +295,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 *Скриншот:*
 
-![Скриншот](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![Скриншот](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### 3.5 API СКАНЕРА
 
@@ -1042,7 +1042,7 @@ vt_suspicion_level
 ##### «pdo_dsn» `[string]`
 - Значение DSN PDO. Стандарт = «mysql:dbname=phpmussel;host=localhost;port=3306».
 
-__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ru.md#HOW_TO_USE_PDO" hreflang="ru">Что такое «PDO DSN»? Как я могу использовать PDO с phpMussel?</a></em>
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ru.md#HOW_TO_USE_PDO" hreflang="ru-RU">Что такое «PDO DSN»? Как я могу использовать PDO с phpMussel?</a></em>
 
 ##### «pdo_username» `[string]`
 - Имя пользователя PDO.
@@ -1838,4 +1838,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 5 Марта 2023 г (2023.03.05).
+Последнее обновление: 5 Мая 2023 г (2023.05.05).

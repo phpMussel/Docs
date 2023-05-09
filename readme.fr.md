@@ -295,7 +295,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 *Capture d'écran :*
 
-![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### 3.5 API DU SCANNER
 
@@ -1037,7 +1037,7 @@ Options de cache supplémentaires. Remarque : La modification de ces valeurs pe
 ##### « pdo_dsn » `[string]`
 - Valeur de DSN de PDO. Défaut = « mysql:dbname=phpmussel;host=localhost;port=3306 ».
 
-__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.fr.md#HOW_TO_USE_PDO" hreflang="fr">Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?</a></em>
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.fr.md#HOW_TO_USE_PDO" hreflang="fr-FR">Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?</a></em>
 
 ##### « pdo_username » `[string]`
 - Nom d'utilisateur PDO.
@@ -1845,4 +1845,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 5 Mars 2023 (2023.03.05).
+Dernière mise à jour : 5 Mai 2023 (2023.05.05).

@@ -295,7 +295,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 *スクリーンショット：*
 
-![スクリーンショット](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![スクリーンショット](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### 3.5 スキャナーＡＰＩ
 
@@ -1031,7 +1031,7 @@ vt_suspicion_level
 ##### "pdo_dsn" `[string]`
 - PDOのDSN値。 Default/デフォルルト = 「mysql:dbname=phpmussel;host=localhost;port=3306」。
 
-__ＦＡＱ。__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ja.md#HOW_TO_USE_PDO" hreflang="ja">「PDO DSN」とは何ですか？​phpMusselでPDOを使用するにはどうすればよいですか？</a></em>
+__ＦＡＱ。__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ja.md#HOW_TO_USE_PDO" hreflang="ja-JP">「PDO DSN」とは何ですか？​phpMusselでPDOを使用するにはどうすればよいですか？</a></em>
 
 ##### "pdo_username" `[string]`
 - PDOのユーザー名。
@@ -1826,4 +1826,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２３年３月５日。
+最終アップデート：２０２３年５月５日。

@@ -299,7 +299,7 @@ unset($Web, $FrontEnd, $Scanner, $Loader);
 
 <div dir="rtl">اسکرین شاٹ:<br /><br /></div>
 
-![اسکرین شاٹ](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.0.0-alpha2.png)
+![اسکرین شاٹ](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/frontend-v3.4.0.png)
 
 #### <div dir="rtl">۳.۵ اسکینر API</div>
 
@@ -1039,7 +1039,7 @@ vt_suspicion_level
 ##### <div dir="rtl">"pdo_dsn" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>PDO کے لئے DSN. پہلے سے طے شدہ = "mysql:dbname=phpmussel;host=localhost;port=3306".</li></ul></div>
 
-__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ur.md#HOW_TO_USE_PDO" hreflang="ur">"PDO DSN" کیا ہے؟ میں phpMussel کے ساتھ PDO کیسے استعمال کرسکتا ہوں؟</a></em>
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ur.md#HOW_TO_USE_PDO" hreflang="ur-PK">"PDO DSN" کیا ہے؟ میں phpMussel کے ساتھ PDO کیسے استعمال کرسکتا ہوں؟</a></em>
 
 ##### <div dir="rtl">"pdo_username" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>PDO کے لئے صارف نام.</li></ul></div>
@@ -1868,4 +1868,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۵ مارچ ۲۰۲۳ (۲۰۲۳.۰۳.۰۵).</div>
+<div dir="rtl">آخری تازہ کاری: ۵ مئی ۲۰۲۳ (۲۰۲۳.۰۵.۰۵).</div>
