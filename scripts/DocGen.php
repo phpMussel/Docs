@@ -29,9 +29,28 @@ $ArrayFromL10NDataToArray = function ($References, &$L10N): array {
     }
     $Out = [];
     foreach ($References as $Reference) {
+        $Try = '';
         if (isset($L10N->Data[$Reference])) {
-            $Reference = $L10N->Data[$Reference];
+            $Try = $L10N->Data[$Reference];
+        } elseif (is_array($L10N->Fallback)) {
+            if (isset($L10N->Fallback[$Reference])) {
+                $Try = $L10N->Fallback[$Reference];
+            }
+        } elseif ($L10N->Fallback instanceof \Maikuolan\Common\L10N) {
+            if (isset($L10N->Fallback->Data[$Reference])) {
+                $Try = $L10N->Fallback->Data[$Reference];
+            } elseif (is_array($L10N->Fallback->Fallback) && isset($L10N->Fallback->Fallback[$Reference])) {
+                $Try = $L10N->Fallback->Fallback[$Reference];
+            }
         }
+        if ($Try === '') {
+            if (($SPos = strpos($Reference, ' ')) !== '') {
+                $Try = (($TryFrom = $L10N->getString(substr($Reference, 0, $SPos))) !== '' && strpos($TryFrom, '%s') !== '') ? sprintf($TryFrom, substr($Reference, $SPos + 1)) : $Reference;
+            } else {
+                $Try = $Reference;
+            }
+        }
+        $Reference = $Try;
         if (!is_array($Reference)) {
             $Reference = [$Reference];
         }
