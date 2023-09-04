@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *スクリーンショット：*
 
-![スクリーンショット](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![スクリーンショット](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### 3.4 フロントエンド
 
@@ -1826,4 +1826,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２３年５月５日。
+最終アップデート：２０２３年９月４日。

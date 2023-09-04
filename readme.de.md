@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *Screenshot:*
 
-![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### 3.4 FRONTEND
 
@@ -1845,4 +1845,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 5. Mai 2023 (2023.05.05).
+Zuletzt aktualisiert: 4. September 2023 (2023.09.04).

@@ -258,7 +258,7 @@ unset($CLI, $Scanner, $Loader);
 
 <div dir="rtl">لقطة شاشة:<br /><br /></div>
 
-![لقطة شاشة:](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![لقطة شاشة:](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### <div dir="rtl">٣.٤ الواجهة الأمامية</div>
 
@@ -1873,4 +1873,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٥ مارس ٢٠٢٣ (٢٠٢٣.٠٣.٠٥).</div>
+<div dir="rtl">آخر تحديث: ٤ سبتمبر ٢٠٢٣ (٢٠٢٣.٠٩.٠٤).</div>

@@ -258,7 +258,7 @@ unset($CLI, $Scanner, $Loader);
 
 <div dir="rtl">اسکرین شاٹ:<br /><br /></div>
 
-![اسکرین شاٹ](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![اسکرین شاٹ](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### <div dir="rtl">۳.۴ سامنے کے آخر</div>
 
@@ -1868,4 +1868,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۵ مئی ۲۰۲۳ (۲۰۲۳.۰۵.۰۵).</div>
+<div dir="rtl">آخری تازہ کاری: ۴ ستمبر ۲۰۲۳ (۲۰۲۳.۰۹.۰۴).</div>

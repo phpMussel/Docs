@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *Ảnh chụp màn hình:*
 
-![Ảnh chụp màn hình](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![Ảnh chụp màn hình](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### 3.4 GIAO DIỆN NGƯỜI DÙNG (FRONT-END)
 
@@ -1829,4 +1829,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2023.05.05.
+Lần cuối cập nhật: 2023.09.04.

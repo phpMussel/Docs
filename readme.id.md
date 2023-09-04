@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *Screenshot:*
 
-![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### 3.4 FRONT-END
 
@@ -1831,4 +1831,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 5 Mei 2023 (2023.05.05).
+Terakhir Diperbarui: 4 September 2023 (2023.09.04).

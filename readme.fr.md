@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *Capture d'écran :*
 
-![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### 3.4 L'ACCÈS FRONTAL
 
@@ -1845,4 +1845,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 5 Mai 2023 (2023.05.05).
+Dernière mise à jour : 4 Septembre 2023 (2023.09.04).

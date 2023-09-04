@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *屏幕截图：*
 
-![屏幕截图](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.0.0-alpha2.png)
+![屏幕截图](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
 
 #### 3.4 前端
 
@@ -1826,4 +1826,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2023年3月5日。
+最后更新：2023年9月4日。
