@@ -462,6 +462,7 @@ v3 상용구 코드의 구조는 다양한 다른 phpMussel v3 리포지토리�
 │       scan_log [string]
 │       scan_log_serialized [string]
 │       error_log [string]
+│       outbound_request_log [string]
 │       truncate [string]
 │       log_rotation_limit [int]
 │       log_rotation_action [string]
@@ -598,6 +599,9 @@ v3 상용구 코드의 구조는 다양한 다른 phpMussel v3 리포지토리�
 ##### "error_log" `[string]`
 - 치명적이지 않은 오류를 탐지하기위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
+##### "outbound_request_log" `[string]`
+- 아웃바운드 요청의 결과를 기록하기 위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+
 ##### "truncate" `[string]`
 - 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
 
@@ -733,10 +737,15 @@ ipaddr
 
 ```
 lang
-├─en ("English")
+├─af ("Afrikaans")
 ├─ar ("العربية")
+├─bg ("Български")
 ├─bn ("বাংলা")
+├─cs ("Čeština")
 ├─de ("Deutsch")
+├─en ("English (AU/GB/NZ)")
+├─en-CA ("English (CA)")
+├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
@@ -750,8 +759,11 @@ lang
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
+├─pa ("ਪੰਜਾਬੀ")
 ├─pl ("Polski")
-├─pt ("Português")
+├─pt-BR ("Português (Brasil)")
+├─pt-PT ("Português (Europeu)")
+├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
 ├─ta ("தமிழ்")
@@ -760,7 +772,7 @@ lang
 ├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
-├─zh ("中文（简体）")
+├─zh-CN ("中文（简体）")
 └─zh-TW ("中文（傳統）")
 ```
 
@@ -1036,7 +1048,7 @@ URL 스캐너 설정.
 ##### "pdo_dsn" `[string]`
 - PDO DSN 값. Default (기본값) = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
-__자주하는 질문.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ko.md#HOW_TO_USE_PDO" hreflang="ko-KR">"PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?</a></em>
+__자주하는 질문.__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.ko.md#user-content-HOW_TO_USE_PDO" hreflang="ko-KR">"PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?</a>*
 
 ##### "pdo_username" `[string]`
 - PDO 사용자 이름.
@@ -1830,4 +1842,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2023년 9월 4일.
+최종 업데이트 : 2023년 10월 12일.

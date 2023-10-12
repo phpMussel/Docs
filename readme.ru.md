@@ -462,6 +462,7 @@ phpMussel также предоставляет собственные меха�
 │       scan_log [string]
 │       scan_log_serialized [string]
 │       error_log [string]
+│       outbound_request_log [string]
 │       truncate [string]
 │       log_rotation_limit [int]
 │       log_rotation_action [string]
@@ -598,6 +599,9 @@ phpMussel также предоставляет собственные меха�
 ##### «error_log» `[string]`
 - Файл для регистрации обнаруженных нефатальных ошибок. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
 
+##### «outbound_request_log» `[string]`
+- Файл для регистрации результатов любых исходящих запросов. Задайте имя файлу, или оставьте пустым чтобы деактивировать опцию.
+
 ##### «truncate» `[string]`
 - Усекать лог-файлы, когда они достигают определенного размера? Значение это максимальный размер в Б/КБ/МБ/ГБ/ТБ, до которого файл журнала может увеличиться до усечения. Стандартное значение 0КБ отключает усечение (лог-файлы может расти неограниченно). Примечание: относится к отдельным лог-файлы! Размер файлов журнала не учитывается совместно.
 
@@ -733,10 +737,15 @@ ipaddr
 
 ```
 lang
-├─en ("English")
+├─af ("Afrikaans")
 ├─ar ("العربية")
+├─bg ("Български")
 ├─bn ("বাংলা")
+├─cs ("Čeština")
 ├─de ("Deutsch")
+├─en ("English (AU/GB/NZ)")
+├─en-CA ("English (CA)")
+├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
@@ -750,8 +759,11 @@ lang
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
+├─pa ("ਪੰਜਾਬੀ")
 ├─pl ("Polski")
-├─pt ("Português")
+├─pt-BR ("Português (Brasil)")
+├─pt-PT ("Português (Europeu)")
+├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
 ├─ta ("தமிழ்")
@@ -760,7 +772,7 @@ lang
 ├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
-├─zh ("中文（简体）")
+├─zh-CN ("中文（简体）")
 └─zh-TW ("中文（傳統）")
 ```
 
@@ -1042,7 +1054,7 @@ vt_suspicion_level
 ##### «pdo_dsn» `[string]`
 - Значение DSN PDO. Стандарт = «mysql:dbname=phpmussel;host=localhost;port=3306».
 
-__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ru.md#HOW_TO_USE_PDO" hreflang="ru-RU">Что такое «PDO DSN»? Как я могу использовать PDO с phpMussel?</a></em>
+__FAQ.__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.ru.md#user-content-HOW_TO_USE_PDO" hreflang="ru-RU">Что такое «PDO DSN»? Как я могу использовать PDO с phpMussel?</a>*
 
 ##### «pdo_username» `[string]`
 - Имя пользователя PDO.
@@ -1838,4 +1850,4 @@ phpMussel не собирает и не обрабатывает какую-ли
 ---
 
 
-Последнее обновление: 4 Сентября 2023 г (2023.09.04).
+Последнее обновление: 12 Октября 2023 г (2023.10.12).

@@ -462,6 +462,7 @@ Configuration (v3)
 │       scan_log [string]
 │       scan_log_serialized [string]
 │       error_log [string]
+│       outbound_request_log [string]
 │       truncate [string]
 │       log_rotation_limit [int]
 │       log_rotation_action [string]
@@ -590,27 +591,30 @@ Configuration (v3)
 General configuration (any core configuration not belonging to other categories).
 
 ##### "scan_log" `[string]`
-- Filename of file to log all scanning results to. Specify a filename, or leave blank to disable.
+- The name of the file to log all scanning results to. Specify a filename, or leave blank to disable.
 
 ##### "scan_log_serialized" `[string]`
-- Filename of file to log all scanning results to (using a serialised format). Specify a filename, or leave blank to disable.
+- The name of the file to log all scanning results to (using a serialised format). Specify a filename, or leave blank to disable.
 
 ##### "error_log" `[string]`
 - A file for logging any non-fatal errors detected. Specify a filename, or leave blank to disable.
 
+##### "outbound_request_log" `[string]`
+- A file for logging the results of any outbound requests. Specify a filename, or leave blank to disable.
+
 ##### "truncate" `[string]`
-- Truncate logfiles when they reach a certain size? Value is the maximum size in B/KB/MB/GB/TB that a logfile may grow to before being truncated. The default value of 0KB disables truncation (logfiles can grow indefinitely). Note: Applies to individual logfiles! The size of logfiles is not considered collectively.
+- Truncate log files when they reach a certain size? Value is the maximum size in B/KB/MB/GB/TB that a log file may grow to before being truncated. The default value of 0KB disables truncation (log files can grow indefinitely). Note: Applies to individual log files! The size of log files is not considered collectively.
 
 ##### "log_rotation_limit" `[int]`
-- Log rotation limits the number of logfiles that should exist at any one time. When new logfiles are created, if the total number of logfiles exceeds the specified limit, the specified action will be performed. You can specify the desired limit here. A value of 0 will disable log rotation.
+- Log rotation limits the number of log files that should exist at any one time. When new log files are created, if the total number of log files exceeds the specified limit, the specified action will be performed. You can specify the desired limit here. A value of 0 will disable log rotation.
 
 ##### "log_rotation_action" `[string]`
-- Log rotation limits the number of logfiles that should exist at any one time. When new logfiles are created, if the total number of logfiles exceeds the specified limit, the specified action will be performed. You can specify the desired action here.
+- Log rotation limits the number of log files that should exist at any one time. When new log files are created, if the total number of log files exceeds the specified limit, the specified action will be performed. You can specify the desired action here.
 
 ```
 log_rotation_action
-├─Delete ("Delete the oldest logfiles, until the limit is no longer exceeded.")
-└─Archive ("Firstly archive, and then delete the oldest logfiles, until the limit is no longer exceeded.")
+├─Delete ("Delete the oldest log files, until the limit is no longer exceeded.")
+└─Archive ("Firstly archive, and then delete the oldest log files, until the limit is no longer exceeded.")
 ```
 
 ##### "timezone" `[string]`
@@ -733,10 +737,15 @@ See also:
 
 ```
 lang
-├─en ("English")
+├─af ("Afrikaans")
 ├─ar ("العربية")
+├─bg ("Български")
 ├─bn ("বাংলা")
+├─cs ("Čeština")
 ├─de ("Deutsch")
+├─en ("English (AU/GB/NZ)")
+├─en-CA ("English (CA)")
+├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
@@ -750,8 +759,11 @@ lang
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
+├─pa ("ਪੰਜਾਬੀ")
 ├─pl ("Polski")
-├─pt ("Português")
+├─pt-BR ("Português (Brasil)")
+├─pt-PT ("Português (Europeu)")
+├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
 ├─ta ("தமிழ்")
@@ -760,7 +772,7 @@ lang
 ├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
-├─zh ("中文（简体）")
+├─zh-CN ("中文（简体）")
 └─zh-TW ("中文（傳統）")
 ```
 
@@ -965,7 +977,7 @@ vt_suspicion_level
 ```
 
 ##### "vt_weighting" `[int]`
-- Should phpMussel apply the results of scanning using the Virus Total API as detections or as detection weighting? This directive exists, because, although scanning a file using multiple engines (as Virus Total does) should result in an increased detection rate (and therefore in a higher number of malicious files being caught), it can also result in a higher number of false positives, and therefore, in some circumstances, the results of scanning may be better utilised as a confidence score rather than as a definitive conclusion. If a value of 0 is used, the results of scanning using the Virus Total API will be applied as detections, and therefore, if any engine used by Virus Total flags the file being scanned as being malicious, phpMussel will consider the file to be malicious. If any other value is used, the results of scanning using the Virus Total API will be applied as detection weighting, and therefore, the number of engines used by Virus Total that flag the file being scanned as being malicious will serve as a confidence score (or detection weighting) for whether or not the file being scanned should be considered malicious by phpMussel (the value used will represent the minimum confidence score or weight required in order to be considered malicious). A value of 0 is used by default.
+- Should phpMussel apply the results of scanning using the Virus Total API as detections or as detection weighting? This directive exists, because, although scanning a file using multiple engines (as Virus Total does) should result in an increased detection rate (and therefore in a higher number of malicious files being caught), it can also result in a higher number of false positives, and therefore, in some circumstances, it may be better to use the results of the scan as a confidence score rather than as a definitive conclusion. If a value of 0 is used, the results of scanning using the Virus Total API will be applied as detections, and therefore, if any engine used by Virus Total flags the file being scanned as being malicious, phpMussel will consider the file to be malicious. If any other value is used, the results of scanning using the Virus Total API will be applied as detection weighting, and therefore, the number of engines used by Virus Total that flag the file being scanned as being malicious will serve as a confidence score (or detection weighting) for whether or not the file being scanned should be considered malicious by phpMussel (the value used will represent the minimum confidence score or weight required in order to be considered malicious). A value of 0 is used by default.
 
 ##### "vt_quota_rate" `[int]`
 - According to the Virus Total API documentation, "it is limited to at most 4 requests of any nature in any given 1 minute time frame. If you run a honeyclient, honeypot or any other automation that is going to provide resources to VirusTotal and not only retrieve reports you are entitled to a higher request rate quota". By default, phpMussel will strictly adhere to these limitations, but due to the possibility of these rate quotas being increased, these two directives are provided as a means for you to instruct phpMussel as to what limit it should adhere to. Unless you've been instructed to do so, it's not recommended for you to increase these values, but, if you've encountered problems relating to reaching your rate quota, decreasing these values *__MAY__* sometimes help you in dealing with these problems. Your rate limit is determined as `vt_quota_rate` requests of any nature in any given `vt_quota_time` minute time frame.
@@ -1036,7 +1048,7 @@ Supplementary cache options. Note: Changing these values may potentially log you
 ##### "pdo_dsn" `[string]`
 - PDO DSN value. Default = "mysql:dbname=phpmussel;host=localhost;port=3306".
 
-__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md#HOW_TO_USE_PDO" hreflang="en-AU">What is a "PDO DSN"? How can I use PDO with phpMussel?</a></em>
+__FAQ.__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md#user-content-HOW_TO_USE_PDO" hreflang="en-AU">What is a "PDO DSN"? How can I use PDO with phpMussel?</a>*
 
 ##### "pdo_username" `[string]`
 - PDO username.
@@ -1180,7 +1192,7 @@ theme
 - Inserted as HTML at the very beginning of all "upload denied" pages. This could be useful in case you want to include a website logo, personalised header, scripts, or similar at all such pages.
 
 ##### "custom_footer" `[string]`
-- Inserted as HTML at the very bottom of all "upload denied" pages. This could be useful in case you want to include a legal notice, contact link, business information or similar at all such pages.
+- Inserted as HTML at the very bottom of all "upload denied" pages. This could be useful in case you want to include a legal notice, contact link, business information, or similar at all such pages.
 
 #### "phpmailer" (Category)
 Configuration for PHPMailer (used for two-factor authentication).
@@ -1839,4 +1851,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 4 September 2023 (2023.09.04).
+Last Updated: 12 October 2023 (2023.10.12).

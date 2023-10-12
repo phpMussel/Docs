@@ -462,6 +462,7 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 │       scan_log [string]
 │       scan_log_serialized [string]
 │       error_log [string]
+│       outbound_request_log [string]
 │       truncate [string]
 │       log_rotation_limit [int]
 │       log_rotation_action [string]
@@ -598,6 +599,9 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 ##### “error_log” `[string]`
 - 用于记录检测到的任何非致命错误的文件。​指定一个文件名，​或留空以禁用。
 
+##### “outbound_request_log” `[string]`
+- 用于记录任何出站请求结果的文件。​指定一个文件名，​或留空以禁用。
+
 ##### “truncate” `[string]`
 - 截断日志文件当他们达到一定的大小吗？​值是在B/KB/MB/GB/TB，​是日志文件允许的最大大小直到它被截断。​默认值为“0KB”将禁用截断（日志文件可以无限成长）。​注意：适用于单个日志文件！​日志文件大小不被算集体的。
 
@@ -733,10 +737,15 @@ ipaddr
 
 ```
 lang
-├─en ("English")
+├─af ("Afrikaans")
 ├─ar ("العربية")
+├─bg ("Български")
 ├─bn ("বাংলা")
+├─cs ("Čeština")
 ├─de ("Deutsch")
+├─en ("English (AU/GB/NZ)")
+├─en-CA ("English (CA)")
+├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
@@ -750,8 +759,11 @@ lang
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
+├─pa ("ਪੰਜਾਬੀ")
 ├─pl ("Polski")
-├─pt ("Português")
+├─pt-BR ("Português (Brasil)")
+├─pt-PT ("Português (Europeu)")
+├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
 ├─ta ("தமிழ்")
@@ -760,7 +772,7 @@ lang
 ├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
-├─zh ("中文（简体）")
+├─zh-CN ("中文（简体）")
 └─zh-TW ("中文（傳統）")
 ```
 
@@ -1030,7 +1042,7 @@ URL扫描程序的配置。
 ##### “pdo_dsn” `[string]`
 - PDO DSN值。​标准 = “mysql:dbname=phpmussel;host=localhost;port=3306”。
 
-__常问问题。__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.zh.md#HOW_TO_USE_PDO" hreflang="zh-CN">“PDO DSN”是什么？如何能PDO与phpMussel一起使用？</a></em>
+__常问问题。__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.zh.md#user-content-HOW_TO_USE_PDO" hreflang="zh-CN">“PDO DSN”是什么？如何能PDO与phpMussel一起使用？</a>*
 
 ##### “pdo_username” `[string]`
 - PDO用户名。
@@ -1826,4 +1838,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2023年9月4日。
+最后更新：2023年10月12日。
