@@ -40,23 +40,30 @@ if (!isset($_GET['language'])) {
     $Final = '';
     $Data = $loadL10N($_GET['language']);
     $Data->PreferredVariant = $_GET['language'];
+    $Data->autoAssignRules($_GET['language']);
     $First = "```\n" . $Data->getString('link.Configuration') . " (v3)\n│\n";
     $Cats = count($Loader->ConfigurationDefaults);
     $Current = 1;
     foreach ($Loader->ConfigurationDefaults as $Category => $Directives) {
         $First .= ($Current === $Cats ? '└───' : '├───') . $Category . "\n";
-        $Out = str_replace(
-            ['<code>', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
-            ['`', '`', '`', '`', '__', '__', '*', '*'],
-            html_entity_decode($Data->getString('config.' . $Category))
-        );
+        $Out = $Data->getString('config.' . $Category);
+        if ($Data->Directionality !== 'rtl') {
+            $Out = str_replace(
+                ['<code>', '<code class="s">', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
+                ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
+                html_entity_decode($Out)
+            );
+        }
         $Final .= sprintf($Data->getString('category'), $Category, $Out) . "\n\n";
         foreach ($Directives as $Directive => $Info) {
-            $Out = str_replace(
-                ['<code>', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
-                ['`', '`', '`', '`', '__', '__', '*', '*'],
-                html_entity_decode($Data->getString('config.' . $Category . '_' . $Directive))
-            );
+            $Out = $Data->getString('config.' . $Category . '_' . $Directive);
+            if ($Data->Directionality !== 'rtl') {
+                $Out = str_replace(
+                    ['<code>', '<code class="s">', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
+                    ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
+                    html_entity_decode($Out)
+                );
+            }
             $Default = $Info['default'] ?? '';
             if (in_array($Info['type'], ['string', 'timezone', 'checkbox', 'url', 'email', 'kb'], true)) {
                 $Type = 'string';
@@ -108,11 +115,13 @@ if (!isset($_GET['language'])) {
             }
             if (!empty($Info['hints'])) {
                 foreach ($Data->arrayFromL10nToArray($Info['hints']) as $HintKey => $HintValue) {
-                    $HintValue = str_replace(
-                        ['<code>', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
-                        ['`', '`', '`', '`', '__', '__', '*', '*'],
-                        html_entity_decode($HintValue)
-                    );
+                    if ($Data->Directionality !== 'rtl') {
+                        $HintValue = str_replace(
+                            ['<code>', '<code class="s">', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
+                            ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
+                            html_entity_decode($HintValue)
+                        );
+                    }
                     if (!is_string($HintKey)) {
                         $Final .= $HintValue . "\n\n";
                         continue;
@@ -145,7 +154,7 @@ if (!isset($_GET['language'])) {
     if (!isset($_GET['autoupdate'])) {
         echo $First . "```\n\n" . $Final;
     } else {
-        $Try = $_GET['autoupdate'] . '.' . $_GET['language'] . '.md';
+        $Try = $_GET['autoupdate'] . 'readme.' . $_GET['language'] . '.md';
         if (is_file($Try) && is_writable($Try)) {
             $README = file_get_contents($Try);
             if (($Start = strpos($README, '<a name="SECTION5">')) !== false) {

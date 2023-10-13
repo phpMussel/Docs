@@ -466,6 +466,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 │       scan_log [string]
 │       scan_log_serialized [string]
 │       error_log [string]
+│       outbound_request_log [string]
 │       truncate [string]
 │       log_rotation_limit [int]
 │       log_rotation_action [string]
@@ -601,6 +602,9 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 
 ##### <div dir="rtl">"error_log" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>ملف لتسجيل أي أخطاء غير مميتة المكتشفة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
+
+##### <div dir="rtl">"outbound_request_log" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>ملف لتسجيل نتائج أي طلبات صادرة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
 
 ##### <div dir="rtl">"truncate" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>اقتطاع ملفات السجل عندما تصل إلى حجم معين؟ القيمة هي الحجم الأقصى في بايت/كيلوبايت/ميغابايت/غيغابايت/تيرابايت الذي قد ينمو ملفات السجل إلى قبل اقتطاعه. القيمة الافتراضية 0KB تعطيل اقتطاع (ملفات السجل يمكن أن تنمو إلى أجل غير مسمى). ملاحظة: ينطبق على ملفات السجل الفردية! ولا يعتبر حجمها جماعيا.</li></ul></div>
@@ -738,10 +742,15 @@ ipaddr
 
 ```
 lang
-├─en ("English")
+├─af ("Afrikaans")
 ├─ar ("العربية")
+├─bg ("Български")
 ├─bn ("বাংলা")
+├─cs ("Čeština")
 ├─de ("Deutsch")
+├─en ("English (AU/GB/NZ)")
+├─en-CA ("English (CA)")
+├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
@@ -755,8 +764,11 @@ lang
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
+├─pa ("ਪੰਜਾਬੀ")
 ├─pl ("Polski")
-├─pt ("Português")
+├─pt-BR ("Português (Brasil)")
+├─pt-PT ("Português (Europeu)")
+├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
 ├─ta ("தமிழ்")
@@ -765,7 +777,7 @@ lang
 ├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
-├─zh ("中文（简体）")
+├─zh-CN ("中文（简体）")
 └─zh-TW ("中文（傳統）")
 ```
 
@@ -1043,7 +1055,7 @@ vt_suspicion_level
 ##### <div dir="rtl">"pdo_dsn" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>قيمة PDO DSN. افتراضي = "mysql:dbname=phpmussel;host=localhost;port=3306".</li></ul></div>
 
-__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ar.md#HOW_TO_USE_PDO" hreflang="ar">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a></em>
+__FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ar.md#user-content-HOW_TO_USE_PDO" hreflang="ar">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a></em>
 
 ##### <div dir="rtl">"pdo_username" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>PDO اسم المستخدم.</li></ul></div>
@@ -1873,4 +1885,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٤ سبتمبر ٢٠٢٣ (٢٠٢٣.٠٩.٠٤).</div>
+<div dir="rtl">آخر تحديث: ١٢ أكتوبر ٢٠٢٣ (٢٠٢٣.١٠.١٢).</div>
