@@ -129,7 +129,7 @@ Apache와 같은 일부 환경에서는 구성 파일 앞에 점을 붙여 이�
 
 phpMussel에서 사용할 수 있는 다양한 구성 지시문에 대한 자세한 내용은 이 문서의 구성 섹션을 참조하세요.
 
-#### 3.1 PHPMUSSEL CORE
+#### 3.1 PHPMUSSEL 코어
 
 phpMussel을 어떻게 사용하고 싶든 거의 모든 구현에는 최소한 다음과 같은 내용이 포함됩니다:
 
@@ -423,30 +423,30 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 "
 ```
 
-*도보시오: [파일을 스캔할 때 파일에 대한 특정 세부 정보에 액세스하는 방법은 무엇입니까?](#user-content-SCAN_DEBUGGING)*
+*도보시오: [파일을 검사할 때 파일에 대한 특정 세부 정보에 액세스하는 방법은 무엇인가요?](#user-content-SCAN_DEBUGGING)*
 
-#### 3.6 2FA (이중 인증)
+#### 3.6 2단계 인증
 
-2FA를 사용하면 프런트 엔드를 더욱 안전하게 만들 수 있습니다. 2FA를 사용하는 계정에 로그인하면 해당 계정과 연결된 이메일 주소로 이메일이 전송됩니다. 이 이메일에는 "2FA 코드"가 포함되어 있습니다. 사용자는이 계정을 사용하여 로그인 할 수 있도록 사용자 이름과 비밀번호 외에도 사용자가 입력해야합니다. 즉, 해커 또는 잠재적 공격자가 해당 계정에 로그인 할 수 있도록 계정 암호로는 충분하지 않습니다. 세션과 관련된 2FA 코드를 수신하고 활용하려면 해당 계정과 연결된 이메일 주소에 대한 액세스 권한이 있어야합니다.
+2단계 인증 ("2FA")을 활성화해서 프론트엔드를 더 안전하게 만들 수 있습니다. 2FA가 활성화된 계정으로 로그인하면 해당 계정과 연결된 이메일 주소로 이메일이 전송됩니다. 이 이메일에는 사용자가 해당 계정으로 로그인하기 위해 사용자 이름과 비밀번호에 추가로 입력해야 하는 "2FA 코드"가 포함되어 있습니다. 이는 세션과 연결된 2FA 코드를 받고 이용하기 위해서는 계정과 연결된 이메일 주소에도 액세스할 수 있어야 하므로 계정 비밀번호를 얻는 것만으로는 해커나 잠재적 공격자가 해당 계정으로 로그인하기에 충분하지 않다는 것을 의미합니다. 따라서 프론트엔드를 더 안전하게 만듭니다.
 
-PHPMailer를 설치 한 후 phpMussel 구성 페이지 또는 구성 파일을 통해 PHPMailer의 구성 지시문을 채워야합니다. 이러한 구성 지시문에 대한 자세한 내용은이 설명서의 구성 섹션에 포함되어 있습니다. PHPMailer 설정 지시어를 채운 후에는 `enable_two_factor`를 `true`로 설정하십시오. 이제 2FA가 활성화되어야합니다.
+PHPMailer를 설치한 후 phpMussel 구성 페이지나 구성 파일을 통해 PHPMailer에 대한 구성 지시문을 채워야 합니다. 이러한 구성 지시문에 대한 더 많은 정보는 이 문서의 구성 섹션에 포함되어 있습니다. PHPMailer 구성 지시문을 채운 후 `enable_two_factor`를 `true`로 설정하세요. 이제 2단계 인증이 활성화되었을 것입니다.
 
-해당 계정으로 로그인 할 때 2FA 코드를 보낼 위치를 phpMussel이 알 수 있도록 이메일 주소를 계정과 연결해야합니다. 전자 메일 주소를 계정의 사용자 이름 (예 : `foo@bar.tld`)으로 사용하거나 정상적으로 전자 메일을 보낼 때와 동일한 방법 (예 : `Foo Bar <foo@bar.tld>`)으로 사용자 이름의 일부로 전자 메일 주소를 포함하십시오.
+다음으로, phpMussel이 해당 계정으로 로그인할 때 어디로 2FA 코드를 보낼지 알 수 있도록 이메일 주소를 계정과 연결해야 합니다. 이렇게 하려면 이메일 주소를 계정의 사용자 이름으로 사용하거나 (`foo@bar.tld`처럼) 일반적으로 이메일을 보낼 때처럼 이메일 주소를 사용자 이름에 포함시키세요 (`Foo Bar <foo@bar.tld>`처럼).
 
 ---
 
 
 ### 4. <a name="SECTION4"></a>PHPMUSSEL 확장
 
-phpMussel은 확장성을 염두에 두고 설계되었습니다. phpMussel 조직의 모든 저장소에 대한 [기여는](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md) 언제나 환영합니다. 원하는 경우 고유한 요구에 맞게 phpMussel을 수정하거나 확장 할 수도 있습니다 (예 : 특정 구현에 고유한 것이 있거나, 공개할 수 없는 것이거나, 자체 저장소에 더 적합한 것이 있는 경우, 플러그인, 또는 phpMussel이 필요한 새로운 Composer 패키지, 기타와 같은).
+phpMussel은 확장성을 염두에 두고 설계되었습니다. phpMussel 조직의 저장소에 대한 pull 요청과 일반적인 [기여](https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md)는 언제나 환영합니다. 그러나 특정 저장소에 기여하기에는 적합하지 않은 방법으로 phpMussel을 수정하거나 확장해야 한다면 그렇게 하는 것도 가능합니다 (예: 조직에서 기밀성이나 개인 정보 보호가 필요하여 공개할 수 없거나 phpMussel을 요구하는 플러그인과 새 Composer 패키지와 같이 자체 저장소에서 공개하는 것이 좋을 수 있는 특정 구현 전용인 수정이나 확장의 경우).
 
-v3부터, 모든 phpMussel 기능은 클래스로 존재합니다. 즉, 어떤 경우에는 PHP에서 제공하는 [객체 상속](https://www.php.net/manual/en/language.oop5.inheritance.php) 메커니즘이 phpMussel을 확장하는 쉽고 적절한 방법이 될 수 있습니다.
+v3부터 모든 phpMussel 기능은 클래스로 존재하며 이는 경우에 따라서는 PHP에서 제공하는 [객체 상속](https://www.php.net/manual/en/language.oop5.inheritance.php) 메커니즘이 phpMussel을 확장하는 쉽고 적절한 방법이 될 수 있음을 의미합니다.
 
-phpMussel은 또한 확장 성을위한 자체 메커니즘을 제공합니다. v3 이전에는, 선호하는 메커니즘이 phpMussel 용 통합 플러그인 시스템이었습니다. v3부터, 선호되는 메커니즘은 이벤트 조정자입니다.
+phpMussel은 확장성을 위한 자체 메커니즘도 제공합니다. v3 이전에 선호되는 메커니즘은 phpMussel의 통합 플러그인 시스템이었습니다. v3부터 선호되는 메커니즘은 events orchestrator입니다.
 
-phpMussel을 확장하고 새 플러그인을 작성하기 위한 상용구 코드는 [상용구 저장소에서](https://github.com/phpMussel/plugin-boilerplates) 공개적으로 사용할 수 있습니다. 또한 [현재 지원되는 모든 이벤트](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) 목록과 상용구 코드 사용 방법에 대한 자세한 지침이 포함되어 있습니다.
+phpMussel을 확장하고 새 플러그인을 작성하기 위한 boilerplate 코드는 [boilerplates 저장소](https://github.com/phpMussel/plugin-boilerplates)에 공개되어 있습니다. [현재 지원하는 모든 이벤트](https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events) 목록과 boilerplate 코드를 사용하는 방법에 대한 더 자세한 설명도 포함되어 있습니다.
 
-v3 상용구 코드의 구조는 다양한 다른 phpMussel v3 리포지토리의 구조와 동일합니다. 그것은 우연이 아닙니다. 가능하면, 확장성을 위해 v3 상용구 코드를 사용하고 phpMussel v3 자체와 유사한 디자인 원칙을 사용하는 것이 좋습니다. 새 확장 또는 플러그인을 공개하기로 선택한 경우 Composer 지원을 통합 할 수 있습니다. 그러면 이론적으로 다른 사람들이 phpMussel v3 자체와 똑같은 방식으로 확장 또는 플러그인을 사용할 수 있습니다, 다른 Composer 종속성과 함께 이를 요구하고 구현 시 필요한 이벤트 핸들러를 적용하기 만하면 됩니다. (물론, 출판물에 지침을 포함하는 것을 잊지 마십시오, 다른 사람들이 필요한 이벤트 핸들러와 출판물의 올바른 설치 및 활용에 필요할 수 있는 기타 정보에 대해 알 수 있도록).
+v3 boilerplate 코드의 구조는 phpMussel 조직의 다양한 phpMussel v3 저장소의 구조와 동일하다는 것을 알 수 있습니다. 그것은 우연이 아닙니다. 가능하면 확장 목적으로 v3 boilerplate 코드를 활용하고 phpMussel v3 자체와 유사한 설계 원칙을 활용하는 것을 추천합니다. 새 확장이나 플러그인을 공개하기로 선택한 경우 이에 대한 Composer 지원을 통합할 수 있으며 그러면 다른 사람들이 phpMussel v3 자체와 같은 방법으로 다른 Composer 의존성과 함께 확장이나 플러그인을 요구하고 구현에 필요한 이벤트 핸들러를 적용하는 것만으로 확장이나 플러그인을 활용하는 것이 이론적으로 가능할 것입니다. (물론 다른 사람들이 존재할 수도 있는 필요한 이벤트 핸들러와 공개한 것의 올바른 설치와 활용에 필요한 기타 정보를 알 수 있도록 설명을 포함하는 것을 잊지 마세요).
 
 ---
 
@@ -1350,7 +1350,7 @@ phpMussel과 일부 안티바이러스 공급 업체 간의 호환성 문제는 
 - [나는 전문가의 변경 및 사용자 맞춤형 등이 필요합니다; 도울 수 있니?](#user-content-SPECIALIST_MODIFICATIONS)
 - [나는 개발자, 웹 사이트 디자이너, 또는 프로그래머입니다. 이 프로젝트 관련 작업을 할 수 있습니까?](#user-content-ACCEPT_OR_OFFER_WORK)
 - [나는 프로젝트에 공헌하고 싶다; 이것은 수 있습니까?](#user-content-WANT_TO_CONTRIBUTE)
-- [파일 검색시 특정 정보에 액세스하려면 어떻게해야합니까?](#user-content-SCAN_DEBUGGING)
+- [파일을 검사할 때 파일에 대한 특정 세부 정보에 액세스하는 방법은 무엇인가요?](#user-content-SCAN_DEBUGGING)
 - [블랙리스트 – 화이트리스트 – 그레이리스트 – 그들은 무엇이며 어떻게 사용합니까?](#user-content-BLACK_WHITE_GREY)
 - ["PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?](#user-content-HOW_TO_USE_PDO)
 - [내 업로드 기능이 비동기입니다 (예를 들어, ajax, ajaj, json 등을 사용합니다). 업로드가 차단되면 특별한 메시지 나 경고가 표시되지 않습니다. 무슨 일이야?](#user-content-AJAX_AJAJ_JSON)
@@ -1416,7 +1416,7 @@ phpMussel은 파일을 차단합니다 | __위양성__ | 진정한 양성 (올�
 
 예. 프로젝트에 기여 환영합니다. 자세한 내용은 "CONTRIBUTING.md"를 참조하십시오.
 
-#### <a name="SCAN_DEBUGGING"></a>파일 검색시 특정 정보에 액세스하려면 어떻게해야합니까?
+#### <a name="SCAN_DEBUGGING"></a>파일을 검사할 때 파일에 대한 특정 세부 정보에 액세스하는 방법은 무엇인가요?
 
 이것은 phpMussel 그들을 검사하도록 지시하기 전 에이 목적을 위해 사용하는 배열을 할당하여 수행할 수 있습니다.
 
