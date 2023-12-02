@@ -548,6 +548,7 @@ Konfigurasi (v3)
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -1044,6 +1045,9 @@ Opsi cache tambahan. Catatan: Mengubah nilai ini berpotensi membuat Anda keluar.
 
 ##### "redis_timeout" `[float]`
 - Nilai batas waktu Redis. Default = "2.5".
+
+##### "redis_database_number" `[int]`
+- Nomor basis data Redis. Default = 0. Catatan: Tidak dapat menggunakan nilai selain 0 dengan Redis Cluster.
 
 ##### "pdo_dsn" `[string]`
 - Nilai DSN PDO. Default = "mysql:dbname=phpmussel;host=localhost;port=3306".
@@ -1843,4 +1847,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 12 Oktober 2023 (2023.10.12).
+Terakhir Diperbarui: 2 Desember 2023 (2023.12.02).

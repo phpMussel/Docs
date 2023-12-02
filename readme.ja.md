@@ -548,6 +548,7 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -1039,6 +1040,9 @@ vt_suspicion_level
 
 ##### "redis_timeout" `[float]`
 - Redisのタイムアウト値。 Default/デフォルルト = 「2.5」。
+
+##### "redis_database_number" `[int]`
+- Redisのデータベース番号。 Default/デフォルルト = 0。 注：Redis Clusterでは、0 以外の値を使用できません。
 
 ##### "pdo_dsn" `[string]`
 - PDOのDSN値。 Default/デフォルルト = 「mysql:dbname=phpmussel;host=localhost;port=3306」。
@@ -1838,4 +1842,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２３年１０月１２日。
+最終アップデート：２０２３年１２月２日。

@@ -548,6 +548,7 @@ Cấu hình (v3)
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -1045,6 +1046,9 @@ Tùy chọn bộ nhớ cache bổ sung. Lưu ý: Việc thay đổi các giá tr
 
 ##### "redis_timeout" `[float]`
 - Giá trị thời gian chờ Redis. Mặc định = "2.5".
+
+##### "redis_database_number" `[int]`
+- Số cơ sở dữ liệu Redis. Mặc định = 0. Lưu ý: Không thể sử dụng các giá trị khác 0 với Redis Cluster.
 
 ##### "pdo_dsn" `[string]`
 - Giá trị DSN PDO. Mặc định = "mysql:dbname=phpmussel;host=localhost;port=3306".
@@ -1841,4 +1845,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2023.10.12.
+Lần cuối cập nhật: 2023.12.02.

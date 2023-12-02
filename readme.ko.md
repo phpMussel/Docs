@@ -548,6 +548,7 @@ v3 boilerplate 코드의 구조는 phpMussel 조직의 다양한 phpMussel v3 �
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -1044,6 +1045,9 @@ URL 스캐너 설정.
 
 ##### "redis_timeout" `[float]`
 - Redis 시간 초과 값. Default (기본값) = "2.5".
+
+##### "redis_database_number" `[int]`
+- Redis 데이터베이스 번호입니다. Default (기본값) = 0. 참고 : Redis 클러스터에서는 0 이외의 값을 사용할 수 없습니다.
 
 ##### "pdo_dsn" `[string]`
 - PDO DSN 값. Default (기본값) = "mysql:dbname=phpmussel;host=localhost;port=3306".
@@ -1842,4 +1846,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2023년 10월 12일.
+최종 업데이트 : 2023년 12월 2일.

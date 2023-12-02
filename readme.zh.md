@@ -548,6 +548,7 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -710,7 +711,7 @@ time_format
 ```
 
 ##### “ipaddr” `[string]`
-- 在哪里可以找到连接请求IP地址？​（可以使用为服务例如Cloudflare和类似）。​标准 = REMOTE_ADDR。​警告：不要修改此除非您知道什么您做着！
+- 在哪里可以找到连接请求IP地址？​（可以使用为服务例如Cloudflare和类似）。 标准 = REMOTE_ADDR。​警告：不要修改此除非您知道什么您做着！
 
 ```
 ipaddr
@@ -941,10 +942,10 @@ __进程的逻辑顺序。__ 如果文件类型已白名单，​不扫描和不
 - phpMussel能够隔离被阻止的文件上传，​如果这个是某物您想。​普通用户的phpMussel简单地想保护他们的网站或宿主环境无任何兴趣在深深分析任何尝试文件上传应该离开这个功能关闭，​但任何用户有兴趣在更深分析的尝试文件上传为目的恶意软件研究或为类似这样事情应该激活这个功能。​检疫的尝试文件上传可以有时还助攻在调试假阳性，​如果这个是某物经常发生为您。​以关闭检疫功能，​简单地离开`quarantine_key`指令空白，​或抹去内容的这个指令如果它不已空白。​以激活隔离功能，​输入一些值在这个指令。​`quarantine_key`是一个重要安全功能的隔离功能需要以预防检疫功能从成为利用通过潜在攻击者和以预防任何潜在执行的数据存储在检疫。​`quarantine_key`应该被处理在同样方法作为您的密码：更长是更好，​和紧紧保护它。​为获得最佳效果，​在结合使用`delete_on_sight`。
 
 ##### “quarantine_max_filesize” `[string]`
-- 最大允许文件大小为文件在检疫。​文件大于这个指定数值将不成为检疫。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。​标准 = 2MB。
+- 最大允许文件大小为文件在检疫。​文件大于这个指定数值将不成为检疫。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。 标准 = 2MB。
 
 ##### “quarantine_max_usage” `[string]`
-- 最大内存使用允许为检疫。​如果总内存已用通过隔离到达这个数值，​最老检疫文件将会删除直到总内存已用不再到达这个数值。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。​标准 = 64MB。
+- 最大内存使用允许为检疫。​如果总内存已用通过隔离到达这个数值，​最老检疫文件将会删除直到总内存已用不再到达这个数值。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。 标准 = 64MB。
 
 ##### “quarantine_max_files” `[int]`
 - 隔离中可以存在的最大文件数量。​新文件添加到隔离时，如果超过此数量，则旧文件将被删除，直到剩余的文件不再超过此数量。​标准=100。
@@ -1010,45 +1011,48 @@ URL扫描程序的配置。
 补充缓存选项。​注意：更改这些值可能会使您注销。
 
 ##### “prefix” `[string]`
-- 该值将附加到所有缓存条目的键的开头。​标准 = “phpMussel_”。​当同一服务器上存在多个安装时，这对于将它们的缓存彼此分开非常有用。
+- 该值将附加到所有缓存条目的键的开头。 标准 = “phpMussel_”。​当同一服务器上存在多个安装时，这对于将它们的缓存彼此分开非常有用。
 
 ##### “enable_apcu” `[bool]`
-- 指定是否尝试使用APCu进行缓存。​标准 = True。
+- 指定是否尝试使用APCu进行缓存。 标准 = True。
 
 ##### “enable_memcached” `[bool]`
-- 指定是否尝试使用Memcached进行缓存。​标准 = False。
+- 指定是否尝试使用Memcached进行缓存。 标准 = False。
 
 ##### “enable_redis” `[bool]`
-- 指定是否尝试使用Redis进行缓存。​标准 = False。
+- 指定是否尝试使用Redis进行缓存。 标准 = False。
 
 ##### “enable_pdo” `[bool]`
-- 指定是否尝试使用PDO进行缓存。​标准 = False。
+- 指定是否尝试使用PDO进行缓存。 标准 = False。
 
 ##### “memcached_host” `[string]`
-- Memcached主机值。​标准 = “localhost”。
+- Memcached 主机值。 标准 = “localhost”。
 
 ##### “memcached_port” `[int]`
-- Memcached端口值。​标准 = “11211”。
+- Memcached 端口值。 标准 = “11211”。
 
 ##### “redis_host” `[string]`
-- Redis主机值。​标准 = “localhost”。
+- Redis 主机值。 标准 = “localhost”。
 
 ##### “redis_port” `[int]`
-- Redis端口值。​标准 = “6379”。
+- Redis 端口值。 标准 = “6379”。
 
 ##### “redis_timeout” `[float]`
-- Redis超时值。​标准 = “2.5”。
+- Redis 超时值。 标准 = “2.5”。
+
+##### “redis_database_number” `[int]`
+- Redis 数据库编号。 标准 = “0”。 注意：不能在 Redis Cluster 中使用 0 以外的值。
 
 ##### “pdo_dsn” `[string]`
-- PDO DSN值。​标准 = “mysql:dbname=phpmussel;host=localhost;port=3306”。
+- PDO DSN值。 标准 = “mysql:dbname=phpmussel;host=localhost;port=3306”。
 
 __常问问题。__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.zh.md#user-content-HOW_TO_USE_PDO" hreflang="zh-CN">“PDO DSN”是什么？如何能PDO与phpMussel一起使用？</a>*
 
 ##### “pdo_username” `[string]`
-- PDO用户名。
+- PDO 用户名。
 
 ##### “pdo_password” `[string]`
-- PDO密码。
+- PDO 密码。
 
 #### “frontend” （类别）
 前端的配置。
@@ -1137,7 +1141,7 @@ theme
 ```
 
 ##### “magnification” `[float]`
-- 字体放大。​标准 = 1。
+- 字体放大。 标准 = 1。
 
 ##### “custom_header” `[string]`
 - 在所有前端页面的开头作为HTML插入。​如果您想在所有此类页面中包含网站徽标、个性化标题、脚本、或类似，这可能会很有用。
@@ -1838,4 +1842,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2023年10月12日。
+最后更新：2023年12月2日。

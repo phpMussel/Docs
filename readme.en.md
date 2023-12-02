@@ -548,6 +548,7 @@ Configuration (v3)
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -1044,6 +1045,9 @@ Supplementary cache options. Note: Changing these values may potentially log you
 
 ##### "redis_timeout" `[float]`
 - Redis timeout value. Default = "2.5".
+
+##### "redis_database_number" `[int]`
+- Redis database number. Default = 0. Note: Can't use values other than 0 with Redis Cluster.
 
 ##### "pdo_dsn" `[string]`
 - PDO DSN value. Default = "mysql:dbname=phpmussel;host=localhost;port=3306".
@@ -1851,4 +1855,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 12 October 2023 (2023.10.12).
+Last Updated: 2 December 2023 (2023.12.02).

@@ -552,6 +552,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -1051,6 +1052,9 @@ vt_suspicion_level
 
 ##### <div dir="rtl">"redis_timeout" <code dir="ltr">[float]</code><br /></div>
 <div dir="rtl"><ul><li>Redis قيمة المهلة. افتراضي = "2.5".</li></ul></div>
+
+##### <div dir="rtl">"redis_database_number" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>رقم قاعدة بيانات Redis. افتراضي = 0. ملاحظة: لا يمكن استخدام قيم غير 0 مع Redis Cluster.</li></ul></div>
 
 ##### <div dir="rtl">"pdo_dsn" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>قيمة PDO DSN. افتراضي = "mysql:dbname=phpmussel;host=localhost;port=3306".</li></ul></div>
@@ -1885,4 +1889,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ١٢ أكتوبر ٢٠٢٣ (٢٠٢٣.١٠.١٢).</div>
+<div dir="rtl">آخر تحديث: ٢ ديسمبر ٢٠٢٣ (٢٠٢٣.١٢.٠٢).</div>

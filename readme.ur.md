@@ -552,6 +552,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 │       redis_host [string]
 │       redis_port [int]
 │       redis_timeout [float]
+│       redis_database_number [int]
 │       pdo_dsn [string]
 │       pdo_username [string]
 │       pdo_password [string]
@@ -1047,6 +1048,9 @@ vt_suspicion_level
 
 ##### <div dir="rtl">"redis_timeout" <code dir="ltr">[float]</code><br /></div>
 <div dir="rtl"><ul><li>Redis کے لئے ٹائم آؤٹ. پہلے سے طے شدہ = "2.5".</li></ul></div>
+
+##### <div dir="rtl">"redis_database_number" <code dir="ltr">[int]</code><br /></div>
+<div dir="rtl"><ul><li>Redis ڈیٹا بیس نمبر. پہلے سے طے شدہ = 0. نوٹ: Redis Cluster کے ساتھ 0 کے علاوہ دیگر اقدار استعمال نہیں کر سکتے.</li></ul></div>
 
 ##### <div dir="rtl">"pdo_dsn" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>PDO کے لئے DSN. پہلے سے طے شدہ = "mysql:dbname=phpmussel;host=localhost;port=3306".</li></ul></div>
@@ -1880,4 +1884,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۱۲ اکتوبر ۲۰۲۳ (۲۰۲۳.۱۰.۱۲).</div>
+<div dir="rtl">آخری تازہ کاری: ۲ دسمبر ۲۰۲۳ (۲۰۲۳.۱۲.۰۲).</div>
