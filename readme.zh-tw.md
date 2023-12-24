@@ -954,7 +954,7 @@ __進程的邏輯順序。__ 如果文件類型已白名單，​不掃描和不
 Virus Total整合的配置。
 
 ##### 『vt_public_api_key』 `[string]`
-- 可選的，​phpMussel可以掃描文件使用【Virus Total API】作為一個方法提供一個顯著的改善保護級別針對病毒，​木馬，​惡意軟件和其他威脅。​作為默認，​掃描文件使用【Virus Total API】是關閉。​以激活它，​一個API密鑰從VirusTotal是需要。​因為的顯著好處這個可以提供為您，​它是某物我很推薦激活。​請注意，​然而，​以使用的【Virus Total API】，​您必須同意他們的服務條款和您必須堅持所有方針按照說明通過VirusTotal閱讀材料！​您是不允許使用這個積分功能除非：您已閱讀和您同意服務條款的VirusTotal和它的API。​您已閱讀和您了解至少序言的VirusTotal公共API閱讀材料(一切之後『VirusTotal Public API v2.0』但之前『Contents』）。
+- 可選的，​phpMussel可以掃描文件使用【Virus Total API】作為一個方法提供一個顯著的改善保護級別針對病毒，​木馬，​惡意軟件和其他威脅。​作為默認，​掃描文件使用【Virus Total API】是關閉。​以激活它，​一個API金鑰從VirusTotal是需要。​因為的顯著好處這個可以提供為您，​它是某物我很推薦激活。​請注意，​然而，​以使用的【Virus Total API】，​您必須同意他們的服務條款和您必須堅持所有方針按照說明通過VirusTotal閱讀材料！​您是不允許使用這個積分功能除非：您已閱讀和您同意服務條款的VirusTotal和它的API。​您已閱讀和您了解至少序言的VirusTotal公共API閱讀材料(一切之後『VirusTotal Public API v2.0』但之前『Contents』）。
 
 也可以看看：
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
@@ -984,7 +984,7 @@ vt_suspicion_level
 URL掃描程序的配置。
 
 ##### 『google_api_key』 `[string]`
-- 激活Google Safe Browsing API當API密鑰是設置。
+- 激活Google Safe Browsing API當API金鑰是設置。
 
 也可以看看：
 - [Google API Console](https://console.developers.google.com/)
@@ -1671,14 +1671,14 @@ phpMussel的`pdo_dsn`應配置如下。
 
 ##### 9.2.1 URL掃描程序
 
-上文件上傳中找到的URL可能會與Google安全瀏覽API共享，取決於軟件包的具體配置方式。​Google安全瀏覽API的使用需要API密鑰，因此默認情況下是禁用。
+上文件上傳中找到的URL可能會與Google安全瀏覽API共享，取決於軟件包的具體配置方式。​Google安全瀏覽API的使用需要API金鑰，因此默認情況下是禁用。
 
 *相關配置指令：*
 - `urlscanner` -> `google_api_key`
 
 ##### 9.2.2 VIRUS TOTAL
 
-當phpMussel掃描文件上傳時，這些文件的哈希值可能會與Virus Total API共享，具體取決於軟件包的配置方式。​有計劃在未來的某個時候能夠共享整個文件，但目前該軟件包不支持該功能。​Virus Total API的使用需要API密鑰，因此默認情況下是禁用。
+當phpMussel掃描文件上傳時，這些文件的哈希值可能會與Virus Total API共享，具體取決於軟件包的配置方式。​有計劃在未來的某個時候能夠共享整個文件，但目前該軟件包不支持該功能。​Virus Total API的使用需要API金鑰，因此默認情況下是禁用。
 
 與Virus Total共享的信息（包括文件和相關文件元數據）也可能與其合作夥伴，關聯公司以及其他各方共享用於研究目的。​這在他們的隱私政策中有更詳細的描述。
 
@@ -1842,4 +1842,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2023年12月2日。
+最後更新：2023年12月15日。
