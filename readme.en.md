@@ -139,7 +139,7 @@ $Loader = new \phpMussel\Core\Loader();
 $Scanner = new \phpMussel\Core\Scanner($Loader);
 ```
 
-As the names of these classes imply, the loader is responsible for the preparing of the the basic necessities of using phpMussel, and the scanner is responsible for all the core scanning functionality.
+As the names of these classes imply, the loader is responsible for preparing the basic necessities of using phpMussel, and the scanner is responsible for all the core scanning functionality.
 
 The constructor for the loader accepts five parameters, all optional.
 
@@ -1855,4 +1855,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 2 December 2023 (2023.12.02).
+Last Updated: 22 May 2024 (2024.05.22).
