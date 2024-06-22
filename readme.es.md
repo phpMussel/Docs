@@ -594,14 +594,22 @@ Configuración general (cualquier configuración que no pertenezca a otras categ
 ##### "scan_log" `[string]`
 - Nombre del archivo para registrar todos los resultados de las escaneos. Especifique un archivo nombre, o dejar en blanco para desactivar.
 
+Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los archivos de registro utilizando marcadores de posición de formato de hora. Los marcadores de posición de formato de hora disponibles se muestran en {{Links.ConfigRef.time_format}}.
+
 ##### "scan_log_serialized" `[string]`
 - Nombre del archivo para registrar todos los resultados de las escaneos (utilizando un formato serializado). Especifique un archivo nombre, o dejar en blanco para desactivar.
+
+Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los archivos de registro utilizando marcadores de posición de formato de hora. Los marcadores de posición de formato de hora disponibles se muestran en {{Links.ConfigRef.time_format}}.
 
 ##### "error_log" `[string]`
 - Un archivo para registrar cualquier error detectado que no sea fatal. Especificar el nombre del archivo, o dejar en blanco para desactivar.
 
+Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los archivos de registro utilizando marcadores de posición de formato de hora. Los marcadores de posición de formato de hora disponibles se muestran en {{Links.ConfigRef.time_format}}.
+
 ##### "outbound_request_log" `[string]`
 - Un archivo para registrar los resultados de cualquier solicitud saliente. Especificar el nombre del archivo, o dejar en blanco para desactivar.
+
+Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los archivos de registro utilizando marcadores de posición de formato de hora. Los marcadores de posición de formato de hora disponibles se muestran en {{Links.ConfigRef.time_format}}.
 
 ##### "truncate" `[string]`
 - ¿Truncar archivos de registro cuando alcanzan cierto tamaño? Valor es el tamaño máximo en B/KB/MB/GB/TB que un archivo de registro puede crecer antes de ser truncado. El valor predeterminado de 0KB deshabilita el truncamiento (archivos de registro pueden crecer indefinidamente). Nota: ¡Se aplica a archivos de registro individuales! El tamaño de los archivos de registro no se considera colectivamente.
@@ -710,6 +718,24 @@ time_format
 └─…Otro
 ```
 
+__*Marcador de posición – Explicación – Ejemplo basado en 2024-04-30T18:27:49+08:00.*__<br />
+`{yyyy}` – El año – P.ej. 2024.<br />
+`{yy}` – El año abreviado – P.ej. 24.<br />
+`{Mon}` – El nombre abreviado del mes (en inglés) – P.ej. Apr.<br />
+`{mm}` – El mes con ceros a la izquierda – P.ej. 04.<br />
+`{m}` – El mes – P.ej. 4.<br />
+`{Day}` – El nombre abreviado del día (en inglés) – P.ej. Tue.<br />
+`{dd}` – El día con ceros a la izquierda – P.ej. 30.<br />
+`{d}` – El día – P.ej. 30.<br />
+`{hh}` – La hora con ceros a la izquierda (utiliza el formato de 24 horas) – P.ej. 18.<br />
+`{h}` – La hora (utiliza el formato de 24 horas) – P.ej. 18.<br />
+`{ii}` – El minuto con ceros a la izquierda – P.ej. 27.<br />
+`{i}` – El minuto – P.ej. 27.<br />
+`{ss}` – El segundo con ceros a la izquierda – P.ej. 49.<br />
+`{s}` – El segundo – P.ej. 49.<br />
+`{tz}` – La zona horaria (sin dos puntos) – P.ej. +0800.<br />
+`{t:z}` – La zona horaria (con dos puntos) – P.ej. +08:00.
+
 ##### "ipaddr" `[string]`
 - ¿Dónde puedo encontrar el IP dirección de las solicitudes entrantes? (Útil para servicios como Cloudflare y tales). Predefinido = REMOTE_ADDR. ¡AVISO: No cambie esto a menos que sepas lo que estás haciendo!
 
@@ -742,6 +768,8 @@ lang
 ├─ar ("العربية")
 ├─bg ("Български")
 ├─bn ("বাংলা")
+├─bs ("Bosanski")
+├─ca ("Català")
 ├─cs ("Čeština")
 ├─de ("Deutsch")
 ├─en ("English (AU/GB/NZ)")
@@ -750,8 +778,11 @@ lang
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
+├─gl ("Galego")
+├─gu ("ગુજરાતી")
 ├─he ("עברית")
 ├─hi ("हिंदी")
+├─hr ("Hrvatski")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
 ├─ja ("日本語")
@@ -767,6 +798,7 @@ lang
 ├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─sr ("Српски")
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
@@ -981,7 +1013,7 @@ vt_suspicion_level
 - ¿Debería phpMussel aplicar los resultados del escaneo utilizando el Virus Total API como detecciones o como detección peso? Esta directiva existe, por razón de que, aunque escanear un archivo usando múltiples motores (como Virus Total hacer) debería resultar en un aumento detección cuenta (y por lo tanto en un mayor número de maliciosos archivos ser atrapado), esta también puede resultar en un mayor número de falsos positivos, y por lo tanto, en algunas circunstancias, los resultados del escanear pueden ser mejor utilizados como una puntuación de confianza y no como una definitiva conclusión. Si un valor de 0 es utiliza, los resultados del escaneo utilizando el Virus Total API se aplicará como detecciones, y por lo tanto, si cualquier motor utilizado por Virus Total marca el archivo está escaneando como malicioso, phpMussel considerará el archivo a ser malicioso. Si cualquier otro valor es utiliza, los resultados del escaneo utilizando el Virus Total API se aplicará como detección peso, y por lo tanto, el número de motores utilizados por Virus Total que marca el archivo está escaneando como malicioso servirá como una puntuación de confianza (o detección peso) para si el archivo que ser escanear debe ser considerado malicioso por phpMussel (el valor utilizado representará el mínima puntuación de confianza o peso requerido con el fin de ser considerado malicioso). Un valor de 0 es utilizado por predefinido.
 
 ##### "vt_quota_rate" `[int]`
-- En acuerdo con la documentación de la Virus Total API, está limitado para un máximo de 4 solicitudes de cualquier naturaleza en cualquier 1 minuto período de tiempo. Si usted ejecuta un honeyclient, honeypot o cualquier otra automatización que va proporcionar recursos para Virus Total y no sólo recuperar los reportes usted tiene derecho a un más alta cuota. Por predefinido, phpMussel va adhiere estrictamente a estas limitaciones, pero debido a la posibilidad de estos limitaciones siendo aumentado, estas dos directivas son proporcionan como un manera para usted para indique para phpMussel en cuanto a qué limitaciones está debe adherirse a. A menos que usted ha estado indique que lo haga, está no es recomendable para usted para aumentar estos valores, pero, si ha tenido problemas relacionados con alcanzar su cuota, la disminución de estos valores *__PUEDE__* a veces ayudarle para hacer frente a estos problemas. Su cuota es determinado como `vt_quota_rate` solicitudes de cualquier naturaleza en cualquier `vt_quota_time` minuto período de tiempo.
+- En acuerdo con la documentación de la Virus Total API, está limitado para un máximo de 4 solicitudes de cualquier naturaleza en cualquier 1 minuto período de tiempo. Si usted ejecuta un honeyclient, honeypot o cualquier otra automatización que va proporcionar recursos para Virus Total y no sólo recuperar los reportes usted tiene derecho a un más alta cuota. Por predefinido, phpMussel va adhiere estrictamente a estas limitaciones, pero debido a la posibilidad de estos limitaciones siendo aumentado, estas dos directivas son proporcionan como un manera para usted para indique para phpMussel en cuanto a qué limitaciones está debe adherirse a. A menos que usted ha estado indique que lo haga, está no es recomendable para usted para aumentar estos valores, pero, si ha tenido problemas relacionados con alcanzar su cuota, la disminución de estos valores __*PUEDE*__ a veces ayudarle para hacer frente a estos problemas. Su cuota es determinado como `vt_quota_rate` solicitudes de cualquier naturaleza en cualquier `vt_quota_time` minuto período de tiempo.
 
 ##### "vt_quota_time" `[int]`
 - (Ver descripción arriba).
@@ -1065,6 +1097,8 @@ Configuración para el front-end.
 
 ##### "frontend_log" `[string]`
 - Archivo para registrar intentos de login al front-end. Especificar el nombre del archivo, o dejar en blanco para desactivar.
+
+Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los archivos de registro utilizando marcadores de posición de formato de hora. Los marcadores de posición de formato de hora disponibles se muestran en {{Links.ConfigRef.time_format}}.
 
 ##### "max_login_attempts" `[int]`
 - Número máximo de intentos de login al front-end. Predefinido = 5.
@@ -1161,6 +1195,8 @@ Configuración para el controlador de subidas.
 ##### "uploads_log" `[string]`
 - Donde se deben registrar todas las subidas bloqueadas. Especifique un archivo nombre, o dejar en blanco para desactivar.
 
+Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los archivos de registro utilizando marcadores de posición de formato de hora. Los marcadores de posición de formato de hora disponibles se muestran en {{Links.ConfigRef.time_format}}.
+
 ##### "forbid_on_block" `[bool]`
 - ¿Debería phpMussel enviar 403 header con la bloqueados archivos subidos mensaje, o quedarse con los usual 200 OK? False = No (200); True = Sí (403) [Predefinido].
 
@@ -1199,10 +1235,12 @@ theme
 - Insertado como HTML al final de todas las páginas "subida denegada". Esto podría ser útil en caso de que desee incluir un aviso legal, enlace de contacto, información comercial, o similar en todas dichas páginas.
 
 #### "phpmailer" (Categoría)
-Configuración para PHPMailer (utilizado para la autenticación de dos factores).
+Configuración para PHPMailer (se utiliza para la autenticación de dos factores y para notificaciones por correo electrónico).
 
 ##### "event_log" `[string]`
 - Un archivo para registrar todos los eventos en relación con PHPMailer. Especificar el nombre del archivo, o dejar en blanco para desactivar.
+
+Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los archivos de registro utilizando marcadores de posición de formato de hora. Los marcadores de posición de formato de hora disponibles se muestran en {{Links.ConfigRef.time_format}}.
 
 ##### "enable_two_factor" `[bool]`
 - Esta directiva determina si se debe usar 2FA para las cuentas del front-end.
@@ -1854,4 +1892,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 2 de Diciembre de 2023 (2023.12.02).
+Última Actualización: 22 de Junio de 2024 (2024.06.22).

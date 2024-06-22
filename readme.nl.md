@@ -594,14 +594,22 @@ Algemene configuratie (elke kernconfiguratie die niet tot andere categorieën be
 ##### "scan_log" `[string]`
 - Bestandsnaam van het bestand te opnemen alle scanresultaten. Geef een bestandsnaam of laat leeg om te uitschakelen.
 
+Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}.
+
 ##### "scan_log_serialized" `[string]`
 - Bestandsnaam van het bestand te opnemen alle scanresultaten (formaat is geserialiseerd). Geef een bestandsnaam of laat leeg om te uitschakelen.
+
+Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}.
 
 ##### "error_log" `[string]`
 - Een bestand voor het vastleggen van gedetecteerde niet-fatale fouten. Geef een bestandsnaam, of laat leeg om uit te schakelen.
 
+Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}.
+
 ##### "outbound_request_log" `[string]`
 - Een bestand voor het loggen van de resultaten van eventuele uitgaande verzoeken. Geef een bestandsnaam, of laat leeg om uit te schakelen.
+
+Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}.
 
 ##### "truncate" `[string]`
 - Trunceren logbestanden wanneer ze een bepaalde grootte bereiken? Waarde is de maximale grootte in B/KB/MB/GB/TB dat een logbestand kan groeien tot voordat het wordt getrunceerd. De standaardwaarde van 0KB schakelt truncatie uit (logbestanden kunnen onbepaald groeien). Notitie: Van toepassing op individuele logbestanden! De grootte van de logbestanden wordt niet collectief beschouwd.
@@ -710,6 +718,24 @@ time_format
 └─…Anders
 ```
 
+__*Tijdelijke aanduiding – Uitleg – Voorbeeld gebaseerd op 2024-04-30T18:27:49+08:00.*__<br />
+`{yyyy}` – Het jaartal – B.v., 2024.<br />
+`{yy}` – Het afgekorte jaartal – B.v., 24.<br />
+`{Mon}` – De afgekorte naam van de maand (in het Engels) – B.v., Apr.<br />
+`{mm}` – De maand met voorloopnullen – B.v., 04.<br />
+`{m}` – De maand – B.v., 4.<br />
+`{Day}` – De afgekorte naam van de dag (in het Engels) – B.v., Tue.<br />
+`{dd}` – De dag met voorloopnullen – B.v., 30.<br />
+`{d}` – De dag – B.v., 30.<br />
+`{hh}` – Het uur met voorloopnullen (gebruikt 24-uurs tijd) – B.v., 18.<br />
+`{h}` – Het uur (gebruikt 24-uurs tijd) – B.v., 18.<br />
+`{ii}` – De minuut met voorloopnullen – B.v., 27.<br />
+`{i}` – De minuut – B.v., 27.<br />
+`{ss}` – De seconde met voorloopnullen – B.v., 49.<br />
+`{s}` – De seconde – B.v., 49.<br />
+`{tz}` – De tijdzone (zonder dubbele punt) – B.v., +0800.<br />
+`{t:z}` – De tijdzone (met dubbele punt) – B.v., +08:00.
+
 ##### "ipaddr" `[string]`
 - Waar het IP-adres van het aansluiten verzoek te vinden? (Handig voor diensten zoals Cloudflare en dergelijke). Standaard = REMOTE_ADDR. WAARSCHUWING: Verander dit niet tenzij u weet wat u doet!
 
@@ -742,6 +768,8 @@ lang
 ├─ar ("العربية")
 ├─bg ("Български")
 ├─bn ("বাংলা")
+├─bs ("Bosanski")
+├─ca ("Català")
 ├─cs ("Čeština")
 ├─de ("Deutsch")
 ├─en ("English (AU/GB/NZ)")
@@ -750,8 +778,11 @@ lang
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
+├─gl ("Galego")
+├─gu ("ગુજરાતી")
 ├─he ("עברית")
 ├─hi ("हिंदी")
+├─hr ("Hrvatski")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
 ├─ja ("日本語")
@@ -767,6 +798,7 @@ lang
 ├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─sr ("Српски")
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
@@ -915,7 +947,7 @@ __Logische volgorde van de verwerking.__ Als het bestandstype is op de whitelist
 - Herkende archief bestandsextensies (formaat is CSV; moet alleen toevoegen of verwijderen wanneer problemen voorkomen; onnodig verwijderen kan leiden tot vals-positieven te verschijnen voor archiefbestanden, terwijl onnodig toevoeging zal effectief whitelist wat u toevoegt van aanval-specifieke detectie; wijzigen met voorzichtigheid; ook noteren dat Dit heeft geen effect op welke archieven kan en niet kan wordt geanalyseerd op inhoudsniveau). De lijst, als is bij standaard, geeft die formaten gebruikt meest vaak door de meeste systemen en CMS, maar opzettelijk is niet noodzakelijk alomvattend.
 
 ##### "block_control_characters" `[bool]`
-- Blokkeren alle bestanden bevatten controle karakters (andere dan nieuwe regels)? Als u *__ALLEEN__* uploaden platte tekst, dan u kan inschakelen dit optie te bieden extra bescherming aan uw systeem. Hoewel, als u uploaden iets anders dan platte tekst, inschakelen dit kan leiden tot valse positieven. False = Niet blokkeren [Standaard]; True = Doen blokkeren.
+- Blokkeren alle bestanden bevatten controle karakters (andere dan nieuwe regels)? Als u __*ALLEEN*__ uploaden platte tekst, dan u kan inschakelen dit optie te bieden extra bescherming aan uw systeem. Hoewel, als u uploaden iets anders dan platte tekst, inschakelen dit kan leiden tot valse positieven. False = Niet blokkeren [Standaard]; True = Doen blokkeren.
 
 ##### "corrupted_exe" `[bool]`
 - Corrupte bestanden en verwerking fouten. False = Negeren; True = Blokkeren [Standaard]. Detecteren en blokkeren mogelijk beschadigd PE (Portable Executable) bestanden? Vaak (maar niet altijd), wanneer bepaalde aspecten van een PE-bestand zijn beschadigd of kan niet correct worden verwerkt, het kan wijzen op een virale infectie. De processen gebruikt door de meeste anti-virus programma's om virussen in PE-bestanden te detecteren vereisen de verwerking van die bestanden op bepaalde manieren, dat, als de programmeur van een virus kent, specifiek zal proberen te verhinderen, zodat haar virus onopgemerkt blijven.
@@ -954,7 +986,7 @@ Configuratie voor de quarantaine.
 Configuratie voor Virus Totale integratie.
 
 ##### "vt_public_api_key" `[string]`
-- Optioneel, met phpMussel, het is mogelijk om bestanden te scannen met behulp van de Virus Total API als een manier om een sterk verbeterde mate van bescherming te bieden tegen virussen, trojans, malware en andere bedreigingen. Standaard, scannen van bestanden met behulp van de Virus Total API is uitgeschakeld. Om het te inschakelen, een Virus Total API-sleutel is nodig. Vanwege de aanzienlijke voordeel dat dit zou kunnen om u te voorzien, het is iets dat ik sterk aanbevelen te inschakelen. Wees u ervan bewust, echter, dat voor gebruik op de Virus Total API, u *__MOET__* akkoord gaan hun Algemene Voorwaarden en u *__MOET__* voldoen aan alle richtlijnen per beschreven door de Virus Total documentatie! U bent NIET toegestaan om dit integratie functie te gebruiken TENZIJ: U heeft gelezen en u akkoord met de Algemene Voorwaarden van de Virus Total en zijn API. U heeft gelezen en u begrijpt, ten minste, de preambule van de Virus Total Public API-documentatie (alles na "VirusTotal Public API v2.0" maar vóór "Contents").
+- Optioneel, met phpMussel, het is mogelijk om bestanden te scannen met behulp van de Virus Total API als een manier om een sterk verbeterde mate van bescherming te bieden tegen virussen, trojans, malware en andere bedreigingen. Standaard, scannen van bestanden met behulp van de Virus Total API is uitgeschakeld. Om het te inschakelen, een Virus Total API-sleutel is nodig. Vanwege de aanzienlijke voordeel dat dit zou kunnen om u te voorzien, het is iets dat ik sterk aanbevelen te inschakelen. Wees u ervan bewust, echter, dat voor gebruik op de Virus Total API, u __*MOET*__ akkoord gaan hun Algemene Voorwaarden en u __*MOET*__ voldoen aan alle richtlijnen per beschreven door de Virus Total documentatie! U bent NIET toegestaan om dit integratie functie te gebruiken TENZIJ: U heeft gelezen en u akkoord met de Algemene Voorwaarden van de Virus Total en zijn API. U heeft gelezen en u begrijpt, ten minste, de preambule van de Virus Total Public API-documentatie (alles na "VirusTotal Public API v2.0" maar vóór "Contents").
 
 Zie ook:
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
@@ -1067,6 +1099,8 @@ Configuratie voor de frontend.
 ##### "frontend_log" `[string]`
 - Bestand om de frontend login pogingen te loggen. Geef een bestandsnaam, of laat leeg om uit te schakelen.
 
+Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}.
+
 ##### "max_login_attempts" `[int]`
 - Maximum aantal frontend-inlogpogingen. Standaard = 5.
 
@@ -1162,6 +1196,8 @@ Configuratie voor de uploadhandler.
 ##### "uploads_log" `[string]`
 - Waar alle geblokkeerde uploads moeten worden geregistreerd. Geef een bestandsnaam of laat leeg om te uitschakelen.
 
+Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}.
+
 ##### "forbid_on_block" `[bool]`
 - Moet phpMussel reageren met 403 headers met het bestanden upload geblokkeerd bericht, of blijven met de gebruikelijke 200 OK? False = Nee (200); True = Ja (403) [Standaard].
 
@@ -1200,10 +1236,12 @@ theme
 - Ingevoegd als HTML onderaan alle "upload geweigerd" pagina's. Dit kan handig zijn als u op al dergelijke pagina's een juridische kennisgeving, een contactlink, bedrijfsinformatie, of iets dergelijks wilt opnemen.
 
 #### "phpmailer" (Categorie)
-Configuratie voor PHPMailer (gebruikt voor tweefactorauthenticatie).
+Configuratie voor PHPMailer (gebruikt voor tweefactorauthenticatie en voor e-mailmeldingen).
 
 ##### "event_log" `[string]`
 - Een bestand voor het loggen van alle evenementen met betrekking tot PHPMailer. Geef een bestandsnaam, of laat leeg om uit te schakelen.
+
+Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}.
 
 ##### "enable_two_factor" `[bool]`
 - Deze richtlijn bepaalt of 2FA wordt gebruikt voor frontend-accounts.
@@ -1872,4 +1910,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 2 December 2023 (2023.12.02).
+Laatste Bijgewerkt: 22 Juni 2024 (2024.06.22).

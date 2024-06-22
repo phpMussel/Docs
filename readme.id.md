@@ -594,14 +594,22 @@ Konfigurasi umum (konfigurasi inti apapun yang bukan milik kategori lain).
 ##### "scan_log" `[string]`
 - Nama dari file untuk mencatat semua hasil pemindaian. Spesifikasikan nama atau biarkan kosong untuk menonaktifkan.
 
+Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}.
+
 ##### "scan_log_serialized" `[string]`
 - Nama dari file untuk mencatat semua hasil pemindaian (menggunakan format serial). Spesifikasikan nama atau biarkan kosong untuk menonaktifkan.
+
+Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}.
 
 ##### "error_log" `[string]`
 - File untuk mencatat kesalahan tidak fatal yang terdeteksi. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
 
+Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}.
+
 ##### "outbound_request_log" `[string]`
 - File untuk mencatat hasil permintaan keluar apapun. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
+
+Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}.
 
 ##### "truncate" `[string]`
 - Memotong file log ketika mereka mencapai ukuran tertentu? Nilai adalah ukuran maksimum dalam B/KB/MB/GB/TB yang bisa ditambahkan untuk file log sebelum dipotong. Nilai default 0KB menonaktifkan pemotongan (file log dapat tumbuh tanpa batas waktu). Catat: Berlaku untuk file log individu! Ukuran file log tidak dianggap secara kolektif.
@@ -710,6 +718,24 @@ time_format
 └─…Lain
 ```
 
+__*Placeholder – Penjelasan – Contoh berdasarkan 2024-04-30T18:27:49+08:00.*__<br />
+`{yyyy}` – Tahun – Misalnya, 2024.<br />
+`{yy}` – Tahun yang disingkat – Misalnya, 24.<br />
+`{Mon}` – Nama bulan yang disingkat (dalam bahasa Inggris) – Misalnya, Apr.<br />
+`{mm}` – Bulan dengan angka nol di depannya – Misalnya, 04.<br />
+`{m}` – Bulan – Misalnya, 4.<br />
+`{Day}` – Nama hari yang disingkat (dalam bahasa Inggris) – Misalnya, Tue.<br />
+`{dd}` – Hari dengan angka nol di depannya – Misalnya, 30.<br />
+`{d}` – Hari – Misalnya, 30.<br />
+`{hh}` – Jam dengan angka nol di depannya (menggunakan waktu 24 jam) – Misalnya, 18.<br />
+`{h}` – Jam (menggunakan waktu 24 jam) – Misalnya, 18.<br />
+`{ii}` – Menit dengan angka nol di depannya – Misalnya, 27.<br />
+`{i}` – Menit – Misalnya, 27.<br />
+`{ss}` – Detik dengan angka nol di depannya – Misalnya, 49.<br />
+`{s}` – Detik – Misalnya, 49.<br />
+`{tz}` – Zona waktu (tanpa titik dua) – Misalnya, +0800.<br />
+`{t:z}` – Zona waktu (dengan titik dua) – Misalnya, +08:00.
+
 ##### "ipaddr" `[string]`
 - Dimana menemukan alamat IP dari menghubungkan permintaan? (Berguna untuk pelayanan-pelayanan seperti Cloudflare dan sejenisnya). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
 
@@ -742,6 +768,8 @@ lang
 ├─ar ("العربية")
 ├─bg ("Български")
 ├─bn ("বাংলা")
+├─bs ("Bosanski")
+├─ca ("Català")
 ├─cs ("Čeština")
 ├─de ("Deutsch")
 ├─en ("English (AU/GB/NZ)")
@@ -750,8 +778,11 @@ lang
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
+├─gl ("Galego")
+├─gu ("ગુજરાતી")
 ├─he ("עברית")
 ├─hi ("हिंदी")
+├─hr ("Hrvatski")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
 ├─ja ("日本語")
@@ -767,6 +798,7 @@ lang
 ├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─sr ("Српски")
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
@@ -954,7 +986,7 @@ Konfigurasi untuk karantina.
 Konfigurasi untuk integrasi Virus Total.
 
 ##### "vt_public_api_key" `[string]`
-- Secara fakultatif, phpMussel mampu memindai file menggunakan API Virus Total sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan API Virus Total dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan API Virus Total, Anda *__HARUS__* setuju untuk Terms of Service dan Anda *__HARUS__* mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents").
+- Secara fakultatif, phpMussel mampu memindai file menggunakan API Virus Total sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan API Virus Total dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan API Virus Total, Anda __*HARUS*__ setuju untuk Terms of Service dan Anda __*HARUS*__ mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents").
 
 Lihat juga:
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
@@ -981,7 +1013,7 @@ vt_suspicion_level
 - Apakah Anda ingin phpMussel menerapkan hasil pemindaian menggunakan API Virus Total sebagai deteksi atau deteksi pembobotan? Direktif ini ada, karena, meskipun memindai file menggunakan mesin-mesin kelipatan (sebagai Virus Total melakukannya) harus menghasilkan tingkat deteksi meningkat (dan demikian lebih banyak file berbahaya tertangkap), juga dapat menghasilkan jumlah yang lebih banyak dari positif palsu, dan demikian, dalam kondisi beberapa, hasil pemindaian dapat digunakan lebih efektif sebagai nilai keyakinan daripada daripada sebagai kesimpulan definitif. Jika nilai 0 digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai pendeteksian, dan demikian, jika mesin-mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya, phpMussel akan menganggap file yang berbahaya. Jika nilai lain yang digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai deteksi pembobotan, dan demikian, jumlah mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya akan berfungsi sebagai nilai keyakinan (atau deteksi pembobotan) untuk jika file dipindai harus dianggap berbahaya oleh phpMussel (nilai digunakan akan mewakili nilai keyakinan minimum atau pembobotan minimum diperlukan untuk dianggap berbahaya). Nilai 0 digunakan secara default.
 
 ##### "vt_quota_rate" `[int]`
-- Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang *__DAPAT__* membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai `vt_quota_rate` permintaan dalam bentuk apapun dalam jangka waktu `vt_quota_time` menit.
+- Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang __*DAPAT*__ membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai `vt_quota_rate` permintaan dalam bentuk apapun dalam jangka waktu `vt_quota_time` menit.
 
 ##### "vt_quota_time" `[int]`
 - (Lihat uraian di atas).
@@ -1014,7 +1046,7 @@ Konfigurasi untuk persyaratan hukum.
 - Alamat dari kebijakan privasi yang relevan untuk ditampilkan di footer dari setiap halaman yang dihasilkan. Spesifikasikan URL, atau biarkan kosong untuk menonaktifkan.
 
 #### "supplementary_cache_options" (Kategori)
-Opsi cache tambahan. Catatan: Mengubah nilai ini berpotensi membuat Anda keluar.
+Opsi cache tambahan. Catat: Mengubah nilai ini berpotensi membuat Anda keluar.
 
 ##### "prefix" `[string]`
 - Nilai yang ditentukan disini akan ditambahkan ke awal kunci untuk semua entri di cache. Default = "phpMussel_". Ketika beberapa instalasi ada di server, ini dapat berguna untuk menjaga cache mereka terpisah.
@@ -1047,7 +1079,7 @@ Opsi cache tambahan. Catatan: Mengubah nilai ini berpotensi membuat Anda keluar.
 - Nilai batas waktu Redis. Default = "2.5".
 
 ##### "redis_database_number" `[int]`
-- Nomor basis data Redis. Default = 0. Catatan: Tidak dapat menggunakan nilai selain 0 dengan Redis Cluster.
+- Nomor basis data Redis. Default = 0. Catat: Tidak dapat menggunakan nilai selain 0 dengan Redis Cluster.
 
 ##### "pdo_dsn" `[string]`
 - Nilai DSN PDO. Default = "mysql:dbname=phpmussel;host=localhost;port=3306".
@@ -1065,6 +1097,8 @@ Konfigurasi untuk bagian depan.
 
 ##### "frontend_log" `[string]`
 - File untuk mencatat upaya masuk bagian depan. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
+
+Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}.
 
 ##### "max_login_attempts" `[int]`
 - Jumlah maksimum upaya memasukkan ke bagian depan. Default = 5.
@@ -1161,6 +1195,8 @@ Konfigurasi untuk penangan upload.
 ##### "uploads_log" `[string]`
 - Dimana semua upload yang diblokir harus dicatat. Spesifikan nama atau biarkan kosong untuk menonaktifkan.
 
+Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}.
+
 ##### "forbid_on_block" `[bool]`
 - Seharusnya phpMussel mengirimkan 403 headers dengan pesan upload file yang terblok, atau cocok dengan 200 OK? False = Tidak (200); True = Ya (403) [Default].
 
@@ -1199,10 +1235,12 @@ theme
 - Disisipkan sebagai HTML di akhir semua halaman "upload ditolak". Ini dapat berguna jika Anda ingin menyertakan pemberitahuan hukum, tautan kontak, informasi bisnis, atau sejenisnya di semua halaman tersebut.
 
 #### "phpmailer" (Kategori)
-Konfigurasi untuk PHPMailer (digunakan untuk otentikasi dua-faktor).
+Konfigurasi untuk PHPMailer (digunakan untuk otentikasi dua-faktor dan untuk pemberitahuan email).
 
 ##### "event_log" `[string]`
 - File untuk mencatat semua kejadian yang terkait dengan PHPMailer. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
+
+Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}.
 
 ##### "enable_two_factor" `[bool]`
 - Direktif ini menentukan apakah akan menggunakan 2FA untuk akun depan.
@@ -1847,4 +1885,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 15 Desember 2023 (2023.12.15).
+Terakhir Diperbarui: 22 Juni 2024 (2024.06.22).

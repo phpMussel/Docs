@@ -594,14 +594,22 @@ General configuration (any core configuration not belonging to other categories)
 ##### "scan_log" `[string]`
 - The name of the file to log all scanning results to. Specify a filename, or leave blank to disable.
 
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+
 ##### "scan_log_serialized" `[string]`
 - The name of the file to log all scanning results to (using a serialised format). Specify a filename, or leave blank to disable.
+
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
 
 ##### "error_log" `[string]`
 - A file for logging any non-fatal errors detected. Specify a filename, or leave blank to disable.
 
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+
 ##### "outbound_request_log" `[string]`
 - A file for logging the results of any outbound requests. Specify a filename, or leave blank to disable.
+
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
 
 ##### "truncate" `[string]`
 - Truncate log files when they reach a certain size? Value is the maximum size in B/KB/MB/GB/TB that a log file may grow to before being truncated. The default value of 0KB disables truncation (log files can grow indefinitely). Note: Applies to individual log files! The size of log files is not considered collectively.
@@ -710,6 +718,24 @@ time_format
 └─…Other
 ```
 
+__*Placeholder – Explanation – Example based on 2024-04-30T18:27:49+08:00.*__<br />
+`{yyyy}` – The year – E.g., 2024.<br />
+`{yy}` – The abbreviated year – E.g., 24.<br />
+`{Mon}` – The abbreviated name of the month (in English) – E.g., Apr.<br />
+`{mm}` – The month with leading zeros – E.g., 04.<br />
+`{m}` – The month – E.g., 4.<br />
+`{Day}` – The abbreviated name of the day (in English) – E.g., Tue.<br />
+`{dd}` – The day with leading zeros – E.g., 30.<br />
+`{d}` – The day – E.g., 30.<br />
+`{hh}` – The hour with leading zeros (uses 24-hour time) – E.g., 18.<br />
+`{h}` – The hour (uses 24-hour time) – E.g., 18.<br />
+`{ii}` – The minute with leading zeros – E.g., 27.<br />
+`{i}` – The minute – E.g., 27.<br />
+`{ss}` – The second with leading zeros – E.g., 49.<br />
+`{s}` – The second – E.g., 49.<br />
+`{tz}` – The timezone (without colon) – E.g., +0800.<br />
+`{t:z}` – The timezone (with colon) – E.g., +08:00.
+
 ##### "ipaddr" `[string]`
 - Where to find the IP address of connecting requests? (Useful for services such as Cloudflare and the likes). Default = REMOTE_ADDR. WARNING: Don't change this unless you know what you're doing!
 
@@ -742,6 +768,8 @@ lang
 ├─ar ("العربية")
 ├─bg ("Български")
 ├─bn ("বাংলা")
+├─bs ("Bosanski")
+├─ca ("Català")
 ├─cs ("Čeština")
 ├─de ("Deutsch")
 ├─en ("English (AU/GB/NZ)")
@@ -750,8 +778,11 @@ lang
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
+├─gl ("Galego")
+├─gu ("ગુજરાતી")
 ├─he ("עברית")
 ├─hi ("हिंदी")
+├─hr ("Hrvatski")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
 ├─ja ("日本語")
@@ -767,6 +798,7 @@ lang
 ├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─sr ("Српски")
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
@@ -915,7 +947,7 @@ __Logical order of processing.__ If the filetype is whitelisted, don't scan and 
 - Recognised archive file extensions (format is CSV; should only add or remove when problems occur; unnecessarily removing may cause false positives to appear for archive files, whereas unnecessarily adding will essentially whitelist what you're adding from attack specific detection; modify with caution; also note that this has no effect on what archives can and can't be analysed at content-level). The list, as is at default, lists those formats used most commonly across the majority of systems and CMS, but intentionally isn't necessarily comprehensive.
 
 ##### "block_control_characters" `[bool]`
-- Block any files containing any control characters (other than newlines)? If you're *__ONLY__* uploading plain-text, then you can turn this option on to provide some additional protection to your system. However, if you upload anything other than plain-text, turning this on may result in false positives. False = Don't block [Default]; True = Block.
+- Block any files containing any control characters (other than newlines)? If you're __*ONLY*__ uploading plain-text, then you can turn this option on to provide some additional protection to your system. However, if you upload anything other than plain-text, turning this on may result in false positives. False = Don't block [Default]; True = Block.
 
 ##### "corrupted_exe" `[bool]`
 - Corrupted files and parse errors. False = Ignore; True = Block [Default]. Detect and block potentially corrupted PE (Portable Executable) files? Often (but not always), when certain aspects of a PE file are corrupted or can't be parsed correctly, it can be indicative of a viral infection. The processes used by most anti-virus programs to detect viruses in PE files require parsing those files in certain ways, which, if the programmer of a virus is aware of, will specifically try to prevent, in order to allow their virus to remain undetected.
@@ -954,7 +986,7 @@ Configuration for the quarantine.
 Configuration for Virus Total integration.
 
 ##### "vt_public_api_key" `[string]`
-- Optionally, phpMussel is able to scan files using the Virus Total API as a way to provide a greatly enhanced level of protection against viruses, trojans, malware and other threats. By default, scanning files using the Virus Total API is disabled. To enable it, an API key from Virus Total is required. Due to the significant benefit that this could provide to you, it's something that I highly recommend enabling. Please be aware, however, that to use the Virus Total API, you *__MUST__* agree to their Terms of Service and you *__MUST__* adhere to all guidelines as per described by the Virus Total documentation! You are NOT permitted to use this integration feature UNLESS: You have read and agree to the Terms of Service of Virus Total and its API. You have read and you understand, at a minimum, the preamble of the Virus Total Public API documentation (everything after "VirusTotal Public API v2.0" but before "Contents").
+- Optionally, phpMussel is able to scan files using the Virus Total API as a way to provide a greatly enhanced level of protection against viruses, trojans, malware and other threats. By default, scanning files using the Virus Total API is disabled. To enable it, an API key from Virus Total is required. Due to the significant benefit that this could provide to you, it's something that I highly recommend enabling. Please be aware, however, that to use the Virus Total API, you __*MUST*__ agree to their Terms of Service and you __*MUST*__ adhere to all guidelines as per described by the Virus Total documentation! You are NOT permitted to use this integration feature UNLESS: You have read and agree to the Terms of Service of Virus Total and its API. You have read and you understand, at a minimum, the preamble of the Virus Total Public API documentation (everything after "VirusTotal Public API v2.0" but before "Contents").
 
 See also:
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
@@ -981,7 +1013,7 @@ vt_suspicion_level
 - Should phpMussel apply the results of scanning using the Virus Total API as detections or as detection weighting? This directive exists, because, although scanning a file using multiple engines (as Virus Total does) should result in an increased detection rate (and therefore in a higher number of malicious files being caught), it can also result in a higher number of false positives, and therefore, in some circumstances, it may be better to use the results of the scan as a confidence score rather than as a definitive conclusion. If a value of 0 is used, the results of scanning using the Virus Total API will be applied as detections, and therefore, if any engine used by Virus Total flags the file being scanned as being malicious, phpMussel will consider the file to be malicious. If any other value is used, the results of scanning using the Virus Total API will be applied as detection weighting, and therefore, the number of engines used by Virus Total that flag the file being scanned as being malicious will serve as a confidence score (or detection weighting) for whether or not the file being scanned should be considered malicious by phpMussel (the value used will represent the minimum confidence score or weight required in order to be considered malicious). A value of 0 is used by default.
 
 ##### "vt_quota_rate" `[int]`
-- According to the Virus Total API documentation, "it is limited to at most 4 requests of any nature in any given 1 minute time frame. If you run a honeyclient, honeypot or any other automation that is going to provide resources to VirusTotal and not only retrieve reports you are entitled to a higher request rate quota". By default, phpMussel will strictly adhere to these limitations, but due to the possibility of these rate quotas being increased, these two directives are provided as a means for you to instruct phpMussel as to what limit it should adhere to. Unless you've been instructed to do so, it's not recommended for you to increase these values, but, if you've encountered problems relating to reaching your rate quota, decreasing these values *__MAY__* sometimes help you in dealing with these problems. Your rate limit is determined as `vt_quota_rate` requests of any nature in any given `vt_quota_time` minute time frame.
+- According to the Virus Total API documentation, "it is limited to at most 4 requests of any nature in any given 1 minute time frame. If you run a honeyclient, honeypot or any other automation that is going to provide resources to VirusTotal and not only retrieve reports you are entitled to a higher request rate quota". By default, phpMussel will strictly adhere to these limitations, but due to the possibility of these rate quotas being increased, these two directives are provided as a means for you to instruct phpMussel as to what limit it should adhere to. Unless you've been instructed to do so, it's not recommended for you to increase these values, but, if you've encountered problems relating to reaching your rate quota, decreasing these values __*MAY*__ sometimes help you in dealing with these problems. Your rate limit is determined as `vt_quota_rate` requests of any nature in any given `vt_quota_time` minute time frame.
 
 ##### "vt_quota_time" `[int]`
 - (See description above).
@@ -1065,6 +1097,8 @@ Configuration for the front-end.
 
 ##### "frontend_log" `[string]`
 - File for logging front-end login attempts. Specify a filename, or leave blank to disable.
+
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
 
 ##### "max_login_attempts" `[int]`
 - Maximum number of front-end login attempts. Default = 5.
@@ -1161,6 +1195,8 @@ Configuration for the upload handler.
 ##### "uploads_log" `[string]`
 - Where all blocked uploads should be logged. Specify a filename, or leave blank to disable.
 
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+
 ##### "forbid_on_block" `[bool]`
 - Should phpMussel send 403 headers with the file upload blocked message, or stick with the usual 200 OK? False = No (200); True = Yes (403) [Default].
 
@@ -1199,10 +1235,12 @@ theme
 - Inserted as HTML at the very bottom of all "upload denied" pages. This could be useful in case you want to include a legal notice, contact link, business information, or similar at all such pages.
 
 #### "phpmailer" (Category)
-Configuration for PHPMailer (used for two-factor authentication).
+Configuration for PHPMailer (used for two-factor authentication and for email notifications).
 
 ##### "event_log" `[string]`
 - A file for logging all events in relation to PHPMailer. Specify a filename, or leave blank to disable.
+
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
 
 ##### "enable_two_factor" `[bool]`
 - This directive determines whether to use 2FA for front-end accounts.
@@ -1855,4 +1893,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 22 May 2024 (2024.05.22).
+Last Updated: 22 June 2024 (2024.06.22).

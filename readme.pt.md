@@ -594,14 +594,22 @@ Configuração geral (qualquer configuração principal que não pertença a out
 ##### "scan_log" `[string]`
 - Nome do arquivo para registrar todos os resultados do análises. Especifique um arquivo nome, ou deixe branco para desativar.
 
+Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos de log usando espaços reservados de formato de hora. Os espaços reservados para formato de hora disponíveis são exibidos em {{Links.ConfigRef.time_format}}.
+
 ##### "scan_log_serialized" `[string]`
 - Nome do arquivo para registrar todos os resultados do análises (formato é serializado). Especifique um arquivo nome, ou deixe branco para desativar.
+
+Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos de log usando espaços reservados de formato de hora. Os espaços reservados para formato de hora disponíveis são exibidos em {{Links.ConfigRef.time_format}}.
 
 ##### "error_log" `[string]`
 - Um arquivo para registrar erros detectados que não são fatais. Especifique o nome de um arquivo, ou deixe em branco para desabilitar.
 
+Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos de log usando espaços reservados de formato de hora. Os espaços reservados para formato de hora disponíveis são exibidos em {{Links.ConfigRef.time_format}}.
+
 ##### "outbound_request_log" `[string]`
 - Um arquivo para registrar os resultados de quaisquer solicitações de saída. Especifique o nome de um arquivo, ou deixe em branco para desabilitar.
+
+Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos de log usando espaços reservados de formato de hora. Os espaços reservados para formato de hora disponíveis são exibidos em {{Links.ConfigRef.time_format}}.
 
 ##### "truncate" `[string]`
 - Truncar arquivos de log quando atingem um determinado tamanho? Valor é o tamanho máximo em B/KB/MB/GB/TB que um arquivo de log pode crescer antes de ser truncado. O valor padrão de 0KB desativa o truncamento (arquivos de log podem crescer indefinidamente). Nota: Aplica-se a arquivos de log individuais! O tamanho dos arquivos de log não é considerado coletivamente.
@@ -710,6 +718,24 @@ time_format
 └─…Outros
 ```
 
+__*Espaço reservado – Explicação – Exemplo baseado em 2024-04-30T18:27:49+08:00.*__<br />
+`{yyyy}` – O ano – Por exemplo, 2024.<br />
+`{yy}` – O ano abreviado – Por exemplo, 24.<br />
+`{Mon}` – O nome abreviado do mês (em inglês) – Por exemplo, Apr.<br />
+`{mm}` – O mês com zeros à esquerda – Por exemplo, 04.<br />
+`{m}` – O mês – Por exemplo, 4.<br />
+`{Day}` – O nome abreviado do dia (em inglês) – Por exemplo, Tue.<br />
+`{dd}` – O dia com zeros à esquerda – Por exemplo, 30.<br />
+`{d}` – O dia – Por exemplo, 30.<br />
+`{hh}` – A hora com zeros à esquerda (usa o formato de 24 horas) – Por exemplo, 18.<br />
+`{h}` – A hora (usa o formato de 24 horas) – Por exemplo, 18.<br />
+`{ii}` – O minuto com zeros à esquerda – Por exemplo, 27.<br />
+`{i}` – O minuto – Por exemplo, 27.<br />
+`{ss}` – O segundo com zeros à esquerda – Por exemplo, 49.<br />
+`{s}` – O segundo – Por exemplo, 49.<br />
+`{tz}` – O fuso horário (sem dois pontos) – Por exemplo, +0800.<br />
+`{t:z}` – O fuso horário (com dois pontos) – Por exemplo, +08:00.
+
 ##### "ipaddr" `[string]`
 - Onde encontrar o IP endereço das solicitações? (Útil por serviços como o Cloudflare e tal). Padrão = REMOTE_ADDR. ATENÇÃO: Não mude isso a menos que você saiba o que está fazendo!
 
@@ -742,6 +768,8 @@ lang
 ├─ar ("العربية")
 ├─bg ("Български")
 ├─bn ("বাংলা")
+├─bs ("Bosanski")
+├─ca ("Català")
 ├─cs ("Čeština")
 ├─de ("Deutsch")
 ├─en ("English (AU/GB/NZ)")
@@ -750,8 +778,11 @@ lang
 ├─es ("Español")
 ├─fa ("فارسی")
 ├─fr ("Français")
+├─gl ("Galego")
+├─gu ("ગુજરાતી")
 ├─he ("עברית")
 ├─hi ("हिंदी")
+├─hr ("Hrvatski")
 ├─id ("Bahasa Indonesia")
 ├─it ("Italiano")
 ├─ja ("日本語")
@@ -767,6 +798,7 @@ lang
 ├─ro ("Română")
 ├─ru ("Русский")
 ├─sv ("Svenska")
+├─sr ("Српски")
 ├─ta ("தமிழ்")
 ├─th ("ภาษาไทย")
 ├─tr ("Türkçe")
@@ -915,7 +947,7 @@ __Ordem lógica de processamento.__ Se o tipo de arquivo está na whitelist, nã
 - Reconhecidos arquivos extensões (formato é CSV; só deve adicionar ou remover quando problemas ocorrem; desnecessariamente removendo pode causar falso-positivos para aparecer por compactados arquivos, enquanto desnecessariamente adicionando será essencialmente whitelist o que você está adicionando contra ataque específica detecção; modificar com cautela; Também notar que este não tem efeito em qual compactados arquivos podem e não podem ser analisados no escopo de conteúdo). A lista, como é padrão, é do formatos utilizados mais comumente através da maioria dos sistemas e CMS, mas intencionalmente não é necessariamente abrangente.
 
 ##### "block_control_characters" `[bool]`
-- Bloquear todos os arquivos que contenham quaisquer caracteres de controle, exceto linha quebras? Se você está *__APENAS__* carregando simple texto, então você pode ativar essa opção para fornecer alguma adicional proteção para o seu sistema. Mas, se você carregar qualquer coisa que não seja de texto simples, ativando isso pode resultas em falso positivos. False = Não bloquear [Padrão]; True = Bloquear.
+- Bloquear todos os arquivos que contenham quaisquer caracteres de controle, exceto linha quebras? Se você está __*APENAS*__ carregando simple texto, então você pode ativar essa opção para fornecer alguma adicional proteção para o seu sistema. Mas, se você carregar qualquer coisa que não seja de texto simples, ativando isso pode resultas em falso positivos. False = Não bloquear [Padrão]; True = Bloquear.
 
 ##### "corrupted_exe" `[bool]`
 - Corrompidos arquivos e erros de análise. False = Ignorar; True = Bloquear [Padrão]. Detectar e bloquear potencialmente corrompidos PE (Portátil Executável) arquivos? Frequentemente (mas não sempre), quando certos aspectos de um PE arquivo é corrompido ou não pode ser analisado corretamente, essa pode ser indicativo de uma viral infecção. Os processos utilizados pela maioria dos antivírus programas para detectar vírus em PE arquivos requerem analisando os arquivos de certas maneiras, que, se o programador de um vírus é consciente de, especificamente irá tentar impedir, a fim de permitir seu vírus para permanecer não detectado.
@@ -954,7 +986,7 @@ Configuração para a quarentena.
 Configuração para integração do Virus Total.
 
 ##### "vt_public_api_key" `[string]`
-- Opcionalmente, phpMussel é capaz de verificar os arquivos usando o Virus Total API como uma maneira de fornecer um nível de proteção muito maior contra vírus, trojans, malware e outras ameaças. Por padrão, verificação de arquivos usando o Virus Total API está desativado. Para ativá-lo, um Virus Total API chave é necessária. Devido ao benefício significativo que isso poderia fornecer a você, é algo que eu recomendo ativar. Esteja ciente, porém, que para usar o Virus Total API, você *__DEVE__* concordar com seus Termos de Uso e você *__DEVE__* aderir a todas as orientações conforme descrito pelo da Virus Total documentação! Você NÃO tem permissão para usar este recurso de integração EXCETO SE: Você leu e concorda com os Termos de Uso da Virus Total e sua API. Você leu e você compreender, no mínimo, o preâmbulo da Virus Total Pública API documentação (tudo depois "VirusTotal Public API v2.0" mas antes "Contents").
+- Opcionalmente, phpMussel é capaz de verificar os arquivos usando o Virus Total API como uma maneira de fornecer um nível de proteção muito maior contra vírus, trojans, malware e outras ameaças. Por padrão, verificação de arquivos usando o Virus Total API está desativado. Para ativá-lo, um Virus Total API chave é necessária. Devido ao benefício significativo que isso poderia fornecer a você, é algo que eu recomendo ativar. Esteja ciente, porém, que para usar o Virus Total API, você __*DEVE*__ concordar com seus Termos de Uso e você __*DEVE*__ aderir a todas as orientações conforme descrito pelo da Virus Total documentação! Você NÃO tem permissão para usar este recurso de integração EXCETO SE: Você leu e concorda com os Termos de Uso da Virus Total e sua API. Você leu e você compreender, no mínimo, o preâmbulo da Virus Total Pública API documentação (tudo depois "VirusTotal Public API v2.0" mas antes "Contents").
 
 Veja também:
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
@@ -981,7 +1013,7 @@ vt_suspicion_level
 - Deve phpMussel aplicar os resultados de analisando usando o Virus Total API como detecções ou como detecção ponderação? Esta directiva existe, porque, embora verificando um arquivo usando múltiplos mecanismos (como Virus Total faz) deve resultar em um aumento da taxa de detecção (e por conseguinte em um maior número de arquivos maliciosos detectados), isto também pode resultar em um aumento número de falsos positivos, e por conseguinte, em algumas circunstâncias, os resultados de análise pode ser melhor utilizado como uma pontuação de confiança e não como uma conclusão definitiva. Se um valor de 0 é usado, os resultados de análise usando o Virus Total API será aplicado como detecções, e por conseguinte, Se qualquer mecanismo usado pelo Virus Total marca o arquivo que está sendo analisado como sendo malicioso, phpMussel considerará o arquivo a ser malicioso. Se qualquer outro valor é usado, os resultados de análise usando o Virus Total API será aplicado como detecção ponderação, e por conseguinte, o número de mecanismos utilizados pela Virus Total que marcar o arquivo que está sendo analisado como sendo malicioso servirá como uma pontuação de confiança (ou ponderação de detecção) para se ou não o arquivo que está sendo analisado deve ser considerado malicioso por phpMussel (o valor utilizado representará o mínima pontuação de confiança ou peso requerido a fim de ser considerado malicioso). Um valor de 0 é usado por padrão.
 
 ##### "vt_quota_rate" `[int]`
-- De acordo com o Virus Total API documentação, é limitada a, no máximo, 4 solicitações de qualquer natureza dentro qualquer 1 minuto período de tempo. Se você executar um honeyclient, honeypot ou qualquer outro automação que vai fornecer recursos para Virus Total e não só recuperar relatórios você tem direito a uma melhor solicitações cota. Por padrão, phpMussel vai aderir estritamente a estas limitações, mas, devido à possibilidade de essas cotas a ser aumentada, estas duas directivas são fornecidos como um meio para que você possa instruir phpMussel sobre o limite que deve aderir para. Excepto se tenha sido instruído a fazê-lo, não é recomendado para você aumentar esses valores, mas, se você encontrou problemas relacionados com a atingir sua cota, diminuir esses valores podem *__POR VEZES__* ajudá-lo em lidar com estes problemas. Seu taxa limite é determinada como `vt_quota_rate` solicitações de qualquer natureza dentro qualquer `vt_quota_time` minuto período de tempo.
+- De acordo com o Virus Total API documentação, é limitada a, no máximo, 4 solicitações de qualquer natureza dentro qualquer 1 minuto período de tempo. Se você executar um honeyclient, honeypot ou qualquer outro automação que vai fornecer recursos para Virus Total e não só recuperar relatórios você tem direito a uma melhor solicitações cota. Por padrão, phpMussel vai aderir estritamente a estas limitações, mas, devido à possibilidade de essas cotas a ser aumentada, estas duas directivas são fornecidos como um meio para que você possa instruir phpMussel sobre o limite que deve aderir para. Excepto se tenha sido instruído a fazê-lo, não é recomendado para você aumentar esses valores, mas, se você encontrou problemas relacionados com a atingir sua cota, diminuir esses valores podem __*POR VEZES*__ ajudá-lo em lidar com estes problemas. Seu taxa limite é determinada como `vt_quota_rate` solicitações de qualquer natureza dentro qualquer `vt_quota_time` minuto período de tempo.
 
 ##### "vt_quota_time" `[int]`
 - (Ver descrição acima).
@@ -1065,6 +1097,8 @@ Configuração para o front-end.
 
 ##### "frontend_log" `[string]`
 - Arquivo para registrar tentativas de login ao front-end. Especifique o nome de um arquivo, ou deixe em branco para desabilitar.
+
+Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos de log usando espaços reservados de formato de hora. Os espaços reservados para formato de hora disponíveis são exibidos em {{Links.ConfigRef.time_format}}.
 
 ##### "max_login_attempts" `[int]`
 - Número máximo de tentativas de login ao front-end. Padrão = 5.
@@ -1161,6 +1195,8 @@ Configuração para o manipulador de carregamentos.
 ##### "uploads_log" `[string]`
 - Onde todos os carregamentos bloqueados devem ser registrados. Especifique um arquivo nome, ou deixe branco para desativar.
 
+Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos de log usando espaços reservados de formato de hora. Os espaços reservados para formato de hora disponíveis são exibidos em {{Links.ConfigRef.time_format}}.
+
 ##### "forbid_on_block" `[bool]`
 - Deve phpMussel enviar 403 cabeçalho com a bloqueado arquivo carregamento mensagem, ou ficar com os habituais 200 OK? False = Não (200); True = Sim (403) [Padrão].
 
@@ -1199,16 +1235,18 @@ theme
 - Inserido como HTML no final de todas as páginas "carregar negado". Isso pode ser útil caso você queira incluir um aviso legal, link de contato, informações comerciais, ou similares em todas essas páginas.
 
 #### "phpmailer" (Categoria)
-Configuração para PHPMailer (usado para autenticação de dois fatores).
+Configuração para PHPMailer (usado para autenticação de dois fatores e para notificações por e-mail).
 
 ##### "event_log" `[string]`
 - Um arquivo para registrar todos os eventos em relação ao PHPMailer. Especifique o nome de um arquivo, ou deixe em branco para desabilitar.
+
+Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos de log usando espaços reservados de formato de hora. Os espaços reservados para formato de hora disponíveis são exibidos em {{Links.ConfigRef.time_format}}.
 
 ##### "enable_two_factor" `[bool]`
 - Esta diretiva determina se deve usar 2FA para contas front-end.
 
 ##### "enable_notifications" `[string]`
-- Se você deseja ser notificado por email quando um carregamento estiver bloqueado, especifique o endereço de email do destinatário aqui.
+- Se você deseja ser notificado por email quando um carregamento estiver bloqueado, especifique o endereço de e-mail do destinatário aqui.
 
 ##### "skip_auth_process" `[bool]`
 - Definir essa diretiva como `true` instrui o PHPMailer a ignorar o processo de autenticação que normalmente ocorre ao enviar e-mail via SMTP. Isso deve ser evitado, porque ignorar esse processo pode expor o e-mail de saída a ataques MITM, mas pode ser necessário nos casos em que esse processo impedir que o PHPMailer se conecte a um servidor SMTP.
@@ -1850,4 +1888,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 2 de Dezembro de 2023 (2023.12.02).
+Última Atualização: 22 de Junho de 2024 (2024.06.22).
