@@ -26,8 +26,8 @@ An ideal solution for shared hosting environments, where it's often not possible
 - **[Русский](https://github.com/phpMussel/Docs/blob/master/readme.ru.md)**
 - **[اردو](https://github.com/phpMussel/Docs/blob/master/readme.ur.md)**
 - **[Tiếng Việt](https://github.com/phpMussel/Docs/blob/master/readme.vi.md)**
-- **[中文（简体）](https://github.com/phpMussel/Docs/blob/master/readme.zh.md)**
-- **[中文（傳統）](https://github.com/phpMussel/Docs/blob/master/readme.zh-tw.md)**
+- **[中文（简体）](https://github.com/phpMussel/Docs/blob/master/readme.zh-Hans.md)**
+- **[中文（傳統）](https://github.com/phpMussel/Docs/blob/master/readme.zh-Hant.md)**
 
 #### See also:
 - [**phpMussel/phpMussel**](https://github.com/phpMussel/phpMussel) – The main phpMussel repository (you can get phpMussel versions prior to v3 from here).
@@ -43,4 +43,4 @@ An ideal solution for shared hosting environments, where it's often not possible
 ---
 
 
-Last Updated: 26 June 2024 (2024.06.26).
+Last Updated: 1 July 2024 (2024.07.01).

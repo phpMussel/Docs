@@ -810,8 +810,8 @@ lang
 ├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
-├─zh-CN ("中文（简体）")
-└─zh-TW ("中文（傳統）")
+├─zh-Hans ("中文（简体）")
+└─zh-Hant ("中文（傳統）")
 ```
 
 ##### <div dir="rtl">"lang_override" <code dir="ltr">[bool]</code><br /></div>
@@ -1927,4 +1927,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٢٢ يونيو ٢٠٢٤ (٢٠٢٤.٠٦.٢٢).</div>
+<div dir="rtl">آخر تحديث: ١ يوليو ٢٠٢٤ (٢٠٢٤.٠٧.٠١).</div>

@@ -805,8 +805,8 @@ lang
 ├─uk ("Українська")
 ├─ur ("اردو")
 ├─vi ("Tiếng Việt")
-├─zh-CN ("中文（简体）")
-└─zh-TW ("中文（傳統）")
+├─zh-Hans ("中文（简体）")
+└─zh-Hant ("中文（傳統）")
 ```
 
 ##### 『lang_override』 `[bool]`
@@ -1078,7 +1078,7 @@ URL掃描程序的配置。
 ##### 『pdo_dsn』 `[string]`
 - PDO DSN值。 默認 = 『mysql:dbname=phpmussel;host=localhost;port=3306』。
 
-__常問問題。__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.zh-tw.md#user-content-HOW_TO_USE_PDO" hreflang="zh-TW">『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？</a>*
+__常問問題。__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.zh-Hant.md#user-content-HOW_TO_USE_PDO" hreflang="zh-Hant">『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？</a>*
 
 ##### 『pdo_username』 `[string]`
 - PDO 用戶名。
@@ -1880,4 +1880,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2024年6月22日。
+最後更新：2024年7月1日。
