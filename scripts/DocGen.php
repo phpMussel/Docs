@@ -3,8 +3,13 @@
 $Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
 
 $loadL10N = function (string $Language) use (&$Vendor) {
+    if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml')) {
+        echo 'Unable to read the "' . $Language . '" language files!';
+        die;
+    }
+    $DataDocGen = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml');
+    $Language = preg_replace('~-.*$~', '', $Language);
     if (
-        !file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml') ||
         !file_exists($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml') ||
         !file_exists($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml') ||
         !file_exists($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'phpmailer' . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml')
@@ -13,8 +18,11 @@ $loadL10N = function (string $Language) use (&$Vendor) {
         die;
     }
     $YAML = new \Maikuolan\Common\YAML();
+    if (file_exists($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'references.yml')) {
+        $Data = file_get_contents($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'references.yml');
+        $YAML->process($Data, $YAML->Refs);
+    }
     $Arr = [];
-    $DataDocGen = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml');
     $YAML->process($DataDocGen, $Arr);
     foreach (['frontend', 'web', 'phpmailer'] as $Dir) {
         $DataThisDir = file_get_contents($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . $Dir . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml');
