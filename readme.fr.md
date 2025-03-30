@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *Capture d'écran :*
 
-![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
+![Capture d'écran](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.5.0.png)
 
 #### 3.4 L'ACCÈS FRONTAL
 
@@ -518,6 +518,8 @@ Configuration (v3)
 │       allow_leading_trailing_dots [bool]
 │       block_macros [bool]
 │       only_allow_images [bool]
+│       entropy_limit [float]
+│       entropy_filesize_limit [string]
 ├───quarantine
 │       quarantine_key [string]
 │       quarantine_max_filesize [string]
@@ -594,22 +596,22 @@ Configuration générale (toute configuration de base n'appartenant pas à d'aut
 ##### « scan_log » `[string]`
 - Nom du fichier à enregistrer tous les résultats de l'analyse. Spécifiez un nom de fichier, ou laisser vide à désactiver.
 
-Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en {{Links.ConfigRef.time_format}}.
+Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### « scan_log_serialized » `[string]`
 - Nom du fichier à enregistrer tous les résultats de l'analyse (le format est sérialisé). Spécifiez un nom de fichier, ou laisser vide à désactiver.
 
-Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en {{Links.ConfigRef.time_format}}.
+Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### « error_log » `[string]`
 - Un fichier pour l'enregistrement des erreurs non fatales détectées. Spécifier un fichier, ou laisser vide à désactiver.
 
-Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en {{Links.ConfigRef.time_format}}.
+Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### « outbound_request_log » `[string]`
 - Un fichier pour l'enregistrement des résultats de toutes les requêtes sortantes. Spécifier un fichier, ou laisser vide à désactiver.
 
-Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en {{Links.ConfigRef.time_format}}.
+Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### « truncate » `[string]`
 - Tronquer les fichiers journaux lorsqu'ils atteignent une certaine taille ? La valeur est la taille maximale en o/Ko/Mo/Go/To qu'un fichier journal peut croître avant d'être tronqué. La valeur par défaut de 0Ko désactive la troncature (les fichiers journaux peuvent croître indéfiniment). Remarque : S'applique aux fichiers journaux individuels ! La taille des fichiers journaux n'est pas considérée collectivement.
@@ -788,6 +790,8 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ml ("മലയാളം")
+├─mr ("मराठी")
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
@@ -967,6 +971,12 @@ __L'ordre logique de l'application.__ Si le type de fichier est listé blanche, 
 ##### « only_allow_images » `[bool]`
 - Lorsqu'il est défini sur true, tous les fichiers rencontrés par le scanner qui ne sont pas des images seront immédiatement marqués, sans être analysés. Cela peut aider à réduire le temps nécessaire pour terminer une analyse dans certains cas. Défini sur false par défaut.
 
+##### « entropy_limit » `[float]`
+- La limite d'entropie pour les signatures qui utilisent des données normalisées (la valeur par défaut est 7.7). Dans ce contexte, l'entropie est définie comme l'entropie de Shannon du contenu du fichier en cours d'analyse. Lorsque la limite d'entropie et la limite de taille du fichier d'entropie sont dépassées, afin de réduire le risque de faux positifs, certaines signatures qui utilisent des données normalisées seront ignorées.
+
+##### « entropy_filesize_limit » `[string]`
+- La limite de taille du fichier d'entropie pour les signatures qui utilisent des données normalisées (la valeur par défaut est 512KB). Lorsque la limite d'entropie et la limite de taille du fichier d'entropie sont dépassées, afin de réduire le risque de faux positifs, certaines signatures qui utilisent des données normalisées seront ignorées.
+
 #### « quarantine » (Catégorie)
 Configuration pour la quarantaine.
 
@@ -1044,7 +1054,7 @@ Configuration pour les exigences légales.
 - Pseudonymiser les adresses IP lors de la journalisation ? True = Oui [Défaut] ; False = Non.
 
 ##### « privacy_policy » `[string]`
-- L'adresse d'une politique de confidentialité pertinente à afficher dans le pied de page des pages générées. Spécifier une URL, ou laisser vide à désactiver.
+- L'adresse d'une politique de confidentialité pertinente à afficher dans le pied de page des pages générés. Spécifier une URL, ou laisser vide à désactiver.
 
 #### « supplementary_cache_options » (Catégorie)
 Options de cache supplémentaires. Remarque : La modification de ces valeurs peut potentiellement vous déconnecter.
@@ -1065,13 +1075,13 @@ Options de cache supplémentaires. Remarque : La modification de ces valeurs pe
 - Spécifie s'il faut essayer d'utiliser PDO pour la mise en cache. Défaut = False.
 
 ##### « memcached_host » `[string]`
-- Valeur de l'hôte Memcached. Défaut = « localhost ».
+- Valeur de l'hôte Memcached. Défaut = localhost.
 
 ##### « memcached_port » `[int]`
 - Valeur du port Memcached. Défaut = « 11211 ».
 
 ##### « redis_host » `[string]`
-- Valeur de l'hôte Redis. Défaut = « localhost ».
+- Valeur de l'hôte Redis. Défaut = localhost.
 
 ##### « redis_port » `[int]`
 - Valeur du port Redis. Défaut = « 6379 ».
@@ -1099,7 +1109,7 @@ Configuration pour l'accès frontal.
 ##### « frontend_log » `[string]`
 - Fichier pour l'enregistrement des tentatives de connexion à l'accès frontal. Spécifier un fichier, ou laisser vide à désactiver.
 
-Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en {{Links.ConfigRef.time_format}}.
+Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### « max_login_attempts » `[int]`
 - Nombre maximal de tentatives de connexion (l'accès frontal). Défaut = 5.
@@ -1113,7 +1123,7 @@ numbers
 ├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
 ├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
 ├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
-├─Armenian ("Ռ̅Մ̅Լ̅ՏՇԿԷ")
+├─Armenian ("Ճ̅Ի̅Գ̅ՏՇԿԷ")
 ├─Base-12 ("4b6547.a8")
 ├─Base-16 ("12d687.e3")
 ├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯")
@@ -1124,6 +1134,7 @@ numbers
 ├─Chinese-Traditional ("一百二十三萬四千五百六十七點八九")
 ├─Chinese-Traditional-Financial ("壹佰貳拾叄萬肆仟伍佰陸拾柒點捌玖")
 ├─Fullwidth ("１２３４５６７.８９")
+├─Geez ("፻፳፫፼፵፭፻፷፯")
 ├─Hebrew ("א׳׳ב׳קג׳יד׳ךסז")
 ├─India-1 ("12,34,567.89")
 ├─India-2 ("१२,३४,५६७.८९")
@@ -1196,7 +1207,7 @@ Configuration du gestionnaire de téléchargements.
 ##### « uploads_log » `[string]`
 - Où tous les téléchargements bloqués doivent être enregistrés. Spécifiez un nom de fichier, ou laisser vide à désactiver.
 
-Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en {{Links.ConfigRef.time_format}}.
+Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### « forbid_on_block » `[bool]`
 - Devrait phpMussel envoyer les en-têtes 403 avec le fichier téléchargement bloqué message, ou rester avec l'habitude 200 bien (200 OK) ? False = Non (200) ; True = Oui (403) [Défaut].
@@ -1241,7 +1252,7 @@ Configuration pour PHPMailer (utilisé pour l'authentification à deux facteurs 
 ##### « event_log » `[string]`
 - Fichier pour l'enregistrement de tous les événements relatifs à PHPMailer. Spécifier un fichier, ou laisser vide à désactiver.
 
-Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en {{Links.ConfigRef.time_format}}.
+Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des fichiers journaux à l'aide d'espaces réservés du format horaire. Les espaces réservés du format horaire disponibles sont affichés en <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### « enable_two_factor » `[bool]`
 - Cette directive détermine s'il faut utiliser 2FA pour les comptes frontaux.
@@ -1899,4 +1910,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 1 Juillet 2024 (2024.07.01).
+Dernière mise à jour : 30 Mars 2025 (2025.03.30).

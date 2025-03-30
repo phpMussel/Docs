@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *スクリーンショット：*
 
-![スクリーンショット](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
+![スクリーンショット](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.5.0.png)
 
 #### 3.4 フロントエンド
 
@@ -518,6 +518,8 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       allow_leading_trailing_dots [bool]
 │       block_macros [bool]
 │       only_allow_images [bool]
+│       entropy_limit [float]
+│       entropy_filesize_limit [string]
 ├───quarantine
 │       quarantine_key [string]
 │       quarantine_max_filesize [string]
@@ -594,22 +596,22 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 ##### "scan_log" `[string]`
 - 全スキャニング結果を記録するファイルのファイル名。​ファイル名指定するか、無効にしたい場合は空白のままにして下さい。
 
-役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが{{Links.ConfigRef.time_format}}に表示されます。
+役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが<a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>に表示されます。
 
 ##### "scan_log_serialized" `[string]`
 - 全スキャニング結果を記録するファイルのファイル名（シリアル化形式を利用）。​ファイル名指定するか、無効にしたい場合は空白のままにして下さい。
 
-役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが{{Links.ConfigRef.time_format}}に表示されます。
+役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが<a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>に表示されます。
 
 ##### "error_log" `[string]`
 - 検出された致命的でないエラーを記録するためのファイル。​ファイル名指定するか、無効にしたい場合は空白のままにして下さい。
 
-役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが{{Links.ConfigRef.time_format}}に表示されます。
+役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが<a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>に表示されます。
 
 ##### "outbound_request_log" `[string]`
 - アウトバウンド要求の結果を記録するためのファイル。​ファイル名指定するか、無効にしたい場合は空白のままにして下さい。
 
-役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが{{Links.ConfigRef.time_format}}に表示されます。
+役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが<a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>に表示されます。
 
 ##### "truncate" `[string]`
 - ログ・ファイルが一定のサイズに達したら切り詰めますか？​値は、ログ・ファイルが切り捨てられる前に大きくなる可能性があるＢ/ＫＢ/ＭＢ/ＧＢ/ＴＢ単位の最大サイズです。​デフォルト値の０ＫＢは切り捨てを無効にします （ログ・ファイルは無期限に拡張できます）。​注：個々のログ・ファイルに適用されます。​ログ・ファイルのサイズは一括して考慮されません。
@@ -737,7 +739,7 @@ __*プレースホルダー – 説明 – 例は2024-04-30T18:27:49+08:00に基
 `{t:z}` – タイムゾーン（コロン付き） – 例えば、+08:00。
 
 ##### "ipaddr" `[string]`
-- 接続リクエストのＩＰアドレスをどこで見つけるべきかについて（Cloudflareのようなサービスに対して有効）。​Default（デフォルト設定） = REMOTE_ADDR。​注意：あなたが何をしているのか、分からない限り、これを変更しないでください。
+- 接続リクエストのＩＰアドレスをどこで見つけるべきかについて（Cloudflareのようなサービスに対して有効）。 Default/デフォルルト = REMOTE_ADDR。​注意：あなたが何をしているのか、分からない限り、これを変更しないでください。
 
 ```
 ipaddr
@@ -788,6 +790,8 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ml ("മലയാളം")
+├─mr ("मराठी")
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
@@ -967,6 +971,12 @@ __プロセスの論理的順序。__ ファイルタイプがホワイトリス
 ##### "only_allow_images" `[bool]`
 - Trueに設定した場合、スキャナーで検出された非画像ファイルには、スキャンされずに、直ちにマークされます。​これは、場合によっては、スキャンの完了に必要な時間を短縮するのに役立ちます。​デフォルトではfalseに設定されています。
 
+##### "entropy_limit" `[float]`
+- 正規化されたデータを使用するシグネチャのエントロピー制限（デフォルトは、「7.7」です）。​この文脈では、エントロピーはスキャンされるファイルの内容のシャノン・エントロピーとして定義されます。​エントロピー制限とエントロピー・ファイル・サイズ制限の両方を超えた場合、誤検知のリスクを減らすために、正規化されたデータを使用する一部のシグネチャは無視されます。
+
+##### "entropy_filesize_limit" `[string]`
+- 正規化されたデータを使用するシグネチャのエントロピー・ファイル・サイズの制限（デフォルトは、「512KB」です）。​エントロピー制限とエントロピー・ファイル・サイズ制限の両方を超えた場合、誤検知のリスクを減らすために、正規化されたデータを使用する一部のシグネチャは無視されます。
+
 #### "quarantine" （カテゴリ）
 検疫のコンフィギュレーション。
 
@@ -1059,13 +1069,13 @@ vt_suspicion_level
 - キャッシュに「PDO」を使用するかどうかを指定します。 Default/デフォルルト = False。
 
 ##### "memcached_host" `[string]`
-- Memcachedのホスト値。 Default/デフォルルト = 「localhost」。
+- Memcachedのホスト値。 Default/デフォルルト = localhost。
 
 ##### "memcached_port" `[int]`
 - Memcachedのポート値。 Default/デフォルルト = 「11211」。
 
 ##### "redis_host" `[string]`
-- Redisのホスト値。 Default/デフォルルト = 「localhost」。
+- Redisのホスト値。 Default/デフォルルト = localhost。
 
 ##### "redis_port" `[int]`
 - Redisのポート値。 Default/デフォルルト = 「6379」。
@@ -1093,10 +1103,10 @@ __ＦＡＱ。__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.
 ##### "frontend_log" `[string]`
 - フロントエンド・ログインの試みを記録するためのファイル。​ファイル名指定するか、無効にしたい場合は空白のままにして下さい。
 
-役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが{{Links.ConfigRef.time_format}}に表示されます。
+役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが<a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>に表示されます。
 
 ##### "max_login_attempts" `[int]`
-- ログイン試行の最大回数（フロントエンド）。​Default（デフォルト設定） = ５。
+- ログイン試行の最大回数（フロントエンド）。 Default/デフォルルト = ５。
 
 ##### "numbers" `[string]`
 - どのように数字を表示するのが好きですか？​あなたに一番正しい例を選択してください。
@@ -1107,7 +1117,7 @@ numbers
 ├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
 ├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
 ├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
-├─Armenian ("Ռ̅Մ̅Լ̅ՏՇԿԷ")
+├─Armenian ("Ճ̅Ի̅Գ̅ՏՇԿԷ")
 ├─Base-12 ("4b6547.a8")
 ├─Base-16 ("12d687.e3")
 ├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯")
@@ -1118,6 +1128,7 @@ numbers
 ├─Chinese-Traditional ("一百二十三萬四千五百六十七點八九")
 ├─Chinese-Traditional-Financial ("壹佰貳拾叄萬肆仟伍佰陸拾柒點捌玖")
 ├─Fullwidth ("１２３４５６７.８９")
+├─Geez ("፻፳፫፼፵፭፻፷፯")
 ├─Hebrew ("א׳׳ב׳קג׳יד׳ךסז")
 ├─India-1 ("12,34,567.89")
 ├─India-2 ("१२,३४,५६७.८९")
@@ -1176,7 +1187,7 @@ theme
 ```
 
 ##### "magnification" `[float]`
-- フォントの倍率。​Default/デフォルルト = １。
+- フォントの倍率。 Default/デフォルルト = １。
 
 ##### "custom_header" `[string]`
 - すべてのフロントエンド・ページの最初にＨＴＭＬとして挿入されます。​ウェブサイトのロゴ、パーソナライズされたヘッダー、スクリプト、などに役立ちます。
@@ -1190,7 +1201,7 @@ theme
 ##### "uploads_log" `[string]`
 - ブロックされたすべてのアップロードを記録する場所。​ファイル名指定するか、無効にしたい場合は空白のままにして下さい。
 
-役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが{{Links.ConfigRef.time_format}}に表示されます。
+役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが<a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>に表示されます。
 
 ##### "forbid_on_block" `[bool]`
 - アップロードファイルがブロックされたメッセージと共に、phpMusselから４０３ヘッダーを送るべきか、通常の２００でよいかどうかについて。​False（偽）=いいえ（２００）；​True（真）=はい（４０３）「Default/デフォルト設定」。
@@ -1221,7 +1232,7 @@ theme
 ```
 
 ##### "magnification" `[float]`
-- フォントの倍率。​Default/デフォルルト = １。
+- フォントの倍率。 Default/デフォルルト = １。
 
 ##### "custom_header" `[string]`
 - すべての「アップロード拒否」ページの最初にＨＴＭＬとして挿入されます。​ウェブサイトのロゴ、パーソナライズされたヘッダー、スクリプト、などに役立ちます。
@@ -1235,7 +1246,7 @@ PHPMailerの設定（二要素認証とＥメール通知に使用されます�
 ##### "event_log" `[string]`
 - PHPMailerに関連してすべてのイベントを記録するためのファイル。​ファイル名指定するか、無効にしたい場合は空白のままにして下さい。
 
-役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが{{Links.ConfigRef.time_format}}に表示されます。
+役に立つヒント:時刻形式のプレースホルダーを使用して、ログ・ファイルの名前に日付/時刻情報を添付できます。​使用可能な時刻形式のプレースホルダーが<a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>に表示されます。
 
 ##### "enable_two_factor" `[bool]`
 - このディレクティブは、フロントエンド・アカウントに２ＦＡを使用するかどうかを決定します。
@@ -1250,7 +1261,7 @@ PHPMailerの設定（二要素認証とＥメール通知に使用されます�
 - 送信Ｅメールに使用するＳＭＴＰホスト。
 
 ##### "port" `[int]`
-- 送信Ｅメールに使用するポート番号。​Default/デフォルルト = 587。
+- 送信Ｅメールに使用するポート番号。 Default/デフォルルト = 587。
 
 ##### "smtp_secure" `[string]`
 - ＳＭＴＰ経由でＥメールを送信するときに使用するプロトコル（ＴＬＳまたはＳＳＬ）。
@@ -1880,4 +1891,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２４年７月１日。
+最終アップデート：２０２５年３月３０日。

@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *Screenshot:*
 
-![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
+![Screenshot](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.5.0.png)
 
 #### 3.4 FRONT-END
 
@@ -518,6 +518,8 @@ Configuration (v3)
 │       allow_leading_trailing_dots [bool]
 │       block_macros [bool]
 │       only_allow_images [bool]
+│       entropy_limit [float]
+│       entropy_filesize_limit [string]
 ├───quarantine
 │       quarantine_key [string]
 │       quarantine_max_filesize [string]
@@ -594,22 +596,22 @@ General configuration (any core configuration not belonging to other categories)
 ##### "scan_log" `[string]`
 - The name of the file to log all scanning results to. Specify a filename, or leave blank to disable.
 
-Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### "scan_log_serialized" `[string]`
 - The name of the file to log all scanning results to (using a serialised format). Specify a filename, or leave blank to disable.
 
-Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### "error_log" `[string]`
 - A file for logging any non-fatal errors detected. Specify a filename, or leave blank to disable.
 
-Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### "outbound_request_log" `[string]`
 - A file for logging the results of any outbound requests. Specify a filename, or leave blank to disable.
 
-Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### "truncate" `[string]`
 - Truncate log files when they reach a certain size? Value is the maximum size in B/KB/MB/GB/TB that a log file may grow to before being truncated. The default value of 0KB disables truncation (log files can grow indefinitely). Note: Applies to individual log files! The size of log files is not considered collectively.
@@ -788,6 +790,8 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ml ("മലയാളം")
+├─mr ("मराठी")
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
@@ -967,6 +971,12 @@ __Logical order of processing.__ If the filetype is whitelisted, don't scan and 
 ##### "only_allow_images" `[bool]`
 - When set to true, any files encountered by the scanner which aren't images will be flagged immediately, without being scanned. This may help reduce the time needed to complete a scan in some cases. Set to false by default.
 
+##### "entropy_limit" `[float]`
+- The entropy limit for signatures that use normalised data (default is 7.7). In this context, entropy is defined as the shannon entropy of the content of the file being scanned. When both the entropy limit and the entropy filesize limit are exceeded, in order to reduce the risk of false positives, some signatures which use normalised data will be ignored.
+
+##### "entropy_filesize_limit" `[string]`
+- The entropy filesize limit for signatures that use normalised data (default is 512KB). When both the entropy limit and the entropy filesize limit are exceeded, in order to reduce the risk of false positives, some signatures which use normalised data will be ignored.
+
 #### "quarantine" (Category)
 Configuration for the quarantine.
 
@@ -1064,13 +1074,13 @@ Supplementary cache options. Note: Changing these values may potentially log you
 - Specifies whether to try using PDO for caching. Default = False.
 
 ##### "memcached_host" `[string]`
-- Memcached host value. Default = "localhost".
+- Memcached host value. Default = localhost.
 
 ##### "memcached_port" `[int]`
 - Memcached port value. Default = "11211".
 
 ##### "redis_host" `[string]`
-- Redis host value. Default = "localhost".
+- Redis host value. Default = localhost.
 
 ##### "redis_port" `[int]`
 - Redis port value. Default = "6379".
@@ -1098,7 +1108,7 @@ Configuration for the front-end.
 ##### "frontend_log" `[string]`
 - File for logging front-end login attempts. Specify a filename, or leave blank to disable.
 
-Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### "max_login_attempts" `[int]`
 - Maximum number of front-end login attempts. Default = 5.
@@ -1112,7 +1122,7 @@ numbers
 ├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
 ├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
 ├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
-├─Armenian ("Ռ̅Մ̅Լ̅ՏՇԿԷ")
+├─Armenian ("Ճ̅Ի̅Գ̅ՏՇԿԷ")
 ├─Base-12 ("4b6547.a8")
 ├─Base-16 ("12d687.e3")
 ├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯")
@@ -1123,6 +1133,7 @@ numbers
 ├─Chinese-Traditional ("一百二十三萬四千五百六十七點八九")
 ├─Chinese-Traditional-Financial ("壹佰貳拾叄萬肆仟伍佰陸拾柒點捌玖")
 ├─Fullwidth ("１２３４５６７.８９")
+├─Geez ("፻፳፫፼፵፭፻፷፯")
 ├─Hebrew ("א׳׳ב׳קג׳יד׳ךסז")
 ├─India-1 ("12,34,567.89")
 ├─India-2 ("१२,३४,५६७.८९")
@@ -1187,7 +1198,7 @@ theme
 - Inserted as HTML at the very beginning of all front-end pages. This could be useful in case you want to include a website logo, personalised header, scripts, or similar at all such pages.
 
 ##### "custom_footer" `[string]`
-- Inserted as HTML at the very bottom of all front-end pages. This could be useful in case you want to include a legal notice, contact link, business information or similar at all such pages.
+- Inserted as HTML at the very bottom of all front-end pages. This could be useful in case you want to include a legal notice, contact link, business information, or similar at all such pages.
 
 #### "web" (Category)
 Configuration for the upload handler.
@@ -1195,7 +1206,7 @@ Configuration for the upload handler.
 ##### "uploads_log" `[string]`
 - Where all blocked uploads should be logged. Specify a filename, or leave blank to disable.
 
-Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### "forbid_on_block" `[bool]`
 - Should phpMussel send 403 headers with the file upload blocked message, or stick with the usual 200 OK? False = No (200); True = Yes (403) [Default].
@@ -1240,7 +1251,7 @@ Configuration for PHPMailer (used for two-factor authentication and for email no
 ##### "event_log" `[string]`
 - A file for logging all events in relation to PHPMailer. Specify a filename, or leave blank to disable.
 
-Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at {{Links.ConfigRef.time_format}}.
+Useful tip: You can attach date/time information to the names of log files by using time format placeholders. Available time format placeholders are displayed at <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>.
 
 ##### "enable_two_factor" `[bool]`
 - This directive determines whether to use 2FA for front-end accounts.
@@ -1893,4 +1904,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 1 July 2024 (2024.07.01).
+Last Updated: 30 March 2025 (2025.03.30).

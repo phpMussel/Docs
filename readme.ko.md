@@ -254,7 +254,7 @@ unset($CLI, $Scanner, $Loader);
 
 *스크린샷:*
 
-![스크린샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.4.1.png)
+![스크린샷](https://raw.githubusercontent.com/phpMussel/extras/master/screenshots/cli-v3.5.0.png)
 
 #### 3.4 프론트엔드
 
@@ -518,6 +518,8 @@ v3 boilerplate 코드의 구조는 phpMussel 조직의 다양한 phpMussel v3 �
 │       allow_leading_trailing_dots [bool]
 │       block_macros [bool]
 │       only_allow_images [bool]
+│       entropy_limit [float]
+│       entropy_filesize_limit [string]
 ├───quarantine
 │       quarantine_key [string]
 │       quarantine_max_filesize [string]
@@ -594,22 +596,22 @@ v3 boilerplate 코드의 구조는 phpMussel 조직의 다양한 phpMussel v3 �
 ##### "scan_log" `[string]`
 - 전체 스캔 결과를 기록하는 파일의 파일 이름. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 {{Links.ConfigRef.time_format}}에 표시됩니다.
+유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
 
 ##### "scan_log_serialized" `[string]`
 - 전체 스캔 결과를 기록하는 파일의 파일 이름 (serialization 형식을 이용). 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 {{Links.ConfigRef.time_format}}에 표시됩니다.
+유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
 
 ##### "error_log" `[string]`
 - 치명적이지 않은 오류를 탐지하기위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 {{Links.ConfigRef.time_format}}에 표시됩니다.
+유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
 
 ##### "outbound_request_log" `[string]`
 - 아웃바운드 요청의 결과를 기록하기 위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 {{Links.ConfigRef.time_format}}에 표시됩니다.
+유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
 
 ##### "truncate" `[string]`
 - 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
@@ -788,6 +790,8 @@ lang
 ├─ja ("日本語")
 ├─ko ("한국어")
 ├─lv ("Latviešu")
+├─ml ("മലയാളം")
+├─mr ("मराठी")
 ├─ms ("Bahasa Melayu")
 ├─nl ("Nederlandse")
 ├─no ("Norsk")
@@ -967,6 +971,12 @@ __프로세스의 논리적 순서.__ 파일 형식이 화이트리스트에 포
 ##### "only_allow_images" `[bool]`
 - True로 설정하면, 스캐너가 발견한 이미지가 아닌 파일은 스캔하지 않고 즉시 신고됩니다. 이는 때에 따라 스캔을 완료하는 데 필요한 시간을 줄이는 데 도움이 될 수 있습니다. 기본 설정에 따라 false로 설정되어 있습니다.
 
+##### "entropy_limit" `[float]`
+- 정규화된 데이터를 사용하는 서명에 대한 엔트로피 제한 (기본값은 7.7입니다). 이 맥락에서, 엔트로피는 스캔되는 파일의 내용에 대한 섀넌 엔트로피로 정의됩니다. 엔트로피 한도와 엔트로피 파일 크기 한도를 모두 초과하는 경우, 거짓 긍정의 위험을 줄이기, 위해 정규화된 데이터를 사용하는 일부 서명은 무시됩니다.
+
+##### "entropy_filesize_limit" `[string]`
+- 정규화된 데이터를 사용하는 서명에 대한 엔트로피 파일 크기 제한 (기본값은 512KB입니다). 엔트로피 한도와 엔트로피 파일 크기 한도를 모두 초과하는 경우, 거짓 긍정의 위험을 줄이기, 위해 정규화된 데이터를 사용하는 일부 서명은 무시됩니다.
+
 #### "quarantine" (카테고리)
 검역 설정.
 
@@ -1064,13 +1074,13 @@ URL 스캐너 설정.
 - 캐싱에 PDO를 사용할지 여부를 지정합니다. Default (기본값) = False.
 
 ##### "memcached_host" `[string]`
-- Memcached 호스트 값. Default (기본값) = "localhost".
+- Memcached 호스트 값. Default (기본값) = localhost.
 
 ##### "memcached_port" `[int]`
 - Memcached 포트 값. Default (기본값) = "11211".
 
 ##### "redis_host" `[string]`
-- Redis 호스트 값. Default (기본값) = "localhost".
+- Redis 호스트 값. Default (기본값) = localhost.
 
 ##### "redis_port" `[int]`
 - Redis 포트 값. Default (기본값) = "6379".
@@ -1098,7 +1108,7 @@ __자주하는 질문.__ *<a href="https://github.com/phpMussel/Docs/blob/master
 ##### "frontend_log" `[string]`
 - 프론트 엔드 로그인 시도를 기록하는 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 {{Links.ConfigRef.time_format}}에 표시됩니다.
+유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
 
 ##### "max_login_attempts" `[int]`
 - 로그인 시도 최대 횟수입니다 (프론트 엔드). Default / 기본 설정 = 5.
@@ -1112,7 +1122,7 @@ numbers
 ├─Arabic-2 ("١٬٢٣٤٬٥٦٧٫٨٩")
 ├─Arabic-3 ("۱٬۲۳۴٬۵۶۷٫۸۹")
 ├─Arabic-4 ("۱۲٬۳۴٬۵۶۷٫۸۹")
-├─Armenian ("Ռ̅Մ̅Լ̅ՏՇԿԷ")
+├─Armenian ("Ճ̅Ի̅Գ̅ՏՇԿԷ")
 ├─Base-12 ("4b6547.a8")
 ├─Base-16 ("12d687.e3")
 ├─Bengali-1 ("১২,৩৪,৫৬৭.৮৯")
@@ -1123,6 +1133,7 @@ numbers
 ├─Chinese-Traditional ("一百二十三萬四千五百六十七點八九")
 ├─Chinese-Traditional-Financial ("壹佰貳拾叄萬肆仟伍佰陸拾柒點捌玖")
 ├─Fullwidth ("１２３４５６７.８９")
+├─Geez ("፻፳፫፼፵፭፻፷፯")
 ├─Hebrew ("א׳׳ב׳קג׳יד׳ךסז")
 ├─India-1 ("12,34,567.89")
 ├─India-2 ("१२,३४,५६७.८९")
@@ -1195,7 +1206,7 @@ theme
 ##### "uploads_log" `[string]`
 - 차단된 모든 업로드를 기록해야 하는 위치. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 {{Links.ConfigRef.time_format}}에 표시됩니다.
+유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
 
 ##### "forbid_on_block" `[bool]`
 - 업로드 파일이 차단 된 메시지와 함께 phpMussel에서 403 헤더를 보내야하거나 일반 200 좋은지에 대해. False = 아니오 (200); True = 예 (403) [Default / 기본 설정].
@@ -1240,7 +1251,7 @@ PHPMailer 설정 (이중 인증 및 이메일 알림에 사용됩니다).
 ##### "event_log" `[string]`
 - PHPMailer와 관련된 모든 이벤트를 기록하는 파일입니다. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 {{Links.ConfigRef.time_format}}에 표시됩니다.
+유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
 
 ##### "enable_two_factor" `[bool]`
 - 이 지시문은 프런트 엔드 계정에 2FA를 사용할지 여부를 결정합니다.
@@ -1884,4 +1895,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2024년 7월 1일.
+최종 업데이트 : 2025년 3월 30일.
