@@ -784,7 +784,8 @@ lang
 ├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
-├─fr ("Français")
+├─fr ("Français (FR)")
+├─fr-CA ("Français (CA)")
 ├─gl ("Galego")
 ├─gu ("ગુજરાતી")
 ├─he ("עברית")
@@ -1938,4 +1939,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٣٠ مارس ٢٠٢٥ (٢٠٢٥.٠٣.٣٠).</div>
+<div dir="rtl">آخر تحديث: ٢٩ أبريل ٢٠٢٥ (٢٠٢٥.٠٤.٢٩).</div>

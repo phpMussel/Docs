@@ -779,7 +779,8 @@ lang
 ├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
-├─fr ("Français")
+├─fr ("Français (FR)")
+├─fr-CA ("Français (CA)")
 ├─gl ("Galego")
 ├─gu ("ગુજરાતી")
 ├─he ("עברית")
@@ -1921,4 +1922,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 30 Maart 2025 (2025.03.30).
+Laatste Bijgewerkt: 29 April 2025 (2025.04.29).

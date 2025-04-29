@@ -779,7 +779,8 @@ lang
 ├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
-├─fr ("Français")
+├─fr ("Français (FR)")
+├─fr-CA ("Français (CA)")
 ├─gl ("Galego")
 ├─gu ("ગુજરાતી")
 ├─he ("עברית")
@@ -1894,4 +1895,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2025.03.30.
+Lần cuối cập nhật: 2025.04.29.

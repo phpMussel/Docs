@@ -3,9 +3,13 @@
 $Vendor = __DIR__ . DIRECTORY_SEPARATOR . 'vendor';
 
 $loadL10N = function (string $Language) use (&$Vendor) {
+    $Preferred = $Language;
     if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml')) {
-        echo 'Unable to read the "' . $Language . '" language files!';
-        die;
+        $Language = preg_replace('~-.*$~', '', $Language);
+        if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml')) {
+            echo 'Unable to read the "' . $Language . '" language files!';
+            die;
+        }
     }
     $DataDocGen = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'DocGen' . DIRECTORY_SEPARATOR . $Language . '.yml');
     $Language = preg_replace('~-.*$~', '', $Language);
@@ -28,7 +32,10 @@ $loadL10N = function (string $Language) use (&$Vendor) {
         $DataThisDir = file_get_contents($Vendor . DIRECTORY_SEPARATOR . 'phpmussel' . DIRECTORY_SEPARATOR . $Dir . DIRECTORY_SEPARATOR . 'l10n' . DIRECTORY_SEPARATOR . $Language . '.yml');
         $YAML->process($DataThisDir, $Arr);
     }
-    return new \Maikuolan\Common\L10N($Arr, []);
+    $L10N = new \Maikuolan\Common\L10N($Arr, []);
+    $L10N->autoAssignRules($Preferred);
+    $L10N->PreferredVariant = $Preferred;
+    return $L10N;
 };
 
 if (!isset($_GET['language'])) {
@@ -47,8 +54,6 @@ if (!isset($_GET['language'])) {
 
     $Final = '';
     $Data = $loadL10N($_GET['language']);
-    $Data->PreferredVariant = $_GET['language'];
-    $Data->autoAssignRules($_GET['language']);
     $First = "```\n" . $Data->getString('link.Configuration') . " (v3)\n│\n";
     $Cats = count($Loader->ConfigurationDefaults);
     $Current = 1;

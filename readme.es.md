@@ -779,7 +779,8 @@ lang
 ├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
-├─fr ("Français")
+├─fr ("Français (FR)")
+├─fr-CA ("Français (CA)")
 ├─gl ("Galego")
 ├─gu ("ગુજરાતી")
 ├─he ("עברית")
@@ -1903,4 +1904,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 30 de Marzo de 2025 (2025.03.30).
+Última Actualización: 29 de Abril de 2025 (2025.04.29).

@@ -784,7 +784,8 @@ lang
 ├─en-US ("English (US)")
 ├─es ("Español")
 ├─fa ("فارسی")
-├─fr ("Français")
+├─fr ("Français (FR)")
+├─fr-CA ("Français (CA)")
 ├─gl ("Galego")
 ├─gu ("ગુજરાતી")
 ├─he ("עברית")
@@ -1933,4 +1934,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۳۰ مارچ ۲۰۲۵ (۲۰۲۵.۰۳.۳۰).</div>
+<div dir="rtl">آخری تازہ کاری: ۲۹ اپریل ۲۰۲۵ (۲۰۲۵.۰۴.۲۹).</div>
