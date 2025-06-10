@@ -739,7 +739,7 @@ __*Segnaposto – Spiegazione – Esempio basato sul 2024-04-30T18:27:49+08:00.*
 `{t:z}` – Il fuso orario (con i due punti) – Per esempio, +08:00.
 
 ##### "ipaddr" `[string]`
-- Dove trovare l'indirizzo IP di collegamento richiesta? (Utile per servizi come Cloudflare e simili). Predefinito = REMOTE_ADDR. AVVISO: Non modificare questa se non sai quello che stai facendo!
+- Dove trovare l'indirizzo IP di collegamento richiesta? (Utile per servizi come Cloudflare). Predefinito = REMOTE_ADDR. AVVISO: Non modificare questa se non sai quello che stai facendo!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Logico ordine del trattamento.__ Se il tipo di file è nel whitelist, non scan
 - Il limite di entropia per le firme che utilizzano dati normalizzati (il valore predefinito è 7.7). In questo contesto, l'entropia è definita come l'entropia di Shannon del contenuto del file sottoposto a scansione. Quando vengono superati sia il limite dell'entropia sia il limite della dimensione del file di entropia, per ridurre il rischio di falsi positivi, alcune firme che utilizzano dati normalizzati verranno ignorate.
 
 ##### "entropy_filesize_limit" `[string]`
-- Il limite della dimensione del file di entropia per le firme che utilizzano dati normalizzati (il valore predefinito è 512KB). Quando vengono superati sia il limite dell'entropia sia il limite della dimensione del file di entropia, per ridurre il rischio di falsi positivi, alcune firme che utilizzano dati normalizzati verranno ignorate.
+- Il limite della dimensione del file di entropia per le firme che utilizzano dati normalizzati (il valore predefinito è 256KB). Quando vengono superati sia il limite dell'entropia sia il limite della dimensione del file di entropia, per ridurre il rischio di falsi positivi, alcune firme che utilizzano dati normalizzati verranno ignorate.
 
 #### "quarantine" (Categoria)
 Configurazione per la quarantena.
@@ -1900,4 +1900,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 29 Aprile 2025 (2025.04.29).
+Ultimo Aggiornamento: 10 Giugno 2025 (2025.06.10).

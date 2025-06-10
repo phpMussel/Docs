@@ -739,7 +739,7 @@ __*Placeholder – Explanation – Example based on 2024-04-30T18:27:49+08:00.*_
 `{t:z}` – The timezone (with colon) – E.g., +08:00.
 
 ##### "ipaddr" `[string]`
-- Where to find the IP address of connecting requests? (Useful for services such as Cloudflare and the likes). Default = REMOTE_ADDR. WARNING: Don't change this unless you know what you're doing!
+- Where to find the IP address of connecting requests? (Useful for services such as Cloudflare). Default = REMOTE_ADDR. WARNING: Don't change this unless you know what you're doing!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Logical order of processing.__ If the filetype is whitelisted, don't scan and 
 - The entropy limit for signatures that use normalised data (default is 7.7). In this context, entropy is defined as the shannon entropy of the content of the file being scanned. When both the entropy limit and the entropy filesize limit are exceeded, in order to reduce the risk of false positives, some signatures which use normalised data will be ignored.
 
 ##### "entropy_filesize_limit" `[string]`
-- The entropy filesize limit for signatures that use normalised data (default is 512KB). When both the entropy limit and the entropy filesize limit are exceeded, in order to reduce the risk of false positives, some signatures which use normalised data will be ignored.
+- The entropy filesize limit for signatures that use normalised data (default is 256KB). When both the entropy limit and the entropy filesize limit are exceeded, in order to reduce the risk of false positives, some signatures which use normalised data will be ignored.
 
 #### "quarantine" (Category)
 Configuration for the quarantine.
@@ -1905,4 +1905,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 29 April 2025 (2025.04.29).
+Last Updated: 10 June 2025 (2025.06.10).

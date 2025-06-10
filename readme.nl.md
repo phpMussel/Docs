@@ -739,7 +739,7 @@ __*Tijdelijke aanduiding – Uitleg – Voorbeeld gebaseerd op 2024-04-30T18:27:
 `{t:z}` – De tijdzone (met dubbele punt) – B.v., +08:00.
 
 ##### "ipaddr" `[string]`
-- Waar het IP-adres van het aansluiten verzoek te vinden? (Handig voor diensten zoals Cloudflare en dergelijke). Standaard = REMOTE_ADDR. WAARSCHUWING: Verander dit niet tenzij u weet wat u doet!
+- Waar het IP-adres van het aansluiten verzoek te vinden? (Handig voor diensten zoals Cloudflare). Standaard = REMOTE_ADDR. WAARSCHUWING: Verander dit niet tenzij u weet wat u doet!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Logische volgorde van de verwerking.__ Als het bestandstype is op de whitelist
 - De entropielimiet voor signatures die genormaliseerde gegevens gebruiken (standaard is 7.7). In deze context wordt entropie gedefinieerd als de shannon-entropie van de inhoud van het bestand dat wordt gescand. Wanneer zowel de entropielimiet als de limiet voor de entropiebestandsgrootte worden overschreden, worden sommige signatures die genormaliseerde gegevens gebruiken genegeerd om het risico op foutpositieve te verkleinen.
 
 ##### "entropy_filesize_limit" `[string]`
-- De limiet voor de bestandsgrootte van entropie voor signatures die genormaliseerde gegevens gebruiken (standaard is 512KB). Wanneer zowel de entropielimiet als de limiet voor de entropiebestandsgrootte worden overschreden, worden sommige signatures die genormaliseerde gegevens gebruiken genegeerd om het risico op foutpositieve te verkleinen.
+- De limiet voor de bestandsgrootte van entropie voor signatures die genormaliseerde gegevens gebruiken (standaard is 256KB). Wanneer zowel de entropielimiet als de limiet voor de entropiebestandsgrootte worden overschreden, worden sommige signatures die genormaliseerde gegevens gebruiken genegeerd om het risico op foutpositieve te verkleinen.
 
 #### "quarantine" (Categorie)
 Configuratie voor de quarantaine.
@@ -1922,4 +1922,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 29 April 2025 (2025.04.29).
+Laatste Bijgewerkt: 10 Juni 2025 (2025.06.10).

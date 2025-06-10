@@ -739,7 +739,7 @@ __*Phần giữ chỗ – Giải trình – Ví dụ dựa trên 2024-04-30T18:2
 `{t:z}` – Múi giờ (có dấu hai chấm) – Ví dụ, +08:00.
 
 ##### "ipaddr" `[string]`
-- Nơi để tìm thấy các địa chỉ IP của các yêu cầu kết nối? (Hữu ích cho các dịch vụ như thế Cloudflare và vv). Mặc định = REMOTE_ADDR. CẢNH BÁO: Không thay đổi này trừ khi bạn biết những gì bạn đang làm!
+- Nơi để tìm thấy các địa chỉ IP của các yêu cầu kết nối? (Hữu ích cho các dịch vụ như thế Cloudflare). Mặc định = REMOTE_ADDR. CẢNH BÁO: Không thay đổi này trừ khi bạn biết những gì bạn đang làm!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Thứ tự hợp lý của chế biến.__ Nếu loại tập tin là trên da
 - Giới hạn entropy cho các chữ ký sử dụng dữ liệu được chuẩn hóa (mặc định là 7.7). Trong bối cảnh này, entropy được định nghĩa là entropy shannon của nội dung tập tin đang được quét. Khi cả giới hạn entropy và giới hạn kích thước tập tin entropy đều bị vượt quá, để giảm nguy sai tích cực, một số chữ ký sử dụng dữ liệu chuẩn hóa sẽ bị bỏ qua.
 
 ##### "entropy_filesize_limit" `[string]`
-- Giới hạn kích thước tập tin entropy cho các chữ ký sử dụng dữ liệu được chuẩn hóa (mặc định là 512KB). Khi cả giới hạn entropy và giới hạn kích thước tập tin entropy đều bị vượt quá, để giảm nguy sai tích cực, một số chữ ký sử dụng dữ liệu chuẩn hóa sẽ bị bỏ qua.
+- Giới hạn kích thước tập tin entropy cho các chữ ký sử dụng dữ liệu được chuẩn hóa (mặc định là 256KB). Khi cả giới hạn entropy và giới hạn kích thước tập tin entropy đều bị vượt quá, để giảm nguy sai tích cực, một số chữ ký sử dụng dữ liệu chuẩn hóa sẽ bị bỏ qua.
 
 #### "quarantine" (Thể loại)
 Cấu hình cho các kiểm dịch.
@@ -1895,4 +1895,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2025.04.29.
+Lần cuối cập nhật: 2025.06.10.

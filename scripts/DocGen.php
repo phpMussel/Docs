@@ -67,6 +67,16 @@ if (!isset($_GET['language'])) {
                 html_entity_decode($Out)
             );
         }
+        if ($Try = $Data->getString('config.' . $Category . '_hint')) {
+            if ($Data->Directionality !== 'rtl') {
+                $Try = str_replace(
+                    ['<code>', '<code class="s">', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
+                    ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
+                    html_entity_decode($Try)
+                );
+            }
+            $Out .= "\n\n" . $Try;
+        }
         $Final .= sprintf($Data->getString('category'), $Category, $Out) . "\n\n";
         foreach ($Directives as $Directive => $Info) {
             $Out = $Data->getString('config.' . $Category . '_' . $Directive);

@@ -739,7 +739,7 @@ __*Platzhalter – Erläuterung – Beispiel basierend auf 2024-04-30T18:27:49+0
 `{t:z}` – Die Zeitzone (mit Doppelpunkt) – Z.B., +08:00.
 
 ##### „ipaddr“ `[string]`
-- Ort der IP-Adresse der aktuellen Verbindung im gesamten Datenstrom (nützlich für Cloud-Services). Standardeinstellung = REMOTE_ADDR. ACHTUNG: Ändern Sie diesen Wert nur, wenn Sie wissen, was Sie tun!
+- Ort der IP-Adresse der aktuellen Verbindung im gesamten Datenstrom (nützlich für Dienste wie Cloudflare). Standardeinstellung = REMOTE_ADDR. ACHTUNG: Ändern Sie diesen Wert nur, wenn Sie wissen, was Sie tun!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Logische Reihenfolge der Verarbeitung.__ Wenn der Dateityp in der Whitelist is
 - Die Entropielimit für Signaturen die normalisierte Daten verwenden (der standardwert ist 7.7). In diesem Kontext wird Entropie als die Shannon-Entropie des Inhalts der gescannten Datei definiert. Wenn sowohl das Entropielimit als auch das Entropiedateigrößenlimit überschritten werden, um das Risiko Falsch-Positiver zu verringern werden einige Signaturen die normalisierte Daten verwenden ignoriert.
 
 ##### „entropy_filesize_limit“ `[string]`
-- Die Entropiedateigrößenlimit für Signaturen die normalisierte Daten verwenden (der standardwert ist 512KB). Wenn sowohl das Entropielimit als auch das Entropiedateigrößenlimit überschritten werden, um das Risiko Falsch-Positiver zu verringern werden einige Signaturen die normalisierte Daten verwenden ignoriert.
+- Die Entropiedateigrößenlimit für Signaturen die normalisierte Daten verwenden (der standardwert ist 256KB). Wenn sowohl das Entropielimit als auch das Entropiedateigrößenlimit überschritten werden, um das Risiko Falsch-Positiver zu verringern werden einige Signaturen die normalisierte Daten verwenden ignoriert.
 
 #### „quarantine“ (Kategorie)
 Konfiguration für die Quarantäne.
@@ -1911,4 +1911,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 29. April 2025 (2025.04.29).
+Zuletzt aktualisiert: 10. Juni 2025 (2025.06.10).

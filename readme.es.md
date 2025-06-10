@@ -739,7 +739,7 @@ __*Marcador de posición – Explicación – Ejemplo basado en 2024-04-30T18:27
 `{t:z}` – La zona horaria (con dos puntos) – P.ej. +08:00.
 
 ##### "ipaddr" `[string]`
-- ¿Dónde puedo encontrar el IP dirección de las solicitudes entrantes? (Útil para servicios como Cloudflare y tales). Predefinido = REMOTE_ADDR. ¡AVISO: No cambie esto a menos que sepas lo que estás haciendo!
+- ¿Dónde puedo encontrar el IP dirección de las solicitudes entrantes? (Útil para servicios como Cloudflare). Predefinido = REMOTE_ADDR. ¡AVISO: No cambie esto a menos que sepas lo que estás haciendo!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Orden lógico de procesamiento.__ Si el tipo de archivo está en la whitelist,
 - El límite de entropía para firmas que utilizan datos normalizados (el valor predeterminado es 7.7). En este contexto, la entropía se define como la entropía de Shannon del contenido del archivo que se está escaneando. Cuando se excede tanto el límite de entropía como el límite de tamaño del archivo de entropía, para reducir el riesgo de falsos positivos, se ignorarán algunas firmas que utilizan datos normalizados.
 
 ##### "entropy_filesize_limit" `[string]`
-- El límite de tamaño del archivo de entropía para firmas que utilizan datos normalizados (el valor predeterminado es 512KB). Cuando se excede tanto el límite de entropía como el límite de tamaño del archivo de entropía, para reducir el riesgo de falsos positivos, se ignorarán algunas firmas que utilizan datos normalizados.
+- El límite de tamaño del archivo de entropía para firmas que utilizan datos normalizados (el valor predeterminado es 256KB). Cuando se excede tanto el límite de entropía como el límite de tamaño del archivo de entropía, para reducir el riesgo de falsos positivos, se ignorarán algunas firmas que utilizan datos normalizados.
 
 #### "quarantine" (Categoría)
 Configuración para la cuarentena.
@@ -1904,4 +1904,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 29 de Abril de 2025 (2025.04.29).
+Última Actualización: 10 de Junio de 2025 (2025.06.10).

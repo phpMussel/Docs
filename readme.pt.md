@@ -739,7 +739,7 @@ __*Espaço reservado – Explicação – Exemplo baseado em 2024-04-30T18:27:49
 `{t:z}` – O fuso horário (com dois pontos) – Por exemplo, +08:00.
 
 ##### "ipaddr" `[string]`
-- Onde encontrar o IP endereço das solicitações? (Útil por serviços como o Cloudflare e tal). Padrão = REMOTE_ADDR. ATENÇÃO: Não mude isso a menos que você saiba o que está fazendo!
+- Onde encontrar o IP endereço das solicitações? (Útil por serviços como o Cloudflare). Padrão = REMOTE_ADDR. ATENÇÃO: Não mude isso a menos que você saiba o que está fazendo!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Ordem lógica de processamento.__ Se o tipo de arquivo está na whitelist, nã
 - O limite de entropia para assinaturas que usam dados normalizados (o padrão é 7.7). Neste contexto, entropia é definida como a entropia de Shannon do conteúdo do arquivo que está sendo escaneado. Quando tanto o limite de entropia quanto o limite de tamanho do arquivo de entropia forem excedidos, para reduzir o risco de falsos positivos, algumas assinaturas que usam dados normalizados serão ignoradas.
 
 ##### "entropy_filesize_limit" `[string]`
-- O limite de tamanho do arquivo de entropia para assinaturas que usam dados normalizados (o padrão é 512KB). Quando tanto o limite de entropia quanto o limite de tamanho do arquivo de entropia forem excedidos, para reduzir o risco de falsos positivos, algumas assinaturas que usam dados normalizados serão ignoradas.
+- O limite de tamanho do arquivo de entropia para assinaturas que usam dados normalizados (o padrão é 256KB). Quando tanto o limite de entropia quanto o limite de tamanho do arquivo de entropia forem excedidos, para reduzir o risco de falsos positivos, algumas assinaturas que usam dados normalizados serão ignoradas.
 
 #### "quarantine" (Categoria)
 Configuração para a quarentena.
@@ -1900,4 +1900,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 29 de Abril de 2025 (2025.04.29).
+Última Atualização: 10 de Junho de 2025 (2025.06.10).

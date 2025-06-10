@@ -739,7 +739,7 @@ __*Espace réservé – Explication – Exemple basé sur 2024-04-30T18:27:49+08
 `{t:z}` – Le fuseau horaire (avec deux points) – Par exemple, +08:00.
 
 ##### « ipaddr » `[string]`
-- Où trouver l'adresse IP de requêtes ? (Utile pour services tels que Cloudflare et similaires) Par Défaut = REMOTE_ADDR. AVERTISSEMENT : Ne pas changer si vous ne sais pas ce que vous faites !
+- Où trouver l'adresse IP de requêtes ? (Utile pour services tels que Cloudflare). Par Défaut = REMOTE_ADDR. AVERTISSEMENT : Ne pas changer si vous ne sais pas ce que vous faites !
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __L'ordre logique de l'application.__ Si le type de fichier est listé blanche, 
 - La limite d'entropie pour les signatures qui utilisent des données normalisées (la valeur par défaut est 7.7). Dans ce contexte, l'entropie est définie comme l'entropie de Shannon du contenu du fichier en cours d'analyse. Lorsque la limite d'entropie et la limite de taille du fichier d'entropie sont dépassées, afin de réduire le risque de faux positifs, certaines signatures qui utilisent des données normalisées seront ignorées.
 
 ##### « entropy_filesize_limit » `[string]`
-- La limite de taille du fichier d'entropie pour les signatures qui utilisent des données normalisées (la valeur par défaut est 512KB). Lorsque la limite d'entropie et la limite de taille du fichier d'entropie sont dépassées, afin de réduire le risque de faux positifs, certaines signatures qui utilisent des données normalisées seront ignorées.
+- La limite de taille du fichier d'entropie pour les signatures qui utilisent des données normalisées (la valeur par défaut est 256KB). Lorsque la limite d'entropie et la limite de taille du fichier d'entropie sont dépassées, afin de réduire le risque de faux positifs, certaines signatures qui utilisent des données normalisées seront ignorées.
 
 #### « quarantine » (Catégorie)
 Configuration pour la quarantaine.
@@ -1911,4 +1911,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 29 Avril 2025 (2025.04.29).
+Dernière mise à jour : 10 Juin 2025 (2025.06.10).

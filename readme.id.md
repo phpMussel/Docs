@@ -739,7 +739,7 @@ __*Placeholder – Penjelasan – Contoh berdasarkan 2024-04-30T18:27:49+08:00.*
 `{t:z}` – Zona waktu (dengan titik dua) – Misalnya, +08:00.
 
 ##### "ipaddr" `[string]`
-- Dimana menemukan alamat IP dari menghubungkan permintaan? (Berguna untuk pelayanan-pelayanan seperti Cloudflare dan sejenisnya). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
+- Dimana menemukan alamat IP dari menghubungkan permintaan? (Berguna untuk layanan seperti Cloudflare). Default = REMOTE_ADDR. PERINGATAN: Jangan ganti ini kecuali Anda tahu apa yang Anda lakukan!
 
 ```
 ipaddr
@@ -976,7 +976,7 @@ __Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan
 - Batas entropi untuk tanda tangan yang menggunakan data yang dinormalisasi (defaultnya 7.7). Dalam konteks ini, entropi didefinisikan sebagai entropi shannon dari konten file yang sedang dipindai. Ketika batas entropi dan batas ukuran file entropi terlampaui, untuk mengurangi risiko positif palsu, beberapa tanda tangan yang menggunakan data ternormalisasi akan diabaikan.
 
 ##### "entropy_filesize_limit" `[string]`
-- Batas ukuran file entropi untuk tanda tangan yang menggunakan data yang dinormalisasi (defaultnya 512KB). Ketika batas entropi dan batas ukuran file entropi terlampaui, untuk mengurangi risiko positif palsu, beberapa tanda tangan yang menggunakan data ternormalisasi akan diabaikan.
+- Batas ukuran file entropi untuk tanda tangan yang menggunakan data yang dinormalisasi (defaultnya 256KB). Ketika batas entropi dan batas ukuran file entropi terlampaui, untuk mengurangi risiko positif palsu, beberapa tanda tangan yang menggunakan data ternormalisasi akan diabaikan.
 
 #### "quarantine" (Kategori)
 Konfigurasi untuk karantina.
@@ -1897,4 +1897,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 29 April 2025 (2025.04.29).
+Terakhir Diperbarui: 10 Juni 2025 (2025.06.10).
