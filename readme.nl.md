@@ -478,6 +478,8 @@ Configuratie (v3)
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -839,6 +841,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "request_proxy" `[string]`
+- Als u wilt dat uitgaande verzoeken via een proxy worden verzonden, geeft u hier die proxy op. Indien dit niet het geval is, laat u dit veld leeg.
+
+##### "request_proxyauth" `[string]`
+- Als u uitgaande verzoeken via een proxy verzendt en als die proxy een gebruikersnaam en wachtwoord vereist, geeft u die gebruikersnaam en dat wachtwoord hier op (b.v., `user:pass`). Indien dit niet het geval is, laat u dit veld leeg.
 
 ##### "default_timeout" `[int]`
 - Standaard time-out om te gebruiken voor externe verzoeken? Standaard = 12 seconden.
@@ -1922,4 +1930,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 10 Juni 2025 (2025.06.10).
+Laatste Bijgewerkt: 9 Juli 2025 (2025.07.09).

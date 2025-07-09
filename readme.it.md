@@ -478,6 +478,8 @@ Configurazione (v3)
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -839,6 +841,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "request_proxy" `[string]`
+- Se si desidera che le richieste in uscita vengano inviate tramite un proxy, specificarlo qui. In caso contrario, lasciare vuoto questo campo.
+
+##### "request_proxyauth" `[string]`
+- Se si inviano richieste in uscita tramite un proxy e se tale proxy richiede un nome utente e una password, specificare qui il nome utente e la password (per esempio, `user:pass`). In caso contrario, lasciare vuoto questo campo.
 
 ##### "default_timeout" `[int]`
 - Il tempo scaduto predefinito da utilizzare per le richieste esterne? Predefinito = 12 secondi.
@@ -1900,4 +1908,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 10 Giugno 2025 (2025.06.10).
+Ultimo Aggiornamento: 9 Luglio 2025 (2025.07.09).

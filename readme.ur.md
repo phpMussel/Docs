@@ -482,6 +482,8 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -844,6 +846,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### <div dir="rtl">"request_proxy" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اگر آپ چاہتے ہیں کہ باہر جانے والی درخواستیں کسی پراکسی کے ذریعے بھیجی جائیں، تو اس پراکسی کو یہاں بیان کریں. اگر نہیں، تو اسے خالی چھوڑ دیں.</li></ul></div>
+
+##### <div dir="rtl">"request_proxyauth" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>اگر پراکسی کے ذریعے آؤٹ باؤنڈ درخواستیں بھیج رہے ہیں اور اگر اس پراکسی کو صارف نام اور پاس ورڈ کی ضرورت ہے، تو وہ صارف نام اور پاس ورڈ یہاں بتائیں (مثال کے طور پر، <code dir="ltr">user:pass</code>). اگر نہیں، تو اسے خالی چھوڑ دیں.</li></ul></div>
 
 ##### <div dir="rtl">"default_timeout" <code dir="ltr">[int]</code><br /></div>
 <div dir="rtl"><ul><li>بیرونی درخواستوں کے لیے استعمال کرنے کے لیے پہلے سے طے شدہ ٹائم آؤٹ؟ پہلے سے طے شدہ = 12 سیکنڈ.</li></ul></div>
@@ -1934,4 +1942,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - لاگ ان.
 ---
 
 
-<div dir="rtl">آخری تازہ کاری: ۱۰ جون ۲۰۲۵ (۲۰۲۵.۰۶.۱۰).</div>
+<div dir="rtl">آخری تازہ کاری: ۹ جولائی ۲۰۲۵ (۲۰۲۵.۰۷.۰۹).</div>

@@ -482,6 +482,8 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -844,6 +846,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### <div dir="rtl">"request_proxy" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>إذا كنت تريد إرسال الطلبات الصادرة عبر وكيل، حدد هذا الوكيل هنا. إذا لم يكن الأمر كذلك، اترك هذا فارغًا.</li></ul></div>
+
+##### <div dir="rtl">"request_proxyauth" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>إذا كنت ترسل طلبات صادرة من خلال وكيل وإذا كان هذا الوكيل يتطلب اسم مستخدم وكلمة مرور، فحدد اسم المستخدم وكلمة المرور هنا (على سبيل المثال، <code dir="ltr">user:pass</code>). إذا لم يكن الأمر كذلك، اترك هذا فارغًا.</li></ul></div>
 
 ##### <div dir="rtl">"default_timeout" <code dir="ltr">[int]</code><br /></div>
 <div dir="rtl"><ul><li>المهلة الافتراضية لاستخدامها للطلبات الخارجية؟ الافتراضي = 12 ثانية.</li></ul></div>
@@ -1939,4 +1947,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ١٠ يونيو ٢٠٢٥ (٢٠٢٥.٠٦.١٠).</div>
+<div dir="rtl">آخر تحديث: ٩ يوليو ٢٠٢٥ (٢٠٢٥.٠٧.٠٩).</div>

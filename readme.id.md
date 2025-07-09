@@ -478,6 +478,8 @@ Konfigurasi (v3)
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -839,6 +841,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "request_proxy" `[string]`
+- Jika Anda ingin permintaan keluar dikirim melalui proxy, tentukan proxy tersebut disini. Jika tidak, biarkan ini kosong.
+
+##### "request_proxyauth" `[string]`
+- Jika mengirim permintaan keluar melalui proxy dan jika proxy tersebut memerlukan nama pengguna dan kata sandi, tentukan nama pengguna dan kata sandi tersebut disini (misalnya, `user:pass`). Jika tidak, biarkan ini kosong.
 
 ##### "default_timeout" `[int]`
 - Batas waktu default yang digunakan untuk permintaan eksternal? Default = 12 detik.
@@ -1897,4 +1905,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 10 Juni 2025 (2025.06.10).
+Terakhir Diperbarui: 9 Juli 2025 (2025.07.09).

@@ -105,7 +105,7 @@ phpMussel需要簽名來檢測特定的威脅。​安裝簽名有二種主要�
 
 您可以從前端配置頁面配置所有內容，如果您想。​但是，從v3開始，前端登錄信息將存儲在您的配置文件中。​因此，要登錄到前端，您需要設置一個帳戶。​然後，您可以使用它登錄並配置其他所有內容。
 
-以下摘錄將使用用戶名『admin』和密碼『password』向前端添加一個新帳戶。
+以下摘錄將使用使用者名稱『admin』和密碼『password』向前端添加一個新帳戶。
 
 對於INI文件：
 
@@ -427,11 +427,11 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 
 #### 3.6 2FA（雙因素身份驗證）
 
-通過啟用雙因素身份驗證，可以使前端更安全。​當登錄使用2FA的帳戶時，會向與該帳戶關聯的電子郵件地址發送電子郵件。​此電子郵件包含『2FA代碼』，用戶必須輸入它（以及他們的用戶名和密碼），為了能夠使用該帳戶登錄。​這意味著獲取帳戶密碼不足以讓任何黑客或潛在攻擊者能夠帳戶登錄，因為他們還需要訪問帳戶的電子郵件地址才能接收和使用會話的2FA代碼（從而使前端更安全）。
+通過啟用雙因素身份驗證，可以使前端更安全。​當登錄使用2FA的帳戶時，會向與該帳戶關聯的電子郵件地址發送電子郵件。​此電子郵件包含『2FA代碼』，用戶必須輸入它（以及他們的使用者名稱和密碼），為了能夠使用該帳戶登錄。​這意味著獲取帳戶密碼不足以讓任何黑客或潛在攻擊者能夠帳戶登錄，因為他們還需要訪問帳戶的電子郵件地址才能接收和使用會話的2FA代碼（從而使前端更安全）。
 
 在安裝PHPMailer後，您需要通過phpMussel配置頁面或配置文件填充PHPMailer的配置指令。​有關這些配置指令的更多信息包含在本文檔的配置部分中。​在填充PHPMailer配置指令後，將`enable_two_factor`設置為`true`。​現在應啟用雙因素身份驗證。
 
-接下來，您需要讓phpMussel知道在使用該帳戶登錄時將2FA代碼發送到何處。​為此，請使用電子郵件地址作為帳戶的用戶名（例如，`foo@bar.tld`），或者將電子郵件地址作為用戶名的一部分包括在內，就像通常發送電子郵件一樣（例如，`Foo Bar <foo@bar.tld>`）。
+接下來，您需要讓phpMussel知道在使用該帳戶登錄時將2FA代碼發送到何處。​為此，請使用電子郵件地址作為帳戶的使用者名稱（例如，`foo@bar.tld`），或者將電子郵件地址作為使用者名稱的一部分包括在內，就像通常發送電子郵件一樣（例如，`Foo Bar <foo@bar.tld>`）。
 
 ---
 
@@ -478,6 +478,8 @@ v3樣板代碼的結構與phpMussel組織中各種phpMussel v3存儲庫的結構
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -840,6 +842,12 @@ disabled_channels
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
 
+##### 『request_proxy』 `[string]`
+- 如果您希望透過代理發送出站請求，請在此處指定該代理。​如果您不想這，請將此處留空。
+
+##### 『request_proxyauth』 `[string]`
+- 如果透過代理發送出站請求且該代理需要使用者名稱和密碼，請在此處指定該使用者名稱和密碼（例如，`user:pass`）。​如果您不想這，請將此處留空。
+
 ##### 『default_timeout』 `[int]`
 - 用於外部請求的默認超時？ 標準 = 12秒。
 
@@ -1086,7 +1094,7 @@ URL掃描程序的配置。
 __常問問題。__ *<a href="https://github.com/phpMussel/Docs/blob/master/readme.zh-Hant.md#user-content-HOW_TO_USE_PDO" hreflang="zh-Hant">『PDO DSN』是什麼？如何能PDO與phpMussel一起使用？</a>*
 
 ##### 『pdo_username』 `[string]`
-- PDO 用戶名。
+- PDO 使用者名稱。
 
 ##### 『pdo_password』 `[string]`
 - PDO 密碼。
@@ -1271,7 +1279,7 @@ smtp_secure
 - 此指令確定是否對SMTP會話進行身份驗證（通常應該保持不變）。
 
 ##### 『username』 `[string]`
-- 通過SMTP發送電子郵件時使用的用戶名。
+- 通過SMTP發送電子郵件時使用的使用者名稱。
 
 ##### 『password』 `[string]`
 - 通過SMTP發送電子郵件時使用的密碼。
@@ -1676,7 +1684,7 @@ phpMussel的`pdo_dsn`應配置如下。
 
 如果不確定如何構造DSN，請嘗試先查看它是否按原樣工作，而不進行任何更改。
 
-請注意， `pdo_username` 和 `pdo_password` 應與您為數據庫選擇的用戶名和密碼相同。
+請注意， `pdo_username` 和 `pdo_password` 應與您為數據庫選擇的使用者名稱和密碼相同。
 
 #### <a name="AJAX_AJAJ_JSON"></a>我的上傳工具是異步的（例如，使用ajax，ajaj，json，等等）。當上傳阻止時，我看不到任何特殊消息或警告。發生了什麼？
 
@@ -1886,4 +1894,4 @@ phpMussel不收集或處理任何信息用於營銷或廣告目的，既不銷�
 ---
 
 
-最後更新：2025年6月10日。
+最後更新：2025年7月9日。

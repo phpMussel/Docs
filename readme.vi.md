@@ -478,6 +478,8 @@ Cấu hình (v3)
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -839,6 +841,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "request_proxy" `[string]`
+- Nếu bạn muốn yêu cầu được gửi thông qua proxy, hãy chỉ định proxy đó tại đây. Nếu không, hãy để trống mục này.
+
+##### "request_proxyauth" `[string]`
+- Nếu gửi yêu cầu thông qua proxy và nếu proxy đó yêu cầu tên người dùng và mật khẩu, hãy chỉ định tên người dùng và mật khẩu đó tại đây (ví dụ, `user:pass`). Nếu không, hãy để trống mục này.
 
 ##### "default_timeout" `[int]`
 - Thời gian chờ mặc định để sử dụng cho các yêu cầu bên ngoài? Mặc định = 12 giây.
@@ -1895,4 +1903,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2025.06.10.
+Lần cuối cập nhật: 2025.07.09.

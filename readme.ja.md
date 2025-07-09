@@ -478,6 +478,8 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -839,6 +841,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "request_proxy" `[string]`
+- 送信リクエストをプロキシ経由で送信したい場合は、ここでそのプロキシを指定します。​そうでない場合は、空白のままにします。
+
+##### "request_proxyauth" `[string]`
+- プロキシ経由で送信リクエストを送信する場合、そのプロキシでユーザー名とパスワードが必要な場合は、ここでユーザー名とパスワードを指定します（例えば、`user:pass`）。​そうでない場合は、空白のままにします。
 
 ##### "default_timeout" `[int]`
 - 外部リクエストに使用するデフォルトのタイムアウト？ Default/デフォルルト = １２秒。
@@ -1892,4 +1900,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２５年６月１０日。
+最終アップデート：２０２５年７月９日。

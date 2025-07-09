@@ -478,6 +478,8 @@ Configuration (v3)
 │       statistics [bool]
 │       hide_version [bool]
 │       disabled_channels [string]
+│       request_proxy [string]
+│       request_proxyauth [string]
 │       default_timeout [int]
 ├───signatures
 │       active [string]
@@ -839,6 +841,12 @@ disabled_channels
 ├─VirusTotal_HTTPS ("VirusTotal (HTTPS)")
 └─VirusTotal_HTTP ("VirusTotal (HTTP)")
 ```
+
+##### "request_proxy" `[string]`
+- If you want outbound requests to be sent through a proxy, specify that proxy here. If not, leave this blank.
+
+##### "request_proxyauth" `[string]`
+- If sending outbound requests through a proxy and if that proxy requires a username and password, specify that username and password here (e.g., `user:pass`). If not, leave this blank.
 
 ##### "default_timeout" `[int]`
 - Default timeout to use for external requests? Default = 12 seconds.
@@ -1905,4 +1913,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 10 June 2025 (2025.06.10).
+Last Updated: 9 July 2025 (2025.07.09).
