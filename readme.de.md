@@ -562,6 +562,7 @@ Konfiguration (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Konfiguration (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1184,7 +1186,7 @@ default_algo
 ```
 
 ##### „theme“ `[string]`
-- Die Ästhetik für das phpMussel-Frontend.
+- Thema für das Front-End zu verwenden.
 
 ```
 theme
@@ -1197,6 +1199,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Andere
+```
+
+##### „theme_mode“ `[string]`
+- Der Modus für das Thema für das Front-End zu verwenden.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Invertiert")
 ```
 
 ##### „magnification“ `[float]`
@@ -1229,7 +1240,7 @@ Nützlicher Tipp: Sie können den Namen der Protokolldateien Datums-/Uhrzeitinfo
 - Diese Direktive sollte generell AUS geschaltet bleiben sofern es nicht für die korrekte Funktion von phpMussel auf Ihrem System benötigt wird. Normalerweise, sobald phpMussel bei AUS geschalteter Direktive ein Element in `$_FILES` array() erkennt, wird es beginnen, die Dateien, die diese Elemente repräsentieren, zu überprüfen, sollten diese Elemente leer sein, gibt phpMussel eine Fehlermeldung zurück. Dies ist das normale Verhalten von phpMussel. Bei einigen CMS werden allerdings als normales Verhalten leere Elemente in `$_FILES` zurückgegeben oder Fehlermeldungen ausgelöst, sobald sich dort keine leeren Elemente befinden, in diesem Fall tritt ein Konflikt zwischen dem normalen Verhalten von phpMussel und dem CMS auf. Sollte eine solche Konstellation bei Ihrem CMS zutreffen, so stellen Sie diese Option AN, phpMussel wird somit nicht nach leeren Elementen suchen, Sie bei einem Fund ignorieren und keine zugehörigen Fehlermeldungen ausgeben, der Request zum Seitenaufruf kann somit fortgesetzt werden. False = AUS/OFF; True = AN/ON.
 
 ##### „theme“ `[string]`
-- Die Ästhetik für die Seite „Upload verweigert“.
+- Thema für Blockereignisse zu verwenden.
 
 ```
 theme
@@ -1242,6 +1253,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Andere
+```
+
+##### „theme_mode“ `[string]`
+- Der Modus für das Thema für Blockereignisse zu verwenden.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Invertiert")
 ```
 
 ##### „magnification“ `[float]`
@@ -1919,4 +1939,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 9. Juli 2025 (2025.07.09).
+Zuletzt aktualisiert: 9. August 2025 (2025.08.09).

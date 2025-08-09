@@ -562,6 +562,7 @@ Configuration (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Configuration (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -885,7 +887,7 @@ Configuration pour les signatures, fichiers de signatures, etc.
 - Devrait phpMussel détecter et bloquer les fichiers cryptés ? False = Non ; True = Oui [Défaut].
 
 ##### « heuristic_threshold » `[int]`
-- Il ya certaines signatures des phpMussel qui sont destinés à identifier des suspectes et potentiellement malveillants qualités des fichiers en cours de téléchargement sans en eux-mêmes identifier les fichiers en cours de téléchargement spécifiquement comme étant malveillants. Cette « threshold » (seuil) valeur raconte à phpMussel ce que le total maximum poids des suspectes et potentiellement malveillants qualités des fichiers en cours de téléchargement pour ce qui est admissible avant que ces fichiers doivent être signalés comme malveillant. La définition du poids dans ce contexte est le nombre total de suspectes et potentiellement malveillants qualités identifié. Par défaut, cette valeur sera fixée à 3. Une valeur inférieur va résulter généralement avec une fréquence supérieur de faux positifs mais une nombre supérieur de fichiers signalé comme malveillant, tandis que une valeur inférieur va résulter généralement avec une fréquence inférieur de faux positifs mais un nombre inférieur de fichiers signalé comme malveillant. Il est généralement préférable de laisser cette valeur à sa valeur défaut, sauf si vous rencontrez des problèmes qui sont liés à elle.
+- Il ya certaines signatures des phpMussel qui sont destinés à identifier des suspectes et potentiellement malveillants qualités des fichiers en cours de téléchargement sans en eux-mêmes identifier les fichiers en cours de téléchargement spécifiquement comme étant malveillants. Cette « threshold » (seuil) valeur raconte à phpMussel ce que le total maximum poids des suspectes et potentiellement malveillants qualités des fichiers en cours de téléchargement pour ce qui est admissible avant que ces fichiers doivent être signalés comme malveillant. La définition du poids dans ce contexte est le nombre total de suspectes et potentiellement malveillants qualités identifié. Par défaut, cette valeur sera fixée à 3. Une valeur inférieur va résulter généralement avec une fréquence supérieur de faux positifs mais une nombre supérieur de fichiers signalé comme malveillant, tandis qu'une valeur inférieur va résulter généralement avec une fréquence inférieur de faux positifs mais un nombre inférieur de fichiers signalé comme malveillant. Il est généralement préférable de laisser cette valeur à sa valeur défaut, sauf si vous rencontrez des problèmes qui sont liés à elle.
 
 #### « files » (Catégorie)
 Les spécificités de la gestion des fichiers lors de l'analyse.
@@ -1186,7 +1188,7 @@ default_algo
 ```
 
 ##### « theme » `[string]`
-- L'esthétique à utiliser pour l'accès frontal de phpMussel.
+- Le thème à utiliser pour l'accès frontal.
 
 ```
 theme
@@ -1199,6 +1201,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Autres
+```
+
+##### « theme_mode » `[string]`
+- Le mode pour le thème à utiliser pour l'accès frontal.
+
+```
+theme_mode
+├─normal ("Normale")
+└─inverted ("Inversé")
 ```
 
 ##### « magnification » `[float]`
@@ -1231,7 +1242,7 @@ Conseil utile : Vous pouvez joindre des informations de date/heure aux noms des
 - Cette directive doit généralement être DÉSACTIVÉ sauf si cela est nécessaire pour la correcte fonctionnalité de phpMussel sur votre spécifique système. Normalement, lorsque DÉSACTIVÉ, lorsque phpMussel détecte la présence d'éléments dans le `$_FILES`() tableau, il va tenter de lancer une analyse du fichiers que ces éléments représentent, et, si ces éléments sont vide, phpMussel retourne un message d'erreur. Ce comportement est normal pour phpMussel. Mais, pour certains CMS, vides éléments dans `$_FILES` peuvent survenir à la suite du naturel comportement de ces CMS, ou erreurs peuvent être signalés quand il ne sont pas tout, dans ce cas, le normal comportement pour phpMussel seront interférer avec le normal comportement de ces CMS. Si telle une situation se produit pour vous, ACTIVATION de cette option sera instruire phpMussel ne pas à tenter de lancer d'analyses pour ces vides éléments, ignorer quand il est reconnu et ne pas à retourner tout de connexes messages d'erreur, permettant ainsi la continuation de la requête de page. False = Désactivé ; True = Activé.
 
 ##### « theme » `[string]`
-- L'esthétique à utiliser pour la page « téléchargement refusé ».
+- Le thème à utiliser pour les événements de blocage.
 
 ```
 theme
@@ -1244,6 +1255,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Autres
+```
+
+##### « theme_mode » `[string]`
+- Le mode pour le thème à utiliser pour les événements de blocage.
+
+```
+theme_mode
+├─normal ("Normale")
+└─inverted ("Inversé")
 ```
 
 ##### « magnification » `[float]`
@@ -1919,4 +1939,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 9 Juillet 2025 (2025.07.09).
+Dernière mise à jour : 9 Août 2025 (2025.08.09).

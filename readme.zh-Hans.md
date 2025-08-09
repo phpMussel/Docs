@@ -562,6 +562,7 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ v3样板代码的结构与phpMussel组织中各种phpMussel v3存储库的结构
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1173,7 +1175,7 @@ default_algo
 ```
 
 ##### “theme” `[string]`
-- 用于phpMussel前端的美学。
+- 用于前端的主题。
 
 ```
 theme
@@ -1186,6 +1188,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…其他
+```
+
+##### “theme_mode” `[string]`
+- 用于前端的主题模式。
+
+```
+theme_mode
+├─normal ("普通的")
+└─inverted ("倒置的")
 ```
 
 ##### “magnification” `[float]`
@@ -1218,7 +1229,7 @@ theme
 - 这个指令按说应会关闭除非它是需要为对功能的phpMussel在您的具体系统。​按说，​当是关闭，​当phpMussel检测存在元素在`$_FILES`数组，​它将尝试引发一个扫描的文件代表通过那些元素，​和，​如果他们是空或空白，​phpMussel将回报一个错误信息。​这个是正确行为为phpMussel。​然而，​为某些CMS，​空元素在`$_FILES`可以发生因之的自然的行为的那些CMS，​或错误可能会报告当没有任何，​在这种情况，​正常行为为phpMussel将会使干扰为正常行为的那些CMS。​如果这样的一个情况发生为您，​激活这个指令将指示phpMussel不尝试引发扫描为这样的空元素，​忽略他们当发现和不回报任何关联错误信息，​从而允许延续的页面请求。​False（假）=不忽略；True（真）=忽略。
 
 ##### “theme” `[string]`
-- 用于“上传是否认”页面的美学。
+- 用于阻止事件的主题。
 
 ```
 theme
@@ -1231,6 +1242,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…其他
+```
+
+##### “theme_mode” `[string]`
+- 用于阻止事件的主题模式。
+
+```
+theme_mode
+├─normal ("普通的")
+└─inverted ("倒置的")
 ```
 
 ##### “magnification” `[float]`
@@ -1894,4 +1914,4 @@ phpMussel不收集或处理任何信息用于营销或广告目的，既不销�
 ---
 
 
-最后更新：2025年7月9日。
+最后更新：2025年8月9日。

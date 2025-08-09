@@ -562,6 +562,7 @@ Configuration (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Configuration (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1185,7 +1187,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- The aesthetic to use for the phpMussel front-end.
+- The theme to use for the front-end.
 
 ```
 theme
@@ -1198,6 +1200,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Other
+```
+
+##### "theme_mode" `[string]`
+- The mode for the theme to use for the front-end.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Inverted")
 ```
 
 ##### "magnification" `[float]`
@@ -1230,7 +1241,7 @@ Useful tip: You can attach date/time information to the names of log files by us
 - This directive should generally be disabled unless it's required for correct functionality of phpMussel on your specific system. Normally, when disabled, when phpMussel detects the presence of elements in the `$_FILES` array(), it'll attempt to initiate a scan of the files that those elements represent, and, if those elements are blank or empty, phpMussel will return an error message. This is proper behaviour for phpMussel. However, for some CMS, empty elements in `$_FILES` can occur as a result of the natural behaviour of those CMS, or errors may be reported when there aren't any, in which case, the normal behaviour for phpMussel will be interfering with the normal behaviour of those CMS. If such a situation occurs for you, enabling this option will instruct phpMussel to not attempt to initiate scans for such empty elements, ignore them when found and to not return any related error messages, thus allowing continuation of the page request. False = OFF; True = ON.
 
 ##### "theme" `[string]`
-- The aesthetic to use for the "upload denied" page.
+- The theme to use for block events.
 
 ```
 theme
@@ -1243,6 +1254,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Other
+```
+
+##### "theme_mode" `[string]`
+- The mode for the theme to use for block events.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Inverted")
 ```
 
 ##### "magnification" `[float]`
@@ -1913,4 +1933,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 9 July 2025 (2025.07.09).
+Last Updated: 9 August 2025 (2025.08.09).

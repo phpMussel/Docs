@@ -562,6 +562,7 @@ Configuração (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Configuração (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1185,7 +1187,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- A estética a ser usada no front-end do phpMussel.
+- O tema a ser usado no front-end.
 
 ```
 theme
@@ -1198,6 +1200,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Outros
+```
+
+##### "theme_mode" `[string]`
+- O modo para o tema a ser usado no front-end.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Invertido")
 ```
 
 ##### "magnification" `[float]`
@@ -1230,7 +1241,7 @@ Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos 
 - Essa directiva deve ser geralmente desativada a menos que seja necessário por correta funcionalidade de phpMussel no seu específico sistema. Normalmente, quando desativado, quando phpMussel detecta a presença de elementos dentro a `$_FILES` array(), ele tentará iniciar uma análise dos arquivos que esses elementos representam, e, se esses elementos estão branco ou vazia, phpMussel irá retornar uma erro mensagem. Esse é um apropriado comportamento por phpMussel. Mas, por alguns CMS, vazios elementos podem ocorrer como resultado do natural comportamento dessas CMS, ou erros podem ser reportado quando não houver alguma, nesse caso, o normal comportamento por phpMussel será interferindo com o normal comportamento dessas CMS. Se tal situação ocorre por você, ativando esta opção irá instruir phpMussel para não tentar iniciar um análise por tais vazios elementos, ignorá-los quando encontrado e para não retornar qualquer relacionado erro mensagens, assim, permitindo a continuação da página carga. False = DESATIVADO; True = ATIVADO.
 
 ##### "theme" `[string]`
-- A estética a ser usada na página "carregar negado".
+- O tema a ser usado para eventos de bloqueio.
 
 ```
 theme
@@ -1243,6 +1254,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Outros
+```
+
+##### "theme_mode" `[string]`
+- O modo para o tema a ser usado para eventos de bloqueio.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Invertido")
 ```
 
 ##### "magnification" `[float]`
@@ -1275,7 +1295,7 @@ Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos 
 - O host SMTP a ser usado para e-mail de saída.
 
 ##### "port" `[int]`
-- O número da porta a ser usado para o e-mail de saída. Padrão = 587.
+- O número da porta a ser usado para e-mail de saída. Padrão = 587.
 
 ##### "smtp_secure" `[string]`
 - O protocolo a ser usado ao enviar e-mail via SMTP (TLS ou SSL).
@@ -1908,4 +1928,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 9 de Julho de 2025 (2025.07.09).
+Última Atualização: 9 de Agosto de 2025 (2025.08.09).

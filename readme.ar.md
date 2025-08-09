@@ -566,6 +566,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -576,6 +577,7 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1192,7 +1194,7 @@ default_algo
 ```
 
 ##### <div dir="rtl">"theme" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>الجمالية المراد استخدامها في الواجهة الأمامية phpMussel.</li></ul></div>
+<div dir="rtl"><ul><li>الموضوع الذي سيتم استخدامه للواجهة الأمامية.</li></ul></div>
 
 ```
 theme
@@ -1205,6 +1207,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…آخر
+```
+
+##### <div dir="rtl">"theme_mode" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الوضع الذي سيتم استخدامه للموضوع في الواجهة الأمامية.</li></ul></div>
+
+```
+theme_mode
+├─normal ("طبيعي")
+└─inverted ("معكوس")
 ```
 
 ##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
@@ -1237,7 +1248,7 @@ theme
 <div dir="rtl"><ul><li>يجب أن يكون هذا التوجيه عموما هو تعطيل ما لم تصبح مطلوبة حصول على الوظائف الصحيحة لـ phpMussel على النظام الخاص بك محددة. عادة، عندما يكون في وضع تعطيل، عندما يكتشف phpMussel وجود عناصر في مجموعة <code dir="ltr">$_FILES</code>، وأنها سوف محاولة لبدء فحص الملفات التي تمثل تلك العناصر، وإذا كانت تلك العناصر هي فارغة أو فارغة، سوف phpMussel العودة رسالة خطأ. هذا هو السلوك الصحيح للـ phpMussel. ومع ذلك، بالنسبة لبعض CMS، العناصر الفارغة في <code dir="ltr">$_FILES</code> يمكن أن تحدث نتيجة لسلوك طبيعي لتلك CMS، أو أخطاء قد يتم الإعلام عندما لم تكن هناك أي، في هذه الحالة، السلوك العادي للphpMussel سوف تتدخل مع السلوك العادي من تلك CMS. في حال حدوث مثل هذه الحالة بالنسبة لك، تمكين هذا الخيار سوف يكلف phpMussel ليست محاولة لبدء المسح الضوئي لمثل هذه العناصر الفارغة، تجاهلها عندما وجدت وعدم إعادة أي رسائل خطأ ذات الصلة، مما يتيح استمرار طلب الصفحة. زائفة/False = أطفئ؛ صحيح/True = تشغيل.</li></ul></div>
 
 ##### <div dir="rtl">"theme" <code dir="ltr">[string]</code><br /></div>
-<div dir="rtl"><ul><li>الجمالية المراد استخدامها لصفحة "رفض تحميل".</li></ul></div>
+<div dir="rtl"><ul><li>الموضوع الذي سيتم استخدامه لأحداث الكتلة.</li></ul></div>
 
 ```
 theme
@@ -1250,6 +1261,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…آخر
+```
+
+##### <div dir="rtl">"theme_mode" <code dir="ltr">[string]</code><br /></div>
+<div dir="rtl"><ul><li>الوضع للموضوع الذي سيتم استخدامه لأحداث الكتلة.</li></ul></div>
+
+```
+theme_mode
+├─normal ("طبيعي")
+└─inverted ("معكوس")
 ```
 
 ##### <div dir="rtl">"magnification" <code dir="ltr">[float]</code><br /></div>
@@ -1947,4 +1967,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٩ يوليو ٢٠٢٥ (٢٠٢٥.٠٧.٠٩).</div>
+<div dir="rtl">آخر تحديث: ٩ أغسطس ٢٠٢٥ (٢٠٢٥.٠٨.٠٩).</div>

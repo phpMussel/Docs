@@ -562,6 +562,7 @@ Configurazione (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Configurazione (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1185,7 +1187,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- L'estetica da utilizzare per il front-end phpMussel.
+- Il tema da utilizzare per il front-end.
 
 ```
 theme
@@ -1198,6 +1200,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Altro
+```
+
+##### "theme_mode" `[string]`
+- La modalità per il tema da utilizzare per il front-end.
+
+```
+theme_mode
+├─normal ("Normale")
+└─inverted ("Invertito")
 ```
 
 ##### "magnification" `[float]`
@@ -1230,7 +1241,7 @@ Consiglio utile: È possibile allegare informazioni su data/ora ai nomi dei file
 - Questa direttiva dovrebbe generalmente essere SPENTO meno se necessario per la corretta funzionalità del phpMussel sul vostra sistema. Normalmente, quando spento, quando phpMussel rileva la presenza di elementi nella `$_FILES` array(), è tenterà di avviare una scansione dei file che tali elementi rappresentano, e, se tali elementi sono vuoti, phpMussel restituirà un errore messaggio. Questo è un comportamento adeguato per phpMussel. Tuttavia, per alcuni CMS, vuoti elementi nel `$_FILES` può avvenire come conseguenza del naturale comportamento di questi CMS, o errori possono essere contrassegnati quando non ce ne sono, nel qual caso, il normale comportamento per phpMussel sarà interferire con il normale comportamento di questi CMS. Se una tale situazione avvenire per voi, attivazione di questa opzione SU sarà istruirà phpMussel a non tenta avviare scansioni per tali vuoti elementi, ignorarli quando si trova ea non ritorno qualsiasi errore correlato messaggi, così permettendo proseguimento della pagina richiesta. False = SPENTO/OFF; True = SU/ON.
 
 ##### "theme" `[string]`
-- L'estetica da utilizzare per la pagina "caricamento negato".
+- Il tema da utilizzare per gli eventi di blocco.
 
 ```
 theme
@@ -1243,6 +1254,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Altro
+```
+
+##### "theme_mode" `[string]`
+- La modalità per il tema da utilizzare per gli eventi di blocco.
+
+```
+theme_mode
+├─normal ("Normale")
+└─inverted ("Invertito")
 ```
 
 ##### "magnification" `[float]`
@@ -1908,4 +1928,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 9 Luglio 2025 (2025.07.09).
+Ultimo Aggiornamento: 9 Agosto 2025 (2025.08.09).

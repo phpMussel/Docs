@@ -562,6 +562,7 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1180,7 +1182,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- phpMusselフロントエンドに使用する美学。
+- フロントエンドに使用するテーマ。
 
 ```
 theme
@@ -1193,6 +1195,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…その他
+```
+
+##### "theme_mode" `[string]`
+- フロントエンドに使用するテーマのモード。
+
+```
+theme_mode
+├─normal ("普通")
+└─inverted ("反転")
 ```
 
 ##### "magnification" `[float]`
@@ -1225,7 +1236,7 @@ theme
 - システム上でphpMusselの機能に修正が必要でない限りはこのディレクティブは通常無効です。​無効に設定すると、`$_FILES` array()に要素の存在を検知したとき、その要素が表すファイルのスキャンが開始され、要素が空白か無であればphpMusselはエラーメッセージを返します。​これは本来phpMusselがあるべき姿です。​しかしＣＭＳにおいては、$_FILESの空要素は普通に発生するものであり、正常なphpMusselの挙動が正常なＣＭＳの挙動を阻害する恐れがあります。​このような場合は、本オプションを有効にして、phpMusselが空要素をスキャンしてエラーメッセージを返すのを避け、要求のあったページへスムーズに進むことができるようにします。​False（偽）=ＯＦＦ「オフ」です。`true`（真）=ＯＮ「オン」です。
 
 ##### "theme" `[string]`
-- 「アップロード拒否」ページで使用する美学。
+- ブロック・イベントに使用するテーマ。
 
 ```
 theme
@@ -1238,6 +1249,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…その他
+```
+
+##### "theme_mode" `[string]`
+- ブロック・イベントに使用するテーマのモード。
+
+```
+theme_mode
+├─normal ("普通")
+└─inverted ("反転")
 ```
 
 ##### "magnification" `[float]`
@@ -1900,4 +1920,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終アップデート：２０２５年７月９日。
+最終アップデート：２０２５年８月９日。

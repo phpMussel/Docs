@@ -562,6 +562,7 @@ Configuración (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Configuración (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1185,7 +1187,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- La estética para usar en el front-end phpMussel.
+- El tema a utilizar para el front-end.
 
 ```
 theme
@@ -1198,6 +1200,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Otro
+```
+
+##### "theme_mode" `[string]`
+- El modo para el tema a utilizar para el front-end.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Invertido")
 ```
 
 ##### "magnification" `[float]`
@@ -1230,7 +1241,7 @@ Consejo útil: Puede adjuntar información de fecha/hora a los nombres de los ar
 - Esta directiva, en general, debe ser desactivado, a menos que se requiere para la correcta funcionalidad de phpMussel en su específico sistema. Normalmente, cuando está desactivado, cuando phpMussel detecta la presencia de elementos en la `$_FILES` array(), intentará iniciar un escaneo de los archivos que esos elementos representan, y, si esos elementos están blanco o vacío, phpMussel devolverá un mensaje de error. Este es el comportamiento natural para phpMussel. Pero, para algunos CMS, vacíos elementos en `$_FILES` puede ocurrir como resultado del comportamiento natural de los CMS, o errores pueden ser reportados cuando no existe ninguna, en cuyo caso, el comportamiento natural para phpMussel será interfiriendo con el comportamiento natural de los CMS. Si tal situación ocurre para usted, activando esta opción instruirá phpMussel no intentar iniciar un escaneo para tales vacíos elementos, ignorarlos cuando encontrado y no devuelva cualquier relacionado mensaje de error, así permitiendo la continuación de la página cargando. False = DESACTIVADO; True = ACTIVADO.
 
 ##### "theme" `[string]`
-- La estética a utilizar para la página "subida denegada".
+- El tema a utilizar para los eventos de bloque.
 
 ```
 theme
@@ -1243,6 +1254,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Otro
+```
+
+##### "theme_mode" `[string]`
+- El modo para el tema a utilizar para los eventos de bloque.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Invertido")
 ```
 
 ##### "magnification" `[float]`
@@ -1912,4 +1932,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 9 de Julio de 2025 (2025.07.09).
+Última Actualización: 9 de Agosto de 2025 (2025.08.09).

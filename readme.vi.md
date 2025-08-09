@@ -562,6 +562,7 @@ Cấu hình (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Cấu hình (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1186,7 +1188,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- Tính thẩm mỹ để sử dụng cho giao diện người dùng phpMussel.
+- chủ đề sẽ được sử dụng cho front-end.
 
 ```
 theme
@@ -1199,6 +1201,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Khác
+```
+
+##### "theme_mode" `[string]`
+- Chế độ cho chủ đề sẽ được sử dụng cho front-end.
+
+```
+theme_mode
+├─normal ("Bình thường")
+└─inverted ("Nghịch đảo")
 ```
 
 ##### "magnification" `[float]`
@@ -1231,7 +1242,7 @@ Lời khuyên hữu ích: Bạn có thể đính kèm thông tin ngày/giờ và
 - Nói chung, tùy chọn này nên bị vô hiệu hóa, trừ khi nó cần thiết cho chức năng đúng của phpMussel trên hệ thống cụ thể của bạn. Thông thường, khi bị vô hiệu, khi phpMussel phát hiện sự hiện diện của elements (yếu tố) trong array `$_FILES`, nó sẽ cố gắng để bắt đầu quét của các tập tin mà những yếu tố đại diện, và, nếu những yếu tố này là trống, phpMussel sẽ trả về thông báo lỗi. Đây là hành vi thích hợp cho phpMussel. Tuy nhiên, đối với một số CMS, phần tử rỗng trong `$_FILES` có thể xảy ra như là kết quả của các hành vi tự nhiên của những CMS, hay lỗi có thể được báo cáo khi không có bất kỳ, và trong trường hợp này, các hành vi tự nhiên cho phpMussel sẽ gây trở ngại với các hành vi bình thường của những CMS. Nếu một tình huống như vậy xảy ra cho bạn, bật tùy chọn này sẽ hướng dẫn phpMussel không cố gắng để bắt đầu quét cho phần tử rỗng, bỏ qua chúng khi tìm thấy và không trả lại bất kỳ thông báo lỗi liên quan, do đó cho phép tiếp tục của yêu cầu trang. False = TẮT; True = TRÊN.
 
 ##### "theme" `[string]`
-- Tính thẩm mỹ để sử dụng cho trang "Sự tải lên đã bị từ chối".
+- Chủ đề sẽ được sử dụng cho các sự kiện chặn.
 
 ```
 theme
@@ -1244,6 +1255,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Khác
+```
+
+##### "theme_mode" `[string]`
+- Chế độ cho chủ đề sẽ được sử dụng cho các sự kiện chặn.
+
+```
+theme_mode
+├─normal ("Bình thường")
+└─inverted ("Nghịch đảo")
 ```
 
 ##### "magnification" `[float]`
@@ -1903,4 +1923,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2025.07.09.
+Lần cuối cập nhật: 2025.08.09.

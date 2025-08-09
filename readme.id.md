@@ -562,6 +562,7 @@ Konfigurasi (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Konfigurasi (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1185,7 +1187,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- Estetika yang digunakan untuk bagian depan phpMussel.
+- Tema yang akan digunakan untuk front-end.
 
 ```
 theme
@@ -1198,6 +1200,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Lain
+```
+
+##### "theme_mode" `[string]`
+- Mode untuk tema yang akan digunakan untuk front-end.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Terbalik")
 ```
 
 ##### "magnification" `[float]`
@@ -1230,7 +1241,7 @@ Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file l
 - Direktif ini umumnya harus DINONAKTIFKAN kecuali diharuskan untuk fungsi yang benar dari phpMussel pada sistem tertentu. Biasanya, ketika DINONAKTIFKAN, ketika phpMussel mendeteksi adanya elemen dalam `$_FILES` array(), itu akan mencoba untuk memulai scan file yang mewakili elemen, dan, jika elemen tersebut adalah kosong, phpMussel akan mengembalikan pesan kesalahan. Ini adalah perilaku yang tepat untuk phpMussel. Namun, untuk beberapa CMS, elemen kosong di `$_FILES` dapat terjadi sebagai akibat dari perilaku alami jadi CMS tersebut, atau kesalahan dapat dilaporkan bila tidak ada, dan dalam kasus seperti itu, perilaku normal untuk phpMussel akan mengganggu untuk perilaku normal itu CMS. Jika situasi seperti itu terjadi untuk Anda, MENGAKTIFKAN direktif ini akan menginstruksikan phpMussel untuk tidak mencoba untuk memulai scan untuk elemen kosong, mengabaikan saat ditemui dan untuk tidak kembali terkait pesan kesalahan, sehingga memungkinkan kelanjutan dari halaman permintaan. False = DINONAKTIFKAN; True = DIAKTIFKAN.
 
 ##### "theme" `[string]`
-- Estetika yang digunakan untuk halaman "upload ditolak".
+- Tema yang akan digunakan untuk acara blokir.
 
 ```
 theme
@@ -1243,6 +1254,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Lain
+```
+
+##### "theme_mode" `[string]`
+- Mode untuk tema yang akan digunakan untuk acara blokir.
+
+```
+theme_mode
+├─normal ("Normal")
+└─inverted ("Terbalik")
 ```
 
 ##### "magnification" `[float]`
@@ -1905,4 +1925,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 9 Juli 2025 (2025.07.09).
+Terakhir Diperbarui: 9 Agustus 2025 (2025.08.09).

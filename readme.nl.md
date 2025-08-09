@@ -562,6 +562,7 @@ Configuratie (v3)
 │       numbers [string]
 │       default_algo [string]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -572,6 +573,7 @@ Configuratie (v3)
 │       max_uploads [int]
 │       ignore_upload_errors [bool]
 │       theme [string]
+│       theme_mode [string]
 │       magnification [float]
 │       custom_header [string]
 │       custom_footer [string]
@@ -1186,7 +1188,7 @@ default_algo
 ```
 
 ##### "theme" `[string]`
-- De esthetiek voor de phpMussel frontend.
+- Het thema dat voor de frontend gebruikt moet worden.
 
 ```
 theme
@@ -1199,6 +1201,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Anders
+```
+
+##### "theme_mode" `[string]`
+- De modus voor het thema dat voor de frontend gebruikt moet worden.
+
+```
+theme_mode
+├─normal ("Normaal")
+└─inverted ("Omgekeerd")
 ```
 
 ##### "magnification" `[float]`
@@ -1231,7 +1242,7 @@ Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoege
 - Dit richtlijn moet in het algemeen worden uitgeschakeld tenzij het is vereist voor de juiste functionaliteit van phpMussel op uw specifieke systeem. Normaal, wanneer uitgeschakeld, wanneer phpMussel detecteert de aanwezigheid van elementen van de `$_FILES` array(), het zal proberen initiëren een scan van het bestanden deze elementen vertegenwoordigen, en, als deze elementen zijn leeg, phpMussel zal terugkeren een foutmelding. Dit is het juiste gedrag voor phpMussel. Dat gezegd hebbende, voor sommige CMS, lege elementen in `$_FILES` kan optreden als gevolg van het natuurlijke gedrag van deze CMS, of fouten zouden zijn gerapporteerd wanneer er geen, in welk geval, het normale gedrag voor phpMussel zullen bemoeien met het normale gedrag van deze CMS. Als dergelijke een situatie optreedt voor u, inschakelen dit optie zal instrueren phpMussel niet te proberen te initiëren scannen voor dergelijke lege elementen, negeer hem wanneer gevonden en niet terugkeren gerelateerde foutmeldingen, dus toelaten de voortzetting van de paginaverzoek. False = UITGESCHAKELD; True = INGESCHAKELD.
 
 ##### "theme" `[string]`
-- De esthetiek die moet worden gebruikt voor de pagina "upload geweigerd".
+- Het thema dat gebruikt moet worden voor blokgebeurtenissen.
 
 ```
 theme
@@ -1244,6 +1255,15 @@ theme
 ├─rbi ("Red-Blue Inverted")
 ├─slate ("Slate")
 └─…Anders
+```
+
+##### "theme_mode" `[string]`
+- De modus voor het thema dat gebruikt moet worden voor blokgebeurtenissen.
+
+```
+theme_mode
+├─normal ("Normaal")
+└─inverted ("Omgekeerd")
 ```
 
 ##### "magnification" `[float]`
@@ -1930,4 +1950,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 9 Juli 2025 (2025.07.09).
+Laatste Bijgewerkt: 9 Augustus 2025 (2025.08.09).
