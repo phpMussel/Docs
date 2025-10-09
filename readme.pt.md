@@ -1100,7 +1100,7 @@ Opções de cache suplementares. Nota: Alterar estes valores podem potencialment
 - Valor de tempo limite do Redis. Padrão = "2.5".
 
 ##### "redis_database_number" `[int]`
-- Número do banco de dados Redis. Padrão = 0. Observação: Não é possível usar valores diferentes de 0 com Redis Cluster.
+- Número do banco de dados Redis. Padrão = 0. Nota: Não é possível usar valores diferentes de 0 com Redis Cluster.
 
 ##### "pdo_dsn" `[string]`
 - Valor DSN do PDO. Padrão = "mysql:dbname=phpmussel;host=localhost;port=3306".
@@ -1470,7 +1470,7 @@ A frequência das atualizações varia de acordo com os arquivos de assinatura e
 
 #### <a name="MINIMUM_PHP_VERSION_V3"></a>Eu quero usar phpMussel v3 com uma versão PHP mais velha do que 7.2.0; Você pode ajudar?
 
-Não. PHP >= 7.2.0 é um requisito mínimo para phpMussel v3.
+Não. PHP≥7.2 é um requisito mínimo para phpMussel v3.
 
 *Veja também: [Gráficos de Compatibilidade](https://maikuolan.github.io/Compatibility-Charts/).*
 
@@ -1928,4 +1928,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 9 de Agosto de 2025 (2025.08.09).
+Última Atualização: 9 de Outubro de 2025 (2025.10.09).

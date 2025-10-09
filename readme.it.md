@@ -88,7 +88,7 @@ Le firme sono richieste da phpMussel per rilevare minacce specifiche. Esistono 2
 
 ##### 2.1.1 Scaricare le firme da "phpMussel/Signatures" o "phpMussel/Examples" e installare manualmente.
 
-In primo luogo, vai a [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Il repository contiene vari file di firma compressi GZ. Scarica i file necessari, decomprimere, e copiarli nella cartella delle firme dell'installazione.
+In primo luogo, vai a [phpMussel/Signatures](https://github.com/phpMussel/Signatures). Il repository contiene vari file di firma compressi GZ. Scarica i file necessari, decomprimere, e copiarli nella directory delle firme dell'installazione.
 
 In alternativa, scarica l'ultimo ZIP da [phpMussel/Examples](https://github.com/phpMussel/Examples). È quindi possibile copiare/incollare le firme da quell'archivio alla propria installazione.
 
@@ -123,7 +123,7 @@ user.admin:
  permissions: 1
 ```
 
-Puoi nominare la configurazione come preferisci (purché conservi la sua estensione, in modo che phpMussel sappia quale formato utilizza), e puoi memorizzarlo dove vuoi. Puoi dire a phpMussel dove trovare il tuo file di configurazione fornendo il suo percorso durante l'istanziazione del loader. Se non viene fornito alcun percorso, phpMussel proverà a localizzarlo nella directory principale della cartella vendor.
+Puoi nominare la configurazione come preferisci (purché conservi la sua estensione, in modo che phpMussel sappia quale formato utilizza), e puoi memorizzarlo dove vuoi. Puoi dire a phpMussel dove trovare il tuo file di configurazione fornendo il suo percorso durante l'istanziazione del loader. Se non viene fornito alcun percorso, phpMussel proverà a localizzarlo nella directory principale della directory vendor.
 
 In alcuni ambienti, come Apache, è persino possibile posizionare un punto nella parte anteriore della configurazione per nasconderlo e impedire l'accesso pubblico.
 
@@ -153,15 +153,15 @@ public function __construct(
 )
 ```
 
-Il primo parametro è il percorso completo del file di configurazione. Se omesso, phpMussel cercherà un file di configurazione denominato come `phpmussel.ini` o `phpmussel.yml`, nella cartella principale della cartella vendor.
+Il primo parametro è il percorso completo del file di configurazione. Se omesso, phpMussel cercherà un file di configurazione denominato come `phpmussel.ini` o `phpmussel.yml`, nella directory principale della directory vendor.
 
-Il secondo parametro è il percorso di una cartella che si consente a phpMussel di utilizzare per la memorizzazione nella cache e la memorizzazione temporanea dei file. Se omesso, phpMussel tenterà di creare una nuova cartella da usare, denominata come `phpmussel-cache`, nella cartella principale della cartella vendor. Se si desidera specificare questo percorso da soli, sarebbe meglio scegliere una cartella vuota, in modo da evitare la perdita indesiderata di altri dati nella cartella specificata.
+Il secondo parametro è il percorso di una directory che si consente a phpMussel di utilizzare per la memorizzazione nella cache e la memorizzazione temporanea dei file. Se omesso, phpMussel tenterà di creare una nuova directory da usare, denominata come `phpmussel-cache`, nella directory principale della directory vendor. Se si desidera specificare questo percorso da soli, sarebbe meglio scegliere una directory vuota, in modo da evitare la perdita indesiderata di altri dati nella directory specificata.
 
-Il terzo parametro è il percorso di una cartella che si consente a phpMussel di utilizzare per la sua quarantena. Se omesso, phpMussel tenterà di creare una nuova cartella da usare, denominata come `phpmussel-quarantine`, nella cartella principale della cartella vendor. Se si desidera specificare questo percorso da soli, sarebbe meglio scegliere una cartella vuota, in modo da evitare la perdita indesiderata di altri dati nella cartella specificata. Si consiglia vivamente di impedire l'accesso del pubblico alla cartella utilizzata per la quarantena.
+Il terzo parametro è il percorso di una directory che si consente a phpMussel di utilizzare per la sua quarantena. Se omesso, phpMussel tenterà di creare una nuova directory da usare, denominata come `phpmussel-quarantine`, nella directory principale della directory vendor. Se si desidera specificare questo percorso da soli, sarebbe meglio scegliere una directory vuota, in modo da evitare la perdita indesiderata di altri dati nella directory specificata. Si consiglia vivamente di impedire l'accesso del pubblico alla directory utilizzata per la quarantena.
 
-Il quarto parametro è il percorso della cartella contenente i file delle firme per phpMussel. Se omesso, phpMussel proverà a cercare i file delle firme in una cartella denominata come `phpmussel-signatures`, nella cartella principale della cartella vendor.
+Il quarto parametro è il percorso della directory contenente i file delle firme per phpMussel. Se omesso, phpMussel proverà a cercare i file delle firme in una directory denominata come `phpmussel-signatures`, nella directory principale della directory vendor.
 
-Il quinto parametro è il percorso della cartella vendor. Non dovrebbe mai indicare nient'altro. Se omesso, phpMussel proverà a localizzare questa cartella per se stessa. Questo parametro viene fornito per facilitare una più facile integrazione con implementazioni che potrebbero non avere necessariamente la stessa struttura di un tipico progetto di Composer.
+Il quinto parametro è il percorso della directory vendor. Non dovrebbe mai indicare nient'altro. Se omesso, phpMussel proverà a localizzare questa directory per se stessa. Questo parametro viene fornito per facilitare una più facile integrazione con implementazioni che potrebbero non avere necessariamente la stessa struttura di un tipico progetto di Composer.
 
 Il costruttore per lo scanner accetta solo un parametro ed è obbligatorio: l'oggetto loader istanziato. Poiché viene passato per riferimento, il loader deve essere istanziato su una variabile (creare un'istanza del loader direttamente nello scanner come valore non è il modo corretto di usare phpMussel).
 
@@ -332,7 +332,7 @@ La parte importante da notare da quell'esempio è il metodo `scan()`. Il metodo 
 public function scan(mixed $Files, int $Format = 0): mixed
 ```
 
-Il primo parametro può essere una stringa o un array e indica allo scanner cosa deve eseguire la scansione. Può essere una stringa che indica un file o una cartella specifici, o una matrice di tali stringhe per specificare più file/cartelle.
+Il primo parametro può essere una stringa o un array e indica allo scanner cosa deve eseguire la scansione. Può essere una stringa che indica un file o una directory specifici, o una matrice di tali stringhe per specificare più file/cartelle.
 
 Quando come stringa, dovrebbe indicare dove possono essere trovati i dati. Quando come array, le chiavi dell'array dovrebbero indicare i nomi originali degli elementi da sottoporre a scansione e i valori dovrebbero indicare dove si possono trovare i dati.
 
@@ -1470,7 +1470,7 @@ Frequenza di aggiornamento varia a seconda delle file di firma in questione. Tut
 
 #### <a name="MINIMUM_PHP_VERSION_V3"></a>Voglio usare phpMussel v3 con una versione di PHP più vecchio di 7.2.0; Puoi aiutami?
 
-No. PHP >= 7.2.0 è un requisito minimo per phpMussel v3.
+No. PHP≥7.2 è un requisito minimo per phpMussel v3.
 
 *Guarda anche: [Grafici di Compatibilità](https://maikuolan.github.io/Compatibility-Charts/).*
 
@@ -1892,7 +1892,7 @@ phpMussel è facoltativamente in grado di tracciare statistiche come il numero t
 
 ##### 9.3.7 CRITTOGRAFIA
 
-phpMussel non crittografa la sua cache o alcuna informazione di registro. La [crittografia](https://it.wikipedia.org/wiki/Crittografia) della cache e del registro potrebbe essere introdotta in futuro, ma al momento non sono previsti piani specifici. Se sei preoccupato per le terze parti non autorizzate che accedono a parti di phpMussel che potrebbero contenere informazioni personali o riservate quali la cache o i registri, ti consiglio di non installare phpMussel in una posizione accessibile al pubblico (per esempio, installare phpMussel al di fuori della cartella `public_html` standard o equivalente di quella disponibile per la maggior parte dei server Web standard) e che le autorizzazioni appropriatamente restrittive siano applicate per la cartella in cui risiede. Se ciò non è sufficiente per risolvere i tuoi dubbi, allora configura phpMussel in modo tale che i tipi di informazioni che causano i tuoi dubbi non saranno raccolti o registrati in primo luogo (ad esempio, di disabilitando la registrazione).
+phpMussel non crittografa la sua cache o alcuna informazione di registro. La [crittografia](https://it.wikipedia.org/wiki/Crittografia) della cache e del registro potrebbe essere introdotta in futuro, ma al momento non sono previsti piani specifici. Se sei preoccupato per le terze parti non autorizzate che accedono a parti di phpMussel che potrebbero contenere informazioni personali o riservate quali la cache o i registri, ti consiglio di non installare phpMussel in una posizione accessibile al pubblico (per esempio, installare phpMussel al di fuori della directory `public_html` standard o equivalente di quella disponibile per la maggior parte dei server Web standard) e che le autorizzazioni appropriatamente restrittive siano applicate per la directory in cui risiede. Se ciò non è sufficiente per risolvere i tuoi dubbi, allora configura phpMussel in modo tale che i tipi di informazioni che causano i tuoi dubbi non saranno raccolti o registrati in primo luogo (ad esempio, di disabilitando la registrazione).
 
 #### 9.4 COOKIE
 
@@ -1928,4 +1928,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 9 Agosto 2025 (2025.08.09).
+Ultimo Aggiornamento: 9 Ottobre 2025 (2025.10.09).

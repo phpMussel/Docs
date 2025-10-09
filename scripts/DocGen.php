@@ -66,6 +66,8 @@ if (!isset($_GET['language'])) {
                 ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
                 html_entity_decode($Out)
             );
+        } else {
+            $Out = preg_replace('~<code dir="ltr" class="s">([^<]+)</code>~i', '<strong><code dir="ltr">\1</code></strong>', html_entity_decode($Out));
         }
         if ($Try = $Data->getString('config.' . $Category . '_hint')) {
             if ($Data->Directionality !== 'rtl') {
@@ -74,6 +76,8 @@ if (!isset($_GET['language'])) {
                     ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
                     html_entity_decode($Try)
                 );
+            } else {
+                $Try = preg_replace('~<code dir="ltr" class="s">([^<]+)</code>~i', '<strong><code dir="ltr">\1</code></strong>', html_entity_decode($Try));
             }
             $Out .= "\n\n" . $Try;
         }
@@ -86,16 +90,15 @@ if (!isset($_GET['language'])) {
                     ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
                     html_entity_decode($Out)
                 );
+            } else {
+                $Out = preg_replace('~<code dir="ltr" class="s">([^<]+)</code>~i', '<strong><code dir="ltr">\1</code></strong>', html_entity_decode($Out));
             }
-            $Default = $Info['default'] ?? '';
             if (in_array($Info['type'], ['string', 'timezone', 'checkbox', 'url', 'email', 'kb'], true)) {
                 $Type = 'string';
-                $Default = '"' . $Default . '"';
             } elseif ($Info['type'] === 'float') {
                 $Type = 'float';
             } elseif ($Info['type'] === 'bool') {
                 $Type = 'bool';
-                $Default = $Default ? 'true' : 'false';
             } else {
                 $Type = 'int';
             }
@@ -109,7 +112,18 @@ if (!isset($_GET['language'])) {
             $First .= ($Current === $Cats ? '        ' : '│       ') . $Directive . ' [' . $Type . "]\n";
             $Final .= sprintf($Data->getString('directive'), $Directive, $Type, $Out) . "\n\n";
             if (!empty($Choices)) {
-                $Final .= "```\n" . $Directive . "\n";
+                $Final .= "```\n" . $Directive;
+                if (isset($Info['labels'])) {
+                    if (!is_array($Info['labels'])) {
+                        $Info['labels'] = [$Info['labels']];
+                    }
+                    foreach ($Info['labels'] as &$Label) {
+                        $Label = $Data->getString($Label) ?: $Label;
+                    }
+                    unset($Label);
+                    $Final .= '───[' . implode(']─[', $Info['labels']) . ']';
+                }
+                $Final .= "\n";
                 $Number = count($Choices);
                 if (!empty($Info['allow_other'])) {
                     $Number++;
@@ -137,19 +151,38 @@ if (!isset($_GET['language'])) {
                 $Final .= "```\n\n";
             }
             if (!empty($Info['hints'])) {
-                foreach ($Data->arrayFromL10nToArray($Info['hints']) as $HintKey => $HintValue) {
+                $HintValue = '';
+                if (is_string($Info['hints']) && strpos($Info['hints'], '.') !== false) {
+                    $HintValue = $Data->getString($Info['hints']);
+                }
+                if ($HintValue !== '') {
                     if ($Data->Directionality !== 'rtl') {
                         $HintValue = str_replace(
                             ['<code>', '<code class="s">', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
                             ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
                             html_entity_decode($HintValue)
                         );
+                    } else {
+                        $HintValue = preg_replace('~<code dir="ltr" class="s">([^<]+)</code>~i', '<strong><code dir="ltr">\1</code></strong>', html_entity_decode($HintValue));
                     }
-                    if (!is_string($HintKey)) {
-                        $Final .= $HintValue . "\n\n";
-                        continue;
+                    $Final .= $HintValue . "\n\n";
+                } else {
+                    foreach ($Data->arrayFromL10nToArray($Info['hints']) as $HintKey => $HintValue) {
+                        if ($Data->Directionality !== 'rtl') {
+                            $HintValue = str_replace(
+                                ['<code>', '<code class="s">', '<code dir="ltr">', '<code dir="rtl">', '</code>', '<strong>', '</strong>', '<em>', '</em>'],
+                                ['`', '`', '`', '`', '`', '__', '__', '*', '*'],
+                                html_entity_decode($HintValue)
+                            );
+                        } else {
+                            $HintValue = preg_replace('~<code dir="ltr" class="s">([^<]+)</code>~i', '<strong><code dir="ltr">\1</code></strong>', html_entity_decode($HintValue));
+                        }
+                        if (!is_string($HintKey)) {
+                            $Final .= $HintValue . "\n\n";
+                            continue;
+                        }
+                        $Final .= sprintf("__%s__ %s\n\n", $HintKey, $HintValue);
                     }
-                    $Final .= sprintf("__%s__ %s\n\n", $HintKey, $HintValue);
                 }
             }
             if (!empty($Info['See also'])) {

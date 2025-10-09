@@ -1470,7 +1470,7 @@ Frekuensi pembaruan bervariasi tergantung pada file tanda tangan. Semua penulis 
 
 #### <a name="MINIMUM_PHP_VERSION_V3"></a>Saya ingin menggunakan phpMussel v3 dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?
 
-Tidak. PHP >= 7.2.0 adalah persyaratan minimum untuk phpMussel v3.
+Tidak. PHP≥7.2 adalah persyaratan minimum untuk phpMussel v3.
 
 *Lihat juga: [Bagan Kompatibilitas](https://maikuolan.github.io/Compatibility-Charts/).*
 
@@ -1925,4 +1925,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 9 Agustus 2025 (2025.08.09).
+Terakhir Diperbarui: 9 Oktober 2025 (2025.10.09).

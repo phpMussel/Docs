@@ -25,6 +25,7 @@
 <div dir="rtl">حقوق النشر محفوظة ل <a dir="ltr" href="https://phpmussel.github.io/">PHPMUSSEL</a> لعام ٢٠١٣ وما بعده تحت رخصة GNU/GPLv2 للمبرمج <a dir="ltr" href="https://github.com/Maikuolan">Caleb M (Maikuolan)</a>.<br /><br /></div>
 
 <div dir="rtl">هذا البرنامج مجاني، يمكنك تعديله وإعادة نشره تحت رخصة GNU. نشارك هذا السكربت على أمل أن تعم الفائدة لكن لا نتحمل أية مسؤولية أو أية ضمانات لاستخدامك، اطلع على تفاصيل رخصة GNU للمزيد من المعلومات عبر الملف "LICENSE.txt" وللمزيد من المعلومات:</div>
+
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
@@ -604,22 +605,22 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 ##### <div dir="rtl">"scan_log" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>اسم الملف لملف تسجيل جميع نتائج المسح. قم بتعيين اسم الملف، أو اتركه فارغا للتعطيل.</li></ul></div>
 
-نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">core➡time_format</code></a>.
+نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">time_format⬅core</code></a>.
 
 ##### <div dir="rtl">"scan_log_serialized" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>اسم الملف من ملف لتسجيل جميع نتائج المسح إلى (باستخدام تنسيق متسلسل). تحديد اسم الملف، أو اتركه فارغا للتعطيل.</li></ul></div>
 
-نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">core➡time_format</code></a>.
+نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">time_format⬅core</code></a>.
 
 ##### <div dir="rtl">"error_log" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>ملف لتسجيل أي أخطاء غير مميتة المكتشفة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
 
-نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">core➡time_format</code></a>.
+نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">time_format⬅core</code></a>.
 
 ##### <div dir="rtl">"outbound_request_log" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>ملف لتسجيل نتائج أي طلبات صادرة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
 
-نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">core➡time_format</code></a>.
+نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">time_format⬅core</code></a>.
 
 ##### <div dir="rtl">"truncate" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>اقتطاع ملفات السجل عندما تصل إلى حجم معين؟ القيمة هي الحجم الأقصى في بايت/كيلوبايت/ميغابايت/غيغابايت/تيرابايت الذي قد ينمو ملفات السجل إلى قبل اقتطاعه. القيمة الافتراضية 0KB تعطيل اقتطاع (ملفات السجل يمكن أن تنمو إلى أجل غير مسمى). ملاحظة: ينطبق على ملفات السجل الفردية! ولا يعتبر حجمها جماعيا.</li></ul></div>
@@ -729,22 +730,22 @@ time_format
 ```
 
 <strong><em>العنصر النائب – تفسير – مثال يعتمد على <span dir="ltr">2024-04-30T18:27:49+08:00</span>.</em></strong><br />
-<code dir="ltr" class="s">{yyyy}</code> – السنة – على سبيل المثال، 2024.<br />
-<code dir="ltr" class="s">{yy}</code> – السنة المختصرة – على سبيل المثال، 24.<br />
-<code dir="ltr" class="s">{Mon}</code> – اسم الشهر المختصر (باللغة الإنجليزية) – على سبيل المثال، Apr.<br />
-<code dir="ltr" class="s">{mm}</code> – الشهر الذي مع الأصفار البادئة – على سبيل المثال، 04.<br />
-<code dir="ltr" class="s">{m}</code> – الشهر – على سبيل المثال، 4.<br />
-<code dir="ltr" class="s">{Day}</code> – اسم اليوم المختصر (باللغة الإنجليزية) – على سبيل المثال، Tue.<br />
-<code dir="ltr" class="s">{dd}</code> – اليوم مع الأصفار البادئة – على سبيل المثال، 30.<br />
-<code dir="ltr" class="s">{d}</code> – اليوم – على سبيل المثال، 30.<br />
-<code dir="ltr" class="s">{hh}</code> – الساعة مع الأصفار البادئة (تستخدم نظام 24 ساعة) – على سبيل المثال، 18.<br />
-<code dir="ltr" class="s">{h}</code> – الساعة (تستخدم نظام 24 ساعة) – على سبيل المثال، 18.<br />
-<code dir="ltr" class="s">{ii}</code> – الدقيقة مع الأصفار البادئة – على سبيل المثال، 27.<br />
-<code dir="ltr" class="s">{i}</code> – الدقيقة – على سبيل المثال، 27.<br />
-<code dir="ltr" class="s">{ss}</code> – الثواني مع الأصفار البادئة – على سبيل المثال، 49.<br />
-<code dir="ltr" class="s">{s}</code> – الثواني – على سبيل المثال، 49.<br />
-<code dir="ltr" class="s">{tz}</code> – المنطقة الزمنية (بدون النقطتين) – على سبيل المثال، <span dir="ltr">+0800</span>.<br />
-<code dir="ltr" class="s">{t:z}</code> – المنطقة الزمنية (مع النقطتين) – على سبيل المثال، <span dir="ltr">+08:00</span>.
+<strong><code dir="ltr">{yyyy}</code></strong> – السنة – على سبيل المثال، 2024.<br />
+<strong><code dir="ltr">{yy}</code></strong> – السنة المختصرة – على سبيل المثال، 24.<br />
+<strong><code dir="ltr">{Mon}</code></strong> – اسم الشهر المختصر (باللغة الإنجليزية) – على سبيل المثال، Apr.<br />
+<strong><code dir="ltr">{mm}</code></strong> – الشهر الذي مع الأصفار البادئة – على سبيل المثال، 04.<br />
+<strong><code dir="ltr">{m}</code></strong> – الشهر – على سبيل المثال، 4.<br />
+<strong><code dir="ltr">{Day}</code></strong> – اسم اليوم المختصر (باللغة الإنجليزية) – على سبيل المثال، Tue.<br />
+<strong><code dir="ltr">{dd}</code></strong> – اليوم مع الأصفار البادئة – على سبيل المثال، 30.<br />
+<strong><code dir="ltr">{d}</code></strong> – اليوم – على سبيل المثال، 30.<br />
+<strong><code dir="ltr">{hh}</code></strong> – الساعة مع الأصفار البادئة (تستخدم نظام 24 ساعة) – على سبيل المثال، 18.<br />
+<strong><code dir="ltr">{h}</code></strong> – الساعة (تستخدم نظام 24 ساعة) – على سبيل المثال، 18.<br />
+<strong><code dir="ltr">{ii}</code></strong> – الدقيقة مع الأصفار البادئة – على سبيل المثال، 27.<br />
+<strong><code dir="ltr">{i}</code></strong> – الدقيقة – على سبيل المثال، 27.<br />
+<strong><code dir="ltr">{ss}</code></strong> – الثواني مع الأصفار البادئة – على سبيل المثال، 49.<br />
+<strong><code dir="ltr">{s}</code></strong> – الثواني – على سبيل المثال، 49.<br />
+<strong><code dir="ltr">{tz}</code></strong> – المنطقة الزمنية (بدون النقطتين) – على سبيل المثال، <span dir="ltr">+0800</span>.<br />
+<strong><code dir="ltr">{t:z}</code></strong> – المنطقة الزمنية (مع النقطتين) – على سبيل المثال، <span dir="ltr">+08:00</span>.
 
 ##### <div dir="rtl">"ipaddr" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>أين يمكن العثور على عنوان IP لربط الطلبات؟ (مفيدة للخدمات مثل Cloudflare). الافتراضي = REMOTE_ADDR. تحذير: لا تغير هذا إلا إذا كنت تعرف ما تفعلونه!</li></ul></div>
@@ -1126,7 +1127,7 @@ __FAQ.__ <em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ar.md
 ##### <div dir="rtl">"frontend_log" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>ملف لتسجيل محاولات الدخول الأمامية. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
 
-نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">core➡time_format</code></a>.
+نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">time_format⬅core</code></a>.
 
 ##### <div dir="rtl">"max_login_attempts" <code dir="ltr">[int]</code><br /></div>
 <div dir="rtl"><ul><li>الحد الأقصى لعدد محاولات تسجيل الدخول (front-end). الافتراضي = 5.</li></ul></div>
@@ -1233,7 +1234,7 @@ theme_mode
 ##### <div dir="rtl">"uploads_log" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>مكان تسجيل جميع التحميلات المحظورة. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
 
-نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">core➡time_format</code></a>.
+نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">time_format⬅core</code></a>.
 
 ##### <div dir="rtl">"forbid_on_block" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>هل phpMussel يرسل 403 من العناوين مع الرسالة منعت إيداع الملف، أو يبقى مع المعتادة 200 موافق؟ خطأ = رقم (200). صحيح/True = نعم (403) [الافتراضي].</li></ul></div>
@@ -1287,7 +1288,7 @@ theme_mode
 ##### <div dir="rtl">"event_log" <code dir="ltr">[string]</code><br /></div>
 <div dir="rtl"><ul><li>ملف لتسجيل جميع الأحداث المتعلقة ب PHPMailer. تحديد اسم الملف، أو اتركه فارغا لتعطيل.</li></ul></div>
 
-نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">core➡time_format</code></a>.
+نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format"><code dir="ltr">time_format⬅core</code></a>.
 
 ##### <div dir="rtl">"enable_two_factor" <code dir="ltr">[bool]</code><br /></div>
 <div dir="rtl"><ul><li>يحدد هذا التوجيه ما إذا كان سيتم استخدام 2FA للحسابات front-end أم لا.</li></ul></div>
@@ -1482,7 +1483,7 @@ smtp_secure
 
 #### <div dir="rtl"><a name="MINIMUM_PHP_VERSION_V3"></a>أريد استخدام phpMussel v3 مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟<br /><br /></div>
 
-<div dir="rtl">لا. PHP >= 7.2.0 هو الحد الأدنى لمتطلبات phpMussel v3.<br /><br /></div>
+<div dir="rtl">لا. PHP≥7.2 هو الحد الأدنى لمتطلبات phpMussel v3.<br /><br /></div>
 
 <div dir="rtl"><em>انظر أيضا: <a href="https://maikuolan.github.io/Compatibility-Charts/">مخططات التوافق</a>.</em><br /><br /></div>
 
@@ -1967,4 +1968,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٩ أغسطس ٢٠٢٥ (٢٠٢٥.٠٨.٠٩).</div>
+<div dir="rtl">آخر تحديث: ٩ أكتوبر ٢٠٢٥ (٢٠٢٥.١٠.٠٩).</div>

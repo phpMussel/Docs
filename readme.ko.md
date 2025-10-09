@@ -1470,7 +1470,7 @@ phpMussel은 파일을 차단합니다 | __위양성__ | 진정한 양성 (올�
 
 #### <a name="MINIMUM_PHP_VERSION_V3"></a>7.2.0보다 오래된 PHP 버전에서 phpMussel v3을 사용하고 싶습니다; 도울 수 있니?
 
-아니오. PHP >= 7.2.0은 phpMussel v3의 최소 요구 사항입니다.
+아니오. PHP≥7.2은 phpMussel v3의 최소 요구 사항입니다.
 
 *참조 : [호환성 차트](https://maikuolan.github.io/Compatibility-Charts/).*
 
@@ -1924,4 +1924,4 @@ phpMussel은 마케팅이나 광고 목적으로 정보를 수집하거나 처�
 ---
 
 
-최종 업데이트 : 2025년 8월 9일.
+최종 업데이트 : 2025년 10월 9일.

@@ -1471,7 +1471,7 @@ Tần suất cập nhật thay đổi tùy thuộc vào các tập tin chữ ký
 
 #### <a name="MINIMUM_PHP_VERSION_V3"></a>Tôi muốn sử dụng phpMussel v3 với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?
 
-Không. PHP >= 7.2.0 là yêu cầu tối thiểu đối với phpMussel v3.
+Không. PHP≥7.2 là yêu cầu tối thiểu đối với phpMussel v3.
 
 *Xem thêm: [Biểu đồ tương thích](https://maikuolan.github.io/Compatibility-Charts/).*
 
@@ -1923,4 +1923,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2025.08.09.
+Lần cuối cập nhật: 2025.10.09.

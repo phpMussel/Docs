@@ -1471,7 +1471,7 @@ Bijwerkfrequentie varieert afhankelijk van de signatuurbestanden betrokken. Alle
 
 #### <a name="MINIMUM_PHP_VERSION_V3"></a>Ik wil phpMussel v3 gebruiken met een PHP-versie ouder dan 7.2.0; Kan u helpen?
 
-Nee. PHP >= 7.2.0 is een minimale vereiste voor phpMussel v3.
+Nee. PHP≥7.2 is een minimale vereiste voor phpMussel v3.
 
 *Zie ook: [Compatibiliteitskaarten](https://maikuolan.github.io/Compatibility-Charts/).*
 
@@ -1950,4 +1950,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 9 Augustus 2025 (2025.08.09).
+Laatste Bijgewerkt: 9 Oktober 2025 (2025.10.09).

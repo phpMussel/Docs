@@ -1469,7 +1469,7 @@ Die Aktualisierungshäufigkeit hängt von den betreffenden Signaturdateien ab. I
 
 #### <a name="MINIMUM_PHP_VERSION_V3"></a>Ich möchte phpMussel v3 mit einer PHP-Version älter als 7.2.0 verwenden; Können Sie helfen?
 
-Nein. PHP >= 7.2.0 ist eine Mindestanforderung für phpMussel v3.
+Nein. PHP≥7.2 ist eine Mindestanforderung für phpMussel v3.
 
 *Siehe auch: [Kompatibilitätstabellen](https://maikuolan.github.io/Compatibility-Charts/).*
 
@@ -1939,4 +1939,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 9. August 2025 (2025.08.09).
+Zuletzt aktualisiert: 9. Oktober 2025 (2025.10.09).
