@@ -5,7 +5,7 @@
 - 2. [설치 방법](#user-content-SECTION2)
 - 3. [사용 방법](#user-content-SECTION3)
 - 4. [PHPMUSSEL 확장](#user-content-SECTION4)
-- 5. [설정 옵션](#user-content-SECTION5)
+- 5. [구성 옵션](#user-content-SECTION5)
 - 6. [서명 형식](#user-content-SECTION6)
 - 7. [알려진 호환성 문제](#user-content-SECTION7)
 - 8. [자주 묻는 질문 (FAQ)](#user-content-SECTION8)
@@ -451,9 +451,9 @@ v3 boilerplate 코드의 구조는 phpMussel 조직의 다양한 phpMussel v3 �
 ---
 
 
-### 5. <a name="SECTION5"></a>설정 옵션
+### 5. <a name="SECTION5"></a>구성 옵션
 
-다음은 phpMussel에서 허용하는 구성 지시문 목록입니다, 그들의 목적과 기능에 대한 설명과 함께.
+다음은 phpMussel이 허용하는 구성 지시문 목록과 그들의 목적과 기능에 대한 설명입니다.
 
 ```
 구성 (v3)
@@ -595,30 +595,30 @@ v3 boilerplate 코드의 구조는 phpMussel 조직의 다양한 phpMussel v3 �
 ```
 
 #### "core" (카테고리)
-일반 설정 (다른 카테고리에 속하지 않는 설정).
+일반 구성 (다른 카테고리에 속하지 않는 핵심 구성).
 
 ##### "scan_log" `[string]`
-- 전체 스캔 결과를 기록하는 파일의 파일 이름. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+- 모든 검사 결과를 기록할 파일의 이름. 파일 이름을 지정하거나, 비활성화하려면 비워 두세요.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
+유용한 팁: 시간 형식 placeholder를 사용하여 로그 파일 이름에 날짜/시간 정보를 붙일 수 있습니다. 사용할 수 있는 시간 형식 placeholder는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시되어 있습니다.
 
 ##### "scan_log_serialized" `[string]`
-- 전체 스캔 결과를 기록하는 파일의 파일 이름 (serialization 형식을 이용). 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+- 모든 검사 결과를 기록할 파일의 이름 (serialize된 형식 사용). 파일 이름을 지정하거나, 비활성화하려면 비워 두세요.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
+유용한 팁: 시간 형식 placeholder를 사용하여 로그 파일 이름에 날짜/시간 정보를 붙일 수 있습니다. 사용할 수 있는 시간 형식 placeholder는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시되어 있습니다.
 
 ##### "error_log" `[string]`
-- 치명적이지 않은 오류를 탐지하기위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+- 감지된 치명적이지 않은 오류를 기록할 파일. 파일 이름을 지정하거나, 비활성화하려면 비워 두세요.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
+유용한 팁: 시간 형식 placeholder를 사용하여 로그 파일 이름에 날짜/시간 정보를 붙일 수 있습니다. 사용할 수 있는 시간 형식 placeholder는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시되어 있습니다.
 
 ##### "outbound_request_log" `[string]`
-- 아웃바운드 요청의 결과를 기록하기 위한 파일. 파일 이름을 지정하십시오. 비활성화하려면 비워 둡니다.
+- 아웃바운드 요청의 결과를 기록할 파일. 파일 이름을 지정하거나, 비활성화하려면 비워 두세요.
 
-유용한 팁 : 시간 형식 자리 표시자를 사용하여 로그 파일 이름에 날짜/시간 정보를 첨부할 수 있습니다. 사용 가능한 시간 형식 자리 표시자는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시됩니다.
+유용한 팁: 시간 형식 placeholder를 사용하여 로그 파일 이름에 날짜/시간 정보를 붙일 수 있습니다. 사용할 수 있는 시간 형식 placeholder는 <a onclick="javascript:toggleconfigNav('coreRow','coreShowLink')" href="#config_core_time_format">`core➡time_format`</a>에 표시되어 있습니다.
 
 ##### "truncate" `[string]`
-- 로그 파일이 특정 크기에 도달하면 잘 있습니까? 값은 로그 파일이 잘 리기 전에 커질 가능성이있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값 "0KB"은 절단을 해제합니다 (로그 파일은 무한정 확장 할 수 있습니다). 참고 : 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 일괄 적으로 고려되지 않습니다.
+- 로그 파일이 특정 크기에 도달하면 truncate할까요? 값은 로그 파일이 truncate되기 전에 커질 수 있는 B/KB/MB/GB/TB 단위의 최대 크기입니다. 기본값인 0KB는 truncation을 비활성화합니다 (로그 파일이 무한정 커질 수 있음). 참고: 개별 로그 파일에 적용됩니다! 로그 파일의 크기는 전체적으로 고려되지 않습니다.
 
 ##### "log_rotation_limit" `[int]`
 - 로그 회전은 한 번에 존재해야하는 로그 파일 수를 제한합니다. 새 로그 파일을 만들 때 총 로그, 파일 수가 지정된 제한을 초과하면, 지정된 작업이 수행됩니다. 여기서 원하는 한계를 지정할 수 있습니다. 값 0은 로그 회전을 비활성화합니다.
