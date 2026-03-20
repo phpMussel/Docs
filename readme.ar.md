@@ -445,9 +445,9 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 
 <div dir="rtl">تم تصميم phpMussel مع وضع القابلية للتوسعة في الاعتبار. نرحب دائمًا <a href="https://github.com/phpMussel/.github/blob/master/CONTRIBUTING.md">بالمساهمات</a> في أي من مستودعات منظمة phpMussel. من الممكن أيضًا تعديل أو توسيع phpMussel وفقًا لاحتياجاتك الفريدة، إذا كنت ترغب في ذلك (على سبيل المثال، بالنسبة للتعديلات أو الإضافات الخاصة بتنفيذك الخاص، والتي لا يمكن نشرها بسبب متطلبات السرية أو الخصوصية في مؤسستك، أو التي قد يُنصح بنشرها في مستودعها الخاص، مثل الإضافات وحزم Composer الجديدة التي تتطلب phpMussel).<br /><br /></div>
 
-<div dir="rtl">منذ الإصدار 3، توجد جميع وظائف phpMussel كصنف، مما يعني أنه في بعض الحالات، آليات <a href="https://www.php.net/manual/en/language.oop5.inheritance.php" hreflang="en-US">وراثة الكائن</a> التي توفرها PHP طريقة سهلة ومناسبة لتوسيع phpMussel.<br /><br /></div>
+<div dir="rtl">منذ v3، توجد جميع وظائف phpMussel كصنف، مما يعني أنه في بعض الحالات، آليات <a href="https://www.php.net/manual/en/language.oop5.inheritance.php" hreflang="en-US">وراثة الكائن</a> التي توفرها PHP طريقة سهلة ومناسبة لتوسيع phpMussel.<br /><br /></div>
 
-<div dir="rtl">يوفر phpMussel أيضًا آلياته الخاصة للتوسع. قبل الإصدار 3، كانت الآلية المفضلة هي نظام البرنامج المساعد المدمج لـ phpMussel. منذ الإصدار 3، الآلية المفضلة هي منظم الأحداث.<br /><br /></div>
+<div dir="rtl">يوفر phpMussel أيضًا آلياته الخاصة للتوسع. قبل v3، كانت الآلية المفضلة هي نظام البرنامج المساعد المدمج لـ phpMussel. منذ v3، الآلية المفضلة هي منظم الأحداث.<br /><br /></div>
 
 <div dir="rtl">كود معياري لتوسيع phpMussel وكتابة ملحقات جديدة متاح للجمهور في <a href="https://github.com/phpMussel/plugin-boilerplates" hreflang="en-AU">مستودع القياسية</a>. يتم تضمين أيضًا قائمة بجميع <a href="https://github.com/phpMussel/plugin-boilerplates/tree/master/boilerplate-v3#currently-supported-events" hreflang="en-AU">الأحداث المدعومة حاليًا</a> وإرشادات أكثر تفصيلاً بشأن كيفية استخدام الكود معياري.<br /><br /></div>
 
@@ -1968,4 +1968,4 @@ x.x.x.x - Day, dd Mon 20xx hh:ii:ss +0000 - "admin" - حاليا على.
 ---
 
 
-<div dir="rtl">آخر تحديث: ٩ أكتوبر ٢٠٢٥ (٢٠٢٥.١٠.٠٩).</div>
+<div dir="rtl">آخر تحديث: ٣ مارس ٢٠٢٦ (٢٠٢٦.٠٣.٠٣).</div>

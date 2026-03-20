@@ -633,7 +633,7 @@ log_rotation_action
 ```
 
 ##### "timezone" `[string]`
-- Ini digunakan untuk menentukan zona waktu yang akan digunakan (misalnya, Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, dll). Menentukan "SYSTEM" untuk membiarkan PHP menangani ini untuk Anda secara otomatis.
+- Ini digunakan untuk menentukan zona waktu yang akan digunakan (misalnya, Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, dsb). Menentukan "SYSTEM" untuk membiarkan PHP menangani ini untuk Anda secara otomatis.
 
 ```
 timezone
@@ -1026,7 +1026,7 @@ vt_suspicion_level
 │ memberikan kepastian apapun.
 ├─1 (Pindai file dengan bobot heuristik, file yang dapat dieksekusi, dan file yang berpotensi berisi data yang dapat dieksekusi.): Contoh file yang dapat dieksekusi, dan file yang berpotensi berisi data yang
 │ dapat dieksekusi, termasuk file Windows PE, file Linux ELF, file Mach-O,
-│ file DOCX, file ZIP, dll.
+│ file DOCX, file ZIP, dsb.
 └─2 (Pindai semua file.)
 ```
 
@@ -1435,7 +1435,7 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 - [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#user-content-SCAN_DEBUGGING)
 - [Daftar hitam – Daftar putih – Daftar abu-abu – Apa itu mereka, dan bagaimana cara menggunakannya?](#user-content-BLACK_WHITE_GREY)
 - [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#user-content-HOW_TO_USE_PDO)
-- [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#user-content-AJAX_AJAJ_JSON)
+- [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dsb). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#user-content-AJAX_AJAJ_JSON)
 - [Bisakah phpMussel mendeteksi EICAR?](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Apa yang "tanda tangan"?
@@ -1725,7 +1725,7 @@ Jika Anda tidak yakin tentang apa yang harus digunakan untuk beberapa bagian ter
 
 Perhatikan bahwa `pdo_username` dan` pdo_password` harus sama dengan nama pengguna dan kata sandi yang Anda pilih untuk basis data Anda.
 
-#### <a name="AJAX_AJAJ_JSON"></a>Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dll). Saya tidak bisa melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?
+#### <a name="AJAX_AJAJ_JSON"></a>Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dsb). Saya tidak bisa melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?
 
 Ini normal. Halaman "Upload Ditolak" standar phpMussel disajikan sebagai HTML, yang seharusnya cukup untuk permintaan sinkron biasa, tetapi yang mungkin tidak akan cukup jika fasilitas upload Anda mengharapkan sesuatu yang lain. Jika fasilitas upload Anda tidak sinkron, atau mengharapkan status upload akan dilayani secara tidak sinkron, ada beberapa hal yang Anda dapat coba lakukan agar phpMussel dapat melayani kebutuhan fasilitas upload Anda.
 

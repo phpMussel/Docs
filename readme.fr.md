@@ -743,7 +743,7 @@ __*Espace réservé – Explication – Exemple basé sur 2024-04-30T18:27:49+08
 `{t:z}` – Le fuseau horaire (avec deux points) – Par exemple, +08:00.
 
 ##### « ipaddr » `[string]`
-- Où trouver l'adresse IP de requêtes ? (Utile pour services tels que Cloudflare). Par Défaut = REMOTE_ADDR. AVERTISSEMENT : Ne pas changer si vous ne sais pas ce que vous faites !
+- Où trouver l'adresse IP des requêtes ? (Utile pour services tels que Cloudflare). Par Défaut = REMOTE_ADDR. AVERTISSEMENT : Ne pas changer si vous ne sais pas ce que vous faites !
 
 ```
 ipaddr
@@ -1939,4 +1939,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 9 Octobre 2025 (2025.10.09).
+Dernière mise à jour : 18 Mars 2026 (2026.03.18).
