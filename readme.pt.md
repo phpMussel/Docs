@@ -53,7 +53,7 @@ Fornece um recurso administrativo de front-end para o phpMussel:
 
 `composer require phpmussel/frontend`
 
-Fornece análise automática de upload de arquivos para o seu site:
+Fornece análise automática de carregamentos para o seu site:
 
 `composer require phpmussel/web`
 
@@ -61,7 +61,7 @@ Fornece a capacidade de utilizar o phpMussel como um aplicativo interativo no mo
 
 `composer require phpmussel/cli`
 
-Fornece uma ponte entre o phpMussel e o PHPMailer, permitindo que o phpMussel utilize o PHPMailer para autenticação de dois fatores, notificação por email sobre uploads de arquivos bloqueados, etc:
+Fornece uma ponte entre o phpMussel e o PHPMailer, permitindo que o phpMussel utilize o PHPMailer para autenticação de dois fatores, notificação por email sobre carregamentos bloqueados, etc:
 
 `composer require phpmussel/phpmailer`
 
@@ -962,7 +962,7 @@ __Ordem lógica de processamento.__ Se o tipo de arquivo está na whitelist, nã
 - Reconhecidos arquivos extensões (formato é CSV; só deve adicionar ou remover quando problemas ocorrem; desnecessariamente removendo pode causar falso-positivos para aparecer por compactados arquivos, enquanto desnecessariamente adicionando será essencialmente whitelist o que você está adicionando contra ataque específica detecção; modificar com cautela; Também notar que este não tem efeito em qual compactados arquivos podem e não podem ser analisados no escopo de conteúdo). A lista, como é padrão, é do formatos utilizados mais comumente através da maioria dos sistemas e CMS, mas intencionalmente não é necessariamente abrangente.
 
 ##### "block_control_characters" `[bool]`
-- Bloquear todos os arquivos que contenham quaisquer caracteres de controle, exceto linha quebras? Se você está __*APENAS*__ carregando simple texto, então você pode ativar essa opção para fornecer alguma adicional proteção para seu sistema. Mas, se você carregar qualquer coisa que não seja de texto simples, ativando isso pode resultas em falso positivos. False = Não bloquear [Padrão]; True = Bloquear.
+- Bloquear todos os arquivos que contenham quaisquer caracteres de controle, exceto linha quebras? Se você está __*APENAS*__ carregando simple texto, então você pode ativar essa opção para fornecer alguma adicional proteção para seu sistema. Mas, se você carregar qualquer coisa que não seja de texto simples, ativando isso pode resultar em falso positivos. False = Não bloquear [Padrão]; True = Bloquear.
 
 ##### "corrupted_exe" `[bool]`
 - Corrompidos arquivos e erros de análise. False = Ignorar; True = Bloquear [Padrão]. Detectar e bloquear potencialmente corrompidos PE (Portátil Executável) arquivos? Frequentemente (mas não sempre), quando certos aspectos de um PE arquivo é corrompido ou não pode ser analisado corretamente, essa pode ser indicativo de uma viral infecção. Os processos utilizados pela maioria dos antivírus programas para detectar vírus em PE arquivos requerem analisando os arquivos de certas maneiras, que, se o programador de um vírus é consciente de, especificamente irá tentar impedir, a fim de permitir seu vírus para permanecer não detectado.
@@ -971,7 +971,7 @@ __Ordem lógica de processamento.__ Se o tipo de arquivo está na whitelist, nã
 - Opcional limitação para o comprimento dos dados para que dentro de decodificar comandos devem ser detectados (em caso de existirem quaisquer notável problemas de desempenho enquanto analisando). Padrão = 512KB. Zero ou nulo valor desativa o limitação (removendo qualquer limitação baseado em tamanho do arquivo).
 
 ##### "scannable_threshold" `[string]`
-- Opcional limitação para o comprimento dos dados brutos para que phpMussel é permitido a ler e analisar (em caso de existirem quaisquer notável problemas de desempenho enquanto analisando). Padrão = 32MB. Zero ou nulo valor desativa o limitação. Em geral, esse valor não deve ser menor que o médio arquivo tamanho de carregamentos que você quer e espera para receber no seu servidor ou website, não deve ser mais que o filesize_limit directivo, e não deve ser menor que aproximadamente um quinto do total permissível memória alocação concedido para PHP através do "php.ini" configuração arquivo. Esta directiva existe para tentar impedir phpMussel de usando demais memória (que seria impedir-lo de ser capaz de analisando arquivos acima de um certo tamanho com sucesso).
+- Opcional limitação para o comprimento dos dados brutos para que phpMussel é permitido a ler e analisar (em caso de existirem quaisquer notável problemas de desempenho enquanto analisando). Padrão = 32MB. Zero ou nulo valor desativa o limitação. Em geral, esse valor não deve ser menor que o tamanho médio dos carregamentos que você quer e espera para receber no seu servidor ou website, não deve ser mais que o filesize_limit directivo, e não deve ser menor que aproximadamente um quinto do total permissível memória alocação concedido para PHP através do "php.ini" configuração arquivo. Esta directiva existe para tentar impedir phpMussel de usando demais memória (que seria impedir-lo de ser capaz de analisando arquivos acima de um certo tamanho com sucesso).
 
 ##### "allow_leading_trailing_dots" `[bool]`
 - Permitir pontos iniciais e finais em nomes de arquivos? Às vezes, isso pode ser usado para ocultar arquivos, ou enganar alguns sistemas para permitir a passagem de diretórios. False = Não permitir [Padrão]. True = Permitir.
@@ -1232,10 +1232,10 @@ Dica útil: Você pode anexar informações de data/hora aos nomes dos arquivos 
 - Deve phpMussel enviar 403 cabeçalho com a bloqueado arquivo carregamento mensagem, ou ficar com os habituais 200 OK? False = Não (200); True = Sim (403) [Padrão].
 
 ##### "unsupported_media_type_header" `[bool]`
-- Deve phpMussel enviar 415 cabeçalhos quando os uploads são bloqueados devido a tipos de arquivos na lista negra? Quando true, esta configuração substitui `forbid_on_block`. False = Não [Padrão]; True = Sim.
+- Deve phpMussel enviar 415 cabeçalhos quando os carregamentos são bloqueados devido a tipos de arquivos na lista negra? Quando true, esta configuração substitui `forbid_on_block`. False = Não [Padrão]; True = Sim.
 
 ##### "max_uploads" `[int]`
-- O máximo permitido número de arquivos para analisar durante os arquivos carregamentos análise antes de abortar a análise e informando ao usuário eles estão carregando demais muito de uma vez! Oferece proteção contra um teórico ataque pelo qual um atacante tenta DDoS seu sistema ou CMS por meio de sobrecarregando phpMussel a fim de retardar o PHP processo para uma parada. Recomendado: 10. Você pode querer aumentar ou diminuir esse número, dependendo das atributos do seu hardware. Note-se que este número não lev. Em conta ou incluir o conteúdos dos compactados arquivos.
+- O máximo permitido número de arquivos para analisar durante a análise de carregamentos antes de abortar a análise e informando ao usuário eles estão carregando demais muito de uma vez! Oferece proteção contra um teórico ataque pelo qual um atacante tenta DDoS seu sistema ou CMS por meio de sobrecarregando phpMussel a fim de retardar o PHP processo para uma parada. Recomendado: 10. Você pode querer aumentar ou diminuir esse número, dependendo das atributos do seu hardware. Note-se que este número não lev. Em conta ou incluir o conteúdos dos compactados arquivos.
 
 ##### "ignore_upload_errors" `[bool]`
 - Essa directiva deve ser geralmente desativada a menos que seja necessário por correta funcionalidade de phpMussel no seu específico sistema. Normalmente, quando desativado, quando phpMussel detecta a presença de elementos dentro a `$_FILES` array(), ele tentará iniciar uma análise dos arquivos que esses elementos representam, e, se esses elementos estão branco ou vazia, phpMussel irá retornar uma erro mensagem. Esse é um apropriado comportamento por phpMussel. Mas, por alguns CMS, vazios elementos podem ocorrer como resultado do natural comportamento dessas CMS, ou erros podem ser reportado quando não houver alguma, nesse caso, o normal comportamento por phpMussel será interferindo com o normal comportamento dessas CMS. Se tal situação ocorre por você, ativando esta opção irá instruir phpMussel para não tentar iniciar um análise por tais vazios elementos, ignorá-los quando encontrado e para não retornar qualquer relacionado erro mensagens, assim, permitindo a continuação da página carga. False = DESATIVADO; True = ATIVADO.
@@ -1422,7 +1422,6 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 ### 8. <a name="SECTION8"></a>PERGUNTAS MAIS FREQUENTES (FAQ)
 
 - [O que é uma "assinatura"?](#user-content-WHAT_IS_A_SIGNATURE)
-- [O que é um "falso positivo"?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
 - [Com que frequência as assinaturas são atualizadas?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Eu encontrei um problema ao usar phpMussel e eu não sei o que fazer sobre isso! Ajude-me!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Eu quero usar phpMussel v3 com uma versão PHP mais velha do que 7.2.0; Você pode ajudar?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1435,27 +1434,12 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 - [Como acessar detalhes específicos sobre os arquivos quando eles são analisados?](#user-content-SCAN_DEBUGGING)
 - [Blacklists (listas negras) – Whitelists (listas brancas) – Greylists (listas cinzentas) – Quais são eles e como eu os uso?](#user-content-BLACK_WHITE_GREY)
 - [O que é um "PDO DSN"? Como posso usar o PDO com o phpMussel?](#user-content-HOW_TO_USE_PDO)
-- [Meu recurso de upload é assíncrono (p.e., usa ajax, ajaj, json, etc). Não vejo nenhuma mensagem ou aviso especial quando um upload é bloqueado. O que está acontecendo?](#user-content-AJAX_AJAJ_JSON)
+- [Meu recurso de carregar é assíncrono (p.e., usa ajax, ajaj, json, etc). Não vejo nenhuma mensagem ou aviso especial quando um carregamento é bloqueado. O que está acontecendo?](#user-content-AJAX_AJAJ_JSON)
 - [O phpMussel pode detectar o EICAR?](#user-content-DETECT_EICAR)
 
 #### <a name="WHAT_IS_A_SIGNATURE"></a>O que é uma "assinatura"?
 
 No contexto do phpMussel, uma "assinatura" refere-se a dados que actuam como um indicador/identificador para algo específico que estamos procurando, geralmente sob a forma de um segmento muito pequeno, distinto e inócuo de algo maior e em caso contrário prejudiciais, como um vírus ou um trojan, ou na forma de um checksum de arquivo, hash, ou outro indicador de identificação semelhante, e geralmente inclui uma etiqueta, e alguns outros dados para ajudar a fornecer contexto adicional que pode ser usado por phpMussel para determinar a melhor maneira de proceder quando ele encontra o que estamos procurando.
-
-#### <a name="WHAT_IS_A_FALSE_POSITIVE"></a>O que é um "falso positivo"?
-
-O termo "falso positivo" (*alternativamente: "erro de falso positivo"; "alarme falso"*; Inglês: *false positive*; *false positive error*; *false alarm*), descrita de maneira muito simples, e num contexto generalizado, são usadas quando testando para uma condição, para se referir aos resultados desse teste, quando os resultados são positivos (isto é, a condição é determinada para ser "positivo", ou "verdadeiro"), mas espera-se que seja (ou deveria ter sido) negativo (isto é, a condição, na realidade, é "negativo", ou "falso"). Um "falso positivo" pode ser considerado análogo ao "chorando lobo" (em que a condição que está sendo testada é se existe um lobo perto do rebanho, a condição é "falso" em que não há nenhum lobo perto do rebanho, ea condição é relatada como "positivo" pelo pastor por meio de gritando "lobo, lobo"), ou análoga a situações em exames médicos em que um paciente é diagnosticado como tendo alguma doença quando, na realidade, eles não têm essa doença.
-
-Os resultados relacionados a quando testando para uma condição pode ser descrito usando os termos "verdadeiro positivo", "verdadeiro negativo" e "falso negativo". Um "verdadeiro positivo" refere-se a quando os resultados do teste ea real situação da condição são ambos verdadeiros (ou "positivos"), e um "verdadeiro negativo" refere-se a quando os resultados do teste ea real situação da condição são ambos falsos (ou "negativos"); Um "verdadeiro positivo" ou um "verdadeiro negativo" é considerado como sendo uma "inferência correcta". A antítese de um "falso positivo" é um "falso negativo"; Um "falso negativo" refere-se a quando os resultados do teste are negativo (isto é, a condição é determinada para ser "negativo", ou "falso"), mas espera-se que seja (ou deveria ter sido) positivo (isto é, a condição, na realidade, é "positivo", ou "verdadeiro").
-
-No contexto da phpMussel, estes termos referem-se as assinaturas de phpMussel e os arquivos que eles bloqueiam. Quando phpMussel bloquear um arquivo devido ao mau, desatualizados ou incorretos assinatura, mas não deveria ter feito isso, ou quando ele faz isso pelas razões erradas, nos referimos a este evento como um "falso positivo". Quando phpMussel não consegue bloquear um arquivo que deveria ter sido bloqueado, devido a ameaças imprevistas, assinaturas em falta ou déficits em suas assinaturas, nos referimos a este evento como um "detecção em falta" ou "missing detection" (que é análogo a um "falso negativo").
-
-Isto pode ser resumido pela seguinte tabela:
-
-&nbsp; | phpMussel *NÃO* deve bloquear um arquivo | phpMussel *DEVE* bloquear um arquivo
----|---|---
-phpMussel *NÃO* bloquear um arquivo | Verdadeiro negativo (inferência correcta) | Detecção em falta (análogo a um falso negativo)
-phpMussel *FAZ* bloquear um arquivo | __Falso positivo__ | Verdadeiro positivo (inferência correcta)
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Com que frequência as assinaturas são atualizadas?
 
@@ -1726,13 +1710,13 @@ Se você não tiver certeza sobre o que usar para uma parte específica do seu D
 
 Note que `pdo_username` e `pdo_password` devem ser iguais ao nome de usuário e senha que você escolheu para o seu banco de dados.
 
-#### <a name="AJAX_AJAJ_JSON"></a>Meu recurso de upload é assíncrono (p.e., usa ajax, ajaj, json, etc). Não vejo nenhuma mensagem ou aviso especial quando um upload é bloqueado. O que está acontecendo?
+#### <a name="AJAX_AJAJ_JSON"></a>Meu recurso de carregar é assíncrono (p.e., usa ajax, ajaj, json, etc). Não vejo nenhuma mensagem ou aviso especial quando um carregamento é bloqueado. O que está acontecendo?
 
-Isto é normal. A página "Carregar Negado" padrão do phpMussel é servida como HTML, o que deve ser suficiente para solicitações síncronas típicas, mas isso provavelmente não será suficiente se o seu recurso de upload estiver esperando outra coisa. Se o seu recurso de upload for assíncrono ou esperar que um status de upload seja exibido de forma assíncrona, existem algumas coisas que você pode tentar fazer para que o phpMussel atenda às necessidades do seu recurso de upload.
+Isto é normal. A página "Carregar Negado" padrão do phpMussel é servida como HTML, o que deve ser suficiente para solicitações síncronas típicas, mas isso provavelmente não será suficiente se o seu recurso de carregar estiver esperando outra coisa. Se o seu recurso de carregar for assíncrono ou esperar que um status de carregar seja exibido de forma assíncrona, existem algumas coisas que você pode tentar fazer para que o phpMussel atenda às necessidades do seu recurso de carregar.
 
 1. Criando um modelo de saída personalizado para servir algo diferente de HTML.
-2. Criando um plug-in personalizado para ignorar completamente a página "Carregar Negado" padrão e faça com que o manipulador de upload faça outra coisa quando um upload estiver bloqueado (existem alguns ganchos de plug-in fornecidos pelo manipulador do upload que podem ser úteis para isso).
-3. Desabilitando completamente o manipulador de uploads e apenas chamando a API phpMussel de dentro do seu recurso de upload.
+2. Criando um plug-in personalizado para ignorar completamente a página "Carregar Negado" padrão e faça com que o manipulador de carregamento faça outra coisa quando um carregamento estiver bloqueado (existem alguns ganchos de plug-in fornecidos pelo manipulador do carregamento que podem ser úteis para isso).
+3. Desabilitando completamente o manipulador de carregamentos e apenas chamando a API phpMussel de dentro do seu recurso de carregamento.
 
 #### <a name="DETECT_EICAR"></a>O phpMussel pode detectar o EICAR?
 
@@ -1763,14 +1747,14 @@ Para fins de transparência, o tipo de informação compartilhada e com quem est
 
 ##### 9.2.1 URL ANALISADOR
 
-Os URLs encontrados nos uploads de arquivos podem ser compartilhados com a API de navegação segura do Google, dependendo de como o pacote está configurado. A API de navegação segura do Google requer as chaves de API para funcionar corretamente e, portanto, é desativada por padrão.
+Os URLs encontrados nos carregamentos podem ser compartilhados com a API de navegação segura do Google, dependendo de como o pacote está configurado. A API de navegação segura do Google requer as chaves de API para funcionar corretamente e, portanto, é desativada por padrão.
 
 *Diretivas de configuração relevantes:*
 - `urlscanner` -> `google_api_key`
 
 ##### 9.2.2 VIRUS TOTAL
 
-Quando o phpMussel analisa um upload de arquivo, os hashes desses arquivos podem ser compartilhados com a API do Virus Total, dependendo de como o pacote está configurado. Há planos para compartilhar arquivos inteiros em algum momento no futuro, mas essa funcionalidade não é suportada pelo pacote no momento. A API do Virus Total requer uma chave de API para funcionar corretamente e, portanto, está desativada por padrão.
+Quando o phpMussel analisa um carregamento, os hashes desses arquivos podem ser compartilhados com a API do Virus Total, dependendo de como o pacote está configurado. Há planos para compartilhar arquivos inteiros em algum momento no futuro, mas essa funcionalidade não é suportada pelo pacote no momento. A API do Virus Total requer uma chave de API para funcionar corretamente e, portanto, está desativada por padrão.
 
 As informações (incluindo arquivos e metadados de arquivos relacionados) compartilhadas com o Virus Total também podem ser compartilhadas com seus parceiros, afiliados, e vários outros para fins de pesquisa. Isso é descrito em mais detalhes por sua política de privacidade.
 
@@ -1815,7 +1799,7 @@ Quando essas diretivas são deixadas vazias, esse tipo de log permanecerá desab
 
 ##### 9.3.1 LOG DO CARREGAMENTOS
 
-Quando habilitado na configuração do pacote, o phpMussel mantém logs dos uploads que foram bloqueados.
+Quando habilitado na configuração do pacote, o phpMussel mantém logs dos carregamentos que foram bloqueados.
 
 *Como um exemplo:*
 
@@ -1830,8 +1814,8 @@ Em quarentena como "1595142388-2e017ea9ac1478e45dc15794a1fc18c0.qfu".
 ```
 
 Essas entradas de log geralmente incluem as seguintes informações:
-- A data e a hora em que o upload foi bloqueado.
-- O endereço IP de onde o upload foi originado.
+- A data e a hora em que o carregamento foi bloqueado.
+- O endereço IP de onde o carregamento foi originado.
 - A razão pela qual o arquivo foi bloqueado (o que foi detectado).
 - O nome do arquivo bloqueado.
 - A soma de verificação e o tamanho do arquivo estão bloqueados.
@@ -1928,4 +1912,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 9 de Outubro de 2025 (2025.10.09).
+Última Atualização: 13 de Maio de 2026 (2026.05.13).

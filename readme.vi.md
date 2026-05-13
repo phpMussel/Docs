@@ -1213,7 +1213,7 @@ theme_mode
 ```
 
 ##### "magnification" `[float]`
-- Phóng to chữ. Mặc định = 1.
+- Phóng to phông chữ. Mặc định = 1.
 
 ##### "custom_header" `[string]`
 - Được chèn dưới dạng HTML ở đầu tất cả các trang front-end. Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm biểu trưng trang web, tiêu đề được cá nhân hóa, tập lệnh, hoặc tương tự ở tất cả các trang như vậy.
@@ -1267,7 +1267,7 @@ theme_mode
 ```
 
 ##### "magnification" `[float]`
-- Phóng to chữ. Mặc định = 1.
+- Phóng to phông chữ. Mặc định = 1.
 
 ##### "custom_header" `[string]`
 - Được chèn dưới dạng HTML ở đầu tất cả các trang "sự tải lên đã bị từ chối". Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm biểu trưng trang web, tiêu đề được cá nhân hóa, tập lệnh, hoặc tương tự ở tất cả các trang như vậy.
@@ -1423,7 +1423,6 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 ### 8. <a name="SECTION8"></a>NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)
 
 - ["Chữ ký" là gì?](#user-content-WHAT_IS_A_SIGNATURE)
-- ["Sai tích cực" là gì?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
 - [Tần suất cập nhật chữ ký là bao nhiêu?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Tôi đã gặp một vấn đề trong khi sử dụng phpMussel và tôi không biết phải làm gì về nó! Hãy giúp tôi!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Tôi muốn sử dụng phpMussel v3 với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1442,21 +1441,6 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 #### <a name="WHAT_IS_A_SIGNATURE"></a>"Chữ ký" là gì?
 
 Trong bối cảnh của phpMussel, "chữ ký" đề cập đến dữ liệu hoạt động như một chỉ thị hay cơ chế định danh cho một cái gì đó cụ thể mà chúng tôi đang tìm kiếm, thường là một đoạn nhỏ và không nguy hiểm của một cái gì đó lớn hơn và có hại, chẳng hạn như vi rút hoặc trojan, hoặc, một tập tin băm, hoặc các chỉ số nhận dạng tương tự khác, và nó thường bao gồm một nhãn, và một số dữ liệu khác để giúp cung cấp bối cảnh bổ sung mà có thể được sử dụng bởi phpMussel để xác định cách tốt nhất để tiến hành khi nó gặp những gì chúng ta đang tìm kiếm.
-
-#### <a name="WHAT_IS_A_FALSE_POSITIVE"></a>"Sai tích cực" là gì?
-
-Nghĩa của "sai tích cực" (*hay: "lỗi sai tích cực"; "báo động giả"*; Tiếng Anh: *false positive*; *false positive error*; *false alarm*), mô tả rất đơn giản, và trong một bối cảnh tổng quát, được sử dụng khi kiểm tra cho một điều kiện, để tham khảo các kết quả của bài kiểm tra, khi kết quả là tích cực (hay, điều kiện được xác định là "tích cực", hay "đúng"), nhưng dự kiến sẽ được (hay cần phải có được) tiêu cực (hay, điều kiện, thực tế, là "tiêu cực", hay "sai"). "Sai tích cực" có thể được coi là điều tương tự như "khóc sói" (theo đó các điều kiện đang được kiểm tra là liệu có con sói gần đàn, điều kiện là "sai" bởi vì không có con sói gần đàn, và điều kiện được báo cáo là "tích cực" bởi các người chăn bằng cách gọi "sói, sói"), hay tương tự như tình huống trong thử nghiệm y tế theo đó một bệnh nhân được chẩn đoán là có một số bệnh, trong khi thực tế, họ không có bất kỳ số bệnh.
-
-Một số các từ ngữ khác sử dụng là "đúng tích cực", "đúng tiêu cực" và "sai tiêu cực". "Đúng tích cực" đề cập đến khi các kết quả kiểm tra và tình trạng thực tế của điều kiện là cả hai đúng (hay "tích cực"), và "đúng tiêu cực" đề cập đến khi các kết quả kiểm tra và tình trạng thực tế của điều kiện là cả hai sai (hay "tiêu cực"); "Đúng tích cực" hay "đúng tiêu cực" được coi là một "suy luận đúng". Các phản đề của "sai tích cực" là "sai tiêu cực"; "Sai tiêu cực" đề cập đến khi các kết quả kiểm tra là tiêu cực (hay, điều kiện được xác định là "tiêu cực", hay "sai"), nhưng dự kiến sẽ được (hay cần phải có được) tích cực (hay, điều kiện, thực tế, là "tích cực", hay "đúng").
-
-Trong bối cảnh phpMussel, các từ ngữ đề cập đến chữ ký của phpMussel và các tập tin mà họ chặn. Khi phpMussel chặn một tập tin bởi vì chữ ký của nó là xấu, lỗi thời hay không chính xác, nhưng không nên làm như vậy, hay khi nó làm như vậy vì những lý do sai, chúng tôi đề cập đến sự kiện này như "sai tích cực". Khi phpMussel không chặn một tập tin đó nên đã bị chặn, bởi vì mối đe dọa khó lường, chữ ký mất tích hay thiếu sót trong chữ ký, chúng tôi đề cập đến sự kiện này như "phát hiện mất tích" (which is analogous to a "sai tiêu cực").
-
-Điều này có thể được tóm tắt bằng bảng dưới đây:
-
-&nbsp; | phpMussel *KHÔNG* nên chặn một tập tin | phpMussel *NÊN* chặn một tập tin
----|---|---
-phpMussel *KHÔNG* chặn một tập tin | Đúng tiêu cực (suy luận đúng) | Phát hiện mất tích (điều tương tự như sai tiêu cực)
-phpMussel chặn một tập tin | __Sai tích cực__ | Đúng tích cực (suy luận đúng)
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Tần suất cập nhật chữ ký là bao nhiêu?
 
@@ -1923,4 +1907,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2025.10.09.
+Lần cuối cập nhật: 2026.05.13.

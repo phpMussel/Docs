@@ -1423,7 +1423,6 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 ### 8. <a name="SECTION8"></a>QUESTIONS FRÉQUEMMENT POSÉES (FAQ)
 
 - [Qu'est-ce qu'une « signature » ?](#user-content-WHAT_IS_A_SIGNATURE)
-- [Qu'est-ce qu'un « faux positif » ?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
 - [À quelle fréquence les signatures sont-elles mises à jour ?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [J'ai rencontré un problème lors de l'utilisation de phpMussel et je ne sais pas quoi faire à ce sujet ! Aidez-moi !](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Je veux utiliser phpMussel v3 avec une version PHP plus ancienne que 7.2.0 ; Pouvez-vous m'aider ?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1442,21 +1441,6 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Qu'est-ce qu'une « signature » ?
 
 Dans le contexte de phpMussel, une « signature » réfère à les données qui servent comme d'indicateur ou d'identifiant pour quelque chose spécifique que nous recherchons, généralement sous la forme d'un segment très petit, distinct et inoffensif de quelque chose plus grand et autrement nuisible, comme un virus ou un trojan, ou sous la forme d'une somme de contrôle, d'un hash ou d'un autre indicateur d'identification similaire, et généralement comprend une étiquette, et d'autres données pour aider à fournir certains contexte supplémentaire qui peut être utilisé par phpMussel pour déterminer la meilleure façon de procéder quand il rencontre ce que nous recherchons.
-
-#### <a name="WHAT_IS_A_FALSE_POSITIVE"></a>Qu'est-ce qu'un « faux positif » ?
-
-Le terme « faux positif » (*alternativement : « erreur faux positif » ; « fausse alarme »* ; Anglais : *false positive* ; *false positive error* ; *false alarm*), décrit très simplement, et dans un contexte généralisé, est utilisé lors de tester pour une condition, de se référer aux résultats de ce test, lorsque les résultats sont positifs (c'est à dire, lorsque la condition est déterminée comme étant « positif », ou « vrai »), mais ils devraient être (ou aurait dû être) négatif (c'est à dire, lorsque la condition, en réalité, est « négatif », ou « faux »). Un « faux positif » pourrait être considérée comme analogue à « crier au loup » (où la condition testée est de savoir s'il y a un loup près du troupeau, la condition est « faux » en ce que il n'y a pas de loup près du troupeau, et la condition est signalé comme « positif » par le berger par voie de crier « loup ! loup ! »), ou analogues à des situations dans des tests médicaux dans lequel un patient est diagnostiqué comme ayant une maladie, alors qu'en réalité, ils ont pas une telle maladie.
-
-Résultats connexes lors de tester pour une condition peut être décrit en utilisant les termes « vrai positif », « vrai négatif » et « faux négatif ». Un « vrai positif » se réfère à quand les résultats du test et l'état actuel de la condition sont tous deux vrai (ou « positif »), and a « vrai négatif » se réfère à quand les résultats du test et l'état actuel de la condition sont tous deux faux (ou « négatif ») ; Un « vrai positif » ou « vrai négatif » est considéré comme une « inférence correcte ». L'antithèse d'un « faux positif » est un « faux négatif » ; Un « faux négatif » se réfère à quand les résultats du test are négatif (c'est à dire, la condition est déterminée comme étant « négatif », ou « faux »), mais ils devraient être (ou aurait dû être) positif (c'est à dire, la condition, en réalité, est « positif », ou « vrai »).
-
-Dans le contexte de phpMussel, ces termes réfèrent à les signatures de phpMussel et les fichiers qu'ils bloquent. Quand phpMussel bloque un fichier en raison du mauvais, obsolète ou signatures incorrectes, mais ne devrait pas l'avoir fait, ou quand il le fait pour les mauvaises raisons, nous référons à cet événement comme un « faux positif ». Quand phpMussel ne parvient pas à bloquer un fichier qui aurait dû être bloqué, en raison de menaces imprévues, signatures manquantes ou déficits dans ses signatures, nous référons à cet événement comme un « détection manquée » ou « missed detection » (qui est analogue à un « faux négatif »).
-
-Ceci peut être résumé par le tableau ci-dessous :
-
-&nbsp; | phpMussel ne devrait *PAS* bloquer un fichier | phpMussel *DEVRAIT* bloquer un fichier
----|---|---
-phpMussel ne bloque *PAS* un fichier | Vrai négatif (inférence correcte) | Détection manquée (analogue à faux négatif)
-phpMussel bloque un fichier | __Faux positif__ | Vrai positif (inférence correcte)
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>À quelle fréquence les signatures sont-elles mises à jour ?
 
@@ -1939,4 +1923,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 18 Mars 2026 (2026.03.18).
+Dernière mise à jour : 13 Mai 2026 (2026.05.13).

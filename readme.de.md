@@ -1421,7 +1421,6 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 ### 8. <a name="SECTION8"></a>HÄUFIG GESTELLTE FRAGEN (FAQ)
 
 - [Was ist eine „Signatur“?](#user-content-WHAT_IS_A_SIGNATURE)
-- [Was ist ein „Falsch-Positiv“?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
 - [Wie häufig werden Signaturen aktualisiert?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Ich habe ein Problem bei der Verwendung von phpMussel und ich weiß nicht was ich tun soll! Bitte helfen Sie!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Ich möchte phpMussel v3 mit einer PHP-Version älter als 7.2.0 verwenden; Können Sie helfen?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1440,21 +1439,6 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Was ist eine „Signatur“?
 
 Im Kontext von phpMussel, eine „Signatur“ bezieht sich auf Daten, die als Indikator/Identifikator fungieren, für etwas Bestimmtes das wir suchen, in der Regel in Form eines sehr kleinen, deutlichen, unschädlichen Segments von etwas Größerem und sonst schädlich, so wie ein Virus oder Trojaner, oder in Form einer Datei-Prüfsumme, Hash oder einer anderen identifizierenden Indikator, und enthält in der Regel ein Label, und einige andere Daten zu helfen, zusätzliche Kontext, die von phpMussel verwendet werden können, um den besten Weg zu bestimmen, wenn es aufsieht was wir suchen.
-
-#### <a name="WHAT_IS_A_FALSE_POSITIVE"></a>Was ist ein „Falsch-Positiv“?
-
-Der Begriff „Falsch-Positiv“ (*Alternative: „falsch-positiv Fehler“; „falscher Alarm“*; Englisch: *false positive*; *false positive error*; *false alarm*), sehr einfach beschrieben, und in einem verallgemeinerten Kontext, verwendet wird, wenn eine Bedingung zu testen und wenn die Ergebnisse positiv sind, um die Ergebnisse dieser Tests zu entnehmen (d.h., die Bedingung bestimmt wird positiv oder wahr), aber sind zu erwarten sein (oder sollte gewesen) negativ (d.h., der Zustand, in Wirklichkeit, ist negativ oder falsch). Eine „Falsch-Positiv“ könnte analog zu „weinen Wolf“ betrachtet (wobei die Bedingung geprüft wird, ob es ein Wolf in der Nähe der Herde ist, die Bedingung „falsch“ ist in dass es keinen Wolf in der Nähe der Herde, und die Bedingung wird als „positiv“ berichtet durch die Schäfer durch Aufruf "Wolf, Wolf"), oder analog zu Situationen in medizinischen Tests, wobei ein Patient als mit eine Krankheit diagnostiziert, wenn sie in Wirklichkeit haben sie keine solche Krankheit.
-
-Einige andere Begriffe verwendet: „Wahr-Positiv“, „Wahr-Negativ“ und „Falsch-Negativ“. Eine „Wahr-Positiv“ ist, wenn die Ergebnisse des Tests und der wahren Zustand beide wahr sind (oder „Positiv“), und eine „Wahr-Negativ“ ist, wenn die Ergebnisse des Tests und der wahren Zustand beide falsch sind (oder „Negativ“); Eine „Wahr-Positiv“ oder Eine „Wahr-Negativ“ gilt als eine „korrekte Folgerung“ zu sein. Der Antithese von einem „Falsch-Positiv“ ist eine „Falsch-Negativ“; Eine „Falsch-Negativ“ ist, wenn die Ergebnisse des Tests negativ sind (d.h., die Bedingung bestimmt wird negativ oder falsch zu sein), aber sind zu erwarten sein (oder sollte gewesen) positiv (d.h., der Zustand, in Wirklichkeit, ist „positiv“, oder „wahr“).
-
-Im Kontext der phpMussel, Diese Begriffe beziehen sich auf der Signaturen von phpMussel, und die Dateien die Sie blockieren. Wenn phpMussel Blöcke eine Datei wegen schlechten, veraltete oder falsche Signaturen, sollte aber nicht so getan haben, oder wenn sie es tut, so aus den falschen Gründen, wir beziehen sich auf dieses Ereignis als eine „Falsch-Positiv“. Wenn phpMussel, aufgrund unvorhergesehener Bedrohungen, fehlende Signaturen oder Defizite in ihren Signaturen, versagt eine Datei zu blockieren, die blockiert werden sollte, wir beziehen sich auf dieses Ereignis als eine „verpasste Erkennung“ (das entspricht einem „Falsch-Negativ“).
-
-Dies kann durch die folgende Tabelle zusammengefasst werden:
-
-&nbsp; | phpMussel sollte *KEINE* Datei blockieren | phpMussel *SOLLTE* eine Datei blockieren
----|---|---
-phpMussel tut blockiert eine Datei *NICHT* | Wahr-Negativ (korrekte Folgerung) | Verpasste Erkennung (analog zu Falsch-Negativ)
-phpMussel *TUT* blockiert eine Datei | __Falsch-Positiv__ | True-Positiv (korrekte Folgerung)
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Wie häufig werden Signaturen aktualisiert?
 
@@ -1939,4 +1923,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 3. März 2026 (2026.03.03).
+Zuletzt aktualisiert: 13. Mai 2026 (2026.05.13).

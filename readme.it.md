@@ -1422,7 +1422,6 @@ Non controllo i file di firma, la documentazione o altri contenuti periferici. I
 ### 8. <a name="SECTION8"></a>DOMANDE FREQUENTI (FAQ)
 
 - [Che cosa è una "firma"?](#user-content-WHAT_IS_A_SIGNATURE)
-- [Che cosa è un "falso positivo"?](#user-content-WHAT_IS_A_FALSE_POSITIVE)
 - [Con quale frequenza vengono aggiornate le firme?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Ho incontrato un problema durante l'utilizzo phpMussel e non so che cosa fare al riguardo! Aiutami!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Voglio usare phpMussel v3 con una versione di PHP più vecchio di 7.2.0; Puoi aiutami?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1441,21 +1440,6 @@ Non controllo i file di firma, la documentazione o altri contenuti periferici. I
 #### <a name="WHAT_IS_A_SIGNATURE"></a>Che cosa è una "firma"?
 
 Nel contesto di phpMussel, una "firma" si riferisce a dati che fungono da indicatore/identificatore per qualcosa di specifico che stiamo cercando, di solito sotto forma di un segmento molto piccolo, distinto, e innocuo di qualcosa di più grande e altrimenti dannose, come un virus o un trojan, o sotto forma di un checksum di file, un hash, o altro identificando indicatore, e di solito include un'etichetta, e alcuni altri dati per fornire un contesto aggiuntivo che può essere utilizzato da phpMussel per determinare il modo migliore per procedere quando incontra quello che stiamo cercando.
-
-#### <a name="WHAT_IS_A_FALSE_POSITIVE"></a>Che cosa è un "falso positivo"?
-
-Il termine "falso positivo" (*in alternativa: "errore di falso positivo"; "falso allarme"*; Inglese: *false positive*; *false positive error*; *false alarm*), descritto molto semplicemente, e in un contesto generalizzato, viene utilizzato quando si analizza una condizione, per riferirsi ai risultati di tale analisi, quando i risultati sono positivi (cioè, la condizione è determinata a essere "positivo", o "vero"), ma dovrebbero essere (o avrebbe dovuto essere) negativo (cioè, la condizione, in realtà, è "negativo", o "falso"). Un "falso positivo" potrebbe essere considerato analogo a "piangendo lupo" (dove la condizione di essere analizzato è se c'è un lupo nei pressi della mandria, la condizione è "falso" in che non c'è nessun lupo nei pressi della mandria, e la condizione viene segnalato come "positivo" dal pastore per mezzo di chiamando "lupo, lupo"), o analogo a situazioni di test medici dove un paziente viene diagnosticato una malattia, quando in realtà, non hanno qualsiasi malattia.
-
-Risultati correlati quando si analizza una condizione può essere descritto utilizzando i termini "vero positivo", "vero negativo" e "falso negativo". Un "vero positivo" si riferisce a quando i risultati dell'analisi e lo stato attuale della condizione sono entrambi vero (o "positivo"), e un "vero negativo" si riferisce a quando i risultati dell'analisi e lo stato attuale della condizione sono entrambe falso (o "negativo"); Un "vero positivo" o un "vero negativo" è considerato una "inferenza corretta". L'antitesi di un "falso positivo" è un "falso negativo"; Un "falso negativo" si riferisce a quando i risultati dell'analisi sono negativo (cioè, la condizione è determinata a essere "negativo", o "falso"), ma dovrebbero essere (o avrebbe dovuto essere) positivo (cioè, la condizione, in realtà, è "positivo", o "vero").
-
-Nel contesto di phpMussel, questi termini si riferiscono alle firme di phpMussel e le file che si bloccano. Quando phpMussel si blocca un file a causa di firme male, obsoleti o errati, ma non avrebbe dovuto fare così, o quando lo fa per le ragioni sbagliate, ci riferiamo a questo evento come un "falso positivo". Quando phpMussel non riesce a bloccare un file che avrebbe dovuto essere bloccato, a causa delle minacce impreviste, firme mancante o carenze nelle sue firme, ci riferiamo a questo evento come una "rivelazione mancante" o "missed detection" (che è analoga ad un "falso negativo").
-
-Questo può essere riassunta dalla seguente tabella:
-
-&nbsp; | phpMussel *NON* dovrebbe bloccare un file | phpMussel *DOVREBBE* bloccare un file
----|---|---
-phpMussel *NON* bloccare un file | Vero negativo (inferenza corretta) | Rivelazione mancante (analogous to falso negativo)
-phpMussel *FA* bloccare un file | __Falso positivo__ | Vero positivo (inferenza corretta)
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Con quale frequenza vengono aggiornate le firme?
 
@@ -1928,4 +1912,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 9 Ottobre 2025 (2025.10.09).
+Ultimo Aggiornamento: 13 Maggio 2026 (2026.05.13).
