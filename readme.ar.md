@@ -1341,11 +1341,6 @@ smtp_secure
 
 ### <div dir="rtl">٦. <a name="SECTION6"></a>شكل/تنسيق التوقيع</div>
 
-<div dir="rtl">أنظر أيضا:<br /></div>
-<div dir="rtl"><ul>
- <li><a href="#user-content-WHAT_IS_A_SIGNATURE">ما هو "التوقيع"؟</a></li>
-</ul></div>
-
 <div dir="rtl">أول 9 بايت <code dir="ltr">[x0-x8]</code> من ملف التوقيع phpMussel هو <code dir="ltr">phpMussel</code>، والعمل بمثابة "عدد سحري" (magic number)، لتحديدها كملفات توقيع (وهذا يساعد على منع عن طريق الخطأ باستخدام الملفات التي ليست ملفات التوقيع). البايت المقبل <code dir="ltr">[x9]</code> يحدد نوع ملف التوقيع، والتي يجب أن تعرف من أجل أن تكون قادرة على تفسير ملف التوقيع بشكل صحيح. يتم التعرف على الأنواع التالية من ملفات التوقيع:<br /><br /></div>
 
 &nbsp; <div dir="rtl" style="display:inline">نوع</div> | <div dir="rtl">بايت</div> | <div dir="rtl">وصف</div>
@@ -1432,7 +1427,6 @@ smtp_secure
 ### <div dir="rtl">٨. <a name="SECTION8"></a>أسئلة وأجوبة (FAQ)</div>
 
 <div dir="rtl"><ul>
- <li><a href="#user-content-WHAT_IS_A_SIGNATURE">ما هو "التوقيع"؟</a></li>
  <li><a href="#user-content-SIGNATURE_UPDATE_FREQUENCY">عدد المرات التي يتم تحديثها التوقيعات؟</a></li>
  <li><a href="#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO">لقد واجهت مشكلة! أنا لا أعرف ما يجب القيام به! الرجاء المساعدة!</a></li>
  <li><a href="#user-content-MINIMUM_PHP_VERSION_V3">أريد استخدام phpMussel v3 مع نسخة PHP كبار السن من 7.2.0؛ يمكنك أن تساعد؟</a></li>
@@ -1448,10 +1442,6 @@ smtp_secure
  <li><a href="#user-content-AJAX_AJAJ_JSON">تحميلاتي غير متزامنة (على سبيل المثال، يستخدم ajax، ajaj، json، إلخ). لا أرى أي رسالة أو تحذير خاص عند حظر التحميل. ماذا يحدث هنا؟</a></li>
  <li><a href="#user-content-DETECT_EICAR">هل يستطيع phpMussel اكتشاف EICAR؟</a></li>
 </ul></div>
-
-#### <div dir="rtl"><a name="WHAT_IS_A_SIGNATURE"></a>ما هو "التوقيع"؟<br /><br /></div>
-
-<div dir="rtl">في phpMussel، يشير "التوقيع" إلى البيانات التي تعمل كمعرف، وعادة ما تكون قطعة صغيرة من الكل أكبر لشيء نسعى. تتضمن عادة تصنيفا، وبيانات مفيدة أخرى للمساعدة في توفير سياق إضافي. وهذا يمكن أن يساعدنا على تحديد أفضل طريقة للمضي قدما عندما نجد ذلك.<br /><br /></div>
 
 #### <div dir="rtl"><a name="SIGNATURE_UPDATE_FREQUENCY"></a>عدد المرات التي يتم تحديثها التوقيعات؟<br /><br /></div>
 

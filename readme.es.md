@@ -1333,9 +1333,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>FORMATOS DE FIRMAS
 
-*Ver también:*
-- *[¿Qué es una "firma"?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 Los primeros 9 bytes `[x0-x8]` de un archivo de firmas para phpMussel son `phpMussel`, y actuar como un "número mágico" (magic number), para identificarlos como archivos de firmas (esto ayuda a evitar que phpMussel accidentalmente intente utilizar archivos que no son archivos de firmas). El siguiente byte `[x9]` identifica el tipo de archivo de firma, que phpMussel debe conocer para poder interpretar correctamente el archivo de firmas. Se reconocen los siguientes tipos de archivos de firmas:
 
 Tipo | Byte | Descripción
@@ -1421,7 +1418,6 @@ No verifico los archivos de firma, la documentación u otro contenido periféric
 
 ### 8. <a name="SECTION8"></a>PREGUNTAS MÁS FRECUENTES (FAQ)
 
-- [¿Qué es una "firma"?](#user-content-WHAT_IS_A_SIGNATURE)
 - [¿Con qué frecuencia se actualizan las firmas?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [¡He encontrado un problema mientras uso phpMussel y no sé qué hacer al respecto! ¡Por favor ayuda!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Quiero usar phpMussel v3 con una versión de PHP más vieja que 7.2.0; ¿Puede usted ayudar?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1436,10 +1432,6 @@ No verifico los archivos de firma, la documentación u otro contenido periféric
 - [¿Qué es un "PDO DSN"? Cómo puedo usar PDO con phpMussel?](#user-content-HOW_TO_USE_PDO)
 - [Mi recurso de subido es asíncrono (por ejemplo, usa ajax, ajaj, json, etc). No veo ningún mensaje especial o advertencia cuando se bloquea una subida. ¿Que esta pasando?](#user-content-AJAX_AJAJ_JSON)
 - [¿Puede phpMussel detectar EICAR?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>¿Qué es una "firma"?
-
-En el contexto de phpMussel, una "firma" se refiere a datos que actúan como un indicador/identificador para algo específico que estamos buscando, generalmente en la forma de algún segmento muy pequeño, distinto e inocuo de algo más grande y de otra manera nocivo, como un virus o un troyano, o en la forma de una suma de comprobación de archivo, hash u otro indicador de identificación similar, and usually includes a label, y generalmente incluye una etiqueta, y algunos otros datos para ayudar a proporcionar algún contexto adicional que puede ser utilizado por phpMussel para determinar la mejor manera de proceder cuando se encuentra con lo que estamos buscando.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>¿Con qué frecuencia se actualizan las firmas?
 

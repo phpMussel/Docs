@@ -1334,9 +1334,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>ĐỊNH DẠNG CỦA CHỬ KÝ
 
-*Xem thêm:*
-- *["Chữ ký" là gì?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 9 byte đầu tiên `[x0-x8]` của một tập tin chữ ký cho phpMussel là `phpMussel`, và hoạt động như một "số ma thuật" (magic number), để xác định chúng như tập tin chữ ký (điều này giúp ngăn ngừa phpMussel vô tình cố gắng sử dụng các tập tin mà không phải là tập tin chữ ký). Byte tiếp theo `[x9]` xác định loại tập tin chữ ký, mà phpMussel phải biết để có thể giải thích chính xác các tập tin chữ ký. Các loại tập tin chữ ký sau đây được nhận dạng:
 
 Loại | Byte | Sự miêu tả
@@ -1422,7 +1419,6 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 
 ### 8. <a name="SECTION8"></a>NHỮNG CÂU HỎI THƯỜNG GẶP (FAQ)
 
-- ["Chữ ký" là gì?](#user-content-WHAT_IS_A_SIGNATURE)
 - [Tần suất cập nhật chữ ký là bao nhiêu?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Tôi đã gặp một vấn đề trong khi sử dụng phpMussel và tôi không biết phải làm gì về nó! Hãy giúp tôi!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Tôi muốn sử dụng phpMussel v3 với phiên bản PHP cũ hơn 7.2.0; Bạn có thể giúp?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1437,10 +1433,6 @@ Tôi không kiểm tra các tập tin chữ ký, tài liệu hoặc nội dung n
 - ["PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?](#user-content-HOW_TO_USE_PDO)
 - [Chức năng tải lên của tôi không đồng bộ (ví dụ, sử dụng ajax, ajaj, json, vv). Tôi không thấy bất kỳ thông báo hoặc cảnh báo đặc biệt nào khi tải lên bị chặn. Chuyện gì đang xảy ra vậy?](#user-content-AJAX_AJAJ_JSON)
 - [phpMussel có thể phát hiện EICAR không?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>"Chữ ký" là gì?
-
-Trong bối cảnh của phpMussel, "chữ ký" đề cập đến dữ liệu hoạt động như một chỉ thị hay cơ chế định danh cho một cái gì đó cụ thể mà chúng tôi đang tìm kiếm, thường là một đoạn nhỏ và không nguy hiểm của một cái gì đó lớn hơn và có hại, chẳng hạn như vi rút hoặc trojan, hoặc, một tập tin băm, hoặc các chỉ số nhận dạng tương tự khác, và nó thường bao gồm một nhãn, và một số dữ liệu khác để giúp cung cấp bối cảnh bổ sung mà có thể được sử dụng bởi phpMussel để xác định cách tốt nhất để tiến hành khi nó gặp những gì chúng ta đang tìm kiếm.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Tần suất cập nhật chữ ký là bao nhiêu?
 

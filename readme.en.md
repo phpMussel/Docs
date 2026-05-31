@@ -1333,9 +1333,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>SIGNATURE FORMAT
 
-*See also:*
-- *[What is a "signature"?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 The first 9 bytes `[x0-x8]` of a phpMussel signature file are `phpMussel`, and act as a "magic number", to identify them as signature files (this helps to prevent phpMussel from accidentally attempting to use files that aren't signature files). The next byte `[x9]` identifies the type of signature file, which phpMussel must know in order to be able to correctly interpret the signature file. The following types of signature files are recognised:
 
 Type | Byte | Description
@@ -1421,7 +1418,6 @@ I don't check the signature files, documentation, or other peripheral content. T
 
 ### 8. <a name="SECTION8"></a>FREQUENTLY ASKED QUESTIONS (FAQ)
 
-- [What is a "signature"?](#user-content-WHAT_IS_A_SIGNATURE)
 - [How frequently are signatures updated?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [I've encountered a problem while using phpMussel and I don't know what to do about it! Please help!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [I want to use phpMussel v3 with a PHP version older than 7.2.0; Can you help?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1436,10 +1432,6 @@ I don't check the signature files, documentation, or other peripheral content. T
 - [What is a "PDO DSN"? How can I use PDO with phpMussel?](#user-content-HOW_TO_USE_PDO)
 - [My upload facility is asynchronous (e.g., uses ajax, ajaj, json, etc). I don't see any special message or warning when an upload is blocked. What's going on?](#user-content-AJAX_AJAJ_JSON)
 - [Can phpMussel detect EICAR?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>What is a "signature"?
-
-In the context of phpMussel, a "signature" refers to data that acts as an indicator/identifier for something specific that we're looking for, usually in the form of some very small, distinct, innocuous segment of something larger and otherwise harmful, like a virus or trojan, or in the form of a file checksum, hash, or other similarly identifying indicator, and usually includes a label, and some other data to help provide additional context that can be used by phpMussel to determine the best way to proceed when it encounters what we're looking for.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>How frequently are signatures updated?
 

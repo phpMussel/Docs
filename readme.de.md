@@ -1332,9 +1332,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>SIGNATURENFORMAT
 
-*Siehe auch:*
-- *[Was ist eine „Signatur“?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 Die ersten 9 Bytes `[x0-x8]` einer phpMussel Signaturdatei sind `phpMussel`, und handeln als eine „Magische Zahl“ (Magic Number), um sie als Signaturdateien zu identifizieren (dies hilft zu verhindern, dass phpMussel versehentlich versucht, Dateien zu verwenden, die keine Signaturdateien sind). Das nächste Byte `[x9]` identifiziert die Art der Signaturdatei, welche phpMussel wissen muss, um die Signaturdatei korrekt interpretieren zu können. Folgende Arten von Signaturdateien werden erkannt:
 
 Art | Byte | Beschreibung
@@ -1420,7 +1417,6 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 
 ### 8. <a name="SECTION8"></a>HÄUFIG GESTELLTE FRAGEN (FAQ)
 
-- [Was ist eine „Signatur“?](#user-content-WHAT_IS_A_SIGNATURE)
 - [Wie häufig werden Signaturen aktualisiert?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Ich habe ein Problem bei der Verwendung von phpMussel und ich weiß nicht was ich tun soll! Bitte helfen Sie!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Ich möchte phpMussel v3 mit einer PHP-Version älter als 7.2.0 verwenden; Können Sie helfen?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1435,10 +1431,6 @@ Ich überprüfe keine Signaturdateien, Dokumentationen oder sonstigen peripheren
 - [Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?](#user-content-HOW_TO_USE_PDO)
 - [Meine Upload-Funktionalität ist asynchron (z.B., verwendet ajax, ajaj, json, u.s.w.). Ich sehe keine spezielle Nachricht oder Warnung, wenn ein Upload blockiert ist. Was ist los?](#user-content-AJAX_AJAJ_JSON)
 - [Kann phpMussel EICAR erkennen?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>Was ist eine „Signatur“?
-
-Im Kontext von phpMussel, eine „Signatur“ bezieht sich auf Daten, die als Indikator/Identifikator fungieren, für etwas Bestimmtes das wir suchen, in der Regel in Form eines sehr kleinen, deutlichen, unschädlichen Segments von etwas Größerem und sonst schädlich, so wie ein Virus oder Trojaner, oder in Form einer Datei-Prüfsumme, Hash oder einer anderen identifizierenden Indikator, und enthält in der Regel ein Label, und einige andere Daten zu helfen, zusätzliche Kontext, die von phpMussel verwendet werden können, um den besten Weg zu bestimmen, wenn es aufsieht was wir suchen.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Wie häufig werden Signaturen aktualisiert?
 

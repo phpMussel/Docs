@@ -1333,9 +1333,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>FIRMA FORMATO
 
-*Guarda anche:*
-- *[Che cosa è una "firma"?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 I primi 9 byte `[x0-x8]` di un file di firma per phpMussel sono `phpMussel`, e agire come un "numero magico" (magic number), per identificarli come file di firma (questo aiuta a impedire phpMussel di tentare accidentalmente di utilizzare file che non sono file di firma). Il byte successivo `[x9]` identifica il tipo di file di firma, che phpMussel deve conoscere per poter interpretare correttamente il file di firma. Sono riconosciuti i seguenti tipi di file di firma:
 
 Tipo | Byte | Descrizione
@@ -1421,7 +1418,6 @@ Non controllo i file di firma, la documentazione o altri contenuti periferici. I
 
 ### 8. <a name="SECTION8"></a>DOMANDE FREQUENTI (FAQ)
 
-- [Che cosa è una "firma"?](#user-content-WHAT_IS_A_SIGNATURE)
 - [Con quale frequenza vengono aggiornate le firme?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Ho incontrato un problema durante l'utilizzo phpMussel e non so che cosa fare al riguardo! Aiutami!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Voglio usare phpMussel v3 con una versione di PHP più vecchio di 7.2.0; Puoi aiutami?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1436,10 +1432,6 @@ Non controllo i file di firma, la documentazione o altri contenuti periferici. I
 - [Che cos'è un "DSN PDO"? Come posso usare PDO con phpMussel?](#user-content-HOW_TO_USE_PDO)
 - [Mia funzionalità di caricamento è asincrona (ad esempio, utilizza ajax, ajaj, json, ecc). Non vedo alcun messaggio o avviso speciale quando un caricamento è bloccato. Cosa sta succedendo?](#user-content-AJAX_AJAJ_JSON)
 - [phpMussel può rilevare EICAR?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>Che cosa è una "firma"?
-
-Nel contesto di phpMussel, una "firma" si riferisce a dati che fungono da indicatore/identificatore per qualcosa di specifico che stiamo cercando, di solito sotto forma di un segmento molto piccolo, distinto, e innocuo di qualcosa di più grande e altrimenti dannose, come un virus o un trojan, o sotto forma di un checksum di file, un hash, o altro identificando indicatore, e di solito include un'etichetta, e alcuni altri dati per fornire un contesto aggiuntivo che può essere utilizzato da phpMussel per determinare il modo migliore per procedere quando incontra quello che stiamo cercando.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Con quale frequenza vengono aggiornate le firme?
 

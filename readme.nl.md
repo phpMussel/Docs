@@ -1334,9 +1334,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>SIGNATURE FORMAAT
 
-*Zie ook:*
-- *[Wat is een "signature"?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 De eerste 9 bytes `[x0-x8]` van een phpMussel signatuurbestand zijn `phpMussel`, en fungeren als een "magisch nummer" (magic number), om ze te identificeren als signatuurbestanden (dit helpt om te voorkomen dat phpMussel per ongeluk probeert bestanden te gebruiken die geen signatuurbestanden zijn). De volgende byte `[x9]` identificeert het type signatuurbestand, dat phpMussel moet weten om het signatuurbestand correct te kunnen interpreteren. De volgende typen signatuurbestanden worden herkend:
 
 Type | Byte | Beschrijving
@@ -1422,7 +1419,6 @@ Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De sig
 
 ### 8. <a name="SECTION8"></a>VEELGESTELDE VRAGEN (FAQ)
 
-- [Wat is een "signature"?](#user-content-WHAT_IS_A_SIGNATURE)
 - [Hoe vaak worden signatures bijgewerkt?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Ik heb een fout tegengekomen tijdens het gebruik van phpMussel en ik weet niet wat te doen! Help alstublieft!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Ik wil phpMussel v3 gebruiken met een PHP-versie ouder dan 7.2.0; Kan u helpen?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1437,10 +1433,6 @@ Ik geen signatuurbestanden, documentatie of andere randinhoud controleer. De sig
 - [Wat is een "PDO DSN"? Hoe kan ik PDO gebruiken met phpMussel?](#user-content-HOW_TO_USE_PDO)
 - [Mijn uploadfaciliteit is asynchroon (b.v., gebruikt ajax, ajaj, json, enz). Ik zie geen speciaal bericht of waarschuwing wanneer een upload is geblokkeerd. Wat is er aan de hand?](#user-content-AJAX_AJAJ_JSON)
 - [Kan phpMussel EICAR detecteren?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>Wat is een "signature"?
-
-In de context van phpMussel, een "signature" verwijst naar gegevens die als indicator/identifier werken voor iets specifiek waarnaar we op zoek zijn, meestal in de vorm van een zeer klein, duidelijk, onschadelijk segment van iets groter en anderszins schadelijk, zoals een virus of een trojan, of in de vorm van een controleschema, een hash of een andere identificerende indicator, en bevat gewoonlijk een label, en enkele andere gegevens om extra context te bieden die door phpMussel kan worden gebruikt om te bepalen de beste manier te gaan wanneer het ontmoet waar we naar op zoek zijn.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Hoe vaak worden signatures bijgewerkt?
 

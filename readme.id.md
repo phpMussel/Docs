@@ -1333,9 +1333,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>FORMAT TANDA TANGAN
 
-*Lihat juga:*
-- *[Apa yang "tanda tangan"?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 9 byte pertama `[x0-x8]` dari file tanda tangan phpMussel adalah `phpMussel`, dan Bertindak sebagai "nomor ajaib" (magic number), untuk mengidentifikasi mereka sebagai file tanda tangan (ini membantu mencegah phpMussel secara tidak sengaja mencoba menggunakan file yang bukan file tanda tangan). Byte berikutnya `[x9]` mengidentifikasi jenis file tanda tangan, yang harus diketahui oleh phpMussel agar bisa menafsirkan file tanda tangan dengan benar. Jenis file tanda tangan berikut dikenali:
 
 Tipe | Byte | Deskripsi
@@ -1421,7 +1418,6 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 
 ### 8. <a name="SECTION8"></a>PERTANYAAN YANG SERING DIAJUKAN (FAQ)
 
-- [Apa yang "tanda tangan"?](#user-content-WHAT_IS_A_SIGNATURE)
 - [Seberapa sering tanda tangan diperbarui?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Saya mengalami masalah ketika menggunakan phpMussel dan saya tidak tahu apa saya harus lakukan! Tolong bantu!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Saya ingin menggunakan phpMussel v3 dengan versi PHP yang lebih tua dari 7.2.0; Anda dapat membantu?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1436,10 +1432,6 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 - [Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?](#user-content-HOW_TO_USE_PDO)
 - [Fasilitas upload saya tidak sinkron (misalnya, menggunakan ajax, ajaj, json, dsb). Saya tidak melihat pesan atau peringatan khusus ketika upload diblokir. Apa yang sedang terjadi?](#user-content-AJAX_AJAJ_JSON)
 - [Bisakah phpMussel mendeteksi EICAR?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>Apa yang "tanda tangan"?
-
-Dalam konteks phpMussel, "tanda tangan" mengacu pada data yang bertindak sebagai indikator/pengenal untuk sesuatu spesifik yang kita cari, biasanya dalam bentuk segmen yang sangat kecil, unik, tidak berbahaya dari sesuatu yang lebih besar dan biasanya, sebaliknya berbahaya, seperti virus atau trojan, atau dalam bentuk file checksum, hash, atau indikator yang mengidentifikasi lainnya, dan biasanya termasuk label, dan beberapa data lainnya, untuk membantu memberikan konteks tambahan yang bisa digunakan oleh phpMussel untuk menentukan cara terbaik untuk melanjutkan ketika menemukan apa yang kita cari.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Seberapa sering tanda tangan diperbarui?
 

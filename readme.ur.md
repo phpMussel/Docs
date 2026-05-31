@@ -1337,11 +1337,6 @@ smtp_secure
 
 ### <div dir="rtl">۶. <a name="SECTION6"></a>دستخط فارمیٹ</div>
 
-<div dir="rtl">بھی دیکھو:<br /></div>
-<div dir="rtl"><ul>
- <li><a href="#user-content-WHAT_IS_A_SIGNATURE">ایک "دستخط" کیا ہے؟</a></li>
-</ul></div>
-
 <div dir="rtl">پہلا 9 بائٹس <code dir="ltr">[x0-x8]</code> phpMussel دستخط فائل کی <code dir="ltr">phpMussel</code> ہے، اور "جادو نمبر"(magic number) کے طور پر کام کرتے ہیں، انہیں دستخط شدہ فائلوں کے طور پر شناخت کرنے کے لیے (اس فائلوں کا استعمال کرتے ہوئے حادثے سے بچنے میں مدد ملتی ہے جو دستخط شدہ فائلوں میں نہیں ہیں). اگلے بائٹ <code dir="ltr">[x9]</code> دستخط فائل کی قسم کی شناخت کرتا ہے، دستخط فائل کو سمجھنے کے قابل ہونے کے لیے ضروری ہے. مندرجہ ذیل قسم کے دستخط فائلوں کو تسلیم کیا جاتا ہے:<br /><br /></div>
 
 &nbsp; <div dir="rtl" style="display:inline">قسم</div> | <div dir="rtl">بائٹ</div> | <div dir="rtl">تفصیل</div>
@@ -1428,7 +1423,6 @@ smtp_secure
 ### <div dir="rtl">۸. <a name="SECTION8">اکثر پوچھے گئے سوالات (FAQ)</div>
 
 <div dir="rtl"><ul>
- <li><a href="#user-content-WHAT_IS_A_SIGNATURE">ایک "دستخط" کیا ہے؟</a></li>
  <li><a href="#user-content-SIGNATURE_UPDATE_FREQUENCY">دستخط کیسے بیشتر اپ ڈیٹ کر رہے ہیں؟</a></li>
  <li><a href="#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO">phpMussel استعمال کرتے ہوئے میں ایک مسئلہ کا سامنا کرنا پڑا ہے اور میں اس کے بارے میں کیا پتہ نہیں ہے! مدد کریں!</a></li>
  <li><a href="#user-content-MINIMUM_PHP_VERSION_V3">میں 7.2.0 سے زیادہ پرانے ایک PHP ورژن کے ساتھ phpMussel v3 استعمال کرنا چاہتے ہیں؛ کیا آپ مدد کر سکتے ہیں؟</a></li>
@@ -1444,10 +1438,6 @@ smtp_secure
  <li><a href="#user-content-AJAX_AJAJ_JSON">میری اپ لوڈ کی فعالیت نہیں ہم وقت ساز (مثال کے طور پر، ajax، ajaj، json، وغیرہ استعمال کرتا ہے). اپلوڈ مسدود ہونے پر مجھے کوئی خاص پیغام یا انتباہ نظر نہیں آتا ہے. کیا ہو رہا ہے؟</a></li>
  <li><a href="#user-content-DETECT_EICAR">کیا EICAR phpMussel کے ذریعہ پتہ لگایا جاسکتا ہے؟</a></li>
 </ul></div>
-
-#### <div dir="rtl"><a name="WHAT_IS_A_SIGNATURE"></a>ایک "دستخط" کیا ہے؟<br /><br /></div>
-
-<div dir="rtl">phpMussel میں، ایک "دستخط" ڈیٹا کو ایک شناخت کے طور پر کام کرتا ہے کہ مراد، عام طور پر کچھ کے لیے بڑی پورے کا ایک چھوٹا سا ٹکڑا کے طور پر ہم تلاش کر رہے ہیں. عام طور پر اضافی سیاق و سباق فراہم کرنے میں مدد کرنے کے لیے ایک لیبل، اور دیگر مفید ڈیٹا شامل ہیں. یہ ہم اسے تلاش کرتے وقت آگے بڑھنے کا بہترین طریقہ کا تعین کرنے میں مدد کر سکتے ہیں.<br /><br /></div>
 
 #### <div dir="rtl"><a name="SIGNATURE_UPDATE_FREQUENCY"></a>دستخط کیسے بیشتر اپ ڈیٹ کر رہے ہیں؟<br /><br /></div>
 

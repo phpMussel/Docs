@@ -1333,9 +1333,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>FORMATOS DE ASSINATURAS
 
-*Veja também:*
-- *[O que é uma "assinatura"?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 Os primeiros 9 bytes `[x0-x8]` de um arquivo de assinaturas para phpMussel são `phpMussel`, e atua como um "número mágico" (magic number), para identificá-los como arquivos de assinaturas (isso ajuda a evitar que o phpMussel tente acidentalmente usar arquivos que não sejam arquivos de assinaturas). O próximo byte `[x9]` identifica o tipo de arquivo de assinaturas, que phpMussel deve saber para poder interpretar corretamente o arquivo de assinaturas. Os seguintes tipos de arquivos de assinaturas são reconhecidos:
 
 Tipo | Byte | Descrição
@@ -1421,7 +1418,6 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 
 ### 8. <a name="SECTION8"></a>PERGUNTAS MAIS FREQUENTES (FAQ)
 
-- [O que é uma "assinatura"?](#user-content-WHAT_IS_A_SIGNATURE)
 - [Com que frequência as assinaturas são atualizadas?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [Eu encontrei um problema ao usar phpMussel e eu não sei o que fazer sobre isso! Ajude-me!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Eu quero usar phpMussel v3 com uma versão PHP mais velha do que 7.2.0; Você pode ajudar?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1436,10 +1432,6 @@ Não verifico os arquivos de assinatura, a documentação ou outro conteúdo per
 - [O que é um "PDO DSN"? Como posso usar o PDO com o phpMussel?](#user-content-HOW_TO_USE_PDO)
 - [Meu recurso de carregar é assíncrono (p.e., usa ajax, ajaj, json, etc). Não vejo nenhuma mensagem ou aviso especial quando um carregamento é bloqueado. O que está acontecendo?](#user-content-AJAX_AJAJ_JSON)
 - [O phpMussel pode detectar o EICAR?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>O que é uma "assinatura"?
-
-No contexto do phpMussel, uma "assinatura" refere-se a dados que actuam como um indicador/identificador para algo específico que estamos procurando, geralmente sob a forma de um segmento muito pequeno, distinto e inócuo de algo maior e em caso contrário prejudiciais, como um vírus ou um trojan, ou na forma de um checksum de arquivo, hash, ou outro indicador de identificação semelhante, e geralmente inclui uma etiqueta, e alguns outros dados para ajudar a fornecer contexto adicional que pode ser usado por phpMussel para determinar a melhor maneira de proceder quando ele encontra o que estamos procurando.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Com que frequência as assinaturas são atualizadas?
 

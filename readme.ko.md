@@ -1333,9 +1333,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>서명 형식
 
-*참조 :*
-- *["서명"이란 무엇입니까?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 phpMussel 서명 파일의 첫 번째 9 바이트 `[x0-x8]` 는`phpMussel`이며, "매직 넘버" (magic number)로 기능합니다 (그들을 서명 파일로 식별하기 위해). 서명 파일이 아닌 파일을 잘못 사용하는 것을 방지 할 수 있습니다. 다음 바이트는 `[x9]` 서명 파일의 유형을 식별합니다. 서명 파일을 올바르게 해석 할 수 있도록하기 위해 이것을 알고 있어야합니다. 다음 유형의 서명 파일이 인식됩니다.
 
 유형 | 바이트 | 설명
@@ -1421,7 +1418,6 @@ phpMussel과 일부 안티바이러스 공급 업체 간의 호환성 문제는 
 
 ### 8. <a name="SECTION8"></a>자주 묻는 질문 (FAQ)
 
-- ["서명"이란 무엇입니까?](#user-content-WHAT_IS_A_SIGNATURE)
 - [서명은 얼마나 자주 업데이트됩니까?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [phpMussel을 사용하는 데 문제가 발생했지만 무엇을 해야할지 모르겠어요! 도와주세요!](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [7.2.0보다 오래된 PHP 버전에서 phpMussel v3을 사용하고 싶습니다; 도울 수 있니?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1436,10 +1432,6 @@ phpMussel과 일부 안티바이러스 공급 업체 간의 호환성 문제는 
 - ["PDO DSN"은 무엇입니까? phpMussel과 함께 PDO를 사용하려면 어떻게해야합니까?](#user-content-HOW_TO_USE_PDO)
 - [내 업로드 기능이 비동기입니다 (예를 들어, ajax, ajaj, json 등을 사용합니다). 업로드가 차단되면 특별한 메시지 나 경고가 표시되지 않습니다. 무슨 일이야?](#user-content-AJAX_AJAJ_JSON)
 - [phpMussel이 EICAR를 감지 할 수 있습니까?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>"서명"이란 무엇입니까?
-
-phpMussel의 맥락에서, "서명" 이라 함은 우리가 찾고있는 것을 식별하는 데이터를 의미합니다 (바이러스, 트로이 목마, 등). 이 데이터는 일반적으로 파일의 체크섬 해시 또는 기타 유사한 식별 표시합니다. 일반적으로 라벨이나 추가 컨텍스트를 제공하기위한 기타 데이터가 포함되어 있습니다.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>서명은 얼마나 자주 업데이트됩니까?
 

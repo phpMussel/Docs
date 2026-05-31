@@ -1334,9 +1334,6 @@ smtp_secure
 
 ### 6. <a name="SECTION6"></a>FORMATS DE SIGNATURES
 
-*Voir également :*
-- *[Qu'est-ce qu'une « signature » ?](#user-content-WHAT_IS_A_SIGNATURE)*
-
 Les 9 premiers octets `[x0-x8]` d'un fichier des signatures de phpMussel sont `phpMussel`, et agir comme un « numéro magique » (magic number), afin de les identifier en tant que fichiers de signature (cela aide à empêcher phpMussel de tenter accidentellement d'utiliser des fichiers qui ne sont pas des fichiers de signature). L'octet suivant `[x9]` identifie le type de fichier des signatures, que phpMussel doit savoir pour pouvoir interpréter correctement le fichier de signatures. Les types de fichiers de signatures suivants sont reconnus :
 
 Type | Octet | Description
@@ -1422,7 +1419,6 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 
 ### 8. <a name="SECTION8"></a>QUESTIONS FRÉQUEMMENT POSÉES (FAQ)
 
-- [Qu'est-ce qu'une « signature » ?](#user-content-WHAT_IS_A_SIGNATURE)
 - [À quelle fréquence les signatures sont-elles mises à jour ?](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [J'ai rencontré un problème lors de l'utilisation de phpMussel et je ne sais pas quoi faire à ce sujet ! Aidez-moi !](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
 - [Je veux utiliser phpMussel v3 avec une version PHP plus ancienne que 7.2.0 ; Pouvez-vous m'aider ?](#user-content-MINIMUM_PHP_VERSION_V3)
@@ -1437,10 +1433,6 @@ Je ne vérifie pas les fichiers de signature, la documentation ou tout autre con
 - [Qu'est-ce qu'un « PDO DSN » ? Comment utiliser PDO avec phpMussel ?](#user-content-HOW_TO_USE_PDO)
 - [Ma fonctionnalité de téléchargement est asynchrone (par exemple, utilise ajax, ajaj, json, etc). Je ne vois aucun message ni avertissement spécial lorsqu'un téléchargement est bloqué. Que se passe-t-il ?](#user-content-AJAX_AJAJ_JSON)
 - [phpMussel peut-il détecter EICAR ?](#user-content-DETECT_EICAR)
-
-#### <a name="WHAT_IS_A_SIGNATURE"></a>Qu'est-ce qu'une « signature » ?
-
-Dans le contexte de phpMussel, une « signature » réfère à les données qui servent comme d'indicateur ou d'identifiant pour quelque chose spécifique que nous recherchons, généralement sous la forme d'un segment très petit, distinct et inoffensif de quelque chose plus grand et autrement nuisible, comme un virus ou un trojan, ou sous la forme d'une somme de contrôle, d'un hash ou d'un autre indicateur d'identification similaire, et généralement comprend une étiquette, et d'autres données pour aider à fournir certains contexte supplémentaire qui peut être utilisé par phpMussel pour déterminer la meilleure façon de procéder quand il rencontre ce que nous recherchons.
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>À quelle fréquence les signatures sont-elles mises à jour ?
 
