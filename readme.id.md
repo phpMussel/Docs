@@ -22,7 +22,7 @@ Terima kasih untuk menggunakan phpMussel, sebuah skrip PHP yang di-design untuk 
 
 [PHPMUSSEL](https://phpmussel.github.io/) HAK CIPTA 2013 dan di atas GNU/GPLv2 oleh [Caleb M (Maikuolan)](https://github.com/Maikuolan).
 
-Skrip ini berbasis Sumber Terbuka; Anda dapat mendistribusikan kembali dan/atau memodifikasinya dalam batasan dari lisensu GNU General Public License, seperti di publikasikan dari Free Software Foundation; baik versi 2 dari License, atau (dalam opsi Anda) versi selanjutnya apapun. Skrip ini didistribusikan untuk harapan dapat digunakan tapi TANPA JAMINAN; tanpa walaupun garansi dari DIPERJUALBELIKAN atau KECOCOKAN UNTUK TUJUAN TERTENTU. Mohon Lihat GNU General Public Licence untuk lebih detail, terletak di file `LICENSE.txt` dan tersedia juga dari:
+Skrip ini berbasis Sumber Terbuka; Anda dapat mendistribusikan kembali dan/atau memodifikasinya dalam batasan dari lisensu GNU General Public License, seperti di publikasikan dari Free Software Foundation; baik versi 2 dari License, atau (dalam opsi Anda) versi selanjutnya apapun. Skrip ini didistribusikan untuk harapan dapat digunakan tetapi TANPA JAMINAN; tanpa walaupun garansi dari DIPERJUALBELIKAN atau KECOCOKAN UNTUK TUJUAN TERTENTU. Mohon Lihat GNU General Public Licence untuk lebih detail, terletak di file `LICENSE.txt` dan tersedia juga dari:
 - <https://www.gnu.org/licenses/>.
 - <https://opensource.org/licenses/>.
 
@@ -61,7 +61,7 @@ Menyediakan kemampuan untuk memanfaatkan phpMussel sebagai aplikasi mode CLI yan
 
 `composer require phpmussel/cli`
 
-Menyediakan jembatan antara phpMussel dan PHPMailer, memungkinkan phpMussel untuk menggunakan PHPMailer untuk otentikasi dua faktor, memberi pemberitahuan email tentang upload file yang diblokir, dll:
+Menyediakan jembatan antara phpMussel dan PHPMailer, memungkinkan phpMussel untuk menggunakan PHPMailer untuk autentikasi dua faktor, memberi pemberitahuan email tentang upload file yang diblokir, dll:
 
 `composer require phpmussel/phpmailer`
 
@@ -103,7 +103,7 @@ Setelah menginstal phpMussel, Anda akan memerlukan file konfigurasi sehingga And
 
 Jika Anda puas dengan konfigurasi default untuk phpMussel dan tidak ingin mengubah apapun, Anda dapat menggunakan file kosong sebagai file konfigurasi Anda. Apapun yang tidak dikonfigurasikan oleh file konfigurasi Anda akan menggunakan defaultnya, jadi Anda hanya perlu mengkonfigurasi sesuatu secara eksplisit jika Anda ingin itu berbeda dari defaultnya (artinya, file konfigurasi kosong akan menyebabkan phpMussel memanfaatkan semua konfigurasi defaultnya).
 
-Jika Anda ingin menggunakan front-end phpMussel, Anda dapat mengonfigurasi semuanya dari halaman konfigurasi front-end. Tetapi, sejak v3 dan seterusnya, informasi login untuk front-end disimpan dalam file konfigurasi Anda, jadi untuk masuk ke front-end, Anda harus setidaknya mengkonfigurasi akun yang akan digunakan untuk login, dan kemudian, dari sana, Anda akan dapat masuk dan menggunakan halaman konfigurasi front-end untuk mengkonfigurasi yang lainnya.
+Jika Anda ingin menggunakan front-end phpMussel, Anda dapat mengonfigurasi semuanya dari halaman konfigurasi front-end. Namun, sejak v3 dan seterusnya, informasi login untuk front-end disimpan dalam file konfigurasi Anda, jadi untuk masuk ke front-end, Anda harus setidaknya mengkonfigurasi akun yang akan digunakan untuk login, dan kemudian, dari sana, Anda akan dapat masuk dan menggunakan halaman konfigurasi front-end untuk mengkonfigurasi yang lainnya.
 
 Kutipan dibawah ini akan menambahkan akun baru ke front-end dengan nama pengguna "admin", dan kata sandi "password".
 
@@ -425,11 +425,11 @@ Fri, 17 Jul 2020 18:50:50 +0800 Finished.
 
 *Lihat juga: [Bagaimana cara mengakses rincian spesifik tentang file saat dipindai?](#user-content-SCAN_DEBUGGING)*
 
-#### 3.6 OTENTIKASI DUA FAKTOR
+#### 3.6 AUTENTIKASI DUA FAKTOR
 
-Mungkin untuk membuat bagian depan lebih aman dengan mengaktifkan otentikasi dua faktor ("2FA"). Saat masuk ke akun berkemampuan 2FA, email dikirim ke alamat email yang terkait dengan akun tersebut. Email ini berisi "kode 2FA", yang kemudian harus dimasukkan oleh pengguna, selain nama pengguna dan kata sandi, agar dapat masuk menggunakan akun tersebut. Ini berarti bahwa mendapatkan kata sandi akun tidak akan cukup bagi peretas atau penyerang potensial untuk dapat masuk ke akun tersebut, karena mereka juga harus sudah memiliki akses ke alamat email yang terkait dengan akun tersebut agar dapat menerima dan memanfaatkan kode 2FA yang terkait dengan sesi, sehingga membuat bagian depan lebih aman.
+Mungkin untuk membuat bagian depan lebih aman dengan mengaktifkan autentikasi dua faktor ("2FA"). Saat masuk ke akun berkemampuan 2FA, email dikirim ke alamat email yang terkait dengan akun tersebut. Email ini berisi "kode 2FA", yang kemudian harus dimasukkan oleh pengguna, selain nama pengguna dan kata sandi, agar dapat masuk menggunakan akun tersebut. Ini berarti bahwa mendapatkan kata sandi akun tidak akan cukup bagi peretas atau penyerang potensial untuk dapat masuk ke akun tersebut, karena mereka juga harus sudah memiliki akses ke alamat email yang terkait dengan akun tersebut agar dapat menerima dan memanfaatkan kode 2FA yang terkait dengan sesi, sehingga membuat bagian depan lebih aman.
 
-Setelah Anda menginstal PHPMailer, Anda harus mengisi direktif konfigurasi untuk PHPMailer melalui halaman konfigurasi phpMussel atau file konfigurasi. Informasi lebih lanjut tentang direktif konfigurasi ini termasuk dalam bagian konfigurasi dokumen ini. Setelah Anda mengisi direktif konfigurasi PHPMailer, atur `enable_two_factor` ke `true`. Otentikasi dua faktor sekarang harus diaktifkan.
+Setelah Anda menginstal PHPMailer, Anda harus mengisi direktif konfigurasi untuk PHPMailer melalui halaman konfigurasi phpMussel atau file konfigurasi. Informasi lebih lanjut tentang direktif konfigurasi ini termasuk dalam bagian konfigurasi dokumen ini. Setelah Anda mengisi direktif konfigurasi PHPMailer, atur `enable_two_factor` ke `true`. Autentikasi dua faktor sekarang harus diaktifkan.
 
 Selanjutnya, Anda harus mengaitkan alamat email dengan akun, sehingga phpMussel tahu ke mana harus mengirim 2FA kode ketika masuk dengan akun tersebut. Untuk melakukan ini, gunakan alamat email sebagai nama pengguna untuk akun tersebut (seperti `foo@bar.tld`), atau sertakan alamat email sebagai bagian dari nama pengguna dengan cara yang sama seperti ketika mengirim email secara normal (seperti `Foo Bar <foo@bar.tld>`).
 
@@ -863,7 +863,7 @@ Konfigurasi untuk tanda tangan, file tanda tangan, dll.
 - Seharusnya laporan phpMussel ketika file tanda tangan hilang atau dikorup? Jika `fail_silently` dinonaktifkan, file dikorup dan hilang akan dilaporkan ketika pemindaian, dan jika `fail_silently` diaktifkan, file dikorup dan hilang akan diabaikan, dengan pemindaian melaporkan untuk file-file ini bahwa tidak ada masalah. Harus ini dibiarkan sendirian jika Anda pernah mengalami crash atau masalah lain. False = Dinonaktifkan; True = Diaktifkan [Default].
 
 ##### "fail_extensions_silently" `[bool]`
-- Seharusnya laporan phpMussel ketika ekstensi hilang? Jika `fail_extensions_silently` dinonaktifkan, ekstensi hilang akan dilaporkan ketika pemindaian, dan jika `fail_extensions_silently` diaktifkan, ekstensi hilang akan diabaikan, dengan pemindaian melaporkan untuk file-file ini bahwa tidak ada masalah. Menonaktifkan direktif ini berpotensi dapat meningkatkan keamanan Anda, tapi juga dapat menyebabkan peningkatan positif palsu. False = Dinonaktifkan; True = Diaktifkan [Default].
+- Seharusnya laporan phpMussel ketika ekstensi hilang? Jika `fail_extensions_silently` dinonaktifkan, ekstensi hilang akan dilaporkan ketika pemindaian, dan jika `fail_extensions_silently` diaktifkan, ekstensi hilang akan diabaikan, dengan pemindaian melaporkan untuk file-file ini bahwa tidak ada masalah. Menonaktifkan direktif ini berpotensi dapat meningkatkan keamanan Anda, tetapi juga dapat menyebabkan peningkatan positif palsu. False = Dinonaktifkan; True = Diaktifkan [Default].
 
 ##### "detect_adware" `[bool]`
 - Harus phpMussel menggunakan tanda tangan untuk mendeteksi adware? False = Tidak; True = Ya [Default].
@@ -887,7 +887,7 @@ Konfigurasi untuk tanda tangan, file tanda tangan, dll.
 - Harus phpMussel mendeteksi dan memblokir file terenkripsi? False = Tidak; True = Ya [Default].
 
 ##### "heuristic_threshold" `[int]`
-- Ada tanda tangan tertentu dari phpMussel yang dimaksudkan untuk mengidentifikasi kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload tanpa di diri mereka mengidentifikasi file-file yang di-upload spesifik sebagai berbahaya. Ini "threshold" nilai memberitahu phpMussel apa total berat maksimum untuk kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload yang diijinkan adalah sebelum file-file yang akan diidentifikasi sebagai berbahaya. Definisi berat dalam konteks ini adalah jumlah total kualitas mencurigakan dan berpotensi berbahaya diidentifikasi. Secara default, nilai ini akan ditetapkan sebagai 3. Sebuah nilai lebih rendah umumnya akan menghasilkan sebagai lebih tinggi positif palsu kejadian tapi sebuah jumlah lebih tinggi file berbahaya diidentifikasi, sedangkan sebuah nilai lebih tinggi umumnya akan menghasilkan sebagai lebih rendah positif palsu kejadian tapi sebuah jumlah lebih rendah pada file berbahaya yang diidentifikasi. Ini umumnya terbaik untuk meninggalkan nilai ini di default kecuali jika Anda mengalami masalah berhubungan dengan itu.
+- Ada tanda tangan tertentu dari phpMussel yang dimaksudkan untuk mengidentifikasi kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload tanpa di diri mereka mengidentifikasi file-file yang di-upload spesifik sebagai berbahaya. Ini "threshold" nilai memberitahu phpMussel apa total berat maksimum untuk kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload yang diijinkan adalah sebelum file-file yang akan diidentifikasi sebagai berbahaya. Definisi berat dalam konteks ini adalah jumlah total kualitas mencurigakan dan berpotensi berbahaya diidentifikasi. Secara default, nilai ini akan ditetapkan sebagai 3. Sebuah nilai lebih rendah umumnya akan menghasilkan sebagai lebih tinggi positif palsu kejadian tetapi sebuah jumlah lebih tinggi file berbahaya diidentifikasi, sedangkan sebuah nilai lebih tinggi umumnya akan menghasilkan sebagai lebih rendah positif palsu kejadian tetapi sebuah jumlah lebih rendah pada file berbahaya yang diidentifikasi. Ini umumnya terbaik untuk meninggalkan nilai ini di default kecuali jika Anda mengalami masalah berhubungan dengan itu.
 
 #### "files" (Kategori)
 Rincian cara menangani file saat memindai.
@@ -903,21 +903,21 @@ Rincian cara menangani file saat memindai.
 
 __Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan jenis file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak jenis file-file tertentu, menspesifikasikan jenis file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan jenis file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
 
-__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
+__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tetapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tetapi memblokir itu bagaimanapun.
 
 ##### "filetype_blacklist" `[string]`
 - Daftar Hitam:
 
 __Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan jenis file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak jenis file-file tertentu, menspesifikasikan jenis file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan jenis file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
 
-__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
+__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tetapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tetapi memblokir itu bagaimanapun.
 
 ##### "filetype_greylist" `[string]`
 - Daftar Abu-Abu:
 
 __Bagaimana ini bekerja.__ Jika sistem Anda hanya mengizinkan jenis file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak jenis file-file tertentu, menspesifikasikan jenis file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan jenis file tertentu. Format adalah CSV (nilai yang dipisahkan koma).
 
-__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun.
+__Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tetapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tetapi memblokir itu bagaimanapun.
 
 ##### "check_archives" `[bool]`
 - Berusaha mencek isi file terkompress? False = Tidak (Tidak mencek); True = Ya (Mencek) [Default]. Didukung: Zip (membutuhkan libzip), Tar, Rar (membutuhkan ekstensi rar).
@@ -959,13 +959,13 @@ __Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan
 - Cari file PDF yang headernya tidak benar. False = Dinonaktifkan; True = Diaktifkan.
 
 ##### "archive_file_extensions" `[string]`
-- Ekstensi file terkompres yang dikenali (format nya CSV; seharusnya hanya menambah atau menghapus ketika masalah terjadi; tidak cocok langsung menghapus karena dapat menyebabkan angka positif yang salah terjadi pada file terkompres, dimana juga menambahkan deteksi; memodifikasi dengan peringatan; juga dicatat bahwa ini tidak memberi efek pada file terkompress apa yang dapat dan tidak dapat di analisa pada level isi). Daftar sebagaimana defaultnya, memberi daftar format-format yang digunakan yang paling umum melalui melalui mayoritas sistem dan CMS, tapi bermaksud tidak komprehensif.
+- Ekstensi file terkompres yang dikenali (format nya CSV; seharusnya hanya menambah atau menghapus ketika masalah terjadi; tidak cocok langsung menghapus karena dapat menyebabkan angka positif yang salah terjadi pada file terkompres, dimana juga menambahkan deteksi; memodifikasi dengan peringatan; juga dicatat bahwa ini tidak memberi efek pada file terkompress apa yang dapat dan tidak dapat di analisa pada level isi). Daftar sebagaimana defaultnya, memberi daftar format-format yang digunakan yang paling umum melalui melalui mayoritas sistem dan CMS, tetapi bermaksud tidak komprehensif.
 
 ##### "block_control_characters" `[bool]`
 - Memblokir file apapun yang berisi karakter pengendali (lain dari baris baru)? Jika Anda hanya sedang mengupload file teks biasa, maka Anda dapat menghidupkan opsi ini untuk menyediakan perlindungan tambahan ke sistem Anda. Bagaimanapun jika Anda mengupload apapun lebih dari file teks biasa, menghidupkan opsi ini mungkin mengakibatkan angka positif salah. False = Jangan memblokirnya [Default]; True = Memblokirnya.
 
 ##### "corrupted_exe" `[bool]`
-- File korup dan diurai kesalahan. False = Mengabaikan; True = Memblokir [Default]. Mendeteksi dan memblokir file PE (Portable Executable) berpotensi korup? Sering (tapi tidak selalu), ketika aspek-aspek tertentu dari file PE yang korup atau tidak bisa diurai dengan benar, itu dapat menjadi indikasi dari infeksi virus. Proses yang digunakan oleh sebagian besar program anti-virus untuk mendeteksi virus dalam file PE memerlukan parsing file-file dengan cara tertentu, yang, jika programmer virus menyadari, secara khusus akan mencoba untuk mencegah, untuk memungkinkan virus mereka untuk tetap tidak terdeteksi.
+- File korup dan diurai kesalahan. False = Mengabaikan; True = Memblokir [Default]. Mendeteksi dan memblokir file PE (Portable Executable) berpotensi korup? Sering (tetapi tidak selalu), ketika aspek-aspek tertentu dari file PE yang korup atau tidak bisa diurai dengan benar, itu dapat menjadi indikasi dari infeksi virus. Proses yang digunakan oleh sebagian besar program anti-virus untuk mendeteksi virus dalam file PE memerlukan parsing file-file dengan cara tertentu, yang, jika programmer virus menyadari, secara khusus akan mencoba untuk mencegah, untuk memungkinkan virus mereka untuk tetap tidak terdeteksi.
 
 ##### "decode_threshold" `[string]`
 - Ambang batas dengan panjang file mentah yang dalam decode perintah harus terdeteksi (dalam kasus ada masalah kinerja sementara pemindaian). Default = 512KB. Nol atau nilai null menonaktifkan ambang batas (menghapus apapun batasan berdasarkan ukuran file).
@@ -992,7 +992,7 @@ __Urutan pemrosesan logis.__ Jika jenis file bertanda putih, jangan memindai dan
 Konfigurasi untuk karantina.
 
 ##### "quarantine_key" `[string]`
-- phpMussel dapat mengkarantina upload file yang diblokir, jika ini adalah sesuatu yang Anda ingin lakukan. Pengguna biasa dari phpMussel yang hanya ingin memproteksi website mereka dan/atau lingkungan hosting mereka tanpa memiliki minat dalam-dalam menganalisis setiap ditandai upload file harus meninggalkan fungsi ini dinonaktifkan, tapi setiap pengguna yang tertarik pada analisis lebih lanjut dari ditandai upload file bagi penelitian malware atau untuk hal-hal seperti serupa harus mengaktifkan fungsi ini. Mengkarantina ditandai upload file dapat kadang-kadang juga membantu dalam men-debug false-positif, jika ini adalah sesuatu yang sering terjadi untuk Anda. Untuk menonaktifkan fungsi karantina, meninggalkan `quarantine_key` direktif kosong, atau menghapus isi dari direktif ini jika tidak sudah kosong. Untuk mengaktifkan fungsi karantina, masukkan beberapa nilai dalam direktif ini. `quarantine_key` adalah fitur keamanan penting dari fungsi karantina diharuskan sebagai sarana untuk mencegah fungsi karantina dari dieksploitasi oleh penyerang potensial dan sebagai sarana mencegah eksekusi potensi file yang disimpan dalam karantina. `quarantine_key` harus diperlakukan dengan cara yang sama seperti kata sandi Anda: Semakin lama semakin baik, dan menjaganya diproteksi erat. Bagi efek terbaik, gunakan dalam hubungannya dengan `delete_on_sight`.
+- phpMussel dapat mengkarantina upload file yang diblokir, jika ini adalah sesuatu yang Anda ingin lakukan. Pengguna biasa dari phpMussel yang hanya ingin memproteksi website mereka dan/atau lingkungan hosting mereka tanpa memiliki minat dalam-dalam menganalisis setiap ditandai upload file harus meninggalkan fungsi ini dinonaktifkan, tetapi setiap pengguna yang tertarik pada analisis lebih lanjut dari ditandai upload file bagi penelitian malware atau untuk hal-hal seperti serupa harus mengaktifkan fungsi ini. Mengkarantina ditandai upload file dapat kadang-kadang juga membantu dalam men-debug false-positif, jika ini adalah sesuatu yang sering terjadi untuk Anda. Untuk menonaktifkan fungsi karantina, meninggalkan `quarantine_key` direktif kosong, atau menghapus isi dari direktif ini jika tidak sudah kosong. Untuk mengaktifkan fungsi karantina, masukkan beberapa nilai dalam direktif ini. `quarantine_key` adalah fitur keamanan penting dari fungsi karantina diharuskan sebagai sarana untuk mencegah fungsi karantina dari dieksploitasi oleh penyerang potensial dan sebagai sarana mencegah eksekusi potensi file yang disimpan dalam karantina. `quarantine_key` harus diperlakukan dengan cara yang sama seperti kata sandi Anda: Semakin lama semakin baik, dan menjaganya diproteksi erat. Bagi efek terbaik, gunakan dalam hubungannya dengan `delete_on_sight`.
 
 ##### "quarantine_max_filesize" `[string]`
 - Ukuran file maksimum yang diijinkan dari file yang akan dikarantina. File yang lebih besar dari nilai yang ditentukan dibawah ini TIDAK akan dikarantina. Direktif ini penting sebagai sarana untuk membuat lebih sulit bagi setiap penyerang potensial untuk banjir karantina Anda dengan file yang tidak diinginkan berpotensi menyebabkan penggunaan file kelebihan pada layanan hosting Anda. Default = 2MB.
@@ -1007,7 +1007,7 @@ Konfigurasi untuk karantina.
 Konfigurasi untuk integrasi Virus Total.
 
 ##### "vt_public_api_key" `[string]`
-- Secara fakultatif, phpMussel mampu memindai file menggunakan API Virus Total sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan API Virus Total dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan API Virus Total, Anda __*HARUS*__ setuju untuk Terms of Service dan Anda __*HARUS*__ mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents").
+- Secara fakultatif, phpMussel mampu memindai file menggunakan API Virus Total sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan API Virus Total dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan API Virus Total, Anda __*HARUS*__ setuju untuk Terms of Service dan Anda __*HARUS*__ mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tetapi sebelum "Contents").
 
 Lihat juga:
 - [Terms of Service](https://www.virustotal.com/en/about/terms-of-service/)
@@ -1034,7 +1034,7 @@ vt_suspicion_level
 - Apakah Anda ingin phpMussel menerapkan hasil pemindaian menggunakan API Virus Total sebagai deteksi atau deteksi pembobotan? Direktif ini ada, karena, meskipun memindai file menggunakan mesin-mesin kelipatan (sebagai Virus Total melakukannya) harus menghasilkan tingkat deteksi meningkat (dan demikian lebih banyak file berbahaya tertangkap), juga dapat menghasilkan jumlah yang lebih banyak dari positif palsu, dan demikian, dalam kondisi beberapa, hasil pemindaian dapat digunakan lebih efektif sebagai nilai keyakinan daripada daripada sebagai kesimpulan definitif. Jika nilai 0 digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai pendeteksian, dan demikian, jika mesin-mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya, phpMussel akan menganggap file yang berbahaya. Jika nilai lain yang digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai deteksi pembobotan, dan demikian, jumlah mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya akan berfungsi sebagai nilai keyakinan (atau deteksi pembobotan) untuk jika file dipindai harus dianggap berbahaya oleh phpMussel (nilai digunakan akan mewakili nilai keyakinan minimum atau pembobotan minimum diperlukan untuk dianggap berbahaya). Nilai 0 digunakan secara default.
 
 ##### "vt_quota_rate" `[int]`
-- Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang __*DAPAT*__ membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai `vt_quota_rate` permintaan dalam bentuk apapun dalam jangka waktu `vt_quota_time` menit.
+- Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tetapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tetapi jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang __*DAPAT*__ membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai `vt_quota_rate` permintaan dalam bentuk apapun dalam jangka waktu `vt_quota_time` menit.
 
 ##### "vt_quota_time" `[int]`
 - (Lihat uraian di atas).
@@ -1275,7 +1275,7 @@ theme_mode
 - Disisipkan sebagai HTML di akhir semua halaman "upload ditolak". Ini dapat berguna jika Anda ingin menyertakan pemberitahuan hukum, tautan kontak, informasi bisnis, atau sejenisnya di semua halaman tersebut.
 
 #### "phpmailer" (Kategori)
-Konfigurasi untuk PHPMailer (digunakan untuk otentikasi dua-faktor dan untuk pemberitahuan email).
+Konfigurasi untuk PHPMailer (digunakan untuk autentikasi dua-faktor dan untuk pemberitahuan email).
 
 ##### "event_log" `[string]`
 - File untuk mencatat semua kejadian yang terkait dengan PHPMailer. Spesifikasikan nama file, atau biarkan kosong untuk menonaktifkan.
@@ -1289,7 +1289,7 @@ Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file l
 - Jika Anda ingin diberi tahu melalui email saat upload diblokir, tentukan alamat email penerima disini.
 
 ##### "skip_auth_process" `[bool]`
-- Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses otentikasi yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.
+- Pengaturan direktif ini ke `true` menginstruksikan PHPMailer untuk melewati proses autentikasi yang biasanya terjadi ketika mengirim email melalui SMTP. Ini harus dihindari, karena melewatkan proses ini dapat mengekspos email keluar ke serangan MITM, tetapi mungkin diperlukan dalam kasus dimana proses ini mencegah PHPMailer menghubungkan ke server SMTP.
 
 ##### "host" `[string]`
 - Host SMTP yang digunakan untuk email keluar.
@@ -1308,7 +1308,7 @@ smtp_secure
 ```
 
 ##### "smtp_auth" `[bool]`
-- Direktif ini menentukan apakah akan mengotentikasi sesi SMTP (biasanya harus dibiarkan sendiri).
+- Direktif ini menentukan apakah akan mengautentikasi sesi SMTP (biasanya harus dibiarkan sendiri).
 
 ##### "username" `[string]`
 - Nama pengguna yang digunakan saat mengirim email melalui SMTP.
@@ -1435,7 +1435,7 @@ Saya tidak memeriksa file tanda tangan, dokumentasi, atau konten periferal lainn
 
 #### <a name="SIGNATURE_UPDATE_FREQUENCY"></a>Seberapa sering tanda tangan diperbarui?
 
-Frekuensi pembaruan bervariasi tergantung pada file tanda tangan. Semua penulis bagi file tanda tangan phpMussel umumnya mencoba untuk menjaga tanda tangan mereka sebagai diperbarui sebanyak mungkin, tapi karena semua dari kita memiliki komitmen lainnya, kehidupan kita di luar proyek, dan karena kita tidak dikompensasi finansial (yaitu, dibayar) untuk upaya kami pada proyek, jadwal pembaruan yang tepat tidak dapat dijamin. Umumnya, tanda tangan diperbarui ketika ada cukup waktu untuk memperbaruinya. Bantuan selalu dihargai jika Anda bersedia untuk menawarkan.
+Frekuensi pembaruan bervariasi tergantung pada file tanda tangan. Semua penulis bagi file tanda tangan phpMussel umumnya mencoba untuk menjaga tanda tangan mereka sebagai diperbarui sebanyak mungkin, tetapi karena semua dari kami memiliki komitmen lainnya, kehidupan kami di luar proyek, dan karena kami tidak dikompensasi finansial (yaitu, dibayar) untuk upaya kami pada proyek, jadwal pembaruan yang tepat tidak dapat dijamin. Umumnya, tanda tangan diperbarui ketika ada cukup waktu untuk memperbaruinya. Bantuan selalu dihargai jika Anda bersedia untuk menawarkan.
 
 #### <a name="ENCOUNTERED_PROBLEM_WHAT_TO_DO"></a>Saya mengalami masalah ketika menggunakan phpMussel dan saya tidak tahu apa saya harus lakukan! Tolong bantu!
 
@@ -1562,7 +1562,7 @@ Daftar abu-abu tanda tangan berguna jika Anda perlu menyelesaikan masalah yang d
 
 phpMussel menyediakan opsi untuk memanfaatkan PDO untuk tujuan caching. Agar ini berfungsi sebagaimana dimaksud, Anda harus mengkonfigurasi phpMussel yang sesuai, demikian mengaktifkan PDO, membuat basis data baru untuk digunakan oleh phpMussel (jika Anda belum memiliki basis data untuk digunakan oleh phpMussel), dan membuat tabel baru di database Anda sesuai dengan struktur yang dijelaskan dibawah.
 
-Ketika koneksi basis data berhasil, tapi tabel yang diperlukan tidak ada, akan berusaha membuatnya secara otomatis. Namun, perilaku ini belum diuji secara luas dan kesuksesan tidak dapat dijamin.
+Ketika koneksi basis data berhasil, tetapi tabel yang diperlukan tidak ada, akan berusaha membuatnya secara otomatis. Namun, perilaku ini belum diuji secara luas dan kesuksesan tidak dapat dijamin.
 
 Ini, tentu saja, hanya berlaku jika Anda ingin phpMussel menggunakan PDO. Jika Anda cukup senang untuk phpMussel untuk menggunakan caching flatfile (per konfigurasi default), atau salah satu dari berbagai opsi caching lain yang disediakan, Anda tidak perlu repot-repot menyusahkan diri Anda dengan mengatur database, tabel dan sebagainya.
 
@@ -1871,7 +1871,7 @@ phpMussel tidak mengenkripsi cache atau informasi log apapun. [Enkripsi](https:/
 
 #### 9.4 COOKIE
 
-Ketika pengguna berhasil masuk ke akses bagian depan, phpMussel menetapkan [cookie](https://id.wikipedia.org/wiki/Kuki_HTTP) agar dapat mengingat pengguna untuk permintaan berikutnya (yaitu, cookie digunakan untuk mengotentikasi pengguna ke sesi masuk). Pada halaman masuk, peringatan cookie ditampilkan dengan jelas, memperingatkan pengguna bahwa cookie akan diatur jika mereka terlibat dalam tindakan yang relevan. Cookie tidak diatur dalam titik lain di basis kode.
+Ketika pengguna berhasil masuk ke akses bagian depan, phpMussel menetapkan [cookie](https://id.wikipedia.org/wiki/Kuki_HTTP) agar dapat mengingat pengguna untuk permintaan berikutnya (yaitu, cookie digunakan untuk mengautentikasi pengguna ke sesi masuk). Pada halaman masuk, peringatan cookie ditampilkan dengan jelas, memperingatkan pengguna bahwa cookie akan diatur jika mereka terlibat dalam tindakan yang relevan. Cookie tidak diatur dalam titik lain di basis kode.
 
 #### 9.5 PEMASARAN DAN PERIKLANAN
 

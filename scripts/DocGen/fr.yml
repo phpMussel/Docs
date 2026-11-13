@@ -1,5 +1,5 @@
-category:  "\#\#\#\# « %s » (Catégorie)\n%s"
-directive:  "\#\#\#\#\# « %s » `[%s]`\n- %s"
+category: "\#\#\#\# « %s » (Catégorie)\n%s"
+directive: "\#\#\#\#\# « %s » `[%s]`\n- %s"
 menu_close: ""
 menu_item: "- [%s](%s)"
 menu_open: "%s"

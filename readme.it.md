@@ -595,7 +595,7 @@ Configurazione (v3)
 ```
 
 #### "core" (Categoria)
-Configurazione generale (qualsiasi configurazione di base non appartenente ad altre categorie).
+Configurazione generale (eventuali direttive di configurazione di base non appartenenti ad altre categorie).
 
 ##### "scan_log" `[string]`
 - Il nome del file per registrare tutti i risultati di la scansione. Specificare un nome del file, o lasciare vuoto per disattivarlo.

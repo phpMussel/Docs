@@ -1,5 +1,5 @@
-category:  "\#\#\#\# <div dir="rtl">"%s" (التصنيف)<br /></div>\n<div dir="rtl">%s<br /><br /></div>"
-directive:  "\#\#\#\#\# <div dir="rtl">"%s" <code dir="ltr">[%s]</code><br /></div>\n<div dir="rtl"><ul><li>%s</li></ul></div>"
+category: "\#\#\#\# <div dir="rtl">"%s" (التصنيف)<br /></div>\n<div dir="rtl">%s<br /><br /></div>"
+directive: "\#\#\#\#\# <div dir="rtl">"%s" <code dir="ltr">[%s]</code><br /></div>\n<div dir="rtl"><ul><li>%s</li></ul></div>"
 menu_close: "</ul></div>\n"
 menu_item: "<li><a dir="ltr" href="%2$s">%1$s</a></li>"
 menu_open: "<div dir="rtl">%s<ul dir="rtl">"
