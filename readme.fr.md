@@ -1368,7 +1368,7 @@ Toutes les signatures HASH suivez le format :
 
 `HASH:TAILLE:NOM`
 
-Où HASH est le hachage (généralement MD5) d'un ensemble du fichier, TAILLE est la totale taille du fichier et NOM est le nom à citer pour la signature.
+Où HASH est le hachage (généralement MD5, SHA1, ou SHA256) d'un ensemble du fichier, TAILLE est la totale taille du fichier et NOM est le nom à citer pour la signature.
 
 #### *SIGNATURES PE SECTIONNELLE*
 Toutes les signatures PE sectionnelle suivez le format :
@@ -1915,4 +1915,4 @@ Alternativement, il y a un bref aperçu (non autorisé) de GDPR/DSGVO disponible
 ---
 
 
-Dernière mise à jour : 13 Mai 2026 (2026.05.13).
+Dernière mise à jour : 25 Novembre 2026 (2026.11.25).

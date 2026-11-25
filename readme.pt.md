@@ -1367,7 +1367,7 @@ Todas as assinaturas hash seguir o formato:
 
 `HASH:TAMANHO:NOME`
 
-Onde HASH é o hash (geralmente MD5) de um inteiro arquivo, TAMANHO é o total tamanho do arquivo e NOME é o nome para citar por essa assinatura.
+Onde HASH é o hash (geralmente MD5, SHA1, ou SHA256) de um inteiro arquivo, TAMANHO é o total tamanho do arquivo e NOME é o nome para citar por essa assinatura.
 
 #### *ASSINATURAS PE SECCIONAL*
 Todas as assinaturas PE Seccional seguir o formato:
@@ -1904,4 +1904,4 @@ Alternativamente, há uma breve visão geral (não autoritativa) do GDPR/DSGVO d
 ---
 
 
-Última Atualização: 13 de Maio de 2026 (2026.05.13).
+Última Atualização: 25 de Novembro de 2026 (2026.11.25).

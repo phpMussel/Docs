@@ -1368,7 +1368,7 @@ Alle HASH signatures volgt het formaat:
 
 `HASH:FILESIZE:NAME`
 
-Waar HASH is de hash (doorgaans MD5) van een hele bestand, FILESIZE is de totale grootte van het bestand en NAME is de naam te noemen voor dat signature.
+Waar HASH is de hash (doorgaans MD5, SHA1, of SHA256) van een hele bestand, FILESIZE is de totale grootte van het bestand en NAME is de naam te noemen voor dat signature.
 
 #### *PE SECTIONELE SIGNATURES*
 Alle PE sectionele signatures volgt het formaat:
@@ -1926,4 +1926,4 @@ Als alternatief is er een kort (niet-gezaghebbende) overzicht van GDPR/DSGVO/AVG
 ---
 
 
-Laatste Bijgewerkt: 13 Mei 2026 (2026.05.13).
+Laatste Bijgewerkt: 25 November 2026 (2026.11.25).

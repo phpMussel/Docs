@@ -1366,7 +1366,7 @@ Alle Hash-Signaturen besitzen folgendes Format:
 
 `HASH:FILESIZE:NAME`
 
-HASH ist der Hash (in der Regel MD5) der ganzen Datei, FILESIZE ist die gesamte Größe der Datei und NAME ist der Name, um die Signatur zu benennen.
+HASH ist der Hash (in der Regel MD5, SHA1, oder SHA256) der ganzen Datei, FILESIZE ist die gesamte Größe der Datei und NAME ist der Name, um die Signatur zu benennen.
 
 #### *PE-SECTIONAL-SIGNATUREN*
 Alle PE-Sectional-Signaturen besitzen folgendes Format:
@@ -1915,4 +1915,4 @@ Alternativ gibt es einen kurzen (nicht autoritativen) Überblick über die GDPR/
 ---
 
 
-Zuletzt aktualisiert: 13. Mai 2026 (2026.05.13).
+Zuletzt aktualisiert: 25. November 2026 (2026.11.25).

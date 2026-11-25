@@ -1367,7 +1367,7 @@ Todos HASH firmas seguir el formato:
 
 `HASH:TAMAÑO:NOMBRE`
 
-Donde HASH es el hash (usualmente MD5) de un entero archivo, TAMAÑO es el total tamaño de eso archivo y NOMBRE es el nombre a citar para esa firma.
+Donde HASH es el hash (usualmente MD5, SHA1, o SHA256) de un entero archivo, TAMAÑO es el total tamaño de eso archivo y NOMBRE es el nombre a citar para esa firma.
 
 #### *PE SECCIÓNAL FIRMAS*
 Todos PE Secciónal firmas seguir el formato:
@@ -1908,4 +1908,4 @@ Alternativamente, hay una breve descripción (no autoritativa) de GDPR/DSGVO dis
 ---
 
 
-Última Actualización: 13 de Mayo de 2026 (2026.05.13).
+Última Actualización: 25 de Noviembre de 2026 (2026.11.25).

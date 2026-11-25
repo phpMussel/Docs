@@ -1368,7 +1368,7 @@ Tất cả các chữ ký băm tuân theo các định dạng:
 
 `HASH:FILESIZE:NAME`
 
-HASH là băm (thường là MD5) của toàn bộ tập tin, FILESIZE là tổng dung lượng tập tin và NAME là tên cho các chữ ký.
+HASH là băm (thường là MD5, SHA1, hoặc SHA256) của toàn bộ tập tin, FILESIZE là tổng dung lượng tập tin và NAME là tên cho các chữ ký.
 
 #### *CHỮ KÝ PHẦN PE*
 Tất cả các chữ ký phần PE tuân theo các định dạng:
@@ -1899,4 +1899,4 @@ Một số tài nguyên được khuyến khích để tìm hiểu thêm thông 
 ---
 
 
-Lần cuối cập nhật: 2026.05.13.
+Lần cuối cập nhật: 2026.11.25.

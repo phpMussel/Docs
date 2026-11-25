@@ -1367,7 +1367,7 @@ All hash signatures follow the format:
 
 `HASH:FILESIZE:NAME`
 
-Where HASH is the hash (usually MD5) of an entire file, FILESIZE is the total size of that file and NAME is the name to cite for that signature.
+Where HASH is the hash (usually MD5, SHA1, or SHA256) of an entire file, FILESIZE is the total size of that file and NAME is the name to cite for that signature.
 
 #### *PE SECTIONAL SIGNATURES*
 All PE Sectional signatures follow the format:
@@ -1909,4 +1909,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 13 May 2026 (2026.05.13).
+Last Updated: 25 November 2026 (2026.11.25).

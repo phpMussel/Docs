@@ -5,11 +5,11 @@
 - ２.[インストール方法](#user-content-SECTION2)
 - ３.[使用方法](#user-content-SECTION3)
 - ４.[PHPMUSSELの拡張](#user-content-SECTION4)
-- ７.[コンフィギュレーション（設定オプション）](#user-content-SECTION5)
-- ８.[シグネチャ（署名）フォーマット](#user-content-SECTION6)
-- ９.[適合性問題](#user-content-SECTION7)
-- １０.[よくある質問（ＦＡＱ）](#user-content-SECTION8)
-- １１.[法律情報](#user-content-SECTION9)
+- ５.[コンフィギュレーション（設定オプション）](#user-content-SECTION5)
+- ６.[シグネチャ（署名）フォーマット](#user-content-SECTION6)
+- ７.[適合性問題](#user-content-SECTION7)
+- ８.[よくある質問（ＦＡＱ）](#user-content-SECTION8)
+- ９.[法律情報](#user-content-SECTION9)
 
 *Regarding translations: My native language is English. Because this is a free and open-source hobby project which generates zero income, and translatable content is likely to change as the features and functionality supported by the project changes, it doesn't make sense for me to spend money for translations. Because I'm the sole author/developer/maintainer for the project and I'm not a ployglot, any translations I produce are very likely to contain errors. Sorry, but realistically, that won't ever change. If you find any such errors/typos/mistakes/etc, your assistance to correct them would be very much appreciated. Pull requests are invited and encouraged. Otherwise, if you find these errors too much to handle, just stick with the original English source. If a translation is irredeemably incomprehensible, let me know which, and I can delete it. If you're not sure how to perform pull requests, ask. I can help.*
 
@@ -451,7 +451,7 @@ phpMusselを拡張し、新しいプラグインを作成するためのボイ�
 ---
 
 
-### ７.<a name="SECTION5"></a>コンフィギュレーション（設定オプション）
+### ５.<a name="SECTION5"></a>コンフィギュレーション（設定オプション）
 
 以下は、phpMusselが受け入れるコンフィグレーション・ディレクティブのリストです、ならびにその目的と機能のリストです。
 
@@ -1328,7 +1328,7 @@ smtp_secure
 ---
 
 
-### ８.<a name="SECTION6"></a>シグネチャ（署名）フォーマット
+### ６.<a name="SECTION6"></a>シグネチャ（署名）フォーマット
 
 phpMusselシグネチャ・ファイルの最初の9バイト（`[x0-x8]`）は`phpMussel`であり、​「マジック・ナンバー」（magic number）として機能します（それらをシグネチャ・ファイルとして識別するために）。 シグネチャ・ファイルではないファイルを誤って使用するのを防ぐのに役立ちます。 次のバイト（`[x9]`）は、シグネチャ・ファイルのタイプを識別する。 シグネチャ・ファイルを正しく解釈できるようにするためにこれを知っておく必要があります。 次のタイプのシグネチャ・ファイルが認識されます。
 
@@ -1364,7 +1364,7 @@ NAMEはそのシグネチャを指す名前でFNRXはファイル名（エンコ
 
 `HASH:FILESIZE:NAME`
 
-HASHはファイル全体のハッシュ（通常はＭＤ５）、​FILESIZEはファイルの全サイズ、​NAMEはそのシグネチャを指す名前です。
+HASHはファイル全体のハッシュ（通常はＭＤ５、ＳＨＡ１、またはＳＨＡ２５６）、​FILESIZEはファイルの全サイズ、​NAMEはそのシグネチャを指す名前です。
 
 #### *ＰＥセクショナルシグネチャ*
 ＰＥセクショナルシグネチャのフォーマットは例外なく次のようになります。
@@ -1398,7 +1398,7 @@ NAMEはそのシグネチャを指す名前、​HEXは与えられたシグネ�
 ---
 
 
-### ９.<a name="SECTION7"></a>適合性問題
+### ７.<a name="SECTION7"></a>適合性問題
 
 #### アンチウィルスソフトウェアとの互換性
 
@@ -1413,7 +1413,7 @@ phpMusselと一部のアンチウイルス・ベンダー間の互換性の問�
 ---
 
 
-### １０.<a name="SECTION8"></a>よくある質問（ＦＡＱ）
+### ８.<a name="SECTION8"></a>よくある質問（ＦＡＱ）
 
 - [シグネチャはどれくらいの頻度でアップデイトされますか？](#user-content-SIGNATURE_UPDATE_FREQUENCY)
 - [phpMusselを使用しているときに問題が発生しましたが、​何をすべきかわかりません！ 助けてください！](#user-content-ENCOUNTERED_PROBLEM_WHAT_TO_DO)
@@ -1706,7 +1706,7 @@ DSNの特定の部分に何を使用するかわからない場合は、何も�
 ---
 
 
-### １１.<a name="SECTION9"></a>法律情報
+### ９.<a name="SECTION9"></a>法律情報
 
 #### 9.0 セクション・プリアンブル
 
@@ -1898,4 +1898,4 @@ phpMusselは、マーケティングやアドバタイジング目的で情報�
 ---
 
 
-最終更新日：２０２６年５月１３日。
+最終更新日：２０２６年１１月２５日。

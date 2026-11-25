@@ -1367,7 +1367,7 @@ Tutte le firme hash seguono il formato:
 
 `HASH:DIMENSIONE:NOME`
 
-Dove HASH è l'hash (di solito MD5) dell'intero file, DIMENSIONE è la totale dimensione del file e NOME è il nome per citare per quella firma.
+Dove HASH è l'hash (di solito MD5, SHA1, o SHA256) dell'intero file, DIMENSIONE è la totale dimensione del file e NOME è il nome per citare per quella firma.
 
 #### *FIRME PE SEZIONALI*
 Tutte le firme PE sezionali seguono il formato:
@@ -1904,4 +1904,4 @@ In alternativa, è disponibile una breve panoramica (non autorevole) di GDPR/DSG
 ---
 
 
-Ultimo Aggiornamento: 13 Maggio 2026 (2026.05.13).
+Ultimo Aggiornamento: 25 Novembre 2026 (2026.11.25).

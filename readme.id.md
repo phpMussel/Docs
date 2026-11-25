@@ -1367,7 +1367,7 @@ Semua tanda tangan HASH mengikuti format ini:
 
 `HASH:UKURAN:NAMA`
 
-Dimana HASH adalah hash (biasanya MD5) dari keseluruhan file, UKURAN adalah total ukuran file dan NAMA adalah nama untuk mengutip tanda tangan tersebut.
+Dimana HASH adalah hash (biasanya MD5, SHA1, atau SHA256) dari keseluruhan file, UKURAN adalah total ukuran file dan NAMA adalah nama untuk mengutip tanda tangan tersebut.
 
 #### *TANDA TANGAN SEKSIONAL PE*
 Semua tanda tangan seksional PE mengikuti format ini:
@@ -1901,4 +1901,4 @@ Beberapa sumber bacaan yang direkomendasikan untuk mempelajari informasi lebih l
 ---
 
 
-Terakhir Diperbarui: 13 Mei 2026 (2026.05.13).
+Terakhir Diperbarui: 25 November 2026 (2026.11.25).
