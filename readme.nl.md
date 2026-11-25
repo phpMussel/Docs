@@ -1389,6 +1389,8 @@ Complexe uitgebreid signatures zijn nogal verschillend van de andere signature t
 
 `$variable1:GEGEVENS;$variable2:GEGEVENS;Signaturenaam`
 
+De beschikbare "controle type" zijn gebaseerd op de variabelen die aan de scanner worden gepresenteerd op het moment dat deze signatures worden verwerkt.
+
 #### *AL HET ANDERE*
 Alle andere signatures volgt het formaat:
 

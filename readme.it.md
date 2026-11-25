@@ -1388,6 +1388,8 @@ Complesso esteso firme sono piuttosto diverso da altri tipi di firme possibili c
 
 `$variabile1:DATI;$variabile2:DATI;FirmeNome`
 
+I "tipi" disponibili si basano sulle variabili esposte allo scanner nel punto in cui tali firme vengono elaborate.
+
 #### *TUTTO IL RESTO*
 Tutte le altre firme seguono il formato:
 

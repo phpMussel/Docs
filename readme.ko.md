@@ -1388,6 +1388,8 @@ $VAR는 일치하는 PE 변수의 이름, HASH은 그 변수의 MD5 해시 크�
 
 `$variable1:SOMEDATA;$variable2:SOMEDATA;SignatureName`
 
+사용 가능한 "타입"은 해당 서명들이 처리되는 시점에 스캐너에 노출되는 변수들을 기반으로 합니다.
+
 #### *기타*
 기타 서명 형식입니다.
 

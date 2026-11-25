@@ -1392,6 +1392,8 @@ smtp_secure
 
 `$variable1:SOMEDATA;$variable2:SOMEDATA;SignatureName`
 
+<div dir="rtl">دستیاب "میچ کی اقسام" ان متغیرات پر مبنی ہوتی ہیں جو اس مقام پر اسکینر کو دستیاب ہوتے ہیں جہاں ان دستخطوں کی پروسیسنگ کی جاتی ہے.<br /><br /></div>
+
 #### <div dir="rtl"><em>باقی سب کچھ</em></div>
 <div dir="rtl">دیگر تمام دستخطوں کی شکل پر عمل کریں:<br /><br /></div>
 

@@ -1388,6 +1388,8 @@ Complejos extendidas firmas son bastante diferentes a los otros tipos de firmas 
 
 `$variable1:SOMEDATA;$variable2:SOMEDATA;FirmaNombre`
 
+Los "tipos de cotejar" disponibles se basan en las variables expuestas al escáner en el punto en el que se procesan estas firmas.
+
 #### *TODO LO DEMÁS*
 Todas las demás firmas seguir el formato:
 

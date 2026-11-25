@@ -1384,9 +1384,11 @@ All PE extended signatures follow the format:
 Where $VAR is the name of the PE variable to match against, HASH is the MD5 hash of that variable, SIZE is the total size of that variable and NAME is the name to cite for that signature.
 
 #### *COMPLEX EXTENDED SIGNATURES*
-Complex Extended signatures are rather different to the other types of signatures possible with phpMussel, in that what they are matching against is specified by the signatures themselves and they can match against multiple criteria. The match criteria are delimited by ";" and the match type and match data of each match criteria is delimited by ":" as so that format for these signatures tends to look a bit like:
+Complex extended signatures are rather different to the other types of signatures possible with phpMussel, in that what they are matching against is specified by the signatures themselves and they can match against multiple criteria. The match criteria are delimited by ";" and the match type and match data of each match criteria is delimited by ":" as so that format for these signatures tends to look a bit like:
 
 `$variable1:SOMEDATA;$variable2:SOMEDATA;SignatureName`
+
+Available "match types" are based on the variables exposed to the scanner at the point where these signatures are processed.
 
 #### *EVERYTHING ELSE*
 All other signatures follow the format:
@@ -1396,7 +1398,7 @@ All other signatures follow the format:
 Where NAME is the name to cite for that signature and HEX is a hexadecimal-encoded segment of the file intended to be matched by the given signature. FROM and TO are optional parameters, indicating from which and to which positions in the source data to check against.
 
 #### *REGEX (REGULAR EXPRESSIONS)*
-Any form of regex understood and correctly processed by PHP should also be correctly understood and processed by phpMussel and its signatures. However, I'd suggest taking extreme caution when writing new regex based signatures, because, if you're not entirely sure what you're doing, there can be highly irregular and/or unexpected results. Take a look at the phpMussel source-code if you're not entirely sure about the context in which regex statements are parsed. Also, remember that all patterns (with exception to filename, archive metadata and MD5 patterns) must be hexadecimally encoded (foregoing pattern syntax, of course)!
+Any form of regex understood and correctly processed by PHP should also be correctly understood and processed by phpMussel and its signatures. However, I'd suggest taking extreme caution when writing new regex-based signatures, because if you're not entirely sure what you're doing, there could be highly irregular and/or unexpected results. Take a look at the phpMussel source-code if you're not entirely sure about the context in which regular expressions are parsed. Also, remember that all patterns (with exception to filename, archive metadata, and MD5 patterns) must be hexadecimally encoded (foregoing pattern syntax, of course)!
 
 ---
 

@@ -1389,6 +1389,8 @@ Chữ ký kéo dài phức tạp là khá khác nhau với các loại khác c�
 
 `$Biến_Số1:Một_Số_Dữ_Liệu;$Biến_Số2:Một_Số_Dữ_Liệu;Tên_Chữ_Ký`
 
+Các "loại kiểm tra" khả dụng dựa trên các biến số được cung cấp cho trình quét tại thời điểm các chữ ký này được xử lý.
+
 #### *MỌI THỨ KHÁC*
 Tất cả các chữ ký khác làm theo các định dạng:
 

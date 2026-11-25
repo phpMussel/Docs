@@ -1388,6 +1388,8 @@ Tanda tangan diperpanjang kompleks adalah berbeda dengan jenis lain dari tanda t
 
 `$variabel1:DATA;$variabel:DATA;NamaTandaTangan`
 
+"Pencocokan jenis" yang tersedia didasarkan pada variabel-variabel yang diekspos ke pemindai pada titik dimana tanda tangan tersebut diproses.
+
 #### *YANG LAIN*
 Semua tanda tangan yang lain mengikuti format ini:
 

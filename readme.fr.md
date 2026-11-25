@@ -1389,6 +1389,8 @@ Signatures complexes étendues sont assez différentes pour les autres types de 
 
 `$variable1:CERTAINSDONNÉES;$variable2:CERTAINSDONNÉES;SignatureNom`
 
+Les « types » disponibles reposent sur les variables exposées à l’analyseur au moment où ces signatures sont traitées.
+
 #### *TOUT LE RESTE*
 Toutes les autres signatures suivez le format :
 

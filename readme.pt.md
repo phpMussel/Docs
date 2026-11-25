@@ -1388,6 +1388,8 @@ Complexos estendidas assinaturas são bastante diferente para os outros tipos de
 
 `$variável1:ALGUNSDADOS;$variável2:ALGUNSDADOS;AssinaturaNome`
 
+Os "tipos de verificação" disponíveis baseiam-se nas variáveis ​​disponibilizadas ao scanner no ponto em que essas assinaturas são processadas.
+
 #### *TODAS OUTRAS*
 Todas as outras assinaturas seguir o formato:
 

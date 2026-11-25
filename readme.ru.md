@@ -1394,6 +1394,8 @@ Where $VAR is the name of the PE variable to match against, HASH is the MD5 hash
 
 `$variable1:SOMEDATA;$variable2:SOMEDATA;SignatureName`
 
+Доступные «типы сопоставления» основаны на переменных, доступных сканеру в тот момент, когда происходит обработка этих сигнатур.
+
 #### *ВСЕ ПРОЧИЕ СИГНАТУРЫ*
 Все прочие сигнатуры имеют следующий формат:
 

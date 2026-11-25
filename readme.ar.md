@@ -1396,6 +1396,8 @@ smtp_secure
 
 `$variable1:SOMEDATA;$variable2:SOMEDATA;SignatureName`
 
+<div dir="rtl">تعتمد "أنواع المطابقة" المتاحة على المتغيرات المتاحة للمُسحِص (scanner) عند النقطة التي تتم فيها معالجة هذه التوقيعات.<br /><br /></div>
+
 #### *<div dir="rtl">كل شيء آخر</div>*
 <div dir="rtl">جميع التوقيعات الأخرى تتبع التنسيق:<br /><br /></div>
 

@@ -1387,6 +1387,8 @@ Komplex-Erweitert-Signaturen sind ziemlich unterschiedlich zu anderen Arten von 
 
 `$variable1:SOMEDATA;$variable2:SOMEDATA;SignatureName`
 
+Die verfügbaren „Übereinstimmungs-Typen“ basieren auf den Variablen, die dem Scanner an dem Punkt zur Verfügung stehen, an dem diese Signaturen verarbeitet werden.
+
 #### *ALLE SONSTIGEN SIGNATUREN*
 Alle sonstigen Signaturen besitzen folgendes Format:
 
