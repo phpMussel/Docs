@@ -505,6 +505,8 @@ Configuration (v3)
 │       max_recursion [int]
 │       block_encrypted_archives [bool]
 │       max_files_in_archives [int]
+│       max_decompressed_entry_size [string]
+│       max_decompressed_total_size [string]
 │       chameleon_from_php [bool]
 │       can_contain_php_file_extensions [string]
 │       chameleon_from_exe [bool]
@@ -936,6 +938,12 @@ __Logical order of processing.__ If the filetype is whitelisted, don't scan and 
 
 ##### "max_files_in_archives" `[int]`
 - Maximum number of files to scan from within archives before aborting the scan. Default = 0 (no maximum).
+
+##### "max_decompressed_entry_size" `[string]`
+- Maximum size that any single piece of content may be decompressed or decoded to when phpMussel scans compressed files (GZ, BZ, LZF), and the contents of PDF documents and OLE compound files (such as legacy Microsoft Office documents). Content which would exceed this size is cut off at this size. Default = 32MB. A value of zero or less restores the default (there is deliberately no setting for "no limit", because that would leave phpMussel exposed to decompression bombs). Scanning needs several times as much memory as the data being scanned, so, like the scannable_threshold directive, this value shouldn't be more than roughly one fifth of the memory allocated to PHP (phpMussel reduces the limit by itself when PHP has little memory available). This value shouldn't be more than the total size limit.
+
+##### "max_decompressed_total_size" `[string]`
+- Maximum combined size that all of the content extracted from a single PDF document or OLE compound file (such as a legacy Microsoft Office document) may be decompressed or decoded to when phpMussel scans the contents of that file. Once this size is reached, any further content isn't extracted. Default = 128MB. A value of zero or less restores the default. This directive exists to stop a small file from using up excessive memory when decoded. PDF documents are additionally limited according to the memory that PHP has available.
 
 ##### "chameleon_from_php" `[bool]`
 - Search for PHP headers in files that are neither PHP files nor recognised archives. False = Off; True = On.
@@ -1911,4 +1919,4 @@ Alternatively, there's a brief (non-authoritative) overview of GDPR/DSGVO availa
 ---
 
 
-Last Updated: 25 November 2026 (2026.11.25).
+Last Updated: 27 November 2026 (2026.11.27).
